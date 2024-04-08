@@ -28,9 +28,10 @@ CREATE TABLE sent (
        , usrname TEXT,FOREIGN KEY(docID) REFERENCES doc(docID)
 );
 CREATE TABLE stype (
-       sid INTEGER
-       ,stype INTEGER
-       ,FOREIGN KEY(sid) REFERENCES sent(sid)
+       sid INTEGER,
+       stype TEXT,
+       comment TEXT,
+       FOREIGN KEY(sid) REFERENCES sent(sid)
 );
 CREATE TABLE concept (
 	sid INTEGER
