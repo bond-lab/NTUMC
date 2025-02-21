@@ -8,7 +8,7 @@ This has been used in:
 ### schemas
 schemas are in data/*.sql
 
-load it into a datbase
+To create a new database
 ```
 $sqlite3 ces.db < data/ntumc.sql
 $sqlite3 ces-eng.db < data/link.sql 
