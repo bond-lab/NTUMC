@@ -9,7 +9,6 @@ setup(
     author_email="bond@ieee.org",
     python_requires=">=3.7",
     install_requires=[
-        "sqlite3",
         "pyyaml",
         "tqdm",
     ],

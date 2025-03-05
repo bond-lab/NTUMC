@@ -30,5 +30,10 @@ pip install -e .
 ## Usage
 (Documentation on usage will be added as the system is developed.)
 
+## Testing
+
+The NTUMC WordNet Tagger includes a comprehensive test suite. See [TESTING.md](TESTING.md) for details on running tests and checking test coverage.
+
+
 ## License
 MIT
