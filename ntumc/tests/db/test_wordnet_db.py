@@ -4,7 +4,7 @@ from ntumc.db.wordnet_db import WordNetManager
 class TestWordNetManager(unittest.TestCase):
     def setUp(self):
         # Path to the test database
-        self.db_path = '../../test_resources/wn-ntumc.db'
+        self.db_path = '../../../test_resources/wn-ntumc.db'
         self.manager = WordNetManager(self.db_path)
 
     def tearDown(self):
