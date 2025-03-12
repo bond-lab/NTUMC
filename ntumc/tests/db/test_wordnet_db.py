@@ -4,7 +4,7 @@ from ntumc.db.wordnet_db import WordNetManager
 class TestWordNetManager(unittest.TestCase):
     def setUp(self):
         # Path to the test database
-        self.db_path = '../../../test_resources/wn-ntumc.db'
+        self.db_path = 'test_resources/wn-ntumc.db'
         self.manager = WordNetManager(self.db_path)
 
     def tearDown(self):
@@ -15,20 +15,21 @@ class TestWordNetManager(unittest.TestCase):
         self.manager.connect()
         self.assertIsNotNone(self.manager.conn)
 
-    def test_query_synsets(self):
-        """Test querying synsets for a given lemma."""
-        synsets = self.manager.query_synsets('example_lemma')
+    def test_Senses(self):
+        """Test querying senses for a given lemma."""
+        synsets = self.manager.Senses('eng', lemma='newt')
         self.assertIsInstance(synsets, list)
+        self.assertEqual(synsets, [('newt', '01630284-n')], 
+                     f"Expected [('newt', '01630284-n')] but got {synsets}")
 
-    def test_get_synset_definitions(self):
-        """Test retrieving definitions for a given synset ID."""
-        definitions = self.manager.get_synset_definitions('example_synset_id')
-        self.assertIsInstance(definitions, list)
+    def test_Senses_Other_Language(self):
+        """Test querying synsets for a lemma in another language."""
+        # Example for Czech
+        synsets = self.manager.Senses('ces', lemma='mlok')
+        self.assertIsInstance(synsets, list)
+        self.assertEqual(synsets, [('mlok', '01629276-n')],  
+                         f"Expected [[('mlok', '01629276-n')] but got {synsets}")
 
-    def test_get_lemmas_for_synset(self):
-        """Test retrieving lemmas for a given synset ID."""
-        lemmas = self.manager.get_lemmas_for_synset('example_synset_id')
-        self.assertIsInstance(lemmas, list)
 
 if __name__ == '__main__':
     unittest.main()
