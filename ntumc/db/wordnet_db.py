@@ -46,3 +46,39 @@ class WordNetManager:
         results = cursor.fetchall()
         cursor.close()
         return results
+
+    def get_synset_definitions(self, synset_id: str) -> List[str]:
+        """
+        Retrieve definitions for a given synset ID.
+
+        Args:
+            synset_id (str): The synset ID to query.
+
+        Returns:
+            List[str]: A list of definitions for the synset.
+        """
+        self.connect()
+        cursor = self.conn.cursor()
+        query = "SELECT definition FROM synset_definitions WHERE synset_id = ?"
+        cursor.execute(query, (synset_id,))
+        definitions = [row[0] for row in cursor.fetchall()]
+        cursor.close()
+        return definitions
+
+    def get_lemmas_for_synset(self, synset_id: str) -> List[str]:
+        """
+        Retrieve lemmas associated with a given synset ID.
+
+        Args:
+            synset_id (str): The synset ID to query.
+
+        Returns:
+            List[str]: A list of lemmas associated with the synset.
+        """
+        self.connect()
+        cursor = self.conn.cursor()
+        query = "SELECT lemma FROM synset_lemmas WHERE synset_id = ?"
+        cursor.execute(query, (synset_id,))
+        lemmas = [row[0] for row in cursor.fetchall()]
+        cursor.close()
+        return lemmas
