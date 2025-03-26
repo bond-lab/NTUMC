@@ -66,10 +66,18 @@ class WordNetManager:
         try:
             cursor = self.conn.cursor()
             cursor.execute(
-                "INSERT INTO word(wordid, lang, lemma, pron, pos) VALUES (?,?,?,?,?)",
-                (None, lang, word, None, pos)
+                "SELECT wordid FROM word WHERE lang = ? AND lemma = ? AND pos = ?",
+                (lang, word, pos)
             )
-            wordid = cursor.lastrowid
+            result = cursor.fetchone()
+            if result:
+                wordid = result[0]
+            else:
+                cursor.execute(
+                    "INSERT INTO word(wordid, lang, lemma, pron, pos) VALUES (?,?,?,?,?)",
+                    (None, lang, word, None, pos)
+                )
+                wordid = cursor.lastrowid
             self.conn.commit()
             self.logger.debug(f"Inserted word: {word} ({pos}) for {lang}")
             return wordid
@@ -85,13 +93,19 @@ class WordNetManager:
         try:
             cursor = self.conn.cursor()
             cursor.execute(
-                """INSERT INTO sense(synset, wordid, lang, 
-                                   rank, lexid, freq, src, confidence, usr) 
-                        VALUES (?,?,?,?,?,?,?,?,?)""",
-                (synset, wordid, lang, None, None, None, projectname, 1.0, 'test_user')
+                "SELECT synset FROM sense WHERE synset = ? AND wordid = ? AND lang = ?",
+                (synset, wordid, lang)
             )
-            self.conn.commit()
-            self.logger.debug(f"Inserted sense: {synset} for wordid {wordid}")
+            result = cursor.fetchone()
+            if not result:
+                cursor.execute(
+                    """INSERT INTO sense(synset, wordid, lang, 
+                                       rank, lexid, freq, src, confidence, usr) 
+                            VALUES (?,?,?,?,?,?,?,?,?)""",
+                    (synset, wordid, lang, None, None, None, projectname, 1.0, 'test_user')
+                )
+                self.conn.commit()
+                self.logger.debug(f"Inserted sense: {synset} for wordid {wordid}")
         except sqlite3.Error as e:
             self.conn.rollback()
             self.logger.error(f"Error inserting sense: {str(e)}")
