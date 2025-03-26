@@ -9,7 +9,7 @@ class TestWordNetDB(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # Set up the test database
-        cls.test_db_path = Path(__file__).parent / "fixtures" / "test_wn.db"
+        cls.test_db_path = Path(__file__).parent / "fixtures" / "wn_test.db"
         if not cls.test_db_path.exists():
             from ntumc.tests.fixtures.create_test_wordnet_db import create_test_wordnet_db
             create_test_wordnet_db(cls.test_db_path)
@@ -28,7 +28,7 @@ class TestWordNetDB(unittest.TestCase):
 
     def test_add_wn_script(self):
         # Test the add_wn script
-        wnfile = str(Path(__file__).parent / "fixtures" / "test_wn.tab")
+        wnfile = str(Path(__file__).parent / "fixtures" / "wn_test_eng.tab")
         dbfile = str(self.test_db_path)
         args = ['add_wn.py', wnfile, 'eng', 'test_project', dbfile, '--delete-old']
         with unittest.mock.patch('sys.argv', args):
