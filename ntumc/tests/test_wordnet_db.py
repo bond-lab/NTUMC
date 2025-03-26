@@ -24,6 +24,7 @@ class TestWordNetDB(unittest.TestCase):
     def test_senses_query(self):
         # Test querying senses
         results = self.wn_manager.Senses(lang='eng', lemma='happy')
+        print(f"Senses query results for 'happy': {results}")
         self.assertTrue(any('01148283-a' in synset for _, synset in results))
 
     def test_add_wn_script(self):
@@ -36,6 +37,7 @@ class TestWordNetDB(unittest.TestCase):
 
         # Verify that data was added
         results = self.wn_manager.Senses(lang='eng', lemma='newt')
+        print(f"Senses query results for 'newt': {results}")
         self.assertTrue(any('01630284-n' in synset for _, synset in results))
 
 if __name__ == "__main__":
