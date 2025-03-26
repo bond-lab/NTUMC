@@ -22,7 +22,7 @@ class TestWordNetDB(unittest.TestCase):
         self.wn_manager.close()
 
     def test_senses_query(self):
-        # Test querying senses
+        """Test querying senses for a given lemma."""
         results = self.wn_manager.Senses(lang='eng', lemma='happy')
         print(f"Senses query results for 'happy': {results}")
         for result in results:
@@ -30,7 +30,7 @@ class TestWordNetDB(unittest.TestCase):
         self.assertTrue(any('01148283-a' in synset for _, synset in results))
 
     def test_insert_word_existing(self):
-        # Insert a word and get its ID
+        """Test that inserting an existing word returns the same ID."""
         word_id_1 = self.wn_manager.insert_word(lang='eng', word='happy', pos='a')
         # Insert the same word again and get its ID
         word_id_2 = self.wn_manager.insert_word(lang='eng', word='happy', pos='a')
@@ -38,13 +38,23 @@ class TestWordNetDB(unittest.TestCase):
         self.assertEqual(word_id_1, word_id_2)
 
     def test_insert_sense_existing(self):
-        # Insert a sense and get its result
+        """Test that inserting an existing sense does not create duplicates."""
         word_id = self.wn_manager.insert_word(lang='eng', word='happy', pos='a')
         result_1 = self.wn_manager.insert_sense(synset='01148283-a', wordid=word_id, lang='eng', projectname='test_project')
-        # Insert the same sense again and get its result
+        # Insert the same sense again and verify no duplicates
+        cursor = self.wn_manager.conn.cursor()
+        cursor.execute(
+            "SELECT COUNT(*) FROM sense WHERE synset = ? AND wordid = ? AND lang = ?",
+            ('01148283-a', word_id, 'eng')
+        )
+        count_before = cursor.fetchone()[0]
         result_2 = self.wn_manager.insert_sense(synset='01148283-a', wordid=word_id, lang='eng', projectname='test_project')
-        # Assert that the results are the same
-        self.assertEqual(result_1, result_2)
+        cursor.execute(
+            "SELECT COUNT(*) FROM sense WHERE synset = ? AND wordid = ? AND lang = ?",
+            ('01148283-a', word_id, 'eng')
+        )
+        count_after = cursor.fetchone()[0]
+        self.assertEqual(count_before, count_after)
         # Test the add_wn script
         wnfile = str(Path(__file__).parent / "fixtures" / "wn_test_eng.tab")
         dbfile = str(self.test_db_path)
@@ -98,7 +108,7 @@ class TestWordNetDB(unittest.TestCase):
         self.assertEqual(word_id_1, word_id_2)
 
     def test_insert_sense_existing(self):
-        # Insert a sense and get its result
+        # Insert a sense and verify its existence
         word_id = self.wn_manager.insert_word(lang='eng', word='happy', pos='a')
         result_1 = self.wn_manager.insert_sense(synset='01148283-a', wordid=word_id, lang='eng', projectname='test_project')
         # Insert the same sense again and get its result
@@ -106,8 +116,8 @@ class TestWordNetDB(unittest.TestCase):
         # Assert that the results are the same
         self.assertEqual(result_1, result_2)
 
-    def test_add_wn_script(self):         
-        # Test the add_wn script
+    def test_add_wn_script(self):
+        """Test the add_wn script for adding WordNet data."""
         wnfile = str(Path(__file__).parent / "fixtures" / "wn_test_eng.tab")
         dbfile = str(self.test_db_path)
         args = ['add_wn.py', wnfile, 'eng', 'test_project', dbfile, '--delete-old']
