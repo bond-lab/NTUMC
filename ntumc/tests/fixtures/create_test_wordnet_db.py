@@ -32,7 +32,7 @@ def create_test_wordnet_db(db_path: str):
 
     for synset, pos, lemma, synset_id, rank, lexid, src, confidence in synsets:
         cursor.execute("INSERT INTO synset (synset, pos, name, src, usr) VALUES (?, ?, ?, ?, ?)",
-                       (synset, pos, lemma, 'test_project', 'test_user'))
+                       (synset_id, pos, lemma, src, 'test_user'))
         cursor.execute("INSERT INTO word (lang, lemma, pos, usr) VALUES (?, ?, ?, ?)", ('eng', lemma, pos, 'test_user'))
         wordid = cursor.lastrowid
         cursor.execute("INSERT INTO sense (synset, wordid, lang, rank, lexid, freq, src, confidence, usr) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
