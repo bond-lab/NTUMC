@@ -1,5 +1,7 @@
 import sqlite3
 from typing import Optional, List, Tuple
+from ntumc.core.logging_setup import log_function_call
+import logging
 
 class WordNetManager:
     """
@@ -12,11 +14,13 @@ class WordNetManager:
     def __init__(self, db_path: str):
         self.db_path = db_path
         self.conn: Optional[sqlite3.Connection] = None
+        self.logger = logging.getLogger(__name__)
 
     def connect(self) -> None:
         """Establish a connection to the WordNet database."""
         if self.conn is None:
             self.conn = sqlite3.connect(self.db_path)
+            self.logger.debug(f"Established new database connection to {self.db_path}")
 
     def close(self) -> None:
         """Close the connection to the WordNet database."""
@@ -24,8 +28,9 @@ class WordNetManager:
             self.conn.close()
             self.conn = None
 
-    def Senses(self,  lang: str, lemma: Optional[str] = None,
-                pos: Optional[str] = None) -> List[Tuple]:
+    @log_function_call
+    def Senses(self, lang: str, lemma: Optional[str] = None,
+               pos: Optional[str] = None) -> List[Tuple]:
         """
         Query synsets for a given lemma and optional part of speech.
 
@@ -52,6 +57,7 @@ class WordNetManager:
         cursor.execute(query, params)
         results = cursor.fetchall()
         cursor.close()
+        self.logger.info(f"Senses query completed: lang={lang}, lemma={lemma}, pos={pos}, results={len(results)}")
         return results
 
   
