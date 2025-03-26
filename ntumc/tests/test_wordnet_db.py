@@ -1,6 +1,7 @@
 import unittest
 import os
 from pathlib import Path
+from unittest import mock
 from ntumc.db.wordnet_db import WordNetManager
 from ntumc.wordnet.add_wn import main as add_wn_main
 
