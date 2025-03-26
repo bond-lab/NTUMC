@@ -72,9 +72,9 @@ class WordNetManager:
             cursor = self.conn.cursor()
             cursor.execute(
                 """INSERT INTO sense(synset, wordid, lang, 
-                                   rank, lexid, freq, src, confidence) 
-                        VALUES (?,?,?,?,?,?,?,?)""",
-                (synset, wordid, lang, None, None, None, projectname, 1.0)
+                                   rank, lexid, freq, src, confidence, usr) 
+                        VALUES (?,?,?,?,?,?,?,?,?)""",
+                (synset, wordid, lang, None, None, None, projectname, 1.0, 'test_user')
             )
             self.conn.commit()
             self.logger.debug(f"Inserted sense: {synset} for wordid {wordid}")
