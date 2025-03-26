@@ -117,21 +117,16 @@ class WordNetManager:
         self.connect()
         try:
             cursor = self.conn.cursor()
+            # First delete any existing records with the same key values
             cursor.execute(
-                """SELECT synset, lang, def, sid 
-                   FROM synset_def WHERE synset = ? AND sid = ? AND lang = ?""",
-                (synset, sid, lang)
+                "DELETE FROM synset_def WHERE synset = ? AND lang = ? AND sid = ?",
+                (synset, lang, sid)
             )
-            if cursor.fetchone():
-                cursor.execute(
-                    "UPDATE synset_def SET def = ? WHERE synset = ? AND sid = ? AND lang = ?",
-                    (definition, synset, sid, lang)
-                )
-            else:
-                cursor.execute(
-                    "INSERT INTO synset_def(synset, lang, def, sid) VALUES (?,?,?,?)",
-                    (synset, lang, definition, sid)
-                )
+            # Then insert the new record
+            cursor.execute(
+                "INSERT INTO synset_def(synset, lang, def, sid) VALUES (?,?,?,?)",
+                (synset, lang, definition, sid)
+            )
             self.conn.commit()
         except sqlite3.Error as e:
             self.conn.rollback()
