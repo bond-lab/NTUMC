@@ -72,8 +72,6 @@ def main():
                     elif mm:
                         sys.stderr.write('removed +... (%s)\n' % ll)
                         wn[mm.group(1)][pos].add(sense[0])
-            else:
-                logger.warning(f"Unexpected line format: {l.strip()}")
             elif len(sense) == 4:  # check there are four things: ss, type, id, thing
                 if sense[1].endswith(':def'):  # and it is a definition
                     thislang = sense[1][0:3]
@@ -91,7 +89,8 @@ def main():
                         example=sense[2],
                         sid=sense[3]
                     )
-            # elif sense[1].endswith(':exe'):  ### and it is an example  
+            else:
+                logger.warning(f"Unexpected line format: {l.strip()}")
             #     lang = sense[1][0:3]
             #     c.execute("INSERT INTO synset_ex VALUES (?,?,?,?)",
             #               (sense[0], lang, sense[3], sense[2]))
