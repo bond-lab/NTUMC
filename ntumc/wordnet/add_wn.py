@@ -72,6 +72,8 @@ def main():
                     elif mm:
                         sys.stderr.write('removed +... (%s)\n' % ll)
                         wn[mm.group(1)][pos].add(sense[0])
+            else:
+                logger.warning(f"Unexpected line format: {l.strip()}")
             elif len(sense) == 4:  # check there are four things: ss, type, id, thing
                 if sense[1].endswith(':def'):  # and it is a definition
                     thislang = sense[1][0:3]
@@ -99,12 +101,13 @@ def main():
     # Process all words and synsets
     for word in wn:
         for pos in wn[word]:
-            # Insert word and get wordid
+            logger.info(f"Processing word: {word}, POS: {pos}, Synsets: {wn[word][pos]}")
             wordid = wn_manager.insert_word(lang=lang, word=word, pos=pos)
             
+                logger.info(f"Inserted sense for word: {word}, Synset: {synset}, Result: {result}")
             # Insert all senses for this word
             for synset in wn[word][pos]:
-                wn_manager.insert_sense(
+                result = wn_manager.insert_sense(
                     synset=synset,
                     wordid=wordid,
                     lang=lang,
