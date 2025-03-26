@@ -5,8 +5,8 @@
 #  wordnet DB uses the schema of the Japanese wordnet 
 #     <http://nlpwww.nict.go.jp/wn-ja/index.en.html>
 #
+import argparse
 import codecs
-import sys
 import collections
 import re
 from ntumc.db.wordnet_db import WordNetManager
@@ -15,20 +15,21 @@ from ntumc.core.logging_setup import get_logger
 logger = get_logger(__name__)
 
 def main():
-    delold = True
-    ## get wordnet, lang and DB
-    if len(sys.argv) < 5:
-        logger.error('You need to give at least four arguments: ' 
-                    'wn tab file, lang (ISO), projectname, wn DB, delete old (Y/N) default Y')
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description='Add WordNet data to a database.')
+    parser.add_argument('wnfile', help='WordNet tab file')
+    parser.add_argument('lang', help='Language (ISO code)')
+    parser.add_argument('projectname', help='Project name')
+    parser.add_argument('dbfile', help='WordNet database file')
+    parser.add_argument('--delete-old', dest='delold', action='store_true', 
+                        help='Delete old entries for the language (default: False)')
 
-    wnfile = sys.argv[1]
-    lang = sys.argv[2]
-    projectname = sys.argv[3]
-    dbfile = sys.argv[4]
-    
-    if len(sys.argv) > 5 and sys.argv[5] == 'N':
-        delold = False
+    args = parser.parse_args()
+
+    wnfile = args.wnfile
+    lang = args.lang
+    projectname = args.projectname
+    dbfile = args.dbfile
+    delold = args.delold
 
     logger.info(f'Adding Wordnet {wnfile} to database {dbfile} for language {lang}')
     
