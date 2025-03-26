@@ -22,7 +22,20 @@ class WordNetManager:
             self.conn = sqlite3.connect(self.db_path)
             self.logger.debug(f"Established new database connection to {self.db_path}")
 
-    def close(self) -> None:
+    def execute(self, query: str, params: Optional[Tuple] = None) -> None:
+        """Execute a SQL query."""
+        self.connect()
+        try:
+            cursor = self.conn.cursor()
+            if params:
+                cursor.execute(query, params)
+            else:
+                cursor.execute(query)
+            self.conn.commit()
+        except sqlite3.Error as e:
+            self.conn.rollback()
+            self.logger.error(f"Error executing query: {str(e)}")
+            raise
         """Close the connection to the WordNet database."""
         if self.conn is not None:
             self.conn.close()
