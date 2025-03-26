@@ -51,7 +51,10 @@ def main():
     wn_manager.execute("PRAGMA journal_mode = MEMORY")
 
     wn = collections.defaultdict(lambda: collections.defaultdict(set))
-for l in f:
+    
+    # Open and process the wordnet file
+    with codecs.open(wnfile, encoding='utf-8', mode='r') as f:
+        for l in f:
     if l.startswith('#'):  ### discard comments
         continue
     else:
@@ -71,27 +74,20 @@ for l in f:
         elif (len(sense) == 4):  ### check there are three things: ss, type, id, thing
             if sense[1].endswith(':def'):  ### and it is a definition  
                 thislang = sense[1][0:3]
-                c.execute("""SELECT synset, lang, def, sid 
-                             FROM synset_def WHERE synset = ? AND sid = ? AND lang = ?""",
-                          (sense[0], thislang, sense[3]))  ## synset, lang, def, sid
-                row = c.fetchone()
-                if (row): ### shouldn't I constrain this?
-                    c.execute("UPDATE synset_def SET def = ?",  (sense[2],))
-                else:
-                    c.execute("INSERT INTO synset_def(synset, lang, def, sid) VALUES (?,?,?,?)",
-                          (sense[0], thislang, sense[3], sense[2]))
+                wn_manager.update_synset_def(
+                    synset=sense[0],
+                    lang=thislang,
+                    definition=sense[2],
+                    sid=sense[3]
+                )
             elif sense[1].endswith(':exe'):  ### and it is an example
                 thislang = sense[1][0:3]
-                c.execute("""SELECT synset, lang, def, sid FROM synset_ex 
-                             WHERE synset = ? AND sid = ? AND lang = ?""",
-                          (sense[0], thislang, sense[3]))  
-                row = c.fetchone()
-                if (row):
-                    c.execute("UPDATE synset_ex SET def = ?",  (sense[2],))
-                else:
-                    c.execute("""INSERT INTO synset_ex(synset, lang, def, sid) 
-                                 VALUES (?,?,?,?)""",
-                              (sense[0], thislang, sense[3], sense[2]))
+                wn_manager.update_synset_ex(
+                    synset=sense[0],
+                    lang=thislang,
+                    example=sense[2],
+                    sid=sense[3]
+                )
             # elif sense[1].endswith(':exe'):  ### and it is an example  
             #     lang = sense[1][0:3]
             #     c.execute("INSERT INTO synset_ex VALUES (?,?,?,?)",
@@ -99,25 +95,30 @@ for l in f:
 
 
 
-for word in wn:
-    for pos in wn[word]:
-        ## assume one word entry per pos
-        c.execute("INSERT INTO word(wordid, lang, lemma, pron, pos) VALUES (?,?,?,?,?)",
-                  (None, lang, word, None, pos))
-        ## get the id of the word 
-        wid = c.lastrowid
-        for synset in wn[word][pos]:
-            c.execute("""INSERT INTO sense(synset, wordid, lang, 
-                                           rank, lexid, freq, src, confidence) 
-                                VALUES (?,?,?,?,?,?,?,?)""",
-                      (synset, wid, lang, None, None, None, projectname, 1.0))
-con.commit()
-con.close()
+    # Process all words and synsets
+    for word in wn:
+        for pos in wn[word]:
+            # Insert word and get wordid
+            wordid = wn_manager.insert_word(lang=lang, word=word, pos=pos)
+            
+            # Insert all senses for this word
+            for synset in wn[word][pos]:
+                wn_manager.insert_sense(
+                    synset=synset,
+                    wordid=wordid,
+                    lang=lang,
+                    projectname=projectname
+                )
+    
+    # Final cleanup
+    wn_manager.close()
 
 
 ##
 ## Let them know we're done
 ##
-sys.stderr.write('Added Wordnet (%s) to the database (%s) for %s\n' % \
-                   (wnfile, dbfile, lang))
-sys.stderr.write('You should probably re-index word and sense tables.\n')
+    logger.info('Added Wordnet (%s) to the database (%s) for %s', wnfile, dbfile, lang)
+    logger.info('You should probably re-index word and sense tables.')
+
+if __name__ == "__main__":
+    main()
