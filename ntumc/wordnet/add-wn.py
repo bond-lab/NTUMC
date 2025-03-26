@@ -9,6 +9,7 @@ import argparse
 import codecs
 import collections
 import re
+import sys
 from ntumc.db.wordnet_db import WordNetManager
 from ntumc.core.logging_setup import get_logger
 
