@@ -27,7 +27,7 @@ def create_test_wordnet_db(db_path: str):
         ('v31633', 'v', 'code', '00994076-v', 2, 0, 'test', 1.0),
         ('n50064', 'n', 'newt', '01630284-n', 1, 0, 'test', 1.0),
         ('n88125', 'n', 'code', '06353934-n', 2, 1, 'test', 1.0),
-        ('x1007653', 'x', 'fuck')
+        ('x1007653', 'x', 'fuck', '76000004-x', None, None, 'test', 1.0)
     ]
 
     for synset, pos, lemma, synset_id, rank, lexid, src, confidence in synsets:
