@@ -4,57 +4,53 @@
 #  take a wordnet tab file (synset<TAB>lemma) and add it to a wordnet DB
 #  wordnet DB uses the schema of the Japanese wordnet 
 #     <http://nlpwww.nict.go.jp/wn-ja/index.en.html>
-#  
-import codecs, sys, sqlite3, collections, re
+#
+import codecs
+import sys
+import collections
+import re
+from ntumc.db.wordnet_db import WordNetManager
+from ntumc.core.logging_setup import get_logger
 
-delold = True
-## get wordnet, lang and DB
-if (len(sys.argv) < 5):
-    sys.stderr.write('You need to give at least four arguments, ' \
-    'wn tab file, lang (ISO), projectname, wn DB, delete old (Y/N) default Y\n')
-    sys.exit(1)
-else:
+logger = get_logger(__name__)
+
+def main():
+    delold = True
+    ## get wordnet, lang and DB
+    if len(sys.argv) < 5:
+        logger.error('You need to give at least four arguments: ' 
+                    'wn tab file, lang (ISO), projectname, wn DB, delete old (Y/N) default Y')
+        sys.exit(1)
+
     wnfile = sys.argv[1]
     lang = sys.argv[2]
     projectname = sys.argv[3]
     dbfile = sys.argv[4]
+    
     if len(sys.argv) > 5 and sys.argv[5] == 'N':
         delold = False
 
+    logger.info(f'Adding Wordnet {wnfile} to database {dbfile} for language {lang}')
+    
+    # Initialize database manager
+    wn_manager = WordNetManager(dbfile)
+    ##
+    ## delete old version for this language
+    ##
+    if delold:
+        logger.info(f'Deleting old entries for "{lang}"')
+        wn_manager.delete_language_entries(lang)
+    ##
+    ## read in and update new entries
+    ##
+    logger.info(f'Inserting wordnet {wnfile} into database {dbfile} for {lang}')
 
-sys.stderr.write('Adding the Wordnet (%s) to the database (%s) for "%s"\n' % \
-                   (wnfile, dbfile, lang))
-#
-# Connect to and update the database
-#
-con = sqlite3.connect(dbfile)
-c = con.cursor()
-##
-## delete old version for this language
-##
-if delold:
-    sys.stderr.write('Deleting old entries for "%s"\n' % \
-                         (lang))
-    c.execute("DELETE FROM word WHERE lang = ?", (lang,))
-    c.execute("DELETE FROM sense WHERE lang = ?", (lang,))
-    c.execute("DELETE FROM synset_def WHERE lang = ?", (lang,))
-    c.execute("DELETE FROM synset_ex WHERE lang = ?", (lang,))
-con.commit()
-##
-## read in and update new entries
-##
-sys.stderr.write('Inserting the wordnet (%s) into the database (%s) for "%s"\n' % \
-                   (wnfile, dbfile, lang))
-##
-## read and group into word:pos:synset
-##
+    # Configure database performance
+    wn_manager.connect()
+    wn_manager.execute("PRAGMA synchronous = OFF")
+    wn_manager.execute("PRAGMA journal_mode = MEMORY")
 
-### try and spped things up a little
-c.execute("PRAGMA synchronous = OFF")
-c.execute("PRAGMA journal_mode = MEMORY",)
-
-f = codecs.open(wnfile, encoding='utf-8', mode = 'r')
-wn = collections.defaultdict(lambda: collections.defaultdict(set))
+    wn = collections.defaultdict(lambda: collections.defaultdict(set))
 for l in f:
     if l.startswith('#'):  ### discard comments
         continue
