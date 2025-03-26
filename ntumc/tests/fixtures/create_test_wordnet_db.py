@@ -22,17 +22,17 @@ def create_test_wordnet_db(db_path: str):
         ('n88125', 'n', 'code'),
         ('n50064', 'n', 'newt'),
         ('r22320', 'r', 'fast'),
-        ('a7855', 'a', 'happy'),
+        ('a7855', 'a', 'happy', '01148283-a', 1, 37, 'test', 1.0),
         ('x1007653', 'x', 'fuck')
     ]
 
-    for synset, pos, lemma in synsets:
+    for synset, pos, lemma, synset_id, rank, lexid, src, confidence in synsets:
         cursor.execute("INSERT INTO synset (synset, pos, name, src, usr) VALUES (?, ?, ?, ?, ?)",
                        (synset, pos, lemma, 'test_project', 'test_user'))
         cursor.execute("INSERT INTO word (lang, lemma, pos, usr) VALUES (?, ?, ?, ?)", ('eng', lemma, pos, 'test_user'))
         wordid = cursor.lastrowid
-        cursor.execute("INSERT INTO sense (synset, wordid, lang, src, confidence) VALUES (?, ?, ?, ?, ?)",
-                       (synset, wordid, 'eng', 'test_project', 1.0))
+        cursor.execute("INSERT INTO sense (synset, wordid, lang, rank, lexid, freq, src, confidence, usr) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                       (synset_id, wordid, 'eng', rank, lexid, None, src, confidence, 'test_user'))
 
     conn.commit()
     conn.close()
