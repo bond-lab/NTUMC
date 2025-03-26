@@ -130,7 +130,7 @@ class WordNetManager:
             else:
                 cursor.execute(
                     "INSERT INTO synset_def(synset, lang, def, sid) VALUES (?,?,?,?)",
-                    (synset, lang, sid, definition)
+                    (synset, lang, definition, sid)
                 )
             self.conn.commit()
         except sqlite3.Error as e:
@@ -152,7 +152,7 @@ class WordNetManager:
             if cursor.fetchone():
                 cursor.execute(
                     "UPDATE synset_ex SET def = ? WHERE synset = ? AND sid = ? AND lang = ?",
-                    (example, synset, sid, lang)
+                    (example, synset, lang, sid)
                 )
             else:
                 cursor.execute(
