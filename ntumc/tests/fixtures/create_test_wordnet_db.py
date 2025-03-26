@@ -12,19 +12,21 @@ def create_test_wordnet_db(db_path: str):
     cursor.executescript(schema_sql)
 
     # Insert test data
-    word_data = [
-        ('n0001', 'eng', 'dog', 'n'),
-        ('v0001', 'eng', 'run', 'v'),
-        ('a0001', 'eng', 'happy', 'a'),
-        ('r0001', 'eng', 'quickly', 'r'),
-        ('s0001', 'eng', 'blue', 's')
+    synsets = [
+        ('n0001', 'n', 'dog'),
+        ('v0001', 'v', 'run'),
+        ('a0001', 'a', 'happy'),
+        ('r0001', 'r', 'quickly'),
+        ('s0001', 's', 'blue')
     ]
 
-    for synset, lang, lemma, pos in test_data:
-        cursor.execute("INSERT INTO word (lang, lemma, pos) VALUES (?, ?, ?)", (lang, lemma, pos))
+    for synset, pos, lemma in synsets:
+        cursor.execute("INSERT INTO synset (synset, pos, name, src, usr) VALUES (?, ?, ?, ?, ?)",
+                       (synset, pos, lemma, 'test_project', 'test_user'))
+        cursor.execute("INSERT INTO word (lang, lemma, pos) VALUES (?, ?, ?)", ('eng', lemma, pos))
         wordid = cursor.lastrowid
         cursor.execute("INSERT INTO sense (synset, wordid, lang, src, confidence) VALUES (?, ?, ?, ?, ?)",
-                       (synset, wordid, lang, 'test_project', 1.0))
+                       (synset, wordid, 'eng', 'test_project', 1.0))
 
     conn.commit()
     conn.close()
