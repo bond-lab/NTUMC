@@ -12,7 +12,7 @@ def create_test_wordnet_db(db_path: str):
     cursor.executescript(schema_sql)
 
     # Insert test data
-    test_data = [
+    word_data = [
         ('n0001', 'eng', 'dog', 'n'),
         ('v0001', 'eng', 'run', 'v'),
         ('a0001', 'eng', 'happy', 'a'),
