@@ -24,6 +24,7 @@ def create_test_wordnet_db(db_path: str):
         ('r22320', 'r', 'fast'),
         ('a7855', 'a', 'happy', '01148283-a', 1, 37, 'test', 1.0),
         ('r22320', 'r', 'fast', '00086000-r', 1, 16, 'test', 1.0),
+        ('v31633', 'v', 'code', '00994076-v', 2, 0, 'test', 1.0),
         ('x1007653', 'x', 'fuck')
     ]
 
