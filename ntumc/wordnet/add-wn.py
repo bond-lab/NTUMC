@@ -56,10 +56,10 @@ def main():
     # Open and process the wordnet file
     with codecs.open(wnfile, encoding='utf-8', mode='r') as f:
         for l in f:
-    if l.startswith('#'):  ### discard comments
-        continue
-    else:
-        sense = l.strip().split('\t')
+            if l.startswith('#'):  ### discard comments
+                continue
+            else:
+                sense = l.strip().split('\t')
         if (len(sense) == 3):  ### check there are three things: ss, type, thing
             if sense[1].endswith('lemma'):  ### and it is a lemma
                 ll = sense[2].strip()
