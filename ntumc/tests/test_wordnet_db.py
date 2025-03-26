@@ -116,7 +116,39 @@ class TestWordNetDB(unittest.TestCase):
         # Assert that the results are the same
         self.assertEqual(result_1, result_2)
 
-    def test_add_wn_script(self):
+    def test_add_definition(self):
+        """Test adding a definition to a synset."""
+        synset = '01148283-a'
+        definition = 'Feeling or showing pleasure or contentment.'
+        self.wn_manager.update_synset_def(synset=synset, lang='eng', definition=definition, sid='1')
+        
+        cursor = self.wn_manager.conn.cursor()
+        cursor.execute("SELECT def FROM synset_def WHERE synset = ? AND lang = ?", (synset, 'eng'))
+        result = cursor.fetchone()
+        self.assertIsNotNone(result)
+        self.assertEqual(result[0], definition)
+
+    def test_add_example(self):
+        """Test adding an example to a synset."""
+        synset = '01148283-a'
+        example = 'She felt happy about the news.'
+        self.wn_manager.update_synset_ex(synset=synset, lang='eng', example=example, sid='1')
+        
+        cursor = self.wn_manager.conn.cursor()
+        cursor.execute("SELECT def FROM synset_ex WHERE synset = ? AND lang = ?", (synset, 'eng'))
+        result = cursor.fetchone()
+        self.assertIsNotNone(result)
+        self.assertEqual(result[0], example)
+
+    def test_add_words_different_languages(self):
+        """Test adding words in different languages."""
+        # Czech
+        word_id_cz = self.wn_manager.insert_word(lang='ces', word='šťastný', pos='a')
+        self.assertIsNotNone(word_id_cz)
+
+        # Japanese
+        word_id_ja = self.wn_manager.insert_word(lang='jpn', word='幸せ', pos='a')
+        self.assertIsNotNone(word_id_ja)
         """Test the add_wn script for adding WordNet data."""
         wnfile = str(Path(__file__).parent / "fixtures" / "wn_test_eng.tab")
         dbfile = str(self.test_db_path)
