@@ -112,6 +112,9 @@ def main():
                 )
                 logger.info(f"Inserted sense for word: {word}, Synset: {synset}, Result: {result}")
     
+    # Commit the changes
+    wn_manager.conn.commit()
+
     # Final cleanup
     wn_manager.close()
 
