@@ -72,6 +72,10 @@ def main():
                     elif mm:
                         sys.stderr.write('removed +... (%s)\n' % ll)
                         wn[mm.group(1)][pos].add(sense[0])
+            elif len(sense) == 3 and sense[1].endswith(':lemma'):  # handle eng:lemma format
+                ll = sense[2].strip()
+                pos = sense[0][-1]
+                wn[ll][pos].add(sense[0])
             elif len(sense) == 4:  # check there are four things: ss, type, id, thing
                 if sense[1].endswith(':def'):  # and it is a definition
                     thislang = sense[1][0:3]
