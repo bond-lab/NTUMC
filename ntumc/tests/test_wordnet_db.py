@@ -84,6 +84,10 @@ class TestWordNetDB(unittest.TestCase):
 
         # Verify that data was added
         results = self.wn_manager.Senses(lang='eng', lemma='newt')
+        print(f"Senses query results for 'newt': {results}")
+        for result in results:
+            print(f"Result: {result}")          
+        
         self.assertTrue(any('01630284-n' in synset for _, synset in results))
 
 if __name__ == "__main__":
