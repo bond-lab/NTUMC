@@ -36,6 +36,7 @@ class WordNetManager:
             self.conn.rollback()
             self.logger.error(f"Error executing query: {str(e)}")
             raise
+    def close(self) -> None:
         """Close the connection to the WordNet database."""
         if self.conn is not None:
             self.conn.close()
