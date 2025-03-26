@@ -11,13 +11,14 @@ def create_test_wordnet_db(db_path: str):
         schema_sql = schema_file.read()
     cursor.executescript(schema_sql)
 
+    lang='eng'
     # Insert test data
     data = [
-        ('7855', 'a', 'happy', '01148283-a', 1, 37, 'test', 1.0),
-        ('22320', 'r', 'fast', '00086000-r', 1, 16, 'test', 1.0),
-        ('31633', 'v', 'code', '00994076-v', 2, 0, 'test', 1.0),
-        ('50064', 'n', 'newt', '01630284-n', 1, 0, 'test', 1.0),
-        ('88125', 'n', 'code', '06353934-n', 2, 1, 'test', 1.0),
+        ('7855', 'a', 'happy',   '01148283-a', 1, 37, 'test', 1.0),
+        ('22320', 'r', 'fast',   '00086000-r', 1, 16, 'test', 1.0),
+        ('31633', 'v', 'code',   '00994076-v', 2, 0, 'test', 1.0),
+        ('50064', 'n', 'newt',   '01630284-n', 1, 0, 'test', 1.0),
+        ('88125', 'n', 'code',   '06353934-n', 2, 1, 'test', 1.0),
         ('1007653', 'x', 'fuck', '76000004-x', 1, 0, 'test', 1.0),
     ]
 

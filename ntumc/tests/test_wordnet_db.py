@@ -149,6 +149,8 @@ class TestWordNetDB(unittest.TestCase):
         # Japanese
         word_id_ja = self.wn_manager.insert_word(lang='jpn', word='幸せ', pos='a')
         self.assertIsNotNone(word_id_ja)
+
+    def test_add_wn_script(self):     
         """Test the add_wn script for adding WordNet data."""
         wnfile = str(Path(__file__).parent / "fixtures" / "wn_test_eng.tab")
         dbfile = str(self.test_db_path)
@@ -159,10 +161,28 @@ class TestWordNetDB(unittest.TestCase):
         # Verify that data was added
         results = self.wn_manager.Senses(lang='eng', lemma='newt')
         print(f"Senses query results for 'newt': {results}")
-        for result in results:
-            print(f"Result: {result}")          
-        
-        self.assertTrue(any('01630284-n' in synset for _, synset in results))
+        self.assertTrue(('newt', '01630284-n') in results)
+
+        results = self.wn_manager.Senses(lang='eng', lemma='ugh')
+        print(f"Senses query results for 'newt': {results}")
+        self.assertTrue(('ugh', '76000004-x') in results)
+
+    def test_add_wn_script_czech(self):     
+        """Test the add_wn script for adding WordNet data in a different language."""
+        wnfile = str(Path(__file__).parent / "fixtures" / "wn_test_ces.tab")
+        dbfile = str(self.test_db_path)
+        args = ['add_wn.py', wnfile, 'ces', 'test_project', dbfile]
+        with unittest.mock.patch('sys.argv', args):
+            add_wn_main()
+
+        # Verify that data was added
+        results = self.wn_manager.Senses(lang='ces', lemma='mlok')
+        print(f"Senses query results for 'mlok': {results}")
+        self.assertTrue(('mlok', '01630284-n') in results)
+
+        results = self.wn_manager.Senses(lang='ces', lemma='šťastný')
+        print(f"Senses query results for 'šťastný': {results}")
+        self.assertTrue(('šťastný', '01148283-a') in results)
 
 if __name__ == "__main__":
     unittest.main()
