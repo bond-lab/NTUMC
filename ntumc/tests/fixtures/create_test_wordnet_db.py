@@ -6,47 +6,10 @@ def create_test_wordnet_db(db_path: str):
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
-    # Create tables
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS word (
-            wordid INTEGER PRIMARY KEY AUTOINCREMENT,
-            lang TEXT NOT NULL,
-            lemma TEXT NOT NULL,
-            pron TEXT,
-            pos TEXT NOT NULL
-        )
-    ''')
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS sense (
-            synset TEXT NOT NULL,
-            wordid INTEGER NOT NULL,
-            lang TEXT NOT NULL,
-            rank INTEGER,
-            lexid INTEGER,
-            freq INTEGER,
-            src TEXT,
-            confidence REAL,
-            PRIMARY KEY (synset, wordid, lang)
-        )
-    ''')
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS synset_def (
-            synset TEXT NOT NULL,
-            lang TEXT NOT NULL,
-            def TEXT NOT NULL,
-            sid TEXT NOT NULL,
-            PRIMARY KEY (synset, lang, sid)
-        )
-    ''')
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS synset_ex (
-            synset TEXT NOT NULL,
-            lang TEXT NOT NULL,
-            def TEXT NOT NULL,
-            sid TEXT NOT NULL,
-            PRIMARY KEY (synset, lang, sid)
-        )
-    ''')
+    # Read and execute the schema from the SQL file
+    with open('data/wn-ntumc.sql', 'r') as schema_file:
+        schema_sql = schema_file.read()
+    cursor.executescript(schema_sql)
 
     # Insert test data
     test_data = [
