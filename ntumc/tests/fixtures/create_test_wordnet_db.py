@@ -21,7 +21,8 @@ def create_test_wordnet_db(db_path: str):
         ('v31633', 'v', 'code'),
         ('n88125', 'n', 'code'),
         ('n50064', 'n', 'newt'),
-        ('r22320', 'r', 'fast')
+        ('r22320', 'r', 'fast'),
+        ('a7855', 'a', 'happy')
     ]
 
     for synset, pos, lemma in synsets:
