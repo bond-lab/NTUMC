@@ -56,40 +56,40 @@ def main():
     
     # Open and process the wordnet file
     with codecs.open(wnfile, encoding='utf-8', mode='r') as f:
+    with codecs.open(wnfile, encoding='utf-8', mode='r') as f:
         for l in f:
-            if l.startswith('#'):  ### discard comments
+            if l.startswith('#'):  # discard comments
                 continue
-            else:
-                sense = l.strip().split('\t')
-        if (len(sense) == 3):  ### check there are three things: ss, type, thing
-            if sense[1].endswith('lemma'):  ### and it is a lemma
-                ll = sense[2].strip()
-                pos = sense[0][-1]
-                wn[ll][pos].add(sense[0])
-                mm= re.search(r'(.*)\+(.*)',ll)
-                if ll.startswith('-'):
-                    wn[ll[1:]][pos].add(sense[0])
-                    sys.stderr.write('removed hyphen (%s)\n' % ll)
-                elif mm:
-                    sys.stderr.write('removed +... (%s)\n' % ll)
-                    wn[mm.group(1)][pos].add(sense[0])
-        elif (len(sense) == 4):  ### check there are three things: ss, type, id, thing
-            if sense[1].endswith(':def'):  ### and it is a definition  
-                thislang = sense[1][0:3]
-                wn_manager.update_synset_def(
-                    synset=sense[0],
-                    lang=thislang,
-                    definition=sense[2],
-                    sid=sense[3]
-                )
-            elif sense[1].endswith(':exe'):  ### and it is an example
-                thislang = sense[1][0:3]
-                wn_manager.update_synset_ex(
-                    synset=sense[0],
-                    lang=thislang,
-                    example=sense[2],
-                    sid=sense[3]
-                )
+            sense = l.strip().split('\t')
+            if len(sense) == 3:  # check there are three things: ss, type, thing
+                if sense[1] == 'lemma':  # and it is a lemma
+                    ll = sense[2].strip()
+                    pos = sense[0][-1]
+                    wn[ll][pos].add(sense[0])
+                    mm = re.search(r'(.*)\+(.*)', ll)
+                    if ll.startswith('-'):
+                        wn[ll[1:]][pos].add(sense[0])
+                        sys.stderr.write('removed hyphen (%s)\n' % ll)
+                    elif mm:
+                        sys.stderr.write('removed +... (%s)\n' % ll)
+                        wn[mm.group(1)][pos].add(sense[0])
+            elif len(sense) == 4:  # check there are four things: ss, type, id, thing
+                if sense[1].endswith(':def'):  # and it is a definition
+                    thislang = sense[1][0:3]
+                    wn_manager.update_synset_def(
+                        synset=sense[0],
+                        lang=thislang,
+                        definition=sense[2],
+                        sid=sense[3]
+                    )
+                elif sense[1].endswith(':exe'):  # and it is an example
+                    thislang = sense[1][0:3]
+                    wn_manager.update_synset_ex(
+                        synset=sense[0],
+                        lang=thislang,
+                        example=sense[2],
+                        sid=sense[3]
+                    )
             # elif sense[1].endswith(':exe'):  ### and it is an example  
             #     lang = sense[1][0:3]
             #     c.execute("INSERT INTO synset_ex VALUES (?,?,?,?)",
