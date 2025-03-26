@@ -102,8 +102,6 @@ def main():
         for pos in wn[word]:
             logger.info(f"Processing word: {word}, POS: {pos}, Synsets: {wn[word][pos]}")
             wordid = wn_manager.insert_word(lang=lang, word=word, pos=pos)
-            
-                logger.info(f"Inserted sense for word: {word}, Synset: {synset}, Result: {result}")
             # Insert all senses for this word
             for synset in wn[word][pos]:
                 result = wn_manager.insert_sense(
@@ -112,6 +110,7 @@ def main():
                     lang=lang,
                     projectname=projectname
                 )
+                logger.info(f"Inserted sense for word: {word}, Synset: {synset}, Result: {result}")
     
     # Final cleanup
     wn_manager.close()
