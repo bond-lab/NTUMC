@@ -105,6 +105,8 @@ class TestWordNetDB(unittest.TestCase):
         result_2 = self.wn_manager.insert_sense(synset='01148283-a', wordid=word_id, lang='eng', projectname='test_project')
         # Assert that the results are the same
         self.assertEqual(result_1, result_2)
+
+    def test_add_wn_script(self):         
         # Test the add_wn script
         wnfile = str(Path(__file__).parent / "fixtures" / "wn_test_eng.tab")
         dbfile = str(self.test_db_path)
