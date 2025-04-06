@@ -55,7 +55,7 @@ def main():
     wn = collections.defaultdict(lambda: collections.defaultdict(set))
     
     # Open and process the wordnet file
-    with codecs.open(wnfile, encoding='utf-8', mode='r') as f:
+    with open(wnfile, mode='r', encoding='utf-8', errors='replace') as f:
         for l in f:
             if l.startswith('#'):  # discard comments
                 continue
