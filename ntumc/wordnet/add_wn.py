@@ -1,9 +1,8 @@
 #!/usr/bin/python
-#  Copyright 2012 Francis Bond; released under the MIT license
+#  Copyright 2025 Francis Bond; released under the MIT license
 #
 #  take a wordnet tab file (synset<TAB>lemma) and add it to a wordnet DB
-#  wordnet DB uses the schema of the Japanese wordnet 
-#     <http://nlpwww.nict.go.jp/wn-ja/index.en.html>
+#  wordnet DB uses the OMW 1.0 schema
 #
 import argparse
 import codecs
