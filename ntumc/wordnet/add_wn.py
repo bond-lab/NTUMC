@@ -54,7 +54,7 @@ def main():
     wn = collections.defaultdict(lambda: collections.defaultdict(set))
     
     # Open and process the wordnet file
-    with open(wnfile, mode='r', encoding='utf-8') as f:
+    with open(wnfile, mode='r', encoding='utf-8', errors='replace') as f:
         for line_number, l in enumerate(f, start=1):
             try:
                 l.encode('utf-8')  # Attempt to encode the line to check for errors
