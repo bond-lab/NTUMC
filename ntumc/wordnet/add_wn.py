@@ -55,8 +55,14 @@ def main():
     wn = collections.defaultdict(lambda: collections.defaultdict(set))
     
     # Open and process the wordnet file
-    with open(wnfile, mode='r', encoding='utf-8', errors='replace') as f:
-        for l in f:
+    with open(wnfile, mode='r', encoding='utf-8') as f:
+        for line_number, l in enumerate(f, start=1):
+            try:
+                l.encode('utf-8')  # Attempt to encode the line to check for errors
+            except UnicodeEncodeError as e:
+                logger.error(f"Unicode error at line {line_number}: {e}")
+                logger.error(f"Problematic line content: {l}")
+                continue
             if l.startswith('#'):  # discard comments
                 continue
             sense = l.strip().split('\t')
