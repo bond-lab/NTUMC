@@ -16,22 +16,22 @@ logger = get_logger(__name__)
 
 def main():
     parser = argparse.ArgumentParser(description='Add WordNet data to a database.')
-    parser.add_argument('wnfile', help='WordNet tab file')
+    parser.add_argument('dbfile', help='WordNet database file')
     parser.add_argument('lang', help='Language (ISO code)')
     parser.add_argument('projectname', help='Project name')
-    parser.add_argument('dbfile', help='WordNet database file')
+    parser.add_argument('tabfile', help='WordNet tab file')
     parser.add_argument('--delete-old', dest='delold', action='store_true', 
                         help='Delete old entries for the language (default: False)')
 
     args = parser.parse_args()
 
-    wnfile = args.wnfile
+    tabfile = args.tabfile
     lang = args.lang
     projectname = args.projectname
     dbfile = args.dbfile
     delold = args.delold
 
-    logger.info(f'Adding Wordnet {wnfile} to database {dbfile} for language {lang}')
+    logger.info(f'Adding Wordnet {tabfile} to database {dbfile} for language {lang}')
     
     # Initialize database manager
     wn_manager = WordNetManager(dbfile)
@@ -44,7 +44,7 @@ def main():
     ##
     ## read in and update new entries
     ##
-    logger.info(f'Inserting wordnet {wnfile} into database {dbfile} for {lang}')
+    logger.info(f'Inserting wordnet {tabfile} into database {dbfile} for {lang}')
 
     # Configure database performance
     wn_manager.connect()
@@ -54,18 +54,12 @@ def main():
     wn = collections.defaultdict(lambda: collections.defaultdict(set))
     
     # Open and process the wordnet file
-    with open(wnfile, mode='r', encoding='utf-8', errors='replace') as f:
-        for line_number, l in enumerate(f, start=1):
-            try:
-                l.encode('utf-8')  # Attempt to encode the line to check for errors
-            except UnicodeEncodeError as e:
-                logger.error(f"Unicode error at line {line_number}: {e}")
-                logger.error(f"Problematic line content: {l}")
-                continue
-            if l.startswith('#'):  # discard comments
+    with open(tabfile, mode='r', encoding='utf-8') as f:
+        for l in f:
+            if l.startswith('#') or l=='\n':  # discard comments and empty lines
                 continue
             sense = l.strip().split('\t')
-
+            #print(sense)
             if len(sense) == 3:  # check there are three things: ss, type, thing
                 if sense[1].endswith(':lemma'):  # handle eng:lemma format
                     ll = sense[2].strip()
@@ -129,7 +123,7 @@ def main():
 ##
 ## Let them know we're done
 ##
-    logger.info('Added Wordnet (%s) to the database (%s) for %s', wnfile, dbfile, lang)
+    logger.info('Added Wordnet (%s) to the database (%s) for %s', tabfile, dbfile, lang)
     logger.info('You should probably re-index word and sense tables.')
 
 if __name__ == "__main__":
