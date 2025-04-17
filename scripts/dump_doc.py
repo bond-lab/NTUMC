@@ -19,16 +19,19 @@ project_root = os.path.abspath(os.path.join(script_dir, os.pardir))
 sys.path.insert(0, project_root)
 
 # Now import from ntumc
-from ntumc.db import corpus
+from ntumc.db.corpus import Corpus
 
 def main():
     parser = argparse.ArgumentParser(description='Dump document JSON from ntumc corpus')
     parser.add_argument('doc_id', nargs='?', type=int, default=440, 
                         help='Document ID to dump (default: 440)')
+    parser.add_argument('--db', type=str, default='corpus.db',
+                        help='Path to the corpus database (default: corpus.db)')
     args = parser.parse_args()
     
-    # Call the dump_doc_json function with the provided document ID
-    corpus.dump_doc_json(args.doc_id)
+    # Create a Corpus instance and call dump_doc_json
+    corpus = Corpus(args.db)
+    print(corpus.dump_doc_json(args.doc_id))
 
 if __name__ == '__main__':
     main()
