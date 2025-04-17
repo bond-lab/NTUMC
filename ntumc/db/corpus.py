@@ -68,6 +68,8 @@ class Corpus:
     def get_words_range(self, min_sid: int, max_sid: int) -> Dict[int, List[Dict[str, Any]]]:
         """
         Get all words for a range of sids, returned as a dict mapping sid to list of words.
+        sid is omitted from each word dict (since it's redundant in this context).
+        Null values are omitted from the output.
         """
         with DatabaseManager(self.db_path) as db:
             words = db.fetch_all(
@@ -77,12 +79,16 @@ class Corpus:
             words_by_sid = {}
             for w in words:
                 sid = w["sid"]
-                words_by_sid.setdefault(sid, []).append(dict(w))
+                # Remove 'sid' and any null values
+                word_dict = {k: v for k, v in w.items() if k != "sid" and v is not None}
+                words_by_sid.setdefault(sid, []).append(word_dict)
             return words_by_sid
 
     def get_concepts_range(self, min_sid: int, max_sid: int, db=None) -> Dict[int, List[Dict[str, Any]]]:
         """
         Get all concepts for a range of sids, including wids and sentiment, as a dict mapping sid to list of concepts.
+        sid is omitted from each concept dict (since it's redundant in this context).
+        Null values are omitted from the output.
         """
         # Use the provided db connection if available, else open a new one
         close_db = False
@@ -101,9 +107,6 @@ class Corpus:
             sentiment_map = {}
 
             if cids_by_sid:
-                # Flatten for query
-                sid_cid_pairs = cids_by_sid
-                # Get all cwl rows for these sid/cid pairs
                 cwl_rows = db.fetch_all(
                     f"SELECT sid, cid, wid FROM cwl WHERE sid BETWEEN ? AND ? ORDER BY sid, cid, wid",
                     (min_sid, max_sid)
@@ -112,7 +115,6 @@ class Corpus:
                     key = (row["sid"], row["cid"])
                     wids_map.setdefault(key, []).append(row["wid"])
 
-                # Get all sentiment rows for these sid/cid pairs
                 sentiment_rows = db.fetch_all(
                     f"SELECT sid, cid, score FROM sentiment WHERE sid BETWEEN ? AND ?",
                     (min_sid, max_sid)
@@ -126,9 +128,14 @@ class Corpus:
                 sid = c["sid"]
                 cid = c["cid"]
                 key = (sid, cid)
-                concept_dict = dict(c)
-                concept_dict["wids"] = wids_map.get(key, [])
-                concept_dict["sentiment"] = sentiment_map.get(key)
+                # Remove 'sid' and any null values
+                concept_dict = {k: v for k, v in c.items() if k != "sid" and v is not None}
+                wids = wids_map.get(key, [])
+                if wids:
+                    concept_dict["wids"] = wids
+                sentiment = sentiment_map.get(key)
+                if sentiment is not None:
+                    concept_dict["sentiment"] = sentiment
                 concepts_by_sid.setdefault(sid, []).append(concept_dict)
             return concepts_by_sid
         finally:
@@ -139,6 +146,8 @@ class Corpus:
     def get_words(self, sid: int) -> List[Dict[str, Any]]:
         """
         Get all words for a sentence.
+        sid is omitted from each word dict (since it's redundant in this context).
+        Null values are omitted from the output.
         """
         words_by_sid = self.get_words_range(sid, sid)
         return words_by_sid.get(sid, [])
@@ -146,6 +155,8 @@ class Corpus:
     def get_concepts(self, sid: int) -> List[Dict[str, Any]]:
         """
         Get all concepts for a sentence, including wids, sentiment, etc.
+        sid is omitted from each concept dict (since it's redundant in this context).
+        Null values are omitted from the output.
         """
         concepts_by_sid = self.get_concepts_range(sid, sid)
         return concepts_by_sid.get(sid, [])
