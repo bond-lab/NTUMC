@@ -80,7 +80,7 @@ class Corpus:
             for w in words:
                 sid = w["sid"]
                 # Remove 'sid' and any null values
-                word_dict = {k: v for k, v in w.items() if k != "sid" and v is not None}
+                word_dict = {k: w[k] for k in w.keys() if k != "sid" and w[k] is not None}
                 words_by_sid.setdefault(sid, []).append(word_dict)
             return words_by_sid
 
@@ -129,7 +129,7 @@ class Corpus:
                 cid = c["cid"]
                 key = (sid, cid)
                 # Remove 'sid' and any null values
-                concept_dict = {k: v for k, v in c.items() if k != "sid" and v is not None}
+                concept_dict = {k: c[k] for k in c.keys() if k != "sid" and c[k] is not None}
                 wids = wids_map.get(key, [])
                 if wids:
                     concept_dict["wids"] = wids
