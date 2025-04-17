@@ -19,7 +19,7 @@ project_root = os.path.abspath(os.path.join(script_dir, os.pardir))
 sys.path.insert(0, project_root)
 
 # Now import from ntumc
-from ntumc import corpus
+from ntumc.db import corpus
 
 def main():
     parser = argparse.ArgumentParser(description='Dump document JSON from ntumc corpus')
