@@ -23,15 +23,22 @@ class Corpus:
             if not doc:
                 return None
 
-            doc_dict = dict(doc)
-            doc_dict["sentences"] = self.get_sentences(docid)
-            return doc_dict
+            # Get all sids for this doc
+            sids = [row["sid"] for row in db.fetch_all(
+                "SELECT sid FROM sent WHERE docID = ? ORDER BY sid", (docid,)
+            )]
+            if not sids:
+                doc_dict = dict(doc)
+                doc_dict["sentences"] = []
+                return doc_dict
 
-    def get_sentences(self, docid: int) -> List[Dict[str, Any]]:
-        """
-        Get all sentences for a document, including stype and comments.
-        """
-        with DatabaseManager(self.db_path) as db:
+            min_sid, max_sid = min(sids), max(sids)
+
+            # Bulk fetch words and concepts for all sids in this doc
+            words_by_sid = self.get_words_range(min_sid, max_sid)
+            concepts_by_sid = self.get_concepts_range(min_sid, max_sid, db=db)
+
+            # Get all sentences
             sents = db.fetch_all(
                 "SELECT sid, sent, comment FROM sent WHERE docID = ? ORDER BY sid", (docid,)
             )
@@ -49,49 +56,99 @@ class Corpus:
                     "comment": sent["comment"],
                     "stype": stype,
                     "stype_comment": stype_comment,
-                    "words": self.get_words(sid),
-                    "concepts": self.get_concepts(sid),
+                    "words": words_by_sid.get(sid, []),
+                    "concepts": concepts_by_sid.get(sid, []),
                 }
                 result.append(sent_dict)
-            return result
 
+            doc_dict = dict(doc)
+            doc_dict["sentences"] = result
+            return doc_dict
+
+    def get_words_range(self, min_sid: int, max_sid: int) -> Dict[int, List[Dict[str, Any]]]:
+        """
+        Get all words for a range of sids, returned as a dict mapping sid to list of words.
+        """
+        with DatabaseManager(self.db_path) as db:
+            words = db.fetch_all(
+                "SELECT sid, wid, word, pos, lemma, comment FROM word WHERE sid BETWEEN ? AND ? ORDER BY sid, wid",
+                (min_sid, max_sid)
+            )
+            words_by_sid = {}
+            for w in words:
+                sid = w["sid"]
+                words_by_sid.setdefault(sid, []).append(dict(w))
+            return words_by_sid
+
+    def get_concepts_range(self, min_sid: int, max_sid: int, db=None) -> Dict[int, List[Dict[str, Any]]]:
+        """
+        Get all concepts for a range of sids, including wids and sentiment, as a dict mapping sid to list of concepts.
+        """
+        # Use the provided db connection if available, else open a new one
+        close_db = False
+        if db is None:
+            db = DatabaseManager(self.db_path)
+            db.__enter__()
+            close_db = True
+        try:
+            concepts = db.fetch_all(
+                "SELECT sid, cid, clemma, tag, comment FROM concept WHERE sid BETWEEN ? AND ? ORDER BY sid, cid",
+                (min_sid, max_sid)
+            )
+            # Pre-fetch all cwl and sentiment for these sids/cids
+            cids_by_sid = [(c["sid"], c["cid"]) for c in concepts]
+            wids_map = {}
+            sentiment_map = {}
+
+            if cids_by_sid:
+                # Flatten for query
+                sid_cid_pairs = cids_by_sid
+                # Get all cwl rows for these sid/cid pairs
+                cwl_rows = db.fetch_all(
+                    f"SELECT sid, cid, wid FROM cwl WHERE sid BETWEEN ? AND ? ORDER BY sid, cid, wid",
+                    (min_sid, max_sid)
+                )
+                for row in cwl_rows:
+                    key = (row["sid"], row["cid"])
+                    wids_map.setdefault(key, []).append(row["wid"])
+
+                # Get all sentiment rows for these sid/cid pairs
+                sentiment_rows = db.fetch_all(
+                    f"SELECT sid, cid, score FROM sentiment WHERE sid BETWEEN ? AND ?",
+                    (min_sid, max_sid)
+                )
+                for row in sentiment_rows:
+                    key = (row["sid"], row["cid"])
+                    sentiment_map[key] = row["score"]
+
+            concepts_by_sid = {}
+            for c in concepts:
+                sid = c["sid"]
+                cid = c["cid"]
+                key = (sid, cid)
+                concept_dict = dict(c)
+                concept_dict["wids"] = wids_map.get(key, [])
+                concept_dict["sentiment"] = sentiment_map.get(key)
+                concepts_by_sid.setdefault(sid, []).append(concept_dict)
+            return concepts_by_sid
+        finally:
+            if close_db:
+                db.__exit__(None, None, None)
+
+    # The old per-sentence methods are kept for compatibility, but now use the range methods for efficiency
     def get_words(self, sid: int) -> List[Dict[str, Any]]:
         """
         Get all words for a sentence.
         """
-        with DatabaseManager(self.db_path) as db:
-            words = db.fetch_all(
-                "SELECT sid, wid, word, pos, lemma, comment FROM word WHERE sid = ? ORDER BY wid", (sid,)
-            )
-            return [dict(w) for w in words]
+        words_by_sid = self.get_words_range(sid, sid)
+        return words_by_sid.get(sid, [])
 
     def get_concepts(self, sid: int) -> List[Dict[str, Any]]:
         """
         Get all concepts for a sentence, including wids, sentiment, etc.
         """
-        with DatabaseManager(self.db_path) as db:
-            concepts = db.fetch_all(
-                "SELECT sid, cid, clemma, tag, comment FROM concept WHERE sid = ? ORDER BY cid", (sid,)
-            )
-            result = []
-            for c in concepts:
-                cid = c["cid"]
-                # Get wids from cwl
-                wids = [
-                    row["wid"] for row in db.fetch_all(
-                        "SELECT wid FROM cwl WHERE sid = ? AND cid = ? ORDER BY wid", (sid, cid)
-                    )
-                ]
-                # Get sentiment
-                sentiment_row = db.fetch_one(
-                    "SELECT score FROM sentiment WHERE sid = ? AND cid = ?", (sid, cid)
-                )
-                sentiment = sentiment_row["score"] if sentiment_row else None
-                concept_dict = dict(c)
-                concept_dict["wids"] = wids
-                concept_dict["sentiment"] = sentiment
-                result.append(concept_dict)
-            return result
+        concepts_by_sid = self.get_concepts_range(sid, sid)
+        return concepts_by_sid.get(sid, [])
 
     def dump_doc_json(self, docid: int) -> str:
         """
