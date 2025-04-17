@@ -12,6 +12,16 @@ class Corpus:
     def __init__(self, db_path: str):
         self.db_path = db_path
 
+    def get_docid_by_docname(self, doc: str) -> Optional[int]:
+        """
+        Look up docid by doc name.
+        """
+        with DatabaseManager(self.db_path) as db:
+            row = db.fetch_one("SELECT docid FROM doc WHERE doc = ?", (doc,))
+            if row:
+                return row["docid"]
+            return None
+
     def get_doc(self, docid: int) -> Optional[Dict[str, Any]]:
         """
         Get a document and all its sentences, words, and concepts.

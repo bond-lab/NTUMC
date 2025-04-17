@@ -23,8 +23,11 @@ from ntumc.db.corpus import Corpus
 
 def main():
     parser = argparse.ArgumentParser(description='Dump document JSON from ntumc corpus')
-    parser.add_argument('doc_id', nargs='?', type=int, default=440, 
-                        help='Document ID to dump (default: 440)')
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('doc_id', nargs='?', type=int, default=None,
+                        help='Document ID to dump (default: 440, or use --doc)')
+    group.add_argument('--doc', type=str, default=None,
+                        help='Document name to dump (overrides doc_id if given)')
     parser.add_argument('--db', type=str, default='corpus.db',
                         help='Path to the corpus database (default: corpus.db)')
     parser.add_argument('--out', type=str, default=None,
@@ -33,7 +36,15 @@ def main():
     
     # Create a Corpus instance and call dump_doc_json
     corpus = Corpus(args.db)
-    result = corpus.dump_doc_json(args.doc_id, out=args.out)
+    if args.doc is not None:
+        doc_id = corpus.get_docid_by_docname(args.doc)
+        if doc_id is None:
+            print(f"Document with doc='{args.doc}' not found.", file=sys.stderr)
+            sys.exit(1)
+    else:
+        doc_id = args.doc_id if args.doc_id is not None else 440
+
+    result = corpus.dump_doc_json(doc_id, out=args.out)
     if args.out is None:
         print(result)
     else:
