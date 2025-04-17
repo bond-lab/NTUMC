@@ -27,11 +27,17 @@ def main():
                         help='Document ID to dump (default: 440)')
     parser.add_argument('--db', type=str, default='corpus.db',
                         help='Path to the corpus database (default: corpus.db)')
+    parser.add_argument('--out', type=str, default=None,
+                        help='Output file to write JSON (default: stdout)')
     args = parser.parse_args()
     
     # Create a Corpus instance and call dump_doc_json
     corpus = Corpus(args.db)
-    print(corpus.dump_doc_json(args.doc_id))
+    result = corpus.dump_doc_json(args.doc_id, out=args.out)
+    if args.out is None:
+        print(result)
+    else:
+        print(f"Wrote JSON to {args.out}")
 
 if __name__ == '__main__':
     main()

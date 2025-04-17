@@ -161,12 +161,19 @@ class Corpus:
         concepts_by_sid = self.get_concepts_range(sid, sid)
         return concepts_by_sid.get(sid, [])
 
-    def dump_doc_json(self, docid: int) -> str:
+    def dump_doc_json(self, docid: int, out: str = None) -> str:
         """
         Dump a document and its data as JSON.
+        If 'out' is provided, write the JSON to that file and return the path.
+        Otherwise, return the JSON string.
         """
         doc = self.get_doc(docid)
-        return json.dumps(doc, ensure_ascii=False, indent=2)
+        json_str = json.dumps(doc, ensure_ascii=False, indent=2)
+        if out:
+            with open(out, "w", encoding="utf-8") as f:
+                f.write(json_str)
+            return out
+        return json_str
 
     # Optionally, add YAML support if needed
     def dump_doc_yaml(self, docid: int) -> str:
