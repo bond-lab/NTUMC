@@ -1,5 +1,5 @@
 import sqlite3
-from typing import Optional, List, Tuple
+from typing import Optional, List, Tuple, Dict
 from ntumc.core.logging_setup import log_function_call
 import logging
 
