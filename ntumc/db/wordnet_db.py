@@ -161,35 +161,25 @@ class WordNetManager:
             raise
 
     @log_function_call
-    def Senses(self, lang: str, lemma: Optional[str] = None,
-               pos: Optional[str] = None) -> List[Tuple]:
+    @log_function_call
+    def get_definitions(self, synset: str, lang: str) -> List[Tuple[str, str]]:
         """
-        Query synsets for a given lemma and optional part of speech.
+        Retrieve definitions for a given synset and language.
 
         Args:
-            lang (str): The language
-            lemma (Optional[str]): The lemma to query.
-            pos (Optional[str]): The part of speech to filter by.
+            synset (str): The synset ID.
+            lang (str): The language code.
 
         Returns:
-            List[Tuple]: A list of synsets matching the query.
+            List[Tuple[str, str]]: A list of tuples containing the synset and its definition.
         """
         self.connect()
         cursor = self.conn.cursor()
-        query = """select lemma, synset from word 
-                 left join sense on word.wordid = sense.wordid 
-                 where sense.lang = ?"""
-        params = [lang]
-        if lemma:
-            query += " AND lemma = ?"
-            params.append(lemma)
-        if pos:
-            query += " AND word.pos = ?"
-            params.append(pos)
-        cursor.execute(query, params)
+        query = "SELECT synset, def FROM synset_def WHERE synset = ? AND lang = ?"
+        cursor.execute(query, (synset, lang))
         results = cursor.fetchall()
         cursor.close()
-        self.logger.info(f"Senses query completed: lang={lang}, lemma={lemma}, pos={pos}, results={len(results)}")
+        self.logger.info(f"Definitions retrieved for synset={synset}, lang={lang}, results={len(results)}")
         return results
 
   
