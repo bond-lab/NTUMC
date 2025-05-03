@@ -8,7 +8,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardi
 
 from ntumc.db.wordnet_db import WordNetManager
 
-from ollama import OllamaClient
+from ollama import chat, ChatResponse
 
 # Initialize logger
 logger = logging.getLogger(__name__)
@@ -32,8 +32,6 @@ def main():
     wn_manager = WordNetManager(db_path)
     wn_manager.connect()
 
-    # Initialize Ollama client
-    client = OllamaClient(model=model_name)
 
     # Example: Retrieve context and meanings from the database
     # This is a placeholder for actual database queries
@@ -50,12 +48,17 @@ def main():
     prompt = f"Which meaning of the word _pearl_ is expressed in the following context:\n\n{context}\n\nThe meanings are as follows:\n{meanings}"
 
     # Get the response from the language model
-    response = client.generate(prompt)
-    logger.info(f"Model response: {response}")
+    response: ChatResponse = chat(model=model_name, messages=[
+        {
+            'role': 'user',
+            'content': prompt,
+        },
+    ])
+    logger.info(f"Model response: {response.message.content}")
 
     # If dry-run, print the response
     if dry_run:
-        print(f"Dry run: Selected meaning key is {response}")
+        print(f"Dry run: Selected meaning key is {response.message.content}")
 
     # If dry-run, print a placeholder message
     if dry_run:
