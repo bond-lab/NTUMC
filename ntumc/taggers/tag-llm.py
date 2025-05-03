@@ -40,6 +40,7 @@ def generate_and_extract(prompt, model='llama3'):
         cleaned_response = response.strip()
 
     return thinking, cleaned_response
+def main():
     args = parse_arguments()
     db_path = args.database
     wn_db_path = args.wordnet_db
