@@ -39,12 +39,9 @@ def main():
     # Retrieve meanings and definitions from WordNet
     lemma = 'Golombek'  # This should be dynamically set based on input
     meanings = {}
-    cursor = wn_manager.conn.cursor()
-    cursor.execute("SELECT synset FROM sense WHERE lemma = ?", (lemma,))
-    synsets = [row[0] for row in cursor.fetchall()]
-    cursor.close()
+    senses = wn_manager.Senses(lang='eng', lemma=lemma)
 
-    for synset in synsets:
+    for _, synset in senses:
         definitions = wn_manager.get_definitions(synset, 'eng')
         for synset_id, definition in definitions:
             meanings[synset_id] = definition
