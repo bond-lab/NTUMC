@@ -143,43 +143,6 @@ Return just the number."""
     _, sentiment_response = generate_and_extract(sentiment_prompt, model=model_name)
     logger.info(f"Sentiment response: {sentiment_response}")
     return sentiment_response
-    thinking, cleaned_response = generate_and_extract(prompt, model=model_name)
-    if thinking is not None:
-        logger.info(f"Model thinking: {thinking}")
-    logger.info(f"Model response: {cleaned_response}")
-
-    selected_key = cleaned_response.strip()
-    if selected_key in meanings:
-        selected_value = meanings[selected_key]
-    else:
-        selected_key = None
-        selected_value = None
-
-    if selected_key not in ['x', 'e', None]:
-        # Construct sentiment analysis prompt
-        sentiment_prompt = f"""Given the context:
-
-> {context}
-
-Select a value for the lexical sentiment for _{lemma}_ between -100 and 100.
-Most words have no sentiment (0), fantastic =95, good = 64, ok = 34, poor = -34, bad = -64, awful = -95.
-Just give the sentiment of the word, don't add the effect of modifiers like not or very.
-
-Return just the number."""
-
-        # Get the sentiment response from the language model
-        _, sentiment_response = generate_and_extract(sentiment_prompt, model=model_name)
-        logger.info(f"Sentiment response: {sentiment_response}")
-
-        # If dry-run, print the sentiment response
-        if dry_run:
-            print(f"Sentiment response: {sentiment_response}")
-        print("DRY RUN:")
-        print(prompt)
-        print(f"Selected key: {selected_key}")
-        if selected_key:
-            print(f"Selected value: {selected_value}")
-        print(f"Model response: {cleaned_response}")
 
 def main():
     args = parse_arguments()
