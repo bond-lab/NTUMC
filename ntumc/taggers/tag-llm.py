@@ -116,7 +116,7 @@ def construct_context(index: int, sentences: List[Dict[str, Any]], context: int)
     # Join and return the context
     return ' '.join(context_sentences)
 
-def handle_response(prompt, model_name, meanings, dry_run):
+def handle_response(prompt, model_name, meanings, dry_run, context, lemma):
     thinking, cleaned_response = generate_and_extract(prompt, model=model_name)
     if thinking is not None:
         logger.info(f"Model thinking: {thinking}")
@@ -175,7 +175,7 @@ def main():
         for concept in sentence['concepts']:
             lemma, meanings = process_concept(concept, context, wn_manager, args)
             prompt = construct_prompt(context, lemma, meanings)
-            handle_response(prompt, args.model, meanings, args.dry_run)
+            handle_response(prompt, args.model, meanings, args.dry_run, context, lemma)
 
     wn_manager.close()
 
