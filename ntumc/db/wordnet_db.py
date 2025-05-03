@@ -64,6 +64,12 @@ class WordNetManager:
 
         self.logger.info(f"Lemmas retrieved for synsets={synsets}, lang={lang}, results={len(results)}")
         return lemmas_dict
+
+    def close(self) -> None:
+        """Close the connection to the WordNet database."""
+        if self.conn is not None:
+            self.conn.close()
+            self.conn = None
         """Close the connection to the WordNet database."""
         if self.conn is not None:
             self.conn.close()
