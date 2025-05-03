@@ -219,8 +219,7 @@ class WordNetManager:
         self.logger.info(f"Senses query completed: lang={lang}, lemma={lemma}, pos={pos}, results={len(results)}")
         return results
 
-    
-     @log_function_call
+    @log_function_call
     def get_definitions(self, synset: str, lang: str) -> List[Tuple[str, str]]:
         """
         Retrieve definitions for a given synset and language.
