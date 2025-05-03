@@ -117,7 +117,32 @@ def construct_context(index: int, sentences: List[Dict[str, Any]], context: int)
     # Join and return the context
     return ' '.join(context_sentences)
 
-def handle_response(prompt, model_name, meanings, dry_run, context, lemma):
+def disambiguate(context, lemma, meanings, model_name):
+    prompt = construct_prompt(context, lemma, meanings)
+    thinking, cleaned_response = generate_and_extract(prompt, model=model_name)
+    if thinking is not None:
+        logger.info(f"Model thinking: {thinking}")
+    logger.info(f"Model response: {cleaned_response}")
+
+    selected_key = cleaned_response.strip()
+    if selected_key in meanings:
+        return selected_key, meanings[selected_key]
+    return None, None
+
+def sentimentalize(context, lemma, model_name):
+    sentiment_prompt = f"""Given the context:
+
+> {context}
+
+Select a value for the lexical sentiment for _{lemma}_ between -100 and 100.
+Most words have no sentiment (0), fantastic =95, good = 64, ok = 34, poor = -34, bad = -64, awful = -95.
+Just give the sentiment of the word, don't add the effect of modifiers like not or very.
+
+Return just the number."""
+
+    _, sentiment_response = generate_and_extract(sentiment_prompt, model=model_name)
+    logger.info(f"Sentiment response: {sentiment_response}")
+    return sentiment_response
     thinking, cleaned_response = generate_and_extract(prompt, model=model_name)
     if thinking is not None:
         logger.info(f"Model thinking: {thinking}")
@@ -175,8 +200,19 @@ def main():
         context = construct_context(i, sentences, margin)
         for concept in sentence['concepts']:
             lemma, meanings = process_concept(concept, context, wn_manager, args)
-            prompt = construct_prompt(context, lemma, meanings)
-            handle_response(prompt, args.model, meanings, args.dry_run, context, lemma)
+            selected_key, selected_value = disambiguate(context, lemma, meanings, args.model)
+
+            if args.dry_run:
+                print("DRY RUN:")
+                print(f"Context: {context}")
+                print(f"Selected key: {selected_key}")
+                if selected_key:
+                    print(f"Selected value: {selected_value}")
+
+            if selected_key not in ['x', 'e', None]:
+                sentiment = sentimentalize(context, lemma, args.model)
+                if args.dry_run:
+                    print(f"Sentiment: {sentiment}")
 
     wn_manager.close()
 
