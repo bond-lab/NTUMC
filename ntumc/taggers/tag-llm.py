@@ -96,22 +96,25 @@ def construct_context(current_sentence, all_sentences, num_context):
     context_sentences = []
 
     # Collect sentences before the current one
+    before_context = []
     for sentence in reversed(all_sentences):
         if sentence['sid'] < current_sid and sentence.get('docid', None) == current_docid:
-            context_sentences.append(sentence['text'])
-            if len(context_sentences) == num_context:
+            before_context.append(sentence['text'])
+            if len(before_context) == num_context:
                 break
 
-    context_sentences.reverse()  # Reverse to maintain order
+    before_context.reverse()  # Reverse to maintain order
 
     # Add the current sentence
+    context_sentences.extend(before_context)
     context_sentences.append(current_sentence['text'])
 
     # Collect sentences after the current one
     for sentence in all_sentences:
         if sentence['sid'] > current_sid and sentence.get('docid', None) == current_docid:
             context_sentences.append(sentence['text'])
-            if len(context_sentences) == num_context * 2 + 1:
+            context_sentences.append(sentence['text'])
+            if len(context_sentences) == num_context * 2:
                 break
 
     return ' '.join(context_sentences)
