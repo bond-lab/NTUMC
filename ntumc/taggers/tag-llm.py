@@ -59,43 +59,45 @@ def main():
     wn_manager.connect()
 
 
-    # Retrieve meanings and definitions from WordNet
-    lemma = 'look'  # This should be dynamically set based on input
-    meanings = {}
-    senses = wn_manager.Senses(lang='eng', lemma=lemma)
-
-    synsets = [synset for _, synset in senses]
-    lemmas_dict = wn_manager.Lemmas(synsets, 'eng')
-
-    definitions_dict = wn_manager.get_definitions(synsets, 'eng')
-
-    for synset, definitions in definitions_dict.items():
-        senses = ', '.join(lemmas_dict.get(synset, []))
-        for definition in definitions:
-            meanings[synset] = f"[{senses}] {definition}"
 
     # Retrieve sentences for the specified range
     from_sid, to_sid = map(int, text_range.split(':'))
     sentences = corpus.get_sentences(from_sid, to_sid)
 
-    # Construct context from sentences
-    context = ' '.join(sentence['text'] for sentence in sentences)
-    # Add additional tags if --wn-only is not specified
-    if not args.wn_only:
-        meanings.update({
-            'per': 'name of a person not in wordnet',
-            'org': 'name of an organization not in wordnet',
-            'dat': 'date/time that is not in wordnet',
-            'loc': 'name of a place not in wordnet',
-            'oth': 'other name not in wordnet',
-            'year': 'name of a year not in wordnet',
-            'e': 'the word was not tokenized or lemmatized correctly',
-            'w': 'wordnet does not have the correct sense',
-            'x': 'this is a closed class word or part of a multiword expression'
-        })
+    # Loop over each sentence and its concepts
+    for sentence in sentences:
+        context = sentence['text']
+        for concept in sentence['concepts']:
+            lemma = concept['clemma']
+            meanings = {}
+            senses = wn_manager.Senses(lang='eng', lemma=lemma)
 
-    # Construct the prompt
-    prompt = f"""Given the context:
+            synsets = [synset for _, synset in senses]
+            lemmas_dict = wn_manager.Lemmas(synsets, 'eng')
+
+            definitions_dict = wn_manager.get_definitions(synsets, 'eng')
+
+            for synset, definitions in definitions_dict.items():
+                senses = ', '.join(lemmas_dict.get(synset, []))
+                for definition in definitions:
+                    meanings[synset] = f"[{senses}] {definition}"
+
+            # Add additional tags if --wn-only is not specified
+            if not args.wn_only:
+                meanings.update({
+                    'per': 'name of a person not in wordnet',
+                    'org': 'name of an organization not in wordnet',
+                    'dat': 'date/time that is not in wordnet',
+                    'loc': 'name of a place not in wordnet',
+                    'oth': 'other name not in wordnet',
+                    'year': 'name of a year not in wordnet',
+                    'e': 'the word was not tokenized or lemmatized correctly',
+                    'w': 'wordnet does not have the correct sense',
+                    'x': 'this is a closed class word or part of a multiword expression'
+                })
+
+            # Construct the prompt
+            prompt = f"""Given the context:
 
 > {context}
 
@@ -105,27 +107,27 @@ Identify the correct tag for _{lemma}_ from these options:
 
 Return only the tag's key."""
 
-    # Get the response from the language model
-    thinking, cleaned_response = generate_and_extract(prompt, model=model_name)
-    logger.info(f"Model thinking: {thinking}")
-    logger.info(f"Model response: {cleaned_response}")
+            # Get the response from the language model
+            thinking, cleaned_response = generate_and_extract(prompt, model=model_name)
+            logger.info(f"Model thinking: {thinking}")
+            logger.info(f"Model response: {cleaned_response}")
 
-    # Check if the response is a key in meanings
-    selected_key = cleaned_response.strip()
-    if selected_key in meanings:
-        selected_value = meanings[selected_key]
-    else:
-        selected_key = None
-        selected_value = None
+            # Check if the response is a key in meanings
+            selected_key = cleaned_response.strip()
+            if selected_key in meanings:
+                selected_value = meanings[selected_key]
+            else:
+                selected_key = None
+                selected_value = None
 
-    # If dry-run, print the prompt and response
-    if dry_run:
-        print("DRY RUN:")
-        print(prompt)
-        print(f"Selected key: {selected_key}")
-        if selected_key:
-            print(f"Selected value: {selected_value}")
-        print(f"Model response: {cleaned_response}")
+            # If dry-run, print the prompt and response
+            if dry_run:
+                print("DRY RUN:")
+                print(prompt)
+                print(f"Selected key: {selected_key}")
+                if selected_key:
+                    print(f"Selected value: {selected_value}")
+                print(f"Model response: {cleaned_response}")
 
     # Close the database connection
     wn_manager.close()
