@@ -75,7 +75,45 @@ class Corpus:
             doc_dict["sentences"] = result
             return doc_dict
 
-    def get_words_range(self, min_sid: int, max_sid: int) -> Dict[int, List[Dict[str, Any]]]:
+    def get_sentences(self, min_sid: int, max_sid: int) -> List[Dict[str, Any]]:
+        """
+        Get sentences and their associated words and concepts for a range of sids.
+
+        Args:
+            min_sid (int): The minimum sentence ID.
+            max_sid (int): The maximum sentence ID.
+
+        Returns:
+            List[Dict[str, Any]]: A list of sentence dictionaries with words and concepts.
+        """
+        with DatabaseManager(self.db_path) as db:
+            # Bulk fetch words and concepts for all sids in this range
+            words_by_sid = self.get_words_range(min_sid, max_sid)
+            concepts_by_sid = self.get_concepts_range(min_sid, max_sid, db=db)
+
+            # Get all sentences
+            sents = db.fetch_all(
+                "SELECT sid, sent, comment FROM sent WHERE sid BETWEEN ? AND ? ORDER BY sid", (min_sid, max_sid)
+            )
+            result = []
+            for sent in sents:
+                sid = sent["sid"]
+                stype_row = db.fetch_one(
+                    "SELECT stype, comment FROM stype WHERE sid = ?", (sid,)
+                )
+                stype = stype_row["stype"] if stype_row else None
+                stype_comment = stype_row["comment"] if stype_row else None
+                sent_dict = {
+                    "sid": sid,
+                    "text": sent["sent"],
+                    "comment": sent["comment"],
+                    "stype": stype,
+                    "stype_comment": stype_comment,
+                    "words": words_by_sid.get(sid, []),
+                    "concepts": concepts_by_sid.get(sid, []),
+                }
+                result.append(sent_dict)
+            return result
         """
         Get all words for a range of sids, returned as a dict mapping sid to list of words.
         sid is omitted from each word dict (since it's redundant in this context).
