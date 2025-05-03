@@ -99,8 +99,8 @@ class WordNetManager:
             result = cursor.fetchone()
             if not result:
                 cursor.execute(
-                    """INSERT INTO sense(synset, wordid, lang, 
-                                       rank, lexid, freq, src, confidence, usr) 
+                    """INSERT INTO sense(synset, wordid, lang,
+                                       rank, lexid, freq, src, confidence, usr)
                             VALUES (?,?,?,?,?,?,?,?,?)""",
                     (synset, wordid, lang, None, None, None, projectname, 1.0, 'test_user')
                 )
@@ -140,7 +140,7 @@ class WordNetManager:
         try:
             cursor = self.conn.cursor()
             cursor.execute(
-                """SELECT synset, lang, def, sid 
+                """SELECT synset, lang, def, sid
                    FROM synset_ex WHERE synset = ? AND sid = ? AND lang = ?""",
                 (synset, sid, lang)
             )
@@ -161,7 +161,39 @@ class WordNetManager:
             raise
 
     @log_function_call
-    @log_function_call
+    def Senses(self, lang: str, lemma: Optional[str] = None,
+               pos: Optional[str] = None) -> List[Tuple]:
+        """
+        Query synsets for a given lemma and optional part of speech.
+
+        Args:
+            lang (str): The language
+            lemma (Optional[str]): The lemma to query.
+            pos (Optional[str]): The part of speech to filter by.
+
+        Returns:
+            List[Tuple]: A list of synsets matching the query.
+        """
+        self.connect()
+        cursor = self.conn.cursor()
+        query = """select lemma, synset from word
+                 left join sense on word.wordid = sense.wordid
+                 where sense.lang = ?"""
+        params = [lang]
+        if lemma:
+            query += " AND lemma = ?"
+            params.append(lemma)
+        if pos:
+            query += " AND word.pos = ?"
+            params.append(pos)
+        cursor.execute(query, params)
+        results = cursor.fetchall()
+        cursor.close()
+        self.logger.info(f"Senses query completed: lang={lang}, lemma={lemma}, pos={pos}, results={len(results)}")
+        return results
+
+    
+     @log_function_call
     def get_definitions(self, synset: str, lang: str) -> List[Tuple[str, str]]:
         """
         Retrieve definitions for a given synset and language.
@@ -181,5 +213,3 @@ class WordNetManager:
         cursor.close()
         self.logger.info(f"Definitions retrieved for synset={synset}, lang={lang}, results={len(results)}")
         return results
-
-  
