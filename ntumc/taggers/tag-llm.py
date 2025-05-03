@@ -40,10 +40,14 @@ def main():
     lemma = 'Golombek'  # This should be dynamically set based on input
     meanings = {}
     cursor = wn_manager.conn.cursor()
-    cursor.execute("SELECT synset, def FROM synset_def WHERE lang = 'eng' AND synset IN (SELECT synset FROM sense WHERE lemma = ?)", (lemma,))
-    for synset, definition in cursor.fetchall():
-        meanings[synset] = definition
+    cursor.execute("SELECT synset FROM sense WHERE lemma = ?", (lemma,))
+    synsets = [row[0] for row in cursor.fetchall()]
     cursor.close()
+
+    for synset in synsets:
+        definitions = wn_manager.get_definitions(synset, 'eng')
+        for synset_id, definition in definitions:
+            meanings[synset_id] = definition
 
     # Example context
     context = "A sea captain or something. They said he’d been out looking for pearls. Mister Golombek looked at Mister Valenta."
