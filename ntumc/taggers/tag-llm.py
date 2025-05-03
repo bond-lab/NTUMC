@@ -7,7 +7,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, os.pardir)))
 
 from ntumc.db.wordnet_db import WordNetManager
-from ollama import OllamaClient
+from uv import UVClient
 
 # Initialize logger
 logger = logging.getLogger(__name__)
@@ -31,8 +31,8 @@ def main():
     wn_manager = WordNetManager(db_path)
     wn_manager.connect()
 
-    # Initialize Ollama client
-    client = OllamaClient(model=model_name)
+    # Initialize UV client
+    client = UVClient(model=model_name)
 
     # Example of how to use the client to get a response
     # This is a placeholder for the actual tagging logic
