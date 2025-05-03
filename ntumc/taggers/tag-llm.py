@@ -22,6 +22,7 @@ def parse_arguments():
     parser.add_argument("--dry-run", action="store_true", help="Print the selected tags to standard output without making changes")
     parser.add_argument("-m", "--model", default="qwen3:8b", help="Specify the model to use (default: qwen3:8b)")
     parser.add_argument("--wn-only", action="store_true", help="Use only WordNet meanings, exclude additional tags")
+    parser.add_argument("--verbose", action="store_true", help="Enable verbose output for detailed logging")
     return parser.parse_args()
 
 def generate_and_extract(prompt, model='llama3'):
@@ -42,6 +43,9 @@ def generate_and_extract(prompt, model='llama3'):
     return thinking, cleaned_response
 def main():
     args = parse_arguments()
+    # Set logging level
+    logging.basicConfig(level=logging.DEBUG if args.verbose else logging.INFO)
+
     db_path = args.database
     wn_db_path = args.wordnet_db
     text_range = args.range
