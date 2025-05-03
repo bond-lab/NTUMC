@@ -7,7 +7,6 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, os.pardir)))
 
 from ntumc.db.wordnet_db import WordNetManager
-from uv import UVClient
 
 # Initialize logger
 logger = logging.getLogger(__name__)
@@ -31,17 +30,13 @@ def main():
     wn_manager = WordNetManager(db_path)
     wn_manager.connect()
 
-    # Initialize UV client
-    client = UVClient(model=model_name)
+    # Placeholder for the actual tagging logic
+    # Assume the script is run within a UV environment
+    logger.info("Running in UV environment")
 
-    # Example of how to use the client to get a response
-    # This is a placeholder for the actual tagging logic
-    response = client.generate("Example prompt")
-    logger.info(f"Model response: {response}")
-
-    # If dry-run, print the response
+    # If dry-run, print a placeholder message
     if dry_run:
-        print(response)
+        print("Dry run: tagging logic would be executed here.")
 
     # Close the database connection
     wn_manager.close()
