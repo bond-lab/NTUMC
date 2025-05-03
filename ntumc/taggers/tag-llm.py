@@ -37,7 +37,7 @@ def main():
 
 
     # Retrieve meanings and definitions from WordNet
-    lemma = 'pearl'  # This should be dynamically set based on input
+    lemma = 'look'  # This should be dynamically set based on input
     meanings = {}
     senses = wn_manager.Senses(lang='eng', lemma=lemma)
 
