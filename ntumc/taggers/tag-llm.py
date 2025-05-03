@@ -129,7 +129,25 @@ def handle_response(prompt, model_name, meanings, dry_run):
         selected_key = None
         selected_value = None
 
-    if dry_run:
+    if selected_key not in ['x', 'e', None]:
+        # Construct sentiment analysis prompt
+        sentiment_prompt = f"""Given the context:
+
+> {context}
+
+Select a value for the lexical sentiment for _{lemma}_ between -100 and 100.
+Most words have no sentiment (0), fantastic =95, good = 64, ok = 34, poor = -34, bad = -64, awful = -95.
+Just give the sentiment of the word, don't add the effect of modifiers like not or very.
+
+Return just the number."""
+
+        # Get the sentiment response from the language model
+        _, sentiment_response = generate_and_extract(sentiment_prompt, model=model_name)
+        logger.info(f"Sentiment response: {sentiment_response}")
+
+        # If dry-run, print the sentiment response
+        if dry_run:
+            print(f"Sentiment response: {sentiment_response}")
         print("DRY RUN:")
         print(prompt)
         print(f"Selected key: {selected_key}")
