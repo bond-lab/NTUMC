@@ -24,6 +24,7 @@ def parse_arguments():
     parser.add_argument("-m", "--model", default="qwen3:8b", help="Specify the model to use (default: qwen3:8b)")
     parser.add_argument("--wn-only", action="store_true", help="Use only WordNet meanings, exclude additional tags")
     parser.add_argument("--verbose", action="store_true", help="Enable verbose output for detailed logging")
+    parser.add_argument("--context-sentences", type=int, default=2, help="Number of sentences before and after to include in context (default: 2)")
     return parser.parse_args()
 
 def generate_and_extract(prompt, model='llama3'):
@@ -89,7 +90,31 @@ Identify the correct tag for _{lemma}_ from these options:
 
 Return only the tag's key."""
 
-def handle_response(prompt, model_name, meanings, dry_run):
+def construct_context(current_sentence, all_sentences, num_context):
+    current_sid = current_sentence['sid']
+    current_docid = current_sentence.get('docid', None)
+    context_sentences = []
+
+    # Collect sentences before the current one
+    for sentence in reversed(all_sentences):
+        if sentence['sid'] < current_sid and sentence.get('docid', None) == current_docid:
+            context_sentences.append(sentence['text'])
+            if len(context_sentences) == num_context:
+                break
+
+    context_sentences.reverse()  # Reverse to maintain order
+
+    # Add the current sentence
+    context_sentences.append(current_sentence['text'])
+
+    # Collect sentences after the current one
+    for sentence in all_sentences:
+        if sentence['sid'] > current_sid and sentence.get('docid', None) == current_docid:
+            context_sentences.append(sentence['text'])
+            if len(context_sentences) == num_context * 2 + 1:
+                break
+
+    return ' '.join(context_sentences)
     thinking, cleaned_response = generate_and_extract(prompt, model=model_name)
     if thinking is not None:
         logger.info(f"Model thinking: {thinking}")
@@ -121,7 +146,7 @@ def main():
     sentences = corpus.get_sentences(from_sid, to_sid)
 
     for sentence in sentences:
-        context = sentence['text']
+        context = construct_context(sentence, sentences, args.context_sentences)
         for concept in sentence['concepts']:
             lemma, meanings = process_concept(concept, context, wn_manager, args)
             prompt = construct_prompt(context, lemma, meanings)
