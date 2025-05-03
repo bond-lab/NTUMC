@@ -44,6 +44,7 @@ def generate_and_extract(prompt, model='llama3'):
         cleaned_response = response.strip()
 
     return thinking, cleaned_response
+
 def initialize_databases(db_path, wn_db_path):
     corpus = Corpus(db_path)
     wn_manager = WordNetManager(wn_db_path)
