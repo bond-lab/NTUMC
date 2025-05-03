@@ -7,6 +7,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, os.pardir)))
 
 from ntumc.db.wordnet_db import WordNetManager
+from ntumc.db.corpus import Corpus
 
 import re
 from ollama import chat, ChatResponse, generate
@@ -52,7 +53,8 @@ def main():
     dry_run = args.dry_run
     model_name = args.model
 
-    # Connect to the WordNet database
+    # Connect to the NTUMC and WordNet databases
+    corpus = Corpus(db_path)
     wn_manager = WordNetManager(wn_db_path)
     wn_manager.connect()
 
@@ -72,8 +74,12 @@ def main():
         for definition in definitions:
             meanings[synset] = f"[{senses}] {definition}"
 
-    # Example context
-    context = "A sea captain or something. They said he’d been out looking for pearls. Mister Golombek looked at Mister Valenta."
+    # Retrieve sentences for the specified range
+    from_sid, to_sid = map(int, text_range.split(':'))
+    sentences = corpus.get_sentences(from_sid, to_sid)
+
+    # Construct context from sentences
+    context = ' '.join(sentence['text'] for sentence in sentences)
     # Add additional tags if --wn-only is not specified
     if not args.wn_only:
         meanings.update({
