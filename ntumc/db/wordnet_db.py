@@ -226,12 +226,12 @@ class WordNetManager:
         return results
 
     @log_function_call
-    def get_definitions(self, synset: str, lang: str) -> List[Tuple[str, str]]:
+    def get_definitions(self, synsets: List[str], lang: str) -> Dict[str, List[str]]:
         """
-        Retrieve definitions for a given synset and language.
+        Retrieve definitions for a list of synsets and a language.
 
         Args:
-            synset (str): The synset ID.
+            synsets (List[str]): The list of synset IDs.
             lang (str): The language code.
 
         Returns:
@@ -239,9 +239,17 @@ class WordNetManager:
         """
         self.connect()
         cursor = self.conn.cursor()
-        query = "SELECT synset, def FROM synset_def WHERE synset = ? AND lang = ?"
-        cursor.execute(query, (synset, lang))
+        query = "SELECT synset, def FROM synset_def WHERE synset IN ({}) AND lang = ?".format(
+            ','.join('?' for _ in synsets))
+        cursor.execute(query, synsets + [lang])
         results = cursor.fetchall()
         cursor.close()
-        self.logger.info(f"Definitions retrieved for synset={synset}, lang={lang}, results={len(results)}")
-        return results
+
+        definitions_dict = {}
+        for synset, definition in results:
+            if synset not in definitions_dict:
+                definitions_dict[synset] = []
+            definitions_dict[synset].append(definition)
+
+        self.logger.info(f"Definitions retrieved for synsets={synsets}, lang={lang}, results={len(results)}")
+        return definitions_dict
