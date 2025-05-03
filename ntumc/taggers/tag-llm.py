@@ -8,7 +8,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardi
 
 from ntumc.db.wordnet_db import WordNetManager
 
-from ollama import chat, ChatResponse
+import re
+from ollama import chat, ChatResponse, generate
 
 # Initialize logger
 logger = logging.getLogger(__name__)
@@ -23,7 +24,22 @@ def parse_arguments():
     parser.add_argument("--wn-only", action="store_true", help="Use only WordNet meanings, exclude additional tags")
     return parser.parse_args()
 
-def main():
+def generate_and_extract(prompt, model='llama3'):
+    result = generate(model=model, prompt=prompt)
+    response = result['response']
+
+    # Extract content within <think></think>
+    think_match = re.search(r'<think>(.*?)</think>', response, re.DOTALL)
+    
+    if think_match:
+        thinking = think_match.group(1).strip()
+        # Remove the thinking part from the main response
+        cleaned_response = re.sub(r'<think>.*?</think>', '', response, flags=re.DOTALL).strip()
+    else:
+        thinking = None
+        cleaned_response = response.strip()
+
+    return thinking, cleaned_response
     args = parse_arguments()
     db_path = args.database
     wn_db_path = args.wordnet_db
@@ -79,13 +95,9 @@ Identify the correct tag for _{lemma}_ from these options:
 Return only the tag's key."""
 
     # Get the response from the language model
-    response: ChatResponse = chat(model=model_name, messages=[
-        {
-            'role': 'user',
-            'content': prompt,
-        },
-    ])
-    logger.info(f"Model response: {response.message.content}")
+    thinking, cleaned_response = generate_and_extract(prompt, model=model_name)
+    logger.info(f"Model thinking: {thinking}")
+    logger.info(f"Model response: {cleaned_response}")
 
     # Check if the response is a key in meanings
     selected_key = response.message.content.strip()
