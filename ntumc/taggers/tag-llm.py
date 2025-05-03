@@ -87,11 +87,21 @@ Return only the tag's key."""
     ])
     logger.info(f"Model response: {response.message.content}")
 
+    # Check if the response is a key in meanings
+    selected_key = response.message.content.strip()
+    if selected_key in meanings:
+        selected_value = meanings[selected_key]
+    else:
+        selected_key = None
+        selected_value = None
+
     # If dry-run, print the prompt and response
     if dry_run:
         print("DRY RUN:")
         print(prompt)
-        print(response.message.content)
+        print(f"Selected key: {selected_key}")
+        if selected_key:
+            print(f"Selected value: {selected_value}")
 
 
     # Close the database connection
