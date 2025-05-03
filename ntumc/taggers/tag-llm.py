@@ -101,7 +101,7 @@ Return only the tag's key."""
     logger.info(f"Model response: {cleaned_response}")
 
     # Check if the response is a key in meanings
-    selected_key = response.message.content.strip()
+    selected_key = cleaned_response.strip()
     if selected_key in meanings:
         selected_value = meanings[selected_key]
     else:
@@ -115,7 +115,7 @@ Return only the tag's key."""
         print(f"Selected key: {selected_key}")
         if selected_key:
             print(f"Selected value: {selected_value}")
-        print(f"Model response: {response.message.content}")
+        print(f"Model response: {cleaned_response}")
 
     # Close the database connection
     wn_manager.close()
