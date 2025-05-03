@@ -91,7 +91,8 @@ Return only the tag's key."""
 
 def handle_response(prompt, model_name, meanings, dry_run):
     thinking, cleaned_response = generate_and_extract(prompt, model=model_name)
-    logger.info(f"Model thinking: {thinking}")
+    if thinking is not None:
+        logger.info(f"Model thinking: {thinking}")
     logger.info(f"Model response: {cleaned_response}")
 
     selected_key = cleaned_response.strip()
