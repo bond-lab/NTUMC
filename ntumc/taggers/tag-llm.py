@@ -112,6 +112,7 @@ def handle_response(prompt, model_name, meanings, dry_run):
 def main():
     args = parse_arguments()
     logging.basicConfig(level=logging.DEBUG if args.verbose else logging.INFO)
+    logging.getLogger("httpx").setLevel(logging.WARNING)
 
     corpus, wn_manager = initialize_databases(args.database, args.wordnet_db)
 
