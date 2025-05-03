@@ -8,6 +8,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardi
 
 from ntumc.db.wordnet_db import WordNetManager
 
+from ollama import OllamaClient
+
 # Initialize logger
 logger = logging.getLogger(__name__)
 
@@ -30,9 +32,30 @@ def main():
     wn_manager = WordNetManager(db_path)
     wn_manager.connect()
 
-    # Placeholder for the actual tagging logic
-    # Assume the script is run within a UV environment
-    logger.info("Running in UV environment")
+    # Initialize Ollama client
+    client = OllamaClient(model=model_name)
+
+    # Example: Retrieve context and meanings from the database
+    # This is a placeholder for actual database queries
+    context = "A sea captain or something. They said he’d been out looking for pearls. Mister Golombek looked at Mister Valenta."
+    meanings = {
+        '13901585-n': '{drop, bead, pearl} a shape that is spherical and small',
+        '13372403-n': '{pearl} a smooth lustrous round structure inside the shell of a clam or oyster; much valued as a jewel',
+        '01383800-v': '{pearl} gather pearls, from oysters in the ocean',
+        '80000204-n': '{pearl} a person or thing that is beautiful, brilliant or valuable, like a pearl',
+        '04961331-n': '{ivory, pearl, bone, off-white, pearl-white} a shade of white the color of bleached bones'
+    }
+
+    # Construct the prompt
+    prompt = f"Which meaning of the word _pearl_ is expressed in the following context:\n\n{context}\n\nThe meanings are as follows:\n{meanings}"
+
+    # Get the response from the language model
+    response = client.generate(prompt)
+    logger.info(f"Model response: {response}")
+
+    # If dry-run, print the response
+    if dry_run:
+        print(f"Dry run: Selected meaning key is {response}")
 
     # If dry-run, print a placeholder message
     if dry_run:
