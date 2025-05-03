@@ -22,33 +22,7 @@ class Corpus:
                 return row["docid"]
             return None
 
-    def get_sids(self, min_sid: int, max_sid: int, threshold: int) -> List[int]:
-        """
-        Get sentence IDs with additional 'threshold' sentences before and after,
-        ensuring all sentences have the same docid.
-
-        Args:
-            min_sid (int): The minimum sentence ID.
-            max_sid (int): The maximum sentence ID.
-            threshold (int): The number of additional sentences to include before and after.
-
-        Returns:
-            List[int]: A list of sentence IDs.
-        """
-        with DatabaseManager(self.db_path) as db:
-            # Get the docid for the given range
-            docid_row = db.fetch_one("SELECT docID FROM sent WHERE sid = ?", (min_sid,))
-            if not docid_row:
-                return []
-
-            docid = docid_row["docID"]
-
-            # Fetch sids with the same docid
-            sids = db.fetch_all(
-                "SELECT sid FROM sent WHERE docID = ? AND sid BETWEEN ? AND ? ORDER BY sid",
-                (docid, min_sid - threshold, max_sid + threshold)
-            )
-            return [row["sid"] for row in sids]
+    def get_doc(self, docid: int) -> Optional[Dict[str, Any]]:
         """
         Get a document and all its sentences, words, and concepts.
         """
@@ -100,6 +74,34 @@ class Corpus:
             doc_dict = dict(doc)
             doc_dict["sentences"] = result
             return doc_dict
+
+    def get_sids(self, min_sid: int, max_sid: int, threshold: int) -> List[int]:
+        """
+        Get sentence IDs with additional 'threshold' sentences before and after,
+        ensuring all sentences have the same docid.
+
+        Args:
+            min_sid (int): The minimum sentence ID.
+            max_sid (int): The maximum sentence ID.
+            threshold (int): The number of additional sentences to include before and after.
+
+        Returns:
+            List[int]: A list of sentence IDs.
+        """
+        with DatabaseManager(self.db_path) as db:
+            # Get the docid for the given range
+            docid_row = db.fetch_one("SELECT docID FROM sent WHERE sid = ?", (min_sid,))
+            if not docid_row:
+                return []
+
+            docid = docid_row["docID"]
+
+            # Fetch sids with the same docid
+            sids = db.fetch_all(
+                "SELECT sid FROM sent WHERE docID = ? AND sid BETWEEN ? AND ? ORDER BY sid",
+                (docid, min_sid - threshold, max_sid + threshold)
+            )
+            return [row["sid"] for row in sids]
 
     def get_sentences(self, min_sid: int, max_sid: int) -> List[Dict[str, Any]]:
         """

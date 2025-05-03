@@ -2,6 +2,7 @@ import argparse
 import logging
 import sys
 import os
+from typing import List, Dict, Any, Optional
 
 # Add the parent directory to the Python path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, os.pardir)))
@@ -24,7 +25,7 @@ def parse_arguments():
     parser.add_argument("-m", "--model", default="qwen3:8b", help="Specify the model to use (default: qwen3:8b)")
     parser.add_argument("--wn-only", action="store_true", help="Use only WordNet meanings, exclude additional tags")
     parser.add_argument("--verbose", action="store_true", help="Enable verbose output for detailed logging")
-    parser.add_argument("--context-sentences", type=int, default=2, help="Number of sentences before and after to include in context (default: 2)")
+    parser.add_argument("--context", type=int, default=2, help="Number of sentences before and after to include in context (default: 2)")
     return parser.parse_args()
 
 def generate_and_extract(prompt, model='llama3'):
@@ -90,33 +91,29 @@ Identify the correct tag for _{lemma}_ from these options:
 
 Return only the tag's key."""
 
-def construct_context(current_sentence, all_sentences, num_context):
-    current_sid = current_sentence['sid']
-    current_docid = current_sentence.get('docid', None)
-    context_sentences = []
-
-    # Collect sentences before the current one
-    before_context = []
-    for sentence in reversed(all_sentences):
-        if sentence['sid'] < current_sid and sentence.get('docid', None) == current_docid:
-            before_context.append(sentence['text'])
-            if len(before_context) == num_context:
-                break
-
-    before_context.reverse()  # Reverse to maintain order
-
-    # Add the current sentence
-    context_sentences.extend(before_context)
-    context_sentences.append(current_sentence['text'])
-
-    # Collect sentences after the current one
-    for sentence in all_sentences:
-        if sentence['sid'] > current_sid and sentence.get('docid', None) == current_docid:
-            context_sentences.append(sentence['text'])
-            context_sentences.append(sentence['text'])
-            if len(context_sentences) == num_context * 2:
-                break
-
+def construct_context(index: int, sentences: List[Dict[str, Any]], context: int) -> str:
+    """
+    Construct a context string around a given index, handling edge cases.
+    
+    Args:
+        index (int): The central index for context extraction.
+        sentences (List[Dict[str, Any]]): List of sentence dictionaries.
+        context (int): Number of sentences to include on each side.
+    
+    Returns:
+        str: Concatenated context sentences, or empty string if no valid context.
+    """
+    # Determine the start and end indices, ensuring they don't go out of bounds
+    start_index = max(0, index - context)
+    end_index = min(len(sentences), index + context + 1)
+    
+    # Extract context sentences
+    context_sentences = [
+        sentence['text'] 
+        for sentence in sentences[start_index:end_index]
+    ]
+    
+    # Join and return the context
     return ' '.join(context_sentences)
 
 def handle_response(prompt, model_name, meanings, dry_run):
@@ -146,12 +143,17 @@ def main():
     logging.getLogger("httpx").setLevel(logging.WARNING)
 
     corpus, wn_manager = initialize_databases(args.database, args.wordnet_db)
-
+    margin = args.context
+    
     from_sid, to_sid = map(int, args.range.split(':'))
-    sentences = corpus.get_sentences(from_sid, to_sid)
+    sids =  corpus.get_sids(from_sid, to_sid, margin)
+    sentences = corpus.get_sentences(min(sids), max(sids))
 
-    for sentence in sentences:
-        context = construct_context(sentence, sentences, args.context_sentences)
+    for i, sentence in enumerate(sentences):
+        ## ignore sentences that are just for context
+        if sentence['sid'] < from_sid or sentence['sid'] > to_sid:
+            continue 
+        context = construct_context(i, sentences, margin)
         for concept in sentence['concepts']:
             lemma, meanings = process_concept(concept, context, wn_manager, args)
             prompt = construct_prompt(context, lemma, meanings)

@@ -61,3 +61,15 @@ We also have 9 possible other tags:
 Use ollama python to access the library.
 
 
+Given the context:
+
+> A sea captain or something. They said he’d been out looking for pearls. Mister Golombek looked at Mister Valenta.
+
+Prompt:
+```
+Identify the correct tag for _Golombek_from these options:
+
+{'13901585-n': '{drop, bead, pearl} a shape that is spherical and small', '13372403-n': '{pearl} a smooth lustrous round structure inside the shell of a clam or oyster; much valued as a jewel', '01383800-v': '{pearl} gather pearls, from oysters in the ocean', '80000204-n': '{pearl} a person or thing that is beautiful, brilliant or valuable, like a pearl', '04961331-n': '{ivory, pearl, bone, off-white, pearl-white} a shade of white the color of bleached bones', 'per': 'name of a person not in wordnet', 'org': 'name of an organization not in wordnet', 'dat': 'date/time that is not in wordnet', 'loc': 'name of a place not in wordnet', 'oth': 'other name not in wordnet', 'year': 'name of a year not in wordnet', 'e': 'the word was not tokenized or lemmatized correctly', 'w': 'wordnet does not have the correct sense', 'x': 'this is a closed class word or part of a multiword expression'}
+
+Return only the tag's key.
+```
