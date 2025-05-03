@@ -41,10 +41,14 @@ def main():
     meanings = {}
     senses = wn_manager.Senses(lang='eng', lemma=lemma)
 
-    for lemma, synset in senses:
+    synsets = [synset for _, synset in senses]
+    lemmas_dict = wn_manager.Lemmas(synsets, 'eng')
+
+    for synset in synsets:
         definitions = wn_manager.get_definitions(synset, 'eng')
+        senses = ' '.join(lemmas_dict.get(synset, []))
         for synset_id, definition in definitions:
-            meanings[synset_id] = f"{definition} (sense: {lemma})"
+            meanings[synset_id] = f"{senses} {definition}"
 
     # Example context
     context = "A sea captain or something. They said he’d been out looking for pearls. Mister Golombek looked at Mister Valenta."

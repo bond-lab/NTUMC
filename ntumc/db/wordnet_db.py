@@ -36,7 +36,34 @@ class WordNetManager:
             self.conn.rollback()
             self.logger.error(f"Error executing query: {str(e)}")
             raise
-    def close(self) -> None:
+    @log_function_call
+    def Lemmas(self, synsets: List[str], lang: str) -> Dict[str, List[str]]:
+        """
+        Retrieve lemmas for a list of synsets.
+
+        Args:
+            synsets (List[str]): The list of synset IDs.
+            lang (str): The language code.
+
+        Returns:
+            Dict[str, List[str]]: A dictionary with synset IDs as keys and lists of lemmas as values.
+        """
+        self.connect()
+        cursor = self.conn.cursor()
+        query = "SELECT synset, lemma FROM sense JOIN word ON sense.wordid = word.wordid WHERE synset IN ({}) AND lang = ?".format(
+            ','.join('?' for _ in synsets))
+        cursor.execute(query, synsets + [lang])
+        results = cursor.fetchall()
+        cursor.close()
+
+        lemmas_dict = {}
+        for synset, lemma in results:
+            if synset not in lemmas_dict:
+                lemmas_dict[synset] = []
+            lemmas_dict[synset].append(lemma)
+
+        self.logger.info(f"Lemmas retrieved for synsets={synsets}, lang={lang}, results={len(results)}")
+        return lemmas_dict
         """Close the connection to the WordNet database."""
         if self.conn is not None:
             self.conn.close()
