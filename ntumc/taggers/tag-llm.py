@@ -120,8 +120,9 @@ def construct_context(index: int, sentences: List[Dict[str, Any]], context: int)
 def disambiguate(context, lemma, meanings, model_name):
     prompt = construct_prompt(context, lemma, meanings)
     thinking, cleaned_response = generate_and_extract(prompt, model=model_name)
+    logger.debug(f"Prompt: {prompt}")
     if thinking is not None:
-        logger.info(f"Model thinking: {thinking}")
+        logger.debug(f"Model thinking: {thinking}")
     logger.info(f"Model response: {cleaned_response}")
 
     selected_key = cleaned_response.strip()
@@ -141,6 +142,7 @@ Just give the sentiment of the word, don't add the effect of modifiers like not 
 Return just the number."""
 
     _, sentiment_response = generate_and_extract(sentiment_prompt, model=model_name)
+    logger.debug(f"Sentiment prompt: {sentiment_prompt}")
     logger.info(f"Sentiment response: {sentiment_response}")
     return sentiment_response
 
