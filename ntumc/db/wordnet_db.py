@@ -50,7 +50,7 @@ class WordNetManager:
         """
         self.connect()
         cursor = self.conn.cursor()
-        query = "SELECT synset, lemma FROM sense JOIN word ON sense.wordid = word.wordid WHERE synset IN ({}) AND lang = ?".format(
+        query = "SELECT sense.synset, word.lemma FROM sense JOIN word ON sense.wordid = word.wordid WHERE sense.synset IN ({}) AND sense.lang = ?".format(
             ','.join('?' for _ in synsets))
         cursor.execute(query, synsets + [lang])
         results = cursor.fetchall()
