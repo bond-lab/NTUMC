@@ -19,6 +19,7 @@ def parse_arguments():
     parser.add_argument("database", help="Path to the NTUMC database file")
     parser.add_argument("--dry-run", action="store_true", help="Print the selected tags to standard output without making changes")
     parser.add_argument("-m", "--model", default="qwen3:8b", help="Specify the model to use (default: qwen3:8b)")
+    parser.add_argument("--wn-only", action="store_true", help="Use only WordNet meanings, exclude additional tags")
     return parser.parse_args()
 
 def main():
@@ -46,6 +47,21 @@ def main():
 
     # Construct the prompt
     prompt = f"Which meaning of the word _pearl_ is expressed in the following context:\n\n{context}\n\nThe meanings are as follows:\n{meanings}"
+
+    # Add additional tags if --wn-only is not specified
+    if not args.wn_only:
+        additional_tags = {
+            'per': 'name of a person not in wordnet',
+            'org': 'name of an organization not in wordnet',
+            'dat': 'date/time that is not in wordnet',
+            'loc': 'name of a place not in wordnet',
+            'oth': 'other name not in wordnet',
+            'year': 'name of a year not in wordnet',
+            'e': 'the word was not tokenized or lemmatized correctly',
+            'w': 'wordnet does not have the correct sense',
+            'x': 'this is a closed class word or part of a multiword expression'
+        }
+        prompt += f"\n\nAdditional tags are as follows:\n{additional_tags}"
 
     # Get the response from the language model
     response: ChatResponse = chat(model=model_name, messages=[
