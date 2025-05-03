@@ -115,6 +115,8 @@ def construct_context(current_sentence, all_sentences, num_context):
                 break
 
     return ' '.join(context_sentences)
+
+def handle_response(prompt, model_name, meanings, dry_run):
     thinking, cleaned_response = generate_and_extract(prompt, model=model_name)
     if thinking is not None:
         logger.info(f"Model thinking: {thinking}")
