@@ -36,21 +36,19 @@ def main():
 
     # Example: Retrieve context and meanings from the database
     # This is a placeholder for actual database queries
+    lemma = 'Golombek' 
     context = "A sea captain or something. They said he’d been out looking for pearls. Mister Golombek looked at Mister Valenta."
     meanings = {
-        '13901585-n': '{drop, bead, pearl} a shape that is spherical and small',
-        '13372403-n': '{pearl} a smooth lustrous round structure inside the shell of a clam or oyster; much valued as a jewel',
-        '01383800-v': '{pearl} gather pearls, from oysters in the ocean',
-        '80000204-n': '{pearl} a person or thing that is beautiful, brilliant or valuable, like a pearl',
-        '04961331-n': '{ivory, pearl, bone, off-white, pearl-white} a shade of white the color of bleached bones'
+         '13901585-n': '{drop, bead, pearl} a shape that is spherical and small',
+         '13372403-n': '{pearl} a smooth lustrous round structure inside the shell of a clam or oyster; much valued as a jewel',
+         '01383800-v': '{pearl} gather pearls, from oysters in the ocean',
+         '80000204-n': '{pearl} a person or thing that is beautiful, brilliant or valuable, like a pearl',
+         '04961331-n': '{ivory, pearl, bone, off-white, pearl-white} a shade of white the color of bleached bones'
     }
-
-    # Construct the prompt
-    prompt = f"Which meaning of the word _pearl_ is expressed in the following context:\n\n{context}\n\nThe meanings are as follows:\n{meanings}"
-
+ 
     # Add additional tags if --wn-only is not specified
     if not args.wn_only:
-        additional_tags = {
+        meanings.update({
             'per': 'name of a person not in wordnet',
             'org': 'name of an organization not in wordnet',
             'dat': 'date/time that is not in wordnet',
@@ -60,8 +58,18 @@ def main():
             'e': 'the word was not tokenized or lemmatized correctly',
             'w': 'wordnet does not have the correct sense',
             'x': 'this is a closed class word or part of a multiword expression'
-        }
-        prompt += f"\n\nAdditional tags are as follows:\n{additional_tags}"
+        })
+
+    # Construct the prompt
+    prompt = f"""Given the context:
+
+> {context}
+
+Identify the correct tag for _{lemma}_ from these options:
+
+{meanings}
+
+Return only the tag's key."""
 
     # Get the response from the language model
     response: ChatResponse = chat(model=model_name, messages=[
@@ -72,13 +80,12 @@ def main():
     ])
     logger.info(f"Model response: {response.message.content}")
 
-    # If dry-run, print the response
+    # If dry-run, print the prompt and response
     if dry_run:
-        print(f"Dry run: Selected meaning key is {response.message.content}")
+        print("DRY RUN:")
+        print(prompt)
+        print(response.message.content)
 
-    # If dry-run, print a placeholder message
-    if dry_run:
-        print("Dry run: tagging logic would be executed here.")
 
     # Close the database connection
     wn_manager.close()

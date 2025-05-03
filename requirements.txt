@@ -1,1 +1,1 @@
-uv
+ollama
