@@ -114,7 +114,8 @@ class Corpus:
                 }
                 result.append(sent_dict)
             return result
-        """
+
+    def get_words_range(self, min_sid: int, max_sid: int) -> Dict[int, List[Dict[str, Any]]]:         """
         Get all words for a range of sids, returned as a dict mapping sid to list of words.
         sid is omitted from each word dict (since it's redundant in this context).
         Null values are omitted from the output.
