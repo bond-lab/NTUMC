@@ -42,62 +42,44 @@ def generate_and_extract(prompt, model='llama3'):
         cleaned_response = response.strip()
 
     return thinking, cleaned_response
-def main():
-    args = parse_arguments()
-    # Set logging level
-    logging.basicConfig(level=logging.DEBUG if args.verbose else logging.INFO)
-
-    db_path = args.database
-    wn_db_path = args.wordnet_db
-    text_range = args.range
-    dry_run = args.dry_run
-    model_name = args.model
-
-    # Connect to the NTUMC and WordNet databases
+def initialize_databases(db_path, wn_db_path):
     corpus = Corpus(db_path)
     wn_manager = WordNetManager(wn_db_path)
     wn_manager.connect()
+    return corpus, wn_manager
 
+def process_concept(concept, context, wn_manager, args):
+    lemma = concept['clemma']
+    meanings = {}
+    senses = wn_manager.Senses(lang='eng', lemma=lemma)
 
+    synsets = [synset for _, synset in senses]
+    lemmas_dict = wn_manager.Lemmas(synsets, 'eng')
 
-    # Retrieve sentences for the specified range
-    from_sid, to_sid = map(int, text_range.split(':'))
-    sentences = corpus.get_sentences(from_sid, to_sid)
+    definitions_dict = wn_manager.get_definitions(synsets, 'eng')
 
-    # Loop over each sentence and its concepts
-    for sentence in sentences:
-        context = sentence['text']
-        for concept in sentence['concepts']:
-            lemma = concept['clemma']
-            meanings = {}
-            senses = wn_manager.Senses(lang='eng', lemma=lemma)
+    for synset, definitions in definitions_dict.items():
+        senses = ', '.join(lemmas_dict.get(synset, []))
+        for definition in definitions:
+            meanings[synset] = f"[{senses}] {definition}"
 
-            synsets = [synset for _, synset in senses]
-            lemmas_dict = wn_manager.Lemmas(synsets, 'eng')
+    if not args.wn_only:
+        meanings.update({
+            'per': 'name of a person not in wordnet',
+            'org': 'name of an organization not in wordnet',
+            'dat': 'date/time that is not in wordnet',
+            'loc': 'name of a place not in wordnet',
+            'oth': 'other name not in wordnet',
+            'year': 'name of a year not in wordnet',
+            'e': 'the word was not tokenized or lemmatized correctly',
+            'w': 'wordnet does not have the correct sense',
+            'x': 'this is a closed class word or part of a multiword expression'
+        })
 
-            definitions_dict = wn_manager.get_definitions(synsets, 'eng')
+    return lemma, meanings
 
-            for synset, definitions in definitions_dict.items():
-                senses = ', '.join(lemmas_dict.get(synset, []))
-                for definition in definitions:
-                    meanings[synset] = f"[{senses}] {definition}"
-
-            # Add additional tags if --wn-only is not specified
-            if not args.wn_only:
-                meanings.update({
-                    'per': 'name of a person not in wordnet',
-                    'org': 'name of an organization not in wordnet',
-                    'dat': 'date/time that is not in wordnet',
-                    'loc': 'name of a place not in wordnet',
-                    'oth': 'other name not in wordnet',
-                    'year': 'name of a year not in wordnet',
-                    'e': 'the word was not tokenized or lemmatized correctly',
-                    'w': 'wordnet does not have the correct sense',
-                    'x': 'this is a closed class word or part of a multiword expression'
-                })
-
-            # Construct the prompt
-            prompt = f"""Given the context:
+def construct_prompt(context, lemma, meanings):
+    return f"""Given the context:
 
 > {context}
 
@@ -107,29 +89,42 @@ Identify the correct tag for _{lemma}_ from these options:
 
 Return only the tag's key."""
 
-            # Get the response from the language model
-            thinking, cleaned_response = generate_and_extract(prompt, model=model_name)
-            logger.info(f"Model thinking: {thinking}")
-            logger.info(f"Model response: {cleaned_response}")
+def handle_response(prompt, model_name, meanings, dry_run):
+    thinking, cleaned_response = generate_and_extract(prompt, model=model_name)
+    logger.info(f"Model thinking: {thinking}")
+    logger.info(f"Model response: {cleaned_response}")
 
-            # Check if the response is a key in meanings
-            selected_key = cleaned_response.strip()
-            if selected_key in meanings:
-                selected_value = meanings[selected_key]
-            else:
-                selected_key = None
-                selected_value = None
+    selected_key = cleaned_response.strip()
+    if selected_key in meanings:
+        selected_value = meanings[selected_key]
+    else:
+        selected_key = None
+        selected_value = None
 
-            # If dry-run, print the prompt and response
-            if dry_run:
-                print("DRY RUN:")
-                print(prompt)
-                print(f"Selected key: {selected_key}")
-                if selected_key:
-                    print(f"Selected value: {selected_value}")
-                print(f"Model response: {cleaned_response}")
+    if dry_run:
+        print("DRY RUN:")
+        print(prompt)
+        print(f"Selected key: {selected_key}")
+        if selected_key:
+            print(f"Selected value: {selected_value}")
+        print(f"Model response: {cleaned_response}")
 
-    # Close the database connection
+def main():
+    args = parse_arguments()
+    logging.basicConfig(level=logging.DEBUG if args.verbose else logging.INFO)
+
+    corpus, wn_manager = initialize_databases(args.database, args.wordnet_db)
+
+    from_sid, to_sid = map(int, args.range.split(':'))
+    sentences = corpus.get_sentences(from_sid, to_sid)
+
+    for sentence in sentences:
+        context = sentence['text']
+        for concept in sentence['concepts']:
+            lemma, meanings = process_concept(concept, context, wn_manager, args)
+            prompt = construct_prompt(context, lemma, meanings)
+            handle_response(prompt, args.model, meanings, args.dry_run)
+
     wn_manager.close()
 
 if __name__ == "__main__":
