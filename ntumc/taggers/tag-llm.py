@@ -47,9 +47,9 @@ def main():
     definitions_dict = wn_manager.get_definitions(synsets, 'eng')
 
     for synset, definitions in definitions_dict.items():
-        senses = ' '.join(lemmas_dict.get(synset, []))
+        senses = ', '.join(lemmas_dict.get(synset, []))
         for definition in definitions:
-            meanings[synset] = f"{senses} {definition}"
+            meanings[synset] = f"[{senses}] {definition}"
 
     # Example context
     context = "A sea captain or something. They said he’d been out looking for pearls. Mister Golombek looked at Mister Valenta."
@@ -102,7 +102,7 @@ Return only the tag's key."""
         print(f"Selected key: {selected_key}")
         if selected_key:
             print(f"Selected value: {selected_value}")
-
+        print(f"Model response: {response.message.content}")
 
     # Close the database connection
     wn_manager.close()
