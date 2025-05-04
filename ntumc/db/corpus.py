@@ -22,7 +22,35 @@ class Corpus:
                 return row["docid"]
             return None
 
-    def get_doc(self, docid: int) -> Optional[Dict[str, Any]]:
+    def update_concept_tag(self, sid: int, cid: int, tag: str) -> None:
+        """
+        Update the tag for a concept in the database.
+
+        Args:
+            sid (int): The sentence ID.
+            cid (int): The concept ID.
+            tag (str): The tag to update.
+        """
+        with DatabaseManager(self.db_path) as db:
+            db.execute(
+                "UPDATE concept SET tag = ? WHERE sid = ? AND cid = ?",
+                (tag, sid, cid)
+            )
+
+    def update_sentiment_score(self, sid: int, cid: int, score: float) -> None:
+        """
+        Update the sentiment score for a concept in the database.
+
+        Args:
+            sid (int): The sentence ID.
+            cid (int): The concept ID.
+            score (float): The sentiment score to update.
+        """
+        with DatabaseManager(self.db_path) as db:
+            db.execute(
+                "UPDATE sentiment SET score = ? WHERE sid = ? AND cid = ?",
+                (score, sid, cid)
+            )
         """
         Get a document and all its sentences, words, and concepts.
         """

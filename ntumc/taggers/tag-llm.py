@@ -190,10 +190,14 @@ def main():
                 if selected_key:
                     print(f"Selected value: {selected_value}")
 
-            if selected_key not in ['x', 'e', None]:
-                sentiment = sentimentalize(context, lemma, args.model, 
-                                           gloss=selected_value)
-                if args.dry_run:
+            if not args.dry_run:
+                corpus.update_concept_tag(sentence['sid'], concept['cid'], selected_key)
+                if selected_key not in ['x', 'e', None]:
+                    sentiment = sentimentalize(context, lemma, args.model, gloss=selected_value)
+                    corpus.update_sentiment_score(sentence['sid'], concept['cid'], float(sentiment))
+            else:
+                if selected_key not in ['x', 'e', None]:
+                    sentiment = sentimentalize(context, lemma, args.model, gloss=selected_value)
                     print(f"Sentiment: {sentiment}")
 
     wn_manager.close()
