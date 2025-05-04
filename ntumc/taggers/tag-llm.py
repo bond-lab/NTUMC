@@ -201,6 +201,7 @@ def main():
                 if sentiment is not None:
                     corpus.update_sentiment_score(sentence['sid'], concept['cid'], float(sentiment))
 
+    corpus.commit_and_close()
     wn_manager.close()
 
 if __name__ == "__main__":

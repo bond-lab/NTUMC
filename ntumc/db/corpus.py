@@ -281,7 +281,13 @@ class Corpus:
                 (tag, sid, cid)
             )
 
-    def update_sentiment_score(self, sid: int, cid: int, score: float) -> None:
+    def commit_and_close(self) -> None:
+        """
+        Commit any pending transactions and close the database connection.
+        """
+        with DatabaseManager(self.db_path) as db:
+            db.conn.commit()
+            db.conn.close()
         """
         Update the sentiment score for a concept in the database.
 
