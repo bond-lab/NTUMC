@@ -181,7 +181,11 @@ def main():
         context = construct_context(i, sentences, margin)
         for concept in sentence['concepts']:
             lemma, meanings = process_concept(concept, context, wn_manager, args)
-            selected_key, selected_value = disambiguate(context, lemma, meanings, args.model)
+            selected_key, selected_value = disambiguate(context, lemma, meanings,
+                                                        args.model)
+            sentiment = None
+            if selected_key not in ['x', 'e', None]:
+                sentiment = sentimentalize(context, lemma, args.model, gloss=selected_value)
 
             if args.dry_run:
                 print("DRY RUN:")
@@ -189,16 +193,12 @@ def main():
                 print(f"Selected key: {selected_key}")
                 if selected_key:
                     print(f"Selected value: {selected_value}")
-
-            if not args.dry_run:
+                    if sentiment is not None:
+                         print(f"Sentiment: {sentiment}")
+            else:                
                 corpus.update_concept_tag(sentence['sid'], concept['cid'], selected_key)
-                if selected_key not in ['x', 'e', None]:
-                    sentiment = sentimentalize(context, lemma, args.model, gloss=selected_value)
+                if sentiment is not None:
                     corpus.update_sentiment_score(sentence['sid'], concept['cid'], float(sentiment))
-            else:
-                if selected_key not in ['x', 'e', None]:
-                    sentiment = sentimentalize(context, lemma, args.model, gloss=selected_value)
-                    print(f"Sentiment: {sentiment}")
 
     wn_manager.close()
 
