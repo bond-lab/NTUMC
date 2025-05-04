@@ -277,7 +277,7 @@ class Corpus:
         """
         with DatabaseManager(self.db_path) as db:
             db.execute(
-                "UPDATE concept SET tag = ?, usr = ? WHERE sid = ? AND cid = ?",
+                "UPDATE concept SET tag = ?, usrname = ? WHERE sid = ? AND cid = ?",
                 (tag, usr, sid, cid)
             )
             db.conn.commit()
@@ -292,9 +292,10 @@ class Corpus:
             cid (int): The concept ID.
             score (float): The score to update.
         """
+        print("Updating sentiment", score, usr, sid, cid)
         with DatabaseManager(self.db_path) as db:
             db.execute(
-                "UPDATE sentiment SET score = ?, usr = ? WHERE sid = ? AND cid = ?",
+                "UPDATE sentiment SET score = ?, username = ? WHERE sid = ? AND cid = ?",
                 (score, usr, sid, cid)
             )
             db.conn.commit()
