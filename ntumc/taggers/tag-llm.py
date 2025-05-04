@@ -195,8 +195,9 @@ def main():
                     print(f"Selected value: {selected_value}")
                     if sentiment is not None:
                          print(f"Sentiment: {sentiment}")
-            else:                
-                corpus.update_concept_tag(sentence['sid'], concept['cid'], selected_key)
+            else:
+                if selected_key is not None:
+                    corpus.update_concept_tag(sentence['sid'], concept['cid'], selected_key)
                 if sentiment is not None:
                     corpus.update_sentiment_score(sentence['sid'], concept['cid'], float(sentiment))
 
