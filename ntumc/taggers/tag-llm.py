@@ -160,7 +160,11 @@ Return just the number."""
     _, sentiment_response = generate_and_extract(sentiment_prompt, model=model_name)
     logger.debug(f"Sentiment prompt: {sentiment_prompt}")
     logger.info(f"Sentiment response: {sentiment_response}")
-    return sentiment_response
+    try:
+        score = float(sentiment_response)
+    except:
+        score = None
+    return score
 
 def main():
     args = parse_arguments()
@@ -196,10 +200,10 @@ def main():
                     if sentiment is not None:
                          print(f"Sentiment: {sentiment}")
             else:
-                if selected_key is not None:
-                    corpus.update_concept_tag(sentence['sid'], concept['cid'], selected_key)
+                corpus.update_concept_tag(sentence['sid'], concept['cid'], selected_key)
                 if sentiment is not None:
-                    corpus.update_sentiment_score(sentence['sid'], concept['cid'], float(sentiment))
+                    corpus.update_sentiment_score(sentence['sid'], concept['cid'],
+                                                  sentiment)
 
     corpus.commit_and_close()
     wn_manager.close()

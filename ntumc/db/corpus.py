@@ -280,14 +280,10 @@ class Corpus:
                 "UPDATE concept SET tag = ? WHERE sid = ? AND cid = ?",
                 (tag, sid, cid)
             )
-
-    def commit_and_close(self) -> None:
-        """
-        Commit any pending transactions and close the database connection.
-        """
-        with DatabaseManager(self.db_path) as db:
             db.conn.commit()
-            db.conn.close()
+
+            
+    def update_sentiment_score(self, sid: int, cid: int, score: float) -> None:
         """
         Update the sentiment score for a concept in the database.
 
@@ -301,4 +297,12 @@ class Corpus:
                 "UPDATE sentiment SET score = ? WHERE sid = ? AND cid = ?",
                 (score, sid, cid)
             )
+            db.conn.commit()
       
+    def commit_and_close(self) -> None:
+        """
+        Commit any pending transactions and close the database connection.
+        """
+        with DatabaseManager(self.db_path) as db:
+            db.conn.commit()
+            db.conn.close()
