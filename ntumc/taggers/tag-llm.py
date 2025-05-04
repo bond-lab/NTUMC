@@ -71,15 +71,26 @@ def process_concept(concept, context, wn_manager, args):
 
     if not args.wn_only:
         meanings.update({
-            'per': 'name of a person not in wordnet',
-            'org': 'name of an organization not in wordnet',
-            'dat': 'date/time that is not in wordnet',
-            'loc': 'name of a place not in wordnet',
-            'oth': 'other name not in wordnet',
-            'year': 'name of a year not in wordnet',
-            'e': 'the word was not tokenized or lemmatized correctly',
-            'w': 'wordnet does not have the correct sense',
-            'x': 'this is a closed class word or part of a multiword expression'
+            'per': 'name of a person not in wordnet' \
+            " (_Irene_ arrived.  Capatin _Vantoch_ laughed.)",
+            'org': 'name of an organization not in wordnet' \
+            " (I work at _IBM_)",
+            'dat': 'date/time that is not in wordnet' \
+            " (It starts at _2pm_)",
+            'loc': 'name of a place not in wordnet' \
+            " (We study in _Olomouc_)",
+            'oth': 'other name not in wordnet' \
+            " (I use a _Thinkpad_)",
+            'year': 'name of a year not in wordnet' \
+            " (I was born in _1967_)",
+            'num': 'number not in wordnet' \
+            " (There were _42_ of them)",
+            'e': 'the word was not tokenized or lemmatized correctly' \
+            " ('I saw three _does_' lemmatized as _do_ not _doe_)",
+            'w': 'wordnet does not have the correct sense' \
+            " ('I program in _python_' meaning 'the computer language')",
+            'x': 'this is a closed class word (preposition, dummy it/there, relative pronoun, passive or progressive be/have, punctuation, love catlove youloveloa...).   Or it is part of a multiword expression or it is an inappropriate multiword expression.' \
+            " ( 'Kim scored a _hat_ trick' _hat_ should be part of _hat trick_)"
         })
 
     return lemma, meanings
@@ -89,11 +100,11 @@ def construct_prompt(context, lemma, meanings):
 
 > {context}
 
-Identify the correct tag for _{lemma}_ from these options:
+Identify the correct tag for the lemma, _{lemma}_, from these options:
 
 {meanings}
 
-Return only the tag's key."""
+Return only the tag's key as a plain string."""
 
 def construct_context(index: int, sentences: List[Dict[str, Any]], context: int) -> str:
     """
@@ -133,14 +144,16 @@ def disambiguate(context, lemma, meanings, model_name):
         return selected_key, meanings[selected_key]
     return None, None
 
-def sentimentalize(context, lemma, model_name):
+def sentimentalize(context, lemma, model_name, gloss=''):
+    if gloss:
+        gloss =f' ({gloss})'
     sentiment_prompt = f"""Given the context:
 
 > {context}
 
-Select a value for the lexical sentiment for _{lemma}_ between -100 and 100.
+Select a value for the lexical sentiment for _{lemma}_  {gloss} between -100 and 100.
 Most words have no sentiment (0), fantastic =95, good = 64, ok = 34, poor = -34, bad = -64, awful = -95.
-Just give the sentiment of the word, don't add the effect of modifiers like not or very.
+Just give the sentiment of the word, don't add the effect of modifiers like _not_ or _very_.
 
 Return just the number."""
 
@@ -178,7 +191,8 @@ def main():
                     print(f"Selected value: {selected_value}")
 
             if selected_key not in ['x', 'e', None]:
-                sentiment = sentimentalize(context, lemma, args.model)
+                sentiment = sentimentalize(context, lemma, args.model, 
+                                           gloss=selected_value)
                 if args.dry_run:
                     print(f"Sentiment: {sentiment}")
 
