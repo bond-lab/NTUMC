@@ -22,73 +22,7 @@ class Corpus:
                 return row["docid"]
             return None
 
-    def update_concept_tag(self, sid: int, cid: int, tag: str) -> None:
-        """
-        Update the tag for a concept in the database.
-
-        Args:
-            sid (int): The sentence ID.
-            cid (int): The concept ID.
-            tag (str): The tag to update.
-        """
-        with DatabaseManager(self.db_path) as db:
-            db.execute(
-                "UPDATE concept SET tag = ? WHERE sid = ? AND cid = ?",
-                (tag, sid, cid)
-            )
-
     def get_doc(self, docid: int) -> Optional[Dict[str, Any]]:
-        """
-        Get a document and all its sentences, words, and concepts.
-        """
-        with DatabaseManager(self.db_path) as db:
-            doc = db.fetch_one(
-                "SELECT docid, doc, title, subtitle, corpusID FROM doc WHERE docid = ?", (docid,)
-            )
-            if not doc:
-                return None
-
-            # Get all sids for this doc
-            sids = [row["sid"] for row in db.fetch_all(
-                "SELECT sid FROM sent WHERE docID = ? ORDER BY sid", (docid,)
-            )]
-            if not sids:
-                doc_dict = dict(doc)
-                doc_dict["sentences"] = []
-                return doc_dict
-
-            min_sid, max_sid = min(sids), max(sids)
-
-            # Bulk fetch words and concepts for all sids in this doc
-            words_by_sid = self.get_words_range(min_sid, max_sid)
-            concepts_by_sid = self.get_concepts_range(min_sid, max_sid, db=db)
-
-            # Get all sentences
-            sents = db.fetch_all(
-                "SELECT sid, sent, comment FROM sent WHERE docID = ? ORDER BY sid", (docid,)
-            )
-            result = []
-            for sent in sents:
-                sid = sent["sid"]
-                stype_row = db.fetch_one(
-                    "SELECT stype, comment FROM stype WHERE sid = ?", (sid,)
-                )
-                stype = stype_row["stype"] if stype_row else None
-                stype_comment = stype_row["comment"] if stype_row else None
-                sent_dict = {
-                    "sid": sid,
-                    "text": sent["sent"],
-                    "comment": sent["comment"],
-                    "stype": stype,
-                    "stype_comment": stype_comment,
-                    "words": words_by_sid.get(sid, []),
-                    "concepts": concepts_by_sid.get(sid, []),
-                }
-                result.append(sent_dict)
-
-            doc_dict = dict(doc)
-            doc_dict["sentences"] = result
-            return doc_dict
         """
         Get a document and all its sentences, words, and concepts.
         """
@@ -330,3 +264,35 @@ class Corpus:
             raise RuntimeError("PyYAML is not installed")
         doc = self.get_doc(docid)
         return yaml.dump(doc, allow_unicode=True, sort_keys=False)
+
+
+    def update_concept_tag(self, sid: int, cid: int, tag: str) -> None:
+        """
+        Update the tag for a concept in the database.
+
+        Args:
+            sid (int): The sentence ID.
+            cid (int): The concept ID.
+            tag (str): The tag to update.
+        """
+        with DatabaseManager(self.db_path) as db:
+            db.execute(
+                "UPDATE concept SET tag = ? WHERE sid = ? AND cid = ?",
+                (tag, sid, cid)
+            )
+
+    def update_sentiment_score(self, sid: int, cid: int, score: float) -> None:
+        """
+        Update the sentiment score for a concept in the database.
+
+        Args:
+            sid (int): The sentence ID.
+            cid (int): The concept ID.
+            score (float): The score to update.
+        """
+        with DatabaseManager(self.db_path) as db:
+            db.execute(
+                "UPDATE sentiment SET score = ? WHERE sid = ? AND cid = ?",
+                (score, sid, cid)
+            )
+      
