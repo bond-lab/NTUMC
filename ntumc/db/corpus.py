@@ -266,7 +266,7 @@ class Corpus:
         return yaml.dump(doc, allow_unicode=True, sort_keys=False)
 
 
-    def update_concept_tag(self, sid: int, cid: int, tag: str) -> None:
+    def update_concept_tag(self, sid: int, cid: int, tag: str, usr: Optional[str] = None) -> None:
         """
         Update the tag for a concept in the database.
 
@@ -277,13 +277,13 @@ class Corpus:
         """
         with DatabaseManager(self.db_path) as db:
             db.execute(
-                "UPDATE concept SET tag = ? WHERE sid = ? AND cid = ?",
-                (tag, sid, cid)
+                "UPDATE concept SET tag = ?, usr = ? WHERE sid = ? AND cid = ?",
+                (tag, usr, sid, cid)
             )
             db.conn.commit()
 
             
-    def update_sentiment_score(self, sid: int, cid: int, score: float) -> None:
+    def update_sentiment_score(self, sid: int, cid: int, score: float, usr: Optional[str] = None) -> None:
         """
         Update the sentiment score for a concept in the database.
 
@@ -294,8 +294,8 @@ class Corpus:
         """
         with DatabaseManager(self.db_path) as db:
             db.execute(
-                "UPDATE sentiment SET score = ? WHERE sid = ? AND cid = ?",
-                (score, sid, cid)
+                "UPDATE sentiment SET score = ?, usr = ? WHERE sid = ? AND cid = ?",
+                (score, usr, sid, cid)
             )
             db.conn.commit()
       
