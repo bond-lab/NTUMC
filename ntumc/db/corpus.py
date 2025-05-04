@@ -292,12 +292,24 @@ class Corpus:
             cid (int): The concept ID.
             score (float): The score to update.
         """
-        print("Updating sentiment", score, usr, sid, cid)
         with DatabaseManager(self.db_path) as db:
-            db.execute(
-                "UPDATE sentiment SET score = ?, username = ? WHERE sid = ? AND cid = ?",
-                (score, usr, sid, cid)
+            # Check if the sentiment entry exists
+            existing = db.fetch_one(
+                "SELECT score FROM sentiment WHERE sid = ? AND cid = ?",
+                (sid, cid)
             )
+            if existing:
+                # Update existing sentiment score
+                db.execute(
+                    "UPDATE sentiment SET score = ?, username = ? WHERE sid = ? AND cid = ?",
+                    (score, usr, sid, cid)
+                )
+            else:
+                # Insert new sentiment score
+                db.execute(
+                    "INSERT INTO sentiment (sid, cid, score, username) VALUES (?, ?, ?, ?)",
+                    (sid, cid, score, usr)
+                )
             db.conn.commit()
       
     def commit_and_close(self) -> None:
