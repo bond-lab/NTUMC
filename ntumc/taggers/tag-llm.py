@@ -60,11 +60,14 @@ def process_concept(concept, context, wn_manager, args):
     lemmas_dict = wn_manager.Lemmas(synsets, 'eng')
 
     definitions_dict = wn_manager.get_definitions(synsets, 'eng')
+    examples_dict = wn_manager.get_examples(synsets, 'eng')
 
     for synset, definitions in definitions_dict.items():
         senses = ', '.join(lemmas_dict.get(synset, []))
         for definition in definitions:
-            meanings[synset] = f"[{senses}] {definition}"
+            examples = examples_dict.get(synset, [])
+            example_text = f" ({'; '.join(examples)})" if examples else ""
+            meanings[synset] = f"[{senses}] {definition}{example_text}"
 
     if not args.wn_only:
         meanings.update({

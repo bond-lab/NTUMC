@@ -226,7 +226,33 @@ class WordNetManager:
         return results
 
     @log_function_call
-    def get_definitions(self, synsets: List[str], lang: str) -> Dict[str, List[str]]:
+    def get_examples(self, synsets: List[str], lang: str) -> Dict[str, List[str]]:
+        """
+        Retrieve examples for a list of synsets and a language.
+
+        Args:
+            synsets (List[str]): The list of synset IDs.
+            lang (str): The language code.
+
+        Returns:
+            Dict[str, List[str]]: A dictionary with synset IDs as keys and lists of examples as values.
+        """
+        self.connect()
+        cursor = self.conn.cursor()
+        query = "SELECT synset, def FROM synset_ex WHERE synset IN ({}) AND lang = ?".format(
+            ','.join('?' for _ in synsets))
+        cursor.execute(query, synsets + [lang])
+        results = cursor.fetchall()
+        cursor.close()
+
+        examples_dict = {}
+        for synset, example in results:
+            if synset not in examples_dict:
+                examples_dict[synset] = []
+            examples_dict[synset].append(example)
+
+        self.logger.info(f"Examples retrieved for synsets={synsets}, lang={lang}, results={len(results)}")
+        return examples_dict
         """
         Retrieve definitions for a list of synsets and a language.
 
