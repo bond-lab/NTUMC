@@ -200,9 +200,13 @@ def main():
                     if sentiment is not None:
                          print(f"Sentiment: {sentiment}")
             else:
-                corpus.update_concept_tag(sentence['sid'], concept['cid'], selected_key, usr=args.model)
+                corpus.update_concept_tag(sentence['sid'], concept['cid'],
+                                          selected_key, usr=args.model)
+                print('updated concept', selected_key, sentiment )
                 if sentiment is not None:
-                    corpus.update_sentiment_score(sentence['sid'], concept['cid'], sentiment, usr=args.model)
+                    print ('updating sentiment', sentiment)
+                    corpus.update_sentiment_score(sentence['sid'], concept['cid'],
+                                                  sentiment, usr=args.model)
 
     corpus.commit_and_close()
     wn_manager.close()

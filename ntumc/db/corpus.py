@@ -7,6 +7,7 @@ Provides access to documents, sentences, words, and concepts from the corpus dat
 import json
 from typing import List, Dict, Any, Optional
 from ntumc.db.db_manager import DatabaseManager
+import sqlite3
 
 class Corpus:
     def __init__(self, db_path: str):
@@ -292,25 +293,13 @@ class Corpus:
             cid (int): The concept ID.
             score (float): The score to update.
         """
-        with DatabaseManager(self.db_path) as db:
-            # Check if the sentiment entry exists
-            existing = db.fetch_one(
-                "SELECT score FROM sentiment WHERE sid = ? AND cid = ?",
-                (sid, cid)
-            )
-            if existing:
-                # Update existing sentiment score
-                db.execute(
-                    "UPDATE sentiment SET score = ?, username = ? WHERE sid = ? AND cid = ?",
-                    (score, usr, sid, cid)
-                )
-            else:
-                # Insert new sentiment score
-                db.execute(
-                    "INSERT INTO sentiment (sid, cid, score, username) VALUES (?, ?, ?, ?)",
-                    (sid, cid, score, usr)
-                )
-            db.conn.commit()
+        with DatabaseManager(self.db_path, check_foreign_keys=False) as db:
+             db.execute("""INSERT OR REPLACE INTO sentiment
+             (sid, cid,  score, username)
+             VALUES (?, ?, ?, ?)""",
+                        (sid, cid, score, usr))
+             db.conn.commit()
+             print("Updated", score, usr, sid, cid)
       
     def commit_and_close(self) -> None:
         """

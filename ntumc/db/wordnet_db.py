@@ -253,6 +253,9 @@ class WordNetManager:
 
         self.logger.info(f"Examples retrieved for synsets={synsets}, lang={lang}, results={len(results)}")
         return examples_dict
+
+    @log_function_call
+    def get_definitions(self, synsets: List[str], lang: str) -> Dict[str, List[str]]:
         """
         Retrieve definitions for a list of synsets and a language.
 
