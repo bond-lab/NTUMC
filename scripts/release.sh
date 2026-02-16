@@ -2,7 +2,7 @@
 ### This is a script for making a release of the NTU-MC data
 ###
 ###  * Download from the current server (db, links, wordnet)
-###  * Create wordnets from server (dump from db, add counts from corpora)
+###  * Extract frequencies, sentiment, and wordnets
 ###  * Compress all databases with xz
 ###  * Create a GitHub release with gh
 ###
@@ -12,6 +12,7 @@
 ###
 ### Options:
 ###   --skip-download   Skip the scp download step
+###   --build-only      Stop after processing (inspect build/ before releasing)
 ###   --draft           Create GitHub release as a draft
 ###   --help            Show this help message
 ###
@@ -24,7 +25,9 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 cd "$REPO_ROOT"
 
 BUILDDIR="build"
-mkdir -p "$BUILDDIR"
+LOGDIR="${BUILDDIR}/log"
+PYTHON=".venv/bin/python"
+mkdir -p "$BUILDDIR" "$LOGDIR"
 
 # ── Corpus & wordnet databases ──
 CORPUS_DBS=(eng.db ces.db ita.db cmn.db yue.db ind.db zsm.db jpn.db)
@@ -36,6 +39,7 @@ SCP_PATH="/var/www/ntumc/db"
 
 # ── Argument parsing ──
 SKIP_DOWNLOAD=0
+BUILD_ONLY=0
 DRAFT=0
 VERSION=""
 
@@ -47,6 +51,7 @@ usage() {
 while [[ $# -gt 0 ]]; do
     case "$1" in
         --skip-download) SKIP_DOWNLOAD=1; shift ;;
+        --build-only)    BUILD_ONLY=1; shift ;;
         --draft)         DRAFT=1; shift ;;
         --help|-h)       usage ;;
         -*)              echo "Unknown option: $1" >&2; exit 1 ;;
@@ -98,6 +103,17 @@ for db in "${CORPUS_DBS[@]}"; do
     done < <("$SCRIPT_DIR/getsenti.sh" "$src")
 done
 
+echo "--- Building wordnets ---"
+"$PYTHON" "$SCRIPT_DIR/getwn.py" \
+    "${BUILDDIR}/wn-ntumc.db" "$BUILDDIR" \
+    --output-file "$LOGDIR/validate-wn.txt"
+echo "  Validation log: $LOGDIR/validate-wn.txt"
+
+if [[ "$BUILD_ONLY" -eq 1 ]]; then
+    echo "=== Build complete (--build-only). Inspect $BUILDDIR/ before releasing. ==="
+    exit 0
+fi
+
 # ── 3. Compress ──
 echo "--- Compressing databases ---"
 for db in "${ALL_DBS[@]}"; do
@@ -127,8 +143,10 @@ for db in "${ALL_DBS[@]}"; do
         echo "  WARNING: $asset not found, will not be included"
     fi
 done
-for tsv in "$BUILDDIR"/wn-freq-*-ntumc.tsv "$BUILDDIR"/wn-senti-*-ntumc.tsv; do
-    [[ -f "$tsv" ]] && ASSETS+=("$tsv")
+for f in "$BUILDDIR"/wn-freq-*-ntumc.tsv \
+         "$BUILDDIR"/wn-senti-*-ntumc.tsv \
+         "$BUILDDIR"/wn-ntumc-*.xml; do
+    [[ -f "$f" ]] && ASSETS+=("$f")
 done
 
 GH_ARGS=(gh release create "$VERSION" --generate-notes)
