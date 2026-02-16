@@ -74,11 +74,28 @@ else
     done
 fi
 
-# ── 2. Process (placeholder) ──
-echo "--- Processing ---"
-# python3 scripts/build_wordnet.py ...
-# Add processing steps here as they are developed.
-echo "  (no processing steps configured yet)"
+# ── 2. Process: extract concept frequencies ──
+echo "--- Extracting concept frequencies ---"
+TODAY=$(date +%Y-%m-%d)
+for db in "${CORPUS_DBS[@]}"; do
+    lang="${db%.db}"
+    src="${BUILDDIR}/${db}"
+    tsv="${BUILDDIR}/wn-freq-${lang}-ntumc.tsv"
+    if [[ ! -f "$src" ]]; then
+        echo "  WARNING: $src not found, skipping"
+        continue
+    fi
+    echo "  $lang -> $(basename "$tsv")"
+    {
+        printf "# Frequency for %s from ntu-mc (%s)\n" "$lang" "$TODAY"
+        printf "synset\tlemma\tfreq\n"
+        sqlite3 -separator '	' "$src" \
+            "SELECT tag, clemma, COUNT(clemma)
+             FROM concept
+             WHERE LENGTH(tag) = 10
+             GROUP BY tag, clemma;"
+    } > "$tsv"
+done
 
 # ── 3. Compress ──
 echo "--- Compressing databases ---"
@@ -107,6 +124,13 @@ for db in "${ALL_DBS[@]}"; do
         ASSETS+=("$asset")
     else
         echo "  WARNING: $asset not found, will not be included"
+    fi
+done
+for db in "${CORPUS_DBS[@]}"; do
+    lang="${db%.db}"
+    tsv="${BUILDDIR}/wn-freq-${lang}-ntumc.tsv"
+    if [[ -f "$tsv" ]]; then
+        ASSETS+=("$tsv")
     fi
 done
 
