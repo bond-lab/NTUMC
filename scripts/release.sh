@@ -103,9 +103,17 @@ for db in "${CORPUS_DBS[@]}"; do
     done < <("$SCRIPT_DIR/getsenti.sh" "$src")
 done
 
+ILI_URL="https://raw.githubusercontent.com/globalwordnet/cili/refs/heads/master/ili-map-pwn30.tab"
+ILI_FILE="${BUILDDIR}/ili-map-pwn30.tab"
+if [[ ! -f "$ILI_FILE" ]]; then
+    echo "--- Downloading ILI map ---"
+    curl -sL "$ILI_URL" -o "$ILI_FILE"
+fi
+
 echo "--- Building wordnets ---"
 "$PYTHON" "$SCRIPT_DIR/getwn.py" \
     "${BUILDDIR}/wn-ntumc.db" "$BUILDDIR" \
+    --ili "$ILI_FILE" \
     --output-file "$LOGDIR/validate-wn.txt"
 echo "  Validation log: $LOGDIR/validate-wn.txt"
 

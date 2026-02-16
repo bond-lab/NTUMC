@@ -9,12 +9,13 @@ Produces one WN-LMF XML file per language: OUTDIR/wn-ntumc-LANG.xml
 import argparse
 import sqlite3
 import sys
+import urllib.request
 from collections import defaultdict as dd
 from pathlib import Path
 
 from wn import lmf
 from wn.validate import validate
-from wn_edit import WordnetEditor, make_sense
+from wn_edit import WordnetEditor, make_count, make_sense
 
 # NTU-MC languages and their wordnet metadata
 LANGUAGES = {
@@ -107,8 +108,46 @@ RELATION_MAP = {
 }
 
 
-def extract_wordnet(db_path, lang, meta, outdir):
+def load_freqs(outdir, lang):
+    """Load corpus frequency file aggregated by synset. Returns {synset: count}."""
+    freqfile = outdir / f"wn-freq-{lang}-ntumc.tsv"
+    freqs = dd(int)
+    if not freqfile.exists():
+        return freqs
+    with open(freqfile) as f:
+        for line in f:
+            if line.startswith("#") or line.startswith("synset\t"):
+                continue
+            parts = line.rstrip("\n").split("\t")
+            if len(parts) >= 3:
+                freqs[parts[0]] += int(parts[2])
+    return freqs
+
+
+def load_ili_map(source):
+    """Load ILI-to-synset mapping. source can be a file path or URL.
+
+    Returns {synset_id: ili_id}, e.g. {"00001740-a": "i1"}.
+    """
+    ili = {}
+    if source.startswith("http://") or source.startswith("https://"):
+        with urllib.request.urlopen(source) as resp:
+            lines = resp.read().decode("utf-8").splitlines()
+    else:
+        with open(source) as f:
+            lines = f.read().splitlines()
+    for line in lines:
+        if not line or line.startswith("#"):
+            continue
+        parts = line.split("\t")
+        if len(parts) >= 2:
+            ili[parts[1]] = parts[0]
+    return ili
+
+
+def extract_wordnet(db_path, lang, meta, outdir, ili_map=None):
     """Extract a single language wordnet from the DB and write XML."""
+    freqs = load_freqs(outdir, lang)
     con = sqlite3.connect(db_path)
     c = con.cursor()
 
@@ -165,16 +204,19 @@ def extract_wordnet(db_path, lang, meta, outdir):
     )
 
     # Add synsets
+    if ili_map is None:
+        ili_map = {}
     for synset in sorted(synsets_used):
         pos = norm_pos(synset[-1])
         if pos not in "nvartu":
             continue
         defn = "; ".join(defs[synset]) if synset in defs else None
+        ili = ili_map.get(synset, "")
         editor.create_synset(
             pos=pos,
             synset_id=f"{wn_id}-{synset}",
             definition=defn,
-            ili="",
+            ili=ili,
         )
 
     # Add synset relations (after all synsets exist)
@@ -190,7 +232,9 @@ def extract_wordnet(db_path, lang, meta, outdir):
                 source_id, target_id, rel_type, validate=False
             )
 
-    # Add entries and senses
+    # Add entries and senses, ordered by corpus frequency
+    synset_max_freq = dd(int)  # track max freq per synset for synset ordering
+    synset_members = dd(list)  # synset -> [sense_id, ...] in freq order
     entry_num = 0
     for wid in sorted(senses.keys()):
         if wid not in words:
@@ -200,15 +244,39 @@ def extract_wordnet(db_path, lang, meta, outdir):
         entry_id = f"w{entry_num}"
         entry_num += 1
         entry = editor.create_entry(lemma, pos, entry_id=entry_id)
-        sense_num = 0
-        for synset, freq, confidence in sorted(senses[wid]):
+        # Build sense list with freq, then sort by freq descending
+        sense_list = []
+        for synset, freq, confidence in senses[wid]:
             ss_id = f"{wn_id}-{synset}"
             if editor.get_synset(ss_id) is None:
                 continue
+            corpus_freq = freqs.get(synset, 0)
             sense_id = f"{wn_id}-{synset}-{entry_id}"
             sense = make_sense(sense_id, ss_id)
+            if corpus_freq > 0:
+                sense["counts"] = [make_count(corpus_freq)]
+            sense_list.append((corpus_freq, synset, sense_id, sense))
+            synset_max_freq[synset] = max(synset_max_freq[synset], corpus_freq)
+        # Sort: highest freq first, then by synset id for stability
+        sense_list.sort(key=lambda x: (-x[0], x[1]))
+        for corpus_freq, synset, sense_id, sense in sense_list:
             entry["senses"].append(sense)
-            sense_num += 1
+            synset_members[synset].append((corpus_freq, sense_id))
+
+    # Set members on each synset (sense IDs ordered by freq)
+    for synset, members in synset_members.items():
+        ss = editor.get_synset(f"{wn_id}-{synset}")
+        if ss is None:
+            continue
+        members.sort(key=lambda x: (-x[0], x[1]))
+        ss["members"] = [sense_id for _, sense_id in members]
+
+    # Reorder synsets by max corpus frequency (most frequent first)
+    if freqs:
+        lex = editor._resource["lexicons"][0]
+        lex["synsets"].sort(
+            key=lambda ss: (-synset_max_freq.get(ss["id"][len(wn_id) + 1 :], 0), ss["id"])
+        )
 
     # Export
     outfile = outdir / f"wn-ntumc-{lang}.xml"
@@ -254,6 +322,12 @@ def main():
         default=None,
         help="Write validation report to FILE",
     )
+    parser.add_argument(
+        "--ili",
+        type=str,
+        default=None,
+        help="Path or URL for ILI-to-PWN30 mapping (ili-map-pwn30.tab)",
+    )
     args = parser.parse_args()
 
     outdir = Path(args.outdir)
@@ -261,13 +335,19 @@ def main():
 
     langs = args.lang if args.lang else list(LANGUAGES.keys())
 
+    ili_map = None
+    if args.ili:
+        print(f"  Loading ILI map from {args.ili}")
+        ili_map = load_ili_map(args.ili)
+        print(f"  {len(ili_map)} ILI mappings loaded")
+
     report = open(args.output_file, "w") if args.output_file else None
 
     for lang in langs:
         if lang not in LANGUAGES:
             print(f"  WARNING: unknown language {lang}, skipping", file=sys.stderr)
             continue
-        outfile, stats = extract_wordnet(args.db, lang, LANGUAGES[lang], outdir)
+        outfile, stats = extract_wordnet(args.db, lang, LANGUAGES[lang], outdir, ili_map)
         summary = (
             f"  {lang}: {stats['synsets']} synsets, "
             f"{stats['entries']} entries, "
