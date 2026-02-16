@@ -15,7 +15,7 @@ from pathlib import Path
 
 from wn import lmf
 from wn.validate import validate
-from wn_edit import WordnetEditor, make_count, make_sense
+from wn_edit import WordnetEditor, make_count, make_form, make_sense
 
 # NTU-MC languages and their wordnet metadata
 LANGUAGES = {
@@ -145,6 +145,72 @@ def load_ili_map(source):
     return ili
 
 
+def merge_wordids(words, senses, lang):
+    """Merge wordids that differ only by whitespace and share identical senses.
+
+    For Chinese (cmn), the unsegmented form (no spaces) is canonical;
+    segmented forms become variant Forms on the same entry.
+
+    Returns:
+        canonical: dict mapping canonical_wid -> (lemma, pos, variant_lemmas)
+        merged_senses: dict mapping canonical_wid -> set of (synset, freq, conf)
+    """
+    if lang != "cmn":
+        # No merging for other languages (yet)
+        return None, None
+
+    # Group wordids by (normalized_lemma, pos)
+    groups = dd(list)
+    for wid, (lemma, pos) in words.items():
+        norm = lemma.replace(" ", "").replace("\u2423", "")
+        groups[(norm, pos)].append(wid)
+
+    canonical = {}
+    merged_senses = {}
+    merged_count = 0
+
+    for (norm, pos), wids in groups.items():
+        if len(wids) < 2:
+            # No merge needed — keep as-is
+            wid = wids[0]
+            canonical[wid] = (words[wid][0], pos, [])
+            merged_senses[wid] = senses.get(wid, set())
+            continue
+
+        # Only merge wordids with identical sense sets (by synset)
+        by_synsets = dd(list)
+        for wid in wids:
+            key = frozenset(s[0] for s in senses.get(wid, set()))
+            by_synsets[key].append(wid)
+
+        for synset_key, group_wids in by_synsets.items():
+            if len(group_wids) < 2:
+                wid = group_wids[0]
+                canonical[wid] = (words[wid][0], pos, [])
+                merged_senses[wid] = senses.get(wid, set())
+                continue
+
+            # Pick canonical: shortest form (unsegmented) first, then alphabetical
+            group_wids.sort(key=lambda w: (len(words[w][0]), words[w][0]))
+            canon_wid = group_wids[0]
+            canon_lemma = words[canon_wid][0]
+            variants = [words[w][0] for w in group_wids[1:] if words[w][0] != canon_lemma]
+
+            # Merge senses from all wordids (union, keeping max freq/conf per synset)
+            all_senses = {}
+            for wid in group_wids:
+                for synset, freq, conf in senses.get(wid, set()):
+                    if synset not in all_senses or freq > all_senses[synset][1]:
+                        all_senses[synset] = (synset, freq, conf)
+
+            canonical[canon_wid] = (canon_lemma, pos, variants)
+            merged_senses[canon_wid] = set(all_senses.values())
+            merged_count += len(group_wids) - 1
+
+    print(f"  {lang}: merged {merged_count} duplicate entries", file=sys.stderr)
+    return canonical, merged_senses
+
+
 def extract_wordnet(db_path, lang, meta, outdir, ili_map=None):
     """Extract a single language wordnet from the DB and write XML."""
     freqs = load_freqs(outdir, lang)
@@ -168,6 +234,9 @@ def extract_wordnet(db_path, lang, meta, outdir, ili_map=None):
         (lang,),
     )
     words = {wid: (lemma, pos) for wid, lemma, pos in c}
+
+    # Merge whitespace-variant lemmas (Chinese only, for now)
+    canonical, merged_senses = merge_wordids(words, senses, lang)
 
     # Collect definitions for this language
     defs = dd(list)
@@ -236,17 +305,30 @@ def extract_wordnet(db_path, lang, meta, outdir, ili_map=None):
     synset_max_freq = dd(int)  # track max freq per synset for synset ordering
     synset_members = dd(list)  # synset -> [sense_id, ...] in freq order
     entry_num = 0
-    for wid in sorted(senses.keys()):
-        if wid not in words:
+
+    if canonical is not None:
+        # Use merged entries (Chinese)
+        entry_source = canonical
+        sense_source = merged_senses
+    else:
+        # Original per-wordid entries
+        entry_source = {wid: (lemma, pos, []) for wid, (lemma, pos) in words.items()}
+        sense_source = senses
+
+    for wid in sorted(entry_source.keys()):
+        if wid not in entry_source:
             continue
-        lemma, pos = words[wid]
+        lemma, pos, variants = entry_source[wid]
         pos = norm_pos(pos)
         entry_id = f"w{entry_num}"
         entry_num += 1
         entry = editor.create_entry(lemma, pos, entry_id=entry_id)
+        if variants:
+            seg_tag = [{"text": "word", "category": "segmentation"}]
+            entry["forms"] = [make_form(v, tags=seg_tag) for v in variants]
         # Build sense list with freq, then sort by freq descending
         sense_list = []
-        for synset, freq, confidence in senses[wid]:
+        for synset, freq, confidence in sense_source.get(wid, set()):
             ss_id = f"{wn_id}-{synset}"
             if editor.get_synset(ss_id) is None:
                 continue

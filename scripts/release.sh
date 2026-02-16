@@ -117,6 +117,13 @@ echo "--- Building wordnets ---"
     --output-file "$LOGDIR/validate-wn.txt"
 echo "  Validation log: $LOGDIR/validate-wn.txt"
 
+echo "--- Adding pinyin to Chinese wordnet ---"
+CEDICT="${BUILDDIR}/cedict_1_0_ts_utf-8_mdbg.txt.gz"
+if [[ ! -f "$CEDICT" ]]; then
+    curl -sL "https://www.mdbg.net/chinese/export/cedict/cedict_1_0_ts_utf-8_mdbg.txt.gz" -o "$CEDICT"
+fi
+"$PYTHON" "$SCRIPT_DIR/addpinyin.py" "$CEDICT" "${BUILDDIR}/wn-ntumc-cmn.xml"
+
 if [[ "$BUILD_ONLY" -eq 1 ]]; then
     echo "=== Build complete (--build-only). Inspect $BUILDDIR/ before releasing. ==="
     exit 0
