@@ -74,27 +74,28 @@ else
     done
 fi
 
-# ── 2. Process: extract concept frequencies ──
+# ── 2. Process ──
 echo "--- Extracting concept frequencies ---"
-TODAY=$(date +%Y-%m-%d)
 for db in "${CORPUS_DBS[@]}"; do
-    lang="${db%.db}"
     src="${BUILDDIR}/${db}"
-    tsv="${BUILDDIR}/wn-freq-${lang}-ntumc.tsv"
     if [[ ! -f "$src" ]]; then
         echo "  WARNING: $src not found, skipping"
         continue
     fi
-    echo "  $lang -> $(basename "$tsv")"
-    {
-        printf "# Frequency for %s from ntu-mc (%s)\n" "$lang" "$TODAY"
-        printf "synset\tlemma\tfreq\n"
-        sqlite3 -separator '	' "$src" \
-            "SELECT tag, clemma, COUNT(clemma)
-             FROM concept
-             WHERE LENGTH(tag) = 10
-             GROUP BY tag, clemma;"
-    } > "$tsv"
+    tsv=$("$SCRIPT_DIR/getfreq.sh" "$src")
+    echo "  $(basename "$tsv")"
+done
+
+echo "--- Extracting sentiment ---"
+for db in "${CORPUS_DBS[@]}"; do
+    src="${BUILDDIR}/${db}"
+    if [[ ! -f "$src" ]]; then
+        echo "  WARNING: $src not found, skipping"
+        continue
+    fi
+    while IFS= read -r tsv; do
+        echo "  $(basename "$tsv")"
+    done < <("$SCRIPT_DIR/getsenti.sh" "$src")
 done
 
 # ── 3. Compress ──
@@ -126,12 +127,8 @@ for db in "${ALL_DBS[@]}"; do
         echo "  WARNING: $asset not found, will not be included"
     fi
 done
-for db in "${CORPUS_DBS[@]}"; do
-    lang="${db%.db}"
-    tsv="${BUILDDIR}/wn-freq-${lang}-ntumc.tsv"
-    if [[ -f "$tsv" ]]; then
-        ASSETS+=("$tsv")
-    fi
+for tsv in "$BUILDDIR"/wn-freq-*-ntumc.tsv "$BUILDDIR"/wn-senti-*-ntumc.tsv; do
+    [[ -f "$tsv" ]] && ASSETS+=("$tsv")
 done
 
 GH_ARGS=(gh release create "$VERSION" --generate-notes)
