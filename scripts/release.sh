@@ -114,6 +114,7 @@ echo "--- Building wordnets ---"
 "$PYTHON" "$SCRIPT_DIR/getwn.py" \
     "${BUILDDIR}/wn-ntumc.db" "$BUILDDIR" \
     --ili "$ILI_FILE" \
+    --version "$VERSION" \
     --output-file "$LOGDIR/validate-wn.txt"
 echo "  Validation log: $LOGDIR/validate-wn.txt"
 

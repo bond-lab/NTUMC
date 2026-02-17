@@ -7,6 +7,7 @@ Produces one WN-LMF XML file per language: OUTDIR/wn-ntumc-LANG.xml
 """
 
 import argparse
+import datetime
 import sqlite3
 import sys
 import urllib.request
@@ -17,6 +18,13 @@ from wn import lmf
 from wn.constants import REVERSE_RELATIONS
 from wn.validate import validate
 from wn_edit import WordnetEditor, make_count, make_form, make_sense
+
+URL = "https://bond-lab.github.io/NTUMC/"
+CITATION = (
+    "Developing parallel sense-tagged corpora with wordnets."
+    " In Proceedings of the 7th Linguistic Annotation Workshop"
+    " and Interoperability with Discourse (LAW 2013)"
+)
 
 # NTU-MC languages and their wordnet metadata
 LANGUAGES = {
@@ -212,7 +220,7 @@ def merge_wordids(words, senses, lang):
     return canonical, merged_senses
 
 
-def extract_wordnet(db_path, lang, meta, outdir, ili_map=None):
+def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None):
     """Extract a single language wordnet from the DB and write XML."""
     freqs = load_freqs(outdir, lang)
     con = sqlite3.connect(db_path)
@@ -278,6 +286,8 @@ def extract_wordnet(db_path, lang, meta, outdir, ili_map=None):
 
     # Build wordnet with wn_edit
     wn_id = meta["id"]
+    if version is None:
+        version = datetime.date.today().isoformat()
     editor = WordnetEditor(
         create_new=True,
         lexicon_id=wn_id,
@@ -285,8 +295,11 @@ def extract_wordnet(db_path, lang, meta, outdir, ili_map=None):
         language=meta["lg"],
         email=meta["email"],
         license=meta["license"],
-        version="1.0",
+        version=version,
     )
+    lex = editor._resource["lexicons"][0]
+    lex["url"] = URL
+    lex["citation"] = CITATION
 
     # Add synsets
     if ili_map is None:
@@ -426,6 +439,12 @@ def main():
         default=None,
         help="Path or URL for ILI-to-PWN30 mapping (ili-map-pwn30.tab)",
     )
+    parser.add_argument(
+        "--version",
+        type=str,
+        default=None,
+        help="Release version (default: today's date)",
+    )
     args = parser.parse_args()
 
     outdir = Path(args.outdir)
@@ -445,7 +464,9 @@ def main():
         if lang not in LANGUAGES:
             print(f"  WARNING: unknown language {lang}, skipping", file=sys.stderr)
             continue
-        outfile, stats = extract_wordnet(args.db, lang, LANGUAGES[lang], outdir, ili_map)
+        outfile, stats = extract_wordnet(
+            args.db, lang, LANGUAGES[lang], outdir, ili_map, version=args.version
+        )
         summary = (
             f"  {lang}: {stats['synsets']} synsets, "
             f"{stats['entries']} entries, "
