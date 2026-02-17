@@ -14,6 +14,7 @@ from collections import defaultdict as dd
 from pathlib import Path
 
 from wn import lmf
+from wn.constants import REVERSE_RELATIONS
 from wn.validate import validate
 from wn_edit import WordnetEditor, make_count, make_form, make_sense
 
@@ -257,6 +258,21 @@ def extract_wordnet(db_path, lang, meta, outdir, ili_map=None):
                 synlinks[s1].append((RELATION_MAP[link], s2))
             synsets_used.add(s1)
             synsets_used.add(s2)
+
+    # Auto-generate WN-LMF reverse relations (e.g. entails→is_entailed_by,
+    # causes→is_caused_by) so the exported XML passes validation even when
+    # the DB only stores one direction.
+    existing = {(s1, rel, s2) for s1, rels in synlinks.items() for rel, s2 in rels}
+    added = 0
+    for s1, rels in list(synlinks.items()):
+        for rel_type, s2 in rels:
+            rev = REVERSE_RELATIONS.get(rel_type)
+            if rev and (s2, rev, s1) not in existing:
+                synlinks[s2].append((rev, s1))
+                existing.add((s2, rev, s1))
+                added += 1
+    if added:
+        print(f"  {lang}: auto-added {added} reverse synlinks", file=sys.stderr)
 
     con.close()
 
