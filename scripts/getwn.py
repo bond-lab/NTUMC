@@ -14,6 +14,7 @@ import urllib.request
 from collections import defaultdict as dd
 from pathlib import Path
 
+import wn
 from wn import lmf
 from wn.constants import REVERSE_RELATIONS
 from wn.validate import validate
@@ -154,6 +155,37 @@ def load_ili_map(source):
     return ili
 
 
+def load_base_wordnet(specifier):
+    """Load a base wordnet and return its synset IDs and relations.
+
+    Args:
+        specifier: A wn lexicon specifier like 'omw-en:2.0'.
+                   The wordnet must already be downloaded (via ``wn.download``).
+
+    Returns:
+        (base_synsets, base_relations, base_id, base_version) where
+        base_synsets is a set of bare synset IDs (e.g. '00001740-n'),
+        base_relations is a set of (bare_source, rel_type, bare_target),
+        and base_id/base_version identify the lexicon for <Requires>.
+    """
+    base = wn.Wordnet(specifier)
+    base_lex = base.lexicons()[0]
+    prefix = base_lex.id + "-"
+
+    base_synsets = set()
+    base_relations = set()
+
+    for ss in base.synsets():
+        bare = ss.id[len(prefix):] if ss.id.startswith(prefix) else ss.id
+        base_synsets.add(bare)
+        for rel_type, targets in ss.relations().items():
+            for t in targets:
+                tbare = t.id[len(prefix):] if t.id.startswith(prefix) else t.id
+                base_relations.add((bare, rel_type, tbare))
+
+    return base_synsets, base_relations, base_lex.id, base_lex.version
+
+
 def merge_wordids(words, senses, lang):
     """Merge wordids that differ only by whitespace and share identical senses.
 
@@ -220,8 +252,16 @@ def merge_wordids(words, senses, lang):
     return canonical, merged_senses
 
 
-def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None):
-    """Extract a single language wordnet from the DB and write XML."""
+def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None, base=None):
+    """Extract a single language wordnet from the DB and write XML.
+
+    Args:
+        base: Optional tuple (base_synsets, base_relations, base_id, base_version)
+              from load_base_wordnet().  When provided, relations already in the
+              base are omitted and synsets with no senses/definitions that exist
+              in the base are dropped, producing a smaller XML that declares
+              ``<Requires>`` on the base wordnet.
+    """
     freqs = load_freqs(outdir, lang)
     con = sqlite3.connect(db_path)
     c = con.cursor()
@@ -284,6 +324,47 @@ def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None):
 
     con.close()
 
+    # Filter against base wordnet (remove shared relations & empty synsets)
+    if base is not None:
+        base_synsets, base_relations, base_id, base_version = base
+        # Synsets with actual content (senses or definitions)
+        content_synsets = set()
+        for wid, sense_set in senses.items():
+            for synset, _freq, _conf in sense_set:
+                content_synsets.add(synset)
+        content_synsets.update(defs.keys())
+
+        # Remove relations that are identical to the base (and their
+        # auto-generated reverses, since the base already implies them)
+        base_rel_set = set()
+        for s1, rel, s2 in base_relations:
+            base_rel_set.add((s1, rel, s2))
+            rev = REVERSE_RELATIONS.get(rel)
+            if rev:
+                base_rel_set.add((s2, rev, s1))
+
+        removed_rels = 0
+        kept_rel_synsets = set()  # synsets referenced by kept relations
+        new_synlinks = dd(list)
+        for s1, rels in synlinks.items():
+            for rel_type, s2 in rels:
+                if (s1, rel_type, s2) in base_rel_set:
+                    removed_rels += 1
+                else:
+                    new_synlinks[s1].append((rel_type, s2))
+                    kept_rel_synsets.add(s1)
+                    kept_rel_synsets.add(s2)
+        synlinks = new_synlinks
+
+        # Keep synsets that have content OR are referenced by kept relations
+        needed = content_synsets | kept_rel_synsets
+        removed_ss = len(synsets_used) - len(needed & synsets_used)
+        synsets_used = synsets_used & needed
+
+        print(f"  {lang}: base {base_id}:{base_version} — "
+              f"removed {removed_rels} relations, {removed_ss} empty synsets",
+              file=sys.stderr)
+
     # Build wordnet with wn_edit
     wn_id = meta["id"]
     if version is None:
@@ -300,6 +381,8 @@ def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None):
     lex = editor._resource["lexicons"][0]
     lex["url"] = URL
     lex["citation"] = CITATION
+    if base is not None:
+        lex["requires"] = [{"id": base_id, "version": base_version}]
 
     # Add synsets
     if ili_map is None:
@@ -445,6 +528,14 @@ def main():
         default=None,
         help="Release version (default: today's date)",
     )
+    parser.add_argument(
+        "--base",
+        type=str,
+        default=None,
+        help="Base wordnet specifier (e.g. 'omw-en:2.0'). Must be pre-downloaded "
+             "via 'python -m wn download omw-en:2.0'. Shared relations and empty "
+             "synsets are omitted; a <Requires> declaration is added.",
+    )
     args = parser.parse_args()
 
     outdir = Path(args.outdir)
@@ -458,6 +549,13 @@ def main():
         ili_map = load_ili_map(args.ili)
         print(f"  {len(ili_map)} ILI mappings loaded")
 
+    base = None
+    if args.base:
+        print(f"  Loading base wordnet {args.base}")
+        base = load_base_wordnet(args.base)
+        print(f"  Base: {base[2]}:{base[3]} — "
+              f"{len(base[0])} synsets, {len(base[1])} relations")
+
     report = open(args.output_file, "w") if args.output_file else None
 
     for lang in langs:
@@ -465,7 +563,8 @@ def main():
             print(f"  WARNING: unknown language {lang}, skipping", file=sys.stderr)
             continue
         outfile, stats = extract_wordnet(
-            args.db, lang, LANGUAGES[lang], outdir, ili_map, version=args.version
+            args.db, lang, LANGUAGES[lang], outdir, ili_map,
+            version=args.version, base=base,
         )
         summary = (
             f"  {lang}: {stats['synsets']} synsets, "

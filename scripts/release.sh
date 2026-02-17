@@ -110,11 +110,16 @@ if [[ ! -f "$ILI_FILE" ]]; then
     curl -sL "$ILI_URL" -o "$ILI_FILE"
 fi
 
+echo "--- Ensuring base wordnet (omw-en:2.0) is available ---"
+"$PYTHON" -c "import wn; wn.download('omw-en:2.0')" 2>/dev/null \
+    || "$PYTHON" -m wn download omw-en:2.0
+
 echo "--- Building wordnets ---"
 "$PYTHON" "$SCRIPT_DIR/getwn.py" \
     "${BUILDDIR}/wn-ntumc.db" "$BUILDDIR" \
     --ili "$ILI_FILE" \
     --version "$VERSION" \
+    --base "omw-en:2.0" \
     --output-file "$LOGDIR/validate-wn.txt"
 echo "  Validation log: $LOGDIR/validate-wn.txt"
 
