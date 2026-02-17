@@ -15,6 +15,7 @@ The tab data is from https://github.com/bond-lab/Bahasa-Wordnet
 """
 
 import argparse
+import datetime
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -24,6 +25,29 @@ from wn import lmf
 # Confidence map for status codes in wn-msa-all.tab
 STATUS_CONF = {"Y": 1.0, "O": 0.9, "M": 0.6, "L": 0.4, "X": 0}
 MIN_CONFIDENCE = 0.85
+
+CITATION = (
+    "Nurril Hirfana Mohamed Noor, Suerya Sapuan and Francis Bond. 2011."
+    " Creating the open Wordnet Bahasa."
+    " In Proceedings of the 25th Pacific Asia Conference on Language,"
+    " Information and Computation (PACLIC 25). pp 258\u2013267. Singapore."
+)
+
+# Per-language output metadata (keyed by WN-LMF language code)
+LANG_META = {
+    "id": {
+        "id": "wnb-id",
+        "label": "Wordnet Bahasa (Indonesian)",
+        "license": "https://opensource.org/licenses/MIT/",
+        "filename": "wn-bahasa-id.xml",
+    },
+    "zsm": {
+        "id": "wnb-zsm",
+        "label": "Wordnet Bahasa (Malay)",
+        "license": "https://opensource.org/licenses/MIT/",
+        "filename": "wn-bahasa-zsm.xml",
+    },
+}
 
 
 def load_tab_senses(tab_dir, lang):
@@ -91,7 +115,9 @@ def main():
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("xml", help="WN-LMF XML file from getwn.py")
     parser.add_argument("tab_dir", help="Directory with wn-msa-all.tab and wn-ind-def.tab")
-    parser.add_argument("-o", "--output", help="Output XML file (default: overwrite input)")
+    parser.add_argument("-o", "--output", help="Output XML file (default: auto from language)")
+    parser.add_argument("--version", default=None,
+                        help="Release version (default: today's date)")
     args = parser.parse_args()
 
     # Load XML
@@ -99,11 +125,42 @@ def main():
     data = lmf.load(args.xml)
     lex = data["lexicons"][0]
     lang = lex["language"]
-    wn_id = lex["id"]
-    prefix = wn_id  # e.g. "ntumc-id"
+    old_prefix = lex["id"]  # e.g. "ntumc-id"
 
-    print(f"  Lexicon: {wn_id} ({lang})")
+    if lang not in LANG_META:
+        print(f"  ERROR: unsupported language {lang}", file=sys.stderr)
+        sys.exit(1)
+    meta = LANG_META[lang]
+    new_prefix = meta["id"]  # e.g. "wnb-id"
+
+    print(f"  Lexicon: {old_prefix} ({lang}) -> {new_prefix}")
     print(f"  Input: {len(lex['entries'])} entries, {len(lex['synsets'])} synsets")
+
+    # Reprefix all IDs from old_prefix to new_prefix
+    def reprefix(s):
+        if s and s.startswith(old_prefix + "-"):
+            return new_prefix + s[len(old_prefix):]
+        return s
+
+    for ss in lex["synsets"]:
+        ss["id"] = reprefix(ss["id"])
+        for rel in ss.get("relations", []):
+            rel["target"] = reprefix(rel["target"])
+        if "members" in ss:
+            ss["members"] = [reprefix(m) for m in ss["members"]]
+    for entry in lex.get("entries", []):
+        for sense in entry.get("senses", []):
+            sense["id"] = reprefix(sense["id"])
+            sense["synset"] = reprefix(sense["synset"])
+
+    # Update lexicon metadata
+    lex["id"] = new_prefix
+    lex["label"] = meta["label"]
+    lex["license"] = meta["license"]
+    lex["citation"] = CITATION
+    lex["version"] = args.version or datetime.date.today().isoformat()
+
+    prefix = new_prefix  # use new prefix for the rest of the script
 
     # Load tab data
     tab_conf = load_tab_senses(args.tab_dir, lang)
@@ -192,7 +249,10 @@ def main():
               f"({removed_synsets} empty removed)")
 
     # Export
-    outpath = args.output or args.xml
+    if args.output:
+        outpath = args.output
+    else:
+        outpath = str(Path(args.xml).parent / meta["filename"])
     lmf.dump(data, outpath)
     print(f"  Written to {outpath}")
     print(f"  Final: {len(lex['entries'])} entries, "
