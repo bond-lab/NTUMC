@@ -128,7 +128,9 @@ CEDICT="${BUILDDIR}/cedict_1_0_ts_utf-8_mdbg.txt.gz"
 if [[ ! -f "$CEDICT" ]]; then
     curl -sL "https://www.mdbg.net/chinese/export/cedict/cedict_1_0_ts_utf-8_mdbg.txt.gz" -o "$CEDICT"
 fi
-"$PYTHON" "$SCRIPT_DIR/addpinyin.py" "$CEDICT" "${BUILDDIR}/wn-ntumc-cmn.xml"
+"$PYTHON" "$SCRIPT_DIR/addpinyin.py" "$CEDICT" "${BUILDDIR}/wn-ntumc-cmn.xml" \
+    --db "${BUILDDIR}/wn-ntumc.db" \
+    --ambiguous "$LOGDIR/ambiguous-pinyin.tsv"
 
 if [[ "$BUILD_ONLY" -eq 1 ]]; then
     echo "=== Build complete (--build-only). Inspect $BUILDDIR/ before releasing. ==="
