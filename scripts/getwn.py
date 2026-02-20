@@ -344,7 +344,7 @@ def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None, bas
                 base_rel_set.add((s2, rev, s1))
 
         removed_rels = 0
-        kept_rel_synsets = set()  # synsets referenced by kept relations
+        has_hyponym = set()  # non-content synsets that serve as hypernyms
         new_synlinks = dd(list)
         for s1, rels in synlinks.items():
             for rel_type, s2 in rels:
@@ -352,12 +352,25 @@ def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None, bas
                     removed_rels += 1
                 else:
                     new_synlinks[s1].append((rel_type, s2))
-                    kept_rel_synsets.add(s1)
-                    kept_rel_synsets.add(s2)
+                    # A non-content synset is needed if a content synset
+                    # points to it via hype (i.e. it has hyponyms here)
+                    if rel_type == "hype" and s1 in content_synsets:
+                        has_hyponym.add(s2)
         synlinks = new_synlinks
 
-        # Keep synsets that have content OR are referenced by kept relations
-        needed = content_synsets | kept_rel_synsets
+        # Keep synsets that have content OR are hypernyms of content synsets
+        needed = content_synsets | has_hyponym
+
+        # Drop relations that reference synsets we're removing
+        pruned_synlinks = dd(list)
+        for s1, rels in synlinks.items():
+            if s1 not in needed:
+                continue
+            for rel_type, s2 in rels:
+                if s2 in needed:
+                    pruned_synlinks[s1].append((rel_type, s2))
+        synlinks = pruned_synlinks
+
         removed_ss = len(synsets_used) - len(needed & synsets_used)
         synsets_used = synsets_used & needed
 
