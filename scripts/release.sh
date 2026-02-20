@@ -137,7 +137,11 @@ if [[ "$BUILD_ONLY" -eq 1 ]]; then
     exit 0
 fi
 
-# ── 3. Compress ──
+# ── 3. Drop log tables ──
+echo "--- Dropping log tables from release copies ---"
+"$SCRIPT_DIR/droplogs.sh" "${ALL_DBS[@]/#/${BUILDDIR}/}"
+
+# ── 4. Compress ──
 echo "--- Compressing databases ---"
 for db in "${ALL_DBS[@]}"; do
     src="${BUILDDIR}/${db}"
@@ -154,7 +158,7 @@ for db in "${ALL_DBS[@]}"; do
     xz -k -9 -f "$src"
 done
 
-# ── 4. Create GitHub release ──
+# ── 5. Create GitHub release ──
 echo "--- Creating GitHub release $VERSION ---"
 
 ASSETS=()
