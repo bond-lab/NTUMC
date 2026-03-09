@@ -10,7 +10,9 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardi
 from ntumc.db.wordnet_db import WordNetManager
 from ntumc.db.corpus import Corpus
 
+import json
 import re
+import ollama
 from ollama import chat, ChatResponse, generate
 
 # Initialize logger
@@ -26,6 +28,7 @@ def parse_arguments():
     parser.add_argument("--wn-only", action="store_true", help="Use only WordNet meanings, exclude additional tags")
     parser.add_argument("--verbose", action="store_true", help="Enable verbose output for detailed logging")
     parser.add_argument("--context", type=int, default=2, help="Number of sentences before and after to include in context (default: 2)")
+    parser.add_argument("--fallback", default="eng", help="Fallback language for definitions/examples when not found in corpus language (default: eng)")
     return parser.parse_args()
 
 def generate_and_extract(prompt, model='llama3'):
@@ -51,23 +54,43 @@ def initialize_databases(db_path, wn_db_path):
     wn_manager.connect()
     return corpus, wn_manager
 
-def process_concept(concept, context, wn_manager, args):
+def process_concept(concept, context, wn_manager, args, lang='eng', fallback='eng'):
     lemma = concept['clemma']
     meanings = {}
-    senses = wn_manager.Senses(lang='eng', lemma=lemma)
+    senses = wn_manager.Senses(lang=lang, lemma=lemma)
 
     synsets = [synset for _, synset in senses]
-    lemmas_dict = wn_manager.Lemmas(synsets, 'eng')
+    lemmas_dict = wn_manager.Lemmas(synsets, lang)
 
-    definitions_dict = wn_manager.get_definitions(synsets, 'eng')
-    examples_dict = wn_manager.get_examples(synsets, 'eng')
+    definitions_dict = wn_manager.get_definitions(synsets, lang)
+    examples_dict = wn_manager.get_examples(synsets, lang)
 
-    for synset, definitions in definitions_dict.items():
-        senses = ', '.join(lemmas_dict.get(synset, []))
-        for definition in definitions:
+    use_fallback = fallback != lang
+    fallback_defs, fallback_examples = {}, {}
+    if use_fallback:
+        missing_defs = [s for s in synsets if s not in definitions_dict]
+        if missing_defs:
+            fallback_defs = wn_manager.get_definitions(missing_defs, fallback)
+        missing_ex = [s for s in synsets if s not in examples_dict]
+        if missing_ex:
+            fallback_examples = wn_manager.get_examples(missing_ex, fallback)
+
+    for synset in synsets:
+        senses_str = ', '.join(lemmas_dict.get(synset, []))
+        defs = definitions_dict.get(synset)
+        is_fb_def = defs is None
+        defs = defs or fallback_defs.get(synset, [])
+        for definition in defs:
             examples = examples_dict.get(synset, [])
-            example_text = f" ({'; '.join(examples)})" if examples else ""
-            meanings[synset] = f"[{senses}] {definition}{example_text}"
+            is_fb_ex = not examples
+            if is_fb_ex:
+                examples = fallback_examples.get(synset, [])
+            def_str = f"{definition} [{fallback}]" if is_fb_def else definition
+            ex_str = (
+                f" ({'; '.join(examples)} [{fallback}])" if (examples and is_fb_ex)
+                else (f" ({'; '.join(examples)})" if examples else "")
+            )
+            meanings[synset] = f"[{senses_str}] {def_str}{ex_str}"
 
     if not args.wn_only:
         meanings.update({
@@ -131,15 +154,43 @@ def construct_context(index: int, sentences: List[Dict[str, Any]], context: int)
     # Join and return the context
     return ' '.join(context_sentences)
 
+def extract_key(response: str, meanings: dict) -> Optional[str]:
+    """Extract a valid meanings key from a model response string."""
+    cleaned = response.strip().strip("'\"")
+    if cleaned in meanings:
+        return cleaned
+    synset_match = re.search(r'\b(\d{8}-[nvra])\b', response)
+    if synset_match and synset_match.group(1) in meanings:
+        return synset_match.group(1)
+    for key in meanings:
+        if re.search(rf"'?{re.escape(key)}'?", response):
+            return key
+    return None
+
+
 def disambiguate(context, lemma, meanings, model_name):
     prompt = construct_prompt(context, lemma, meanings)
-    thinking, cleaned_response = generate_and_extract(prompt, model=model_name)
     logger.debug(f"Prompt: {prompt}")
+
+    schema = {
+        "type": "object",
+        "properties": {"key": {"type": "string", "enum": list(meanings.keys())}},
+        "required": ["key"],
+    }
+    try:
+        result = generate(model=model_name, prompt=prompt, format=schema)
+        key = json.loads(result['response']).get('key', '').strip()
+        if key in meanings:
+            logger.info(f"Model response (structured): {key}")
+            return key, meanings[key]
+    except Exception as e:
+        logger.debug(f"Structured output failed ({e}), falling back to text parsing")
+
+    thinking, cleaned_response = generate_and_extract(prompt, model=model_name)
     if thinking is not None:
         logger.debug(f"Model thinking: {thinking}")
     logger.info(f"Model response: {cleaned_response}")
-
-    selected_key = cleaned_response.strip()
+    selected_key = extract_key(cleaned_response, meanings)
     if selected_key in meanings:
         return selected_key, meanings[selected_key]
     return None, None
@@ -166,12 +217,30 @@ Return just the number."""
         score = None
     return score
 
+def ensure_model(model_name: str) -> None:
+    """Ensure the model is available locally, pulling it if not."""
+    available = {m.model for m in ollama.list().models}
+    if model_name not in available:
+        logger.info(f"Model '{model_name}' not found locally, pulling...")
+        for progress in ollama.pull(model_name, stream=True):
+            if progress.status:
+                if progress.total:
+                    logger.info(f"Pull: {progress.status} {progress.completed or 0}/{progress.total}")
+                else:
+                    logger.info(f"Pull: {progress.status}")
+        logger.info(f"Model '{model_name}' ready.")
+
+
 def main():
     args = parse_arguments()
     logging.basicConfig(level=logging.DEBUG if args.verbose else logging.INFO)
     logging.getLogger("httpx").setLevel(logging.WARNING)
 
+    ensure_model(args.model)
+
     corpus, wn_manager = initialize_databases(args.database, args.wordnet_db)
+    lang = corpus.get_lang() or 'eng'
+    logger.info(f"Corpus language: {lang}")
     margin = args.context
     
     from_sid, to_sid = map(int, args.range.split(':'))
@@ -184,7 +253,7 @@ def main():
             continue 
         context = construct_context(i, sentences, margin)
         for concept in sentence['concepts']:
-            lemma, meanings = process_concept(concept, context, wn_manager, args)
+            lemma, meanings = process_concept(concept, context, wn_manager, args, lang, args.fallback)
             selected_key, selected_value = disambiguate(context, lemma, meanings,
                                                         args.model)
             sentiment = None
