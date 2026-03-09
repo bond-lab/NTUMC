@@ -301,6 +301,12 @@ class Corpus:
              db.conn.commit()
              print("Updated", score, usr, sid, cid)
       
+    def get_lang(self) -> Optional[str]:
+        """Return the corpus language code from the meta table."""
+        with DatabaseManager(self.db_path) as db:
+            row = db.fetch_one("SELECT lang FROM meta LIMIT 1")
+            return row["lang"] if row else None
+
     def commit_and_close(self) -> None:
         """
         Commit any pending transactions and close the database connection.
