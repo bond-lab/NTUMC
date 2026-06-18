@@ -1,0 +1,3 @@
+[per-file-ignores]
+# HTML templates inside string constants exceed 88 chars
+"scripts/make_display.py" = ["E501"]

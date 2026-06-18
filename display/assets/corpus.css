@@ -1,0 +1,102 @@
+/* Serif font for comfortable reading of literary texts */
+body {
+  font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.card {
+  font-family: inherit;
+}
+
+/* ---- Word spans ---- */
+
+.word {
+  cursor: context-menu;
+  pointer-events: auto;
+}
+
+.highlight {
+  background-color: #b8dff5;
+  border-radius: 2px;
+}
+
+.mwe-highlight {
+  background-color: #ffe48a;
+  border-radius: 2px;
+  outline: 1px solid #e6c100;
+}
+
+.pinned {
+  border-bottom: 2px solid #0d6efd;
+}
+
+/* ---- Sentence structure ---- */
+
+.sent {
+  display: inline;
+}
+
+/* ---- Tooltip card ---- */
+
+#tooltip {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  min-width: 200px;
+}
+
+.lemma {
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* POS badges */
+.badge.pos-n     { background-color: #2563eb; }  /* noun – blue */
+.badge.pos-v     { background-color: #16a34a; }  /* verb – green */
+.badge.pos-j     { background-color: #d97706; }  /* adj  – amber */
+.badge.pos-r     { background-color: #7c3aed; }  /* adv  – purple */
+.badge.pos-other { background-color: #6b7280; }  /* other – grey */
+
+.concept-block {
+  border-left: 3px solid #dee2e6;
+  padding-left: 0.5rem;
+  margin-top: 0.3rem;
+}
+
+.concept-lemma {
+  font-weight: 600;
+  color: #1a56db;
+}
+
+.synset-def {
+  color: #374151;
+}
+
+.synset-syns {
+  color: #6b7280;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* ---- Settings gear icon ---- */
+#settingsIcon {
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: #6b7280;
+}
+
+#settingsIcon:hover {
+  color: #374151;
+}
+
+.tooltip-icon {
+  cursor: pointer;
+  font-size: 1rem;
+  color: #9ca3af;
+  margin-left: 0.4rem;
+}
+
+.tooltip-icon:hover {
+  color: #374151;
+}
