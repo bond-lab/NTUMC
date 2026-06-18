@@ -5,40 +5,29 @@ body {
   line-height: 1.8;
 }
 
-.card {
-  font-family: inherit;
-}
+.card { font-family: inherit; }
 
-/* ---- Word spans ---- */
+/* ---- Word elements (<w> custom tag) ---- */
 
-.word {
+w {
   cursor: context-menu;
   pointer-events: auto;
-}
-
-.highlight {
-  background-color: #b8dff5;
-  border-radius: 2px;
-}
-
-.mwe-highlight {
-  background-color: #ffe48a;
-  border-radius: 2px;
-  outline: 1px solid #e6c100;
-}
-
-.pinned {
-  border-bottom: 2px solid #0d6efd;
-}
-
-/* ---- Sentence structure ---- */
-
-.sent {
+  /* Spacing: add a space after each word by default */
   display: inline;
 }
 
-/* ---- Tooltip card ---- */
+/* Space after each word; suppressed when data-ns (no-space) attribute present */
+w::after          { content: ' '; }
+w[data-ns]::after { content: ''; }
 
+w.highlight     { background-color: #b8dff5; border-radius: 2px; }
+w.mwe-highlight { background-color: #ffe48a; border-radius: 2px; outline: 1px solid #e6c100; }
+w.pinned        { border-bottom: 2px solid #0d6efd; }
+
+/* ---- Sentence containers ---- */
+.sent { display: inline; }
+
+/* ---- Tooltip ---- */
 #tooltip {
   font-family: system-ui, -apple-system, sans-serif;
   font-size: 0.9rem;
@@ -46,57 +35,22 @@ body {
   min-width: 200px;
 }
 
-.lemma {
-  font-weight: 600;
-  font-style: italic;
-}
+.lemma { font-weight: 600; font-style: italic; }
 
 /* POS badges */
-.badge.pos-n     { background-color: #2563eb; }  /* noun – blue */
-.badge.pos-v     { background-color: #16a34a; }  /* verb – green */
-.badge.pos-j     { background-color: #d97706; }  /* adj  – amber */
-.badge.pos-r     { background-color: #7c3aed; }  /* adv  – purple */
-.badge.pos-other { background-color: #6b7280; }  /* other – grey */
+.badge.pos-n     { background-color: #2563eb; }
+.badge.pos-v     { background-color: #16a34a; }
+.badge.pos-j     { background-color: #d97706; }
+.badge.pos-r     { background-color: #7c3aed; }
+.badge.pos-other { background-color: #6b7280; }
 
-.concept-block {
-  border-left: 3px solid #dee2e6;
-  padding-left: 0.5rem;
-  margin-top: 0.3rem;
-}
+.concept-block  { border-left: 3px solid #dee2e6; padding-left: 0.5rem; margin-top: 0.3rem; }
+.concept-lemma  { font-weight: 600; color: #1a56db; }
+.synset-def     { color: #374151; }
+.synset-syns    { color: #6b7280; font-size: 0.85rem; font-style: italic; }
 
-.concept-lemma {
-  font-weight: 600;
-  color: #1a56db;
-}
-
-.synset-def {
-  color: #374151;
-}
-
-.synset-syns {
-  color: #6b7280;
-  font-size: 0.85rem;
-  font-style: italic;
-}
-
-/* ---- Settings gear icon ---- */
-#settingsIcon {
-  cursor: pointer;
-  font-size: 1.4rem;
-  color: #6b7280;
-}
-
-#settingsIcon:hover {
-  color: #374151;
-}
-
-.tooltip-icon {
-  cursor: pointer;
-  font-size: 1rem;
-  color: #9ca3af;
-  margin-left: 0.4rem;
-}
-
-.tooltip-icon:hover {
-  color: #374151;
-}
+/* ---- Settings & icon controls ---- */
+#settingsIcon           { cursor: pointer; font-size: 1.4rem; color: #6b7280; }
+#settingsIcon:hover     { color: #374151; }
+.tooltip-icon           { cursor: pointer; font-size: 1rem; color: #9ca3af; margin-left: 0.4rem; }
+.tooltip-icon:hover     { color: #374151; }

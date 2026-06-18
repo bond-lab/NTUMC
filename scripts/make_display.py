@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """Generate static HTML corpus display pages for NTUMC documents.
 
-Each document produces three files in OUTDIR/{lang}/:
-  {doc}-view.html      — readable HTML page
-  {doc}-concepts.json  — word → concept mappings
-  {doc}-synsets.json   — synset definitions and synonyms
+Each document produces one self-contained HTML file in OUTDIR/{lang}/.
+Data (concepts, synset definitions, synonyms) is embedded inline so the
+page works from file:// without a local server.
 
 Usage:
     .venv/bin/python scripts/make_display.py --lang eng --doc spec --outdir display/
     .venv/bin/python scripts/make_display.py --lang eng --docid 440 --outdir display/
     .venv/bin/python scripts/make_display.py --lang eng --all --outdir display/
+    .venv/bin/python scripts/make_display.py --lang eng --all --tagged --outdir display/
 """
 
 import argparse
@@ -39,12 +39,13 @@ NAMED_ENTITY_DEFS: dict[str, str] = {
     "oth": "Other Name",
 }
 SKIP_TAGS: frozenset[str] = frozenset({"x", "w", "e"})
-VALID_STYPES: frozenset[str] = frozenset(
-    {"h1", "h2", "h3", "h4", "h5", "h6", "h7", "p"}
-)
 
 # ---------------------------------------------------------------------------
-# Jinja2 HTML template
+# HTML template
+# Word elements use the custom <w> tag (saves ~220KB vs <span class="word">).
+# Compact attribute names: data-p=POS, data-l=lemma, data-c=concept-ids,
+#   data-ns=no-space-after (boolean, presence-only).
+# JSON keys: concepts {l=lemma, s=synset, w=wids}, synsets {d=def, s=syns, p=pos}
 # ---------------------------------------------------------------------------
 
 TEMPLATE = """\
@@ -60,30 +61,27 @@ TEMPLATE = """\
 </head>
 <body class="bg-light">
 
-<!-- Settings Modal -->
 <div class="modal fade" id="settingsModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Display Settings</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Display Settings</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-check form-switch mb-2">
+        <input class="form-check-input" type="checkbox" id="showWordIdToggle">
+        <label class="form-check-label" for="showWordIdToggle">Show word IDs</label>
       </div>
-      <div class="modal-body">
-        <div class="form-check form-switch mb-2">
-          <input class="form-check-input" type="checkbox" id="showWordIdToggle">
-          <label class="form-check-label" for="showWordIdToggle">Show word IDs</label>
-        </div>
-        <div class="form-check form-switch mb-2">
-          <input class="form-check-input" type="checkbox" id="showSynsToggle" checked>
-          <label class="form-check-label" for="showSynsToggle">Show synonyms</label>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="saveSettings">Save</button>
+      <div class="form-check form-switch mb-2">
+        <input class="form-check-input" type="checkbox" id="showSynsToggle" checked>
+        <label class="form-check-label" for="showSynsToggle">Show synonyms</label>
       </div>
     </div>
-  </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary" id="saveSettings">Save</button>
+    </div>
+  </div></div>
 </div>
 
 <div class="container mt-4 mb-5">
@@ -98,9 +96,7 @@ TEMPLATE = """\
     <i id="settingsIcon" class="bi bi-gear mt-1" title="Settings"
        data-bs-toggle="modal" data-bs-target="#settingsModal"></i>
   </div>
-
-  <div class="card shadow-sm">
-    <div class="card-body" id="story">
+  <div class="card shadow-sm"><div class="card-body" id="story">
 {%- for sent in sentences %}
 {%- if sent.stype == 'h1' %}<h1>
 {%- elif sent.stype == 'h2' %}<h2>
@@ -114,9 +110,7 @@ TEMPLATE = """\
 {%- endif %}
 <span class="sent" id="s{{ sent.sid }}">{%- for w in sent.words -%}
 {%- set cids = sent.word_cids.get(w.wid) -%}
-<span class="word" id="w{{ sent.sid }}:{{ w.wid }}"
-  data-pos="{{ w.pos }}" data-lemma="{{ w.lemma }}"
-  {%- if cids %} data-cids="{{ cids|join(' ') }}"{% endif %}>{{ w.word }}</span> {% endfor %}</span>
+<w id="w{{ sent.sid }}:{{ w.wid }}" data-p="{{ w.pos }}" data-l="{{ w.lemma }}"{% if cids %} data-c="{{ cids|join(' ') }}"{% endif %}{% if w.nospace %} data-ns{% endif %}>{{ w.word }}</w>{% endfor %}</span>
 {%- if sent.stype == 'h1' %}</h1>
 {%- elif sent.stype == 'h2' %}</h2>
 {%- elif sent.stype == 'h3' %}</h3>
@@ -126,11 +120,9 @@ TEMPLATE = """\
 {%- elif sent.stype == 'h7' %}</h7>
 {%- endif %}
 {%- endfor %}
-    </div>
-  </div>
+  </div></div>
 </div>
 
-<!-- Tooltip card -->
 <div id="tooltip" class="card shadow" style="display:none;position:absolute;z-index:1070;max-width:340px">
   <div class="card-body py-2 px-3">
     <div id="tooltipContent"></div>
@@ -143,7 +135,6 @@ TEMPLATE = """\
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  /* Data embedded inline so the page works from file:// without a server */
   var conceptInfo = {{ concepts_data }};
   var synsetInfo  = {{ synsets_data }};
 </script>
@@ -168,12 +159,15 @@ INDEX_TEMPLATE = """\
   <h2 class="h5 mt-4 mb-2 text-uppercase text-muted">{{ lang }}</h2>
   <div class="list-group mb-3">
     {%- for doc in docs %}
-    <a href="{{ doc.path }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
-      <div>
-        <div>{{ doc.title }}</div>
-        {%- if doc.subtitle %}<small class="text-muted">{{ doc.subtitle }}</small>{% endif %}
+    <a href="{{ doc.path }}" class="list-group-item list-group-item-action">
+      <div class="d-flex justify-content-between align-items-start">
+        <div>
+          <div>{{ doc.title }}</div>
+          {%- if doc.subtitle %}<small class="text-muted">{{ doc.subtitle }}</small>{% endif %}
+        </div>
+        <small class="text-muted ms-3 text-nowrap">{{ doc.sent_count }} sent.
+          {%- if doc.tag_pct %} · {{ doc.tag_pct }}% tagged{% endif %}</small>
       </div>
-      <small class="text-muted ms-3 text-nowrap">{{ doc.sent_count }} sent.</small>
     </a>
     {%- endfor %}
   </div>
@@ -184,6 +178,56 @@ INDEX_TEMPLATE = """\
 """
 
 # ---------------------------------------------------------------------------
+# Spacing calculation
+# ---------------------------------------------------------------------------
+
+
+def compute_nospace(words: list[dict], sent_text: str) -> list[bool]:
+    """Compute nospace flag for each word (True = no space before next word).
+
+    Uses cfrom/cto offsets when present; falls back to scanning sent_text.
+    The last word always returns False.
+
+    Args:
+        words: List of word dicts with at least 'word', and optionally 'cfrom'/'cto'.
+        sent_text: The full sentence text.
+
+    Returns:
+        List of bool, same length as words.
+    """
+    n = len(words)
+    if n == 0:
+        return []
+
+    # Try cfrom/cto first
+    if n > 1 and words[0].get("cfrom") is not None and words[1].get("cfrom") is not None:
+        result = []
+        for i, w in enumerate(words):
+            if i < n - 1 and w.get("cto") is not None and words[i + 1].get("cfrom") is not None:
+                result.append(int(w["cto"]) == int(words[i + 1]["cfrom"]))
+            else:
+                result.append(False)
+        return result
+
+    # Fall back: scan sentence text
+    result = [False] * n
+    pos = 0
+    for i, w in enumerate(words[:-1]):
+        surface = w["word"]
+        idx = sent_text.find(surface, pos)
+        if idx == -1:
+            continue
+        end = idx + len(surface)
+        pos = end
+        next_surface = words[i + 1]["word"]
+        next_idx = sent_text.find(next_surface, pos)
+        if next_idx == pos:
+            result[i] = True
+
+    return result
+
+
+# ---------------------------------------------------------------------------
 # Data extraction
 # ---------------------------------------------------------------------------
 
@@ -191,19 +235,20 @@ INDEX_TEMPLATE = """\
 def build_concept_info(doc_data: dict) -> dict:
     """Extract concept info and annotate each sentence with word_cids.
 
-    Mutates each sentence dict in doc_data to add a ``word_cids`` key
-    ({wid: [concept_key, ...]}).  Returns the flat concepts dict.
+    Mutates each sentence dict in doc_data to add:
+      - ``word_cids``: {wid: [concept_key, ...]}
 
-    Args:
-        doc_data: Document dict from Corpus.get_doc().
+    Also annotates each word dict with ``nospace`` bool.
 
     Returns:
-        concepts: {concept_key: {lemma, synset, wids}}
+        concepts: {concept_key: {l, s, w}} using compact keys.
     """
     concepts: dict = {}
 
     for sent in doc_data["sentences"]:
         sid = sent["sid"]
+        sent_text = sent.get("text", "")
+        words = sent.get("words", [])
         word_cids: dict[int, list[str]] = {}
 
         for concept in sent.get("concepts", []):
@@ -216,15 +261,20 @@ def build_concept_info(doc_data: dict) -> dict:
             wids: list[int] = concept.get("wids", [])
 
             concepts[key] = {
-                "lemma": concept.get("clemma", ""),
-                "synset": tag,
-                "wids": wids,
+                "l": concept.get("clemma", ""),
+                "s": tag,
+                "w": wids,
             }
 
             for wid in wids:
                 word_cids.setdefault(wid, []).append(key)
 
         sent["word_cids"] = word_cids
+
+        # Compute spacing and annotate words
+        nospace_flags = compute_nospace(words, sent_text)
+        for word, ns in zip(words, nospace_flags):
+            word["nospace"] = ns
 
     return concepts
 
@@ -237,14 +287,14 @@ def build_synset_info(wn_db_path: str, synset_ids: set[str]) -> dict:
         synset_ids: All tag values collected from concepts (includes NE tags).
 
     Returns:
-        {synset_id: {def, syns, pos}}
+        {synset_id: {d, s, p}} using compact keys (def, syns, pos).
     """
     result: dict = {}
     named = {s for s in synset_ids if s in NAMED_ENTITY_DEFS}
     regular = {s for s in synset_ids if s not in NAMED_ENTITY_DEFS and s}
 
     for tag in named:
-        result[tag] = {"def": NAMED_ENTITY_DEFS[tag], "syns": [], "pos": ""}
+        result[tag] = {"d": NAMED_ENTITY_DEFS[tag], "s": [], "p": ""}
 
     if not regular:
         return result
@@ -282,14 +332,53 @@ def build_synset_info(wn_db_path: str, synset_ids: set[str]) -> dict:
 
         for synset_id in regular:
             result[synset_id] = {
-                "def": "; ".join(defs.get(synset_id, [])),
-                "syns": syns.get(synset_id, []),
-                "pos": pos_map.get(synset_id, ""),
+                "d": "; ".join(defs.get(synset_id, [])),
+                "s": syns.get(synset_id, []),
+                "p": pos_map.get(synset_id, ""),
             }
     finally:
         conn.close()
 
     return result
+
+
+def get_doc_tagging_rates(corpus_db: str) -> dict[int, float]:
+    """Return word-level tagging rates (0–1) for every document.
+
+    A word is "tagged" if it appears in cwl linked to a concept with a
+    valid (non-skip) tag.
+
+    Args:
+        corpus_db: Path to the corpus database.
+
+    Returns:
+        {docid: rate}
+    """
+    conn = sqlite3.connect(corpus_db)
+    try:
+        rows = conn.execute(
+            """
+            SELECT
+                s.docID,
+                COUNT(DISTINCT w.sid || ':' || CAST(w.wid AS TEXT)) AS total,
+                COUNT(DISTINCT CASE
+                    WHEN c.tag IS NOT NULL AND c.tag != ''
+                         AND c.tag NOT IN ('x','w','e')
+                    THEN cwl.sid || ':' || CAST(cwl.wid AS TEXT)
+                END) AS tagged
+            FROM sent s
+            JOIN word w ON w.sid = s.sid
+            LEFT JOIN cwl ON cwl.sid = w.sid AND cwl.wid = w.wid
+            LEFT JOIN concept c ON c.sid = cwl.sid AND c.cid = cwl.cid
+            GROUP BY s.docID
+            """
+        ).fetchall()
+        return {
+            docid: (tagged / total if total > 0 else 0.0)
+            for docid, total, tagged in rows
+        }
+    finally:
+        conn.close()
 
 
 # ---------------------------------------------------------------------------
@@ -306,11 +395,8 @@ def render_html(
 ) -> str:
     """Render the document HTML page with data embedded inline.
 
-    JSON data is embedded directly in the HTML so the page works from
-    file:// without needing a local web server.
-
     Args:
-        doc_data: Document dict (sentences already annotated with word_cids).
+        doc_data: Document dict (sentences annotated with word_cids and nospace).
         concepts: Concepts dict to embed as JavaScript.
         synsets: Synsets dict to embed as JavaScript.
         assets_path: Relative path from HTML file to the assets/ directory.
@@ -327,7 +413,6 @@ def render_html(
         sentences=doc_data["sentences"],
         assets_path=assets_path,
         index_path=index_path,
-        # Mark JSON strings as safe so Jinja2 doesn't escape them
         concepts_data=Markup(json.dumps(concepts, ensure_ascii=False)),
         synsets_data=Markup(json.dumps(synsets, ensure_ascii=False)),
     )
@@ -344,8 +429,9 @@ def write_document(
     docid: int,
     outdir: Path,
     lang: str,
+    tag_rate: Optional[float] = None,
 ) -> Optional[dict]:
-    """Generate all output files for one document.
+    """Generate the HTML display file for one document.
 
     Args:
         corpus_db: Path to the language corpus database.
@@ -353,6 +439,7 @@ def write_document(
         docid: Document ID to process.
         outdir: Root output directory (e.g. display/).
         lang: Language code (e.g. 'eng').
+        tag_rate: Pre-computed tagging rate (0–1), used for index display.
 
     Returns:
         Dict with doc metadata for index generation, or None on failure.
@@ -367,11 +454,16 @@ def write_document(
     title = doc_data.get("title") or doc_name
     subtitle = doc_data.get("subtitle") or ""
     n_sents = len(doc_data.get("sentences", []))
-    logger.info("Processing '%s' (%d sentences)...", title, n_sents)
+    tag_pct = f"{tag_rate * 100:.0f}" if tag_rate is not None else ""
+    logger.info(
+        "Processing '%s' (%d sentences%s)...",
+        title,
+        n_sents,
+        f", {tag_pct}% tagged" if tag_pct else "",
+    )
 
     concepts = build_concept_info(doc_data)
-
-    synset_ids = {v["synset"] for v in concepts.values()}
+    synset_ids = {v["s"] for v in concepts.values()}
     synsets = build_synset_info(wn_db, synset_ids)
 
     lang_dir = outdir / lang
@@ -386,13 +478,14 @@ def write_document(
         index_path="../index.html",
     )
     html_path.write_text(html, encoding="utf-8")
-
     logger.info("  → %s", html_path)
+
     return {
         "title": title,
         "subtitle": subtitle,
         "path": f"{lang}/{doc_name}-view.html",
         "sent_count": n_sents,
+        "tag_pct": tag_pct,
     }
 
 
@@ -426,13 +519,22 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--outdir", default="display", help="Output directory")
     parser.add_argument(
-        "--corpus-db",
-        help="Path to corpus DB (default: build/{lang}.db)",
+        "--corpus-db", help="Path to corpus DB (default: build/{lang}.db)"
     )
     parser.add_argument(
-        "--wn-db",
-        default=None,
-        help="Path to WN DB (default: build/wn-ntumc.db)",
+        "--wn-db", default=None, help="Path to WN DB (default: build/wn-ntumc.db)"
+    )
+    parser.add_argument(
+        "--tagged",
+        action="store_true",
+        help="Only include documents with >= --min-tagged fraction of words tagged",
+    )
+    parser.add_argument(
+        "--min-tagged",
+        type=float,
+        default=0.5,
+        metavar="FRAC",
+        help="Minimum tagging fraction for --tagged filter (default: 0.5)",
     )
 
     group = parser.add_mutually_exclusive_group(required=True)
@@ -459,15 +561,37 @@ def main() -> None:
             sys.exit(1)
 
     corpus = Corpus(corpus_db)
+    outdir.mkdir(parents=True, exist_ok=True)
+
+    # Resolve tagging rates (needed for filter and index display)
+    tag_rates: dict[int, float] = {}
+    if args.tagged or args.all:
+        logger.info("Computing tagging rates...")
+        tag_rates = get_doc_tagging_rates(corpus_db)
+        if tag_rates:
+            rates = sorted(tag_rates.values())
+            logger.info(
+                "Tagging rates: min=%.0f%% median=%.0f%% max=%.0f%%",
+                rates[0] * 100,
+                rates[len(rates) // 2] * 100,
+                rates[-1] * 100,
+            )
 
     # Resolve which docs to process
     if args.all:
         conn = sqlite3.connect(corpus_db)
-        rows = conn.execute(
-            "SELECT docid FROM doc ORDER BY docid"
-        ).fetchall()
+        rows = conn.execute("SELECT docid FROM doc ORDER BY docid").fetchall()
         conn.close()
         docids = [r[0] for r in rows]
+        if args.tagged:
+            before = len(docids)
+            docids = [d for d in docids if tag_rates.get(d, 0.0) >= args.min_tagged]
+            logger.info(
+                "Filtered %d → %d docs (>= %.0f%% tagged)",
+                before,
+                len(docids),
+                args.min_tagged * 100,
+            )
     elif args.doc:
         docid = corpus.get_docid_by_docname(args.doc)
         if docid is None:
@@ -480,7 +604,10 @@ def main() -> None:
     by_lang: dict[str, list[dict]] = {args.lang: []}
 
     for docid in docids:
-        meta = write_document(corpus_db, wn_db, docid, outdir, args.lang)
+        meta = write_document(
+            corpus_db, wn_db, docid, outdir, args.lang,
+            tag_rate=tag_rates.get(docid),
+        )
         if meta:
             by_lang[args.lang].append(meta)
 

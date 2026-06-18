@@ -1,26 +1,23 @@
 'use strict';
 
-// Data injected inline by the HTML page (declared before this script loads)
+// Data injected inline by the HTML page (compact keys):
+//   conceptInfo[key] = {l: lemma, s: synset_id, w: [wid, ...]}
+//   synsetInfo[id]   = {d: definition, s: [synonym, ...], p: pos}
 /* global conceptInfo, synsetInfo */
 
-const story    = document.getElementById('story');
-const tooltip  = document.getElementById('tooltip');
-const tooltipContent = document.getElementById('tooltipContent');
-const copyBtn  = document.getElementById('copyBtn');
-const closeBtn = document.getElementById('closeBtn');
-const saveSettingsBtn    = document.getElementById('saveSettings');
-const showWordIdToggle   = document.getElementById('showWordIdToggle');
-const showSynsToggle     = document.getElementById('showSynsToggle');
+const story   = document.getElementById('story');
+const tooltip = document.getElementById('tooltip');
+const tooltipContent   = document.getElementById('tooltipContent');
+const copyBtn          = document.getElementById('copyBtn');
+const closeBtn         = document.getElementById('closeBtn');
+const saveSettingsBtn  = document.getElementById('saveSettings');
+const showWordIdToggle = document.getElementById('showWordIdToggle');
+const showSynsToggle   = document.getElementById('showSynsToggle');
 
 let pinnedElement = null;
 let settings = { showWordId: false, showSyns: true };
 
-// POS tag → human label and CSS class
-const POS_LABELS = {
-  'n': 'noun', 'v': 'verb', 'a': 'adj', 's': 'adj',
-  'r': 'adv',  'j': 'adj',
-};
-// Penn Treebank POS → short category for badge colouring
+// Penn Treebank POS → badge CSS class
 function posBadgeClass(pos) {
   if (!pos) return 'pos-other';
   const p = pos.toLowerCase();
@@ -32,14 +29,14 @@ function posBadgeClass(pos) {
 }
 
 // -------------------------------------------------------------------------
-// Highlight helpers
+// Highlight helpers — word elements use <w> tag, attrs data-c/data-ns
 // -------------------------------------------------------------------------
 
 function highlightConcept(conceptId) {
   const info = conceptInfo[conceptId];
-  const isMWE = info && info.wids && info.wids.length > 1;
+  const isMWE = info && info.w && info.w.length > 1;
   const cls   = isMWE ? 'mwe-highlight' : 'highlight';
-  story.querySelectorAll(`[data-cids~="${conceptId}"]`)
+  story.querySelectorAll(`[data-c~="${conceptId}"]`)
        .forEach(el => el.classList.add(cls));
 }
 
@@ -54,9 +51,9 @@ function clearHighlights() {
 
 function buildTooltipHTML(element) {
   const wordId    = element.id;
-  const pos       = element.dataset.pos || '';
-  const lemma     = element.dataset.lemma || element.textContent;
-  const cidsAttr  = element.dataset.cids || '';
+  const pos       = element.dataset.p || '';
+  const lemma     = element.dataset.l || element.textContent;
+  const cidsAttr  = element.dataset.c || '';
   const badgeCls  = posBadgeClass(pos);
 
   let html = `<div class="mb-1">
@@ -69,22 +66,22 @@ function buildTooltipHTML(element) {
 
   if (cidsAttr) {
     cidsAttr.split(' ').forEach(cid => {
-      if (!conceptInfo[cid]) return;
-      const { lemma: cLemma, synset } = conceptInfo[cid];
-      const synInfo = synsetInfo[synset];
+      const concept = conceptInfo[cid];
+      if (!concept) return;
+      const synInfo = synsetInfo[concept.s];
 
       html += `<div class="concept-block mt-1">`;
-      if (cLemma && cLemma !== lemma) {
-        html += `<div class="concept-lemma">${escapeHTML(cLemma)}</div>`;
+      if (concept.l && concept.l !== lemma) {
+        html += `<div class="concept-lemma">${escapeHTML(concept.l)}</div>`;
       }
       if (synInfo) {
-        if (synInfo.def) {
-          html += `<div class="synset-def">${escapeHTML(synInfo.def)}</div>`;
+        if (synInfo.d) {
+          html += `<div class="synset-def">${escapeHTML(synInfo.d)}</div>`;
         }
-        if (settings.showSyns && synInfo.syns && synInfo.syns.length) {
-          html += `<div class="synset-syns">≈ ${synInfo.syns.map(escapeHTML).join(', ')}</div>`;
+        if (settings.showSyns && synInfo.s && synInfo.s.length) {
+          html += `<div class="synset-syns">≈ ${synInfo.s.map(escapeHTML).join(', ')}</div>`;
         }
-        // Future: translations would appear here as synInfo.trans
+        // Future: synInfo.trans for target-language translation
       }
       html += `</div>`;
     });
@@ -105,7 +102,6 @@ function hideTooltip() {
 
 function positionTooltip(element) {
   const rect = element.getBoundingClientRect();
-  // Prefer below; keep within viewport width
   const left = Math.min(rect.left + window.scrollX,
                         window.innerWidth - tooltip.offsetWidth - 8);
   tooltip.style.left = Math.max(0, left) + 'px';
@@ -118,13 +114,13 @@ function positionTooltip(element) {
 
 function handleMouseOver(event) {
   if (pinnedElement) return;
-  const el = event.currentTarget;
-  const cids = el.dataset.cids;
+  const el   = event.currentTarget;
+  const cids = el.dataset.c;
   if (cids) cids.split(' ').forEach(highlightConcept);
   showTooltip(el);
 }
 
-function handleMouseOut(event) {
+function handleMouseOut() {
   if (pinnedElement) return;
   clearHighlights();
   hideTooltip();
@@ -145,7 +141,7 @@ function handleClick(event) {
     clearHighlights();
     pinnedElement = el;
     pinnedElement.classList.add('pinned');
-    const cids = el.dataset.cids;
+    const cids = el.dataset.c;
     if (cids) cids.split(' ').forEach(highlightConcept);
     showTooltip(el);
   }
@@ -188,24 +184,23 @@ function escapeHTML(str) {
 }
 
 // -------------------------------------------------------------------------
-// Initialise after JSON data is loaded
+// Init
 // -------------------------------------------------------------------------
 
 function init() {
   showWordIdToggle.checked = settings.showWordId;
   showSynsToggle.checked   = settings.showSyns;
 
-  story.querySelectorAll('.word').forEach(el => {
+  story.querySelectorAll('w').forEach(el => {
     el.addEventListener('mouseover',  handleMouseOver);
     el.addEventListener('mouseout',   handleMouseOut);
     el.addEventListener('mousemove',  handleMouseMove);
     el.addEventListener('click',      handleClick);
   });
 
-  copyBtn.addEventListener('click', copyTooltipContent);
-  closeBtn.addEventListener('click', closeTooltip);
+  copyBtn.addEventListener('click',      copyTooltipContent);
+  closeBtn.addEventListener('click',     closeTooltip);
   saveSettingsBtn.addEventListener('click', saveSettings);
 }
 
-// Data is embedded inline by the generator; initialise immediately
 init();
