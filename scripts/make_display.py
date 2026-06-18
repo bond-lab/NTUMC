@@ -489,19 +489,48 @@ def write_document(
     }
 
 
-def write_index(by_lang: dict[str, list[dict]], outdir: Path) -> None:
-    """Write the landing-page index.html.
+def save_lang_sidecar(lang: str, docs: list[dict], outdir: Path) -> None:
+    """Save per-language metadata sidecar for combined index.
+
+    Written to display/{lang}/index.json so multiple language runs accumulate.
 
     Args:
-        by_lang: {lang: [doc_meta_dicts]}
+        lang: Language code.
+        docs: List of document metadata dicts.
         outdir: Root output directory.
     """
+    sidecar = {"lang": lang, "docs": docs}
+    sidecar_path = outdir / lang / "index.json"
+    sidecar_path.write_text(json.dumps(sidecar, ensure_ascii=False), encoding="utf-8")
+
+
+def write_index(outdir: Path) -> None:
+    """Write combined index.html from all per-language sidecar files.
+
+    Scans outdir for any {lang}/index.json files written by previous runs,
+    so each language run accumulates into one combined index.
+
+    Args:
+        outdir: Root output directory.
+    """
+    by_lang: dict[str, list[dict]] = {}
+    for sidecar_path in sorted(outdir.glob("*/index.json")):
+        try:
+            data = json.loads(sidecar_path.read_text(encoding="utf-8"))
+            lang = data.get("lang", sidecar_path.parent.name)
+            docs = data.get("docs", [])
+            if docs:
+                by_lang[lang] = docs
+        except (json.JSONDecodeError, OSError) as exc:
+            logger.warning("Skipping sidecar %s: %s", sidecar_path, exc)
+
     env = Environment(loader=BaseLoader(), autoescape=True)
     tmpl = env.from_string(INDEX_TEMPLATE)
     html = tmpl.render(by_lang=by_lang)
     index_path = outdir / "index.html"
     index_path.write_text(html, encoding="utf-8")
-    logger.info("Index → %s", index_path)
+    langs_str = ", ".join(by_lang) if by_lang else "(none)"
+    logger.info("Index → %s  [%s]", index_path, langs_str)
 
 
 # ---------------------------------------------------------------------------
@@ -585,12 +614,32 @@ def main() -> None:
         docids = [r[0] for r in rows]
         if args.tagged:
             before = len(docids)
-            docids = [d for d in docids if tag_rates.get(d, 0.0) >= args.min_tagged]
+            min_tagged = args.min_tagged
+            if tag_rates:
+                max_rate = max(tag_rates.values())
+                if max_rate == 0.0:
+                    logger.warning(
+                        "Language '%s' has no tagged words — skipping.", args.lang
+                    )
+                    docids = []
+                elif max_rate < min_tagged:
+                    # Auto-lower: include all documents with any tagging
+                    min_tagged = min(
+                        r for r in tag_rates.values() if r > 0.0
+                    )
+                    logger.info(
+                        "Max tagging rate %.0f%% < %.0f%% threshold; "
+                        "auto-lowering to %.0f%% (all tagged docs)",
+                        max_rate * 100,
+                        args.min_tagged * 100,
+                        min_tagged * 100,
+                    )
+            docids = [d for d in docids if tag_rates.get(d, 0.0) >= min_tagged]
             logger.info(
                 "Filtered %d → %d docs (>= %.0f%% tagged)",
                 before,
                 len(docids),
-                args.min_tagged * 100,
+                min_tagged * 100,
             )
     elif args.doc:
         docid = corpus.get_docid_by_docname(args.doc)
@@ -601,7 +650,7 @@ def main() -> None:
     else:
         docids = [args.docid]
 
-    by_lang: dict[str, list[dict]] = {args.lang: []}
+    lang_docs: list[dict] = []
 
     for docid in docids:
         meta = write_document(
@@ -609,10 +658,16 @@ def main() -> None:
             tag_rate=tag_rates.get(docid),
         )
         if meta:
-            by_lang[args.lang].append(meta)
+            lang_docs.append(meta)
 
-    write_index(by_lang, outdir)
-    logger.info("Done. %d document(s) generated.", len(by_lang[args.lang]))
+    # Save per-language sidecar so combined index accumulates across runs
+    if lang_docs:
+        lang_dir = outdir / args.lang
+        lang_dir.mkdir(parents=True, exist_ok=True)
+        save_lang_sidecar(args.lang, lang_docs, outdir)
+
+    write_index(outdir)
+    logger.info("Done. %d document(s) generated.", len(lang_docs))
 
 
 if __name__ == "__main__":

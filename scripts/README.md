@@ -142,6 +142,52 @@ Checks that entry, sense, and synset counts in each XML file are consistent
 with the database under the same filtering conditions used by `getwn.py`.
 
 
+## Corpus display
+
+**`make_display.py`** — Generate self-contained static HTML pages for corpus
+documents, suitable for second-language learners and researchers.  Each page
+embeds POS tags, synset definitions, and synonyms as inline JSON so it works
+from `file://` without a local server.  Hovering a tagged word shows a tooltip
+with its lemma, POS badge, synset definition, and English synonyms; MWEs are
+highlighted in yellow.
+
+```
+.venv/bin/python scripts/make_display.py --lang eng --doc spec --outdir display/
+.venv/bin/python scripts/make_display.py --lang eng --all --outdir display/
+.venv/bin/python scripts/make_display.py --lang eng --all --tagged --outdir display/
+```
+
+Options:
+- `--lang LANG` — corpus language (default: `eng`)
+- `--doc NAME` / `--docid ID` / `--all` — which document(s) to process
+- `--tagged` — only include documents with ≥ `--min-tagged` fraction of words tagged
+- `--min-tagged FRAC` — threshold for `--tagged` (default: 0.5).  Auto-lowered
+  to the minimum non-zero rate when the language's best rate falls below this
+  value, so all tagged documents are still included.
+- `--outdir DIR` — output directory (default: `display/`)
+
+Each run saves `display/{lang}/index.json` (per-language metadata sidecar).
+The combined `display/index.html` is rebuilt from all sidecars after every run,
+so you can run the script per language and the index accumulates automatically.
+
+To regenerate all tagged corpora:
+```
+for lang in eng jpn cmn ind ita ces; do
+    .venv/bin/python scripts/make_display.py --lang $lang --all --tagged --outdir display/
+done
+```
+
+**`fix_cpos.py`** — Populate missing `cfrom`/`cto` character offsets in the
+`word` table by scanning each sentence's text left-to-right.  These offsets are
+used by `make_display.py` to determine whether a space follows each word.
+
+```
+.venv/bin/python scripts/fix_cpos.py build/eng.db
+.venv/bin/python scripts/fix_cpos.py build/eng.db --docid 440
+.venv/bin/python scripts/fix_cpos.py build/eng.db --dry-run
+```
+
+
 ## Utilities
 
 **`find_merge_candidates.py`** — Find lemmas differing only by

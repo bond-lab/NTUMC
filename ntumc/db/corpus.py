@@ -12,6 +12,14 @@ import sqlite3
 class Corpus:
     def __init__(self, db_path: str):
         self.db_path = db_path
+        self._stype_has_comment: Optional[bool] = None
+
+    def _check_stype_comment(self, db) -> bool:
+        """Return True if the stype table has a comment column."""
+        if self._stype_has_comment is None:
+            rows = db.fetch_all("PRAGMA table_info(stype)")
+            self._stype_has_comment = any(r["name"] == "comment" for r in rows)
+        return self._stype_has_comment
 
     def get_docid_by_docname(self, doc: str) -> Optional[int]:
         """
@@ -49,6 +57,17 @@ class Corpus:
             words_by_sid = self.get_words_range(min_sid, max_sid)
             concepts_by_sid = self.get_concepts_range(min_sid, max_sid, db=db)
 
+            # Bulk-fetch stype rows (schema varies: comment column may be absent)
+            has_comment = self._check_stype_comment(db)
+            stype_cols = "sid, stype, comment" if has_comment else "sid, stype"
+            stype_by_sid: dict = {
+                row["sid"]: row
+                for row in db.fetch_all(
+                    f"SELECT {stype_cols} FROM stype WHERE sid BETWEEN ? AND ?",
+                    (min_sid, max_sid),
+                )
+            }
+
             # Get all sentences
             sents = db.fetch_all(
                 "SELECT sid, sent, comment FROM sent WHERE docID = ? ORDER BY sid", (docid,)
@@ -56,11 +75,11 @@ class Corpus:
             result = []
             for sent in sents:
                 sid = sent["sid"]
-                stype_row = db.fetch_one(
-                    "SELECT stype, comment FROM stype WHERE sid = ?", (sid,)
-                )
+                stype_row = stype_by_sid.get(sid)
                 stype = stype_row["stype"] if stype_row else None
-                stype_comment = stype_row["comment"] if stype_row else None
+                stype_comment = (
+                    stype_row["comment"] if (stype_row and has_comment) else None
+                )
                 sent_dict = {
                     "sid": sid,
                     "text": sent["sent"],
@@ -120,18 +139,30 @@ class Corpus:
             words_by_sid = self.get_words_range(min_sid, max_sid)
             concepts_by_sid = self.get_concepts_range(min_sid, max_sid, db=db)
 
+            # Bulk-fetch stype rows (schema varies: comment column may be absent)
+            has_comment = self._check_stype_comment(db)
+            stype_cols = "sid, stype, comment" if has_comment else "sid, stype"
+            stype_by_sid: dict = {
+                row["sid"]: row
+                for row in db.fetch_all(
+                    f"SELECT {stype_cols} FROM stype WHERE sid BETWEEN ? AND ?",
+                    (min_sid, max_sid),
+                )
+            }
+
             # Get all sentences
             sents = db.fetch_all(
-                "SELECT sid, sent, comment FROM sent WHERE sid BETWEEN ? AND ? ORDER BY sid", (min_sid, max_sid)
+                "SELECT sid, sent, comment FROM sent WHERE sid BETWEEN ? AND ? ORDER BY sid",
+                (min_sid, max_sid),
             )
             result = []
             for sent in sents:
                 sid = sent["sid"]
-                stype_row = db.fetch_one(
-                    "SELECT stype, comment FROM stype WHERE sid = ?", (sid,)
-                )
+                stype_row = stype_by_sid.get(sid)
                 stype = stype_row["stype"] if stype_row else None
-                stype_comment = stype_row["comment"] if stype_row else None
+                stype_comment = (
+                    stype_row["comment"] if (stype_row and has_comment) else None
+                )
                 sent_dict = {
                     "sid": sid,
                     "text": sent["sent"],

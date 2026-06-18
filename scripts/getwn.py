@@ -402,7 +402,7 @@ def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None, bas
         ili_map = {}
     for synset in sorted(synsets_used):
         pos = norm_pos(synset[-1])
-        if pos not in "nvartu":
+        if pos not in "nvartux":
             continue
         defn = "; ".join(defs[synset]) if synset in defs else None
         ili = ili_map.get(synset, "")
