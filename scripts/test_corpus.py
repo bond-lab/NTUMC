@@ -515,11 +515,15 @@ def main() -> None:
     )
     args = parser.parse_args()
 
+    link_db_stems = {
+        p.stem for p in BUILD_DIR.glob("*-*.db") if p.stem not in SKIP_DBS
+    }
     if args.lang:
         db_paths = [BUILD_DIR / f"{lang}.db" for lang in args.lang]
     else:
         db_paths = sorted(
-            p for p in BUILD_DIR.glob("*.db") if p.stem not in SKIP_DBS
+            p for p in BUILD_DIR.glob("*.db")
+            if p.stem not in SKIP_DBS and p.stem not in link_db_stems
         )
 
     total_pass = 0
