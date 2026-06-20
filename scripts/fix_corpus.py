@@ -332,9 +332,11 @@ def fix_database(db_path: Path, dry_run: bool = False) -> int:
 
     Fixes applied:
     1. Add missing corpus rows from EXPECTED_CORPORA.
-    2. Fix doc.corpusID references (ind: corpusID=3 → ensure corpus row exists).
-    3. Fix NULL language in corpus table (ces).
-    4. Add stype='h0' for first sentence of each yoursing document.
+    2. Fix NULL language in corpus table (ces, yue).
+    3. Add stype='h0' for first sentence of each yoursing document.
+    4. Delete orphan cwl rows (missing concept or word FK).
+    5. Add missing stype.comment column.
+    6. Add missing meta columns (lang, version, master).
 
     Args:
         db_path: Path to the database.
@@ -401,11 +403,170 @@ def fix_database(db_path: Path, dry_run: bool = False) -> int:
             )
         changes += len(new_stypes)
 
+    # 4. Delete orphan cwl rows
+    changes += _fix_orphan_cwl(conn, lang, dry_run)
+
+    # 5. Add missing stype.comment column
+    changes += _fix_stype_schema(conn, lang, dry_run)
+
+    # 6. Add missing meta columns
+    changes += _fix_meta_schema(conn, lang, dry_run)
+
     if not dry_run and changes > 0:
         conn.commit()
         logger.info("%s: committed %d change(s)", lang, changes)
 
     conn.close()
+    return changes
+
+
+def _disable_triggers(conn: sqlite3.Connection) -> list[tuple[str, str]]:
+    """Drop all triggers, returning their SQL for later restore.
+
+    Args:
+        conn: Database connection.
+
+    Returns:
+        List of (name, sql) tuples.
+    """
+    triggers = conn.execute(
+        "SELECT name, sql FROM sqlite_master WHERE type='trigger'"
+    ).fetchall()
+    for name, _ in triggers:
+        conn.execute(f"DROP TRIGGER [{name}]")
+    return triggers
+
+
+def _restore_triggers(conn: sqlite3.Connection, triggers: list[tuple[str, str]]) -> None:
+    """Re-create previously dropped triggers.
+
+    Args:
+        conn: Database connection.
+        triggers: List from _disable_triggers().
+    """
+    for _, sql in triggers:
+        if sql:
+            conn.executescript(sql)
+
+
+def _fix_orphan_cwl(conn: sqlite3.Connection, lang: str, dry_run: bool) -> int:
+    """Delete cwl rows that reference non-existent concepts or words.
+
+    Args:
+        conn: Database connection.
+        lang: Language code (for logging).
+        dry_run: If True, report but don't modify.
+
+    Returns:
+        Number of rows deleted.
+    """
+    # Count all problems first (before any deletes)
+    neg_cid = conn.execute("SELECT COUNT(*) FROM cwl WHERE cid = -1").fetchone()[0]
+    orphan_concept = conn.execute("""
+        SELECT COUNT(*) FROM cwl c
+        LEFT JOIN concept co ON co.sid = c.sid AND co.cid = c.cid
+        WHERE co.sid IS NULL AND c.cid != -1
+    """).fetchone()[0]
+    orphan_word = conn.execute("""
+        SELECT COUNT(*) FROM cwl c
+        LEFT JOIN word w ON w.sid = c.sid AND w.wid = c.wid
+        WHERE w.sid IS NULL
+    """).fetchone()[0]
+
+    total = neg_cid + orphan_concept + orphan_word
+    if total == 0:
+        return 0
+
+    if neg_cid > 0:
+        logger.info(
+            "%s: %s %d cwl rows with cid=-1",
+            lang, "would delete" if dry_run else "deleting", neg_cid,
+        )
+    if orphan_concept > 0:
+        logger.info(
+            "%s: %s %d cwl rows referencing non-existent concept",
+            lang, "would delete" if dry_run else "deleting", orphan_concept,
+        )
+    if orphan_word > 0:
+        logger.info(
+            "%s: %s %d cwl rows referencing non-existent word",
+            lang, "would delete" if dry_run else "deleting", orphan_word,
+        )
+
+    if dry_run:
+        return total
+
+    triggers = _disable_triggers(conn)
+
+    if neg_cid > 0:
+        conn.execute("DELETE FROM cwl WHERE cid = -1")
+    if orphan_concept > 0:
+        conn.execute("""
+            DELETE FROM cwl WHERE rowid IN (
+                SELECT c.rowid FROM cwl c
+                LEFT JOIN concept co ON co.sid = c.sid AND co.cid = c.cid
+                WHERE co.sid IS NULL
+            )
+        """)
+    if orphan_word > 0:
+        conn.execute("""
+            DELETE FROM cwl WHERE rowid IN (
+                SELECT c.rowid FROM cwl c
+                LEFT JOIN word w ON w.sid = c.sid AND w.wid = c.wid
+                WHERE w.sid IS NULL
+            )
+        """)
+
+    _restore_triggers(conn, triggers)
+    return total
+
+
+def _fix_stype_schema(conn: sqlite3.Connection, lang: str, dry_run: bool) -> int:
+    """Add missing comment column to stype table.
+
+    Args:
+        conn: Database connection.
+        lang: Language code (for logging).
+        dry_run: If True, report but don't modify.
+
+    Returns:
+        Number of changes (0 or 1).
+    """
+    cols = [c[1] for c in conn.execute("PRAGMA table_info(stype)").fetchall()]
+    if "comment" in cols:
+        return 0
+
+    logger.info(
+        "%s: %s stype.comment column",
+        lang, "would add" if dry_run else "adding",
+    )
+    if not dry_run:
+        conn.execute("ALTER TABLE stype ADD COLUMN comment TEXT")
+    return 1
+
+
+def _fix_meta_schema(conn: sqlite3.Connection, lang: str, dry_run: bool) -> int:
+    """Add missing columns to meta table (lang, version, master).
+
+    Args:
+        conn: Database connection.
+        lang: Language code (for logging).
+        dry_run: If True, report but don't modify.
+
+    Returns:
+        Number of columns added.
+    """
+    cols = [c[1] for c in conn.execute("PRAGMA table_info(meta)").fetchall()]
+    changes = 0
+    for col in ("lang", "version", "master"):
+        if col not in cols:
+            logger.info(
+                "%s: %s meta.%s column",
+                lang, "would add" if dry_run else "adding", col,
+            )
+            if not dry_run:
+                conn.execute(f"ALTER TABLE meta ADD COLUMN {col} TEXT")
+            changes += 1
     return changes
 
 

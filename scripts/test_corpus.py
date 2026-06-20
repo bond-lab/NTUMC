@@ -38,7 +38,7 @@ EXPECTED_COLUMNS: dict[str, list[str]] = {
     "sent": ["sid", "docID", "pid", "sent", "comment", "usrname"],
     "stype": ["sid", "stype", "comment"],
     "word": ["sid", "wid", "word", "pos", "lemma", "cfrom", "cto", "comment", "usrname"],
-    "concept": ["sid", "cid", "clemma", "tag", "tags", "comment", "ntag", "usrname"],
+    "concept": ["sid", "cid", "clemma", "tag", "tags", "comment", "usrname"],
     "cwl": ["sid", "wid", "cid", "usrname"],
     "sentiment": ["sid", "cid", "score", "username"],
     "chunks": ["sid", "xid", "score", "comment", "username"],
