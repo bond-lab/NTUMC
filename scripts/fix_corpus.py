@@ -406,11 +406,14 @@ def fix_database(db_path: Path, dry_run: bool = False) -> int:
     # 4. Delete orphan cwl rows
     changes += _fix_orphan_cwl(conn, lang, dry_run)
 
-    # 5. Add missing stype.comment column
+    # 5. Add missing stype.comment column / fix stype.stype type
     changes += _fix_stype_schema(conn, lang, dry_run)
 
-    # 6. Add missing meta columns
+    # 6. Add missing meta columns / fix meta column types
     changes += _fix_meta_schema(conn, lang, dry_run)
+
+    # 7. Fix doc PK name (docID → docid)
+    changes += _fix_doc_pk(conn, lang, dry_run)
 
     if not dry_run and changes > 0:
         conn.commit()
@@ -521,8 +524,25 @@ def _fix_orphan_cwl(conn: sqlite3.Connection, lang: str, dry_run: bool) -> int:
     return total
 
 
+def _recreate_table(
+    conn: sqlite3.Connection, table: str, new_ddl: str, col_map: str,
+) -> None:
+    """Recreate a table with a new DDL, preserving data.
+
+    Args:
+        conn: Database connection (triggers should already be disabled).
+        table: Table name.
+        new_ddl: CREATE TABLE statement for the new table.
+        col_map: Column list for INSERT INTO ... SELECT col_map FROM old.
+    """
+    conn.execute(f"ALTER TABLE [{table}] RENAME TO [{table}_old]")
+    conn.execute(new_ddl)
+    conn.execute(f"INSERT INTO [{table}] SELECT {col_map} FROM [{table}_old]")
+    conn.execute(f"DROP TABLE [{table}_old]")
+
+
 def _fix_stype_schema(conn: sqlite3.Connection, lang: str, dry_run: bool) -> int:
-    """Add missing comment column to stype table.
+    """Fix stype table: add missing comment column, fix stype type to TEXT.
 
     Args:
         conn: Database connection.
@@ -532,21 +552,48 @@ def _fix_stype_schema(conn: sqlite3.Connection, lang: str, dry_run: bool) -> int
     Returns:
         Number of changes (0 or 1).
     """
-    cols = [c[1] for c in conn.execute("PRAGMA table_info(stype)").fetchall()]
-    if "comment" in cols:
+    cols = {c[1]: c[2] for c in conn.execute("PRAGMA table_info(stype)").fetchall()}
+    needs_comment = "comment" not in cols
+    needs_type_fix = cols.get("stype", "").upper() == "INTEGER"
+
+    if not needs_comment and not needs_type_fix:
         return 0
 
+    issues = []
+    if needs_type_fix:
+        issues.append("stype.stype INTEGER→TEXT")
+    if needs_comment:
+        issues.append("add stype.comment")
+
     logger.info(
-        "%s: %s stype.comment column",
-        lang, "would add" if dry_run else "adding",
+        "%s: %s stype schema (%s)",
+        lang, "would fix" if dry_run else "fixing", ", ".join(issues),
     )
-    if not dry_run:
+    if dry_run:
+        return 1
+
+    if needs_type_fix:
+        triggers = _disable_triggers(conn)
+        _recreate_table(
+            conn,
+            "stype",
+            """CREATE TABLE stype (
+                sid INTEGER,
+                stype TEXT,
+                comment TEXT,
+                FOREIGN KEY(sid) REFERENCES sent(sid)
+            )""",
+            "sid, stype, " + ("comment" if not needs_comment else "NULL"),
+        )
+        _restore_triggers(conn, triggers)
+    elif needs_comment:
         conn.execute("ALTER TABLE stype ADD COLUMN comment TEXT")
+
     return 1
 
 
 def _fix_meta_schema(conn: sqlite3.Connection, lang: str, dry_run: bool) -> int:
-    """Add missing columns to meta table (lang, version, master).
+    """Fix meta table: add missing columns, fix column type affinities.
 
     Args:
         conn: Database connection.
@@ -554,20 +601,98 @@ def _fix_meta_schema(conn: sqlite3.Connection, lang: str, dry_run: bool) -> int:
         dry_run: If True, report but don't modify.
 
     Returns:
-        Number of columns added.
+        Number of changes.
     """
-    cols = [c[1] for c in conn.execute("PRAGMA table_info(meta)").fetchall()]
-    changes = 0
-    for col in ("lang", "version", "master"):
-        if col not in cols:
-            logger.info(
-                "%s: %s meta.%s column",
-                lang, "would add" if dry_run else "adding", col,
-            )
-            if not dry_run:
-                conn.execute(f"ALTER TABLE meta ADD COLUMN {col} TEXT")
-            changes += 1
-    return changes
+    cols = {c[1]: c[2] for c in conn.execute("PRAGMA table_info(meta)").fetchall()}
+    missing = [c for c in ("lang", "version", "master") if c not in cols]
+    untyped = [
+        c for c in ("lang", "version", "master")
+        if c in cols and (cols[c] or "").upper() != "TEXT"
+    ]
+
+    if not missing and not untyped:
+        return 0
+
+    issues = []
+    if missing:
+        issues.append(f"add {', '.join(missing)}")
+    if untyped:
+        issues.append(f"fix type for {', '.join(untyped)}")
+
+    logger.info(
+        "%s: %s meta schema (%s)",
+        lang, "would fix" if dry_run else "fixing", "; ".join(issues),
+    )
+    if dry_run:
+        return 1
+
+    if untyped:
+        existing = [c[1] for c in conn.execute("PRAGMA table_info(meta)").fetchall()]
+        select_cols = ", ".join(existing)
+        all_cols = list(existing)
+        for c in missing:
+            if c not in all_cols:
+                all_cols.append(c)
+        triggers = _disable_triggers(conn)
+        _recreate_table(
+            conn,
+            "meta",
+            """CREATE TABLE meta (
+                title TEXT,
+                license TEXT,
+                lang TEXT,
+                version TEXT,
+                master TEXT
+            )""",
+            select_cols + "".join(f", NULL" for _ in missing),
+        )
+        _restore_triggers(conn, triggers)
+    else:
+        for col in missing:
+            conn.execute(f"ALTER TABLE meta ADD COLUMN {col} TEXT")
+
+    return 1
+
+
+def _fix_doc_pk(conn: sqlite3.Connection, lang: str, dry_run: bool) -> int:
+    """Fix doc table PK name: docID → docid.
+
+    Args:
+        conn: Database connection.
+        lang: Language code (for logging).
+        dry_run: If True, report but don't modify.
+
+    Returns:
+        Number of changes (0 or 1).
+    """
+    cols = [c[1] for c in conn.execute("PRAGMA table_info(doc)").fetchall()]
+    if not cols or cols[0] == "docid":
+        return 0
+
+    logger.info(
+        "%s: %s doc PK name '%s'→'docid'",
+        lang, "would fix" if dry_run else "fixing", cols[0],
+    )
+    if dry_run:
+        return 1
+
+    triggers = _disable_triggers(conn)
+    _recreate_table(
+        conn,
+        "doc",
+        """CREATE TABLE doc (
+            docid INTEGER PRIMARY KEY,
+            doc TEXT,
+            title TEXT,
+            url TEXT,
+            subtitle TEXT,
+            corpusID INTEGER,
+            FOREIGN KEY (corpusID) REFERENCES corpus(corpusID)
+        )""",
+        ", ".join(cols),
+    )
+    _restore_triggers(conn, triggers)
+    return 1
 
 
 # ---------------------------------------------------------------------------
