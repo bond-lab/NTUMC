@@ -169,6 +169,8 @@ Options:
 Each run saves `display/{lang}/index.json` (per-language metadata sidecar).
 The combined `display/index.html` is rebuilt from all sidecars after every run,
 so you can run the script per language and the index accumulates automatically.
+The index uses language tabs (sorted by document count) with collapsible
+corpus/genre groups inside each tab.
 
 To regenerate all tagged corpora:
 ```

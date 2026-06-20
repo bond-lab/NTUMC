@@ -31,6 +31,18 @@ logger = logging.getLogger(__name__)
 
 BUILD_DIR = Path(__file__).resolve().parent.parent / "build"
 
+LANG_NAMES: dict[str, str] = {
+    "eng": "English",
+    "cmn": "Chinese",
+    "jpn": "Japanese",
+    "ind": "Indonesian",
+    "ita": "Italian",
+    "ces": "Czech",
+    "kor": "Korean",
+    "vie": "Vietnamese",
+    "tha": "Thai",
+}
+
 NAMED_ENTITY_DEFS: dict[str, str] = {
     "per": "Person Name",
     "num": "Number",
@@ -151,28 +163,73 @@ INDEX_TEMPLATE = """\
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NTUMC Corpus Display</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    .corpus-toggle { cursor: pointer; user-select: none; }
+    .corpus-toggle .bi { transition: transform 0.15s; }
+    .corpus-toggle.collapsed .bi-chevron-down { transform: rotate(-90deg); }
+  </style>
 </head>
 <body class="bg-light">
 <div class="container mt-4 mb-5">
-  <h1 class="h3 mb-4">NTUMC Corpus Documents</h1>
-  {%- for lang, docs in by_lang.items() %}
-  <h2 class="h5 mt-4 mb-2 text-uppercase text-muted">{{ lang }}</h2>
-  <div class="list-group mb-3">
-    {%- for doc in docs %}
-    <a href="{{ doc.path }}" class="list-group-item list-group-item-action">
-      <div class="d-flex justify-content-between align-items-start">
-        <div>
-          <div>{{ doc.title }}</div>
-          {%- if doc.subtitle %}<small class="text-muted">{{ doc.subtitle }}</small>{% endif %}
+  <h1 class="h3 mb-3">NTUMC Corpus Documents</h1>
+  {%- if by_lang|length > 1 %}
+  <ul class="nav nav-tabs mb-3" role="tablist">
+    {%- for lang in by_lang %}
+    <li class="nav-item" role="presentation">
+      <button class="nav-link{% if loop.first %} active{% endif %}"
+              id="tab-{{ lang }}" data-bs-toggle="tab"
+              data-bs-target="#pane-{{ lang }}" type="button"
+              role="tab">{{ lang_names[lang] }}
+        <span class="badge bg-secondary ms-1">{{ by_lang[lang].doc_count }}</span></button>
+    </li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+  <div class="tab-content">
+    {%- for lang, info in by_lang.items() %}
+    <div class="tab-pane fade{% if loop.first %} show active{% endif %}"
+         id="pane-{{ lang }}" role="tabpanel">
+      {%- for corpus_title, docs in info.groups.items() %}
+      <div class="mb-3">
+        <div class="corpus-toggle d-flex align-items-center gap-2 mb-2"
+             data-bs-toggle="collapse" data-bs-target="#grp-{{ lang }}-{{ loop.index }}"
+             aria-expanded="true">
+          <i class="bi bi-chevron-down"></i>
+          <span class="h6 mb-0">{{ corpus_title }}</span>
+          <span class="badge bg-secondary">{{ docs|length }}</span>
         </div>
-        <small class="text-muted ms-3 text-nowrap">{{ doc.sent_count }} sent.
-          {%- if doc.tag_pct %} · {{ doc.tag_pct }}% tagged{% endif %}</small>
+        <div class="collapse show" id="grp-{{ lang }}-{{ loop.index }}">
+          <div class="list-group">
+            {%- for doc in docs %}
+            <a href="{{ doc.path }}" class="list-group-item list-group-item-action">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <div>{{ doc.title }}</div>
+                  {%- if doc.subtitle %}<small class="text-muted">{{ doc.subtitle }}</small>{% endif %}
+                </div>
+                <small class="text-muted ms-3 text-nowrap">{{ doc.sent_count }} sent.
+                  {%- if doc.tag_pct %} &middot; {{ doc.tag_pct }}% tagged{% endif %}</small>
+              </div>
+            </a>
+            {%- endfor %}
+          </div>
+        </div>
       </div>
-    </a>
+      {%- endfor %}
+    </div>
     {%- endfor %}
   </div>
-  {%- endfor %}
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.querySelectorAll('.corpus-toggle').forEach(function(el) {
+  var target = document.querySelector(el.getAttribute('data-bs-target'));
+  if (!target) return;
+  target.addEventListener('hide.bs.collapse', function() { el.classList.add('collapsed'); });
+  target.addEventListener('show.bs.collapse', function() { el.classList.remove('collapsed'); });
+});
+</script>
 </body>
 </html>
 """
@@ -486,10 +543,32 @@ def write_document(
         "path": f"{lang}/{doc_name}-view.html",
         "sent_count": n_sents,
         "tag_pct": tag_pct,
+        "corpus_id": doc_data.get("corpusID"),
     }
 
 
-def save_lang_sidecar(lang: str, docs: list[dict], outdir: Path) -> None:
+def get_corpus_map(corpus_db: str) -> dict[int, str]:
+    """Return {corpusID: title} for all corpora in the database.
+
+    Args:
+        corpus_db: Path to the language corpus database.
+
+    Returns:
+        Mapping from corpus ID to corpus title.
+    """
+    conn = sqlite3.connect(corpus_db)
+    try:
+        rows = conn.execute(
+            "SELECT corpusID, title FROM corpus ORDER BY corpusID"
+        ).fetchall()
+        return {r[0]: r[1] for r in rows}
+    finally:
+        conn.close()
+
+
+def save_lang_sidecar(
+    lang: str, docs: list[dict], outdir: Path, corpus_map: dict[int, str]
+) -> None:
     """Save per-language metadata sidecar for combined index.
 
     Written to display/{lang}/index.json so multiple language runs accumulate.
@@ -498,8 +577,9 @@ def save_lang_sidecar(lang: str, docs: list[dict], outdir: Path) -> None:
         lang: Language code.
         docs: List of document metadata dicts.
         outdir: Root output directory.
+        corpus_map: {corpusID: title} mapping for corpus grouping.
     """
-    sidecar = {"lang": lang, "docs": docs}
+    sidecar = {"lang": lang, "docs": docs, "corpora": corpus_map}
     sidecar_path = outdir / lang / "index.json"
     sidecar_path.write_text(json.dumps(sidecar, ensure_ascii=False), encoding="utf-8")
 
@@ -513,20 +593,30 @@ def write_index(outdir: Path) -> None:
     Args:
         outdir: Root output directory.
     """
-    by_lang: dict[str, list[dict]] = {}
+    unsorted: dict[str, dict] = {}
     for sidecar_path in sorted(outdir.glob("*/index.json")):
         try:
             data = json.loads(sidecar_path.read_text(encoding="utf-8"))
             lang = data.get("lang", sidecar_path.parent.name)
             docs = data.get("docs", [])
+            corpora = data.get("corpora", {})
             if docs:
-                by_lang[lang] = docs
+                grouped: dict[str, list[dict]] = {}
+                for doc in docs:
+                    cid = doc.get("corpus_id")
+                    corpus_title = corpora.get(str(cid), "Other") if cid else "Other"
+                    grouped.setdefault(corpus_title, []).append(doc)
+                unsorted[lang] = {"groups": grouped, "doc_count": len(docs)}
         except (json.JSONDecodeError, OSError) as exc:
             logger.warning("Skipping sidecar %s: %s", sidecar_path, exc)
 
+    by_lang = dict(sorted(unsorted.items(), key=lambda x: -x[1]["doc_count"]))
+
+    lang_names = {lang: LANG_NAMES.get(lang, lang) for lang in by_lang}
+
     env = Environment(loader=BaseLoader(), autoescape=True)
     tmpl = env.from_string(INDEX_TEMPLATE)
-    html = tmpl.render(by_lang=by_lang)
+    html = tmpl.render(by_lang=by_lang, lang_names=lang_names)
     index_path = outdir / "index.html"
     index_path.write_text(html, encoding="utf-8")
     langs_str = ", ".join(by_lang) if by_lang else "(none)"
@@ -664,7 +754,8 @@ def main() -> None:
     if lang_docs:
         lang_dir = outdir / args.lang
         lang_dir.mkdir(parents=True, exist_ok=True)
-        save_lang_sidecar(args.lang, lang_docs, outdir)
+        corpus_map = get_corpus_map(corpus_db)
+        save_lang_sidecar(args.lang, lang_docs, outdir, corpus_map)
 
     write_index(outdir)
     logger.info("Done. %d document(s) generated.", len(lang_docs))
