@@ -224,9 +224,39 @@ corpus/genre groups inside each tab.
 
 To regenerate all tagged corpora:
 ```
-for lang in eng jpn cmn ind ita ces; do
+for lang in eng cmn ind ita ces; do
     .venv/bin/python scripts/make_display.py --lang $lang --all --tagged --outdir display/
 done
+# Japanese needs a lower threshold (kc02 is only 3% tagged)
+.venv/bin/python scripts/make_display.py --lang jpn --all --tagged --min-tagged 0.01 --outdir display/
+```
+
+### Full rebuild from scratch
+
+Download fresh databases, apply all fixes, and regenerate the display:
+
+```
+# 1. Download databases from the server
+.venv/bin/python scripts/fix_corpus.py --download
+
+# 2. Apply corpus metadata fixes (missing corpus rows, stype h0, NULL language)
+.venv/bin/python scripts/fix_corpus.py --fix
+
+# 3. Merge missing corpora from old per-genre databases
+#    (eng essay, jpn essay, jpn kc, cmn stype)
+.venv/bin/python scripts/merge_old_corpora.py --fix
+
+# 4. Audit to verify
+.venv/bin/python scripts/fix_corpus.py --audit
+
+# 5. Regenerate display HTML
+for lang in eng cmn ind ita ces; do
+    .venv/bin/python scripts/make_display.py --lang $lang --all --tagged --outdir display/
+done
+.venv/bin/python scripts/make_display.py --lang jpn --all --tagged --min-tagged 0.01 --outdir display/
+
+# 6. Review, then push back to server when satisfied
+#    .venv/bin/python scripts/fix_corpus.py --push
 ```
 
 **`fix_cpos.py`** — Populate missing `cfrom`/`cto` character offsets in the
