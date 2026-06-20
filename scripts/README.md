@@ -74,6 +74,33 @@ scp compling.upol.cz:/var/www/ntumc/db/wn-ntumc.db /tmp/wn-ntumc.db
 scp /tmp/wn-ntumc.db compling.upol.cz:/var/www/ntumc/db/wn-ntumc.db
 ```
 
+**`fix_corpus.py`** — Audit and fix corpus metadata (corpus table, doc.corpusID,
+stype) across all language databases.
+
+```
+# Audit only (report issues, no changes)
+.venv/bin/python scripts/fix_corpus.py --audit
+
+# Download fresh copies from server and audit
+.venv/bin/python scripts/fix_corpus.py --download --audit
+
+# Apply fixes (dry run first)
+.venv/bin/python scripts/fix_corpus.py --fix --dry-run --audit
+.venv/bin/python scripts/fix_corpus.py --fix --audit
+
+# Push fixed databases back to server (interactive confirmation)
+.venv/bin/python scripts/fix_corpus.py --push
+```
+
+Automated fixes:
+- Missing corpus table rows (e.g. ind corpusID=3 for stories)
+- NULL language in corpus table (ces, yue)
+- Missing stype `h0` entries for YourSingapore document titles
+
+Issues requiring manual work (reported as TODO):
+- stype entries for essay, news (kc), and story corpora
+- Empty corpus placeholders (corpus rows with no documents)
+
 
 ## Log management
 
