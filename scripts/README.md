@@ -101,6 +101,29 @@ Issues requiring manual work (reported as TODO):
 - stype entries for essay, news (kc), and story corpora
 - Empty corpus placeholders (corpus rows with no documents)
 
+**`merge_old_corpora.py`** — Merge corpora left behind when the project
+switched from per-genre to per-language databases (~2015).
+
+```
+# Dry run (report what would change)
+.venv/bin/python scripts/merge_old_corpora.py --fix --dry-run
+
+# Apply merges to local build/ copies
+.venv/bin/python scripts/merge_old_corpora.py --fix
+
+# Download fresh copies from server first
+.venv/bin/python scripts/merge_old_corpora.py --download --fix
+```
+
+Merges three missing corpora with schema conversion (old concept+wid →
+new concept+cwl):
+- English essay (catb): 769 sents from `work/ntu-mc/2014-04-04/eng-essay.db`
+- Japanese essay (catb): 773 sents from `work/ntu-mc/2014-04-04/jpn-essay.db`
+- Japanese news (kc01+kc02): 2020 sents from `work/ntu-mc/2013-10-05/jpn-kc.db`
+
+Also imports Chinese yoursing stype data (2970 entries) from
+`work/ntu-mc/alvas/stype.tab`.
+
 
 ## Log management
 

@@ -49,6 +49,7 @@ EXPECTED_CORPORA: dict[str, dict[int, tuple[str, str]]] = {
         1: ("kc", "Kyoto University Text Corpus: Mainichi Shimbun"),
         2: ("yoursing", "Singapore Tourism: Your Singapore"),
         3: ("story", "Short Stories"),
+        4: ("essay", "The Cathedral and the Bazaar"),
     },
     "cmn": {
         1: ("essay", "随笔"),  # 随笔
