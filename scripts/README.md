@@ -112,6 +112,15 @@ sentences get no stype and flow inline).  Also sets `h1`, `h2`, `author`, and
 .venv/bin/python scripts/fix_catb_stype.py --fix
 ```
 
+**`fix_jpn_wids.py`** — Normalize Japanese word IDs to 0-based per sentence.
+Some documents (kc01, kc02, danc) use document-global wid numbering; this
+renumbers them to start at 0 for each sentence, updating word and cwl tables.
+
+```
+.venv/bin/python scripts/fix_jpn_wids.py --dry-run
+.venv/bin/python scripts/fix_jpn_wids.py --fix
+```
+
 **`propagate_stype.py`** — Propagate stype annotations from English to other
 languages via sentence links (slinks).
 
@@ -280,7 +289,10 @@ Download fresh databases, apply all fixes, and regenerate the display:
 # 5. Recover missing concept annotations into cmn.db from old DBs
 .venv/bin/python scripts/recover_cmn_concepts.py --fix
 
-# 6. Propagate stype from English to other languages via slinks
+# 6. Normalize jpn wids to 0-based per sentence
+.venv/bin/python scripts/fix_jpn_wids.py --fix
+
+# 7. Propagate stype from English to other languages via slinks
 .venv/bin/python scripts/propagate_stype.py --fix
 
 # 7. Fix catb paragraph stypes from source HTML
