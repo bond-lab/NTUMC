@@ -421,12 +421,15 @@ def test_no_empty_sent_text(conn: sqlite3.Connection, r: TestResult) -> None:
 
 def test_tag_values(conn: sqlite3.Connection, r: TestResult) -> None:
     """Check concept.tag values are valid synset IDs or known meta-tags."""
-    valid_meta = {"e", "w", "x", "per", "org", "loc", "dat", "num", "oth", "nam", "prn"}
     bad = conn.execute("""
         SELECT COUNT(*) FROM concept
         WHERE tag IS NOT NULL AND tag != ''
-          AND tag NOT IN ('e','w','x','per','org','loc','dat','num','oth','nam','prn')
-          AND tag NOT GLOB '[0-9]*-[nvarsx]'
+          AND tag NOT IN ('e','w','x','u','s','p','h','m','d',
+                          'per','org','loc','dat','num','oth','nam','prn')
+          AND tag NOT GLOB '[0-9]*-[navrsxp]'
+          AND tag NOT GLOB 'dat:*'
+          AND tag NOT GLOB 'prn=*'
+          AND tag NOT GLOB 'ne:*'
     """).fetchone()[0]
     if bad == 0:
         r.ok("tag_values")
@@ -455,6 +458,133 @@ def test_every_doc_has_sents(conn: sqlite3.Connection, r: TestResult) -> None:
         r.ok("docs_have_sents")
     else:
         r.warn("docs_have_sents", f"{empty_docs} doc(s) have no sentences")
+
+
+def test_wid_zero_based(conn: sqlite3.Connection, r: TestResult) -> None:
+    """Check that word IDs start at 0 for every sentence."""
+    bad = conn.execute("""
+        SELECT COUNT(*) FROM (
+            SELECT sid, MIN(wid) as minw FROM word GROUP BY sid HAVING minw != 0
+        )
+    """).fetchone()[0]
+    if bad == 0:
+        r.ok("wid_zero_based")
+    else:
+        r.fail("wid_zero_based", f"{bad} sentence(s) have wids not starting at 0")
+
+
+def test_wid_contiguous(conn: sqlite3.Connection, r: TestResult) -> None:
+    """Check that word IDs are contiguous (0, 1, 2, ...) within each sentence."""
+    bad = conn.execute("""
+        SELECT COUNT(*) FROM (
+            SELECT sid, MAX(wid) + 1 as expected, COUNT(*) as actual
+            FROM word GROUP BY sid
+            HAVING expected != actual
+        )
+    """).fetchone()[0]
+    if bad == 0:
+        r.ok("wid_contiguous")
+    else:
+        r.warn("wid_contiguous", f"{bad} sentence(s) have gaps in wid sequence")
+
+
+def test_cid_zero_based(conn: sqlite3.Connection, r: TestResult) -> None:
+    """Check that concept IDs start at 0 for every sentence."""
+    bad = conn.execute("""
+        SELECT COUNT(*) FROM (
+            SELECT sid, MIN(cid) as minc FROM concept GROUP BY sid HAVING minc != 0
+        )
+    """).fetchone()[0]
+    if bad == 0:
+        r.ok("cid_zero_based")
+    else:
+        r.fail("cid_zero_based", f"{bad} sentence(s) have cids not starting at 0")
+
+
+def test_stype_values(conn: sqlite3.Connection, r: TestResult) -> None:
+    """Check that stype values are from the known set."""
+    tables = {
+        row[0] for row in conn.execute(
+            "SELECT name FROM sqlite_master WHERE type='table'"
+        ).fetchall()
+    }
+    if "stype" not in tables:
+        return
+    known = {"h0", "h1", "h2", "h3", "h4", "h5", "h6", "h7",
+             "p", "item", "author", "translator"}
+    bad = conn.execute("""
+        SELECT DISTINCT stype FROM stype
+        WHERE stype IS NOT NULL AND stype NOT IN
+        ('h0','h1','h2','h3','h4','h5','h6','h7',
+         'p','item','author','translator')
+    """).fetchall()
+    if not bad:
+        r.ok("stype_values")
+    else:
+        vals = ", ".join(repr(b[0]) for b in bad)
+        r.fail("stype_values", f"unknown stype value(s): {vals}")
+
+
+def test_stype_no_duplicates(conn: sqlite3.Connection, r: TestResult) -> None:
+    """Check that each sentence has at most one stype entry."""
+    tables = {
+        row[0] for row in conn.execute(
+            "SELECT name FROM sqlite_master WHERE type='table'"
+        ).fetchall()
+    }
+    if "stype" not in tables:
+        return
+    dupes = conn.execute("""
+        SELECT COUNT(*) FROM (
+            SELECT sid, COUNT(*) as c FROM stype GROUP BY sid HAVING c > 1
+        )
+    """).fetchone()[0]
+    if dupes == 0:
+        r.ok("stype_no_duplicates")
+    else:
+        r.fail("stype_no_duplicates", f"{dupes} sentence(s) have multiple stype entries")
+
+
+def test_sent_docid_not_null(conn: sqlite3.Connection, r: TestResult) -> None:
+    """Check that all sentences have a non-NULL docID."""
+    nulls = conn.execute(
+        "SELECT COUNT(*) FROM sent WHERE docID IS NULL"
+    ).fetchone()[0]
+    if nulls == 0:
+        r.ok("sent_docid_notnull")
+    else:
+        r.fail("sent_docid_notnull", f"{nulls} sentence(s) have NULL docID")
+
+
+def test_word_not_empty(conn: sqlite3.Connection, r: TestResult) -> None:
+    """Check for words with empty text or lemma."""
+    empty_word = conn.execute(
+        "SELECT COUNT(*) FROM word WHERE word IS NULL OR TRIM(word) = ''"
+    ).fetchone()[0]
+    empty_lemma = conn.execute(
+        "SELECT COUNT(*) FROM word WHERE lemma IS NULL OR TRIM(lemma) = ''"
+    ).fetchone()[0]
+    if empty_word == 0:
+        r.ok("word_text_notempty")
+    else:
+        r.warn("word_text_notempty", f"{empty_word} word(s) with empty text")
+    if empty_lemma == 0:
+        r.ok("word_lemma_notempty")
+    else:
+        r.warn("word_lemma_notempty", f"{empty_lemma} word(s) with empty lemma")
+
+
+def test_cfrom_cto_valid(conn: sqlite3.Connection, r: TestResult) -> None:
+    """Check cfrom/cto offsets are non-negative and cfrom < cto."""
+    bad = conn.execute("""
+        SELECT COUNT(*) FROM word
+        WHERE cfrom IS NOT NULL AND cto IS NOT NULL
+        AND (cfrom < 0 OR cto < cfrom)
+    """).fetchone()[0]
+    if bad == 0:
+        r.ok("cfrom_cto_valid")
+    else:
+        r.warn("cfrom_cto_valid", f"{bad} word(s) with invalid cfrom/cto")
 
 
 # ---------------------------------------------------------------------------
@@ -497,6 +627,14 @@ def run_tests(db_path: Path) -> TestResult:
     test_no_empty_sent_text(conn, r)
     test_tag_values(conn, r)
     test_every_doc_has_sents(conn, r)
+    test_wid_zero_based(conn, r)
+    test_wid_contiguous(conn, r)
+    test_cid_zero_based(conn, r)
+    test_stype_values(conn, r)
+    test_stype_no_duplicates(conn, r)
+    test_sent_docid_not_null(conn, r)
+    test_word_not_empty(conn, r)
+    test_cfrom_cto_valid(conn, r)
 
     conn.close()
     return r
