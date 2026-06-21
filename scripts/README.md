@@ -274,19 +274,32 @@ Download fresh databases, apply all fixes, and regenerate the display:
 #    (eng essay, jpn essay, jpn kc, cmn stype)
 .venv/bin/python scripts/merge_old_corpora.py --fix
 
-# 4. Propagate stype from English to other languages via slinks
+# 4. Fix cmn.db: swap spec/danc sids and import kumo-no-ito
+.venv/bin/python scripts/fix_cmn_sids.py --fix
+
+# 5. Recover missing concept annotations into cmn.db from old DBs
+.venv/bin/python scripts/recover_cmn_concepts.py --fix
+
+# 6. Propagate stype from English to other languages via slinks
 .venv/bin/python scripts/propagate_stype.py --fix
 
-# 5. Audit to verify
-.venv/bin/python scripts/fix_corpus.py --audit
+# 7. Fix catb paragraph stypes from source HTML
+.venv/bin/python scripts/fix_catb_stype.py --fix
 
-# 6. Regenerate display HTML
+# 8. Fix off-by-one-sentence concept errors
+.venv/bin/python scripts/fix_cwl_offbyone.py --fix
+
+# 9. Audit to verify
+.venv/bin/python scripts/fix_corpus.py --audit
+.venv/bin/python scripts/check_cwl.py
+
+# 10. Regenerate display HTML
 for lang in eng cmn ind ita ces; do
     .venv/bin/python scripts/make_display.py --lang $lang --all --tagged --outdir display/
 done
 .venv/bin/python scripts/make_display.py --lang jpn --all --tagged --min-tagged 0.01 --outdir display/
 
-# 7. Review, then push back to server when satisfied
+# 11. Review, then push back to server when satisfied
 #    .venv/bin/python scripts/fix_corpus.py --push
 ```
 
