@@ -49,6 +49,54 @@ w.pinned        { border-bottom: 2px solid #0d6efd; }
 .synset-def     { color: #374151; }
 .synset-syns    { color: #6b7280; font-size: 0.85rem; font-style: italic; }
 
+/* ---- Translation icons & popover ---- */
+.trans-icon {
+  cursor: pointer;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-left: 0.2rem;
+  vertical-align: super;
+  display: none;
+}
+.trans-icon:hover { color: #2563eb; }
+body.show-trans .trans-icon { display: inline; }
+
+.trans-popover {
+  position: absolute;
+  z-index: 1080;
+  max-width: 500px;
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-left: 3px solid #2563eb;
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.trans-popover .trans-text { color: #1f2937; }
+.trans-popover .trans-close {
+  cursor: pointer;
+  float: right;
+  color: #9ca3af;
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+}
+.trans-popover .trans-close:hover { color: #374151; }
+
+/* ---- Sentence types (stype) ---- */
+.stype-author, .stype-translator {
+  font-style: italic;
+  color: #4b5563;
+  margin-bottom: 0.25rem;
+}
+.stype-item {
+  margin-left: 2rem;
+  padding-left: 0.5rem;
+  border-left: 3px solid #d1d5db;
+}
+
 /* ---- Settings & icon controls ---- */
 #settingsIcon           { cursor: pointer; font-size: 1.4rem; color: #6b7280; }
 #settingsIcon:hover     { color: #374151; }

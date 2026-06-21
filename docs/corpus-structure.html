@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NTUMC Corpus Structure</title>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body { font-family: Palatino, "Palatino Linotype", Georgia, serif;
+           font-size: 1.05rem; line-height: 1.8; }
+    code { font-size: 0.92em; }
+    table code { white-space: nowrap; }
+    .example { background: #f8f9fa; border-left: 3px solid #dee2e6;
+               padding: 0.5rem 1rem; margin: 0.5rem 0; }
+    .example-heading { font-weight: bold; font-size: 1.1em; margin-bottom: 0; }
+    .example-author  { font-style: italic; color: #4b5563; }
+    .example-item    { margin-left: 2rem; padding-left: 0.5rem;
+                       border-left: 3px solid #d1d5db; }
+    .schema-diagram  { background: #f1f5f9; padding: 1rem; border-radius: 0.5rem;
+                       font-family: "Fira Code", "Cascadia Code", monospace;
+                       font-size: 0.85rem; line-height: 1.5; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<div class="container mt-4 mb-5">
+  <h1>NTUMC Corpus Structure</h1>
+  <p><a href="index.html">&larr; Back to main documentation</a></p>
+
+  <nav>
+    <h5>Contents</h5>
+    <ol>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#schema">Database Schema</a></li>
+      <li><a href="#stype">Sentence Types (<code>stype</code>)</a></li>
+      <li><a href="#display">Display Rendering</a></li>
+    </ol>
+  </nav>
+
+  <hr>
+
+  <!-- ============================================================ -->
+  <h2 id="overview">1. Overview</h2>
+
+  <p>Each language in the NTU Multilingual Corpus is stored in its own
+  SQLite database (e.g. <code>eng.db</code>, <code>jpn.db</code>,
+  <code>cmn.db</code>). All databases share the same schema.
+  The corpus contains parallel texts across multiple languages, with
+  annotations for word senses (linked to wordnet synsets), sentiment,
+  and document structure.</p>
+
+  <!-- ============================================================ -->
+  <h2 id="schema">2. Database Schema</h2>
+
+  <h3>Core tables</h3>
+  <div class="schema-diagram"><pre>
+corpus(corpusID, corpus, title, url)
+  &darr; 1:N
+doc(docID, doc, title, url, subtitle, corpusID)
+  &darr; 1:N
+sent(sid, docID, pid, sent, comment, usrname)
+  &darr; 1:N
+word(sid, wid, word, pos, lemma, cfrom, cto, comment)
+
+stype(sid, stype, comment)          &larr; document structure
+concept(sid, cid, clemma, tag)      &larr; sense annotation
+cwl(sid, cid, wid)                  &larr; concept&ndash;word link
+sentiment(sid, senti, strength, ...)&larr; sentiment annotation</pre>
+  </div>
+
+  <h3>Key relationships</h3>
+  <ul>
+    <li>A <strong>corpus</strong> groups related documents
+        (e.g. &ldquo;Sherlock Holmes&rdquo;, &ldquo;Singapore Tourism&rdquo;).</li>
+    <li>A <strong>doc</strong> is a single text
+        (e.g. one short story, one web page, one essay).</li>
+    <li>A <strong>sent</strong> is a sentence (or sentence-like unit:
+        heading, author line, list item).</li>
+    <li>A <strong>word</strong> is a single token within a sentence,
+        identified by <code>(sid, wid)</code>.</li>
+    <li>The <strong>stype</strong> table records the structural role
+        of each sentence in the original document.</li>
+  </ul>
+
+  <!-- ============================================================ -->
+  <h2 id="stype">3. Sentence Types (<code>stype</code>)</h2>
+
+  <p>The <code>stype</code> table assigns a structural type to each
+  sentence. Every sentence in a document should have exactly one
+  <code>stype</code> row. The type determines how the sentence is
+  displayed (as a heading, paragraph, list item, etc.).</p>
+
+  <h3>Schema</h3>
+  <div class="schema-diagram"><pre>
+CREATE TABLE stype (
+    sid     INTEGER,    -- references sent(sid)
+    stype   TEXT,       -- structural type code
+    comment TEXT,       -- optional annotation (e.g. "Chapter 1", "BOOK ONE")
+    FOREIGN KEY(sid) REFERENCES sent(sid)
+);</pre>
+  </div>
+
+  <h3>Type codes</h3>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><code>stype</code></th>
+        <th>Meaning</th>
+        <th>Display</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>h1</code></td>
+        <td>Document title</td>
+        <td>Rendered as <code>&lt;h1&gt;</code></td>
+        <td>&ldquo;The Cathedral and the Bazaar&rdquo;<br>
+            &ldquo;The Valley of Fear&rdquo;</td>
+      </tr>
+      <tr>
+        <td><code>h2</code></td>
+        <td>Major section heading</td>
+        <td>Rendered as <code>&lt;h2&gt;</code></td>
+        <td>&ldquo;The Mail Must Get Through&rdquo;<br>
+            &ldquo;Abstract&rdquo;<br>
+            &ldquo;Bibliography&rdquo;</td>
+      </tr>
+      <tr>
+        <td><code>h3</code></td>
+        <td>Subsection heading (e.g. chapter)</td>
+        <td>Rendered as <code>&lt;h3&gt;</code>.
+            The <code>comment</code> column may hold
+            additional context (e.g. &ldquo;Chapter 1&rdquo;,
+            &ldquo;BOOK ONE&rdquo;).</td>
+        <td>&ldquo;Chapter 1&rdquo; (in <cite>War with the Newts</cite>)</td>
+      </tr>
+      <tr>
+        <td><code>h0</code></td>
+        <td>Short-document title or heading (used for
+            web pages and similar short texts that lack
+            internal structure)</td>
+        <td>Rendered as <code>&lt;h2&gt;</code></td>
+        <td>&ldquo;Partner Restaurants&rdquo;<br>
+            &ldquo;Wind Shadow&rdquo;<br>
+            (Singapore Tourism web pages)</td>
+      </tr>
+      <tr>
+        <td><code>p</code></td>
+        <td>Body paragraph (the default type)</td>
+        <td>Rendered as <code>&lt;p&gt;</code></td>
+        <td>&ldquo;Linux is subversive.&rdquo;</td>
+      </tr>
+      <tr>
+        <td><code>item</code></td>
+        <td>List item or numbered entry
+            (e.g. an aphorism, a numbered principle, a
+            bibliographic entry within a list)</td>
+        <td>Rendered as <code>&lt;p class="stype-item"&gt;</code>,
+            displayed indented with a left border</td>
+        <td>&ldquo;1. Every good work of software starts by
+            scratching a developer's personal itch.&rdquo;<br>
+            &ldquo;8. Given a large enough beta-tester and
+            co-developer base, almost every problem will be
+            characterized quickly and the fix obvious to someone.&rdquo;</td>
+      </tr>
+      <tr>
+        <td><code>author</code></td>
+        <td>Author attribution line</td>
+        <td>Rendered as <code>&lt;p class="stype-author"&gt;</code>,
+            displayed in italics</td>
+        <td>&ldquo;Eric Steven Raymond&rdquo;<br>
+            &ldquo;Karel &#x10C;apek&rdquo;<br>
+            &ldquo;Ryunosuke Akutagawa&rdquo;</td>
+      </tr>
+      <tr>
+        <td><code>translator</code></td>
+        <td>Translator attribution line</td>
+        <td>Rendered as <code>&lt;p class="stype-translator"&gt;</code>,
+            displayed in italics</td>
+        <td>&ldquo;David Wyllie&rdquo;
+            (translator of <cite>War with the Newts</cite>)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Heading levels</h3>
+
+  <p>The heading hierarchy corresponds to document structure:</p>
+
+  <ul>
+    <li><code>h1</code> &mdash; the overall document title
+        (at most one per document).</li>
+    <li><code>h2</code> &mdash; top-level sections within the document.</li>
+    <li><code>h3</code> &mdash; subsections or chapters.
+        The <code>comment</code> column may carry a label
+        like &ldquo;Chapter 5&rdquo; or &ldquo;BOOK ONE&rdquo;.</li>
+    <li><code>h4</code>&ndash;<code>h7</code> &mdash; deeper nesting
+        levels (rarely used).</li>
+    <li><code>h0</code> &mdash; a pragmatic code for short documents
+        (web pages, catalogue entries) where the &ldquo;title&rdquo;
+        sentence doubles as the main heading. Displayed at the same
+        level as <code>h2</code>.</li>
+  </ul>
+
+  <!-- ============================================================ -->
+  <h2 id="display">4. Display Rendering</h2>
+
+  <p>The corpus display viewer (<code>scripts/make_display.py</code>)
+  generates static HTML pages for each document. The <code>stype</code>
+  value controls the HTML wrapper element for each sentence:</p>
+
+  <table class="table table-sm">
+    <thead>
+      <tr><th><code>stype</code></th><th>HTML output</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>h1</code>&ndash;<code>h7</code></td>
+          <td><code>&lt;h1&gt;</code>&ndash;<code>&lt;h7&gt;</code></td></tr>
+      <tr><td><code>h0</code></td>
+          <td><code>&lt;h2&gt;</code></td></tr>
+      <tr><td><code>p</code></td>
+          <td><code>&lt;p&gt;</code></td></tr>
+      <tr><td><code>item</code></td>
+          <td><code>&lt;p class="stype-item"&gt;</code></td></tr>
+      <tr><td><code>author</code></td>
+          <td><code>&lt;p class="stype-author"&gt;</code></td></tr>
+      <tr><td><code>translator</code></td>
+          <td><code>&lt;p class="stype-translator"&gt;</code></td></tr>
+      <tr><td>(any other or missing)</td>
+          <td><code>&lt;p&gt;</code> (fallback)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Visual examples</h3>
+
+  <div class="card shadow-sm mb-4"><div class="card-body">
+    <p class="text-muted small mb-2">
+      Simulated rendering of <cite>The Cathedral and the Bazaar</cite>
+      (sids 1&ndash;57):</p>
+
+    <div class="example">
+      <h1 class="example-heading">The Cathedral and the Bazaar</h1>
+      <p class="example-author">Eric Steven Raymond</p>
+      <h2>Abstract</h2>
+      <p>I anatomize a successful open-source project, fetchmail, that
+      was run as a deliberate test of the surprising theories about software
+      engineering suggested by the history of Linux.</p>
+      <p>&hellip;</p>
+      <h2>The Cathedral and the Bazaar</h2>
+      <p>Linux is subversive.</p>
+      <p>&hellip;</p>
+      <p>And this brings us to the first lesson:</p>
+      <p class="example-item">1. Every good work of software starts
+      by scratching a developer's personal itch.</p>
+      <p>Perhaps this should have been obvious&hellip;</p>
+    </div>
+  </div></div>
+
+  <h3>CSS classes</h3>
+
+  <p>The display stylesheet (<code>display/assets/corpus.css</code>)
+  defines the following classes for non-standard sentence types:</p>
+
+  <dl>
+    <dt><code>.stype-author</code>, <code>.stype-translator</code></dt>
+    <dd>Italic text in a muted colour, with reduced bottom margin.
+        Visually distinguishes attribution lines from body text.</dd>
+    <dt><code>.stype-item</code></dt>
+    <dd>Left-indented (2rem) with a light grey left border.
+        Visually sets numbered principles and list items apart from
+        surrounding prose.</dd>
+  </dl>
+
+  <hr>
+  <p class="text-muted small">Last updated: 2026-06-21</p>
+</div>
+</body>
+</html>

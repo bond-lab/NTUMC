@@ -101,6 +101,34 @@ Issues requiring manual work (reported as TODO):
 - stype entries for essay, news (kc), and story corpora
 - Empty corpus placeholders (corpus rows with no documents)
 
+**`fix_catb_stype.py`** — Fix stype annotations for *The Cathedral and the
+Bazaar* by downloading the original HTML from catb.org and extracting paragraph
+boundaries.  Sets `p` only on the first sentence of each paragraph (remaining
+sentences get no stype and flow inline).  Also sets `h1`, `h2`, `author`, and
+`item` (for the 19 numbered lessons).  Propagates to jpn and cmn via slinks.
+
+```
+.venv/bin/python scripts/fix_catb_stype.py --dry-run
+.venv/bin/python scripts/fix_catb_stype.py --fix
+```
+
+**`propagate_stype.py`** — Propagate stype annotations from English to other
+languages via sentence links (slinks).
+
+```
+# Dry run (report what would change)
+.venv/bin/python scripts/propagate_stype.py --dry-run
+
+# Apply
+.venv/bin/python scripts/propagate_stype.py --fix
+```
+
+Uses slink tables in `eng-{lang}.db` to map English stypes to target languages.
+For 1:many sentence links (one English sentence split into several in the
+target), only the first target sentence gets the stype.  For tourism documents
+(sid >= 100000) which share sid ranges across languages, stypes are copied
+directly by sid.  Only inserts where the target has no existing stype.
+
 **`merge_old_corpora.py`** — Merge corpora left behind when the project
 switched from per-genre to per-language databases (~2015).
 
@@ -246,16 +274,19 @@ Download fresh databases, apply all fixes, and regenerate the display:
 #    (eng essay, jpn essay, jpn kc, cmn stype)
 .venv/bin/python scripts/merge_old_corpora.py --fix
 
-# 4. Audit to verify
+# 4. Propagate stype from English to other languages via slinks
+.venv/bin/python scripts/propagate_stype.py --fix
+
+# 5. Audit to verify
 .venv/bin/python scripts/fix_corpus.py --audit
 
-# 5. Regenerate display HTML
+# 6. Regenerate display HTML
 for lang in eng cmn ind ita ces; do
     .venv/bin/python scripts/make_display.py --lang $lang --all --tagged --outdir display/
 done
 .venv/bin/python scripts/make_display.py --lang jpn --all --tagged --min-tagged 0.01 --outdir display/
 
-# 6. Review, then push back to server when satisfied
+# 7. Review, then push back to server when satisfied
 #    .venv/bin/python scripts/fix_corpus.py --push
 ```
 

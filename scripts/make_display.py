@@ -2,14 +2,13 @@
 """Generate static HTML corpus display pages for NTUMC documents.
 
 Each document produces one self-contained HTML file in OUTDIR/{lang}/.
-Data (concepts, synset definitions, synonyms) is embedded inline so the
-page works from file:// without a local server.
+Concept-to-synset mappings are embedded inline; synset definitions, synonyms,
+and sentence translations are loaded dynamically from shared JSON data files.
 
 Usage:
     .venv/bin/python scripts/make_display.py --lang eng --doc spec --outdir display/
-    .venv/bin/python scripts/make_display.py --lang eng --docid 440 --outdir display/
-    .venv/bin/python scripts/make_display.py --lang eng --all --outdir display/
     .venv/bin/python scripts/make_display.py --lang eng --all --tagged --outdir display/
+    .venv/bin/python scripts/make_display.py --build-data --outdir display/
 """
 
 import argparse
@@ -80,14 +79,31 @@ TEMPLATE = """\
       <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
     </div>
     <div class="modal-body">
-      <div class="form-check form-switch mb-2">
+      <div class="form-check form-switch mb-3">
         <input class="form-check-input" type="checkbox" id="showWordIdToggle">
         <label class="form-check-label" for="showWordIdToggle">Show word IDs</label>
       </div>
-      <div class="form-check form-switch mb-2">
-        <input class="form-check-input" type="checkbox" id="showSynsToggle" checked>
-        <label class="form-check-label" for="showSynsToggle">Show synonyms</label>
+      <hr>
+      <h6 class="mb-2"><i class="bi bi-translate me-1"></i>Language</h6>
+      <div class="mb-2">
+        <label class="form-label small mb-1" for="defLangSelect">Definition language</label>
+        <select class="form-select form-select-sm" id="defLangSelect">
+          <option value="">None</option>
+        </select>
       </div>
+      <div class="mb-2">
+        <label class="form-label small mb-1" for="synLangSelect">Synonym language</label>
+        <select class="form-select form-select-sm" id="synLangSelect">
+          <option value="">None</option>
+        </select>
+      </div>
+      <div class="mb-2">
+        <label class="form-label small mb-1" for="transLangSelect">Sentence translation</label>
+        <select class="form-select form-select-sm" id="transLangSelect">
+          <option value="">None</option>
+        </select>
+      </div>
+      <div id="langStatus" class="small text-muted mt-2"></div>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -117,12 +133,16 @@ TEMPLATE = """\
 {%- elif sent.stype == 'h5' %}<h5>
 {%- elif sent.stype == 'h6' %}<h6>
 {%- elif sent.stype == 'h7' %}<h7>
+{%- elif sent.stype == 'h0' %}<h2>
+{%- elif sent.stype == 'author' %}<p class="stype-author">
+{%- elif sent.stype == 'translator' %}<p class="stype-translator">
+{%- elif sent.stype == 'item' %}<p class="stype-item">
 {%- elif sent.stype == 'p' %}
 <p>
 {%- endif %}
 <span class="sent" id="s{{ sent.sid }}">{%- for w in sent.words -%}
 {%- set cids = sent.word_cids.get(w.wid) -%}
-<w id="w{{ sent.sid }}:{{ w.wid }}" data-p="{{ w.pos }}" data-l="{{ w.lemma }}"{% if cids %} data-c="{{ cids|join(' ') }}"{% endif %}{% if w.nospace %} data-ns{% endif %}>{{ w.word }}</w>{% endfor %}</span>
+<w id="w{{ sent.sid }}:{{ w.wid }}" data-p="{{ w.pos }}" data-l="{{ w.lemma }}"{% if cids %} data-c="{{ cids|join(' ') }}"{% endif %}{% if w.nospace %} data-ns{% endif %}>{{ w.word }}</w>{% endfor %}<i class="bi bi-translate trans-icon" data-sid="{{ sent.sid }}" title="Show translation"></i></span>
 {%- if sent.stype == 'h1' %}</h1>
 {%- elif sent.stype == 'h2' %}</h2>
 {%- elif sent.stype == 'h3' %}</h3>
@@ -130,6 +150,7 @@ TEMPLATE = """\
 {%- elif sent.stype == 'h5' %}</h5>
 {%- elif sent.stype == 'h6' %}</h6>
 {%- elif sent.stype == 'h7' %}</h7>
+{%- elif sent.stype == 'h0' %}</h2>
 {%- endif %}
 {%- endfor %}
   </div></div>
@@ -148,7 +169,9 @@ TEMPLATE = """\
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   var conceptInfo = {{ concepts_data }};
-  var synsetInfo  = {{ synsets_data }};
+  var docLang = {{ doc_lang_json }};
+  var dataPath = {{ data_path_json }};
+  try { localStorage.setItem('ntumc-lang', docLang); } catch(e) {}
 </script>
 <script src="{{ assets_path }}/corpus-view.js"></script>
 </body>
@@ -229,6 +252,20 @@ document.querySelectorAll('.corpus-toggle').forEach(function(el) {
   target.addEventListener('hide.bs.collapse', function() { el.classList.add('collapsed'); });
   target.addEventListener('show.bs.collapse', function() { el.classList.remove('collapsed'); });
 });
+(function() {
+  var KEY = 'ntumc-lang';
+  var saved = localStorage.getItem(KEY);
+  if (saved) {
+    var tab = document.getElementById('tab-' + saved);
+    if (tab) new bootstrap.Tab(tab).show();
+  }
+  document.querySelectorAll('[data-bs-toggle="tab"]').forEach(function(btn) {
+    btn.addEventListener('shown.bs.tab', function() {
+      var lang = btn.id.replace('tab-', '');
+      localStorage.setItem(KEY, lang);
+    });
+  });
+})();
 </script>
 </body>
 </html>
@@ -336,69 +373,6 @@ def build_concept_info(doc_data: dict) -> dict:
     return concepts
 
 
-def build_synset_info(wn_db_path: str, synset_ids: set[str]) -> dict:
-    """Fetch definitions and English synonyms for a set of synset IDs.
-
-    Args:
-        wn_db_path: Path to wn-ntumc.db.
-        synset_ids: All tag values collected from concepts (includes NE tags).
-
-    Returns:
-        {synset_id: {d, s, p}} using compact keys (def, syns, pos).
-    """
-    result: dict = {}
-    named = {s for s in synset_ids if s in NAMED_ENTITY_DEFS}
-    regular = {s for s in synset_ids if s not in NAMED_ENTITY_DEFS and s}
-
-    for tag in named:
-        result[tag] = {"d": NAMED_ENTITY_DEFS[tag], "s": [], "p": ""}
-
-    if not regular:
-        return result
-
-    conn = sqlite3.connect(wn_db_path)
-    conn.row_factory = sqlite3.Row
-    try:
-        ph = ",".join("?" * len(regular))
-        params = list(regular)
-
-        defs: dict[str, list[str]] = {}
-        for row in conn.execute(
-            f"SELECT synset, def FROM synset_def"
-            f" WHERE synset IN ({ph}) AND lang='eng' ORDER BY synset, sid",
-            params,
-        ):
-            defs.setdefault(row["synset"], []).append(row["def"])
-
-        syns: dict[str, list[str]] = {}
-        for row in conn.execute(
-            f"SELECT s.synset, w.lemma FROM sense s"
-            f" JOIN word w ON s.wordid = w.wordid"
-            f" WHERE s.synset IN ({ph}) AND s.lang = 'eng'"
-            f" ORDER BY s.synset, s.confidence DESC, s.freq DESC",
-            params,
-        ):
-            syns.setdefault(row["synset"], []).append(row["lemma"])
-
-        pos_map: dict[str, str] = {}
-        for row in conn.execute(
-            f"SELECT synset, pos FROM synset WHERE synset IN ({ph})",
-            params,
-        ):
-            pos_map[row["synset"]] = row["pos"]
-
-        for synset_id in regular:
-            result[synset_id] = {
-                "d": "; ".join(defs.get(synset_id, [])),
-                "s": syns.get(synset_id, []),
-                "p": pos_map.get(synset_id, ""),
-            }
-    finally:
-        conn.close()
-
-    return result
-
-
 def get_doc_tagging_rates(corpus_db: str) -> dict[int, float]:
     """Return word-level tagging rates (0–1) for every document.
 
@@ -446,16 +420,19 @@ def get_doc_tagging_rates(corpus_db: str) -> dict[int, float]:
 def render_html(
     doc_data: dict,
     concepts: dict,
-    synsets: dict,
+    lang: str,
     assets_path: str,
     index_path: str,
 ) -> str:
-    """Render the document HTML page with data embedded inline.
+    """Render the document HTML page with concept data embedded inline.
+
+    Synset definitions, synonyms, and translations are loaded dynamically
+    from shared JSON data files.
 
     Args:
         doc_data: Document dict (sentences annotated with word_cids and nospace).
         concepts: Concepts dict to embed as JavaScript.
-        synsets: Synsets dict to embed as JavaScript.
+        lang: Language code of the document.
         assets_path: Relative path from HTML file to the assets/ directory.
         index_path: Relative path to the index HTML file.
 
@@ -471,7 +448,8 @@ def render_html(
         assets_path=assets_path,
         index_path=index_path,
         concepts_data=Markup(json.dumps(concepts, ensure_ascii=False)),
-        synsets_data=Markup(json.dumps(synsets, ensure_ascii=False)),
+        doc_lang_json=Markup(json.dumps(lang)),
+        data_path_json=Markup(json.dumps("../data")),
     )
 
 
@@ -482,7 +460,6 @@ def render_html(
 
 def write_document(
     corpus_db: str,
-    wn_db: str,
     docid: int,
     outdir: Path,
     lang: str,
@@ -492,7 +469,6 @@ def write_document(
 
     Args:
         corpus_db: Path to the language corpus database.
-        wn_db: Path to wn-ntumc.db.
         docid: Document ID to process.
         outdir: Root output directory (e.g. display/).
         lang: Language code (e.g. 'eng').
@@ -520,8 +496,6 @@ def write_document(
     )
 
     concepts = build_concept_info(doc_data)
-    synset_ids = {v["s"] for v in concepts.values()}
-    synsets = build_synset_info(wn_db, synset_ids)
 
     lang_dir = outdir / lang
     lang_dir.mkdir(parents=True, exist_ok=True)
@@ -530,7 +504,7 @@ def write_document(
     html = render_html(
         doc_data,
         concepts=concepts,
-        synsets=synsets,
+        lang=lang,
         assets_path="../assets",
         index_path="../index.html",
     )
@@ -624,6 +598,280 @@ def write_index(outdir: Path) -> None:
 
 
 # ---------------------------------------------------------------------------
+# Shared data file generation
+# ---------------------------------------------------------------------------
+
+
+def read_all_link_dbs() -> dict[tuple[str, str], dict[int, list[int]]]:
+    """Read all link databases and return bidirectional slink mappings.
+
+    Returns:
+        {(src_lang, tgt_lang): {src_sid: [tgt_sids]}} for both directions
+        of each link database found in BUILD_DIR.
+    """
+    links: dict[tuple[str, str], dict[int, list[int]]] = {}
+
+    for db_path in sorted(BUILD_DIR.glob("*-*.db")):
+        parts = db_path.stem.split("-")
+        if len(parts) != 2:
+            continue
+        l1, l2 = parts
+        if l1.startswith("wn"):
+            continue
+
+        try:
+            conn = sqlite3.connect(str(db_path))
+            rows = conn.execute("SELECT fsid, tsid FROM slink").fetchall()
+            conn.close()
+        except sqlite3.OperationalError:
+            continue
+
+        if not rows:
+            continue
+
+        fwd: dict[int, list[int]] = {}
+        rev: dict[int, list[int]] = {}
+        for fsid, tsid in rows:
+            fwd.setdefault(fsid, []).append(tsid)
+            rev.setdefault(tsid, []).append(fsid)
+
+        links[(l1, l2)] = fwd
+        links[(l2, l1)] = rev
+        logger.info("  %s: %d direct links", db_path.name, len(rows))
+
+    return links
+
+
+def cross_compile_slinks(
+    direct: dict[tuple[str, str], dict[int, list[int]]],
+) -> dict[tuple[str, str], dict[int, list[int]]]:
+    """Add cross-compiled slinks via shared pivot languages.
+
+    For each pair of languages (A, B) not directly linked, finds a pivot
+    language P such that A→P and P→B both exist, and computes A→B.
+
+    Args:
+        direct: Direct slink mappings from read_all_link_dbs().
+
+    Returns:
+        All links (direct + cross-compiled).
+    """
+    all_links = dict(direct)
+    all_langs = {lang for pair in direct for lang in pair}
+
+    for l1 in sorted(all_langs):
+        for l2 in sorted(all_langs):
+            if l1 == l2 or (l1, l2) in all_links:
+                continue
+            for pivot in sorted(all_langs):
+                if pivot == l1 or pivot == l2:
+                    continue
+                l1_to_p = direct.get((l1, pivot))
+                p_to_l2 = direct.get((pivot, l2))
+                if not l1_to_p or not p_to_l2:
+                    continue
+                cross: dict[int, list[int]] = {}
+                for l1_sid, p_sids in l1_to_p.items():
+                    for p_sid in p_sids:
+                        if p_sid in p_to_l2:
+                            cross.setdefault(l1_sid, []).extend(
+                                p_to_l2[p_sid]
+                            )
+                if cross:
+                    all_links[(l1, l2)] = cross
+                    n = sum(len(v) for v in cross.values())
+                    logger.info(
+                        "  %s→%s: %d cross-compiled links (via %s)",
+                        l1, l2, n, pivot,
+                    )
+                break
+
+    return all_links
+
+
+def collect_used_synsets() -> set[str]:
+    """Collect all synset IDs used as concept tags in any corpus database.
+
+    Returns:
+        Set of synset ID strings.
+    """
+    used: set[str] = set()
+    for db_path in sorted(BUILD_DIR.glob("*.db")):
+        if db_path.stem.startswith("wn") or "-" in db_path.stem:
+            continue
+        try:
+            conn = sqlite3.connect(str(db_path))
+            rows = conn.execute(
+                "SELECT DISTINCT tag FROM concept"
+                " WHERE tag IS NOT NULL AND tag != ''"
+                " AND tag NOT IN ('x','w','e','per','num','dat','org','oth')"
+            ).fetchall()
+            used.update(r[0] for r in rows)
+            conn.close()
+        except sqlite3.OperationalError:
+            continue
+    return used
+
+
+def build_data_files(outdir: Path, wn_db: str) -> None:
+    """Build shared JSON data files for dynamic language loading.
+
+    Generates slinks.json, sent-{lang}.json, wn-defs-{lang}.json,
+    wn-syns-{lang}.json, and manifest.json in outdir/data/.
+
+    Args:
+        outdir: Root output directory (e.g. display/).
+        wn_db: Path to wn-ntumc.db.
+    """
+    data_dir = outdir / "data"
+    data_dir.mkdir(parents=True, exist_ok=True)
+
+    # --- Sentence links ---
+    logger.info("Reading link databases...")
+    direct_links = read_all_link_dbs()
+    all_links = cross_compile_slinks(direct_links)
+
+    slinks_json: dict[str, dict[str, dict[str, list[int]]]] = {}
+    needed_sids: dict[str, set[int]] = {}
+
+    for (src, tgt), mapping in sorted(all_links.items()):
+        slinks_json.setdefault(src, {})[tgt] = {
+            str(k): v for k, v in mapping.items()
+        }
+        needed_sids.setdefault(tgt, set())
+        for tgt_sids in mapping.values():
+            needed_sids[tgt].update(tgt_sids)
+
+    slinks_path = data_dir / "slinks.json"
+    slinks_path.write_text(
+        json.dumps(slinks_json, ensure_ascii=False, separators=(",", ":")),
+        encoding="utf-8",
+    )
+    logger.info(
+        "slinks.json → %s (%.0fKB)",
+        slinks_path, slinks_path.stat().st_size / 1024,
+    )
+
+    # --- Sentence text per language ---
+    for lang, sids in sorted(needed_sids.items()):
+        corpus_db = BUILD_DIR / f"{lang}.db"
+        if not corpus_db.exists():
+            logger.warning("Corpus DB not found for %s, skipping", lang)
+            continue
+        conn = sqlite3.connect(str(corpus_db))
+        sid_list = sorted(sids)
+        ph = ",".join("?" * len(sid_list))
+        rows = conn.execute(
+            f"SELECT sid, sent FROM sent WHERE sid IN ({ph})", sid_list
+        ).fetchall()
+        conn.close()
+        sent_data = {str(r[0]): r[1] for r in rows}
+        sent_path = data_dir / f"sent-{lang}.json"
+        sent_path.write_text(
+            json.dumps(sent_data, ensure_ascii=False, separators=(",", ":")),
+            encoding="utf-8",
+        )
+        logger.info(
+            "  sent-%s.json: %d sentences (%.0fKB)",
+            lang, len(sent_data), sent_path.stat().st_size / 1024,
+        )
+
+    # --- WordNet definitions and synonyms ---
+    logger.info("Extracting WordNet data...")
+    used_synsets = collect_used_synsets()
+    logger.info("  %d unique synsets across all corpora", len(used_synsets))
+
+    wn_conn = sqlite3.connect(wn_db)
+    synset_list = sorted(used_synsets)
+    ph = ",".join("?" * len(synset_list))
+
+    def_langs_avail: list[str] = []
+    syn_langs_avail: list[str] = []
+
+    # Find which languages have data
+    def_lang_rows = wn_conn.execute(
+        f"SELECT DISTINCT lang FROM synset_def WHERE synset IN ({ph})",
+        synset_list,
+    ).fetchall()
+    syn_lang_rows = wn_conn.execute(
+        f"SELECT DISTINCT lang FROM sense WHERE synset IN ({ph})",
+        synset_list,
+    ).fetchall()
+
+    for (lang,) in sorted(def_lang_rows):
+        rows = wn_conn.execute(
+            f"SELECT synset, def FROM synset_def"
+            f" WHERE lang=? AND synset IN ({ph})"
+            f" ORDER BY synset, sid",
+            [lang] + synset_list,
+        ).fetchall()
+        defs: dict[str, str] = {}
+        for synset, defn in rows:
+            if synset in defs:
+                defs[synset] += "; " + defn
+            else:
+                defs[synset] = defn
+        if not defs:
+            continue
+        def_path = data_dir / f"wn-defs-{lang}.json"
+        def_path.write_text(
+            json.dumps(defs, ensure_ascii=False, separators=(",", ":")),
+            encoding="utf-8",
+        )
+        def_langs_avail.append(lang)
+        logger.info(
+            "  wn-defs-%s.json: %d defs (%.0fKB)",
+            lang, len(defs), def_path.stat().st_size / 1024,
+        )
+
+    for (lang,) in sorted(syn_lang_rows):
+        rows = wn_conn.execute(
+            f"SELECT s.synset, w.lemma FROM sense s"
+            f" JOIN word w ON s.wordid = w.wordid"
+            f" WHERE s.lang=? AND s.synset IN ({ph})"
+            f" ORDER BY s.synset, s.confidence DESC, s.freq DESC",
+            [lang] + synset_list,
+        ).fetchall()
+        syns: dict[str, list[str]] = {}
+        for synset, lemma in rows:
+            syns.setdefault(synset, []).append(lemma)
+        if not syns:
+            continue
+        syn_path = data_dir / f"wn-syns-{lang}.json"
+        syn_path.write_text(
+            json.dumps(syns, ensure_ascii=False, separators=(",", ":")),
+            encoding="utf-8",
+        )
+        syn_langs_avail.append(lang)
+        logger.info(
+            "  wn-syns-%s.json: %d synsets (%.0fKB)",
+            lang, len(syns), syn_path.stat().st_size / 1024,
+        )
+
+    wn_conn.close()
+
+    # --- Translation pairs available from each language ---
+    trans_avail: dict[str, list[str]] = {}
+    for src, tgt in sorted(all_links.keys()):
+        trans_avail.setdefault(src, []).append(tgt)
+
+    # --- Manifest ---
+    manifest = {
+        "lang_names": LANG_NAMES,
+        "ne_defs": NAMED_ENTITY_DEFS,
+        "defs": sorted(def_langs_avail),
+        "syns": sorted(syn_langs_avail),
+        "trans": trans_avail,
+    }
+    manifest_path = data_dir / "manifest.json"
+    manifest_path.write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    logger.info("manifest.json → %s", manifest_path)
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
@@ -662,6 +910,11 @@ def parse_args() -> argparse.Namespace:
     group.add_argument(
         "--all", action="store_true", help="Process all documents in the corpus"
     )
+    group.add_argument(
+        "--build-data",
+        action="store_true",
+        help="Build shared data files (slinks, sentences, WN) only",
+    )
 
     return parser.parse_args()
 
@@ -670,17 +923,25 @@ def main() -> None:
     """Entry point."""
     args = parse_args()
 
-    corpus_db = args.corpus_db or str(BUILD_DIR / f"{args.lang}.db")
     wn_db = args.wn_db or str(BUILD_DIR / "wn-ntumc.db")
     outdir = Path(args.outdir)
+    outdir.mkdir(parents=True, exist_ok=True)
 
-    for path in (corpus_db, wn_db):
-        if not Path(path).exists():
-            logger.error("Database not found: %s", path)
+    # --build-data: generate shared JSON files and exit
+    if args.build_data:
+        if not Path(wn_db).exists():
+            logger.error("WordNet database not found: %s", wn_db)
             sys.exit(1)
+        build_data_files(outdir, wn_db)
+        return
+
+    corpus_db = args.corpus_db or str(BUILD_DIR / f"{args.lang}.db")
+
+    if not Path(corpus_db).exists():
+        logger.error("Database not found: %s", corpus_db)
+        sys.exit(1)
 
     corpus = Corpus(corpus_db)
-    outdir.mkdir(parents=True, exist_ok=True)
 
     # Resolve tagging rates (needed for filter and index display)
     tag_rates: dict[int, float] = {}
@@ -713,7 +974,6 @@ def main() -> None:
                     )
                     docids = []
                 elif max_rate < min_tagged:
-                    # Auto-lower: include all documents with any tagging
                     min_tagged = min(
                         r for r in tag_rates.values() if r > 0.0
                     )
@@ -744,13 +1004,12 @@ def main() -> None:
 
     for docid in docids:
         meta = write_document(
-            corpus_db, wn_db, docid, outdir, args.lang,
+            corpus_db, docid, outdir, args.lang,
             tag_rate=tag_rates.get(docid),
         )
         if meta:
             lang_docs.append(meta)
 
-    # Save per-language sidecar so combined index accumulates across runs
     if lang_docs:
         lang_dir = outdir / args.lang
         lang_dir.mkdir(parents=True, exist_ok=True)
