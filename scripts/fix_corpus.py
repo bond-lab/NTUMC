@@ -415,11 +415,90 @@ def fix_database(db_path: Path, dry_run: bool = False) -> int:
     # 7. Fix doc PK name (docID → docid)
     changes += _fix_doc_pk(conn, lang, dry_run)
 
+    # 8. Fix non-standard concept tags
+    changes += _fix_concept_tags(conn, lang, dry_run)
+
     if not dry_run and changes > 0:
         conn.commit()
         logger.info("%s: committed %d change(s)", lang, changes)
 
     conn.close()
+    return changes
+
+
+def _fix_concept_tags(conn: sqlite3.Connection, lang: str, dry_run: bool) -> int:
+    """Fix non-standard concept tags.
+
+    Rewrites:
+    - Renamed synset IDs (z-POS → correct POS)
+    - 'None' (string) → NULL
+    - '-n' (truncated) → NULL
+    - '!SYNSETID' (stray prefix) → SYNSETID
+    - '=SYNSETID' (stray prefix) → SYNSETID
+
+    Args:
+        conn: Database connection.
+        lang: Language code (for logging).
+        dry_run: If True, report but don't modify.
+
+    Returns:
+        Number of changes.
+    """
+    rewrites = {
+        "80002126-z": "80002126-p",
+        "80001711-z": "80001711-x",
+        "80002491-z": "80002491-a",
+    }
+    nullify = {"None", "-n"}
+
+    changes = 0
+
+    needs_fix = False
+    for old in list(rewrites) + list(nullify):
+        if conn.execute("SELECT 1 FROM concept WHERE tag = ? LIMIT 1", (old,)).fetchone():
+            needs_fix = True
+            break
+    if not needs_fix:
+        if conn.execute("SELECT 1 FROM concept WHERE tag GLOB '[!=][0-9]*-[navrsxp]' LIMIT 1").fetchone():
+            needs_fix = True
+    if not needs_fix:
+        return 0
+
+    triggers = _disable_triggers(conn) if not dry_run else []
+
+    for old, new in rewrites.items():
+        n = conn.execute(
+            "SELECT COUNT(*) FROM concept WHERE tag = ?", (old,),
+        ).fetchone()[0]
+        if n:
+            logger.info(
+                "%s: %s %d concept tags '%s' → '%s'",
+                lang, "would rewrite" if dry_run else "rewriting", n, old, new,
+            )
+            if not dry_run:
+                conn.execute(
+                    "UPDATE concept SET tag = ? WHERE tag = ?", (new, old),
+                )
+            changes += n
+
+    for bad in nullify:
+        n = conn.execute(
+            "SELECT COUNT(*) FROM concept WHERE tag = ?", (bad,),
+        ).fetchone()[0]
+        if n:
+            logger.info(
+                "%s: %s %d concept tags '%s' → NULL",
+                lang, "would nullify" if dry_run else "nullifying", n, bad,
+            )
+            if not dry_run:
+                conn.execute(
+                    "UPDATE concept SET tag = NULL WHERE tag = ?", (bad,),
+                )
+            changes += n
+
+    if triggers:
+        _restore_triggers(conn, triggers)
+
     return changes
 
 

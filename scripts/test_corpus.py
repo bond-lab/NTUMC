@@ -427,6 +427,7 @@ def test_tag_values(conn: sqlite3.Connection, r: TestResult) -> None:
           AND tag NOT IN ('e','w','x','u','s','p','h','m','d',
                           'per','org','loc','dat','num','oth','nam','prn')
           AND tag NOT GLOB '[0-9]*-[navrsxp]'
+          AND tag NOT GLOB '[!=][0-9]*-[navrsxp]'
           AND tag NOT GLOB 'dat:*'
           AND tag NOT GLOB 'prn=*'
           AND tag NOT GLOB 'ne:*'

@@ -101,7 +101,7 @@ LEAVE_AS_IS = {
     "77000006-a", "77000024-a", "77000039-a", "77000043-a",  # poss. det.
     "77000050-a", "77000054-a", "77000107-a",
     "80000081-a", "80000142-a", "80000512-a", "80001281-a",
-    "80001711-z",   # 们 (plural marker) → function_word
+    # 80001711-z removed: renamed to 80001711-x (non-referential)
     "77000088-r",   # 那样 (manner pronoun) → manner
     "80000664-x",   # good evening → greeting
     "80002274-x",   # lol → webspeak
@@ -112,6 +112,9 @@ RENAME_SYNSET = {
     # old_id: new_id
     "90000406-n": "90000406-a",  # rocking — def: "energetic, favourable"
     "80002595-n": "80002595-v",  # suikou (推敲する) — "to perfect a writing"
+    "80002126-z": "80002126-p",  # in — "location, or position within" → adposition
+    "80001711-z": "80001711-x",  # 们 — "plural suffix" → non-referential
+    "80002491-z": "80002491-a",  # svůj — "own" → adnominal
 }
 
 # Delete bad hypernym links: (synset1, link, synset2)
@@ -313,6 +316,16 @@ def main():
     mode = "DRY RUN" if args.dry_run else "APPLYING"
     print(f"=== fixwn.py ({mode}) ===\n")
 
+    triggers = []
+    if not args.dry_run:
+        triggers = db.execute(
+            "SELECT name, sql FROM sqlite_master WHERE type='trigger'"
+        ).fetchall()
+        if triggers:
+            print(f"Dropping {len(triggers)} triggers...")
+            for name, _ in triggers:
+                db.execute(f"DROP TRIGGER [{name}]")
+
     print("--- W502: Self-loops ---")
     fix_self_loops(db, args.dry_run)
     print()
@@ -322,6 +335,11 @@ def main():
     print()
 
     if not args.dry_run:
+        if triggers:
+            print(f"Restoring {len(triggers)} triggers...")
+            for _, sql in triggers:
+                if sql:
+                    db.executescript(sql)
         db.commit()
         print("Changes committed.")
     else:
