@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NTU Multilingual Corpus — About</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/corpus.css">
+</head>
+<body>
+{%- set base = "." %}
+{% include "_nav.html" %}
+<div class="container mt-4 mb-5" style="max-width:52rem">
+
+  <div class="mb-4">
+    <h1 class="h3 mt-2">About the NTU Multilingual Corpus</h1>
+  </div>
+
+  <div class="card shadow-sm mb-4">
+    <div class="card-body" style="font-family:var(--f-text);line-height:1.8">
+      <h2 class="h5">Overview</h2>
+      <p>The Natural Text Understanding Multilingual Corpus (NTU-MC)
+        is an open, semantically annotated multilingual corpus
+        originally developed at Nanyang Technological University
+        (NTU), Singapore, and now maintained by the
+        <a href="https://bond-lab.github.io/">Computational Linguistics
+        Laboratory (&#20961;&#22303;&#30740;)</a> at Palack&yacute; University Olomouc
+        It contains literary texts (short stories, essays),
+        newspaper text, and tourism descriptions in multiple languages, with
+        all texts linked at the sentence level and annotated with word-sense
+        tags from the the Open Multilingual Wordnet, with some local additions.</p>
+
+      <h2 class="h5 mt-4">Languages</h2>
+      <ul>
+        {%- for lang in languages %}
+        <li><strong>{{ lang_names.get(lang, lang) }}</strong>
+          &mdash; {{ lang_docs[lang] }} document{{ "s" if lang_docs[lang] != 1 else "" }}, {{ lang_sents[lang] }} sentences</li>
+        {%- endfor %}
+      </ul>
+
+      <h2 class="h5 mt-4">Annotation</h2>
+      <p>Every word in the corpus is lemmatised and tagged with a part of
+        speech.  Content words are linked to synsets in the
+        <a href="https://omwn.org/">Open Multilingual Wordnet</a>
+        (OMW).  Named entities are classified as person, organisation,
+        number, date, or other.</p>
+      <p>Hover or click any word in a document page to see its lemma,
+        part of speech, WordNet definition, and synonyms.  Sentence-level
+        translations are available between aligned language pairs.</p>
+      <p>The <em>% tagged</em> shown on the document index is the
+        proportion of taggable concepts that have been assigned a sense
+        tag: <code>|tagged| / |taggable|</code>, where <em>tagged</em>
+        concepts have a real synset or named-entity tag (excluding
+        <code>e</code>, <code>w</code>, <code>x</code>, and empty), and
+        <em>taggable</em> concepts are all identified concepts minus those
+        marked <code>x</code> (should not be tagged).  This measures
+        annotation completeness over open-class words rather than over all
+        tokens.</p>
+
+
+
+      
+      <h2 class="h5 mt-4">Genres</h2>
+      <table class="table table-sm" style="font-family:var(--f-ui);font-size:0.9rem">
+        <thead><tr><th>Genre</th><th>Code</th><th>Contents</th></tr></thead>
+        <tbody>
+          <tr><td>News</td><td><code>kc</code></td>
+            <td>Kyoto University Text Corpus &mdash; Mainichi Shimbun newspaper editorials</td></tr>
+          <tr><td>Stories</td><td><code>story</code></td>
+            <td>Short stories and novels by Conan Doyle, Akutagawa, Čapek, and others</td></tr>
+          <tr><td>Tourism</td><td><code>yoursing</code></td>
+            <td>Singapore tourism information from YourSingapore.com</td></tr>
+          <tr><td>Essays</td><td><code>essay</code></td>
+            <td><em>The Cathedral and the Bazaar</em> (Raymond) and others</td></tr>
+        </tbody>
+      </table>
+      <p>See the <a href="summary.html">genre summary</a> for detailed
+        statistics by language.</p>
+
+      <h2 class="h5 mt-4">Data Format</h2>
+      <p>Each document is a static HTML page with word-level annotations
+        embedded as <code>&lt;w&gt;</code> elements carrying <code>data-p</code>
+        (POS), <code>data-l</code> (lemma), and <code>data-c</code>
+        (concept IDs) attributes.  Shared data files in <a href="data/">data/</a>
+        provide WordNet definitions, synonyms, and sentence alignments as
+        JSON, loaded on demand.</p>
+      <p>Use the <i class="bi bi-download"></i> button in the toolbar on
+        any document page to download its annotations as a TSV file.</p>
+
+      <h2 class="h5 mt-4">Citation</h2>
+      <p style="font-family:var(--f-ui);font-size:0.88rem;background:var(--c-bg);
+padding:0.75rem 1rem;border-radius:var(--r-md);border:1px solid var(--c-border)">
+        Tan, L. and Bond, F. (2012)
+        <a href="https://aclanthology.org/2012.gwc-1.15/">Building and Annotating the Linguistically
+        Diverse NTU-MC (NTU-Multilingual Corpus)</a>.
+        <em>International Journal of Asian Language Processing</em>,
+        22(4):161&ndash;174.</p>
+
+      <h2 class="h5 mt-4">License</h2>
+      <p>The corpus annotations and display code are released under a
+        Creative Commons Attribution 4.0 licence
+        (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>).
+        The underlying texts retain their original licences.</p>
+    </div>
+  </div>
+
+  {% include "_footer.html" %}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

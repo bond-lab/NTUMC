@@ -19,7 +19,7 @@ import sys
 from pathlib import Path
 from typing import Optional
 
-from jinja2 import Environment, BaseLoader
+from jinja2 import Environment, FileSystemLoader
 from markupsafe import Markup
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -29,6 +29,7 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
 BUILD_DIR = Path(__file__).resolve().parent.parent / "build"
+TEMPLATE_DIR = Path(__file__).resolve().parent / "templates"
 
 LANG_NAMES: dict[str, str] = {
     "eng": "English",
@@ -51,225 +52,41 @@ NAMED_ENTITY_DEFS: dict[str, str] = {
 }
 SKIP_TAGS: frozenset[str] = frozenset({"x", "w", "e"})
 
+# Genre classification from the corpus.corpus column in each database.
+# Maps the short code to a display-friendly genre name.
+CORPUS_CODE_TO_GENRE: dict[str, str] = {
+    "kc": "news",
+    "story": "stories",
+    "yoursing": "tourism",
+    "essay": "essays",
+}
+
+GENRE_NAMES: dict[str, str] = {
+    "news": "News",
+    "stories": "Stories",
+    "tourism": "Tourism",
+    "essays": "Essays",
+}
+GENRE_ORDER: list[str] = ["news", "stories", "tourism", "essays"]
+
 # ---------------------------------------------------------------------------
-# HTML template
-# Word elements use the custom <w> tag (saves ~220KB vs <span class="word">).
-# Compact attribute names: data-p=POS, data-l=lemma, data-c=concept-ids,
-#   data-ns=no-space-after (boolean, presence-only).
-# JSON keys: concepts {l=lemma, s=synset, w=wids}, synsets {d=def, s=syns, p=pos}
+# Templates — loaded from scripts/templates/ for easy editing
 # ---------------------------------------------------------------------------
 
-TEMPLATE = """\
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }}</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <link rel="stylesheet" href="{{ assets_path }}/corpus.css">
-</head>
-<body class="bg-light">
 
-<div class="modal fade" id="settingsModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog"><div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title">Display Settings</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-    </div>
-    <div class="modal-body">
-      <div class="form-check form-switch mb-3">
-        <input class="form-check-input" type="checkbox" id="showWordIdToggle">
-        <label class="form-check-label" for="showWordIdToggle">Show word IDs</label>
-      </div>
-      <hr>
-      <h6 class="mb-2"><i class="bi bi-translate me-1"></i>Language</h6>
-      <div class="mb-2">
-        <label class="form-label small mb-1" for="defLangSelect">Definition language</label>
-        <select class="form-select form-select-sm" id="defLangSelect">
-          <option value="">None</option>
-        </select>
-      </div>
-      <div class="mb-2">
-        <label class="form-label small mb-1" for="synLangSelect">Synonym language</label>
-        <select class="form-select form-select-sm" id="synLangSelect">
-          <option value="">None</option>
-        </select>
-      </div>
-      <div class="mb-2">
-        <label class="form-label small mb-1" for="transLangSelect">Sentence translation</label>
-        <select class="form-select form-select-sm" id="transLangSelect">
-          <option value="">None</option>
-        </select>
-      </div>
-      <div id="langStatus" class="small text-muted mt-2"></div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-primary" id="saveSettings">Save</button>
-    </div>
-  </div></div>
-</div>
+_jinja_env: Optional[Environment] = None
 
-<div class="container mt-4 mb-5">
-  <div class="d-flex justify-content-between align-items-start mb-3">
-    <div>
-      <h1 class="h4 mb-1">{{ title }}</h1>
-      {%- if subtitle %}<p class="text-muted small mb-1">{{ subtitle }}</p>{% endif %}
-      <a href="{{ index_path }}" class="text-muted small text-decoration-none">
-        <i class="bi bi-arrow-left"></i> All documents
-      </a>
-    </div>
-    <i id="settingsIcon" class="bi bi-gear mt-1" title="Settings"
-       data-bs-toggle="modal" data-bs-target="#settingsModal"></i>
-  </div>
-  <div class="card shadow-sm"><div class="card-body" id="story">
-{%- for sent in sentences %}
-{%- if sent.stype == 'h1' %}<h1>
-{%- elif sent.stype == 'h2' %}<h2>
-{%- elif sent.stype == 'h3' %}<h3>
-{%- elif sent.stype == 'h4' %}<h4>
-{%- elif sent.stype == 'h5' %}<h5>
-{%- elif sent.stype == 'h6' %}<h6>
-{%- elif sent.stype == 'h7' %}<h7>
-{%- elif sent.stype == 'h0' %}<h2>
-{%- elif sent.stype == 'author' %}<p class="stype-author">
-{%- elif sent.stype == 'translator' %}<p class="stype-translator">
-{%- elif sent.stype == 'item' %}<p class="stype-item">
-{%- elif sent.stype == 'p' %}
-<p>
-{%- endif %}
-<span class="sent" id="s{{ sent.sid }}">{%- for w in sent.words -%}
-{%- set cids = sent.word_cids.get(w.wid) -%}
-<w id="w{{ sent.sid }}:{{ w.wid }}" data-p="{{ w.pos }}" data-l="{{ w.lemma }}"{% if cids %} data-c="{{ cids|join(' ') }}"{% endif %}{% if w.nospace %} data-ns{% endif %}>{{ w.word }}</w>{% endfor %}<i class="bi bi-translate trans-icon" data-sid="{{ sent.sid }}" title="Show translation"></i></span>
-{%- if sent.stype == 'h1' %}</h1>
-{%- elif sent.stype == 'h2' %}</h2>
-{%- elif sent.stype == 'h3' %}</h3>
-{%- elif sent.stype == 'h4' %}</h4>
-{%- elif sent.stype == 'h5' %}</h5>
-{%- elif sent.stype == 'h6' %}</h6>
-{%- elif sent.stype == 'h7' %}</h7>
-{%- elif sent.stype == 'h0' %}</h2>
-{%- endif %}
-{%- endfor %}
-  </div></div>
-</div>
 
-<div id="tooltip" class="card shadow" style="display:none;position:absolute;z-index:1070;max-width:340px">
-  <div class="card-body py-2 px-3">
-    <div id="tooltipContent"></div>
-    <div class="d-flex justify-content-end mt-1">
-      <i id="copyBtn" class="bi bi-clipboard tooltip-icon" title="Copy"></i>
-      <i id="closeBtn" class="bi bi-x-lg tooltip-icon" title="Close"></i>
-    </div>
-  </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  var conceptInfo = {{ concepts_data }};
-  var docLang = {{ doc_lang_json }};
-  var dataPath = {{ data_path_json }};
-  try { localStorage.setItem('ntumc-lang', docLang); } catch(e) {}
-</script>
-<script src="{{ assets_path }}/corpus-view.js"></script>
-</body>
-</html>
-"""
-
-INDEX_TEMPLATE = """\
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NTUMC Corpus Display</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <style>
-    .corpus-toggle { cursor: pointer; user-select: none; }
-    .corpus-toggle .bi { transition: transform 0.15s; }
-    .corpus-toggle.collapsed .bi-chevron-down { transform: rotate(-90deg); }
-  </style>
-</head>
-<body class="bg-light">
-<div class="container mt-4 mb-5">
-  <h1 class="h3 mb-3">NTUMC Corpus Documents</h1>
-  {%- if by_lang|length > 1 %}
-  <ul class="nav nav-tabs mb-3" role="tablist">
-    {%- for lang in by_lang %}
-    <li class="nav-item" role="presentation">
-      <button class="nav-link{% if loop.first %} active{% endif %}"
-              id="tab-{{ lang }}" data-bs-toggle="tab"
-              data-bs-target="#pane-{{ lang }}" type="button"
-              role="tab">{{ lang_names[lang] }}
-        <span class="badge bg-secondary ms-1">{{ by_lang[lang].doc_count }}</span></button>
-    </li>
-    {%- endfor %}
-  </ul>
-  {%- endif %}
-  <div class="tab-content">
-    {%- for lang, info in by_lang.items() %}
-    <div class="tab-pane fade{% if loop.first %} show active{% endif %}"
-         id="pane-{{ lang }}" role="tabpanel">
-      {%- for corpus_title, docs in info.groups.items() %}
-      <div class="mb-3">
-        <div class="corpus-toggle d-flex align-items-center gap-2 mb-2"
-             data-bs-toggle="collapse" data-bs-target="#grp-{{ lang }}-{{ loop.index }}"
-             aria-expanded="true">
-          <i class="bi bi-chevron-down"></i>
-          <span class="h6 mb-0">{{ corpus_title }}</span>
-          <span class="badge bg-secondary">{{ docs|length }}</span>
-        </div>
-        <div class="collapse show" id="grp-{{ lang }}-{{ loop.index }}">
-          <div class="list-group">
-            {%- for doc in docs %}
-            <a href="{{ doc.path }}" class="list-group-item list-group-item-action">
-              <div class="d-flex justify-content-between align-items-start">
-                <div>
-                  <div>{{ doc.title }}</div>
-                  {%- if doc.subtitle %}<small class="text-muted">{{ doc.subtitle }}</small>{% endif %}
-                </div>
-                <small class="text-muted ms-3 text-nowrap">{{ doc.sent_count }} sent.
-                  {%- if doc.tag_pct %} &middot; {{ doc.tag_pct }}% tagged{% endif %}</small>
-              </div>
-            </a>
-            {%- endfor %}
-          </div>
-        </div>
-      </div>
-      {%- endfor %}
-    </div>
-    {%- endfor %}
-  </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-document.querySelectorAll('.corpus-toggle').forEach(function(el) {
-  var target = document.querySelector(el.getAttribute('data-bs-target'));
-  if (!target) return;
-  target.addEventListener('hide.bs.collapse', function() { el.classList.add('collapsed'); });
-  target.addEventListener('show.bs.collapse', function() { el.classList.remove('collapsed'); });
-});
-(function() {
-  var KEY = 'ntumc-lang';
-  var saved = localStorage.getItem(KEY);
-  if (saved) {
-    var tab = document.getElementById('tab-' + saved);
-    if (tab) new bootstrap.Tab(tab).show();
-  }
-  document.querySelectorAll('[data-bs-toggle="tab"]').forEach(function(btn) {
-    btn.addEventListener('shown.bs.tab', function() {
-      var lang = btn.id.replace('tab-', '');
-      localStorage.setItem(KEY, lang);
-    });
-  });
-})();
-</script>
-</body>
-</html>
-"""
+def _get_env() -> Environment:
+    """Return a shared Jinja2 environment loading from the templates directory."""
+    global _jinja_env
+    if _jinja_env is None:
+        _jinja_env = Environment(
+            loader=FileSystemLoader(str(TEMPLATE_DIR)),
+            autoescape=True,
+        )
+        _jinja_env.filters["commaformat"] = lambda v: f"{v:,}"
+    return _jinja_env
 
 # ---------------------------------------------------------------------------
 # Spacing calculation
@@ -326,7 +143,7 @@ def compute_nospace(words: list[dict], sent_text: str) -> list[bool]:
 # ---------------------------------------------------------------------------
 
 
-def build_concept_info(doc_data: dict) -> dict:
+def build_concept_info(doc_data: dict) -> tuple[dict, dict]:
     """Extract concept info and annotate each sentence with word_cids.
 
     Mutates each sentence dict in doc_data to add:
@@ -335,21 +152,40 @@ def build_concept_info(doc_data: dict) -> dict:
     Also annotates each word dict with ``nospace`` bool.
 
     Returns:
-        concepts: {concept_key: {l, s, w}} using compact keys.
+        (concepts, doc_stats) where concepts is {concept_key: {l, s, w}}
+        and doc_stats is {sents, words, tagged, w, e, x, null}.
     """
     concepts: dict = {}
+    n_words = 0
+    n_tagged = 0
+    n_w = 0
+    n_e = 0
+    n_x = 0
+    n_null = 0
 
     for sent in doc_data["sentences"]:
         sid = sent["sid"]
         sent_text = sent.get("text", "")
         words = sent.get("words", [])
+        n_words += len(words)
         word_cids: dict[int, list[str]] = {}
 
         for concept in sent.get("concepts", []):
             tag = concept.get("tag") or ""
-            if not tag or tag in SKIP_TAGS:
+            if tag == "x":
+                n_x += 1
+                continue
+            if tag == "w":
+                n_w += 1
+                continue
+            if tag == "e":
+                n_e += 1
+                continue
+            if not tag:
+                n_null += 1
                 continue
 
+            n_tagged += 1
             cid = concept["cid"]
             key = f"c{sid}:{cid}"
             wids: list[int] = concept.get("wids", [])
@@ -370,14 +206,24 @@ def build_concept_info(doc_data: dict) -> dict:
         for word, ns in zip(words, nospace_flags):
             word["nospace"] = ns
 
-    return concepts
+    doc_stats = {
+        "sents": len(doc_data["sentences"]),
+        "words": n_words,
+        "tagged": n_tagged,
+        "w": n_w,
+        "e": n_e,
+        "x": n_x,
+        "null": n_null,
+    }
+    return concepts, doc_stats
 
 
 def get_doc_tagging_rates(corpus_db: str) -> dict[int, float]:
-    """Return word-level tagging rates (0–1) for every document.
+    """Return concept-level tagging rates (0–1) for every document.
 
-    A word is "tagged" if it appears in cwl linked to a concept with a
-    valid (non-skip) tag.
+    Rate = |tagged concepts| / |taggable concepts|, where:
+      - tagged: concept has a real sense tag (not NULL, '', 'e', 'w', or 'x')
+      - taggable: all concepts except those tagged 'x' (shouldn't be tagged)
 
     Args:
         corpus_db: Path to the corpus database.
@@ -391,22 +237,25 @@ def get_doc_tagging_rates(corpus_db: str) -> dict[int, float]:
             """
             SELECT
                 s.docID,
-                COUNT(DISTINCT w.sid || ':' || CAST(w.wid AS TEXT)) AS total,
+                -- taggable: all concepts except 'x'
+                COUNT(DISTINCT CASE
+                    WHEN c.tag IS NULL OR c.tag != 'x'
+                    THEN c.sid || ':' || CAST(c.cid AS TEXT)
+                END) AS taggable,
+                -- tagged: has a real sense tag
                 COUNT(DISTINCT CASE
                     WHEN c.tag IS NOT NULL AND c.tag != ''
-                         AND c.tag NOT IN ('x','w','e')
-                    THEN cwl.sid || ':' || CAST(cwl.wid AS TEXT)
+                         AND c.tag NOT IN ('x', 'w', 'e')
+                    THEN c.sid || ':' || CAST(c.cid AS TEXT)
                 END) AS tagged
             FROM sent s
-            JOIN word w ON w.sid = s.sid
-            LEFT JOIN cwl ON cwl.sid = w.sid AND cwl.wid = w.wid
-            LEFT JOIN concept c ON c.sid = cwl.sid AND c.cid = cwl.cid
+            JOIN concept c ON c.sid = s.sid
             GROUP BY s.docID
             """
         ).fetchall()
         return {
-            docid: (tagged / total if total > 0 else 0.0)
-            for docid, total, tagged in rows
+            docid: (tagged / taggable if taggable > 0 else 0.0)
+            for docid, taggable, tagged in rows
         }
     finally:
         conn.close()
@@ -423,6 +272,7 @@ def render_html(
     lang: str,
     assets_path: str,
     index_path: str,
+    doc_stats: Optional[dict] = None,
 ) -> str:
     """Render the document HTML page with concept data embedded inline.
 
@@ -435,12 +285,12 @@ def render_html(
         lang: Language code of the document.
         assets_path: Relative path from HTML file to the assets/ directory.
         index_path: Relative path to the index HTML file.
+        doc_stats: Annotation stats dict to embed, or None.
 
     Returns:
         Rendered HTML string.
     """
-    env = Environment(loader=BaseLoader(), autoescape=True)
-    tmpl = env.from_string(TEMPLATE)
+    tmpl = _get_env().get_template("document.html")
     return tmpl.render(
         title=doc_data.get("title") or "",
         subtitle=doc_data.get("subtitle") or "",
@@ -450,6 +300,7 @@ def render_html(
         concepts_data=Markup(json.dumps(concepts, ensure_ascii=False)),
         doc_lang_json=Markup(json.dumps(lang)),
         data_path_json=Markup(json.dumps("../data")),
+        doc_stats_json=Markup(json.dumps(doc_stats or {})),
     )
 
 
@@ -495,7 +346,7 @@ def write_document(
         f", {tag_pct}% tagged" if tag_pct else "",
     )
 
-    concepts = build_concept_info(doc_data)
+    concepts, doc_stats = build_concept_info(doc_data)
 
     lang_dir = outdir / lang
     lang_dir.mkdir(parents=True, exist_ok=True)
@@ -507,6 +358,7 @@ def write_document(
         lang=lang,
         assets_path="../assets",
         index_path="../index.html",
+        doc_stats=doc_stats,
     )
     html_path.write_text(html, encoding="utf-8")
     logger.info("  → %s", html_path)
@@ -588,9 +440,24 @@ def write_index(outdir: Path) -> None:
 
     lang_names = {lang: LANG_NAMES.get(lang, lang) for lang in by_lang}
 
-    env = Environment(loader=BaseLoader(), autoescape=True)
-    tmpl = env.from_string(INDEX_TEMPLATE)
-    html = tmpl.render(by_lang=by_lang, lang_names=lang_names)
+    # Compute summary statistics for the index header
+    total_docs = sum(info["doc_count"] for info in by_lang.values())
+    total_sents = sum(
+        doc.get("sent_count", 0)
+        for info in by_lang.values()
+        for docs in info["groups"].values()
+        for doc in docs
+    )
+    total_sents_str = f"{total_sents:,}"
+
+    tmpl = _get_env().get_template("index.html")
+    html = tmpl.render(
+        by_lang=by_lang,
+        lang_names=lang_names,
+        n_langs=len(by_lang),
+        total_docs=total_docs,
+        total_sents=total_sents_str,
+    )
     index_path = outdir / "index.html"
     index_path.write_text(html, encoding="utf-8")
     langs_str = ", ".join(by_lang) if by_lang else "(none)"
@@ -872,6 +739,174 @@ def build_data_files(outdir: Path, wn_db: str) -> None:
 
 
 # ---------------------------------------------------------------------------
+# Genre summary page
+# ---------------------------------------------------------------------------
+
+def collect_genre_stats() -> dict[tuple[str, str], dict[str, int]]:
+    """Collect per-genre, per-language statistics from all corpus databases.
+
+    Reads the ``corpus`` column from the corpus table to classify each
+    corpus into a genre via CORPUS_CODE_TO_GENRE.
+
+    Returns:
+        {(genre, lang): {docs, sents, words, concepts}} for every
+        genre/language combination that has data.
+    """
+    stats: dict[tuple[str, str], dict[str, int]] = {}
+
+    for db_path in sorted(BUILD_DIR.glob("*.db")):
+        if db_path.stem.startswith("wn") or "-" in db_path.stem:
+            continue
+        lang = db_path.stem
+        try:
+            conn = sqlite3.connect(str(db_path))
+            rows = conn.execute(
+                """
+                SELECT
+                    cr.corpus,
+                    COUNT(DISTINCT d.docid),
+                    COUNT(DISTINCT s.sid),
+                    COUNT(DISTINCT s.sid || ':' || CAST(w.wid AS TEXT)),
+                    COUNT(DISTINCT CASE
+                        WHEN c.tag IS NOT NULL AND c.tag != ''
+                             AND c.tag NOT IN ('x','w','e')
+                        THEN c.sid || ':' || CAST(c.cid AS TEXT)
+                    END)
+                FROM doc d
+                JOIN corpus cr ON cr.corpusID = d.corpusID
+                JOIN sent s ON s.docID = d.docid
+                JOIN word w ON w.sid = s.sid
+                LEFT JOIN concept c ON c.sid = s.sid
+                GROUP BY cr.corpus
+                """
+            ).fetchall()
+            conn.close()
+        except sqlite3.OperationalError:
+            continue
+
+        for corpus_code, docs, sents, words, concepts in rows:
+            genre = CORPUS_CODE_TO_GENRE.get(corpus_code)
+            if genre is None:
+                continue
+            key = (genre, lang)
+            if key in stats:
+                s = stats[key]
+                s["docs"] += docs
+                s["sents"] += sents
+                s["words"] += words
+                s["concepts"] += concepts
+            else:
+                stats[key] = {
+                    "docs": docs,
+                    "sents": sents,
+                    "words": words,
+                    "concepts": concepts,
+                }
+
+    return stats
+
+
+def _sum_stats(items: list[dict[str, int]]) -> dict[str, int]:
+    """Sum a list of stat dicts."""
+    out = {"docs": 0, "sents": 0, "words": 0, "concepts": 0}
+    for s in items:
+        for k in out:
+            out[k] += s.get(k, 0)
+    return out
+
+
+def write_summary(outdir: Path) -> None:
+    """Write the genre summary HTML page.
+
+    Args:
+        outdir: Root output directory (e.g. display/).
+    """
+    logger.info("Collecting genre statistics...")
+    stats = collect_genre_stats()
+
+    if not stats:
+        logger.warning("No genre statistics found — skipping summary page.")
+        return
+
+    # Which languages have data, sorted by total docs descending
+    lang_docs: dict[str, int] = {}
+    for (genre, lang), s in stats.items():
+        lang_docs[lang] = lang_docs.get(lang, 0) + s["docs"]
+    languages = sorted(lang_docs, key=lambda l: -lang_docs[l])
+
+    # Per-genre totals
+    totals_by_genre: dict[str, dict[str, int]] = {}
+    for genre in GENRE_ORDER:
+        items = [s for (g, _), s in stats.items() if g == genre]
+        totals_by_genre[genre] = _sum_stats(items)
+
+    # Per-language totals
+    totals_by_lang: dict[str, dict[str, int]] = {}
+    for lang in languages:
+        items = [s for (_, l), s in stats.items() if l == lang]
+        totals_by_lang[lang] = _sum_stats(items)
+
+    # Grand total
+    grand = _sum_stats(list(stats.values()))
+
+    empty = {"docs": 0, "sents": 0, "words": 0, "concepts": 0}
+
+    tmpl = _get_env().get_template("summary.html")
+    html = tmpl.render(
+        languages=languages,
+        lang_names=LANG_NAMES,
+        genre_order=GENRE_ORDER,
+        genre_names=GENRE_NAMES,
+        stats=stats,
+        totals_by_genre=totals_by_genre,
+        totals_by_lang=totals_by_lang,
+        grand=grand,
+        empty=empty,
+    )
+    summary_path = outdir / "summary.html"
+    summary_path.write_text(html, encoding="utf-8")
+    logger.info("Summary → %s", summary_path)
+
+
+# ---------------------------------------------------------------------------
+# About page
+# ---------------------------------------------------------------------------
+
+def write_about(outdir: Path) -> None:
+    """Write the about page, populating language stats from sidecars.
+
+    Args:
+        outdir: Root output directory (e.g. display/).
+    """
+    lang_docs: dict[str, int] = {}
+    lang_sents: dict[str, str] = {}
+
+    for sidecar_path in sorted(outdir.glob("*/index.json")):
+        try:
+            data = json.loads(sidecar_path.read_text(encoding="utf-8"))
+            lang = data.get("lang", sidecar_path.parent.name)
+            docs = data.get("docs", [])
+            lang_docs[lang] = len(docs)
+            total = sum(d.get("sent_count", 0) for d in docs)
+            lang_sents[lang] = f"{total:,}"
+        except (json.JSONDecodeError, OSError):
+            continue
+
+    languages = sorted(lang_docs, key=lambda l: -lang_docs[l])
+
+    tmpl = _get_env().get_template("about.html")
+    html = tmpl.render(
+        languages=languages,
+        lang_names=LANG_NAMES,
+        lang_docs=lang_docs,
+        lang_sents=lang_sents,
+    )
+    about_path = outdir / "about.html"
+    about_path.write_text(html, encoding="utf-8")
+    logger.info("About → %s", about_path)
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
@@ -915,6 +950,21 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Build shared data files (slinks, sentences, WN) only",
     )
+    group.add_argument(
+        "--build-summary",
+        action="store_true",
+        help="Build genre summary page only",
+    )
+    group.add_argument(
+        "--build-about",
+        action="store_true",
+        help="Build about page only",
+    )
+    group.add_argument(
+        "--build-pages",
+        action="store_true",
+        help="Build all non-document pages (index, summary, about)",
+    )
 
     return parser.parse_args()
 
@@ -933,6 +983,23 @@ def main() -> None:
             logger.error("WordNet database not found: %s", wn_db)
             sys.exit(1)
         build_data_files(outdir, wn_db)
+        return
+
+    # --build-summary: generate genre summary page and exit
+    if args.build_summary:
+        write_summary(outdir)
+        return
+
+    # --build-about: generate about page and exit
+    if args.build_about:
+        write_about(outdir)
+        return
+
+    # --build-pages: generate all non-document pages and exit
+    if args.build_pages:
+        write_index(outdir)
+        write_summary(outdir)
+        write_about(outdir)
         return
 
     corpus_db = args.corpus_db or str(BUILD_DIR / f"{args.lang}.db")
