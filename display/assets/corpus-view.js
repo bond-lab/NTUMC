@@ -3,8 +3,9 @@
 // Data injected inline by the HTML page:
 //   conceptInfo[key] = {l: lemma, s: synset_id, w: [wid, ...]}
 //   docLang = language code of this document (e.g. "jpn")
+//   docGenre = genre string (e.g. "stories")
 //   dataPath = relative path to data/ directory (e.g. "../data")
-/* global conceptInfo, docLang, dataPath, docStats */
+/* global conceptInfo, docLang, docGenre, dataPath, docStats */
 
 // =========================================================================
 // DOM references
@@ -447,7 +448,10 @@ function injectUI() {
           '<i class="bi bi-bar-chart-line"></i>' +
         '</button>' +
         '<button id="downloadTsv" class="toolbar-btn" title="Download annotations (TSV)">' +
-          '<i class="bi bi-download"></i>' +
+          '<i class="bi bi-filetype-csv"></i>' +
+        '</button>' +
+        '<button id="downloadJson" class="toolbar-btn" title="Download annotations (JSON)">' +
+          '<i class="bi bi-filetype-json"></i>' +
         '</button>' +
         '<button class="toolbar-btn" title="Settings"' +
           ' data-bs-toggle="modal" data-bs-target="#settingsModal">' +
@@ -641,8 +645,27 @@ function toggleTOC() {
 }
 
 // =========================================================================
-// Download TSV
+// Download TSV / JSON
 // =========================================================================
+
+function downloadAnnotationsJSON() {
+  var docName = location.pathname.split('/').pop().replace(/-view\.html$/, '');
+  var genre = (typeof docGenre !== 'undefined') ? docGenre : 'other';
+  var url = dataPath + '/docs/' + docLang + '-' + genre + '-' + docName + '.jsonl';
+  fetch(url).then(function(r) {
+    if (!r.ok) throw new Error('Not found: ' + url);
+    return r.text();
+  }).then(function(text) {
+    var blob = new Blob([text], {type: 'application/json'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = docLang + '-' + genre + '-' + docName + '.jsonl';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(a.href);
+  }).catch(function(e) { console.warn('JSON download unavailable:', e); });
+}
 
 function downloadAnnotationsTSV() {
   var rows = ['sentence_id\tconcept_id\tconcept_lemma\tsynset\tword_ids\twords'];
@@ -815,6 +838,9 @@ function init() {
 
   var dlBtn = document.getElementById('downloadTsv');
   if (dlBtn) dlBtn.addEventListener('click', downloadAnnotationsTSV);
+
+  var dlJsonBtn = document.getElementById('downloadJson');
+  if (dlJsonBtn) dlJsonBtn.addEventListener('click', downloadAnnotationsJSON);
 
   // Reading progress
   window.addEventListener('scroll', updateReadingProgress, { passive: true });

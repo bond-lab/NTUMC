@@ -108,3 +108,12 @@ Update!
 * ind spec: investigate 4,622 cleared concept tags (see above)
 * Deploy display to GitHub Pages
 
+
+## Add other corpora
+* Jsemcor
+* Romanian Semcor
+* SPEC Polish
+* SPEC Bulgarian
+* SPEC French, German, Dutch
+* SPEC Spanish
+* Wordnet gloss corpus

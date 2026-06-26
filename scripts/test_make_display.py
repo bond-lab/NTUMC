@@ -27,6 +27,8 @@ from scripts.make_display import (
     compute_nospace,
     cross_compile_slinks,
     render_html,
+    write_consolidated_json,
+    write_doc_json,
     write_document,
 )
 
@@ -48,8 +50,12 @@ def corpus_db(tmp_path):
     db_path = tmp_path / "test.db"
     conn = sqlite3.connect(str(db_path))
     conn.executescript("""
-        CREATE TABLE corpus (corpusID INTEGER PRIMARY KEY, title TEXT);
-        INSERT INTO corpus VALUES (1, 'Test Corpus');
+        CREATE TABLE corpus (
+            corpusID INTEGER PRIMARY KEY, title TEXT, corpus TEXT,
+            genre TEXT NOT NULL CHECK (genre IN
+                ('essay','fiction','lexical','news','online','tourism'))
+        );
+        INSERT INTO corpus VALUES (1, 'Test Corpus', 'story', 'fiction');
 
         CREATE TABLE doc (docid INTEGER PRIMARY KEY, doc TEXT,
                           title TEXT, subtitle TEXT, corpusID INTEGER);
@@ -704,3 +710,187 @@ class TestWriteDocument:
         assert ">fox<" in html
         assert 'data-p="JJ"' in html
         assert 'data-l="quick"' in html
+
+    def test_produces_json(self, corpus_db, tmp_outdir):
+        write_document(str(corpus_db), 1, tmp_outdir, "eng")
+        json_path = tmp_outdir / "data" / "docs" / "eng-fiction-testdoc.jsonl"
+        assert json_path.exists()
+
+    def test_genre_in_html(self, corpus_db, tmp_outdir):
+        write_document(str(corpus_db), 1, tmp_outdir, "eng")
+        html = (tmp_outdir / "eng" / "testdoc-view.html").read_text(encoding="utf-8")
+        assert 'var docGenre = "fiction"' in html
+
+    def test_unknown_corpus_code_raises(self, tmp_path, tmp_outdir):
+        db_path = tmp_path / "bad.db"
+        conn = sqlite3.connect(str(db_path))
+        conn.executescript("""
+            CREATE TABLE corpus (corpusID INTEGER PRIMARY KEY, title TEXT, corpus TEXT);
+            INSERT INTO corpus VALUES (1, 'Test', 'bogus');
+            CREATE TABLE doc (docid INTEGER PRIMARY KEY, doc TEXT, title TEXT,
+                              subtitle TEXT, corpusID INTEGER);
+            INSERT INTO doc VALUES (1, 'testdoc', 'Test', '', 1);
+            CREATE TABLE sent (sid INTEGER PRIMARY KEY, docID INTEGER,
+                               sent TEXT, comment TEXT);
+            CREATE TABLE stype (sid INTEGER PRIMARY KEY, stype TEXT);
+            CREATE TABLE word (sid INTEGER, wid INTEGER, word TEXT,
+                               pos TEXT, lemma TEXT, comment TEXT,
+                               cfrom INTEGER, cto INTEGER,
+                               PRIMARY KEY (sid, wid));
+            CREATE TABLE concept (sid INTEGER, cid INTEGER, clemma TEXT,
+                                  tag TEXT, comment TEXT);
+            CREATE TABLE cwl (sid INTEGER, wid INTEGER, cid INTEGER,
+                              PRIMARY KEY (sid, wid, cid));
+            CREATE TABLE sentiment (sid INTEGER, cid INTEGER, score REAL,
+                                    comment TEXT, usrname TEXT,
+                                    PRIMARY KEY (sid, cid));
+        """)
+        conn.close()
+        with pytest.raises(ValueError, match="migrate_genre"):
+            write_document(str(db_path), 1, tmp_outdir, "eng")
+
+
+# ---------------------------------------------------------------------------
+# write_doc_json
+# ---------------------------------------------------------------------------
+
+
+class TestWriteDocJson:
+    """Tests for per-document NDJSON annotation output."""
+
+    def _make_doc(self):
+        return {
+            "docid": 1,
+            "doc": "testdoc",
+            "title": "Test Document",
+            "subtitle": "A test",
+            "sentences": [
+                {
+                    "sid": 100,
+                    "text": "The fox.",
+                    "stype": "p",
+                    "words": [
+                        {"wid": 0, "word": "The", "pos": "DT", "lemma": "the",
+                         "nospace": False},
+                        {"wid": 1, "word": "fox", "pos": "NN", "lemma": "fox",
+                         "nospace": False},
+                    ],
+                    "concepts": [
+                        {"cid": 1, "tag": "02119022-n", "clemma": "fox", "wids": [1]},
+                        {"cid": 2, "tag": "x", "clemma": "the", "wids": [0]},
+                    ],
+                    "word_cids": {1: ["c100:1"]},
+                }
+            ],
+        }
+
+    def test_filename_encodes_lang_genre_doc(self, tmp_outdir):
+        path = write_doc_json(self._make_doc(), "eng", "fiction", tmp_outdir)
+        assert path.name == "eng-fiction-testdoc.jsonl"
+
+    def test_valid_ndjson(self, tmp_outdir):
+        path = write_doc_json(self._make_doc(), "eng", "fiction", tmp_outdir)
+        lines = path.read_text(encoding="utf-8").strip().splitlines()
+        assert len(lines) == 1
+        record = json.loads(lines[0])
+        assert record["docid"] == 1
+        assert record["lang"] == "eng"
+        assert record["genre"] == "fiction"
+
+    def test_no_nospace_in_output(self, tmp_outdir):
+        path = write_doc_json(self._make_doc(), "eng", "fiction", tmp_outdir)
+        record = json.loads(path.read_text(encoding="utf-8").strip())
+        for word in record["sentences"][0]["words"]:
+            assert "nospace" not in word
+
+    def test_no_word_cids_in_output(self, tmp_outdir):
+        path = write_doc_json(self._make_doc(), "eng", "fiction", tmp_outdir)
+        record = json.loads(path.read_text(encoding="utf-8").strip())
+        assert "word_cids" not in record["sentences"][0]
+
+    def test_all_concepts_preserved(self, tmp_outdir):
+        path = write_doc_json(self._make_doc(), "eng", "fiction", tmp_outdir)
+        record = json.loads(path.read_text(encoding="utf-8").strip())
+        concepts = record["sentences"][0]["concepts"]
+        assert len(concepts) == 2
+        tags = {c["tag"] for c in concepts}
+        assert tags == {"02119022-n", "x"}
+
+    def test_stype_included_when_present(self, tmp_outdir):
+        path = write_doc_json(self._make_doc(), "eng", "fiction", tmp_outdir)
+        record = json.loads(path.read_text(encoding="utf-8").strip())
+        assert record["sentences"][0]["stype"] == "p"
+
+    def test_subtitle_omitted_when_empty(self, tmp_outdir):
+        doc = self._make_doc()
+        doc["subtitle"] = ""
+        path = write_doc_json(doc, "eng", "fiction", tmp_outdir)
+        record = json.loads(path.read_text(encoding="utf-8").strip())
+        assert "subtitle" not in record
+
+
+# ---------------------------------------------------------------------------
+# write_consolidated_json
+# ---------------------------------------------------------------------------
+
+
+class TestWriteConsolidatedJson:
+    """Tests for consolidated NDJSON rollup files."""
+
+    def _seed_docs(self, outdir, docs):
+        docs_dir = outdir / "data" / "docs"
+        docs_dir.mkdir(parents=True, exist_ok=True)
+        for fname, record in docs:
+            (docs_dir / fname).write_text(
+                json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n",
+                encoding="utf-8",
+            )
+
+    def test_creates_all_rollup_files(self, tmp_outdir):
+        self._seed_docs(tmp_outdir, [
+            ("eng-fiction-s1.jsonl",
+             {"lang": "eng", "genre": "fiction", "title": "T", "sentences": []}),
+            ("jpn-fiction-s1.jsonl",
+             {"lang": "jpn", "genre": "fiction", "title": "T", "sentences": []}),
+            ("eng-news-k1.jsonl",
+             {"lang": "eng", "genre": "news", "title": "T", "sentences": []}),
+        ])
+        write_consolidated_json(tmp_outdir)
+        data = tmp_outdir / "data"
+        assert (data / "lang" / "eng.jsonl").exists()
+        assert (data / "lang" / "jpn.jsonl").exists()
+        assert (data / "genre" / "fiction.jsonl").exists()
+        assert (data / "genre" / "news.jsonl").exists()
+        assert (data / "corpus.jsonl").exists()
+
+    def test_lang_file_line_counts(self, tmp_outdir):
+        self._seed_docs(tmp_outdir, [
+            ("eng-fiction-s1.jsonl",
+             {"lang": "eng", "genre": "fiction", "title": "T", "sentences": []}),
+            ("eng-news-k1.jsonl",
+             {"lang": "eng", "genre": "news", "title": "T", "sentences": []}),
+            ("jpn-fiction-s1.jsonl",
+             {"lang": "jpn", "genre": "fiction", "title": "T", "sentences": []}),
+        ])
+        write_consolidated_json(tmp_outdir)
+        eng = (tmp_outdir / "data" / "lang" / "eng.jsonl").read_text().strip().splitlines()
+        jpn = (tmp_outdir / "data" / "lang" / "jpn.jsonl").read_text().strip().splitlines()
+        assert len(eng) == 2
+        assert len(jpn) == 1
+
+    def test_corpus_has_all_docs(self, tmp_outdir):
+        self._seed_docs(tmp_outdir, [
+            ("eng-fiction-s1.jsonl",
+             {"lang": "eng", "genre": "fiction", "title": "T", "sentences": []}),
+            ("jpn-news-k1.jsonl",
+             {"lang": "jpn", "genre": "news", "title": "T", "sentences": []}),
+        ])
+        write_consolidated_json(tmp_outdir)
+        lines = (tmp_outdir / "data" / "corpus.jsonl").read_text().strip().splitlines()
+        assert len(lines) == 2
+
+    def test_missing_docs_dir_warns(self, tmp_outdir, caplog):
+        import logging
+        with caplog.at_level(logging.WARNING):
+            write_consolidated_json(tmp_outdir)
+        assert "No docs/ directory found" in caplog.text
