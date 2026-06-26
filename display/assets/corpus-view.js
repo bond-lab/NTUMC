@@ -5,7 +5,7 @@
 //   docLang = language code of this document (e.g. "jpn")
 //   docGenre = genre string (e.g. "stories")
 //   dataPath = relative path to data/ directory (e.g. "../data")
-/* global conceptInfo, docLang, docGenre, dataPath, docStats */
+/* global conceptInfo, docLang, docGenre, docHasSentiment, dataPath, docStats */
 
 // =========================================================================
 // DOM references
@@ -645,7 +645,6 @@ function clearSentimentUnderlines() {
   if (!story) return;
   story.querySelectorAll('w').forEach(function(w) {
     w.style.textDecoration = '';
-    w.style.textDecorationColor = '';
   });
 }
 
@@ -707,6 +706,18 @@ function toggleTOC() {
 // Download TSV / JSON
 // =========================================================================
 
+function triggerDownload(content, filename, mimeType) {
+  var blob = new Blob([content], { type: mimeType });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
 function downloadAnnotationsJSON() {
   var docName = location.pathname.split('/').pop().replace(/-view\.html$/, '');
   var genre = (typeof docGenre !== 'undefined') ? docGenre : 'other';
@@ -715,14 +726,7 @@ function downloadAnnotationsJSON() {
     if (!r.ok) throw new Error('Not found: ' + url);
     return r.text();
   }).then(function(text) {
-    var blob = new Blob([text], {type: 'application/json'});
-    var a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = docLang + '-' + genre + '-' + docName + '.jsonl';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(a.href);
+    triggerDownload(text, docLang + '-' + genre + '-' + docName + '.jsonl', 'application/json');
   }).catch(function(e) { console.warn('JSON download unavailable:', e); });
 }
 
@@ -749,15 +753,8 @@ function downloadAnnotationsTSV() {
     ].join('\t'));
   });
 
-  var blob = new Blob([rows.join('\n')], { type: 'text/tab-separated-values;charset=utf-8' });
-  var url = URL.createObjectURL(blob);
-  var a = document.createElement('a');
-  a.href = url;
-  a.download = (document.title || 'annotations').replace(/[^a-zA-Z0-9._-]/g, '_') + '.tsv';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  var filename = (document.title || 'annotations').replace(/[^a-zA-Z0-9._-]/g, '_') + '.tsv';
+  triggerDownload(rows.join('\n'), filename, 'text/tab-separated-values;charset=utf-8');
 }
 
 // =========================================================================
@@ -877,10 +874,7 @@ function init() {
 
   var sentimentBtn = document.getElementById('toggleSentiment');
   if (sentimentBtn) {
-    var hasSentimentData = Object.values(conceptInfo).some(function(c) {
-      return c.v !== undefined;
-    });
-    if (hasSentimentData) {
+    if (typeof docHasSentiment !== 'undefined' && docHasSentiment) {
       sentimentBtn.addEventListener('click', toggleSentiment);
     } else {
       sentimentBtn.style.display = 'none';

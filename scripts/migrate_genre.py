@@ -148,9 +148,9 @@ def migrate_db(db_path: Path, dry_run: bool = False) -> bool:
 
         # Validate all corpus codes before touching anything.
         rows = conn.execute(
-            "SELECT corpusID, corpus FROM corpus ORDER BY corpusID"
+            "SELECT corpusID, corpus, title, language FROM corpus ORDER BY corpusID"
         ).fetchall()
-        unknown = [(cid, code) for cid, code in rows if code not in CORPUS_CODE_TO_GENRE]
+        unknown = [(cid, code) for cid, code, *_ in rows if code not in CORPUS_CODE_TO_GENRE]
         if unknown:
             for cid, code in unknown:
                 print(
@@ -160,7 +160,7 @@ def migrate_db(db_path: Path, dry_run: bool = False) -> bool:
             sys.exit(1)
 
         if dry_run:
-            for cid, code in rows:
+            for cid, code, *_ in rows:
                 genre = CORPUS_CODE_TO_GENRE[code]
                 print(f"  {db_path.name}: corpusID={cid} {code!r} → {genre!r}")
             return True
@@ -178,15 +178,11 @@ def migrate_db(db_path: Path, dry_run: bool = False) -> bool:
             )
         """)
         conn.execute("DELETE FROM corpus_migration_new")
-        for cid, code in rows:
-            orig = conn.execute(
-                "SELECT corpusID, corpus, title, language FROM corpus WHERE corpusID = ?",
-                (cid,),
-            ).fetchone()
+        for cid, code, title, language in rows:
             genre = CORPUS_CODE_TO_GENRE[code]
             conn.execute(
                 "INSERT INTO corpus_migration_new VALUES (?, ?, ?, ?, ?)",
-                (*orig, genre),
+                (cid, code, title, language, genre),
             )
         conn.execute("DROP TABLE IF EXISTS corpus")
         conn.execute("ALTER TABLE corpus_migration_new RENAME TO corpus")

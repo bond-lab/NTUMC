@@ -38,6 +38,37 @@ from scripts.make_display import (
 # ---------------------------------------------------------------------------
 
 
+def _create_corpus_schema(conn: sqlite3.Connection, with_genre: bool = True) -> None:
+    """Create the standard corpus schema, optionally without the genre column."""
+    genre_col = (
+        "genre TEXT NOT NULL CHECK (genre IN "
+        "('essay','fiction','lexical','news','online','tourism'))"
+        if with_genre else ""
+    )
+    corpus_cols = "corpusID INTEGER PRIMARY KEY, title TEXT, corpus TEXT"
+    if genre_col:
+        corpus_cols += ", " + genre_col
+    conn.executescript(f"""
+        CREATE TABLE corpus ({corpus_cols});
+        CREATE TABLE doc (docid INTEGER PRIMARY KEY, doc TEXT, title TEXT,
+                          subtitle TEXT, corpusID INTEGER);
+        CREATE TABLE sent (sid INTEGER PRIMARY KEY, docID INTEGER,
+                           sent TEXT, comment TEXT);
+        CREATE TABLE stype (sid INTEGER PRIMARY KEY, stype TEXT);
+        CREATE TABLE word (sid INTEGER, wid INTEGER, word TEXT,
+                           pos TEXT, lemma TEXT, comment TEXT,
+                           cfrom INTEGER, cto INTEGER,
+                           PRIMARY KEY (sid, wid));
+        CREATE TABLE concept (sid INTEGER, cid INTEGER, clemma TEXT,
+                              tag TEXT, comment TEXT);
+        CREATE TABLE cwl (sid INTEGER, wid INTEGER, cid INTEGER,
+                          PRIMARY KEY (sid, wid, cid));
+        CREATE TABLE sentiment (sid INTEGER, cid INTEGER, score REAL,
+                                comment TEXT, usrname TEXT,
+                                PRIMARY KEY (sid, cid));
+    """)
+
+
 @pytest.fixture()
 def tmp_outdir(tmp_path):
     """Create an output directory structure."""
@@ -49,31 +80,14 @@ def corpus_db(tmp_path):
     """Create a minimal corpus database for testing."""
     db_path = tmp_path / "test.db"
     conn = sqlite3.connect(str(db_path))
+    _create_corpus_schema(conn)
     conn.executescript("""
-        CREATE TABLE corpus (
-            corpusID INTEGER PRIMARY KEY, title TEXT, corpus TEXT,
-            genre TEXT NOT NULL CHECK (genre IN
-                ('essay','fiction','lexical','news','online','tourism'))
-        );
         INSERT INTO corpus VALUES (1, 'Test Corpus', 'story', 'fiction');
-
-        CREATE TABLE doc (docid INTEGER PRIMARY KEY, doc TEXT,
-                          title TEXT, subtitle TEXT, corpusID INTEGER);
         INSERT INTO doc VALUES (1, 'testdoc', 'Test Document', 'A test', 1);
-
-        CREATE TABLE sent (sid INTEGER PRIMARY KEY, docID INTEGER,
-                           sent TEXT, comment TEXT);
         INSERT INTO sent VALUES (100, 1, 'The quick brown fox .', NULL);
         INSERT INTO sent VALUES (101, 1, 'It jumped over the fence .', NULL);
-
-        CREATE TABLE stype (sid INTEGER PRIMARY KEY, stype TEXT);
         INSERT INTO stype VALUES (100, 'p');
         INSERT INTO stype VALUES (101, NULL);
-
-        CREATE TABLE word (sid INTEGER, wid INTEGER, word TEXT,
-                           pos TEXT, lemma TEXT, comment TEXT,
-                           cfrom INTEGER, cto INTEGER,
-                           PRIMARY KEY (sid, wid));
         INSERT INTO word VALUES (100, 0, 'The', 'DT', 'the', NULL, 0, 3);
         INSERT INTO word VALUES (100, 1, 'quick', 'JJ', 'quick', NULL, 4, 9);
         INSERT INTO word VALUES (100, 2, 'brown', 'JJ', 'brown', NULL, 10, 15);
@@ -85,21 +99,11 @@ def corpus_db(tmp_path):
         INSERT INTO word VALUES (101, 3, 'the', 'DT', 'the', NULL, 15, 18);
         INSERT INTO word VALUES (101, 4, 'fence', 'NN', 'fence', NULL, 19, 24);
         INSERT INTO word VALUES (101, 5, '.', '.', '.', NULL, 25, 26);
-
-        CREATE TABLE concept (sid INTEGER, cid INTEGER, clemma TEXT,
-                              tag TEXT, comment TEXT);
         INSERT INTO concept VALUES (100, 1, 'quick', '01068018-a', NULL);
         INSERT INTO concept VALUES (100, 2, 'brown fox', '02119022-n', NULL);
         INSERT INTO concept VALUES (101, 1, 'jump', '01965856-v', NULL);
         INSERT INTO concept VALUES (101, 2, 'fence', '03326073-n', NULL);
         INSERT INTO concept VALUES (101, 3, 'skip', 'x', NULL);
-
-        CREATE TABLE sentiment (sid INTEGER, cid INTEGER, score REAL,
-                                comment TEXT, usrname TEXT,
-                                PRIMARY KEY (sid, cid));
-
-        CREATE TABLE cwl (sid INTEGER, wid INTEGER, cid INTEGER,
-                          PRIMARY KEY (sid, wid, cid));
         INSERT INTO cwl VALUES (100, 1, 1);
         INSERT INTO cwl VALUES (100, 2, 2);
         INSERT INTO cwl VALUES (100, 3, 2);
@@ -342,7 +346,7 @@ class TestBuildConceptInfo:
         doc = self._make_doc([
             {"cid": 1, "clemma": "fox", "tag": "02119022-n", "wids": [1]},
         ])
-        concepts, stats = build_concept_info(doc)
+        concepts, stats, _ = build_concept_info(doc)
         assert "c1:1" in concepts
         assert concepts["c1:1"]["l"] == "fox"
         assert concepts["c1:1"]["s"] == "02119022-n"
@@ -356,7 +360,7 @@ class TestBuildConceptInfo:
             {"cid": 3, "clemma": "the", "tag": "e", "wids": [0]},
             {"cid": 4, "clemma": "fox", "tag": "02119022-n", "wids": [1]},
         ])
-        concepts, stats = build_concept_info(doc)
+        concepts, stats, _ = build_concept_info(doc)
         assert len(concepts) == 1
         assert "c1:4" in concepts
         assert stats["x"] == 1
@@ -369,7 +373,7 @@ class TestBuildConceptInfo:
             {"cid": 1, "clemma": "the", "tag": "", "wids": [0]},
             {"cid": 2, "clemma": "the", "tag": None, "wids": [0]},
         ])
-        concepts, stats = build_concept_info(doc)
+        concepts, stats, _ = build_concept_info(doc)
         assert len(concepts) == 0
         assert stats["null"] == 2
 
@@ -377,7 +381,7 @@ class TestBuildConceptInfo:
         doc = self._make_doc([
             {"cid": 1, "clemma": "fox", "tag": "02119022-n", "wids": [1]},
         ])
-        build_concept_info(doc)  # returns (concepts, stats); we check mutation
+        build_concept_info(doc)  # returns (concepts, stats, has_sentiment); we check mutation
         word_cids = doc["sentences"][0]["word_cids"]
         assert 1 in word_cids
         assert word_cids[1] == ["c1:1"]
@@ -387,7 +391,7 @@ class TestBuildConceptInfo:
         doc = self._make_doc([
             {"cid": 1, "clemma": "the fox", "tag": "02119022-n", "wids": [0, 1]},
         ])
-        concepts, _ = build_concept_info(doc)
+        concepts, _, __ = build_concept_info(doc)
         assert concepts["c1:1"]["w"] == [0, 1]
         word_cids = doc["sentences"][0]["word_cids"]
         assert word_cids[0] == ["c1:1"]
@@ -399,7 +403,7 @@ class TestBuildConceptInfo:
             {"word": "'t", "wid": 1, "cfrom": 3, "cto": 5},
         ]
         doc = self._make_doc([], words=words)
-        build_concept_info(doc)  # returns (concepts, stats); we check mutation
+        build_concept_info(doc)  # returns (concepts, stats, has_sentiment); we check mutation
         assert doc["sentences"][0]["words"][0]["nospace"] is True
         assert doc["sentences"][0]["words"][1]["nospace"] is False
 
@@ -407,7 +411,7 @@ class TestBuildConceptInfo:
         doc = self._make_doc([
             {"cid": 1, "clemma": "Tokyo", "tag": "org", "wids": [0]},
         ])
-        concepts, _ = build_concept_info(doc)
+        concepts, _, __ = build_concept_info(doc)
         assert concepts["c1:1"]["s"] == "org"
 
 
@@ -724,27 +728,10 @@ class TestWriteDocument:
     def test_unknown_corpus_code_raises(self, tmp_path, tmp_outdir):
         db_path = tmp_path / "bad.db"
         conn = sqlite3.connect(str(db_path))
-        conn.executescript("""
-            CREATE TABLE corpus (corpusID INTEGER PRIMARY KEY, title TEXT, corpus TEXT);
-            INSERT INTO corpus VALUES (1, 'Test', 'bogus');
-            CREATE TABLE doc (docid INTEGER PRIMARY KEY, doc TEXT, title TEXT,
-                              subtitle TEXT, corpusID INTEGER);
-            INSERT INTO doc VALUES (1, 'testdoc', 'Test', '', 1);
-            CREATE TABLE sent (sid INTEGER PRIMARY KEY, docID INTEGER,
-                               sent TEXT, comment TEXT);
-            CREATE TABLE stype (sid INTEGER PRIMARY KEY, stype TEXT);
-            CREATE TABLE word (sid INTEGER, wid INTEGER, word TEXT,
-                               pos TEXT, lemma TEXT, comment TEXT,
-                               cfrom INTEGER, cto INTEGER,
-                               PRIMARY KEY (sid, wid));
-            CREATE TABLE concept (sid INTEGER, cid INTEGER, clemma TEXT,
-                                  tag TEXT, comment TEXT);
-            CREATE TABLE cwl (sid INTEGER, wid INTEGER, cid INTEGER,
-                              PRIMARY KEY (sid, wid, cid));
-            CREATE TABLE sentiment (sid INTEGER, cid INTEGER, score REAL,
-                                    comment TEXT, usrname TEXT,
-                                    PRIMARY KEY (sid, cid));
-        """)
+        _create_corpus_schema(conn, with_genre=False)
+        conn.execute("INSERT INTO corpus VALUES (1, 'Test', 'bogus')")
+        conn.execute("INSERT INTO doc VALUES (1, 'testdoc', 'Test', '', 1)")
+        conn.commit()
         conn.close()
         with pytest.raises(ValueError, match="migrate_genre"):
             write_document(str(db_path), 1, tmp_outdir, "eng")

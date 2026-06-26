@@ -136,7 +136,7 @@ def compute_nospace(words: list[dict], sent_text: str) -> list[bool]:
 # ---------------------------------------------------------------------------
 
 
-def build_concept_info(doc_data: dict) -> tuple[dict, dict]:
+def build_concept_info(doc_data: dict) -> tuple[dict, dict, bool]:
     """Extract concept info and annotate each sentence with word_cids.
 
     Mutates each sentence dict in doc_data to add:
@@ -145,8 +145,9 @@ def build_concept_info(doc_data: dict) -> tuple[dict, dict]:
     Also annotates each word dict with ``nospace`` bool.
 
     Returns:
-        (concepts, doc_stats) where concepts is {concept_key: {l, s, w}}
-        and doc_stats is {sents, words, tagged, w, e, x, null}.
+        (concepts, doc_stats, has_sentiment) where concepts is
+        {concept_key: {l, s, w[, v]}} and doc_stats is
+        {sents, words, tagged, w, e, x, null}.
     """
     concepts: dict = {}
     n_words = 0
@@ -213,9 +214,8 @@ def build_concept_info(doc_data: dict) -> tuple[dict, dict]:
         "e": n_e,
         "x": n_x,
         "null": n_null,
-        "has_sentiment": has_sentiment,
     }
-    return concepts, doc_stats
+    return concepts, doc_stats, has_sentiment
 
 
 def get_doc_tagging_rates(corpus_db: str) -> dict[int, float]:
@@ -274,6 +274,7 @@ def render_html(
     index_path: str,
     doc_stats: Optional[dict] = None,
     genre: str = "other",
+    has_sentiment: bool = False,
 ) -> str:
     """Render the document HTML page with concept data embedded inline.
 
@@ -288,6 +289,7 @@ def render_html(
         index_path: Relative path to the index HTML file.
         doc_stats: Annotation stats dict to embed, or None.
         genre: Genre string for the JS ``docGenre`` variable.
+        has_sentiment: Whether any concept in the doc has a sentiment score.
 
     Returns:
         Rendered HTML string.
@@ -302,6 +304,7 @@ def render_html(
         concepts_data=Markup(json.dumps(concepts, ensure_ascii=False)),
         doc_lang_json=Markup(json.dumps(lang)),
         doc_genre_json=Markup(json.dumps(genre)),
+        doc_has_sentiment_json=Markup(json.dumps(has_sentiment)),
         data_path_json=Markup(json.dumps("../data")),
         doc_stats_json=Markup(json.dumps(doc_stats or {})),
     )
@@ -318,6 +321,7 @@ def write_document(
     outdir: Path,
     lang: str,
     tag_rate: Optional[float] = None,
+    genre_map: Optional[dict[int, str]] = None,
 ) -> Optional[dict]:
     """Generate the HTML display file for one document.
 
@@ -327,6 +331,8 @@ def write_document(
         outdir: Root output directory (e.g. display/).
         lang: Language code (e.g. 'eng').
         tag_rate: Pre-computed tagging rate (0–1), used for index display.
+        genre_map: Pre-fetched {corpusID: genre} mapping; built once per DB
+            by the caller to avoid per-document DB round-trips.
 
     Returns:
         Dict with doc metadata for index generation, or None on failure.
@@ -349,13 +355,19 @@ def write_document(
         f", {tag_pct}% tagged" if tag_pct else "",
     )
 
-    concepts, doc_stats = build_concept_info(doc_data)
-    has_sentiment = doc_stats.pop("has_sentiment", False)
+    concepts, doc_stats, has_sentiment = build_concept_info(doc_data)
 
     corpus_id = doc_data.get("corpusID")
     if corpus_id is None:
         raise ValueError(f"Document {docid} in {corpus_db} has no corpusID")
-    genre = _get_doc_genre(corpus_db, corpus_id)
+    if genre_map is None:
+        genre_map = get_corpus_genre_map(corpus_db)
+    genre = genre_map.get(corpus_id)
+    if genre is None:
+        raise ValueError(
+            f"No genre for corpusID={corpus_id} in {corpus_db} "
+            f"— run scripts/migrate_genre.py first"
+        )
 
     lang_dir = outdir / lang
     lang_dir.mkdir(parents=True, exist_ok=True)
@@ -369,6 +381,7 @@ def write_document(
         index_path="../index.html",
         doc_stats=doc_stats,
         genre=genre,
+        has_sentiment=has_sentiment,
     )
     html_path.write_text(html, encoding="utf-8")
     logger.info("  → %s", html_path)
@@ -406,36 +419,23 @@ def get_corpus_map(corpus_db: str) -> dict[int, str]:
         conn.close()
 
 
-def _get_doc_genre(corpus_db: str, corpus_id: int) -> str:
-    """Return the genre string for a corpus entry from the genre column.
+def get_corpus_genre_map(corpus_db: str) -> dict[int, str]:
+    """Return {corpusID: genre} for all corpora in the database.
 
     Args:
         corpus_db: Path to corpus database.
-        corpus_id: corpusID value from the doc table.
 
     Returns:
-        Genre string (e.g. ``'fiction'``).
+        Mapping from corpus ID to genre string.
 
     Raises:
-        ValueError: If the genre column is missing, NULL, or not a known genre.
+        ValueError: If the genre column is missing or contains invalid values.
     """
     conn = sqlite3.connect(corpus_db)
     try:
-        row = conn.execute(
-            "SELECT genre FROM corpus WHERE corpusID = ?", (corpus_id,)
-        ).fetchone()
-        if not row or not row[0]:
-            raise ValueError(
-                f"No genre for corpusID={corpus_id} in {corpus_db} "
-                f"— run scripts/migrate_genre.py first"
-            )
-        genre = row[0]
-        if genre not in GENRE_NAMES:
-            raise ValueError(
-                f"Unknown genre {genre!r} (corpusID={corpus_id}); "
-                f"known genres: {sorted(GENRE_NAMES)}"
-            )
-        return genre
+        rows = conn.execute(
+            "SELECT corpusID, genre FROM corpus ORDER BY corpusID"
+        ).fetchall()
     except sqlite3.OperationalError as exc:
         raise ValueError(
             f"Could not query corpus.genre in {corpus_db}: {exc} "
@@ -443,6 +443,21 @@ def _get_doc_genre(corpus_db: str, corpus_id: int) -> str:
         ) from exc
     finally:
         conn.close()
+
+    result: dict[int, str] = {}
+    for corpus_id, genre in rows:
+        if not genre:
+            raise ValueError(
+                f"No genre for corpusID={corpus_id} in {corpus_db} "
+                f"— run scripts/migrate_genre.py first"
+            )
+        if genre not in GENRE_NAMES:
+            raise ValueError(
+                f"Unknown genre {genre!r} (corpusID={corpus_id}); "
+                f"known genres: {sorted(GENRE_NAMES)}"
+            )
+        result[corpus_id] = genre
+    return result
 
 
 def save_lang_sidecar(
@@ -565,17 +580,14 @@ def write_consolidated_json(outdir: Path) -> None:
         line = doc_file.read_text(encoding="utf-8").strip()
         if not line:
             continue
-        try:
-            rec = json.loads(line)
-        except json.JSONDecodeError:
-            logger.warning("Skipping malformed JSONL: %s", doc_file)
+        # filename is {lang}-{genre}-{docname}.jsonl — no JSON parse needed
+        parts = doc_file.stem.split("-", 2)
+        if len(parts) < 2:
+            logger.warning("Unexpected filename format, skipping: %s", doc_file)
             continue
-        ll = rec.get("lang", "")
-        genre = rec.get("genre", "")
-        if ll:
-            lang_lines.setdefault(ll, []).append(line)
-        if genre:
-            genre_lines.setdefault(genre, []).append(line)
+        ll, genre = parts[0], parts[1]
+        lang_lines.setdefault(ll, []).append(line)
+        genre_lines.setdefault(genre, []).append(line)
         all_lines.append(line)
 
     for ll, lines in sorted(lang_lines.items()):
@@ -1266,11 +1278,13 @@ def main() -> None:
         docids = [args.docid]
 
     lang_docs: list[dict] = []
+    genre_map = get_corpus_genre_map(corpus_db)
 
     for docid in docids:
         meta = write_document(
             corpus_db, docid, outdir, args.lang,
             tag_rate=tag_rates.get(docid),
+            genre_map=genre_map,
         )
         if meta:
             lang_docs.append(meta)
