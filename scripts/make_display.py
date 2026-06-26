@@ -155,6 +155,7 @@ def build_concept_info(doc_data: dict) -> tuple[dict, dict]:
     n_e = 0
     n_x = 0
     n_null = 0
+    has_sentiment = False
 
     for sent in doc_data["sentences"]:
         sid = sent["sid"]
@@ -182,12 +183,17 @@ def build_concept_info(doc_data: dict) -> tuple[dict, dict]:
             cid = concept["cid"]
             key = f"c{sid}:{cid}"
             wids: list[int] = concept.get("wids", [])
+            score = concept.get("sentiment")
 
-            concepts[key] = {
+            entry: dict = {
                 "l": concept.get("clemma", ""),
                 "s": tag,
                 "w": wids,
             }
+            if score is not None:
+                entry["v"] = score
+                has_sentiment = True
+            concepts[key] = entry
 
             for wid in wids:
                 word_cids.setdefault(wid, []).append(key)
@@ -207,6 +213,7 @@ def build_concept_info(doc_data: dict) -> tuple[dict, dict]:
         "e": n_e,
         "x": n_x,
         "null": n_null,
+        "has_sentiment": has_sentiment,
     }
     return concepts, doc_stats
 
@@ -343,6 +350,7 @@ def write_document(
     )
 
     concepts, doc_stats = build_concept_info(doc_data)
+    has_sentiment = doc_stats.pop("has_sentiment", False)
 
     corpus_id = doc_data.get("corpusID")
     if corpus_id is None:
@@ -375,6 +383,7 @@ def write_document(
         "sent_count": n_sents,
         "tag_pct": tag_pct,
         "corpus_id": doc_data.get("corpusID"),
+        "has_sentiment": has_sentiment,
     }
 
 

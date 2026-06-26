@@ -42,7 +42,8 @@ var settings = {
   synLang: 'eng',
   transLang: '',
   showSentNums: false,
-  showInlineTrans: false
+  showInlineTrans: false,
+  showSentiment: false
 };
 
 // Feature state
@@ -441,6 +442,9 @@ function injectUI() {
         '<button id="toggleInlineTrans" class="toolbar-btn" title="Inline translations">' +
           '<i class="bi bi-translate"></i>' +
         '</button>' +
+        '<button id="toggleSentiment" class="toolbar-btn" title="Show sentiment">' +
+          '<i class="bi bi-heart"></i>' +
+        '</button>' +
         '<button id="tocToggle" class="toolbar-btn" title="Table of contents">' +
           '<i class="bi bi-list-nested"></i>' +
         '</button>' +
@@ -600,6 +604,53 @@ function updateInlineTranslations() {
     var next = sentEl.nextSibling;
     sentEl.parentNode.insertBefore(block, next);
   });
+}
+
+// =========================================================================
+// Sentiment underlines
+// =========================================================================
+
+function sentimentColor(score) {
+  var t = Math.min(Math.abs(score) / 100, 1);
+  if (score >= 0) {
+    return 'hsl(142,' + Math.round(50 + t * 30) + '%,' + Math.round(58 - t * 23) + '%)';
+  }
+  return 'hsl(0,' + Math.round(55 + t * 29) + '%,' + Math.round(58 - t * 13) + '%)';
+}
+
+function applySentimentUnderlines() {
+  story.querySelectorAll('w').forEach(function(w) {
+    var cids = (w.dataset.c || '').split(' ').filter(Boolean);
+    var scores = cids.map(function(cid) {
+      var c = conceptInfo[cid];
+      return (c && c.v !== undefined) ? c.v : null;
+    }).filter(function(s) { return s !== null; });
+    if (!scores.length) return;
+    var avg = scores.reduce(function(a, b) { return a + b; }, 0) / scores.length;
+    if (avg === 0) return;
+    w.style.textDecoration = 'underline 2px';
+    w.style.textDecorationColor = sentimentColor(avg);
+  });
+}
+
+function clearSentimentUnderlines() {
+  if (!story) return;
+  story.querySelectorAll('w').forEach(function(w) {
+    w.style.textDecoration = '';
+    w.style.textDecorationColor = '';
+  });
+}
+
+function toggleSentiment() {
+  settings.showSentiment = !settings.showSentiment;
+  var btn = document.getElementById('toggleSentiment');
+  if (btn) btn.classList.toggle('active', settings.showSentiment);
+  if (settings.showSentiment) {
+    applySentimentUnderlines();
+  } else {
+    clearSentimentUnderlines();
+  }
+  persistSettings();
 }
 
 // =========================================================================
@@ -816,6 +867,18 @@ function init() {
   var inlineTransBtn = document.getElementById('toggleInlineTrans');
   if (inlineTransBtn) inlineTransBtn.addEventListener('click', toggleInlineTranslations);
 
+  var sentimentBtn = document.getElementById('toggleSentiment');
+  if (sentimentBtn) {
+    var hasSentimentData = Object.values(conceptInfo).some(function(c) {
+      return c.v !== undefined;
+    });
+    if (hasSentimentData) {
+      sentimentBtn.addEventListener('click', toggleSentiment);
+    } else {
+      sentimentBtn.style.display = 'none';
+    }
+  }
+
   var tocBtn = document.getElementById('tocToggle');
   var hasTOC = buildTOC();
   if (tocBtn) {
@@ -860,6 +923,12 @@ function init() {
     document.body.classList.add('show-sent-nums');
     if (sentNumBtn) sentNumBtn.classList.add('active');
     createSentenceNumbers();
+  }
+
+  // Apply saved sentiment state
+  if (settings.showSentiment) {
+    if (sentimentBtn) sentimentBtn.classList.add('active');
+    applySentimentUnderlines();
   }
 
   // Load manifest then language data

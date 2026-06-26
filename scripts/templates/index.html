@@ -69,7 +69,11 @@
             <a href="{{ doc.path }}" class="list-group-item list-group-item-action">
               <div class="d-flex justify-content-between align-items-start">
                 <div>
-                  <div>{{ doc.title }}</div>
+                  <div>{{ doc.title }}
+                    {%- if doc.has_sentiment %}
+                    <i class="bi bi-heart-fill ms-1" style="color:#e05c7a;font-size:0.75em" title="Sentiment annotations"></i>
+                    {%- endif %}
+                  </div>
                   {%- if doc.subtitle %}<small class="text-muted">{{ doc.subtitle }}</small>{% endif %}
                 </div>
                 <small class="text-muted ms-3 text-nowrap">{{ doc.sent_count }} sent.

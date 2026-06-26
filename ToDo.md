@@ -101,6 +101,7 @@ Update!
 * Annotation audit script comparing build vs all old DBs
 
 ## TODO
+* Make wid and cid in the tooltip clickable (wid → jump to word in text; cid → open synset page)
 * ~~catb: extract paragraph/heading stypes from source HTML~~ Done (fix_catb_stype.py)
 * Review cwl errors found by `check_cwl.py`: concept-word links where unrelated
   words share a concept (eng: 682, jpn: 466, ces: 81, cmn: 37, ind: 26, ita: 2)
