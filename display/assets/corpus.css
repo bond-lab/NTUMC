@@ -191,6 +191,9 @@ body.show-sent-nums .sent-num { display: inline; }
   font-family: var(--f-mono); font-size: 0.72rem;
   color: var(--c-text-muted); margin-left: 0.3rem;
 }
+.sentiment-score {
+  font-size: 0.78rem; font-weight: 600; margin-top: 0.2rem;
+}
 
 /* ---- Translation icons & popover ---- */
 .trans-icon {

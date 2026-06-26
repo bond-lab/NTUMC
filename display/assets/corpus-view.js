@@ -252,6 +252,14 @@ function buildTooltipHTML(element) {
           html += '<span class="synset-id">' + escapeHTML(tag) + '</span>';
         }
       }
+      if (concept.v !== undefined) {
+        var score = concept.v;
+        var color = sentimentColor(score);
+        var arrow = score >= 0 ? '▲' : '▼';
+        var sign = score > 0 ? '+' : '';
+        html += '<div class="sentiment-score" style="color:' + color + '">'
+          + arrow + ' ' + sign + score + '</div>';
+      }
       html += '</div>';
     });
   }
