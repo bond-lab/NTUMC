@@ -90,8 +90,25 @@
         (concept IDs) attributes.  Shared data files in <a href="data/">data/</a>
         provide WordNet definitions, synonyms, and sentence alignments as
         JSON, loaded on demand.</p>
-      <p>Use the <i class="bi bi-download"></i> button in the toolbar on
-        any document page to download its annotations as a TSV file.</p>
+      <p>The document toolbar offers several display controls:</p>
+      <ul>
+        <li><i class="bi bi-hash"></i> <strong>Sentence numbers</strong> — toggle visible sentence IDs.</li>
+        <li><i class="bi bi-translate"></i> <strong>Inline translations</strong> — show sentence translations below each sentence (requires a translation language to be set in Settings).</li>
+        <li><i class="bi bi-heart"></i> <strong>Sentiment</strong> — highlight annotated words with coloured underlines: green for positive sentiment, red for negative; intensity reflects the score.  Only visible on documents that have sentiment annotations.</li>
+        <li><i class="bi bi-list-nested"></i> <strong>Table of contents</strong> — shown for documents with three or more headings.</li>
+        <li><i class="bi bi-bar-chart-line"></i> <strong>Annotation statistics</strong> — summary of tagging coverage.</li>
+        <li><i class="bi bi-filetype-csv"></i> <strong>TSV download</strong> — per-concept annotation table.</li>
+        <li><i class="bi bi-filetype-json"></i> <strong>JSON download</strong> — full document annotations as NDJSON.</li>
+        <li><i class="bi bi-gear"></i> <strong>Settings</strong> — choose definition language, synonym language, and sentence translation language.</li>
+      </ul>
+      <p>Documents with sentiment annotations are marked with a
+        <i class="bi bi-heart-fill" style="color:#e05c7a"></i> icon in the index.</p>
+      <p>Per-document NDJSON files are also available in
+        <a href="data/docs/">data/docs/</a> under the naming convention
+        <code>{lang}-{genre}-{docname}.jsonl</code>.
+        Consolidated rollups by language, genre, and full corpus are in
+        <a href="data/lang/">data/lang/</a>, <a href="data/genre/">data/genre/</a>,
+        and <a href="data/corpus.jsonl">data/corpus.jsonl</a>.</p>
 
       <h2 class="h5 mt-4">Citation</h2>
       <p style="font-family:var(--f-ui);font-size:0.88rem;background:var(--c-bg);
