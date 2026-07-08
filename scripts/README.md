@@ -262,17 +262,21 @@ Download fresh databases, apply all fixes, and regenerate the display:
 # 14. Re-derive cross-lingual concept links (issue #6)
 .venv/bin/python scripts/2026-07/realign_clinks.py --fix
 
-# 15. Audit to verify
+# 15. Retag LLM-verified comment suggestions (needs docs/*.tsv)
+.venv/bin/python scripts/2026-07/audit_comment_suggestions.py
+.venv/bin/python scripts/2026-07/retag_partly.py --fix
+
+# 16. Audit to verify
 .venv/bin/python scripts/fix_corpus.py --audit
 .venv/bin/python scripts/check_cwl.py
 
-# 16. Regenerate display HTML
+# 17. Regenerate display HTML
 for lang in eng cmn ind ita ces; do
     .venv/bin/python scripts/make_display.py --lang $lang --all --tagged --outdir display/
 done
 .venv/bin/python scripts/make_display.py --lang jpn --all --tagged --min-tagged 0.01 --outdir display/
 
-# 17. Review, then push back to server when satisfied
+# 18. Review, then push back to server when satisfied
 #    (backs up the server copies first, verifies checksums)
 #    scripts/push_dbs.sh
 ```
