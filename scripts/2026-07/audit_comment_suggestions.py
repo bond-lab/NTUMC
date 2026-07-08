@@ -162,6 +162,10 @@ def main() -> None:
                 "SELECT sid, cid, clemma, tag, comment FROM concept "
                 "WHERE comment IS NOT NULL AND comment != ''"):
             comment = str(comment)
+            if "BAD[" in comment:
+                # suggestion reviewed and rejected (mark_bad_suggestions.py)
+                counts[lang, "REJECTED"] += 1
+                continue
             if BOILERPLATE.search(comment) and not SYNSET_RE.search(comment):
                 counts[lang, "boilerplate"] += 1
                 continue
@@ -202,7 +206,7 @@ def main() -> None:
 
     print("\nSummary per suggestion reference (per language):")
     classes = ["DONE", "PARTLY", "TODO", "MISMATCH", "STALE", "FREETEXT",
-               "other-note", "boilerplate"]
+               "REJECTED", "other-note", "boilerplate"]
     print(f"{'lang':<6}" + "".join(f"{c:>12}" for c in classes))
     for lang in LANGS:
         line = f"{lang:<6}"

@@ -33,6 +33,21 @@ from scratch"), whenever the databases are re-downloaded from the server:
 | `import_links.py` | first import of clinks/wlinks from 2013 link DBs (superseded by `realign_clinks.py`) |
 | `realign_clinks.py` | re-derive all clinks from the 2013-10-05 sources against current numbering (fixes issue #6) |
 
+## Comment-suggestion workflow
+
+Annotator comments carry suggestions in a `=synset` / `<synset` /
+`~synset` notation.  These are never applied blindly (a review pass
+showed ~21% are wrong): the triage classifies them, smaller-model
+reviewers judge each in context, and only verified-GOOD ones are
+applied.  Rejected ones get a `; BAD[date]: reason` marker appended to
+the comment so annotators see the outcome and the triage skips them.
+
+| Script | Purpose |
+|---|---|
+| `audit_comment_suggestions.py` | classify suggestions vs wordnet + tags -> `docs/comment-suggestions.tsv` (DONE/PARTLY/TODO/MISMATCH/STALE/FREETEXT/REJECTED) |
+| `retag_partly.py` | apply verified-GOOD PARTLY rows (needs `docs/partly-verdicts.tsv`) |
+| `mark_bad_suggestions.py` | append `BAD[date]` markers for rejected suggestions (concept- or type-level verdicts) |
+
 ## Audit / diagnostics (read-only)
 
 | Script | Purpose |
