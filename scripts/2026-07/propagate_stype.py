@@ -26,7 +26,7 @@ from pathlib import Path
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
-BUILD_DIR = Path(__file__).resolve().parent.parent / "build"
+BUILD_DIR = Path(__file__).resolve().parents[2] / "build"
 
 TARGET_LANGS = ["jpn", "cmn", "ind", "ita", "ces"]
 

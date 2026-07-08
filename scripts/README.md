@@ -101,65 +101,11 @@ Issues requiring manual work (reported as TODO):
 - stype entries for essay, news (kc), and story corpora
 - Empty corpus placeholders (corpus rows with no documents)
 
-**`fix_catb_stype.py`** — Fix stype annotations for *The Cathedral and the
-Bazaar* by downloading the original HTML from catb.org and extracting paragraph
-boundaries.  Sets `p` only on the first sentence of each paragraph (remaining
-sentences get no stype and flow inline).  Also sets `h1`, `h2`, `author`, and
-`item` (for the 19 numbered lessons).  Propagates to jpn and cmn via slinks.
-
-```
-.venv/bin/python scripts/fix_catb_stype.py --dry-run
-.venv/bin/python scripts/fix_catb_stype.py --fix
-```
-
-**`fix_jpn_wids.py`** — Normalize Japanese word IDs to 0-based per sentence.
-Some documents (kc01, kc02, danc) use document-global wid numbering; this
-renumbers them to start at 0 for each sentence, updating word and cwl tables.
-
-```
-.venv/bin/python scripts/fix_jpn_wids.py --dry-run
-.venv/bin/python scripts/fix_jpn_wids.py --fix
-```
-
-**`propagate_stype.py`** — Propagate stype annotations from English to other
-languages via sentence links (slinks).
-
-```
-# Dry run (report what would change)
-.venv/bin/python scripts/propagate_stype.py --dry-run
-
-# Apply
-.venv/bin/python scripts/propagate_stype.py --fix
-```
-
-Uses slink tables in `eng-{lang}.db` to map English stypes to target languages.
-For 1:many sentence links (one English sentence split into several in the
-target), only the first target sentence gets the stype.  For tourism documents
-(sid >= 100000) which share sid ranges across languages, stypes are copied
-directly by sid.  Only inserts where the target has no existing stype.
-
-**`merge_old_corpora.py`** — Merge corpora left behind when the project
-switched from per-genre to per-language databases (~2015).
-
-```
-# Dry run (report what would change)
-.venv/bin/python scripts/merge_old_corpora.py --fix --dry-run
-
-# Apply merges to local build/ copies
-.venv/bin/python scripts/merge_old_corpora.py --fix
-
-# Download fresh copies from server first
-.venv/bin/python scripts/merge_old_corpora.py --download --fix
-```
-
-Merges three missing corpora with schema conversion (old concept+wid →
-new concept+cwl):
-- English essay (catb): 769 sents from `work/ntu-mc/2014-04-04/eng-essay.db`
-- Japanese essay (catb): 773 sents from `work/ntu-mc/2014-04-04/jpn-essay.db`
-- Japanese news (kc01+kc02): 2020 sents from `work/ntu-mc/2013-10-05/jpn-kc.db`
-
-Also imports Chinese yoursing stype data (2970 entries) from
-`work/ntu-mc/alvas/stype.tab`.
+**One-off data-repair scripts** for the 2026-07 release (corpus merges,
+sid/wid/cid renumbering, the 2017 English POS fixes, clink re-alignment,
+audit tooling) live in **`scripts/2026-07/`** — see the README there for
+the full catalogue.  They stay runnable for the next fresh-download
+rebuild; the scripts in this directory are the permanent toolbox.
 
 
 ## Log management
@@ -279,40 +225,56 @@ Download fresh databases, apply all fixes, and regenerate the display:
 # 2. Apply corpus metadata fixes (missing corpus rows, stype h0, NULL language)
 .venv/bin/python scripts/fix_corpus.py --fix
 
-# 3. Merge missing corpora from old per-genre databases
+# 3. Add the genre column (fresh server DBs lack it)
+.venv/bin/python scripts/2026-07/migrate_genre.py
+
+# 4. Merge missing corpora from old per-genre databases
 #    (eng essay, jpn essay, jpn kc, cmn stype)
-.venv/bin/python scripts/merge_old_corpora.py --fix
+.venv/bin/python scripts/2026-07/merge_old_corpora.py --fix
 
-# 4. Fix cmn.db: swap spec/danc sids and import kumo-no-ito
-.venv/bin/python scripts/fix_cmn_sids.py --fix
+# 5. Fix cmn.db: swap spec/danc sids and import kumo-no-ito
+.venv/bin/python scripts/2026-07/fix_cmn_sids.py --fix
 
-# 5. Recover missing concept annotations into cmn.db from old DBs
-.venv/bin/python scripts/recover_cmn_concepts.py --fix
+# 6. Recover missing concept annotations into cmn.db from old DBs
+.venv/bin/python scripts/2026-07/recover_cmn_concepts.py --fix
 
-# 6. Normalize jpn wids to 0-based per sentence
-.venv/bin/python scripts/fix_jpn_wids.py --fix
+# 7. Restore ind tags demoted between 2016 and 2025
+.venv/bin/python scripts/2026-07/merge_ind.py --fix
 
-# 7. Propagate stype from English to other languages via slinks
-.venv/bin/python scripts/propagate_stype.py --fix
+# 8. Normalize jpn wids to 0-based per sentence
+.venv/bin/python scripts/2026-07/fix_jpn_wids.py --fix
 
-# 7. Fix catb paragraph stypes from source HTML
-.venv/bin/python scripts/fix_catb_stype.py --fix
+# 9. Propagate stype from English to other languages via slinks
+.venv/bin/python scripts/2026-07/propagate_stype.py --fix
 
-# 8. Fix off-by-one-sentence concept errors
-.venv/bin/python scripts/fix_cwl_offbyone.py --fix
+# 10. Fix catb paragraph stypes from source HTML
+.venv/bin/python scripts/2026-07/fix_catb_stype.py --fix
 
-# 9. Audit to verify
+# 11. Fix off-by-one-sentence concept errors
+.venv/bin/python scripts/2026-07/fix_cwl_offbyone.py --fix
+
+# 12. Apply the 2017-11-17 English POS/tokenisation fixes
+.venv/bin/python scripts/2026-07/fix_eng_pos.py build/eng.db
+
+# 13. Populate word character offsets
+.venv/bin/python scripts/fix_cpos.py build/eng.db   # (and the other DBs)
+
+# 14. Re-derive cross-lingual concept links (issue #6)
+.venv/bin/python scripts/2026-07/realign_clinks.py --fix
+
+# 15. Audit to verify
 .venv/bin/python scripts/fix_corpus.py --audit
 .venv/bin/python scripts/check_cwl.py
 
-# 10. Regenerate display HTML
+# 16. Regenerate display HTML
 for lang in eng cmn ind ita ces; do
     .venv/bin/python scripts/make_display.py --lang $lang --all --tagged --outdir display/
 done
 .venv/bin/python scripts/make_display.py --lang jpn --all --tagged --min-tagged 0.01 --outdir display/
 
-# 11. Review, then push back to server when satisfied
-#    .venv/bin/python scripts/fix_corpus.py --push
+# 17. Review, then push back to server when satisfied
+#    (backs up the server copies first, verifies checksums)
+#    scripts/push_dbs.sh
 ```
 
 **`fix_cpos.py`** — Populate missing `cfrom`/`cto` character offsets in the

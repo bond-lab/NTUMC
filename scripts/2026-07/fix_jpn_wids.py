@@ -20,7 +20,7 @@ from pathlib import Path
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
-BUILD_DIR = Path(__file__).resolve().parent.parent / "build"
+BUILD_DIR = Path(__file__).resolve().parents[2] / "build"
 JPN_DB = BUILD_DIR / "jpn.db"
 LINK_DB = BUILD_DIR / "eng-jpn.db"
 

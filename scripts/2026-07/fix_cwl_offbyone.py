@@ -28,7 +28,7 @@ from pathlib import Path
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
-BUILD_DIR = Path(__file__).resolve().parent.parent / "build"
+BUILD_DIR = Path(__file__).resolve().parents[2] / "build"
 ALL_LANGS = ["eng", "cmn", "jpn", "ind", "ita", "ces"]
 SKIP_TAGS = {"e", "u", "m", "h", "s", "x", "w", "org", "per", "dat", "oth", "num", ""}
 

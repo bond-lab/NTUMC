@@ -18,7 +18,7 @@ import sqlite3
 import sys
 from pathlib import Path
 
-BUILD_DIR = Path(__file__).resolve().parent.parent / "build"
+BUILD_DIR = Path(__file__).resolve().parents[2] / "build"
 
 # Canonical mapping from corpus code → genre.
 # After migration, make_display.py queries the genre column directly;
