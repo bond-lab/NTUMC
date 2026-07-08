@@ -122,7 +122,10 @@ def classify(op: str, target: str, tag: str | None, lang: str,
                 return "PARTLY", "lemma in synset, corpus not retagged"
             return "TODO", "lemma not in suggested synset"
         return "MISMATCH", f"tagged {tag} instead"
-    # '<' and '~': a new synset linked to the target should now exist
+    # '<' and '~': a new synset linked to the target should now exist;
+    # tagging the referenced synset itself also settles the suggestion
+    if tag == target:
+        return "DONE", "tagged with the referenced synset"
     for lemma in lemmas:
         hits = wn.linked_with_lemma(lang, lemma, target)
         if tag in hits:
