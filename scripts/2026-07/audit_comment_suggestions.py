@@ -184,13 +184,15 @@ def main() -> None:
                     rows.append((lang, sid, cid, clemma, tag or "",
                                  (op or "=") + target, cls, detail,
                                  comment.replace("\t", " ")
-                                        .replace("\n", " ")[:300]))
+                                        .replace("\n", " ")
+                                        .replace("\r", " ")[:300]))
             elif FREETEXT_CUES.search(comment):
                 counts[lang, "FREETEXT"] += 1
                 rows.append((lang, sid, cid, clemma, tag or "", "",
                              "FREETEXT", "",
                              comment.replace("\t", " ")
-                                    .replace("\n", " ")[:300]))
+                                    .replace("\n", " ")
+                                    .replace("\r", " ")[:300]))
             else:
                 counts[lang, "other-note"] += 1
         conn.close()

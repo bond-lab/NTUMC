@@ -41,17 +41,23 @@ BUILD = ROOT / "build"
 SUGGESTIONS = ROOT / "docs" / "comment-suggestions.tsv"
 
 
+_TYPE_INDEX: dict[tuple[str, str, str], list[tuple[int, int]]] = {}
+
+
 def concepts_for_type(lang: str, clemma: str,
                       suggestion: str) -> list[tuple[int, int]]:
     """All (sid, cid) whose comment carries this suggestion type."""
-    hits = []
-    with open(SUGGESTIONS, encoding="utf-8") as fh:
-        for r in csv.DictReader(fh, delimiter="\t"):
-            if (r["lang"] == lang
-                    and (r["clemma"] or "").strip() == clemma
-                    and r["suggestion"] == suggestion):
-                hits.append((int(r["sid"]), int(r["cid"])))
-    return hits
+    if not _TYPE_INDEX:
+        # the triage TSV is written raw (tabs/newlines stripped, no
+        # quoting), so quote characters in comments must not be parsed
+        with open(SUGGESTIONS, encoding="utf-8") as fh:
+            for r in csv.DictReader(fh, delimiter="\t",
+                                    quoting=csv.QUOTE_NONE):
+                key = (r["lang"], (r["clemma"] or "").strip(),
+                       r["suggestion"])
+                _TYPE_INDEX.setdefault(key, []).append(
+                    (int(r["sid"]), int(r["cid"])))
+    return _TYPE_INDEX.get((lang, clemma, suggestion), [])
 
 
 def load_bad(verdict_file: Path) -> dict[str, list[tuple[int, int, str]]]:
