@@ -82,6 +82,15 @@ For the Indonesian, I think we probably copied the wrong file across at some sta
   anything in the new file not in the 2016 snapshots?  i.e. can we go back to that, or should we     
   merge properly, ...  
 
+### MWEs
+
+* in early annotation we annotate both the MWE and the sub parts.
+    * keep the MWE mapping as a separate file
+	* then delete the sub tags (mark as 'x')
+	
+* fix [issues with tags and comments](docs/tag-issues.md)
+	
+
 ## Manual
 
 Update!
@@ -108,7 +117,8 @@ Update!
 * jpn tourism (312 docs): no slinks — same doc names as eng but different sid ranges, need alignment
 * ind spec: investigate 4,622 cleared concept tags (see above)
 * Deploy display to GitHub Pages
-
+* show next/previous when searching
+* link to IMI
 
 ## Add other corpora
 * Jsemcor
