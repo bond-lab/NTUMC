@@ -29,10 +29,11 @@ LOGDIR="${BUILDDIR}/log"
 PYTHON=".venv/bin/python"
 mkdir -p "$BUILDDIR" "$LOGDIR"
 
-# ── Corpus & wordnet databases ──
+# ── Corpus, cross-lingual link, and wordnet databases ──
 CORPUS_DBS=(eng.db ces.db ita.db cmn.db yue.db ind.db zsm.db jpn.db)
+LINK_DBS=(eng-cmn.db eng-jpn.db eng-ind.db)
 WORDNET_DBS=(wn-ntumc.db wn-multix.db)
-ALL_DBS=("${CORPUS_DBS[@]}" "${WORDNET_DBS[@]}")
+ALL_DBS=("${CORPUS_DBS[@]}" "${LINK_DBS[@]}" "${WORDNET_DBS[@]}")
 
 SCP_HOST="compling.upol.cz"
 SCP_PATH="/var/www/ntumc/db"
