@@ -1,2 +1,4 @@
 ollama
 wn
+jinja2>=3.1.0
+markupsafe>=3.0.0
