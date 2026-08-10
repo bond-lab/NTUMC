@@ -204,7 +204,8 @@ def merge_eng_essay(dry_run: bool = False) -> int:
     triggers = disable_triggers(target)
 
     target.execute(
-        "INSERT INTO corpus (corpusID, corpus, title, language) VALUES (?, ?, ?, ?)",
+        "INSERT OR IGNORE INTO corpus (corpusID, corpus, title, language) "
+        "VALUES (?, ?, ?, ?)",
         (4, "essay", "The Cathedral and the Bazaar", "eng"),
     )
     target.execute(
