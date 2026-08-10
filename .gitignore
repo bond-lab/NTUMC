@@ -2,6 +2,11 @@
 
 rf*
 
+# Generated corpus display output (regenerate with scripts/make_display.py)
+display/*/
+!display/assets/
+display/index.html
+
 #emacs 
 *~
 

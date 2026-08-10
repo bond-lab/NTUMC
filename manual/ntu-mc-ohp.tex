@@ -1,0 +1,521 @@
+\documentclass[25pt,landscape,headrule,footrule,dvips]{foils}
+
+\leftheader{\makebox[10mm]{\raisebox{0mm}[0mm][0mm]{
+\includegraphics[width=50mm]{ntulogo}}}}
+\MyLogo{\shortstack{PACLIC-25}}
+\newcommand{\section}[1]{\myslide{}{\begin{center}\Huge \emp{#1}\end{center}}}
+\newcommand{\Bad}{\emp{\raisebox{0.15ex}{\ensuremath{\mathbf{\otimes}}}}}
+
+\usepackage{CJKutf8}
+\usepackage{CJK}
+\begin{CJK}{UTF8}{min} 
+\title{\vspace{-3ex}\emp{Nanyang Technological University
+     \\	Multilingual Corpus \\ (NTU-MC)}}
+\author{ \bl{Francis Bond}, \bl{Liling Tan}, \bl{Shan Wang}, \ldots
+  \\ School of Humanities and Social Sciences
+  \\ \textbf{Nanyang University of Technology}
+  \\ \url{bond@ieee.org}}
+\end{CJK}
+\date{2014-03-05}
+
+\usepackage{graphicx}
+\usepackage{mathpazo}
+% \usepackage[T1]{fontenc} 
+% \usepackage[utf8]{inputenc}
+%\usepackage[vietnam, USenglish]{babel}
+
+%\usepackage[dvips]{color}
+\usepackage[dvips]{xcolor}
+\newcommand{\ul}{\underline}
+\newcommand{\into}{\ensuremath{\rightarrow}\xspace}
+\newcommand{\tot}{\ensuremath{\leftrightarrow}\xspace}
+
+\newcommand{\emp}[1]{\textcolor{red}{#1}}
+\newcommand{\fd}[1]{\texttt{#1}}
+\newcommand{\com}[2][red]{\hfill(\textcolor{#1}{#2})}
+\newcommand{\bl}[1]{\textcolor{blue}{#1}}
+\usepackage{url}
+\newcommand{\wn}{\url}
+\usepackage[e,f,j]{mtg2e}
+
+\newcommand{\myslide}[1]{\foilhead[-25mm]{\raisebox{12mm}[0mm]{\emp{#1}}}}
+
+\usepackage{pifont}
+\renewcommand{\labelitemi}{\textcolor{violet}{\ding{227}}}
+\renewcommand{\labelitemii}{\textcolor{purple}{\ding{226}}}
+
+%\usepackage[dvips]{hyperref}
+\begin{document}
+\begin{CJK}{UTF8}{min}
+\newcommand{\zh}[1]{\CJKfamily{gbsn}#1\CJKfamily{min}}
+\newcommand{\vi}[1]{\begin{otherlanguage}{vietnam}#1\end{otherlanguage}}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\myslide{Overview}
+\begin{itemize}
+\item \textbf{Motivation for NTU-MC}
+\item \textbf{Corpus Construction}
+\item \textbf{Annotation and Evaluations}
+\item \textbf{Future work and Conclusions}
+%\item \textbf{Conclusion}
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\myslide{Motivation for NTU-MC}
+\begin{itemize}\addtolength{\itemsep}{-0.8ex}
+\item Parallel Corpora have proved very useful for various research:
+  machine translation, lexicography, \ldots
+  \begin{itemize}
+\item Many European parallel Corpora (e.g. Europarl, MULTEXT-East).
+\item Various  Asian Language-English bitexts 
+\\ EMILLE corpus, LCMC (Lancaster)
+\item A handful of parallel Asian Language corpora (not open)
+  \\ CEJ Patent corpus, NICT Multilingual corpus (CEJ)
+  \\ King MT-001 CEKJ corpus, BTEC 
+\end{itemize}
+\item NTU-MC is building  \textbf{an open corpus of linguistically diverse languages}.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\myslide{Motivation for NTU-MC}
+\begin{itemize}\addtolength{\itemsep}{-0.8ex}
+\item \textbf{Why a linguistically diversed corpus? \\ --- Computationally}
+  \begin{itemize}
+  \item Computationally, language diversity allows us to disambiguate
+    one language with the other
+  \item NTU-MC provides a source of linguistically diverse texts to
+    test how well techniques work on different languages
+  \item Gives us a test-bed for various theories of representation
+      \end{itemize}
+\end{itemize}
+
+\myslide{Motivation for NTU-MC}
+\begin{itemize}\addtolength{\itemsep}{-0.8ex}
+\item \textbf{Why a linguistically diversed corpus? \\--- Linguistically}
+	\begin{itemize}
+	\item NTU-MC creates a
+          platform for traditional linguistic researches on language
+          uses in Singapore(e.g. Translation studies, corpus
+          linguistics, etc.)
+        \item We can compare typological differences on equivalent text
+        \item We can perform quantitative contrastive linguistics
+        \item We can link to grammars/wordnets for dynamic corpus creation
+	\end{itemize}
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\myslide{Corpus Construction}
+\begin{itemize}\addtolength{\itemsep}{-0.8ex}
+\item \textbf{Approach:} The NTU-MC adopts an opportunistic data collection approach.
+  \begin{itemize}
+  \item Singapore Tourism Websites from \url{www.yoursingapore.com}
+    \\ Thanks to the tourist board for permission to redistribute
+  \item Singapore Medical Tourism Pages
+  \item Sherlock Holmes short stories
+  \item Open Source Essays (the Cathedral and the Bazaar)
+  \item News (Kyoto Corpus translated by NICT).
+  \end{itemize}
+\end{itemize}
+
+\myslide{NTU Multilingual Corpus}
+
+{\footnotesize
+\hspace{-15mm}
+\begin{tabular}{llrrrrrr}\addtolength{\columnsep}{-1ex}
+\textbf{Genre} &
+\textbf{Text} &
+\multicolumn{4}{c}{\textbf{Sentences}} 
+& \textbf{Words} & \textbf{Concepts} \\
+&& \textbf{Eng} &
+\textbf{Cmn} &
+\textbf{Jpn} &
+\textbf{Ind} &
+\textbf{Eng} &
+\textbf{Eng} \\
+\hline
+Story &
+Dancing Men &
+599 &
+606 &
+698 &
+$-$ &
+11,200 & 
+5,300 \\
+~
+ &
+Speckled Band &
+599 &
+612 &
+702 & 
+$-$ &
+10,600 &
+4,700
+\\
+% (- 21818 11198) 10620
+Essay &
+Cathedral and the Bazaar &
+769 &
+750 &
+773 &
+$-$ & 
+18,700 & 
+8,800\\
+News &
+Mainichi News&
+2,138 &
+2,138 &
+2,138 &
+$-$ &
+55,000 &
+23,200\\
+Tourism &
+Your Singapore (web site)&
+2,988 &
+2,332 &
+2,723 &
+2,197 &
+74,300 &
+32,600  
+\end{tabular}
+}
+
+\begin{itemize}
+\item All redistributable (except Mainichi: the WSJ of Japan)
+\item All fun to read (except Mainichi)
+\item Many translations exist (mainly public domain)
+\item Different genres
+\end{itemize}
+
+\myslide{Languages and Status}
+
+\begin{small}
+  \centering
+  \begin{tabular}{lrllllllll}
+    Genre & Sents        & \multicolumn{5}{c}{Languages} & Annotation & Comment \\
+          & (k) &   cmn & eng & jpn & ind & other\\
+\hline
+    Tourism1 & 3.3 & C &  \textbf{C} & P  & .65C & kor, vie, tha 
+    &   & \\
+    Story    & 1.2  & C &  \textbf{C} & C & --- &  
+    & xling  & Other corpora \\
+    Essay    & 0.8 & C & \textbf{C} & C & --- & many 
+    & HPSG (eng) \\
+    News     & 2.0  & C & C & \textbf{.5C}  & --- &
+    & Sense, Dep (jpn) & $10^6$ words\\
+    \hline
+    Tourism2 & 3.8 &  P & \textbf{P} & P & P & arb, vie\\
+    Semcor & 14.2 &   --- & \textbf{C} & .4C & ---& & HPSG, Penn\\ % (/ 58.0 151)0.3841059602649007
+    Gloss  & 112.0 & --- & \textbf{C} & P & ? & alb, spa, \ldots\\
+  \end{tabular}
+  % \caption{Current State of the Tagged Texts from the NTU-MC}
+  % \label{tab:ntu-mc-now}
+  \begin{flushleft} \small
+    \textbf{Bold} is source language
+    \\ $^*$ less for non-English $\approx 2$k
+    \\ P: POS 
+    \\ C: Concepts (WN synsets), implies POS 
+  \end{flushleft}
+\end{small}
+
+
+
+
+\myslide{Tourism Corpus}
+\begin{itemize}\addtolength{\itemsep}{-0.8ex}
+\item \textbf{Size:} 375,00 words (15,000 sentences)
+\item \textbf{Language Diversity:} 6 languages from 6 language families
+  \begin{itemize}
+  \item English (en): Indo-European
+  \item Indonesian (id): Austronesian
+  \item Japanese (ja): Japonic
+  \item Korean (ko): Language Isolate
+  \item Vietnamese (vi): Autro-Asiatic 
+  \item Chinese (zh): Sino-Tibetan
+  \end{itemize}
+\item Lots of Singaporean words --- nice for locals
+\end{itemize}
+
+\myslide{Stories}
+\begin{itemize}
+\item Widely studied
+\item Many translations
+\item Offers to tag in other languages (Thai, Russian, German, Spanish, \ldots)
+\item Other annotation
+  \begin{itemize}
+  \item Information Structure (Sanghoun)
+  \item Negative Scope (*SEM)
+  \item Rhetorical Argument (Gregoire)
+  \end{itemize}
+\end{itemize}
+
+\myslide{Essay}
+\begin{itemize}
+\item Many translations
+\item Support of the author
+\item Ideologically Sound (promotes open source)
+\item Very convoluted syntax --- very hard to parse
+\item Gets visibility outside linguistics
+\end{itemize}
+
+\myslide{News}
+\begin{itemize}
+\item Some word alignment
+  \\ annoyingly not in the set we chose --- NICT lost the full data
+\item Maybe we should give this up?
+\item But has lots of useful annotation in Japanese
+  \begin{itemize}
+  \item Dependencies
+  \item Argument Structure
+  \item GT tags
+  \end{itemize}
+\end{itemize}
+
+\myslide{Tagging Goals}
+\begin{itemize}
+\item Corrected segmentation/lemmatization
+\item Wordnet Senses for Essay, Stories, Tourism, News x (cmn, eng, jpn, ind)
+\item Pronouns (added to wordnet)
+\item Cross-lingual sense links
+\item MRS (tomorrow)
+\end{itemize}
+
+\myslide{Accessibility Goals}
+\begin{itemize}
+\item Download (as KAF, SQL)
+\item Online lookup
+  \begin{itemize}
+  \item Search by word/concept/pos (in multiple languages)
+  \item Display matching text/word/concept
+  \end{itemize}
+\item Package for adding a new corpus/tagging
+\item Text2Concepts (Kaffinator) for cmn, jpn, eng, ind
+\item Statistics of interest package
+\end{itemize}
+
+\myslide{Interesting Things}
+\begin{itemize}
+\item Some POS extensions
+  \begin{itemize}
+  \item auxiliary verbs
+  \item reduplication
+  \item -nya, ter-, di-, -lah
+  \item sahen v/n
+  \end{itemize}
+\end{itemize}
+
+\myslide{Data Format}
+
+\begin{itemize}
+\item Each genre+language is a separate file
+\item xlinks are also separate
+\item Unique sentence ID across all files
+  \begin{center}\small
+    \begin{tabular}{rlll}
+      Numbers & Genre & Corpus & Comment \\
+      \hline
+      1      & essay & catb &  \\
+      10,000 & story & danc &  \\
+      11,000 & story & spec &  \\
+      60,000 & news & kc & and links to original numbers \\
+      100,000 & tourism & yoursing &  \\
+      110,000 & tourism & med & not annotated \\
+      120,000 & gloss & wngloss & not annotated  \\
+      300,000 & semcor & semcor & not annotated  
+    \end{tabular}
+  \end{center}
+
+\end{itemize}
+
+
+\myslide{Monolingual Corpus}
+\begin{itemize}
+\item META
+\item SENT
+\item SUBCORP
+\item WORD
+\item CONCEPT
+\end{itemize}
+\myslide{Meta}
+
+\begin{table}[htpb]
+  \centering
+  \begin{tabular}{llll}
+  \textbf{row}   &  \textbf{type} & \textbf{data} & \textbf{comment} \\
+  \hline
+  corpus & string & corpus name & name without \texttt{.db}\\
+  title & string & display name & \\
+  language & string & text language & iso 3 letter  \\
+\hline
+\end{tabular}
+\caption{\texttt{meta}: Meta for words}
+\end{table}
+
+\myslide{Subcorpus Info}
+  \begin{tabular}{llll}
+  \textbf{row}   &  \textbf{type} & \textbf{data} & \textbf{comment} \\
+  \hline
+  scid  & integer & subcorpus & starts from 1\\
+  subcorpus & TEXT & short name & same across languages\\
+  subtitle &TEXT & display name & \\
+  url & TEXT & source & 
+\\ \hline
+\end{tabular}
+
+  \begin{tabular}{llll}
+  \textbf{scid}   &  \textbf{subcorpus} & \textbf{subtitle} & \textbf{url} \\
+  \hline
+  1 & spec & The Adventure of the Speckled Band &  www.??? \\
+  2 & danc & The Adventure of the Dancing Men &  www.??? 
+\end{tabular}
+
+% e.g:  1,'sb', 'The Adventure of the Speckled Band', www.??? 
+
+FIXME: maybe add license here?
+
+
+\myslide{Monolingual Sentence Information}
+
+We keep the original sentence.  \texttt{cfrom} and \texttt{cto} are calculated relative to this.
+
+\texttt{pid} is currently unused.  We may need more META info (header, \ldots).
+
+
+\noindent  \begin{tabular}{llll}
+  \textbf{row}   &  \textbf{type} & \textbf{data} & \textbf{comment} \\\hline
+  sid   & integer & sentence ID & unique over all corpora\\
+  pid   & integer & paragraph ID & unique in subcorpus, start from 0\\
+  sent  & text    & sentence & pre-tokenization\\
+  scid  & integer & subcorpus & starts from 1\\
+  comment & string & comment \\
+\multicolumn{4}{l}{FOREIGN KEY(scid) REFERENCES subcorp(scid)}
+
+\end{tabular}
+
+
+\myslide{Monolingual Word Information}
+
+
+\noindent \begin{tabular}{llll}
+  \textbf{row}   &  \textbf{type} & \textbf{data} & \textbf{comment} \\\hline
+  sid   & integer & sentence ID & unique over all corpora\\
+  wid   & integer & word ID & unique in sentence, start from 0\\
+  word  & string  & surface form &  \\
+  pos   & string  & part of speech & per language  \\
+  lemma & string  & lemma \\
+  cfrom$^*$ & integer & cfrom & start character offset of word in sentence \\
+  cto$^*$ & integer & cto & end character offset of word in sentence \\
+  comment & string & comment \\
+\hline
+\end{tabular}
+\\ $^*$ currently unused
+
+
+\myslide{Monolingual Concept Information}
+
+Currently cid is unique in a given corpus (genre).  When we link the
+corpora together, this causes problems.
+
+\noindent  \begin{tabular}{llll}
+  \textbf{row}   &  \textbf{type} & \textbf{data} & \textbf{comment} \\\hline
+  cid   & integer & concept ID  & unique in corpus, start from 1 \\ 
+  sid   & integer & sentence ID & (sid, wid) gives the word \\
+  wid   & integer & word ID & \ldots can have more than one\\
+  clemma & string  & concept lemma & may be multi-word \\
+  nlemma & string  & concept lemma & used for error in corpus \\
+  tag   & string & wordnet id, tag, $\ldots$ \\
+  ntag   & string & wordnet id, tag, $\ldots$ & used for tag not in tags\\
+  tags & string & list of tags & for updating \\
+  comment & string & comment \\
+\hline
+\end{tabular}
+
+
+\myslide{Cross-Lingual Meta}
+\begin{table}[htbp]
+\centering
+  \begin{tabular}{llll}
+  \textbf{row}   &  \textbf{type} & \textbf{data} & \textbf{comment} \\
+  \hline
+  fcorpus & string & source corpus & name without \texttt{.db}\\
+  tcorpus & string & target corpus & name without \texttt{.db}\\
+  comment & string & comment \\
+\hline
+\end{tabular}
+\caption{\texttt{meta}: Meta for links}
+\end{table}
+
+\myslide{SLINK Cross-Lingual Sentence Links}
+
+\noindent  \begin{tabular}{llll}
+  \textbf{row}   &  \textbf{type} & \textbf{data} & \textbf{comment} \\\hline
+  slid & integer & link ID & unique in corpus pair \\
+  fsid   & integer & source sentence ID & \\
+  tsid   & integer & target sentence ID & \\
+  ltype  & string  & link type &  \verb|=, ~, <, >|, Null if unknown\\
+  conf   & float & confidence \\
+  comment & string & comment \\
+\hline
+\end{tabular}
+
+
+\myslide{WLINK Cross-Lingual Word Links}
+
+Need to add \texttt{fsid}, \texttt{tsid} as wid numbers are unique only per sentence.
+
+\noindent  \begin{tabular}{llll}
+  \textbf{row}   &  \textbf{type} & \textbf{data} & \textbf{comment} \\\hline
+  wlid & integer & link ID & unique in corpus pair \\
+  fwid   & integer & source word ID & \\
+  twid   & integer & target word ID & \\
+  ltype  & string  & link type &  \verb|=, ~, <, >|\\
+  conf   & float & confidence \\
+  comment & string & comment \\
+\hline
+\end{tabular}
+
+\myslide{CLINK Cross-Lingual Concept Information}
+
+Need to add \fd{fsid}, \fd{tsid} when cid numbers become unique only per sentence.
+
+
+\noindent  \begin{tabular}{llll}
+  \textbf{row}   &  \textbf{type} & \textbf{data} & \textbf{comment} \\\hline
+  clid & integer & link ID & unique in corpus pair \\
+  fcid   & integer & source concept ID & \\
+  tcid   & integer & target concept ID & \\
+  ltype  & string  & link type &  \verb|=, ~, <, >|\\
+  conf   & float & confidence \\
+  comment & string & comment \\
+\hline
+\end{tabular}
+
+
+
+
+\myslide{ToDo}
+
+\begin{itemize}
+\item Proper Back up
+\item Small fixes (FCB and TTL)
+\item Indonesian Quality Check: with lexical tagging (DM)
+\item Chinese Quality Check: with lexical tagging (SW)
+\item Japanese Quality Check: with lexical tagging (??)
+\item English Quality Check: with lexical tagging (??)
+\item Annotation Package
+\item Wordnet tools
+\item Decide on whether to tag unlexicalized MWEs
+\item Add unknown words to wordnet and tag the remainder
+\\ or allow partial tagging
+\item Can also hire people
+\end{itemize}
+
+
+
+
+\end{CJK}
+\clearpage
+\end{document}
+
+

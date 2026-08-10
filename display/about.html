@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NTU Multilingual Corpus — About</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/corpus.css">
+</head>
+<body>
+<nav class="corpus-nav">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a href="./index.html" class="corpus-nav-brand">NTU Multilingual Corpus</a>
+    <div class="corpus-nav-links">
+      <a href="./summary.html">Summary</a>
+      <a href="./about.html">About</a>
+      <a href="https://bond-lab.github.io/" class="corpus-nav-lab">Computational Linguistics Laboratory (&#20961;&#22303;&#30740;)</a>
+    </div>
+  </div>
+</nav>
+<div class="container mt-4 mb-5" style="max-width:52rem">
+
+  <div class="mb-4">
+    <h1 class="h3 mt-2">About the NTU Multilingual Corpus</h1>
+  </div>
+
+  <div class="card shadow-sm mb-4">
+    <div class="card-body" style="font-family:var(--f-text);line-height:1.8">
+      <h2 class="h5">Overview</h2>
+      <p>The Natural Text Understanding Multilingual Corpus (NTU-MC)
+        is an open, semantically annotated multilingual corpus
+        originally developed at Nanyang Technological University
+        (NTU), Singapore, and now maintained by the
+        <a href="https://bond-lab.github.io/">Computational Linguistics
+        Laboratory (&#20961;&#22303;&#30740;)</a> at Palack&yacute; University Olomouc
+        It contains literary texts (short stories, essays),
+        newspaper text, and tourism descriptions in multiple languages, with
+        all texts linked at the sentence level and annotated with word-sense
+        tags from the the Open Multilingual Wordnet, with some local additions.</p>
+
+      <h2 class="h5 mt-4">Languages</h2>
+      <ul>
+        <li><strong>English</strong>
+          &mdash; 502 documents, 54,594 sentences</li>
+        <li><strong>Chinese</strong>
+          &mdash; 341 documents, 7,525 sentences</li>
+        <li><strong>Indonesian</strong>
+          &mdash; 322 documents, 3,885 sentences</li>
+        <li><strong>Japanese</strong>
+          &mdash; 317 documents, 7,774 sentences</li>
+        <li><strong>yue</strong>
+          &mdash; 9 documents, 1,697 sentences</li>
+        <li><strong>Czech</strong>
+          &mdash; 1 document, 6,047 sentences</li>
+        <li><strong>Italian</strong>
+          &mdash; 1 document, 608 sentences</li>
+        <li><strong>zsm</strong>
+          &mdash; 1 document, 78 sentences</li>
+      </ul>
+
+      <h2 class="h5 mt-4">Annotation</h2>
+      <p>Every word in the corpus is lemmatised and tagged with a part of
+        speech.  Content words are linked to synsets in the
+        <a href="https://omwn.org/">Open Multilingual Wordnet</a>
+        (OMW).  Named entities are classified as person, organisation,
+        number, date, or other.</p>
+      <p>Hover or click any word in a document page to see its lemma,
+        part of speech, WordNet definition, and synonyms.  Sentence-level
+        translations are available between aligned language pairs.</p>
+      <p>The <em>% tagged</em> shown on the document index is the
+        proportion of taggable concepts that have been assigned a sense
+        tag: <code>|tagged| / |taggable|</code>, where <em>tagged</em>
+        concepts have a real synset or named-entity tag (excluding
+        <code>e</code>, <code>w</code>, <code>x</code>, and empty), and
+        <em>taggable</em> concepts are all identified concepts minus those
+        marked <code>x</code> (should not be tagged).  This measures
+        annotation completeness over open-class words rather than over all
+        tokens.</p>
+
+      <p>Annotation for the first stories was done by Francis Bond and a group of students at NTU.
+
+	
+      
+      <h2 class="h5 mt-4">Genres</h2>
+      <table class="table table-sm" style="font-family:var(--f-ui);font-size:0.9rem">
+        <thead><tr><th>Genre</th><th>Code</th><th>Contents</th></tr></thead>
+        <tbody>
+          <tr><td>News</td><td><code>kc</code></td>
+            <td>Kyoto University Text Corpus &mdash; Mainichi Shimbun newspaper editorials</td></tr>
+          <tr><td>Fiction</td><td><code>story</code></td>
+            <td>Short stories and novels by Conan Doyle, Akutagawa, Čapek, and others</td></tr>
+          <tr><td>Tourism</td><td><code>yoursing</code></td>
+            <td>Singapore tourism information from YourSingapore.com</td></tr>
+          <tr><td>Essay</td><td><code>essay</code></td>
+            <td><em>The Cathedral and the Bazaar</em> (Raymond) and others</td></tr>
+          <tr><td>Online</td><td><code>comments</code></td>
+            <td>Social media comments and reviews (Cantonese)</td></tr>
+          <tr><td>Lexical</td><td><code>gloss</code></td>
+            <td>WordNet gloss corpus &mdash; dictionary definitions and examples</td></tr>
+        </tbody>
+      </table>
+      <p>See the <a href="summary.html">genre summary</a> for detailed
+        statistics by language.</p>
+
+      <h2 class="h5 mt-4">Data Format</h2>
+      <p>Each document is a static HTML page with word-level annotations
+        embedded as <code>&lt;w&gt;</code> elements carrying <code>data-p</code>
+        (POS), <code>data-l</code> (lemma), and <code>data-c</code>
+        (concept IDs) attributes.  Shared data files in <a href="data/">data/</a>
+        provide WordNet definitions, synonyms, and sentence alignments as
+        JSON, loaded on demand.</p>
+      <p>The document toolbar offers several display controls:</p>
+      <ul>
+        <li><i class="bi bi-hash"></i> <strong>Sentence numbers</strong> — toggle visible sentence IDs.</li>
+        <li><i class="bi bi-translate"></i> <strong>Inline translations</strong> — show sentence translations below each sentence (requires a translation language to be set in Settings).</li>
+        <li><i class="bi bi-heart"></i> <strong>Sentiment</strong> — highlight annotated words with coloured underlines: green for positive sentiment, red for negative; intensity reflects the score.  Only visible on documents that have sentiment annotations.</li>
+        <li><i class="bi bi-list-nested"></i> <strong>Table of contents</strong> — shown for documents with three or more headings.</li>
+        <li><i class="bi bi-bar-chart-line"></i> <strong>Annotation statistics</strong> — summary of tagging coverage.</li>
+        <li><i class="bi bi-filetype-csv"></i> <strong>TSV download</strong> — per-concept annotation table.</li>
+        <li><i class="bi bi-filetype-json"></i> <strong>JSON download</strong> — full document annotations as NDJSON.</li>
+        <li><i class="bi bi-gear"></i> <strong>Settings</strong> — choose definition language, synonym language, and sentence translation language.</li>
+      </ul>
+      <p>Documents with sentiment annotations are marked with a
+        <i class="bi bi-heart-fill" style="color:#e05c7a"></i> icon in the index.</p>
+      <p>Per-document NDJSON files are also available in
+        <a href="data/docs/">data/docs/</a> under the naming convention
+        <code>{lang}-{genre}-{docname}.jsonl</code>.
+        Consolidated rollups by language, genre, and full corpus are in
+        <a href="data/lang/">data/lang/</a>, <a href="data/genre/">data/genre/</a>,
+        and <a href="data/corpus.jsonl">data/corpus.jsonl</a>.</p>
+
+      <h2 class="h5 mt-4">Citation</h2>
+      <p style="font-family:var(--f-ui);font-size:0.88rem;background:var(--c-bg);
+padding:0.75rem 1rem;border-radius:var(--r-md);border:1px solid var(--c-border)">
+        Tan, L. and Bond, F. (2012)
+        <a href="https://aclanthology.org/2012.gwc-1.15/">Building and Annotating the Linguistically
+        Diverse NTU-MC (NTU-Multilingual Corpus)</a>.
+        <em>International Journal of Asian Language Processing</em>,
+        22(4):161&ndash;174.</p>
+
+      <p>Liling Tan and Francis Bond. 2014. <a href='https://aclanthology.org/C14-2019/'>NTU-MC Toolkit: Annotating a Linguistically Diverse Corpus</a>. In <em>Proceedings of COLING 2014, the 25th International Conference on Computational Linguistics: System Demonstrations</em>, pages 86–89, Dublin, Ireland. Dublin City University and Association for Computational Linguistics.
+      <p>Bond, Francis, Luís Morgado da Costa, and Tuấn Anh Lê (2015) IMI — A Multilingual Semantic Annotation Environment. In Proceedings of ACL-IJCNLP 2015 System Demonstrations, Beijing. pp 7–12
+      <p>Francis Bond, Andrew Devadason, Melissa Rui Lin Teo, and Luís Morgado da Costa. 2021. Teaching Through Tagging — Interactive Lexical Semantics. In Proceedings of the 11th Global Wordnet Conference, pages 273–283, University of South Africa (UNISA). Global Wordnet Association.
+      
+      <h2 class="h5 mt-4">License</h2>
+      <p>The corpus annotations and display code are released under a
+
+
+
+	Creative Commons Attribution 4.0 licence
+        (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>).
+        The underlying texts retain their original licences.</p>
+
+
+      <h2 class="h5 mt-4">Related Works</h2>
+      <ul>
+	<li><a href='https://github.com/alvations/NTU-MC'>Singapore
+	Tourist Board Sub Corpus</a>: Arabic, Chinese, Japanese,
+	Korean, Indonesian, Vietnamese and English, original versions,
+	includes the toolkit for processing and aligning
+	<li><a href='https://github.com/bond-lab/IMI'>IMI</a>:Code and
+	documentation for searching and annotating the NTU
+	Multilingual Corpus
+      </ul>
+      
+
+
+      <h2 class="h5 mt-4">Acknowledgements</h2>
+      <p>I would like to particularly thank Tan Liling, Shang Wang and Luis
+      Morgado da Costa, who worked on this with me for many years, and
+      Christiane Fellbaum for sharing the Semcor annotation guidelines and
+      many useful discussions.
+      Many students, RAs, and others also contributed; they are listed in
+      the contributions file.</p>
+      <p>This research was supported in part by:
+	<ul>
+	  <li>MOE Tier 2 grant <em>That's what you meant: a Rich Representation for
+	      Manipulation of Meaning</em> (MOE ARC41/13, Singapore)
+	  <li> Erasmus Mundus Action 2 program MULTI of the European Union, grant agreement
+	      number 2009-5259-5.
+	  <li>The People Programme (Marie Curie Actions) of the European Union’s Seventh Framework Programme FP7/2007-2013/ under REA grant agreement n ◦ 317471.
+	  <li><em>Inter-lingual equivalence in lexical databases</em> (NSC, Poland)
+	  <li><em>Joint Research on Multilingual Semantic Analysis</em>
+	    (Fuji-Xerox Corporation, Japan).</p>
+
+    </div>
+  </div>
+
+  <div class="corpus-footer">
+  NTU Multilingual Corpus &middot;
+  <a href="https://bond-lab.github.io/">Computational Linguistics Laboratory (&#20961;&#22303;&#30740;)</a>
+  &middot; Palack&yacute; University Olomouc
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

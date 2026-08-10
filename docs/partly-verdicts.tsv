@@ -1,0 +1,626 @@
+lang	sid	cid	verdict	reason
+cmn	100003	12	BAD	一场约会=event classifier, not play scene, per own comment
+cmn	100119	6	UNSURE	莱佛士酒店=hotel name, refers to person or place unclear
+cmn	10012	1	BAD	一天早=numeral one, not once/as-soon-as
+cmn	100239	5	GOOD	量身订做=tailor-made matches per comment
+cmn	100285	2	UNSURE	莱佛士酒店=hotel name, refers to person or place unclear
+cmn	100598	32	GOOD	印度飞饼=North Indian pancake matches
+cmn	100638	43	GOOD	另一个=different sense, tokenization issue
+cmn	100717	17	GOOD	另一个=different sense, tokenization issue
+cmn	100726	0	GOOD	戏剧盒 company name reflects art of drama
+cmn	100727	8	GOOD	戏剧盒 company name reflects art of drama
+cmn	100749	13	GOOD	御宝粤菜=restaurant org name matches
+cmn	100789	16	GOOD	一盘盘=plate/dish matches
+cmn	100845	35	GOOD	另一个=different sense, tokenization issue
+cmn	101204	14	BAD	可不多见=rather, adverbial, not ability sense
+cmn	10127	5	GOOD	早早=before usual time matches
+cmn	101277	0	GOOD	御宝集团=org name matches
+cmn	101277	9	GOOD	御宝粤菜=restaurant org name matches
+cmn	101280	18	GOOD	御宝粤菜=restaurant org name matches
+cmn	101282	4	GOOD	御宝粤菜=restaurant org name matches
+cmn	101303	28	GOOD	印度飞饼=North Indian pancake matches
+cmn	101321	32	GOOD	适于初学者=suit/fit matches
+cmn	101385	11	GOOD	芽笼区=area/district matches
+cmn	101404	6	GOOD	适于击球=suit/fit matches
+cmn	101446	26	GOOD	"matches ""different from first"""
+cmn	101748	4	GOOD	named-entity metonym for Raffles, standard
+cmn	101757	104	UNSURE	ambiguous expert vs virtuoso/performer sense
+cmn	101804	21	GOOD	food critic fits specialist/expert sense
+cmn	101854	26	GOOD	"matches ""different from first"""
+cmn	101957	42	GOOD	"matches ""different from first"""
+cmn	101988	4	GOOD	suitable for hiking fits fit/accommodate
+cmn	102123	1	BAD	顶层 used as noun (top floor), not adjective
+cmn	10213	23	GOOD	唯一的目的=sole/exclusive matches
+cmn	102203	4	GOOD	named-entity metonym for Raffles, standard
+cmn	102211	4	GOOD	named-entity metonym for Raffles, standard
+cmn	102214	1	GOOD	named-entity metonym for Raffles, standard
+cmn	102215	1	GOOD	named-entity metonym for Raffles, standard
+cmn	102320	10	GOOD	族裔 matches ethnic group sense
+cmn	102356	19	GOOD	串签 skewer matches definition
+cmn	102470	24	GOOD	可以 matches able/capacity sense
+cmn	102487	24	BAD	refers to Shakespeare character, not generic ardent lover
+cmn	102498	22	GOOD	无法抗拒 matches unable/lacking ability
+cmn	102544	12	GOOD	气场 matches atmosphere sense
+cmn	102549	4	GOOD	named-entity metonym for Raffles, standard
+cmn	102551	8	GOOD	named-entity metonym for Raffles, standard
+cmn	102555	14	GOOD	named-entity metonym for Raffles, standard
+cmn	102615	8	GOOD	钢索 steel cable, MWE steel sense fits
+cmn	102615	9	GOOD	钢索 steel cable, MWE cable sense fits
+cmn	102617	12	GOOD	钢索 steel cable, MWE cable sense fits
+cmn	102617	2	GOOD	钢索 steel cable, MWE steel sense fits
+cmn	102617	3	GOOD	钢索 steel cable, MWE cable sense fits
+cmn	102617	5	GOOD	钢索 steel cable, MWE steel sense fits
+cmn	102617	6	GOOD	钢索 steel cable, MWE cable sense fits
+cmn	102618	1	GOOD	钢索 steel cable, MWE cable sense fits
+cmn	102619	0	GOOD	钢索 steel cable, MWE steel sense fits
+cmn	102619	1	GOOD	钢索 steel cable, MWE cable sense fits
+cmn	102619	3	GOOD	钢索 steel cable, MWE steel sense fits
+cmn	102619	4	GOOD	钢索 steel cable, MWE cable sense fits
+cmn	102620	0	GOOD	钢索 steel cable, MWE steel sense fits
+cmn	102620	1	GOOD	钢索 steel cable, MWE cable sense fits
+cmn	102620	3	GOOD	钢索 steel cable, MWE steel sense fits
+cmn	102620	4	GOOD	钢索 steel cable, MWE cable sense fits
+cmn	102747	32	GOOD	"matches ""different from first"""
+cmn	102777	8	GOOD	可 matches able/capacity modal sense
+cmn	102918	16	GOOD	饭馆 matches restaurant sense
+cmn	102941	6	GOOD	量身定做 matches tailor-made sense
+cmn	102973	11	GOOD	交响乐章 matches symphonic sense
+cmn	102997	19	GOOD	华族 etc. matches ethnic group sense
+cmn	103030	27	GOOD	"matches ""different from first"""
+cmn	103098	15	GOOD	钢索 steel cable, MWE steel sense fits
+cmn	103098	16	GOOD	钢索 steel cable, MWE cable sense fits
+cmn	103099	4	GOOD	钢索 steel cable, MWE steel sense fits
+cmn	103099	5	GOOD	钢索 steel cable, MWE cable sense fits
+cmn	103100	2	GOOD	钢索 steel cable, MWE steel sense fits
+cmn	103100	3	GOOD	钢索 steel cable, MWE cable sense fits
+cmn	103100	5	GOOD	钢索 steel cable, MWE steel sense fits
+cmn	103100	6	GOOD	钢索 steel cable, MWE cable sense fits
+cmn	103213	14	GOOD	交响乐章 matches symphonic sense
+cmn	10594	19	GOOD	一点情况=small quantity matches
+cmn	11025	3	GOOD	看看=find out by inquiry fits
+cmn	11144	22	GOOD	一点一点=small quantity matches
+cmn	11149	10	GOOD	开头=begin, part of MWE
+cmn	11238	10	GOOD	那末=then, consequence sense
+cmn	11430	16	GOOD	那末=then, consequence sense
+cmn	11454	28	GOOD	那么=then, consequence sense
+cmn	11590	8	GOOD	站了起来=rise to feet matches
+cmn	11909	7	GOOD	穿过水晶般池水=go through matches
+cmn	11915	10	GOOD	有点=slightly/somewhat matches
+cmn	11915	4	BAD	superseded by MW 害命=murder, not generic harm
+cmn	11915	8	BAD	害命=kill, not mere generic harm
+cmn	11920	18	GOOD	垂...下去=directional go/approach
+cmn	11929	18	GOOD	从天上=from that source/place fits
+cmn	11955	8	GOOD	直到=until, compound confirmed by comment
+cmn	11960	0	GOOD	及至=until, tokenization issue only
+cmn	11960	1	GOOD	及至=until, tokenization issue only
+cmn	204	12	GOOD	实验版=beta/testing version matches
+cmn	224	13	GOOD	另一个=different sense, only tokenization issue
+cmn	386	26	GOOD	另一个=different sense, only tokenization issue
+cmn	388	15	GOOD	另一个=different sense, only tokenization issue
+cmn	499	14	GOOD	另一个=different sense, only tokenization issue
+cmn	507	27	GOOD	另一个=different sense, only tokenization issue
+cmn	60033	1	GOOD	尚未=not yet matches
+cmn	60057	0	GOOD	行政改革=administrative adjective matches
+cmn	60060	1	GOOD	就连...也=even, intensive sense fits
+cmn	60077	5	GOOD	以往的框架=former/previous fits
+cmn	60097	13	GOOD	党派=political party matches
+cmn	60098	16	GOOD	尚未确定=not yet matches
+cmn	60109	15	GOOD	组建新党=set up/found matches
+cmn	60109	21	GOOD	一拖再拖=again, repetition matches
+cmn	60110	3	GOOD	尚未最后决定=not yet matches
+cmn	60123	9	GOOD	预定=scheduled matches
+cmn	60162	12	BAD	前 not found in sentence, mismatched with 原
+cmn	60217	3	GOOD	索马里行动=UN operation matches
+cmn	60228	13	GOOD	评议会=council matches
+cmn	60244	19	GOOD	知识产权=property right matches
+cmn	60252	2	GOOD	股市=stock exchange matches
+cmn	60253	2	GOOD	股票市场=securities market matches
+cmn	60271	10	GOOD	知识产权=property right matches
+cmn	60278	4	GOOD	尚未确定=not yet matches
+cmn	60296	2	GOOD	融入设计=blend in matches
+cmn	60299	3	GOOD	能量=vitality/energy matches
+cmn	60307	7	GOOD	诗篇=poetry metaphor matches
+cmn	60318	2	GOOD	走来=come toward matches
+cmn	60341	10	GOOD	自豪感=pride matches
+cmn	60363	14	BAD	不再=no longer, not 'again/anew'
+cmn	60413	3	GOOD	缠头巾=wind/wrap matches
+cmn	60426	20	GOOD	各地=place/spot matches
+cmn	60465	1	BAD	输掉=verb lose, tagged as adjective 'lost'
+cmn	60557	1	GOOD	门徒=protege/disciple matches
+cmn	60637	22	GOOD	时分=period of time matches
+cmn	60643	2	GOOD	尚未表态=not yet matches
+cmn	60656	4	GOOD	尚未表明=not yet matches
+cmn	60666	0	GOOD	加上=besides/furthermore matches
+cmn	60687	20	GOOD	纸箱子=paper material matches
+cmn	60692	2	GOOD	一名=numeral one matches
+cmn	60795	24	GOOD	派出=send out matches
+cmn	60795	7	GOOD	派出=send out matches
+cmn	60825	11	GOOD	单桅杆=single matches
+cmn	60851	3	GOOD	尚未决定=not yet matches
+cmn	60857	2	GOOD	尚未决定=not yet matches
+cmn	60868	6	GOOD	处境=situation/position matches
+cmn	60896	15	GOOD	获胜者=winner matches
+cmn	60905	5	GOOD	尚未下水=not yet matches
+cmn	60976	4	GOOD	陷于停顿=pass into condition matches
+cmn	61017	0	GOOD	懂中国话=know/understand matches
+cmn	61037	19	BAD	浪潮=metaphor trend, tagged literal water wave
+cmn	61080	20	GOOD	各地=place/spot matches
+cmn	61082	0	GOOD	挖掘=dig up/excavate metaphor matches
+cmn	61090	4	GOOD	各地=place/spot matches
+cmn	61109	13	GOOD	紧接着=follow immediately matches
+cmn	61110	7	GOOD	各地=place/spot matches
+cmn	61115	1	GOOD	尚未发现=not yet matches
+cmn	61118	26	GOOD	骑车=ride bicycle matches
+cmn	61126	7	GOOD	跨过国境=cross/traverse matches
+cmn	61134	33	GOOD	日本的政治=Japanese adjective matches
+cmn	61337	5	GOOD	德法=France abbreviation matches
+cmn	61338	5	GOOD	德法比荷卢=France matches
+cmn	61363	2	GOOD	尚未解决=not yet matches
+cmn	61418	9	GOOD	企业集团=organization matches
+cmn	61430	17	GOOD	另一个=different sense, tokenization issue
+cmn	61445	20	GOOD	尚未达到=not yet matches
+cmn	61458	3	GOOD	尚未确定=not yet matches
+cmn	61459	3	GOOD	尚未确定=not yet matches
+cmn	61713	17	GOOD	一点一点=small quantity matches
+cmn	61713	19	GOOD	一点一点=small quantity matches
+cmn	61825	5	GOOD	一向=always matches
+cmn	61859	25	GOOD	尚未落实=not yet matches
+cmn	62097	0	GOOD	不论做什么=no matter/regardless matches
+cmn	62108	8	GOOD	尚未召开=not yet matches
+cmn	693	3	GOOD	实验版=beta/testing version matches
+cmn	699	24	GOOD	实验版=beta/testing version matches
+cmn	700	15	GOOD	另一个=different sense, only tokenization issue
+cmn	701	1	GOOD	实验版=beta/testing version matches
+cmn	713	29	GOOD	另一个=different sense, only tokenization issue
+eng	10025	6	GOOD	good sense matches practical judgment
+eng	100479	14	BAD	Singlish is distinct variety, not English
+eng	100482	20	BAD	annotators flagged as wrong tagging
+eng	10102	5	GOOD	all quantifier matches every/all sense
+eng	101082	4	GOOD	address number, cardinal fits
+eng	101185	5	BAD	cabbage roll, not bread roll
+eng	101371	30	GOOD	possibility modal fits
+eng	10147	12	GOOD	at first matches at the beginning
+eng	101472	4	GOOD	food served at one time fits
+eng	101814	12	GOOD	all the more intensifier fits
+eng	103054	0	BAD	Country music genre, not rural area
+eng	103178	10	GOOD	street address number fits
+eng	103183	5	GOOD	street address number fits
+eng	103207	5	GOOD	food preparation sense fits
+eng	10355	8	GOOD	save for matches except sense
+eng	10357	8	GOOD	round and round matches all around sense
+eng	103701	2	GOOD	dance as art form fits
+eng	103702	6	BAD	folk-dance modifier, not folk music
+eng	103702	7	GOOD	dance as art form fits
+eng	103703	5	BAD	folk-dance modifier, not folk music
+eng	103703	6	GOOD	dance as art form fits
+eng	103705	1	BAD	folk-dance modifier, not folk music
+eng	103705	2	GOOD	rhythmical steps sense fits
+eng	103869	12	GOOD	swimming pool excavation fits
+eng	104027	13	GOOD	musical instrument device fits
+eng	104066	3	GOOD	performing arts sense fits
+eng	104066	4	GOOD	creation of significant things fits
+eng	10569	1	BAD	"auxiliary ""does"", not causative do/make/cause"
+eng	110151	35	GOOD	rip off violently fits
+eng	11087	0	UNSURE	annotator flagged FIXME, mind you idiom unclear
+eng	11155	4	UNSURE	annotator notes sense imprecise, needs job sense
+eng	11175	10	GOOD	save for matches except sense
+eng	11348	1	BAD	"existential ""there are"", not locative there"
+eng	11424	14	GOOD	"epistemic ""may"" matches possibly"
+eng	11545	9	BAD	"static location ""in palm"", not inward direction"
+eng	11560	3	BAD	"future auxiliary ""will"", not volitional choice sense"
+eng	11566	4	GOOD	pass as matches accept/judge as acceptable
+eng	117	13	GOOD	another matches alternative sense
+eng	11916	0	BAD	"conjunction ""while"", not adverb meanwhile"
+eng	11942	5	GOOD	in fear/shock matches feel/experience
+eng	13447	9	GOOD	"epistemic ""may"" matches possibly"
+eng	13867	11	UNSURE	"token linking issue, ""has to"" vs ""risen"""
+eng	13910	8	GOOD	matches fictional Watson character
+eng	160	13	GOOD	around 1991 matches approximate quantity
+eng	18642	5	GOOD	ordinal fits date usage
+eng	18643	1	GOOD	"ordinal twenty-third fits date ""23rd"""
+eng	18722	35	BAD	drive away means depart, not force others away
+eng	18855	12	GOOD	rolls up matches undulating wave motion
+eng	18860	22	BAD	"literal ""in his hand"", not idiom under control"
+eng	18878	1	GOOD	"epistemic ""may"" matches possibly"
+eng	219	20	GOOD	part of cutting edge idiom
+eng	219	21	GOOD	part of cutting edge idiom
+eng	227	6	GOOD	take for granted matches accept sense
+eng	23	31	GOOD	like cathedrals fits resembling sense
+eng	23	5	GOOD	operating system sense fits directly
+eng	27	17	BAD	fly apart means disintegrate, not vanish
+eng	27	20	GOOD	go from strength to strength fits proceed
+eng	27	22	GOOD	idiom retains core strength quality sense
+eng	300	2	BAD	"auxiliary ""have asked"", not causative have"
+eng	361	5	GOOD	metaphorical vanguard scout fits
+eng	371	5	BAD	could go means progress, not machine function
+eng	375	12	BAD	lives for means devoted to, not merely alive
+eng	375	6	BAD	all the same idiom differs from literal same
+eng	380	20	BAD	"preposition ""out of"", not adjective ""out"""
+eng	386	14	GOOD	client side contrasted with server side, aspect fits
+eng	417	11	GOOD	so matches as a result sense
+eng	423	14	BAD	be after idiom differs from physical chase sense
+eng	46	17	GOOD	widely supported matches great degree
+eng	46239	3	UNSURE	ambiguous whether identical-to sense fits
+eng	47009	1	BAD	"auxiliary ""don't"", not lexical perform sense"
+eng	47238	25	BAD	"literal ""in the air"" (sky), not idiom on minds"
+eng	47242	29	BAD	"as means ""in role of"", not equally/same degree"
+eng	47412	3	GOOD	"adversative ""but"" matches despite contrary"
+eng	47413	16	GOOD	might matches possibility sense
+eng	47413	6	GOOD	"adversative ""but"" matches despite contrary"
+eng	47415	5	GOOD	stayed for lunch matches continue/remain
+eng	47450	19	GOOD	and so matches consequential sequence sense
+eng	47505	4	GOOD	taken a turn matches change/reverse sense
+eng	47507	0	GOOD	"adversative ""but"" matches despite contrary"
+eng	47618	5	GOOD	"adversative ""but"" matches despite contrary"
+eng	47658	12	GOOD	helped through matches to completion sense
+eng	47828	21	GOOD	such a cry matches demonstrative determiner
+eng	47840	2	GOOD	literal pursuit matches chase/go after sense
+eng	48013	11	GOOD	chance without intention, matches
+eng	48017	0	GOOD	concessive contrast, standard but
+eng	48025	0	GOOD	concessive contrast, standard but
+eng	48031	0	GOOD	concessive contrast, standard but
+eng	48110	13	BAD	"part of ""so far as"", not degree"
+eng	48121	6	GOOD	concessive contrast, standard but
+eng	48130	5	GOOD	concessive contrast, standard but
+eng	48134	6	GOOD	concessive contrast, standard but
+eng	48135	8	GOOD	concessive contrast, standard but
+eng	48136	10	GOOD	concessive contrast, standard but
+eng	48403	23	BAD	"auxiliary ""had"", not rich-person noun"
+eng	48822	27	BAD	means travel around, not begin to deal
+eng	48862	18	BAD	refers to painting, metonymy not painter
+eng	48872	9	GOOD	specific named hunting hound fits
+eng	48921	4	BAD	"means ""likewise"", not subsequent action"
+eng	49011	4	BAD	"linked word is ""Mrs"", wrong gender synset"
+eng	49336	54	GOOD	"early life stage fits ""young lady"""
+eng	49444	15	BAD	travel to place, not literal descent
+eng	49447	23	BAD	refers to smelling scent, not sex
+eng	50	10	BAD	email address, not computer memory address
+eng	50813	10	GOOD	finely adjusted temperament fits
+eng	50814	28	GOOD	comparative particle fits
+eng	50833	10	GOOD	unusual/striking fits context
+eng	50835	2	GOOD	fictional Watson character
+eng	50871	21	GOOD	possibility modal fits
+eng	50877	14	GOOD	possibility modal fits
+eng	50898	4	GOOD	company sense fits
+eng	50899	7	GOOD	company sense fits
+eng	50900	3	GOOD	paper material fits
+eng	50942	21	BAD	cheek-bones is body part, not tissue substance
+eng	51082	14	GOOD	casual conversation fits
+eng	51083	10	GOOD	fictional detective
+eng	51087	17	GOOD	mental understanding fits
+eng	51105	19	BAD	means front of house, not competition lead
+eng	51105	9	GOOD	concessive contrast, standard but
+eng	51107	2	GOOD	sitting room fits
+eng	51108	14	GOOD	coach-house building sense
+eng	51138	13	GOOD	sitting room fits
+eng	51138	14	GOOD	sitting room fits
+eng	51154	8	GOOD	concessive contrast, standard but
+eng	51171	7	BAD	wearing coin on chain, not clothing
+eng	51195	9	GOOD	occupy position fits
+eng	51235	14	GOOD	concessive contrast, standard but
+eng	51302	18	GOOD	shout alerting to fire event
+eng	51303	16	GOOD	servant maids fits
+eng	51303	18	BAD	joined in phrasal, not inward direction
+eng	51303	22	GOOD	shout alerting to fire event
+eng	51308	5	GOOD	addressing Watson, a doctor
+eng	51342	7	BAD	object capable of sliding, not motion quality
+eng	51365	10	BAD	holding by shoulder, not passing a point
+eng	51365	17	BAD	means obtained object, not understood
+eng	51408	1	BAD	passive state description, not happen/occur
+eng	51408	3	GOOD	all around fits
+eng	51408	6	GOOD	line/direction fits scattering
+eng	51413	5	GOOD	preceding night, earlier in time
+eng	51451	17	BAD	mis-segmented; means slipped jewelry ring
+eng	525	2	GOOD	the following matches about to be specified
+eng	528	11	GOOD	part of cutting edge idiom
+eng	528	12	GOOD	part of cutting edge idiom
+eng	528	31	GOOD	belong to matches be owned by/possession sense
+eng	55674	4	GOOD	none the less concessive idiom
+eng	55674	5	GOOD	none the less concessive idiom
+eng	55675	7	BAD	means kind, not moral excellence noun
+eng	55691	16	GOOD	sudden movement in chair fits
+eng	55719	3	BAD	on account of fixed phrase, not explain
+eng	55723	2	BAD	"idiomatic ""on earth"", not literal planet"
+eng	55734	19	GOOD	concessive/exception sense fits
+eng	55734	7	GOOD	concessive contrast, standard but
+eng	55743	1	BAD	"auxiliary ""do"" in negation, not possess"
+eng	55746	22	BAD	mis-segmented, tagged rabbit not hole
+eng	55747	5	GOOD	concessive contrast, standard but
+eng	55758	34	GOOD	"notable degree fits ""quite a fortune"""
+eng	55808	0	GOOD	concessive contrast, standard but
+eng	55823	6	GOOD	possibility modal fits
+eng	55832	7	BAD	degree modifier, not agreement expression
+eng	55846	3	GOOD	reference work sense fits proper name
+eng	55856	19	GOOD	pen from feather fits
+eng	55856	21	GOOD	cardinal number fits
+eng	55862	3	GOOD	immediately following fits
+eng	55864	22	BAD	annotators say tagging x correct, no sense
+eng	55865	32	BAD	so well intensifier, not subsequent adverb
+eng	55888	15	GOOD	pay brief visit fits
+eng	55903	5	GOOD	concessive contrast, standard but
+eng	55906	0	GOOD	concessive contrast, standard but
+eng	55908	0	GOOD	concessive contrast, standard but
+eng	55921	2	GOOD	clear up confusion fits
+eng	55938	0	BAD	perfect auxiliary, not undergo/experience
+eng	55944	6	GOOD	in your absence during fits
+eng	55946	4	GOOD	great degree fits
+eng	55971	20	BAD	"perfect auxiliary ""had listened"", not undergo"
+eng	55972	12	GOOD	brick houses material fits
+eng	55984	13	GOOD	possibility modal fits
+eng	55984	17	GOOD	in order that = so that fits
+eng	55999	9	GOOD	glancing along line fits
+eng	56003	15	GOOD	carry out work fits
+eng	56006	4	GOOD	located inside stalls fits
+eng	56010	19	GOOD	possibility modal fits
+eng	56010	31	BAD	"mis-segmented ""set himself...hunt down"""
+eng	56053	7	GOOD	concessive contrast, standard but
+eng	56063	22	BAD	"mis-segmented ""drive""...""lay back"", unrelated"
+eng	56157	0	GOOD	demonstrative pronoun fits
+eng	56162	15	GOOD	concessive contrast, standard but
+eng	56163	18	GOOD	grammatical pronoun tag fits
+eng	56164	7	GOOD	concessive contrast, standard but
+eng	56182	10	GOOD	arrive at point fits
+eng	56182	12	BAD	idiomatic crime scene, not sports arena
+eng	56182	3	BAD	narrative progress sense, not mental grasp
+eng	56184	10	BAD	spatial extent, not competition lead
+eng	56184	11	BAD	unrelated harbor sense, mis-segmented
+eng	56184	4	BAD	spatial extent, not physical pulling longer
+eng	56184	5	BAD	particle in phrasal verb, not adjective outer
+eng	56184	7	GOOD	locational front fits
+eng	58	18	GOOD	grinding away matches work hard
+eng	582	3	BAD	software development, not general evolution process
+eng	590	11	GOOD	"quantifier ""more"" sense fits"
+eng	591	0	GOOD	"quantifier ""more"" sense fits"
+eng	594	0	GOOD	once again matches anew
+eng	594	1	GOOD	once again matches anew
+eng	597	10	GOOD	no longer matches not now sense
+eng	597	11	GOOD	no longer matches not now sense
+eng	60002	3	GOOD	seat of government fits
+eng	60223	0	GOOD	evening time of day fits
+eng	61136	20	GOOD	subsequent to reference time fits
+eng	61208	12	GOOD	propose/put before fits
+eng	61237	20	BAD	relations between nations, not whole-earth global
+eng	61240	6	GOOD	propose fits
+eng	613	4	GOOD	the following matches about to be specified
+eng	61441	11	GOOD	subsequent to reference time fits
+eng	61448	21	BAD	proposed reform, not nominate for honor
+eng	61543	19	GOOD	body of students fits
+eng	61740	21	GOOD	propose fits
+eng	61974	33	GOOD	propose fits
+eng	644	16	BAD	synset is for dependent, opposite of independent
+eng	655	5	BAD	developer tagged to generic creator, not specific sense
+eng	70	9	GOOD	PC clones matches personal computer
+eng	702	11	GOOD	coopting matches take for own use
+eng	73	16	GOOD	OS matches operating system
+eng	77	6	GOOD	listed among program names, program sense fits
+ind	100021	3	GOOD	lezat means delicious, matches taste sense
+ind	100036	17	GOOD	kualitas means quality/grade, matches
+ind	100082	11	GOOD	lebih jauh means further, metaphorical distance fits
+ind	100091	0	GOOD	siapkan means prepare/make ready, matches
+ind	10010	14	GOOD	Dr. is medical title for Dr. Roylott, physician
+ind	100167	18	GOOD	URL matches web address sense exactly
+ind	100198	0	GOOD	rendang matches custom dish synset
+ind	100208	5	BAD	perangkat makan is dining set, not anatomical apparatus
+ind	100281	14	GOOD	pasta udang means shrimp paste, matches
+ind	100282	14	BAD	di kalangan means among, not bury/inter
+ind	100324	14	GOOD	dek kayu is wooden deck platform, matches
+ind	100338	0	GOOD	namun demikian means however, matches
+ind	100338	15	GOOD	tempat tujuan means destination, matches
+ind	100385	0	GOOD	oh is exclamatory utterance, matches
+ind	100386	4	GOOD	oh is exclamatory utterance, matches
+ind	100518	0	GOOD	setiap tahun means every year, matches
+ind	100536	11	GOOD	kebutuhan means necessity/need, matches
+ind	100549	11	GOOD	berasal dari means be native of, ethnic origin fits
+ind	100550	4	GOOD	kaum ekspatriat means group of expats, matches
+ind	100559	14	GOOD	dua bahasa means bilingual, matches
+ind	100604	2	GOOD	terbesar means biggest, above average size fits
+ind	100605	18	GOOD	terbesar means biggest, above average size fits
+ind	100633	1	BAD	diri here is reflexive self pronoun, not adjective personal
+ind	100638	0	BAD	selain itu means besides that, not otherwise/differently
+ind	100639	8	GOOD	sumber daya means resource, matches
+ind	100653	15	GOOD	minuman anggur means wine, matches
+ind	100653	8	GOOD	promosi makanan in discount context, matches
+ind	100660	16	GOOD	desainer mode means fashion designer, matches
+ind	100663	13	GOOD	lezat means delicious, matches
+ind	100666	6	GOOD	pecinta mode means fashion lover, matches
+ind	100805	18	GOOD	olahraga sehat means healthy exercise, matches
+ind	100806	13	GOOD	sangat ideal means very ideal, matches
+ind	100822	0	GOOD	keduanya means both, matches
+ind	100869	7	GOOD	pedas means spicy, matches
+ind	100875	0	BAD	selain means besides, not otherwise/differently
+ind	100899	36	GOOD	lezat means delicious, matches
+ind	100902	19	GOOD	turut means also/in addition, lemma listed matches
+ind	100935	16	UNSURE	es on ice rink, unclear vs natural frozen water body sense
+ind	100958	7	GOOD	berasal dari kata means derived from word, matches
+ind	101038	4	GOOD	lezat means delicious, matches
+ind	101064	3	GOOD	lezat means delicious, matches
+ind	101086	5	BAD	bahan baku means raw material, not standard/common sense
+ind	101121	7	GOOD	sebaik mungkin means as possible, matches
+ind	101133	1	GOOD	meluangkan waktu means spend time, matches
+ind	101219	7	GOOD	bagian luar means outer part, matches
+ind	101310	16	GOOD	lezat means delicious, matches
+ind	101312	15	GOOD	nostalgia tersendiri means nostalgia of its own, matches
+ind	101327	1	GOOD	santai means relaxed atmosphere, matches
+ind	101334	13	GOOD	Tahun Baru means year, matches
+ind	101337	11	GOOD	Imlek relates to Chinese lunar calendar culture, matches
+ind	101337	9	GOOD	Tahun Baru means year, matches
+ind	101344	15	GOOD	klub malam means nightclub, matches
+ind	101360	16	GOOD	kedatangan arrival halls matches exactly
+ind	101378	11	GOOD	tampil means appear/perform, come into view fits
+ind	101417	4	GOOD	rendang matches custom dish synset
+ind	101428	4	GOOD	jamuan lezat means delicious feast, matches
+ind	101478	25	GOOD	barang antik means antique items, matches
+ind	101479	0	BAD	selain means besides, not otherwise/differently
+ind	101485	9	GOOD	bersantap siang means have lunch, matches
+ind	101500	0	GOOD	baru-baru ini means recently, matches
+ind	101510	19	GOOD	asal muasal means origin/birthplace, matches
+ind	101530	22	GOOD	tidak berlebihan means not excessive, matches
+ind	101559	10	GOOD	pagi means early morning hours, matches
+ind	101599	4	GOOD	bagian bawah means bottom part, matches
+ind	101606	1	GOOD	lanjutkan means continue, matches
+ind	101682	5	GOOD	Pangeran means prince, matches royal title
+ind	101683	4	GOOD	asal muasal means origin/beginning, matches
+ind	101785	5	GOOD	lezat means delicious, matches
+ind	101801	11	GOOD	renyah means crispy texture, matches
+ind	101810	11	GOOD	lezat means delicious, matches
+ind	101835	9	GOOD	langsung saja means just directly, matches
+ind	101843	0	GOOD	Santai means relax, matches verb sense
+ind	101852	27	GOOD	termutakhir means most up to date, matches
+ind	101924	6	GOOD	tekstur means texture, matches
+ind	101933	13	BAD	bersifat is verb have-quality-of, not noun nature
+ind	101935	10	GOOD	muasal means origin/beginning, matches
+ind	101955	2	GOOD	diadakan means held/organized event, matches
+ind	101980	14	GOOD	Festival Musik means music, matches
+ind	101993	16	GOOD	dalam dan luar negeri means domestic/abroad country, matches
+ind	102012	20	GOOD	Raffles matches named entity founder of Singapore
+ind	102013	19	GOOD	Sri Warisan matches named organization entity
+ind	102049	9	GOOD	area means tract of land, matches
+ind	102051	23	GOOD	galeri seni means art gallery, matches
+ind	102053	1	GOOD	lantai dasar means ground floor, base sense fits
+ind	102149	0	GOOD	sebagian besar = part of, partitive sense fits
+ind	102173	13	GOOD	ambil bagian = take part, matches part sense
+ind	102217	9	GOOD	baru-baru ini = recently, exact adverb match
+ind	102226	11	GOOD	bekerja sama = work together, core work sense
+ind	102349	8	GOOD	adat istiadat = customs/rites, matches definition
+ind	102420	11	GOOD	mata pencaharian = livelihood/earnings, lemma matches
+ind	102485	12	GOOD	umat Buddha = Buddhist adherents, follower sense fits
+ind	102594	7	GOOD	tari = dance, exact match
+ind	102594	8	GOOD	tari rakyat = folk dance, people sense fits
+ind	102596	0	GOOD	tarian = dance, exact match
+ind	102597	12	GOOD	tari = dance, exact match
+ind	102597	13	GOOD	tari rakyat = folk dance, people sense fits
+ind	102598	6	GOOD	tari rakyat tradisional = folk dance
+ind	102600	1	GOOD	tari rakyat China = folk dance
+ind	102634	15	GOOD	anak babi = piglet, exact match
+ind	102640	14	GOOD	kreasi = creation, artifact sense fits
+ind	102642	7	GOOD	kue lezat = delicious cake, exact match
+ind	102667	7	GOOD	tak = not, negation adverb exact
+ind	102683	43	GOOD	diperkaya santan = enriched, rich flavor fits
+ind	102688	1	GOOD	pusat-pusat makanan = food court, exact match
+ind	102689	5	GOOD	roti renyah = crispy, exact match
+ind	102731	17	GOOD	pelanggannya sendiri = its own customers
+ind	102774	12	GOOD	ikan in dish name = fish as food
+ind	102785	0	GOOD	musik rakyat = music, exact match
+ind	102786	2	GOOD	musik rakyat China = music, exact match
+ind	102846	10	GOOD	harga miring = price charged, exact match
+ind	102853	0	GOOD	citarasa = flavor/taste, exact match
+ind	102853	13	GOOD	menikah = marry, exact match
+ind	102858	1	GOOD	citarasa = flavor, exact match
+ind	102860	2	GOOD	citarasa = flavor, exact match
+ind	102919	4	GOOD	menurut = according to, exact match
+ind	102919	8	GOOD	resep aslinya = original recipe, exact match
+ind	102925	21	GOOD	kreasi unggulannya = excellent creations, fits
+ind	102926	7	GOOD	sangat lezat = delicious, exact match
+ind	102937	13	GOOD	hidangan Italia = Italian dishes, exact match
+ind	102942	27	GOOD	berasal dari = derive from, exact match
+ind	102986	4	GOOD	gorengan renyah = crispy, exact match
+ind	103014	0	GOOD	namun demikian = however, function word matches
+ind	11903	5	BAD	tengah is progressive aspect marker, not spatial middle
+ind	11904	3	GOOD	sedang marks ongoing action bermekaran
+ind	11905	14	GOOD	-nya is 3rd person possessive pronoun suffix
+ind	11905	16	BAD	tiada tara means peerless/unequalled, not flat/even
+ind	11905	23	GOOD	berwarna keemasan means golden colored, matches
+ind	11906	2	GOOD	sedang marks ongoing action menjelang
+ind	11908	7	UNSURE	melalui as through-preposition vs traverse verb sense
+ind	11909	16	BAD	dan here is plain and, not besides/furthermore
+ind	11910	7	GOOD	sedang marks ongoing action menggeliat-geliat
+ind	11910	9	GOOD	bersama means together, at same time fits
+ind	11911	13	BAD	dan here is plain list and, not besides
+ind	11912	0	GOOD	namun means by contrast, fits context
+ind	11913	14	GOOD	sedang marks ongoing action merayap
+ind	11913	17	GOOD	tepi jalan means edge/border of road, matches
+ind	11913	18	GOOD	jalan means street/road, matches thoroughfare
+ind	11913	4	GOOD	sedang marks ongoing action melintasi
+ind	11913	8	BAD	dan is sequential and, not besides/furthermore
+ind	11914	5	BAD	dan is sequential and, not besides/furthermore
+ind	11921	12	GOOD	bisa means capable/able here, matches
+ind	11922	2	GOOD	saat means moment, matches
+ind	11922	28	GOOD	di atas means above/overhead, matches
+ind	11922	5	UNSURE	ke samping directional, fit to outward sense unclear
+ind	11923	8	BAD	dan is sequential and, not besides/furthermore
+ind	11925	11	GOOD	bersama means jointly/together with, matches
+ind	11925	9	GOOD	-nya possessive pronoun suffix, matches
+ind	11926	4	GOOD	pun mana pun means in any case, matches
+ind	11929	1	GOOD	lagi ditambah lagi means any/besides, matches
+ind	11929	3	GOOD	-nya possessive pronoun suffix, matches
+ind	11930	16	BAD	lagi tidak lagi means anymore, not besides
+ind	11930	2	BAD	sampai here means until/reach, not exert effort
+ind	11930	23	BAD	sampai ke means until reaching, not exert effort
+ind	11931	15	BAD	dan is plain list and, not besides/furthermore
+ind	11931	8	GOOD	pun here is intensive even, matches
+ind	11932	5	BAD	dan is sequential and, not besides/furthermore
+ind	11935	0	GOOD	jika means if in case, matches conditional
+ind	11935	3	BAD	dan explicitly plain and per comment
+ind	11937	0	GOOD	sembari means at same time/concurrently, matches
+ind	11937	24	GOOD	ke atas means upward, matches
+ind	11939	0	GOOD	namun means by contrast, matches
+ind	11939	27	GOOD	sampai ke atas means reach the top, matches
+ind	11939	30	GOOD	ke atas means upward direction, matches
+ind	11939	32	BAD	tidak akan is future negator will not, not unable
+ind	11943	0	GOOD	sambil means while, simultaneity matches
+ind	11944	10	GOOD	telah means already, prior time marker matches
+ind	11947	17	GOOD	beberapa tahun means several years, quantifier fits
+ind	11947	25	GOOD	oleh karena itu means therefore, matches
+ind	11947	9	BAD	dan explicitly plain and per comment
+ind	11952	8	BAD	ke atas is directional upward, not adjective upper
+ind	11953	5	BAD	dan explicitly plain and per comment
+ind	11954	6	BAD	dan explicitly plain and per comment
+ind	11956	0	GOOD	jika means if in case, conditional matches
+ind	11956	13	BAD	dan explicitly plain and per comment
+ind	11956	22	GOOD	harus is need/must modal, lemma listed in synset
+ind	11956	25	BAD	jungkir balik is idiom topsy-turvy, not return
+ind	11956	26	BAD	dan explicitly plain and per comment
+ind	11956	30	GOOD	seperti means as/like comparison, matches
+ind	11957	3	GOOD	jika means if in case, matches
+ind	11958	3	BAD	tengah here is aspect marker in process of, not noun middle
+ind	11959	0	GOOD	jika means if in case, matches
+ind	11959	14	BAD	dan explicitly plain and per comment
+ind	11959	16	BAD	pun here means also/too, not intensive even
+ind	11964	0	GOOD	ayo means come on, matches interjection sense
+ind	11966	1	GOOD	pun here means even, emphatic unexpected fits
+ind	11967	0	BAD	dalam sekejap is temporal in, not spatial inside
+ind	11967	10	BAD	dan explicitly plain and, lemma comment confirms
+ind	11967	16	GOOD	jatuh ke dasar means fall to lower place, matches
+ind	11968	21	BAD	dan is plain list and, not besides
+ind	11970	8	GOOD	sambil means while, simultaneity matches
+ind	11971	22	GOOD	tanpa tujuan means aimlessly, direct match
+ind	11972	22	BAD	kembali ke here is adverb again, not noun restitution
+ind	11972	23	GOOD	jatuh ke means fall to lower place, matches
+ind	11972	8	BAD	dan is plain list and, not besides
+ind	11974	10	BAD	pun here part of sedikit pun idiom, not besides
+ind	11974	14	GOOD	sedikit pun means not even a bit, quantity noun fits
+ind	11976	10	BAD	dan is plain list and, not besides
+ind	11977	5	GOOD	tengah hari is idiom noon, hari as time period fits
+ita	10003	51	BAD	Occuparsi di = handle/deal with, not hire for work
+ita	10004	9	GOOD	Ricordarne matches recall knowledge from memory
+ita	10022	2	GOOD	Rapidamente matches quickly/rapid movement adverb sense
+ita	10024	4	GOOD	Allegramente matches cheerfully manner
+ita	10026	13	GOOD	Davanti matches before/in front of sense
+ita	10026	7	GOOD	Davanti matches before/in front of sense
+ita	10027	5	GOOD	Signora Hudson matches Mrs address title
+ita	10082	17	GOOD	Interamente matches wholly/entirely to full extent
+ita	10092	11	BAD	Context implies general contact, not journalist correspondent
+ita	10092	33	GOOD	Quasi matches almost/nearly sense
+ita	10109	0	GOOD	Perfettamente as reply matches perfectly/exactly
+ita	10111	20	GOOD	Turbata matches disturbed/uneasy in mind
+ita	10112	4	GOOD	Venne matches came/moved toward
+ita	10114	13	BAD	Refers to time of night, not sleep period
+ita	10115	8	GOOD	Certamente matches definitely/positively
+ita	10118	1	BAD	Pensare di + inf = intend, not suppose/believe
+ita	10190	2	GOOD	Saggiamente matches acted wisely
+ita	10192	3	GOOD	Avete fatto matches get something done
+ita	10210	0	BAD	POS mismatch: Assolutamente is adverb, synset is adjective
+ita	10237	9	GOOD	Improvvisamente matches suddenly/without warning
+ita	10240	16	GOOD	Altro matches not the same one/other
+ita	10402	4	GOOD	Documenti matches official informational writing
+ita	10431	2	BAD	"Modal ""can/may"" wrongly linked to preserve-in-tin sense"
+ita	10443	29	BAD	"Modal ""can/may"" wrongly linked to preserve-in-tin sense"
+ita	10547	1	BAD	POS mismatch: improvvisamente is adverb, synset is adjective
+ita	10547	23	BAD	POS mismatch: continuamente is adverb, synset is adjective
+ita	10548	13	BAD	POS mismatch: furiosamente is adverb, synset is adjective
+ita	10551	26	BAD	POS mismatch: selvaggiamente is adverb, synset is adjective
+ita	10552	6	GOOD	Mortalmente pallida matches intensifier mortally sense
+ita	10581	2	BAD	POS mismatch: rapidamente is adverb, synset is adjective
+jpn	295	12	BAD	Sense is spatial extend/reach, not arrival of letters
+jpn	388	7	BAD	ISP account differs from banking/brokerage business relationship
+jpn	576	8	GOOD	Kiku matches hear with intention/listen

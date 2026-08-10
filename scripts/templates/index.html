@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NTU Multilingual Corpus</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/corpus.css">
+</head>
+<body>
+{%- set base = "." %}
+{% include "_nav.html" %}
+<div class="container mt-4 mb-5">
+
+  <div class="corpus-header">
+    <h1>NTU Multilingual Corpus</h1>
+    <p class="lead">An open, semantically annotated multilingual corpus
+      of literary and informational texts linked to the
+      Open Multilingual Wordnet.</p>
+    <div class="corpus-stats">
+      <div class="stat-item">
+        <div class="stat-value">{{ n_langs }}</div>
+        <div class="stat-label">Languages</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">{{ total_docs }}</div>
+        <div class="stat-label">Documents</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">{{ total_sents }}</div>
+        <div class="stat-label">Sentences</div>
+      </div>
+    </div>
+  </div>
+
+  {%- if by_lang|length > 1 %}
+  <ul class="nav nav-tabs mb-3" role="tablist">
+    {%- for lang in by_lang %}
+    <li class="nav-item" role="presentation">
+      <button class="nav-link{% if loop.first %} active{% endif %}"
+              id="tab-{{ lang }}" data-bs-toggle="tab"
+              data-bs-target="#pane-{{ lang }}" type="button"
+              role="tab">{{ lang_names[lang] }}
+        <span class="badge bg-secondary ms-1">{{ by_lang[lang].doc_count }}</span></button>
+    </li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+
+  <input type="text" id="docFilter" class="doc-filter mb-3" placeholder="Filter documents…">
+
+  <div class="tab-content">
+    {%- for lang, info in by_lang.items() %}
+    <div class="tab-pane fade{% if loop.first %} show active{% endif %}"
+         id="pane-{{ lang }}" role="tabpanel">
+      {%- for corpus_title, docs in info.groups.items() %}
+      <div class="mb-3">
+        <div class="corpus-toggle d-flex align-items-center gap-2 mb-2"
+             data-bs-toggle="collapse" data-bs-target="#grp-{{ lang }}-{{ loop.index }}"
+             aria-expanded="true">
+          <i class="bi bi-chevron-down"></i>
+          <span class="h6 mb-0">{{ corpus_title }}</span>
+          <span class="badge bg-secondary">{{ docs|length }}</span>
+        </div>
+        <div class="collapse show" id="grp-{{ lang }}-{{ loop.index }}">
+          <div class="list-group">
+            {%- for doc in docs %}
+            <a href="{{ doc.path }}" class="list-group-item list-group-item-action">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <div>{{ doc.title }}
+                    {%- if doc.has_sentiment %}
+                    <i class="bi bi-heart-fill ms-1" style="color:#e05c7a;font-size:0.75em" title="Sentiment annotations"></i>
+                    {%- endif %}
+                  </div>
+                  {%- if doc.subtitle %}<small class="text-muted">{{ doc.subtitle }}</small>{% endif %}
+                </div>
+                <small class="text-muted ms-3 text-nowrap">{{ doc.sent_count }} sent.
+                  {%- if doc.tag_pct %}
+                  <span class="tag-bar"><span class="tag-bar-fill" style="width:{{ doc.tag_pct }}%"></span></span>{{ doc.tag_pct }}%
+                  {%- endif %}</small>
+              </div>
+            </a>
+            {%- endfor %}
+          </div>
+        </div>
+      </div>
+      {%- endfor %}
+    </div>
+    {%- endfor %}
+  </div>
+
+  <div class="card data-card mt-4">
+    <div class="card-body">
+      <h6 class="mb-2"><i class="bi bi-database me-1"></i>Data Access</h6>
+      <p class="small text-muted mb-2">
+        Shared data files are in the <a href="data/">data/</a> directory.
+        Individual document pages offer TSV annotation downloads via the toolbar.
+      </p>
+      <ul class="small text-muted mb-0">
+        <li><code>slinks.json</code> &mdash; cross-lingual sentence alignments</li>
+        <li><code>sent-{lang}.json</code> &mdash; sentence text per language</li>
+        <li><code>wn-defs-{lang}.json</code> &mdash; WordNet definitions</li>
+        <li><code>wn-syns-{lang}.json</code> &mdash; WordNet synonyms</li>
+        <li><code>manifest.json</code> &mdash; available languages and features</li>
+      </ul>
+    </div>
+  </div>
+
+  {% include "_footer.html" %}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.querySelectorAll('.corpus-toggle').forEach(function(el) {
+  var target = document.querySelector(el.getAttribute('data-bs-target'));
+  if (!target) return;
+  target.addEventListener('hide.bs.collapse', function() { el.classList.add('collapsed'); });
+  target.addEventListener('show.bs.collapse', function() { el.classList.remove('collapsed'); });
+});
+(function() {
+  var KEY = 'ntumc-lang';
+  var saved = localStorage.getItem(KEY);
+  if (saved) {
+    var tab = document.getElementById('tab-' + saved);
+    if (tab) new bootstrap.Tab(tab).show();
+  }
+  document.querySelectorAll('[data-bs-toggle="tab"]').forEach(function(btn) {
+    btn.addEventListener('shown.bs.tab', function() {
+      var lang = btn.id.replace('tab-', '');
+      localStorage.setItem(KEY, lang);
+    });
+  });
+})();
+// Document filter
+(function() {
+  var filter = document.getElementById('docFilter');
+  if (!filter) return;
+  filter.addEventListener('input', function() {
+    var q = this.value.toLowerCase();
+    document.querySelectorAll('.list-group-item').forEach(function(el) {
+      el.style.display = el.textContent.toLowerCase().indexOf(q) !== -1 ? '' : 'none';
+    });
+  });
+})();
+</script>
+</body>
+</html>

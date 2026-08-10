@@ -2,7 +2,7 @@
 ### This is a script for making a release of the NTU-MC data
 ###
 ###  * Download from the current server (db, links, wordnet)
-###  * Create wordnets from server (dump from db, add counts from corpora)
+###  * Extract frequencies, sentiment, and wordnets
 ###  * Compress all databases with xz
 ###  * Create a GitHub release with gh
 ###
@@ -12,6 +12,7 @@
 ###
 ### Options:
 ###   --skip-download   Skip the scp download step
+###   --build-only      Stop after processing (inspect build/ before releasing)
 ###   --draft           Create GitHub release as a draft
 ###   --help            Show this help message
 ###
@@ -24,18 +25,22 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 cd "$REPO_ROOT"
 
 BUILDDIR="build"
-mkdir -p "$BUILDDIR"
+LOGDIR="${BUILDDIR}/log"
+PYTHON=".venv/bin/python"
+mkdir -p "$BUILDDIR" "$LOGDIR"
 
-# ── Corpus & wordnet databases ──
+# ── Corpus, cross-lingual link, and wordnet databases ──
 CORPUS_DBS=(eng.db ces.db ita.db cmn.db yue.db ind.db zsm.db jpn.db)
+LINK_DBS=(eng-cmn.db eng-jpn.db eng-ind.db)
 WORDNET_DBS=(wn-ntumc.db wn-multix.db)
-ALL_DBS=("${CORPUS_DBS[@]}" "${WORDNET_DBS[@]}")
+ALL_DBS=("${CORPUS_DBS[@]}" "${LINK_DBS[@]}" "${WORDNET_DBS[@]}")
 
 SCP_HOST="compling.upol.cz"
 SCP_PATH="/var/www/ntumc/db"
 
 # ── Argument parsing ──
 SKIP_DOWNLOAD=0
+BUILD_ONLY=0
 DRAFT=0
 VERSION=""
 
@@ -47,6 +52,7 @@ usage() {
 while [[ $# -gt 0 ]]; do
     case "$1" in
         --skip-download) SKIP_DOWNLOAD=1; shift ;;
+        --build-only)    BUILD_ONLY=1; shift ;;
         --draft)         DRAFT=1; shift ;;
         --help|-h)       usage ;;
         -*)              echo "Unknown option: $1" >&2; exit 1 ;;
@@ -98,7 +104,45 @@ for db in "${CORPUS_DBS[@]}"; do
     done < <("$SCRIPT_DIR/getsenti.sh" "$src")
 done
 
-# ── 3. Compress ──
+ILI_URL="https://raw.githubusercontent.com/globalwordnet/cili/refs/heads/master/ili-map-pwn30.tab"
+ILI_FILE="${BUILDDIR}/ili-map-pwn30.tab"
+if [[ ! -f "$ILI_FILE" ]]; then
+    echo "--- Downloading ILI map ---"
+    curl -sL "$ILI_URL" -o "$ILI_FILE"
+fi
+
+echo "--- Ensuring base wordnet (omw-en:2.0) is available ---"
+"$PYTHON" -c "import wn; wn.download('omw-en:2.0')" 2>/dev/null \
+    || "$PYTHON" -m wn download omw-en:2.0
+
+echo "--- Building wordnets ---"
+"$PYTHON" "$SCRIPT_DIR/getwn.py" \
+    "${BUILDDIR}/wn-ntumc.db" "$BUILDDIR" \
+    --ili "$ILI_FILE" \
+    --version "$VERSION" \
+    --base "omw-en:2.0" \
+    --output-file "$LOGDIR/validate-wn.txt"
+echo "  Validation log: $LOGDIR/validate-wn.txt"
+
+echo "--- Adding pinyin to Chinese wordnet ---"
+CEDICT="${BUILDDIR}/cedict_1_0_ts_utf-8_mdbg.txt.gz"
+if [[ ! -f "$CEDICT" ]]; then
+    curl -sL "https://www.mdbg.net/chinese/export/cedict/cedict_1_0_ts_utf-8_mdbg.txt.gz" -o "$CEDICT"
+fi
+"$PYTHON" "$SCRIPT_DIR/addpinyin.py" "$CEDICT" "${BUILDDIR}/wn-ntumc-cmn.xml" \
+    --db "${BUILDDIR}/wn-ntumc.db" \
+    --ambiguous "$LOGDIR/ambiguous-pinyin.tsv"
+
+if [[ "$BUILD_ONLY" -eq 1 ]]; then
+    echo "=== Build complete (--build-only). Inspect $BUILDDIR/ before releasing. ==="
+    exit 0
+fi
+
+# ── 3. Drop log tables ──
+echo "--- Dropping log tables from release copies ---"
+"$SCRIPT_DIR/droplogs.sh" "${ALL_DBS[@]/#/${BUILDDIR}/}"
+
+# ── 4. Compress ──
 echo "--- Compressing databases ---"
 for db in "${ALL_DBS[@]}"; do
     src="${BUILDDIR}/${db}"
@@ -115,7 +159,7 @@ for db in "${ALL_DBS[@]}"; do
     xz -k -9 -f "$src"
 done
 
-# ── 4. Create GitHub release ──
+# ── 5. Create GitHub release ──
 echo "--- Creating GitHub release $VERSION ---"
 
 ASSETS=()
@@ -127,8 +171,10 @@ for db in "${ALL_DBS[@]}"; do
         echo "  WARNING: $asset not found, will not be included"
     fi
 done
-for tsv in "$BUILDDIR"/wn-freq-*-ntumc.tsv "$BUILDDIR"/wn-senti-*-ntumc.tsv; do
-    [[ -f "$tsv" ]] && ASSETS+=("$tsv")
+for f in "$BUILDDIR"/wn-freq-*-ntumc.tsv \
+         "$BUILDDIR"/wn-senti-*-ntumc.tsv \
+         "$BUILDDIR"/wn-ntumc-*.xml; do
+    [[ -f "$f" ]] && ASSETS+=("$f")
 done
 
 GH_ARGS=(gh release create "$VERSION" --generate-notes)

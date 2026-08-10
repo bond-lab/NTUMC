@@ -1,0 +1,2259 @@
+\documentclass[12pt]{book} % font 10
+%\usepackage[T1]{fontenc}
+\usepackage[a4paper]{geometry}
+\usepackage{xcolor,colortbl}
+\usepackage{url}
+\usepackage[round]{natbib}
+\usepackage{booktabs}
+\newcommand{\eng}[1]{\textit{#1}}
+\newcommand{\cmn}[1]{\textit{#1}}
+\newcommand{\fre}[1]{\textit{#1}}
+\newcommand{\jpn}[1]{\textit{#1}}
+\newcommand{\msa}[1]{\textit{#1}}
+\newcommand{\txx}[1]{\textbf{#1}}
+\newcommand{\lex}[1]{\textbf{\textit{#1}}}
+\newcommand{\iz}[1]{\textbf{\texttt{#1}}}
+\usepackage{url}
+\newcommand{\fd}[1]{\url{#1}}  %% SQL field
+\newcommand{\tg}[1]{\url{#1}}  %% POS tag
+\newcommand{\wn}[3]{\path{#1}$_{#2_#3}$}
+\newcommand{\of}[1]{\textbf{\texttt{#1}}}
+\newcommand{\mc}{\multicolumn}
+\newcommand{\furl}[1]{\footnote{\url{#1}}}
+\usepackage[normalem]{ulem}
+\newcommand{\ul}{\uline}
+\newcommand{\ull}{\uuline}
+\newcommand{\uwl}{\uwave}
+%\newcommand{\wn}[3]{\path{#1}\ensuremath{^{#2}_{#3}}}
+
+\usepackage{CJKutf8}
+\newcommand{\ja}[1]{\CJKfamily{min}#1\CJKfamily{gbsn}}
+\newcommand{\zh}[1]{\CJKfamily{gbsn}#1\CJKfamily{min}}
+\usepackage{mygb4e}
+\usepackage{pst-node}
+\usepackage{graphicx}
+\DeclareUnicodeCharacter{2A00}{\ensuremath{\odot}} %⨀
+\DeclareUnicodeCharacter{2A01}{\ensuremath{\oplus}} % ⨁
+
+
+
+\title{NTU Multi-Lingual Corpus Manual
+\\ \huge ongoing notes --- do not cite}
+\author{Francis \textbf{Bond}
+  \\ Liling \textbf{Tan} and \textbf{Wang} Shan}
+% \date{\today}
+
+% % 10 pages max
+% % single line spacing
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+% 勉強
+% \ja{勉強}
+\maketitle
+\tableofcontents{}
+\chapter{NTU Multi-lingal Corpus Motivation}
+
+% \begin{abstract} % no more than 300 words
+% % In no more than 300 words, please provide a succinct and accurate
+% % description of the proposal to include the specific aims, hypotheses,
+% % methodology and approach of the research proposal, including its
+% % academic significance \textbf{and relevance to Singapore}.
+%   We propose to study how meaning is expressed differently in different
+%   languages.
+%   This problem has been extensively discussed in translation studies,
+%   where it is a major source of translation shifts:
+%  ``departures from formal correspondence in the process of going
+%   from [the source language] to [the target language]''.
+%   However, large empirical studies of meaning differences are rare
+%   because meaning is not marked explicitly in text, and there are few
+%   corpora with semantic annotation, especially for Asian languages.
+%   We will conduct a qualitative and quantitative study of translation
+%   shifts on parallel texts in four typologically diverse languages: English, Mandarin
+%   Chinese, Indonesian and Japanese (produced by previous research at NTU).
+%   The key of our proposal is to make full use of a rich multi-lingual
+%   semantic lexicon (Wordnet, which we have extended to cover Japanese
+%   and Malay/Indonesian) and use it to link the same meanings across the different
+%   languages.
+%   In parallel sentences, translation equivalents which do not share
+%   the same semantic class are then evidence of translation shifts.
+%   Using the multilingual network of
+%   semantic classes, we can measure explicitly differences in meaning,
+%   even across languages.
+%   This will thus be the first large scale quantitative study of
+%   translation shifts for Asian languages.
+%   Our preliminary study linking semantic classes in Chinese and
+%   English found many translation shifts to be caused by predictable differences in
+%   syntactic categories and language-specific multi-word expressions.
+%   To make the results most widely useful, we will release all of the
+%   cross-lingually annotated data along with the extended multi-lingual lexicon.
+%   The findings of this study are of broad interest to Singapore,
+%   as English, Chinese and Malay are the most commonly spoken official 
+%   languages of Singapore, and Japanese is an important regional
+%   language.   Further, there are immediate applications to natural
+%   language processing tasks such as machine translation and sentiment
+%   analysis.
+% \end{abstract}
+
+% TODO:
+% \begin{itemize}
+% \item FIXME: replace the definition of translation shifts by another
+%   definition, possibly informal?
+% \item FIXME: most of the abstract is very dense
+% \item emphasize the significance of the project socially
+% \item emphasize the significant contribution of the project to
+%   cognitive linguistics:
+%   \begin{itemize}
+%   \item we are comparing 4 (5?) typologically different languages,
+%   \item the potential to capture the conceptual network that underpins
+%     these languages will be extremely valuable to the study of human
+%     cognition.
+%   \end{itemize}
+% \end{itemize}
+
+% \newpage
+% Original contrib by FB:
+%
+% It is well known that different languages present the same information
+% in different ways.
+% These differences can be clearly seen in translation, where they are
+% studied in translation theory and corpus linguistics as Translation
+% Shifts \citep{Bakker:Koster:Leuven-Zwart:2009,pado2010translation} and
+% in machine translation as Translation Divergences \citep{Dorr:1993}.
+% However, there are almost no quantitative studies of translation
+% divergences due to the expense of annotation.
+% We will use advances in WSD to automatically mark divergences in
+% several languages, on a scale as not yet seen.
+%
+
+The question of how to represent meaning is perhaps the most important
+subject in current linguistic research.  It has profound implications
+for studies of human cognition, as well as studies of syntactic
+structure.  It is also important for natural language processing,
+knowledge representation being the core technology underlying the
+semantic web.  This proposal directly addresses how to represent
+meaning, using differences in language to shed light on exactly what
+information is stored and how.
+% Translation shifts
+It is well known that different languages present the same information
+in different ways.  These differences can be clearly seen in
+translation, where they are studied in translation theory and corpus
+linguistics as Translation Shifts
+\citep{Bakker:Koster:Leuven-Zwart:2009,Pado:Erk:2010} and in
+machine translation as Translation Divergences \citep{Dorr:1993}.
+\citep[p.~73]{catford1965linguistic} originally defined translation
+shifts as ``departures from formal correspondence in the process of
+going from [source language] to [target language]''.  Such differences
+are of great scientific interest, as they allow us to explore how
+human languages vary.  Mapping the different ways in which different
+language groups represent meaning has the potential to outline the
+conceptual network that underpins human cognition.  Classification of
+translation shifts is also of practical interest, providing insights
+for language learners and translators (both human and machine).
+
+% description
+Translation shifts can be broadly divided into two categories
+\citep{Pado:Erk:2010}: \emph{grammatical shifts} and
+\emph{semantic shifts}.  A grammatical shift consists in the
+expression of the same concept, in different languages, by words with
+different morphosyntactic properties, such as syntactic category or
+number.  For example, there is a grammatical shift in the translation
+of \eng{in silence} when it is translated
+as 一声\,不响 \cmn{y\={\i}sh\={e}ng\,b\`{u}xi\`{a}ng} ``keeping
+silent'': the English prepositional phrase is translated into Chinese
+as a verb plus adjective.  A semantic shift is characterized by a
+variation, across languages, of the explicit semantic information that
+is used to convey the same general meaning.  Across languages, the
+same state of events can be described at different levels of precision
+(hypernyms), from different points of view (\eng{raise}
+vs. \fre{atteindre} ``rise''), or with different numbers of participants
+overtly expressed.  An example of this would be \eng{lad} in English
+translated as 孩子 \cmn{h\'{a}izi} ``child'': the meaning is similar,
+but not identical. In the most extreme cases, equivalent sentences do
+not describe the same event but distinct, pragmatically related,
+events.  %%[EXAMPLE]
+
+% origin
+Some examples of translation shifts are:
+\begin{itemize}
+\item lexical gaps (some languages make finer meaning distinctions than others for some concepts)
+e.g.,  \eng{river} (Eng) vs. \fre{rivi\`{e}re} ``river which flows to the sea'' or \fre{fleuve} ``river which flows into another river'' (Fre).  These are often culturally based: most Asian languages (including Chinese, Malay and Japanese) have different terms for rice as uncooked grains and cooked rice. (sem)
+\item part-of-speech gaps (different languages use different syntactic categories to describe the same phenomenon)
+ex: adjectives such as \eng{wet, dry, \ldots} are only expressible by stative
+verbs in Japanese: \ja{濡れて\,いる} \jpn{nurete\,iru} ``being wetted'' (gram)
+\item different argument structures ex: \ja{歩く} \jpn{aruku} ``walk'' has
+no goal in Japanese, you cannot ``walk to somewhere'', instead you
+must ``go somewhere walking '' (gram)
+\item adaption (sometimes a whole concept is replaced by a cultural
+  equivalent) \eng{all ones Christmases come at once} (Eng) translated
+  as \ja{盆\,と\,正月\,が\,一緒に\,来た\,よう} \jpn{shougatu to bon ga isshoni
+    kita you} ``as though summer holiday and New Year come together''
+  (sem)
+% \item and other more or less cultural language-specific preferences,
+% e.g. prefer the use of a more common lexical item or 
+% make explicit some information.  (sem)
+
+\end{itemize}
+
+
+
+% Empirical studies
+Empirical studies of translation shifts are mainly conducted on
+parallel corpora, which are collections of texts accompanied with
+their translation in one or more languages.  
+% (Lack of) Quantitative studies
+There are almost no quantitative studies of translation divergences,
+mostly due to the expense of annotation.  Another reason for the lack
+of quantitative studies is that, historically, much of the study on
+translation divergences in machine translation was done when making
+rules for the translation lexicons \citep{Dorr:1993}.  Although
+motivated by examples in texts, the rules were rarely linked to
+examples, and typically do not have any associated information on
+their frequency distribution (i.e. how often each rule is applicable
+in a given corpus).
+
+% Use of word sense annotation
+We are able to study these phenomena quantitatively now due to recent
+advances in the availability of lexical resources.  The PI has helped
+create and extend semantic lexicons for Chinese, Japanese and
+Malay/Indonesian, all linked to the English Wordnet, a well known
+semantic network of English
+\citep{Xu:Gao:Qu:Huang:2008,Isahara:Bond:Uchimoto:Utiyama:Kanzaki:2008,_Fellbaum:1998}
+and Nurril Hirfana et al. (2011).\nocite{Noor:Sapuan:Bond:2011} This
+gives us a single combined network, where a concept such as
+\textsc{hand$_1$} ``the (prehensile) extremity of the superior limb''
+is linked to representations in multiple languages: \eng{hand} (Eng),
+手 \cmn{sh\v{o}u} (Cmn), 手 \jpn{te} (Jpn), \msa{tangan} (Mly, Ind),
+\fre{main} (Fre), \ldots \citep{Bond:Paik:2012}.  A different concept,
+like the \textsc{hand$_2$} in a game of cards, is a separate node, and
+will have a different set of representations.  The nodes are linked to
+each other with various semantic relations, such as hypernymy (a
+\textsc{hand$_1$} is a \textsc{body part$_1$}), meronomy (a
+\textsc{finger$_1$} is part of a \textsc{hand$_1$}), derivation (the
+verb \textsc{hand$_a$} ``to hand someone something'' is derived from
+the noun \textsc{hand$_1$}) and many more.
+
+Further research by the PI has led to several corpora, all with
+multiple translations, being annotated with these concepts in the NTU
+Multi-lingual Corpus \citep{Tan:Bond:2011}.  Currently there are around
+6,000 sentences annotated for sense in Chinese, English and Japanese,
+with 2,000 of them also annotated in Indonesian.  They come from four
+genres: essays, short stories, advertising copy and news text.  These
+detailed annotations of meanings allow us to measure semantic
+differences accurately.  Preliminary studies on the sense annotation
+of parallel texts in English and Chinese indicate a
+certain systematicity in the translation shifts between the concrete
+form that these languages typically use to express the same concept.
+Consequently, we hypothesize that sense annotation provides accurate
+evidence of translation shifts and provides insight into their
+characterization.
+
+% Making it feasible: Automation
+% We will use advances in WSD to automatically mark divergences in
+% several languages, on a scale as not yet seen. 
+
+% % Interpretative hypothesis
+% We additionally expect part-of-speech gaps to delineate or follow the
+% boundaries of semantic classes, as in the Japanese adjectives example.
+
+This research builds on earlier work done as part of the JSPS-NUS/NTU
+Joint Research Project \textit{Revealing Meaning Using Multiple
+  Languages} (2010-2012), in which we did the monolingual corpus
+annotation, built the wordnet Bahasa and enhanced the Chinese and
+Japanese wordnets.  We have currently also applied for a 36,650 Euro
+STIC-Asie grant in France on \textit{Deep Integration of Multi-lingual
+  Wordnets}, where we would work with partners in Europe and Asia to
+improve the quality of the combined wordnets.\footnote{This is with
+  partners in INRIA Alpage (PI: France), Linton (Malaysia), BPPT
+  (Indonesia), Ljubljana and JSI (Slovenia).}  We further intend
+to continue our multilingual analysis by extending it more to syntax
+and structural semantics.  We are developing this theme in a Tier Two
+grant application on an integrated multi-lingual lexical and
+structural representation of meaning.\footnote{This is with partners
+  at computer science at NTU; CSLI, Stanford (USA), Oslo (Norway) and
+  Kyung-Hee University (Korea).}
+
+
+\section{Specific aims}
+The general aim of this project is to conduct a corpus-based study of
+differences in the expression of meaning across languages, taking
+as evidence the translation shifts found in the NTU Multi-lingual
+Corpus (NTU-MC) and characterizing these differences as patterns of
+structural mismatches in the multi-lingual semantic lexicon Wordnet.
+This involves the following concrete aims:
+\begin{enumerate}
+\item Produce and release a new version of the NTU-MC that contains
+  links between the word sense annotations across
+  languages;
+\item Conduct a quantitative and qualitative analysis of the word
+  sense mismatches of this corpus, where the qualitative part is
+  grounded in the structure of the multi-lingual semantic lexicon
+  Wordnet: in this research the links found above will be classified
+  into different types;
+\item Improve the precision, coverage and density of the multi-lingual
+  Wordnet.
+\end{enumerate}
+
+
+\section{Significance}
+% in general
+How and why the same meaning is conveyed differently across languages
+is the foundational question of both contrastive linguistics and
+translation studies.
+Although their theoretical perspectives and concrete aims sensibly
+differ, corpus-based studies conducted in these two disciplines rely
+on similar methodologies, tools and resources, among which parallel
+corpora occupy a central place~\citep{granger2003corpus}.
+If quantitative studies on lexical occurrences and collocations are
+routinely performed on parallel corpora nowadays, they still prove
+hard to conduct on syntactic patterns and even more so on semantic
+categories~\citep{ebeling1998contrastive, granger2003corpus}.
+
+The same foundational question of how and why different languages use
+different means to convey the same meaning poses an equally difficult
+challenge to concrete applications of natural language processing such
+as machine translation and sentiment analysis.
+% [FIXME] \cite{Dorr:1993} on issues with translation shifts for machine
+% translation
+An analysis of the range and distribution of divergences can guide
+machine translation researchers as to what kind of transfer rules are
+necessary.  In addition, the sense annotated parallel texts and the
+enriched semantic lexicon allow (machine) translation rules to be
+inferred directly, as well as paraphrase and entailment rules
+(which are useful for measuring sentence similarity).
+
+% Related work
+Over the past few years, several research projects have been
+annotating parallel corpora in order to enable deep corpus-based
+studies of translation shifts and cross-lingual differences.
+
+% FuSe
+Among the first major efforts in this direction was
+FuSe~\citep{cyrus2006building}, an English-German parallel corpus
+extracted from the EUROPARL corpus of parliamentary proceedings from
+the European Parliament~\citep{Koehn:2005}.
+The parallel sentences are first annotated monolingually.
+Each predicate is tagged with its lemma and part of speech;
+related predicates, e.g. a verb and its nominalization, are marked as
+belonging to the same group.
+Arguments are tagged with names of pseudo-roles derived from the verb
+e.g. \textit{buyer} for \textit{buy}.
+Translation shifts are then annotated explicitly to distinguish
+between 12 different types, 6 for grammatical shifts and 6 for
+semantic shifts.
+This project presents two major drawbacks.
+First, its annotation scheme is idiosyncratic and is not backed up by
+any semantic resource, be it monolingual or cross-lingual, like
+Wordnet or FrameNet~\citep{baker1998berkeley}.
+Second, the resource has not been released and is not developed
+anymore.
+
+% LinES
+LinES~\citep{ahrenberg2007lines} is a parallel treebank of $2,400$
+sentences from a user manual and a novel, in English and Swedish, with
+word alignments and syntactic dependency structures.
+Some dependency relations contain a supplementary semantic
+information, e.g. for adverbials and prepositional objects, but the
+corpus is clearly oriented towards a syntactic study of translation
+shifts between English and Swedish.
+
+% SMULTRON
+SMULTRON~\citep{Smultron2010} is a parallel treebank of $2,500$
+sentences from different genres: a novel, economy texts from several
+sources, a user manual and mountaineering reports.
+Most of the corpus is German-English-Swedish parallel text, with
+additional texts in French and Spanish.
+The treebank contains syntactic phrase trees in each language and word
+and phrase alignments across languages.
+In addition, a preliminary study has been conducted on $50$ sentences
+of the English-Swedish parallel subcorpus where each sentence has been
+annotated with semantic frames.
+The aim was to measure the feasibility of frame projection across
+languages, given a syntactic alignment~\citep{Volk:Samuelsson:2007}.
+Most of the resource development remains however focused on the
+alignment of syntactic structures.
+
+% CroCo
+CroCo~\citep{vculo2008empirical} is a German-English parallel and
+comparable corpus of a dozen texts from eight genres, totalizing
+approximately $1,000,000$ words.
+Each sentence is annotated with phrase structures and grammatical
+functions, and words, chunks and phrases are aligned across parallel
+sentences.
+This resource is limited to two languages, English and German, and is
+not systematically linked to any semantic resource.
+% Moreover, neither the corpus nor its documentation are readily
+% available.
+
+% Pado Erk
+Last, \cite{Pado:Erk:2010} have conducted a study of translation
+shifts on a German-English parallel corpus of $1,000$ sentences from
+EUROPARL annotated with semantic frames from FrameNet and word
+alignments.
+Their aim was to measure the feasibility of frame annotation
+projection across languages.
+A major difference between their study and our proposal is that frames
+have a coarser granularity than Wordnet senses.
+For example, verbs that describe different points of view on the same
+state of events evoke the same semantic frame.
+
+% Wordnet for contrastive studies
+\citet{peters2002cross} showed that multi-lingual Wordnets used in
+conjunction with parallel corpora provide a useful basis to conduct
+corpus-based contrastive studies.  Such studies are however extremely
+rare, \citet{bentivogli2005exploiting} being the main exception,
+partly because most Wordnets lack sufficient cover and density.
+Density is central to the study of grammatical shifts, as they often
+involve replacing the literal translation of a word with another word
+that is morphologically related to the former, such as deverbal
+adjectives and nouns.  Derivational relations are relatively new in
+Wordnet~\citep{fellbaum2003morphosemantic}, therefore their
+availability is still scarce~\citep{pala2007derivational,
+  fellbaum2009putting, piasecki2010toward, gabor2012boosting}.  As we
+investigate and annotate the corpora, we will also increase the
+precision, coverage and density of the English, Mandarin Chinese,
+Indonesian and Japanese components of the multi-lingual Wordnet.
+
+% Asian languages
+All the aforementioned corpus-based studies on translation shifts have
+been performed on European languages.  Our project will be the first
+corpus-based study of translation shifts involving Asian languages.
+We hypothesize that the lexical information and specific preferences
+of languages that we will characterize in our study can be applied
+onto similar languages of the same family, to test hypotheses or to
+increase the coverage of their Wordnets.
+
+% Conclusion of "direct" significance
+
+In this project, we propose a novel approach to quantitative and
+qualitative studies of translation shifts on parallel corpora by
+making decisive use of a multi-lingual semantic lexicon.  We will
+produce and release a parallel corpus with cross-lingual
+sense-annotation, which outnumbers the current standards for
+comparable experiments~\citep{Pado:Erk:2010} both in scale
+(approximately $6,000$ sentences), and diversity, with four languages,
+English, Mandarin Chinese, Indonesian and Japanese, and four genres
+(essays, short stories, advertising copy and news text).  The
+availability of this resource will open the way to further contrastive
+and translation studies.  The wordnets are already extremely widely
+used, with over a thousand downloads a month, and almost a thousand
+on-line queries a day.  The corpora will be directly linked to the
+wordnets, and we expect the same level of use.  The findings of our
+pilot study will also be useful to concrete applications in natural
+language processing.
+
+% broad scientific significance
+More broadly, the findings of this study will make a significant
+contribution to cognitive linguistics.
+We will compare 4 typologically different languages through the prism
+of a common conceptual network, which will be extremely valuable to
+the study of human cognition.
+
+% social significance
+By pointing and explaining meaning differences across languages,
+the findings of this study can contribute to the improvement of
+teaching methods for second language acquisition and for translation
+and interpretation training, as well as mutual understanding and
+dialogue across cultures.
+These issues are crucial to Singapore as a multilingual and
+multicultural society and as a global cultural and business hub.
+
+
+\section{Approach}
+
+Our approach will proceed in six phases: (0) automatic cross-lingual tagging
+(1) manual cross-lingual tagging, (2) monolingual fix-up, (3) final check of
+cross-lingual tags, (4) analysis of translation shifts, (5) write-up of
+results and release of corpus.
+
+In the zeroth phase, we will create candidate links between content
+words in the two languages using the most current version of the
+multi-lingual wordnet and statistical models of word alignment.
+% In previous research by the investigator at NTU, the wordnets for
+% Chinese \citep{Xu:Gao:Qu:Huang:2008}, English \citep{_Fellbaum:1998},
+% Japanese \citep{Isahara:Bond:Uchimoto:Utiyama:Kanzaki:2008} and
+% Indonesian (Nurril Hirfana et al., 2011)\nocite{Noor:Sapuan:Bond:2011}
+% have been combined into a single multi-lingual lexicon linked through
+% English as a common pivot \citep{Bond:Paik:2012}.  
+%%% FIXME picture here
+In a preliminary investigation based on aligning concepts from the
+short story \textit{The Adventure of the Dancing Men} (Conan Doyle)
+and its Chinese translation \citep{Mok:2012}, 54.6\% of the final
+links were between words from exactly the same semantic class, such as
+\cmn{sh\v{o}u} and \eng{hand}, which are both part of the semantic
+class 05564590-n ``the (prehensile) extremity of the superior limb''.
+A further 7.9\% can be linked by allowing a word to link to a word
+that is a member of its immediate subclass, such as \eng{forgive}
+linking to the more specific: \cmn{r\'{a}osh\`{u}} ``pardon''.  The
+remaining 37.5\% of links are less direct (such as non-immediate
+hypernyms, siblings, derivationally related words and so forth).  We
+will attempt to link more automatically by allowing linking of these
+less direct relationships using not just wordnet, but also word-level
+alignments using shallow statistical models.  This automatic alignment
+will be done by the research fellow, based on the data from the
+preliminary studies.
+
+In the first phase, human annotators will check the automatic
+alignments and examine any non-aligned words.  Manual alignment is
+necessary for the most extreme translation shifts.  All manual
+annotation will be carried out by multi-lingual students from LMS, who
+have received some training in semantics, under the supervision of the
+research fellow.  All data is stored in SQL databases, and annotation
+done using web-based tools developed at LMS (and maintained and
+extended as necessary by the research fellow).  We will align Chinese,
+Japanese, and Indonesian to English for a total of approximately 12,800 sentence
+pairs (4,800 Chinese-English (1,200 have been done in preliminary
+work), 6,000 Japanese-English and 2,000 Indonesian-English).  Based on
+our preliminary studies, we expect this to take around 1,280
+person-hours.  To do this we will assemble a team of 4--8
+undergraduate annotators working over the summer.
+
+%%% How much will we align
+%% C-E 6000 (-1200) = 4800
+%% M-E 2000
+%% J-E 6000
+%% Total (+ 8000 4800) 12800 (10/hour)
+%% (* 8 1280) 10,240 (/ 12800 40) 320
+
+Typically, a close examination of the cross-lingual meaning reveals
+some errors and omissions in the original annotation.  These will be
+corrected in phase (2).  In the preliminary experiments, new word
+meanings needed to be created for around 1.6\% of the English words
+and 11.6\% of the Chinese words (the non-English wordnets are less
+fully developed than the English wordnet).  To make our subsequent
+analysis be about the real differences, not just differences in the
+lexical resources for each language, it is necessary to fix these
+before the final analysis.  It is important to note that we expect to
+find fewer missing words in each corpus we annotate. Because word frequency
+is skewed, with a few common words appearing very often, once they
+have been added the number of omissions soon drops.  New candidate entries
+will be made by the student annotators and then vetted by the PI and each
+wordnet's development team before being added.  We expect to add
+1--2,000 new entries to the wordnets: each entry needs to have a
+definition written, and be linked by one or more semantic relations to
+the existing structure.
+
+%% say 5/hour: (* 8 (/ 2000 5) 400) 3200
+
+In phase (3), we will review the cross-lingual annotation, with the
+monolingual tags corrected.  This should be relatively fast, and will
+require fewer annotators.
+
+%% Assume 5 times faster: 2,000
+% (/ 1280 5) 256
+%(+ 1280 400  256) 1936
+
+Phase (4) is the most important step: here we will analyze the
+cross-lingual tags, using the information in the wordnets to model the
+differences systematically.  Many kinds of semantic shift will be
+identifiable automatically: especially simple syntactic shifts (as
+evidenced by different POS-tags) and semantic translation shifts such
+as hyponymy/hypernymy, equivalence and adaptation.  Others will
+require further linguistic analysis.  Phase (4) will be the main
+responsibility of the research fellow.  
+
+Finally, in the final phase (5), we will disseminate the results in
+two ways: the first is as academic papers, both in journals and
+specialist conferences (such as the Global Wordnet Conference).  The
+second is by the release of the enhanced wordnets (in cooperation with
+their developers) and the annotated multi-lingual corpora \citep[as
+part of the NTU Multi-lingual Corpus:][]{Tan:Bond:2011}.  The corpora
+will also be used to add word sense frequency information to the wordnets.
+
+
+% Distinguish in the annotation between:
+% - syntactic/structural translation shifts, as evidenced by different POS-tags, head switching\ldots
+% - semantic translation shifts, distinguished between hyponymy/hypernymy, equivalence, adaptation\ldots
+
+We give a more detailed example below.  Consider the sentence \eng{The
+  minister left the party}, with translations as given below:
+\begin{exe}
+  \ex \glll Jpn: \rnode{AJ}{\ja{大臣}$_1$} \ja{が}  \rnode{BJ}{\ja{離党}} した  \\
+  {} daijin ga ritou shita  \\
+  {} minister \textsc{sbj} leave-party did \\
+
+  \ex Eng: \eng{The \rnode{AE}{minister$_4$} \rnode{BE}{left$_8$} the \rnode{CE}{party$_1$}}
+
+ \ex \glll Cmn: \rnode{AC}{官员$_1$} \rnode{BC}{离开$_3$} 了 \rnode{CC}{政党$_1$}  \\
+  {} guanyuan likai le zhengdang  \\
+  {} minister leave already political-party \\
+
+\end{exe}
+\nccurve[angleA=-135,angleB=150,ncurv=2]{AJ}{AE}
+\nccurve[angleA=-45,angleB=60,ncurv=1.7,linestyle=dashed]{BJ}{BE}
+\nccurve[angleA=-90]{AE}{AC}
+\nccurve[angleA=-90]{BE}{BC}
+\nccurve[angleA=-90,angleB=180]{CE}{CC}
+
+As part of the NTU-MC, all words that are in the wordnets have been
+marked with their senses.  English \eng{minister, leave} and
+\eng{party} are all multiply ambiguous, but they have been annotated
+with their senses meaning ``government minister'', ``step down from''
+and ``political party'', respectively.  The Chinese sentence has the
+same three concepts and can be automatically linked in phase~0.
+Although the concepts are exactly the same, the Chinese is in fact
+less ambiguous: \cmn{guanyuan} cannot be a religous minister, and
+\cmn{zhengdang} can only mean political party.  Therefore there is a
+semantic translation shift involving specialization.  The fact that
+these meanings are more specialized in Chinese (and that the English
+chose not to use the more specific multi-words \eng{government
+  minister} and \eng{political party}) can be automatically discovered
+from the structure of wordnet.
+
+Looking at the Japanese, there is one word \jpn{ritou} ``leave the
+(political) party'' which does not currently exist in the wordnet.
+Manual linking in phase~(1) would link it as a hyponym (sub-class) of
+\textsc{leave}$_8$ with \textsc{party}$_1$ linked as a pertainym
+(related in some way).  In phase~(2) a proper entry for \jpn{ritou}
+would be created.  In phases~(3) and~(4), we anticipate that many
+similar examples will appear (it is reasonably common for a verb and
+its object in English to map to a single verb in Japanese), and we can
+look for patterns of this occurring (e.g., is the verb often a
+\textsc{verb of motion}?).
+
+This extremely rich annotation allows us to explicitly measure
+translation shifts, and also use computational search to look for
+patterns in the shifts.  No one has yet carried out such detailed
+cross-lingual annotation on such a large scale: either in terms of the
+number of sentences or the number of different language families.  By
+creating such data for the languages of Singapore and the surrounding
+region, we are laying the foundations for research not only on
+translation shifts, but for further research on cognitive semantics,
+machine translation, text-mining and many others.
+
+The deliverables will include not only several papers, but also three
+software packages: (i) the annotated corpora themselves, (ii) the
+enhanced wordnets and (iii) tools for automatically annotating and
+then manually correcting more data.  As the most direct extension of
+this research, we intend to continue by automatically annotating more
+data in more languages, and also to investigate techniques for
+learning word meanings in new languages by comparing words with their
+translations.
+
+% \section{Investigator}
+
+% Francis Bond (PI) is a computational linguist with extensive
+% experience in machine translation and natural language understanding.
+% He has published over a hundred refereed papers, and has several
+% patents.  In addition to his position as Associate Professor at NTU,
+% he is an adviser at the Japanese government's National Institute for
+% Information and Communications Technology (NICT).  The PI is the lead
+% developer for the Japanese Wordnet, the Wordnet Bahasa and the open
+% multilingual Wordnet (with over twenty languages represented).  He
+% will be responsible for the overall coordination and design of the
+% annotation framework as well as the wordnet development.
+
+% Mathieu Morey (research fellow) is a computational linguist
+% specializing in efficient representation of linguistic models as
+% graphs, both for syntax and semantics.  The RF would be funded by this
+% grant, and his role would be to identify and analyze the translation
+% divergences automatically.  He would also supervise the cross-lingual
+% annotation.
+
+
+% \section{Environment}
+
+% Singapore's multi-ethnic, multi-lingual society makes it the perfect
+% location for research on language differences. The division of
+% Linguistics and Multilingual Studies (LMS) at Nanyang Technological
+% University is an ideal environment of this project due to its focus on
+% empirical, multi-lingual linguistics research.  The research fits
+% clearly into two of the University's Five Peaks of Excellence: New
+% Silk Road and Innovation Asia.  The computational group at LMS has
+% been very successful in involving undergraduates in its research both
+% as annotators and as researchers, with several student papers
+% published at refereed international conferences.  We think they are
+% well suited to investigating the differences in language's
+% representation of meaning.  We now have a small, well-annotated
+% collection of Chinese-English-Japanese corpora built in cooperation
+% with researchers in Japan, to which we are adding Indonesian text.
+% For infrastructure, LMS has its own small cluster for computational
+% experiments with local servers for annotation.  Outside LMS, there is
+% a very active collaboration with other regional wordnet developers (in
+% China, Indonesia, Malaysia and Japan) and the Global Wordnet
+% Association.  Our research is interdisciplinary and we cooperate with
+% computer science researchers at CSE in NTU and at NUS in setting up a
+% general framework for representing semantics computationally.
+% Finally,  NTU is a member of the Erasmus Mundus Multi exchange program
+% and is benefiting greatly from exchanges with groups in
+% Europe. Mathieu Morey is currently funded as a post doctoral research
+% fellow under this exchange program.
+
+% Data:
+% - NTU-MC
+% - multi-lingual WN (+ STIC-Asie)
+
+% Infrastructure:
+% - DB / framework FYP NUS (should be well advanced)
+% - multi-lingual WN
+
+
+
+\section{Preliminary studies and progress reports}
+
+We have already worked extensively on many of the components of this
+research: developing the wordnets for Chinese, Japanese and Malay/Indonesian as
+well as linking them to English
+(\citealp{Isahara:Bond:Uchimoto:Utiyama:Kanzaki:2008,Bond:Isahara:Fujita:Uchimoto:Kuribayashi:Kanzaki:2009,Bond:Isahara:Kanzaki:Uchimoto:2008};  Nurril Hirfana et al., 2011)\nocite{Noor:Sapuan:Bond:2011},
+annotating the parallel texts monolingually
+\citep{Kuroda:Kuribayashi:Bond:Kanzaki:Uchimoto:2011,Tan:Bond:2011,Bond:Baldwin:Fothergill:Uchimoto:2012},
+and linking meanings across languages
+\citep{Bond:2010,Frermann:Bond:2012}.
+
+
+Over the summer, two undergraduate interns (one from St John's
+College, Santa Fe visiting NTU in Singapore, one from NTU visiting
+NICT in Japan) completely annotated one small corpus for word class
+correspondences between Chinese and English, and started with another.
+This has led to our initial estimates of the numbers of translation
+shifts, as well as a submitted paper on differences in the use of
+idioms in translation between English and Chinese
+\citep{Mok:2012,Kng:Bond:2012}.
+
+\section{Sense Tagging}
+\label{sec:sense-tagging}
+
+One goal is to build systems capable of tagging new text: so we do not
+just want to fix errors in the corpus but also consider how the tagger
+can be improved so new text is treated correctly.
+
+
+\subsection{Monolingual Sense Annotation}\footnote{Some of this has
+  been discussed in \citet{Bond:Wang:Gao:Mok:Tan:2013}}.
+
+
+
+First, the Chinese, Japanese and Indonesian corpora were automatically
+tokenized and tagged with parts-of-speech.  Secondly, concepts were
+tagged with candidate synsets, with multiword expressions allowing a
+skip of up to 3 words.  Any match with a wordnet entry was considered
+a potential concept.
+
+These were then shown to annotators to either select the appropriate
+synset, or point out a problem. The interface for doing sense
+annotation is shown in Figure~\ref{fig:tagging}.
+
+\begin{figure*}[!tpb]
+  \centering
+\includegraphics[width=0.9\textwidth]{wnxling-img1.eps}  
+   \caption{Tagging the sense of \textit{cane}.}
+   \label{fig:tagging}
+\end{figure*}
+
+
+\subsection{Error Tags}
+\subsubsection{Phase 1}
+
+In Figure~\ref{fig:tagging}, the concepts to be annotated are shown as
+red and underlined. When clicking on a concept, its WordNet senses
+appear to the right of a screen.  The annotator chooses between these
+senses or a number of meta-tags: \textbf{e, s, m, p, u}.  Their meaning
+is explained below.
+
+\begin{itemize}
+\item [\textbf{e}] error in tokenization
+  \\ \ul{今} 日　 should be 今日
+  \\ \textit{\ul{three-toed}} should be \textit{three - toed}
+\item [\textbf{s}] missing sense (not in wordnet) 
+  \\ \textit{I program in \ul{python}} ``the computer language''
+  \\ COMMENT: add link to existing synset
+  \\ $<$\of{06898352-n} ``programming language''
+\item [\textbf{m}] bad multiword \\ (i) if the lemma is a multiword,
+  this tag means it is not appropriate \\ (ii) if the lemma is
+  single-word, this tag means it should be part of a multiword
+\item [\textbf{p}] POS that should not be tagged (article, modal,
+  preposition, \ldots{})
+\item [\textbf{u}] lemma not in wordnet but POS open class (tagged
+  automatically)
+  \\ COMMENT: add or link to existing synset
+\end{itemize}
+
+\subsubsection{Phase 2}
+
+We found that annotators (especially students) had trouble with
+distinguishing the error tags.  %%% FIXME Numbers?
+
+We therefore reduced them to three kinds: 
+
+
+\begin{itemize}
+\item [\textbf{e}] error in tokenization/lemmatization: 
+  the corpus should be fixed
+  \\ \ul{今} 日　 should be 今日
+  \\ \textit{\ul{three-toed}} should be \textit{three - toed}
+\item [\textbf{w}] wordnet should be enhanced
+  \begin{itemize}
+  \item Missing synset
+    \\ \textit{I program in \ul{python}} ``the computer language''
+    \\ COMMENT: add link to existing synset
+    \\ $<$\of{06898352-n} ``programming language''
+  \item Missing lemma (realization missing for an existing synset)
+    \\ COMMENT: add or link to existing synset
+  \end{itemize}
+\item [\textbf{x}] this lexical unit should not be in wordnet
+  \begin{itemize}
+  \item bad multiword \\ (i) if the lemma is a multiword,
+    this tag means it is not appropriate \\ (ii) if the lemma is
+    single-word, this tag means it should be part of a multiword
+  \item  POS that should not be tagged (article, modal,
+    preposition, \ldots{})
+  \end{itemize}
+\end{itemize}
+
+
+\subsection{Missing Senses}
+
+Missing senses in the wordnets were a major issue when tagging,
+especially for Chinese and Japanese.  We allowed the annotators to add
+candidate new senses in the comments; but these were not made
+immediately available in the tagging interface. As almost a third of
+the senses were missing in Chinese and Japanese, this slowed the
+annotators down considerably.
+
+Our guidelines for adding new concepts or linking words to existing
+cover four cases:
+\begin{itemize}
+\item [=] When a word is a synonym of an existing word, add
+=synset to the comment: e.g.\ for laidback, it is a synonym of
+\of{02408011-a} ``laid-back, mellow'', so we
+add \texttt{=02408011-a} to the comment for laidback.
+\item[\textless]  When a word
+is a hyponym/instance of an existing word, mark it with
+$<$synset: For example, \textit{python} is a hyponym of
+\of{06898352-n} \lex{programming language}, so we
+add \url{<06898352-n} to \textit{python}
+\item[!] Mark antonyms with !synset.
+\item[$\sim$] If you cannot come up with a more specific
+relationship, just say the  word is related in some way to an existing
+synset with  $\sim$synset; and add more detail in the comment.
+\end{itemize}
+
+
+Finally, we have added more options for the annotators: \textbf{prn}
+(pronouns) and seven kinds of named entities: \textbf{org}
+(organization); \textbf{loc} (location); \textbf{per} (person);
+\textbf{dat} (date/time); \textbf{num} (number); \textbf{oth} (other)
+and the super type \textbf{nam} (name).  These basically follow
+\citet[p207]{Landes:Leacock:Fellbaum:1998}, with the addition of
+number, date/time and name.  Name is used when automatically tagging,
+it should be specialized later, but is useful to have when aligning.
+Pronouns include both personal and indefinite-pronouns.  Pronouns are
+not linked to their monolingual antecedents, just made available for
+cross-lingual linking.
+\chapter{The Sub Corpora}
+
+
+\section{Tourism (Your Singapore)}
+
+\begin{itemize}
+\item English
+  \begin{itemize}
+  \item Location: \url{cl:/home/bond/work/ntu-mc}
+  \item Format: new
+  \item ToDo:  para, new
+  \item Tagged: 43,973 (4,220 to go; 10,198 unknown)
+  \end{itemize}
+\item Chinese
+  \begin{itemize}
+  \item Location: \url{cl:/home/bond/work/ntu-mc}
+  \item Format: new
+  \item ToDo:  para, new
+  \item Tagged: 38,679 (1801 to go; 952 unknown)
+  \end{itemize}
+\item Indonesian
+  \begin{itemize}
+  \item Location: \url{cl:/home/bond/public_html/cgi-bin/tagi}
+  \item Format: old, one file
+  \item ToDo: update, para, new
+  \item Tagged: 27159 / 41774 (untagged from sentence 1300 to 2196 plus scattered)
+    % (* 100.0 (/ 27159 41774.0)) 65.01412361756115 done
+  \item  Mark morphological thingies with ⨀⨁ (U2A00, U2A01) (ter, di, nya)
+ \\ harimaunya -> harimau⨀ ⨁nya 
+\\ Note: English superlatives should also be reduced to base form
+  \end{itemize}
+\item Japanese: nothing done 
+\end{itemize}
+
+
+\section{Story}
+
+We chose \textit{The Adventure of the Dancing Men} (danc) and
+\textit{The Adventure of the Speckled Band} (spec)\footnote{We use the
+  standard abbreviations for Sherlock Holmes Stories proposed by
+  \citet{Christ:1947}.}  as they are both highly rated stories with
+multiple translations into Japanese on the Aozora Bunko site.  The
+English is modern enough to be understood, yet the stories (and often
+translations) were produced long enough ago to be out of copyright.
+
+
+\begin{itemize}
+\item English: (dm new, sb old)
+  \begin{itemize}
+  \item Location: \url{cl:/home/bond/public_html/cgi-bin/tagx}
+  \item Format: new
+  \item ToDo:  para, new (sb: update, consolidate)
+  \item Tagged: ???
+  \item Source: \url{http://tomoki.tea-nifty.com/tomokilog/2005/12/sherlock_holmes.html}
+  \item Source: \url{http://www.my285.com/zt/kenan/bskw/index.htm}
+  \end{itemize}
+\item Chinese
+  \begin{itemize}
+  \item Location: \url{cl:/home/bond/public_html/cgi-bin/tagx}
+  \item Format: new
+  \item ToDo:  para, new (sb: update, consolidate)
+  \item Tagged: ???
+  \end{itemize}
+\item Japanese
+  \begin{itemize}
+  \item Location: \url{cl:/home/bond/public_html/cgi-bin/xling}
+  \item Format: old, separate files
+  \item ToDo:  para, new (sb: NOT TAGGED)
+  \item Tagged: ???
+  \end{itemize}
+\item xling
+  \begin{itemize}
+  \item Location: \url{cl:/home/bond/public_html/cgi-bin/tagx}
+  \item dm only
+  \end{itemize}
+\end{itemize}
+
+\section{Essay}
+\begin{itemize}
+\item English:
+  \begin{itemize}
+  \item Location \url{cl.local://home/bond/public_html/cgi-bin/tagx/eng-catb.db}
+\\ debugging info \url{cl.local://home/bond/bin/eng-catb.log}
+  \item Format: new
+  \item ToDo:  finish going through
+  \item Tagged: all
+  \item Paper: \url{ronf:/home/bond/papers/wn/wn-tag-catb.tex}
+  \end{itemize}
+\item Chinese
+  \begin{itemize}
+  \item Location: \url{cl:/home/bond/public_html/cgi-bin/tagx}
+  \item Format: new
+  \item ToDo:  para, new (sb: update, consolidate)
+  \item Tagged: all
+  \end{itemize}
+\item Japanese
+  \begin{itemize}
+  \item Location: \url{cl:/home/bond/public_html/cgi-bin/tagx}
+  \item Format: new
+  \item ToDo:  para, new (sb: update, consolidate)
+  \item Tagged: all
+  \end{itemize}
+\item xling
+  \begin{itemize}
+  \item Location: \url{cl:/home/bond/public_html/cgi-bin/tagx}
+  \item eng-cmn only; incomplete
+  \end{itemize}
+\end{itemize}
+
+\section{News (kc01, kc02)}
+\begin{itemize}
+\item English
+  \begin{itemize}
+  \item Location: \url{cl:/home/bond/public_html/cgi-bin/tag1}
+  \item Format: old, separate files
+  \item ToDo: consolidate, update, para, new
+  \item Tagged: ???
+  \item Everything has problems if there is a '[' in the sentence
+  \end{itemize}
+\item Chinese
+  \begin{itemize}
+  \item Location: \url{cl:/home/bond/public_html/cgi-bin/tag1}
+  \item Format: old, separate files
+  \item ToDo: consolidate, update, para, new
+  \item Tagged: ???
+  \end{itemize}
+\item Japanese (kc01 only tagged)
+  \begin{itemize}
+  \item Location: \url{???}
+  \item Format: old, separate files
+  \item ToDo: consolidate, update, para, new
+  \item Tagged: kc01 only
+  \end{itemize}
+\item xling
+  \begin{itemize}
+  \item sentence and bunsetsu links from NICT
+  \end{itemize}
+\end{itemize}
+
+
+
+\section{SemCor}
+
+We will also try to format SemCor in the same way.
+
+
+\chapter{Database Structure}
+
+Monolingual data and links are kept in separate databases.
+
+To link two monolingual databases and a link, use the SQL ATTACH command.
+\begin{verbatim}
+sqlite3 eng-jpn-links.db
+sqlite> ATTACH  eng-corpus.db as S
+sqlite> ATTACH  jpn-corpus.db as T
+\end{verbatim}
+
+
+
+
+\section{Monolingual Database}
+
+
+Databases are organized by genre, with subcorpora within them.  Within
+each language, sentence numbers are unique.
+
+Currently there are four genres, \txx{tourism}, \txx{story},
+\txx{essay} and \txx{news}.  We may add another \txx{semcor} although
+it is itself composed of multiple genres.
+
+\begin{table}
+  \centering
+\begin{tabular}{rlll}
+  Numbers & Genre & Corpus & Comment \\
+  \hline
+  1      & essay & catb &  \\
+  10,000 & story & danc &  \\
+  11,000 & story & spec &  \\
+  60,000 & news & kc & and links to original numbers \\
+  100,000 & tourism & yoursing &  \\
+  110,000 & tourism & med & not annotated \\
+  120,000 & gloss & wngloss & not annotated  \\
+  300,000 & semcor & semcor & not annotated  
+\end{tabular}
+
+  \caption{Sentence Numbers in the Corpus}
+\end{table}
+
+\section{Monolingual Tables}
+
+\subsection{Meta}
+
+\begin{table}[htpb]
+  \centering
+  \begin{tabular}{llll}
+  \textbf{row}   &  \textbf{type} & \textbf{data} & \textbf{comment} \\
+  \hline
+  corpus & string & corpus name & name without \texttt{.db}\\
+  title & string & display name & \\
+  language & string & text language & iso 3 letter  \\
+\hline
+\end{tabular}
+\caption{\texttt{meta}: Meta for words}
+\end{table}
+
+\subsection{Subcorpus Info}
+\begin{table}[htpb]
+  \centering
+  \begin{tabular}{llll}
+  \textbf{row}   &  \textbf{type} & \textbf{data} & \textbf{comment} \\
+  \hline
+  scid  & integer & subcorpus & starts from 1\\
+  subcorpus & TEXT & short name & same across languages\\
+  subtitle &TEXT & display name & \\
+  url & TEXT & source & 
+\\ \hline
+\end{tabular}
+\caption{\texttt{subcorp}: Subcorpus info}
+\end{table}
+
+\begin{table}[htpb]
+  \centering
+  \begin{tabular}{llll}
+  \textbf{scid}   &  \textbf{subcorpus} & \textbf{subtitle} & \textbf{url} \\
+  \hline
+  1 & spec & The Adventure of the Speckled Band &  www.??? \\
+  2 & danc & The Adventure of the Dancing Men &  www.??? 
+\end{tabular}
+\caption{\texttt{subcorp}: Subcorpus Example}
+\end{table}
+
+% e.g:  1,'sb', 'The Adventure of the Speckled Band', www.??? 
+
+FIXME: maybe add license here?
+
+
+\subsection{Monolingual Sentence Information}
+
+We keep the original sentence, in case we need to recover from bad
+tokenization.  \fd{cfrom} and \fd{cto} are calculated relative to this.
+
+\fd{pid} is currently unused.  We may need more META info (header, \ldots).
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{llll}
+  \textbf{row}   &  \textbf{type} & \textbf{data} & \textbf{comment} \\\hline
+  sid   & integer & sentence ID & unique over all corpora\\
+  pid   & integer & paragraph ID & unique in subcorpus, start from 0\\
+  sent  & text    & sentence & pre-tokenization\\
+  scid  & integer & subcorpus & starts from 1\\
+  comment & string & comment \\
+\multicolumn{4}{l}{FOREIGN KEY(scid) REFERENCES subcorp(scid)}
+\\ \hline
+\end{tabular}
+\caption{\texttt{sent}: Sentence information}
+\end{table}
+
+\subsection{Monolingual Word Information}
+
+\begin{table}[htpb]
+  \centering\caption{\texttt{sent}: Table for original sentence}
+\bigskip
+  \begin{tabular}{llll}
+  \textbf{row}   &  \textbf{type} & \textbf{data} & \textbf{comment} \\\hline
+  sid   & integer & sentence ID & unique over all corpora\\
+  wid   & integer & word ID & unique in sentence, start from 0\\
+  word  & string  & surface form &  \\
+  pos   & string  & part of speech & per language  \\
+  lemma & string  & lemma \\
+  cfrom$^*$ & integer & cfrom & start character offset of word in sentence \\
+  cto$^*$ & integer & cto & end character offset of word in sentence \\
+  comment & string & comment \\
+\hline
+\end{tabular}
+\\ $^*$ currently unused
+\caption{\texttt{word}: Table for word information}
+\end{table}
+
+\subsection{Monolingual Concept Information}
+
+Currently cid is unique in a given corpus (genre).  When we link the
+corpora together, this causes problems.
+
+ToDo: make 
+
+\begin{table}[htpb]
+  \centering  \begin{tabular}{llll}
+  \textbf{row}   &  \textbf{type} & \textbf{data} & \textbf{comment} \\\hline
+  cid   & integer & concept ID  & unique in corpus, start from 1 \\ 
+  sid   & integer & sentence ID & (sid, wid) gives the word \\
+  wid   & integer & word ID & \ldots can have more than one\\
+  clemma$^{**}$ & string  & concept lemma & may be multi-word \\
+  nlemma$^{**}$ & string  & concept lemma & used for error in corpus \\
+  tag   & string & wordnet id, tag, $\ldots$ \\
+  tag   & string & wordnet id, tag, $\ldots$ & used for tag not in tags\\
+  tags$^{***}$  & string & list of tags & for updating \\
+  comment & string & comment \\
+\hline
+\end{tabular}
+\\ $^{**}$ was called lemma
+\\ $^{***}$ was called ss
+\caption{\texttt{concept}: Table for meaning information}
+\end{table}
+
+\newpage
+\section{Cross-Lingual Linking Database}
+
+For example: \url{eng-cmn-story-links.db}
+
+\subsection{Cross-Lingual Meta}
+\begin{table}[htbp]
+\centering
+  \begin{tabular}{llll}
+  \textbf{row}   &  \textbf{type} & \textbf{data} & \textbf{comment} \\
+  \hline
+  fcorpus & string & source corpus & name without \texttt{.db}\\
+  tcorpus & string & target corpus & name without \texttt{.db}\\
+  comment & string & comment \\
+\hline
+\end{tabular}
+\caption{\texttt{meta}: Meta for links}
+\end{table}
+
+\subsection{Cross-Lingual Sentence Links}
+\begin{table}[htbp]
+\centering
+
+  \begin{tabular}{llll}
+  \textbf{row}   &  \textbf{type} & \textbf{data} & \textbf{comment} \\\hline
+  slid & integer & link ID & unique in corpus pair \\
+  fsid   & integer & source sentence ID & \\
+  tsid   & integer & target sentence ID & \\
+  ltype  & string  & link type &  \verb|=, ~, <, >|, Null if unknown\\
+  conf   & float & confidence \\
+  comment & string & comment \\
+\hline
+\end{tabular}
+\caption{\texttt{slink}: Table for linking sentences}
+\end{table}
+
+\subsection{Cross-Lingual Word Links}
+
+Need to add \fd{fsid}, \fd{tsid} as wid numbers are unique only per sentence.
+
+\begin{table}[htbp]
+\centering
+  \begin{tabular}{llll}
+  \textbf{row}   &  \textbf{type} & \textbf{data} & \textbf{comment} \\\hline
+  wlid & integer & link ID & unique in corpus pair \\
+  fwid   & integer & source word ID & \\
+  twid   & integer & target word ID & \\
+  ltype  & string  & link type &  \verb|=, ~, <, >|\\
+  conf   & float & confidence \\
+  comment & string & comment \\
+\hline
+\end{tabular}
+\caption{\texttt{wlink}: Table for linking words}
+\end{table}
+
+\subsection{Cross-Lingual Concept Information}
+
+Need to add \fd{fsid}, \fd{tsid} when cid numbers become unique only per sentence.
+
+\begin{table}[htbp]
+\centering
+  \begin{tabular}{llll}
+  \textbf{row}   &  \textbf{type} & \textbf{data} & \textbf{comment} \\\hline
+  clid & integer & link ID & unique in corpus pair \\
+  fcid   & integer & source concept ID & \\
+  tcid   & integer & target concept ID & \\
+  ltype  & string  & link type &  \verb|=, ~, <, >|\\
+  conf   & float & confidence \\
+  comment & string & comment \\
+\hline
+\end{tabular}
+\caption{\texttt{clink}: Table for linking concepts}
+\end{table}
+
+
+
+
+\subsection{Example}
+
+From \url{dm} ``The Adventure of the Dancing Men''.
+
+\includegraphics[width=0.9\textwidth]{graph}
+
+This shows a link that worked: \eng{study}, a link that is possible: \eng{nothing} to \zh{东西}, and a link missed due to a lack of concepts in the Chinese wordnet: \eng{move} to \zh{动}.
+
+
+
+
+
+% \subsection{Tourism2}
+
+% \subsection{Semcor}
+
+% \subsection{Gloss}
+
+\begin{table*}[tb]
+  \centering
+  \begin{tabular}{lrrrllllllll}
+    Genre & \multicolumn{3}{c}{Size (K)}        & \multicolumn{5}{c}{Languages} & Annotation & Comment \\
+          & St & Wd & Cpt &  cmn & eng & jpn & ind & other\\
+\hline
+    Tourism1 & 3.3$^*$ & 52 & & C &  \textbf{C} & P  & .65C & kor, vie, tha 
+    &   & \\
+    Story    & 1.2 & & & C &  \textbf{C} & C & --- &  
+    & xling  & Other corpora \\
+    Essay    & 0.8& & & C & \textbf{C} & C & --- & many 
+    & HPSG (eng) \\
+    News     & 2.0 & 53.0 & 30.0 & C & C & \textbf{.5C}  & --- &
+    & Sense, Dep (jpn) & $10^6$ words\\
+    \hline
+    Tourism2 & 3.8 & 72  & & P & \textbf{P} & P & P & arb, vie\\
+    Semcor & 14.2 &  & 151 & --- & \textbf{C} & 0.38C & ---& & HPSG, Penn\\ % (/ 58.0 151)0.3841059602649007
+    Gloss  & 112.0 & & &  --- & \textbf{C} & P & ? & alb, spa, \ldots\\
+  \end{tabular}
+  \caption{Current State of the Tagged Texts from the NTU-MC}
+  \label{tab:ntu-mc-now}
+  \begin{flushleft} \small
+    \textbf{Bold} is source language
+    \\ $^*$ less for non-English $\approx 2$k
+    \\ P: POS 
+    \\ C: Concepts (WN synsets), implies POS 
+  \end{flushleft}
+\end{table*}
+
+
+
+
+\begin{tabular}{lrrll}
+  Task & Time (h) & Cost & Who & Comments \\ \hline
+  cmn new words & 40 &  &     & \\
+  ind new words & 40 &  &     & 3,379 'u' or 's' (mainly fw)\\
+  jpn new words & 40 & EG & \\
+  cmn tagging & 43  & Shan? &     & 4,220 concepts: tool feedback\\\\
+  ind tagging & 132 &  &     & 13,125 concepts\\\\
+  kc-tagging (auto) & Heng & 160 &  4 weeks \\
+  eng-cmn link & 340 &  & & 3,400 sentences (not kc)\\
+  eng-jpn link & 340& HTY, EG & & 3,400 sentences\\
+  eng-ind link & 220 &  & & 2,197 sentences\\
+  checking & \\
+\hline
+Total & 1,315 \\
+
+\end{tabular}
+
+\begin{itemize}
+\item Available Money: 15,488 (1,548 hours at 10/hour)
+\item WN tagging: 100 open-class words/hour (had estimated 130 in the past)
+\item Linking: 10 sent/hour  (up till now 3/hour!)
+\item Final Checking: ?
+\item People
+  \begin{itemize}
+  \item HYT (Yue Hui Ting): 3 weeks (120h) can do Japanese
+  \item Heng (Heng Hok Hui): CS student,  knows Japanese, can program
+  \item JT (Jeanette): 4th year,knows Japanese, can program (built interface)
+  \item Malay student (forgot the name)
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Ideas}
+\begin{itemize}
+\item Japanese tag and project first: link and tag together (yoursing)?
+\item Indonesian: project
+\item tag monosemous as ok
+  \begin{itemize}
+  \item reduces Chinese by 1259 (40\%)
+  \item reduces Indonesian by 3,119 (23\%) %(/ 3119 13135.0) 0.2374571754853445
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Tools}
+\begin{itemize}
+\item Search/display (add to OMW tool)
+  \begin{itemize}
+  \item synset look up
+  \item word look up
+  \item sense look up
+  \end{itemize}
+\item Tagging
+  \begin{itemize}
+  \item sequential/targeted tagging
+    \begin{itemize}
+    \item tag all button
+    \end{itemize}
+  \item pair tagging (this word in eng and that in jpn)
+  \item integration:
+    \begin{itemize}
+    \item retag a word with the latest wn (auto/manual)
+    \item then link it
+    \end{itemize}
+  \item fix morphology
+  \end{itemize}
+\item Pre-processing
+  \begin{itemize}
+  \item mono tagger (done: long tail)
+  \item xling tagger (extend)
+  \item add paragraphs
+  \item mono+xling+suggest new words (later)
+  \end{itemize}
+\end{itemize}
+
+
+
+
+
+\section{ToDo}
+
+\begin{itemize}
+\item Consolidate corpora (Mar, Apr)
+  \begin{itemize}
+  \item not everything is in the new format
+  \item annotation unfinished: Indonesian, Japanese
+    \\ timetable these
+  \item tokenization errors: 
+    \\ English: mainly '-'
+    \\ Chinese: proper names, Chengyu
+    \\ Bahasa: ter+adj (how to represent decomposed: two concepts with same wid)
+  \item NEs not tagged (try to do at least some)
+  \item Easy online lookup
+    \\ by word, lemma, POS, synset, hypernym, file
+  \item New words (from tags 'u', 's', new wordnets, pron, int, dates)
+    \begin{itemize}
+    \item Pronouns, question words not tagged:   add by hand
+    \item Need tool for new entries
+    \end{itemize}
+  \end{itemize}
+\item Crosslingual annotation (Summer)
+  \begin{itemize}
+  \item Goal (14,000 sentence pairs)
+    \begin{itemize}
+    \item C-E 6000 (1200 done)
+    \item M-E 2000
+    \item J-E 6000
+    \end{itemize}
+  \item Note: News corpus aligned by NICT: hire student to convert? (4,000!)
+  \end{itemize}
+\item Papers/Research
+  \begin{itemize}
+  \item  Comparison of WN cover, estimate of missing words/senses
+    \\ in the style of \citet{Baldwin:Bender:Flickinger:Kim:Oepen:2004}
+    \\ for the four genre: how much missing, how much overlap
+    \\ /home/bond/papers/wn/wn-ml-tag
+    \\ ACL short, LREC?
+  \item xling annotation paper (based on Gao (FYP) and \citet{Mok:2012})
+    \\ PACLIC?, ACL short?
+\item Translation Shifts (main research: ACL next year, CL)
+\item Transfer Rule Acquisition
+\item Xling WSD/Annotation
+\item FYP: Pronouns
+\item Idioms
+  \end{itemize}
+\item Misc
+  \begin{itemize}
+  \item Chinese Wordnet --- release?
+    \begin{itemize}
+    \item Chinese WN
+    \item Gloss corpus
+    \item Classifiers
+    \item[?]
+    \end{itemize}
+  \item ZhEn 
+  \end{itemize}
+
+\end{itemize}
+
+
+\subsection{Tourism1}
+
+\begin{itemize}
+\item English
+  \begin{itemize}
+  \item Location: \url{cl:/home/bond/work/ntu-mc}
+  \item Format: new
+  \item ToDo:  para, new
+  \item Tagged: 43,973 (4,220 to go; 10,198 unknown)
+  \end{itemize}
+\item Chinese
+  \begin{itemize}
+  \item Location: \url{cl:/home/bond/work/ntu-mc}
+  \item Format: new
+  \item ToDo:  para, new
+  \item Tagged: 38,679 (1801 to go; 952 unknown)
+  \end{itemize}
+\item Indonesian
+  \begin{itemize}
+  \item Location: \url{cl:/home/bond/public_html/cgi-bin/tagi}
+  \item Format: old, one file
+  \item ToDo: update, para, new
+  \item Tagged: 27159 / 41774 (untagged from sentence 1300 to 2196 plus scattered)
+    % (* 100.0 (/ 27159 41774.0)) 65.01412361756115 done
+  \item  Mark morphological thingies with ⨀⨁ (U2A00, U2A01) (ter, di, nya)
+ \\ harimaunya -> harimau⨀ ⨁nya 
+\\ Note: English superlatives should also be reduced to base form
+  \end{itemize}
+\item Japanese: nothing done 
+\end{itemize}
+
+
+\chapter{The Wordnets}
+
+\section{Princeton Wordnet}
+
+\section{Chinese Wordnet}
+
+\begin{itemize}
+\item ToDo:
+  \begin{itemize}
+  \item convert NTU$_T$ data
+  \item discuss simplified/plain
+  \item discuss domains
+  \item new words from corpus
+  \item other?
+  \end{itemize}
+
+\end{itemize}
+
+\section{Wordnet Bahasa}
+
+\subsection{Derivational links}
+
+\section{Japanese Wordnet}
+
+
+\section{Guide to Extending the Wordnet}
+
+Our goal in building the wordnet is to have coverage over all open
+class predicates, whether from single words, multi-word expressions or
+constructions.  We do not attempt to cover all proper names (entities)
+although we have some common ones
+
+\subsection{What goes in}
+
+\subsubsection{Lemmas (Lexical Units)}
+
+\subsubsection{Pronouns}
+
+See Seah FYP
+
+
+\subsubsection{Interrogatives}
+
+\subsubsection{Named Entities}
+
+We tag proper named entities with the tags shown in Table~\label{sec:names}.
+These follow the tags used in SemCor
+\citep[p207]{Landes:Leacock:Fellbaum:1998}, with the addition of
+Date/Time.
+
+There doesn't seem to be a perfect supertype for \lex{date}.  We want
+something referring to a point in time (like I think \wn{today}{n}{1}
+does), but this seems to have period of time as its hypernym.
+
+\begin{table*}
+  \centering
+  \begin{tabular}{llll}
+    \textbf{Tag} & \textbf{Meaning} & Instance-of &\textbf{Example} \\ \hline
+    org & Organization (Institution) & \wn{group}{n}{1} & Singapore Airlines \\
+    loc & Location (Place)    & \wn{location}{n}{1} & Newton Hawker Centre, Sim Lim Square\\
+    per & Person       & \wn{person}{n}{1} &Sir Thomas Stamford Raffles\\
+    dat & Date/Time    & \wn{time_period}{n}{1} & 2012\\
+    oth & Other        & \wn{entity}{n}{1} & Singapore Food Festival\\
+  \end{tabular}
+  \caption{Tags for Names}
+  \label{tab:names}
+\end{table*}
+
+In this case the meta-tag is 'x', and the ntag os e.g. 'org'.
+
+We can use the part of speech tags from some systems to boot strap
+these.  For example, the IPA-DIC tags \citep{IPAL} distinguish between
+person, organization, location and other names.
+
+In general, words tagged with these will not be put into wordnets,
+although wordnet-wikipedia hybrids are beginning to go the other way
+and include many of these.
+
+For the yoursing corpus, we added many Singaporean locations and
+organizations in four languages (Chinese, Malay/Indonesian, English
+and Japanese).
+
+Give some numbers for these.
+
+
+\subsection{What stays out}
+
+\subsubsection{Exclamatives}
+\label{sec:exclamatives}
+We follow the Princeton Wordnet Guidelines \citep[pp
+???]{_Fellbaum:1998} and do not include interjections and exclamatives.
+
+\begin{verbatim}
+# 90000482	eng:lemma	wow
+# 90000482	jpn:lemma	ワウ
+# 90000482	cmn:lemma	哇
+# 90000482	eng:def	(Interjection) Used to express amazement
+# 90000482	eng:exe	Wow, that is a beautiful painting!
+# 90000482	interjection
+
+# 90000483	eng:lemma	hey
+# 90000483	cmn:lemma	嘿
+# 90000483	jpn:lemma	おおい
+# 90000483	jpn:lemma	ちょっと
+# 90000483	eng:def	(Interjection) Used to call for someone’s attention
+# 90000483	eng:exe	Hey, stop!
+# 90000483	interjection
+\end{verbatim}
+% \subsubsection{Modals}
+
+\subsubsection{Auxiliaries}
+
+We don't tag auxiliaries (although we should do as a student project)
+
+
+
+\chapter{Tagging Projects}
+
+HG202 (2011): Yoursing
+HG202 (2012): catb
+??? Chinese Class
+HG202 (2012): SB
+
+JSPS/NICT
+Tier One
+Tier Two
+URECA
+
+
+2013 catchup
+ntu-mc with new wn: COW+SEW+WIKT+ILI
+retagged
+
+duplicate sentences deleted
+
+
+
+
+
+% \newpage
+% \appendix
+% \section{General information}
+% {\bf Keywords:} translation shift, multilingual processing, wordnet, sense annotation
+% \ldots{} (6 max.)\newline
+% {\bf Funding requested:} 81,000 \$\newline
+% {\bf Duration:} 12 months\newline
+% {\bf Proposed dates:} 03/2013 -- 02/2014\newline
+
+% \section{Progress}
+% \subsection{Milestones}
+% \begin{footnotesize}
+%   \begin{tabular}{lp{4cm}cccc}
+%     \toprule
+%     SN & Description & Year 1 Q1 & Q2 & Q3 & Q4\\
+%     \midrule
+%     & xxx & x & x & x & x\\
+%     \bottomrule
+%   \end{tabular}
+% \end{footnotesize}
+
+
+% \subsection{Project deliverables}
+% \subsubsection{Manpower Training}
+% \begin{footnotesize}
+%   \begin{tabular}{lc}
+%     \toprule
+%     No. of M.Sc. students to be trained & 0\\
+%     No. of Ph.D. students to be trained & 0\\
+%     No. of Undergraduate/Honours students to be trained & 2\\
+%     \bottomrule
+%   \end{tabular}
+% \end{footnotesize}
+
+% \subsubsection{Targets for Research Outcomes}
+% \begin{footnotesize}
+%   \begin{tabular}{lc}
+%     \toprule
+%     No. of Publications & 2\\
+%     No. of Conferences & 2\\
+%     No. of Patents (if applicable) & 0\\
+%     No. of Software Tools (if applicable) & 1\\
+%     \bottomrule
+%   \end{tabular}
+% \end{footnotesize}
+
+% \section{Previous Tier 1 awards}
+% \begin{footnotesize}
+%   \begin{tabular}{lp{2.2cm}cccccc}
+%     \toprule
+%     SN & Declaration for & Role & Project Title & Year of Award &
+%     Project Start Date & Project End Date & Status\\
+%     \midrule
+%     \bottomrule
+%   \end{tabular}
+% \end{footnotesize}
+
+% \section{Declaration of other funding support}
+% The Principal Investigator and Co-Investigator(s) should detail the
+% grants awarded in the last 5 years, including those currently held or
+% submitted for consideration by other funding agencies.
+% Please note that parallel submissions are not allowed -
+% i.e. applicants should not send similar versions or part(s) of the
+% current AcRF proposal application to other agencies for funding.
+% \textbf{Please include an abstract for all pending and awarded
+%   grants.}
+
+% \subsection{Projects pending approval}
+% \begin{footnotesize}
+%   \begin{tabular}{lp{1.4cm}cp{1.8cm}p{1.6cm}p{1.5cm}p{1.5cm}p{1cm}p{1cm}p{1.4cm}}
+%     \toprule
+%     SN & Declaration for & Status & Project Title & Funding Agency &
+%     Amount Requested AcRF (\$) & Amount Requested Non-AcRF (\$) &
+%     Duration From & Duration To & Proposed Duration of Award (No. of
+%     Months)\\
+%     \midrule
+%     & Francis Bond & co-PI & Int\'{e}gration profonde de wordnets
+%     multilingues (Deep Integration of Multilingual Wordnets) & French
+%     Ministry of Foreign Affairs & 0 ??? & 72,195.41 & 2012 & 2014 & 24\\
+%     \midrule
+%     & & & & & 0 & 72,195.41 & & & \\
+%     \bottomrule
+%   \end{tabular}
+% \end{footnotesize}
+% % 72,195.41 SGD = 46,650 EUR = 36,650 + 10,000 EUR (Foreign Affairs +
+% % Inria in the proposal)
+% % 24 months from 10/2012 to 09/2014
+
+% % \vspace{3mm}
+% % Question:
+% % Should part of the local support we listed in the budget of the STIC
+% % Asie proposal, e.g. expected PhD funding, be listed as AcRF funding? NO
+
+% \subsection{Projects awarded}
+% \begin{footnotesize}
+%   \begin{tabular}{lp{1.4cm}cp{1.8cm}p{1.6cm}p{1.5cm}p{1.5cm}p{1cm}p{1cm}p{1.4cm}}
+%     \toprule
+%     SN & Declaration for & Status & Project Title & Funding Agency &
+%     Amount Requested AcRF (\$) & Amount Requested Non-AcRF (\$) &
+%     Duration From & Duration To & Proposed Duration of Award (No. of
+%     Months)\\
+%     \midrule
+%     \bottomrule
+%   \end{tabular}
+% \end{footnotesize}
+
+% KHU
+
+% \subsection{Projects completed}
+% \begin{footnotesize}
+%   \begin{tabular}{lp{1.4cm}cp{1.8cm}p{1.6cm}p{1.5cm}p{1.5cm}p{1cm}p{1cm}p{1.4cm}}
+%     \toprule
+%     SN & Declaration for & Status & Project Title & Funding Agency &
+%     Amount Requested AcRF (\$) & Amount Requested Non-AcRF (\$) &
+%     Duration From & Duration To & Proposed Duration of Award (No. of
+%     Months)\\
+%     \midrule
+%     \bottomrule
+%   \end{tabular}
+% \end{footnotesize}
+
+% SUG, JSPS, CC
+
+
+% \subsection{Other resources available to the team}
+
+% \begin{footnotesize}
+%   \begin{tabular}{llll}
+%     \toprule
+%     Types Of Resources & Funding Organisations & Duration of Support &
+%     Expiry Date\\
+%     \midrule
+%     \bottomrule
+%   \end{tabular}
+% \end{footnotesize}
+
+% Support from NICT, joint research with NTT
+
+% \section{Details and justification of proposed budget}
+
+% Overall proposed budget:
+
+% \begin{footnotesize}
+%   \begin{tabular}{lcccc}
+%     \toprule
+%     Category & Year 1 (S\$) & Year 2 (S\$) & Year 3 (S\$) & Total (S\$)\\
+%     \midrule
+%     EOM & 81,000 & & & 81,000 \\
+%     Equipment & & & & \\
+%     OOE - Materials \& Consumables & & & & \\
+%     OOE - Training/Other Miscellaneous & & & & \\
+%     OOE - Overseas Travel & & & & \\
+%     \midrule
+%     Sub-Total (S\$) & 81,000 & & & 81,000 \\
+%     \bottomrule
+%   \end{tabular}
+% \end{footnotesize}
+
+% \subsection{EOM}
+
+% \begin{footnotesize}
+%   \begin{tabular}{p{3cm}p{0.5cm}p{0.8cm}p{1.2cm}p{1.2cm}p{1.2cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}}
+%     \toprule
+%     Staff Category & No. of Staff & Cost per Head (\$) & Cost Type & Year
+%     1 Man-month/ Total Hours & Year 2 Man-month/ Total Hours & Year 3
+%     Man-month/ Total Hours & Year 1 (\$) & Year 2 (\$) & Year 3 (\$) &
+%     Total (\$)\\
+%     \midrule
+%     Research Fellow & 1 & 66,000 & Salary & 12 M-m & & & 66,000 & & & 66,000\\
+%     Student Assistant & 1 & 9,000 & ??? & 1,000 Hrs & & & 9,000 & & & 9,000\\
+%     Conference Support & ? & 6,000 & Travel & ? & & & 6,000 & & & 6,000\\
+%     \midrule
+%     & & & & & & & 81,000 & & & 81,000 \\
+%     \bottomrule
+%   \end{tabular}
+% \end{footnotesize}
+% % research fellow: 62,000 to 120,000 p.a.
+% % student assistant: 7 to 9/hour for undergrads, 10 to 15 for grads
+% % conference support: 30,000 for 3 years (Tier 2), 6,000 for 1 year
+% % (Tier 1)
+
+% Should travel money be listed here?
+% The format of OOE - Travel makes me hesitate (specify the country).
+
+% \subsection{Equipment}
+
+% \begin{footnotesize}
+%   \begin{tabular}{p{1.4cm}p{1.4cm}p{0.8cm}p{0.8cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1.2cm}}
+%     \toprule
+%     Item & Type & Quantity & Cost per Unit & Year 1 Units & Year 2 Units &
+%     Year 3 Units & Year 1 (\$) & Year 2 (\$) & Year 3 (\$) & Total (\$) &
+%     Quotation\\
+%     \midrule
+%     \bottomrule
+%   \end{tabular}
+% \end{footnotesize}
+
+% \subsection{OOE - Materials \& Consumables}
+% \label{sec:ooe-mc}
+
+% \begin{footnotesize}
+%   \begin{tabular}{p{1.4cm}cccc}
+%     \toprule
+%     Item & Year 1 (\$) & Year 2 (\$) & Year 3 (\$) & Total (\$)\\
+%     \midrule
+%     \bottomrule
+%   \end{tabular}
+% \end{footnotesize}
+
+% \subsection{OOE - Training/Other Miscellaneous}
+% \label{sec:ooe-misc}
+
+% \begin{footnotesize}
+%   \begin{tabular}{p{1.4cm}cccc}
+%     \toprule
+%     Item & Year 1 (\$) & Year 2 (\$) & Year 3 (\$) & Total (\$)\\
+%     \midrule
+%     \bottomrule
+%   \end{tabular}
+% \end{footnotesize}
+
+% \subsection{OOE - Overseas Travel}
+% \label{sec:ooe-travel}
+
+% \begin{footnotesize}
+%   \begin{tabular}{p{1.4cm}ccccc}
+%     \toprule
+%     Country & No of Days & Year 1 (\$) & Year 2 (\$) & Year 3 (\$) & Total
+%     (\$)\\
+%     \midrule
+%     \bottomrule
+%   \end{tabular}
+% \end{footnotesize}
+
+% \section{Suggested names of referees}
+% \label{sec:referees}
+
+% \begin{footnotesize}
+%   \begin{tabular}{cp{2cm}p{2cm}p{2.6cm}p{2cm}p{2cm}p{2.6cm}}
+%     \toprule
+%     SN & Name & Designation & Institution & Email & Contact Number & Remarks\\
+%     \midrule
+%     \bottomrule
+%   \end{tabular}
+% \end{footnotesize}
+\section{Tagging}
+
+\subsection{Japanese}
+\CJKfamily{min}
+We introduce two new parts of speech, to deal with verbal-noun
+light-verb combinations like 勉強\ する \jpn[study (lit: study
+do)]{benky\=o suru}.  In this case, we want to tag
+the 勉強 \jpn{benkyou} as a verb, not a noun, and not
+tag する \jpn{suru}, instead treating it as an auxiliary.
+
+\begin{table}
+\begin{tabular}{lllll}
+  POS1 & POS2 & gloss &Example & Comment\\
+  \hline
+  名詞 & サ変接続 & n-sahen & \ul{勉強} が　好き \\
+  動詞 & サ変接続 & n-sahen & 日本語 を \ul{勉強} する & new\\
+  動詞 & 接尾  & v-suffix & 日本語 を 勉強  \ul{する/なさる/致す/いたす} & \\
+  　　 &  & & 日本語 が 勉強  \ul{できる} \\
+\end{tabular}
+\caption{New Parts of Speech for Japanese}
+\end{table}
+Note that the POS code \jpn[v-suffix]{動詞 接尾} exists in the IPA
+tagging guidelines, but is not normally used to mark these light verbs.
+
+We identify them as follows:
+\begin{verbatim}
+select  a.sid, a.wid, b.wid, a.lemma, b.lemma 
+from word as a left join word as b   
+where a.sid=b.sid and b.wid = a.wid +1
+and b.lemma in ('できる', 'する', 'なさる', '致す', 'いたす') 
+and a.pos = '名詞-サ変接続';
+\end{verbatim}
+
+FIXME: need to deal with cases like these: currently fix する,  but should also make an entry for ``尖鋭 化''.
+
+\begin{verbatim}
+    <wf wid='w3573:13' sent='3573' para='0'>尖鋭</wf> <!-- 名詞-一般 -->
+    <wf wid='w3573:14' sent='3573' para='0'>化</wf> <!-- 名詞-接尾-サ変接続 -->
+    <wf wid='w3573:15' sent='3573' para='0'>する</wf> <!-- 動詞-接尾 -->
+\end{verbatim}
+
+Code in \url{/home/bond/ntu-mc/2013-12-14/fix-jpn.py}
+
+\CJKfamily{gbsn}
+\subsection{Indonesian}
+
+We did four kinds of morphological analysis, on top of a tagger trained on FIXME.
+
+\begin{itemize}
+\item Splitting \lex{di-} ``passive'' from verbs.  Look for
+  \textit{\^di+REST} where \textit{REST} is in wordnet as a verb.
+\item Splitting \lex{ter-} ``superlative'' from adjectives.  Look for
+  \textit{\^ter+REST} where \textit{REST} is in wordnet as an adjective.
+\item Splitting \lex{-nya} ``pronoun clitic'' from nouns.  Look for
+  \textit{REST-nya\$} where \textit{REST} is in wordnet as a noun, and the whole thing is not in a list of exceptions: FIXME
+\item Splitting \lex{-lah} ``please'' from adjectives, adverbs,
+  determinatives and verbs.  Look for \textit{REST-lah\$} where
+  \textit{REST} is in wordnet as an adjective, adverb, \lex{ini} or
+  \lex{itu} and verbs.
+\end{itemize}
+
+\subsection{English}
+
+\paragraph{Operating System} lemmatized as \lex{operate system} so only
+matches if we check surface form for matching MWEs.
+
+
+\lex{DJ} is a verb, \lex{dj} a verb.  Both should be upper case?
+
+\subsection{Chinese}
+
+The lemma is different from the surface form for three
+cases:
+
+\subsubsection{Reduplication}
+大大 AD2  大
+
+We do this by checking for a repeated character, and if not on a stop
+list, then add '2' to the POS and delete one character from the lemma.
+
+FIXME: add stop list
+FIXME: table showing frequency
+
+AD2
+JJ2        
+M2        
+NN2        
+PN2        
+VA2        
+VV2       
+\subsubsection{Plural}
+
+ We also lemmatized plural-marked nouns, such
+as 学生+们 \cmn[student+s]{xuéshēng+men}
+to 学生 \cmn[student]{xuéshēng}.  This only occurs for 18
+words.\footnote{In some segmentation standards these would be two
+  tokens, the Chinese Penn Treebank consistently treats these as one
+  token \citep{Xia:2000}.} 
+
+\subsection{Errors}
+
+Old characters.
+FIXME: expand, list
+
+\subsection{Inconsistent Morphological analysis:}
+\begin{itemize}
+\item 1990|年 vs １９９４年
+\end{itemize}
+
+
+\section{ToDo}
+
+\begin{itemize}
+\item Consolidate corpora (Mar, Apr)
+  \begin{itemize}
+  \item not everything is in the new format
+  \item annotation unfinished: Indonesian, Japanese
+    \\ timetable these
+  \item tokenization errors: 
+    \\ English: mainly '-'
+    \\ Chinese: proper names, Chengyu
+    \\ Bahasa: ter+adj (how to represent decomposed: two concepts with same wid)
+  \item NEs not tagged (try to do at least some)
+  \item Easy online lookup
+    \\ by word, lemma, POS, synset, hypernym, file
+  \item New words (from tags 'u', 's', new wordnets, pron, int, dates)
+    \begin{itemize}
+    \item Pronouns, question words not tagged:   add by hand
+    \item Need tool for new entries
+    \end{itemize}
+  \end{itemize}
+\item Crosslingual annotation (Summer)
+  \begin{itemize}
+  \item Goal (14,000 sentence pairs)
+    \begin{itemize}
+    \item C-E 6000 (1200 done)
+    \item M-E 2000
+    \item J-E 6000
+    \end{itemize}
+  \item Note: News corpus aligned by NICT: hire student to convert? (4,000!)
+  \end{itemize}
+\item Papers/Research
+  \begin{itemize}
+  \item  Comparison of WN cover, estimate of missing words/senses
+    \\ in the style of \citet{Baldwin:Bender:Flickinger:Kim:Oepen:2004}
+    \\ for the four genre: how much missing, how much overlap
+    \\ /home/bond/papers/wn/wn-ml-tag
+    \\ ACL short, LREC?
+  \item xling annotation paper (based on Gao (FYP) and \citet{Mok:2012})
+    \\ PACLIC?, ACL short?
+\item Translation Shifts (main research: ACL next year, CL)
+\item Transfer Rule Acquisition
+\item Xling WSD/Annotation
+\item FYP: Pronouns
+\item Idioms
+  \end{itemize}
+\item Misc
+  \begin{itemize}
+  \item Chinese Wordnet --- release?
+    \begin{itemize}
+    \item Chinese WN
+    \item Gloss corpus
+    \item Classifiers
+    \item[?]
+    \end{itemize}
+  \item ZhEn 
+  \end{itemize}
+
+\end{itemize}
+
+
+\section{Guidelines for extending the wordnets}
+
+Our goal in building the wordnet is to have coverage over all open
+class predicates, whether from single words, multi-word expressions or
+constructions.  We do not attempt to cover all proper names (entities)
+although we have some common ones.  We also do not cover closed class
+mainly functional words.  We differ from the Princeton wordnet in
+adding pronouns, as we wish to be able to compare the use of pronouns
+with the use of other referring expressions.
+
+\subsection{What goes in}
+
+\subsubsection{Lemmas (Lexical Units)}
+
+
+\subsubsection{Pronouns}
+
+\subsubsection{Interrogatives}
+
+\subsection{What stays out}
+
+
+
+
+
+\chapter{Applications}
+
+What we do with the corpus.
+
+\section{Wordnet Frequency and Examples}
+
+\section{On-line look-up}
+
+
+
+\subsection*{Acknowledgments}
+
+Much of the initial work on adding senses was done by Jeanette Tan,
+Eshley Gao, Hazel Mok and Yue Hui Ting, supported by the NTU URECA
+program.  We also received support from NICT, in the form of
+internships and Toyohashi University of Technology, in the person of
+Takayuki Kuribayashi.  Some annotation was carried out at NTT-AT under
+the capable supervision of Satsuki Abe.
+
+The corpus has been used to teach lexical semantics at NTU in both
+HG2002 \textit{Semantics and Pragmatics} and HG250 \textit{Chinese
+  Lexicology}.  Thanks to the students for their comments and
+feedback.  
+
+Mathieu Morey was deeply involved in discussions of how to represent
+the cross-lingual alignment.
+
+We received much useful advice from members of the KYOTO project,
+especially Christiane Fellbaum, Piek Vossen and Hitoshi Isahara. 
+
+Kyoko Kanzaki and Hitoshi Isahara helped extend the Japanese
+translation of the Cathedral and the Bazaar.  Kyonghee Paik helped
+sentence aligning the Speckled Band.
+
+Funding: JSPS, SUG, Tier 1, NICT.
+
+\bibliographystyle{plainnat}
+\bibliography{abb,mtg,nlp,ling}
+
+
+\appendix
+\chapter{Part of Speech Tags}
+\section{English Part of Speech Tags}
+
+We use the Penn POS tags with the addition of \tg{VAX}
+
+\begin{table}
+  \centering
+  \begin{tabular}{lll}
+    \textbf{Tag} & \textbf{Description} & \textbf{Example} & \textbf{Comment}\\
+\hline
+%1.
+\tg{CC} & Coordinating conjunction \\
+%2.
+\tg{CD} & Cardinal number \\
+%3.
+\tg{DT} & Determiner \\
+%4.
+\tg{EX} & Existential there \\
+%5.
+\tg{FW} & Foreign word \\
+%6.
+\tg{IN} & Preposition or subordinating conjunction \\
+%7.
+\tg{JJ} & Adjective \\
+%8.
+\tg{JJR} & Adjective, comparative \\
+%9.
+\tg{JJS} & Adjective, superlative \\
+%10
+\tg{LS} & List item marker \\
+%11
+\tg{MD} & Modal \\
+%12
+\tg{NN} & Noun, singular or mass \\
+%13
+\tg{NNS} & Noun, plural \\
+%14
+\tg{NNP} & Proper noun, singular \\
+%15
+\tg{NNPS} & Proper noun, plural \\
+%16
+\tg{PDT} & Predeterminer \\
+%17
+\tg{POS} & Possessive ending \\
+%18
+\tg{PRP} & Personal pronoun \\
+%19
+\tg{PRP\$} & Possessive pronoun \\
+%20
+\tg{RB} & Adverb \\
+%21
+\tg{RBR} & Adverb, comparative \\
+%22
+\tg{RBS} & Adverb, superlative \\
+%23
+\tg{RP} & Particle \\
+%24
+\tg{SYM} & Symbol \\
+%25
+\tg{TO} & to \\
+%26
+\tg{UH} & Interjection \\
+%27
+\tg{VB} & Verb, base form \\
+%28
+\tg{VBD} & Verb, past tense \\
+%29
+\tg{VBG} & Verb, gerund or present participle \\
+%30
+\tg{VBN} & Verb, past participle \\
+%31
+\tg{VBP} & Verb, non-3rd person singular present \\
+%32
+\tg{VBZ} & Verb, 3rd person singular present \\
+% New
+\rowcolor{lightgray} 
+\tg{VAX} & Verb, Auxiliary & \eng{have, be} & Don't tag\\
+%33
+\tg{WDT} & Wh-determiner \\
+%34
+\tg{WP} & Wh-pronoun \\
+%35
+\tg{WP\$} & Possessive wh-pronoun \\
+%36
+\tg{WRB} & Wh-adverb  \\
+
+  \end{tabular}
+  \caption{English POS Tags}
+  \label{tab:eng-pos}
+\end{table}
+
+\section{Japanese Part of Speech Tags}
+
+We use the IPA POS tags with the addition of \tg{動詞-変接続}
+%%% Taken from http://www.unixuser.org/~euske/doc/postag/
+\begin{verbatim}
+ChaSen 品詞体系 (IPA品詞体系)
+
+ChaSen の品詞体系は任意の階層化を許している。 いわゆる形容動詞は名詞の形容動詞語幹として含まれ、 形容詞には含まれない。Juman の指示詞という カテゴリは「連体詞」に含まれている。 判定詞「だ」は助動詞とされている。
+
+Type1 	Type2 	Type3 	Type4 	Examples 	Description
+連体詞 	「この」、「いろんな」、「おっきな」、「堂々たる」 	
+接頭詞 	形容詞接続 	「お」、「まっ」、「クソ」 	「お高い」「クソ高い」「まっ赤」
+数接続 	「No.」、「計」、「毎分」 	あとに数値がくるもの。
+動詞接続 	「ぶっ」、「引き」 	あとに動詞がくるもの。「ぶったたく」
+名詞接続 	「もと」、「アンチ」、「最」、「総」 	あとに名詞がくるもの。
+名詞 	引用文字列 	「いわく」のみ 	
+サ変接続 	「苦労」、「終了」、「アピール」、「くしゃみ」 	「～する」の形をとれるもの。
+ナイ形容詞語幹 	「申し訳」、「とんでも」、「おとなげ」 	「～ない」の形をとれるもの。
+形容動詞語幹 	「あからさま」、「ミステリアス」、「決定的」、「無人」 	「～な」の形をとれるもの。
+動詞非自立的 	「ごらん」、「ちょうだい」のみ 	「～してごらん」「～してちょうだい」
+副詞可能 	「１０月」、「せんだって」、「当分」 	おもに時相名詞。
+一般 	「大根」、「シエスタ」、「加速度」、「ありさま」 	一般名詞。
+数 	「ゼロ」、「億」 	数値。
+接続詞的 	「VS」、「対」、「兼」のみ 	
+固有名詞 	一般 	「北穂高岳」、「電通銀座ビル」、「Ｇ１」 	下のカテゴリにあてはまらないもの。山・川・商品名など。
+人名 	一般 	「グッチ裕三」、「紫式部」 	芸能人名など。
+姓 	「山田」、「ビスコンティ」 	
+名 	「Ｂ作」、「アントニオ」、「右京太夫」 	
+組織 	「いすゞ自動車」、「ニチレイ」、「統一アイルランド党」 	
+地域 	一般 	「北海道」、「やながわ工業団地」、「ラムサール」 	
+国 	「露西亜」、「バングラデシュ」 	
+接尾 	サ変接続 	「化」、「入り」 	「巨大化」「キャンプ入り」
+一般 	「ぎみ」、「ゆかり」、「枚」、「不可」 	
+形容動詞語幹 	「がち」、「的」、「同然」 	
+助数詞 	「オクターブ」、「％」、「ヶ国」 	単位。
+助動詞語幹 	「そ」、「そう」のみ 	「～してそう」「～そうだ」で使われる。
+人名 	「君」、「はん」 	
+地域 	「州」、「市内」、「港」 	
+特殊 	「ぶり」、「み」、「方」 	
+副詞可能 	「いっぱい」、「前後」、「次第」 	
+代名詞 	一般 	「そこ」、「俺」、「こんちくしょう」 	
+縮約 	「わたしゃ」、「そりゃあ」 	
+非自立 	一般 	「こと」、「きらい」、「くせ」、「もの」 	
+形容動詞語幹 	「ふう」、「みたい」のみ 	
+助動詞語幹 	「よ」、「よう」のみ 	
+副詞可能 	「限り」、「さなか」、「うち」 	
+特殊 	助動詞語幹 	「そ」、「そう」のみ 	
+動詞 	自立 	「いがみ合う」、「たてつく」、「垢抜ける」 	
+接尾 	「する」、「られる」、「させる」、「がかる」 	
+非自立 	「しまう」、「ちゃう」、「願う」 	「行ってしまう」「やっちゃったね」「ご遠慮願う」
+形容詞 	自立 	「けたたましい」、「分別臭い」、「めでたい」 	
+接尾 	「ったらしい」、「っぽい」 	
+非自立 	「づらい」、「がたい」、「よい」 	「聞きづらい」「見よい」
+副詞 	一般 	「たいそう」、「人一倍」、「いけしゃあしゃあ」 	
+助詞類接続 	「あまり」、「いつも」、「ぱさぱさ」 	同一文節内に付属語がこれるもの。
+接続詞 	「けれども」、「たとえば」、「反面」 	
+助詞 	格助詞 	一般 	「の」、「から」、「を」 	
+引用 	「と」のみ 	
+連語 	「について」、「とかいう」 	解析ミスを防ぐためのマクロ。
+係助詞 	「は」、「こそ」、「も」、「や」 	
+終助詞 	「かしら」、「ぞ」、「っけ」、「わい」 	
+接続助詞 	「て」、「つつ」、「および」、「ので」 	
+特殊 	「かな」、「けむ」、「にゃ」 	「せにゃならん」 これ以外の用途は不明。
+副詞化 	「と」、「に」のみ 	
+副助詞 	「くらい」、「なんか」、「ばっかり」 	
+副助詞／並立助詞／終助詞 	「か」のみ 	
+並立助詞 	「とか」、「だの」、「やら」 	
+連体化 	「の」のみ 	
+助動詞 	「らしい」、「ござる」、「っす」、「じゃん」 	「そうでございます」
+感動詞 	「うむ」、「お疲れさま」、「トホホ」 	
+記号 	句点 	「。」、「．」のみ 	
+読点 	「、」、「，」のみ 	
+空白 	「　」のみ 	
+アルファベット 	「Ａ」 	
+一般 	「？」、「！」、「￥」 	
+括弧開 	「（」、「【」 	
+括弧閉 	「”」、「＞」 	
+フィラー 	「えーと」、「なんか」 	(たぶん)音声認識用。
+その他 	間投 	「あ」、「ア」のみ 	「そんなぁ」
+未知語 	「オマエモナー」「ＮＵＬＬＰＯ」 	
+\end{verbatim}
+
+
+
+
+\end{CJK}
+\end{document}
+
+
+Notes: try to revise as we go
+ * 
+
+ * recommend chrome/firefox
+
+ * can do batch updates
+ * try to link to wn-feedback
+
+ * harder to access next week (but possible)
+ * try to link as much as possible
+ * linking Pronouns
+
+ * report once a week (Thursday)
+
+ 

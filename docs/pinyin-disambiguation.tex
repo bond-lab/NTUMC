@@ -1,0 +1,390 @@
+% -*- coding: utf-8 -*-
+% Compile with: xelatex pinyin-disambiguation.tex
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans Mono CJK SC}
+
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{enumitem}
+\usepackage{linguex}
+
+\title{Automatic Pinyin Assignment for a Chinese Wordnet\\Using Dictionary Definitions and Gloss Matching}
+\author{Francis Bond \and Claude (Anthropic)}
+\date{February 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+  We describe a method for automatically assigning Mandarin pinyin
+  romanizations to lemmas in the NTU Multilingual Corpus Chinese
+  Wordnet.  Our multi-stage pipeline uses CC-CEDICT as the primary
+  pronunciation source, resolving ambiguous readings by filtering
+  cross-reference-only and weak entries (surname-only, compound-only),
+  by matching CEDICT definitions against WordNet English glosses and
+  lemmas using word overlap, and by retaining both readings for tone-5
+  and same-meaning variant pairs.  Of 234,215 lexical entries, we
+  assign pinyin to 230,027 (98.2\%), of which 56,184 are unique
+  matches, 477 are disambiguated via gloss and lemma matching, and
+  173,134 are assembled character by character.  Only 324
+  pronunciation records across 85 lemmas remain genuinely ambiguous.
+  We release the remaining ambiguous cases for manual review.
+\end{abstract}
+
+\section{Introduction}
+
+The NTU Multilingual Corpus (NTU-MC) Chinese Wordnet contains
+234,215 lexical entries linked to Princeton WordNet 3.0 synsets.
+While the wordnet records written forms (simplified Chinese
+characters), it does not include pronunciation information.  Pinyin
+romanization is essential for many downstream applications and for
+accessibility.
+
+Adding pinyin is complicated by the fact that many Chinese characters
+have multiple readings depending on meaning.  For example, the
+character 芥 is read \emph{jiè} when meaning ``mustard'' but
+\emph{gài} in the compound 芥蓝 (\emph{gàilán}, ``Chinese
+broccoli'').  A simple dictionary lookup returns both readings without
+indicating which applies.
+
+We present a multi-stage pipeline that resolves the majority of these
+ambiguities automatically, leveraging the structure of both CC-CEDICT
+and the wordnet itself.
+
+\section{Resources}
+
+\paragraph{CC-CEDICT} A community-maintained Chinese--English
+dictionary containing 120,517 entries with simplified characters,
+pinyin, and English definitions.  We use the gzipped release from
+MDBG.\footnote{\url{https://www.mdbg.net/chinese/dictionary?page=cedict}}
+
+\paragraph{NTU-MC Chinese Wordnet} The Chinese portion of the NTU
+Multilingual Corpus wordnet, containing 234,215 lexical entries mapped
+to 116,999 synsets.  Each synset is linked to an English gloss and
+English lemmas from Princeton WordNet 3.0 via the NTU-MC database.
+
+\section{Method}
+
+\subsection{Stage 1: Direct CEDICT Lookup}
+
+For each lemma, we look up the written form in CC-CEDICT.  Three
+outcomes are possible:
+
+\begin{enumerate}[nosep]
+\item \textbf{Unique match}: The word has exactly one reading in
+  CEDICT.  This reading is assigned directly.
+\item \textbf{Multiple readings}: The word has two or more readings.
+  These proceed to Stage~2.
+\item \textbf{No match}: The word is not in CEDICT as a whole unit.
+  These proceed to character-by-character assembly (Stage~1b).
+\end{enumerate}
+
+\subsubsection{Stage 1b: Character-by-Character Assembly}
+
+For words not found in CEDICT, we assemble pronunciation
+character by character, using the most frequent reading for each
+character as observed across all CEDICT compound entries.  This
+frequency-based selection naturally prefers the compound reading of a
+character, which is appropriate since these are multi-character words.
+The resulting pronunciation is marked with \texttt{notation="composed"}
+to indicate lower confidence.
+
+\subsection{Stage 2: Cross-Reference Filtering}
+
+Many CEDICT entries for a character exist only to redirect to a
+compound.  For example:
+
+\ex. \textbf{芥} has two CEDICT entries:
+  \a. \emph{gài}: ``see 芥蓝 [gài lán]'' (cross-reference only)
+  \b. \emph{jiè}: ``mustard'' (real definition)
+
+We identify cross-reference-only readings by checking if all
+definitions begin with ``see~\ldots'', ``variant of~\ldots'', or
+``old variant of~\ldots''.  After filtering these out, 147 previously
+ambiguous words are reduced to a single reading.
+
+\subsection{Stage 2b: Weak-Reading Elimination}
+
+Even among readings with real (non-cross-reference) definitions, some
+are unlikely to be the intended reading for a standalone wordnet
+lemma.  We classify each reading by its definition types and eliminate
+readings that are exclusively:
+
+\begin{itemize}[nosep]
+\item \textbf{Surname-only} --- e.g., 曾~\emph{zēng} ``surname
+  Zeng'' is eliminated, leaving \emph{céng} ``once; already''.
+\item \textbf{Compound-only} (``used in~\ldots'') --- e.g.,
+  上~\emph{shǎng} ``used in 上声'' is eliminated, leaving
+  \emph{shàng} ``up; upper''.
+\item \textbf{Abbreviation-only} --- e.g., 蚌~\emph{bèng} ``abbr.\
+  for Bengbu'' is eliminated, leaving \emph{bàng} ``mussel''.
+\end{itemize}
+
+\noindent Additionally, readings marked exclusively as colloquial (``(coll.)'')
+or Taiwan-specific (``(Tw)'' / ``Taiwan~pr.'') are treated as weak.
+This stage resolves an additional ${\sim}90$ words to a
+single reading.
+
+\subsection{Stage 3: Gloss and Lemma-Based Disambiguation}
+
+For the remaining words with multiple real readings, we exploit
+the fact that each lemma is linked to one or more WordNet synsets,
+each of which has an English gloss and a set of English lemmas.  Each
+CEDICT reading also comes with English definitions.  We score the
+match between CEDICT definitions and the combined gloss and lemma text
+using tokenized word overlap.
+
+\paragraph{Scoring} For each reading $r$ with CEDICT definitions
+$D_r = \{d_1, d_2, \ldots\}$ and combined synset text $G$ (glosses
+$+$ English lemmas):
+
+\begin{enumerate}[nosep]
+\item Tokenize all texts: lowercase, remove punctuation and stop words.
+\item Apply rough suffix stripping (\emph{-tion}, \emph{-ing},
+  \emph{-ed}, \emph{-ly}, etc.) to improve recall.
+\item Compute $\mathrm{score}(r) = |T(D_r) \cap T(G)|$, where $T(\cdot)$
+  denotes the token set.
+\end{enumerate}
+
+If one reading scores strictly higher than all others, it is selected.
+Including English lemmas (e.g., \emph{play}, \emph{strum},
+\emph{consequence}) alongside glosses substantially improves recall,
+since lemmas often share vocabulary with CEDICT definitions more
+directly than the longer gloss text.
+
+\paragraph{Examples}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{llll}
+  \toprule
+  Word & Readings & Synset lemmas + gloss & Selected \\
+  \midrule
+  弹 & \emph{tán} `to \textbf{play}; to \textbf{flick}' & lemmas: \emph{\textbf{play}, \textbf{flip}, \textbf{flick}} & \emph{tán} \\
+     & \emph{dàn} `bullet; shell' & gloss: ``\textbf{play} on an instrument'' & \\[4pt]
+  打 & \emph{dǎ} `to \textbf{hit}; to \textbf{strike}' & lemmas: \emph{\textbf{hit}, \textbf{strike}} & \emph{dǎ} \\
+     & \emph{dá} `dozen (loanword)' & gloss: ``\textbf{hit} with a missile \ldots'' & \\[4pt]
+  结果 & \emph{jiéguǒ} `\textbf{outcome}; \textbf{result}' & lemmas: \emph{\textbf{result}, \textbf{consequence}} & \emph{jiéguǒ} \\
+       & \emph{jiēguǒ} `to bear \textbf{fruit}' & gloss: ``a phenomenon that follows \ldots'' & \\[4pt]
+  行 & \emph{háng} `\textbf{row}; \textbf{line}' & lemmas: \emph{\textbf{row}, \textbf{column}} & \emph{háng} \\
+     & \emph{xíng} `to walk; to travel' & gloss: ``an arrangement of objects \ldots'' & \\
+  \bottomrule
+\end{tabular}
+\caption{Examples of gloss and lemma-based disambiguation.  The
+  reading whose CEDICT definitions share content words (bold) with
+  the synset lemmas and gloss is selected.}
+\label{tab:examples}
+\end{table}
+
+\subsection{Stage 4: Tone-5 Variant Pairs}
+
+When two readings of a word differ only in whether a syllable carries
+a neutral tone (tone~5) versus a full tone, both readings are retained
+as valid pronunciations.  For example, 东西 has readings
+\emph{dōngxi} (``thing; stuff'') and \emph{dōngxī} (``east and
+west''); both are kept.  This stage resolves ${\sim}48$ previously
+ambiguous entries.
+
+\subsection{Stage 5: Same-Meaning Variants}
+
+Some words have multiple readings that share overlapping definitions
+in CEDICT --- these are genuine pronunciation variants of the same
+meaning.  For example, 尽量 can be read either \emph{jǐnliàng} or
+\emph{jìnliàng}, both meaning ``as much as possible''; 削 can be
+read \emph{xiāo} or \emph{xuē}, both meaning ``to cut; to pare''.
+When we detect that two readings share at least one common definition
+(case-insensitive), we retain both.  This resolves ${\sim}11$
+entries.
+
+\subsection{Stage 6: Taiwan Cross-References}
+
+When one of two remaining readings is annotated in CEDICT with
+``Taiwan~pr.\ [\ldots]'' pointing to the other reading, we keep both
+pronunciations: the mainland reading with no notation and the Taiwan
+reading with \texttt{notation="Taiwan"}.  For example, 血 has
+\emph{xuè} (standard) and \emph{xiě} (Taiwan~pr.), both meaning
+``blood''; both are retained.  This stage resolves 9~entries.
+
+\subsection{Pronunciation Notes}
+
+The \texttt{notation} attribute of the WN-LMF \texttt{Pronunciation}
+element encodes the provenance of each reading:
+
+\begin{itemize}[nosep]
+\item No \texttt{notation} --- resolved (unique CEDICT match or
+  disambiguated).
+\item \texttt{notation="composed"} --- character-by-character assembly.
+\item \texttt{notation="unresolved"} --- multiple readings retained.
+\item \texttt{notation="Taiwan"}, etc.\ --- regional or register
+  variant from a CEDICT pronunciation note (e.g., ``Taiwan~pr.'',
+  ``colloquial~pr.'').
+\end{itemize}
+
+\section{Results}
+
+Table~\ref{tab:results} summarizes the outcome of the pipeline across
+all 234,215 lexical entries.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrr}
+  \toprule
+  Category & Entries & \% \\
+  \midrule
+  No pinyin (no CEDICT data) & 4,188 & 1.8 \\
+  \midrule
+  Unique CEDICT match & 56,184 & 24.0 \\
+  \quad incl.\ cross-reference filtered & 147 & --- \\
+  \quad incl.\ weak-reading eliminated & ${\sim}90$ & --- \\
+  Gloss/lemma-disambiguated & 477 & 0.2 \\
+  Tone-5 / same-meaning (both kept) & 72 & --- \\
+  Taiwan cross-references (both kept) & 9 & --- \\
+  Character-by-character (composed) & 173,134 & 73.9 \\
+  \midrule
+  \emph{Total with pinyin} & \emph{230,027} & \emph{98.2} \\
+  \midrule
+  Remaining ambiguous (unresolved) & 324 & --- \\
+  \quad (85 unique lemmas, 151 entries) & & \\
+  \bottomrule
+\end{tabular}
+\caption{Pinyin assignment results.  Remaining ambiguous entries have
+  multiple pronunciation records attached.  Tone-5 pairs and
+  same-meaning variants (${\sim}59$ entries) are counted under the
+  unique match total since both readings are retained.}
+\label{tab:results}
+\end{table}
+
+\paragraph{Disambiguation breakdown}  Of the words with multiple
+CEDICT readings, 147 were resolved by cross-reference filtering
+(Stage~2), ${\sim}90$ by weak-reading elimination (Stage~2b), 477 by
+gloss and lemma matching (Stage~3), ${\sim}48$ by tone-5 pair
+retention (Stage~4), ${\sim}11$ by same-meaning detection
+(Stage~5), and 9 by Taiwan cross-reference retention (Stage~6),
+leaving 85 unique words (324 pronunciation records across 151 entries)
+unresolved.
+
+The unresolved cases fall into several categories:
+
+\begin{itemize}[nosep]
+\item \textbf{Function words} (e.g., 不是, 了, 么): Definitions are
+  too abstract for word overlap to distinguish readings.
+\item \textbf{Genuinely sense-dependent} (e.g., 中 `middle' vs.\
+  `to hit'; 乐 `happy' vs.\ `music'): The correct reading depends on
+  which synset the entry is linked to, but neither CEDICT definition
+  overlaps the English gloss or lemmas.
+\end{itemize}
+
+\subsection{Additional Processing: Particle Lemmas}
+
+The NTU-MC database includes 29,830 entries where the Chinese lemma
+contains \emph{+的} or \emph{+地}, indicating adjectival or adverbial
+derivation (e.g., 高兴+的 ``happy [adj]'').  We normalize these by
+removing the \emph{+} sign and marking all senses of the entry as
+\texttt{lexicalized="false"} in the WN-LMF output, following the
+convention that these are productive morphological forms rather than
+independent lexical items.
+
+\section{Discussion}
+
+The combined pipeline reduces ambiguous lemmas from over 1,000 to
+85.  Gloss and lemma matching resolves 477 entries; the structural
+heuristics (cross-reference filtering, weak-reading elimination,
+tone-5 pairs, same-meaning variants, and Taiwan cross-references)
+resolve a further ${\sim}240$.
+Including English lemmas alongside glosses in the scoring was a
+significant improvement, nearly halving the number of unresolved
+cases.
+
+While more sophisticated methods such as word embeddings or
+cross-lingual models could potentially improve this, the marginal
+gains are likely small: most remaining cases involve function words or
+genuinely polyphonic characters where English glosses and lemmas
+provide little discriminative signal.
+
+Regional pronunciation variants from CEDICT (e.g., ``Taiwan~pr.'')
+are preserved as \texttt{notation} annotations, allowing downstream
+applications to present or filter variant readings as needed.
+
+The 85 remaining ambiguous lemmas are released as a tab-separated
+file for manual verification.  Each row contains the word, reading,
+overlap score, CEDICT definitions, and WordNet glosses, facilitating
+efficient human review.
+
+\section{Conclusion}
+
+We have presented a lightweight, resource-efficient method for
+assigning pinyin to a Chinese wordnet that requires no training data
+or neural models---only a bilingual dictionary (CC-CEDICT) and the
+English glosses and lemmas already present in the wordnet.  The method
+achieves 98.2\% coverage with high precision on the resolved cases,
+and produces a structured list of remaining ambiguities for human
+review.
+
+\appendix
+\section{Random Examples}
+
+This appendix shows 10 randomly selected entries from each of the
+three main output categories.
+
+\subsection{Resolved (unique or disambiguated)}
+
+These entries received a single pinyin reading, either from a unique
+CEDICT lookup or via gloss/lemma disambiguation.
+
+\begin{enumerate}[nosep]
+\item 杂乱无章 \emph{zá luàn wú zhāng} `disorderly'
+\item 幼儿 \emph{yòu'ér} `infant'
+\item 克娄巴特拉 \emph{kè lóu bā tè lā} `Cleopatra'
+\item 倒数 \emph{dào shù} `countdown'
+\item 俄克拉荷马 \emph{é kè lā hé mǎ} `Oklahoma'
+\item 黑天 \emph{hēi tiān} `Krishna'
+\item 说道 \emph{shuō dào} `to say'
+\item 闽南语 \emph{mǐn nán yǔ} `Hokkien'
+\item 军国主义 \emph{jūn guó zhǔ yì} `militarism'
+\item 反语 \emph{fǎn yǔ} `irony'
+\end{enumerate}
+
+\subsection{Character-by-character (composed)}
+
+These entries were not found in CEDICT as whole words; their
+pronunciation was assembled from individual character frequencies.
+
+\begin{enumerate}[nosep]
+\item 复燃室 \emph{fù rán shì} `afterburner chamber'
+\item 铀矿 \emph{yóu kuàng} `uranium ore'
+\item 地方教育委员会 \emph{dì fāng jiào yù wěi yuán huì} `local education committee'
+\item 连水陆路 \emph{lián shuǐ lù lù} `combined water-land route'
+\item 劳役马 \emph{láo yì mǎ} `draft horse'
+\item 马来麝 \emph{mǎ lái shè} `Malay musk deer'
+\item 令人安慰的 \emph{lìng rén ān wèi de} `reassuring'
+\item 燕子水仙 \emph{yàn zi shuǐ xiān} `jonquil'
+\item 倾角罗盘 \emph{qīng jiǎo luó pán} `dip compass'
+\item 铀矿 \emph{yóu kuàng} `uranium mine'
+\end{enumerate}
+
+\subsection{Unresolved (multiple readings)}
+
+These entries retain two or more candidate pronunciations, marked with
+\texttt{notation="unresolved"}.
+
+\begin{enumerate}[nosep]
+\item 通 \emph{tōng} / \emph{tòng}
+\item 教学 \emph{jiāo xué} / \emph{jiào xué}
+\item 宿 \emph{xiǔ} / \emph{xiù}
+\item 好玩 \emph{hǎo wán} / \emph{hào wán}
+\item 台 \emph{tāi} / \emph{tái}
+\item 斗 \emph{dǒu} / \emph{dòu}
+\item 勾 \emph{gōu} / \emph{gòu}
+\item 渐 \emph{jiān} / \emph{jiàn}
+\item 追 \emph{duī} / \emph{zhuī}
+\item 将 \emph{jiāng} / \emph{jiàng} / \emph{qiāng}
+\end{enumerate}
+
+\end{document}
