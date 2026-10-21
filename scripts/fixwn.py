@@ -6,6 +6,12 @@ Addresses three categories of problems found during wordnet validation:
   W502  Self-loop synlinks (synset1 == synset2) — deleted
   W501  POS-mismatch hypernyms — per-case fixes (delete link, rename
         synset, delete synset, merge senses, or leave as-is)
+  DEF   Wrong definitions — exact-string replacements, duplicate deletion
+  SENSE Wrong senses — deleted
+  DEIX  Missing deixis links (dmnu/dmtu) from demonstratives to
+        medial/proximal/distal/remote
+  TWO   "of two" feature replaces dual for either/neither/both and the
+        one-of-two pronouns; either split into universal and elective
 
 Usage:
     fixwn.py WN_DB [--dry-run]
@@ -13,7 +19,6 @@ Usage:
 
 import argparse
 import sqlite3
-import sys
 
 
 def _rename_synset(db, old, new, dry_run):
@@ -299,6 +304,376 @@ def fix_pos_mismatches(db, dry_run):
     print(f"  Left as-is: {skipped} determiners/pronouns/grammatical words.")
 
 
+# ── DEF: Wrong definitions ────────────────────────────────────────────
+
+# (synset, lang, old_def, new_def)
+FIX_DEF = [
+    # Japanese a-series demonstratives are remote, not distal
+    # (distal is for two-way systems: that, 那, itu)
+    ("77000048-n", "eng",
+     "3rd person, singular, masculine, informal, distal pronoun",
+     "3rd person, singular, masculine, informal, remote pronoun"),  # あいつ
+    ("77000059-n", "eng",
+     "demonstratives, singular, distal pronoun",
+     "demonstratives, singular, remote pronoun"),                   # あれ
+    ("77000070-n", "eng",
+     "entity, dual, formal, distal pronoun",
+     "entity, of two, formal, remote pronoun"),                     # あちら
+    # "dual" is number (a pair: we two); these choose from a set of two,
+    # so they get the feature "of two" (domain Two, Jeretič et al. 2026)
+    ("77000071-n", "eng",
+     "entity, dual, formal, medial pronoun",
+     "entity, of two, formal, medial pronoun"),                     # そちら
+    ("77000072-n", "eng",
+     "entity, dual, formal, proximal pronoun",
+     "entity, of two, formal, proximal pronoun"),                   # こちら
+    ("77000073-n", "eng",
+     "entity, dual, informal, proximal pronoun",
+     "entity, of two, informal, proximal pronoun"),                 # こっち
+    ("77000074-n", "eng",
+     "entity, dual, elective existential pronoun",
+     "entity, of two, elective existential pronoun"),               # either
+    ("77000076-a", "eng",
+     "quantifier, dual universal",
+     "quantifier, of two, universal"),                              # both
+    ("77000076-n", "eng",
+     "entity, dual, universal pronoun",
+     "entity, of two, universal pronoun"),                          # both
+    ("77000076-n", "eng",
+     "pronoun, entity, dual; quantifier:  dual universal",
+     "pronoun, entity, of two; quantifier: of two, universal"),     # both
+    ("00524607-a", "eng",
+     "entity, dual, negative pronoun",
+     "entity, of two, negative pronoun"),                           # neither
+    ("00524607-a", "eng",
+     "quantifier, dual, negative",
+     "quantifier, of two, negative"),                               # neither
+    ("00524607-n", "eng",
+     "pronoun, entity; quantifier: quantifier, dual, negative",
+     "pronoun, entity; quantifier: quantifier, of two, negative"),  # neither
+    # Indonesian is two-way adnominally (and Chinese two-way), so the
+    # manner pronoun is distal, matching its existing link
+    ("77000088-r", "eng",
+     "manner, medial pronoun",
+     "manner, distal pronoun"),                     # 那样, begitu, demikian
+    ("77000088-n", "eng",
+     "manner, medial pronoun",
+     "manner, distal pronoun"),                     # (no senses)
+]
+
+
+def fix_defs(db, dry_run):
+    """Replace definitions that exactly match a known-bad string."""
+    n = 0
+    for ss, lang, old, new in FIX_DEF:
+        found = db.execute(
+            "SELECT COUNT(*) FROM synset_def "
+            "WHERE synset=? AND lang=? AND def=?", (ss, lang, old)
+        ).fetchone()[0]
+        if not found:
+            print(f"    {ss}: already fixed or not found")
+            continue
+        print(f"    {ss}: {old!r} -> {new!r}")
+        n += found
+        if not dry_run:
+            db.execute(
+                "UPDATE synset_def SET def=? "
+                "WHERE synset=? AND lang=? AND def=?", (new, ss, lang, old)
+            )
+    return n
+
+
+# Duplicate definitions to delete: (synset, lang, sid)
+DELETE_DEF = [
+    ("77010001-a", "eng", 1),  # medial: same as sid 0 with a double space
+]
+
+
+def delete_defs(db, dry_run):
+    """Delete duplicate definitions by synset, language and sid."""
+    n = 0
+    for ss, lang, sid in DELETE_DEF:
+        found = db.execute(
+            "SELECT def FROM synset_def WHERE synset=? AND lang=? AND sid=?",
+            (ss, lang, sid),
+        ).fetchone()
+        if not found:
+            print(f"    {ss} sid {sid}: already deleted or not found")
+            continue
+        print(f"    {ss} sid {sid}: delete {found[0]!r}")
+        n += 1
+        if not dry_run:
+            db.execute(
+                "DELETE FROM synset_def WHERE synset=? AND lang=? AND sid=?",
+                (ss, lang, sid),
+            )
+    return n
+
+
+# ── SENSE: Wrong senses ───────────────────────────────────────────────
+
+# (synset, lang, lemma) senses to delete
+DELETE_SENSE = [
+    # 哪 'which' is interrogative (77000091-a), not distal 'that' (那)
+    ("77000079-a", "cmn", "哪"),
+]
+
+
+def delete_senses(db, dry_run):
+    """Delete senses that link a word to the wrong synset."""
+    n = 0
+    for ss, lang, lemma in DELETE_SENSE:
+        rows = db.execute(
+            "SELECT s.wordid FROM sense s JOIN word w USING (wordid) "
+            "WHERE s.synset=? AND w.lang=? AND w.lemma=?", (ss, lang, lemma)
+        ).fetchall()
+        if not rows:
+            print(f"    {ss} {lemma}: already deleted or not found")
+            continue
+        print(f"    {ss} {lemma}: delete sense")
+        n += len(rows)
+        if not dry_run:
+            db.executemany(
+                "DELETE FROM sense WHERE synset=? AND wordid=?",
+                [(ss, wid) for (wid,) in rows],
+            )
+    return n
+
+
+# ── DEIX: Missing deixis links ────────────────────────────────────────
+
+MEDIAL, PROXIMAL, DISTAL, REMOTE = (
+    "77010001-a", "77010002-a", "77010003-a", "77010004-a"
+)
+
+# Demonstrative synset -> deixis synset, following the definitions.
+# Japanese is three-way (ko/so/a = proximal/medial/remote); English,
+# Chinese, Czech and Indonesian (adnominally) are two-way (proximal/distal).
+DEIXIS = {
+    # medial: so-series
+    "77000057-n": MEDIAL,    # それら
+    "77000060-a": MEDIAL,    # その
+    "77000060-n": MEDIAL,    # それ
+    "77000071-n": MEDIAL,    # そちら
+    "77000109-n": MEDIAL,    # そいつ
+    "77000110-n": MEDIAL,    # そいつら
+    "77000113-a": MEDIAL,    # そんな
+    "77000113-r": MEDIAL,    # そんなに
+    "77000115-n": MEDIAL,    # そっち
+    "77000117-n": MEDIAL,    # そこ
+    # proximal: ko-series, this/these, 这, ini
+    "77000058-a": PROXIMAL,  # these, 这些, ini semua
+    "77000058-n": PROXIMAL,  # these, これら
+    "77000061-a": PROXIMAL,  # this
+    "77000061-n": PROXIMAL,  # this, これ
+    "77000072-n": PROXIMAL,  # こちら
+    "77000073-n": PROXIMAL,  # こっち
+    "77000075-a": PROXIMAL,  # この, 这, ini
+    "77000075-n": PROXIMAL,  # これ, 这, ini
+    "77000089-a": PROXIMAL,  # こんな, 这样
+    "77000089-r": PROXIMAL,  # こんなに, begini
+    "77000122-n": PROXIMAL,  # こいつ
+    "77000123-n": PROXIMAL,  # こいつら
+    # distal: that/those, 那, itu
+    "77000079-a": DISTAL,    # that
+    "77000079-n": DISTAL,    # that
+    "77000080-a": DISTAL,    # 那, itu
+    "77000080-n": DISTAL,    # 那, itu
+    "77000082-a": DISTAL,    # those, 那些
+    "77000082-n": DISTAL,    # those, 那些
+    "77000088-r": DISTAL,    # 那样, begitu
+    # remote: a-series, sana
+    "77000048-n": REMOTE,    # あいつ
+    "77000059-a": REMOTE,    # あの
+    "77000059-n": REMOTE,    # あれ
+    "77000070-n": REMOTE,    # あちら
+    "77000081-n": REMOTE,    # あそこ, sana
+    "77000108-n": REMOTE,    # あいつら
+    "77000114-a": REMOTE,    # あんな
+    "77000114-r": REMOTE,    # あんなに
+    "77000116-n": REMOTE,    # あっち
+}
+
+
+def _add_link(db, s1, link, s2, dry_run):
+    """Add a synlink unless it already exists; return 1 if added."""
+    if db.execute(
+        "SELECT 1 FROM synlink WHERE synset1=? AND synset2=? AND link=?",
+        (s1, s2, link),
+    ).fetchone():
+        return 0
+    print(f"    add: {s1} --{link}--> {s2}")
+    if not dry_run:
+        db.execute(
+            "INSERT INTO synlink (synset1, synset2, link, src) "
+            "VALUES (?, ?, ?, 'pron')", (s1, s2, link),
+        )
+    return 1
+
+
+def fix_deixis(db, dry_run):
+    """Link each demonstrative to its deixis synset (dmnu + reverse dmtu)."""
+    n = 0
+    for ss, deix in DEIXIS.items():
+        n += _add_link(db, ss, "dmnu", deix, dry_run)
+        n += _add_link(db, deix, "dmtu", ss, dry_run)
+    print(f"  {n} links {'to add' if dry_run else 'added'}.")
+    return n
+
+
+# ── TWO: "of two" feature and the two kinds of either ────────────────
+
+TWO = "77010009-n"
+DUAL = "02183135-a"
+QUANTIFIER, SINGULAR = "06302381-n", "06299916-n"
+EITHER_UNIV, EITHER_ELEC = "77000141-a", "77000142-a"
+
+# New synsets: (synset, name, definition)
+NEW_SYNSETS = [
+    (TWO, "of two",
+     "used of a word that chooses from or quantifies over a set of two"),
+    # universal either (on either side = each of the two): it is to
+    # each (02269635-a) what both is to all
+    (EITHER_UNIV, "either", "quantifier, singular, of two, universal"),
+    # elective either (take either road): one of two, any one
+    (EITHER_ELEC, "either", "quantifier, singular, of two, elective existential"),
+]
+
+# Words that choose from a set of two
+OF_TWO = [
+    "77000070-n", "77000071-n", "77000072-n",  # あちら, そちら, こちら
+    "77000073-n", "77000115-n", "77000116-n",  # こっち, そっち, あっち
+    "77000065-n", "77000066-n",                # どちら, どっち
+    "77000074-n", EITHER_UNIV, EITHER_ELEC,    # either
+    "00524607-n", "00524607-a",                # neither
+    "77000076-n", "77000076-a",                # both
+]
+
+# Links to delete: (synset1, link, synset2), each with its reverse
+DELETE_TWO_LINKS = [
+    # dual is number, not one-of-two
+    ("77000074-n", "dmnu", DUAL),
+    ("77000076-n", "dmnu", DUAL),
+    ("77000076-a", "dmnu", DUAL),
+    ("00524607-a", "dmnu", DUAL),
+    # pronoun either now has its own determiner, not any
+    ("77000074-n", "hasq", "02267686-a"),
+]
+REVERSE = {"dmnu": "dmtu", "hasq": "qant"}
+
+# Links to add, each with its reverse
+ADD_TWO_LINKS = [(ss, "dmnu", TWO) for ss in OF_TWO] + [
+    (EITHER_UNIV, "dmnu", QUANTIFIER),
+    (EITHER_UNIV, "dmnu", SINGULAR),
+    (EITHER_ELEC, "dmnu", QUANTIFIER),
+    (EITHER_ELEC, "dmnu", SINGULAR),
+    ("77000074-n", "hasq", EITHER_ELEC),
+]
+
+# Move the English either sense from both (77000076-a) to universal either
+MOVE_SENSE = [("77000076-a", EITHER_UNIV, "eng", "either")]
+# New senses: (synset, lang, lemma, pos)
+NEW_SENSES = [(TWO, "eng", "of two", "n"),
+              (EITHER_ELEC, "eng", "either", "a")]
+
+
+def _add_synset(db, ss, name, definition, dry_run):
+    """Add a synset with one English definition unless it exists."""
+    if db.execute("SELECT 1 FROM synset WHERE synset=?", (ss,)).fetchone():
+        return 0
+    print(f"    add synset: {ss} {name!r}: {definition!r}")
+    if not dry_run:
+        db.execute(
+            "INSERT INTO synset (synset, pos, name, src) "
+            "VALUES (?, ?, ?, 'pron')", (ss, ss[-1], name),
+        )
+        db.execute(
+            "INSERT INTO synset_def (synset, lang, def, sid) "
+            "VALUES (?, 'eng', ?, 0)", (ss, definition),
+        )
+    return 1
+
+
+def _wordid(db, lang, lemma, pos, dry_run):
+    """Return the wordid for a lemma, adding the word if it is missing."""
+    row = db.execute(
+        "SELECT wordid FROM word WHERE lang=? AND lemma=? AND pos=?",
+        (lang, lemma, pos),
+    ).fetchone()
+    if row:
+        return row[0]
+    print(f"    add word: {lemma!r} ({lang}, {pos})")
+    if dry_run:
+        return None
+    return db.execute(
+        "INSERT INTO word (lang, lemma, pos) VALUES (?, ?, ?)",
+        (lang, lemma, pos),
+    ).lastrowid
+
+
+def _add_sense(db, ss, lang, lemma, pos, dry_run):
+    """Add a sense unless the word already has one in this synset."""
+    if db.execute(
+        "SELECT 1 FROM sense s JOIN word w USING (wordid) "
+        "WHERE s.synset=? AND w.lang=? AND w.lemma=?", (ss, lang, lemma)
+    ).fetchone():
+        return 0
+    wid = _wordid(db, lang, lemma, pos, dry_run)
+    print(f"    add sense: {ss} {lemma}")
+    if not dry_run:
+        db.execute(
+            "INSERT INTO sense (synset, wordid, lang, src, confidence) "
+            "VALUES (?, ?, ?, 'pron', 1.0)", (ss, wid, lang),
+        )
+    return 1
+
+
+def _move_sense(db, old, new, lang, lemma, dry_run):
+    """Move a word's sense from one synset to another."""
+    row = db.execute(
+        "SELECT s.wordid FROM sense s JOIN word w USING (wordid) "
+        "WHERE s.synset=? AND w.lang=? AND w.lemma=?", (old, lang, lemma)
+    ).fetchone()
+    if not row:
+        print(f"    {old} {lemma}: already moved or not found")
+        return 0
+    print(f"    move sense: {lemma} {old} -> {new}")
+    if not dry_run:
+        db.execute(
+            "UPDATE sense SET synset=? WHERE synset=? AND wordid=?",
+            (new, old, row[0]),
+        )
+    return 1
+
+
+def fix_two(db, dry_run):
+    """Add the "of two" feature and split either into universal/elective."""
+    n = 0
+    for ss, name, definition in NEW_SYNSETS:
+        n += _add_synset(db, ss, name, definition, dry_run)
+    for ss, lang, lemma, pos in NEW_SENSES:
+        n += _add_sense(db, ss, lang, lemma, pos, dry_run)
+    for old, new, lang, lemma in MOVE_SENSE:
+        n += _move_sense(db, old, new, lang, lemma, dry_run)
+    for s1, link, s2 in DELETE_TWO_LINKS:
+        for a, lk, b in ((s1, link, s2), (s2, REVERSE[link], s1)):
+            if db.execute(
+                "SELECT 1 FROM synlink WHERE synset1=? AND link=? "
+                "AND synset2=?", (a, lk, b)
+            ).fetchone():
+                print(f"    delete: {a} --{lk}--> {b}")
+                n += 1
+                if not dry_run:
+                    db.execute(
+                        "DELETE FROM synlink WHERE synset1=? AND link=? "
+                        "AND synset2=?", (a, lk, b)
+                    )
+    for s1, link, s2 in ADD_TWO_LINKS:
+        n += _add_link(db, s1, link, s2, dry_run)
+        n += _add_link(db, s2, REVERSE[link], s1, dry_run)
+    return n
+
+
 # ── Main ──────────────────────────────────────────────────────────────
 
 def main():
@@ -332,6 +707,23 @@ def main():
 
     print("--- W501: POS-mismatch hypernyms ---")
     fix_pos_mismatches(db, args.dry_run)
+    print()
+
+    print("--- DEF: Wrong definitions ---")
+    fix_defs(db, args.dry_run)
+    delete_defs(db, args.dry_run)
+    print()
+
+    print("--- SENSE: Wrong senses ---")
+    delete_senses(db, args.dry_run)
+    print()
+
+    print("--- DEIX: Missing deixis links ---")
+    fix_deixis(db, args.dry_run)
+    print()
+
+    print("--- TWO: of-two feature, either split ---")
+    fix_two(db, args.dry_run)
     print()
 
     if not args.dry_run:
