@@ -266,6 +266,9 @@ Download fresh databases, apply all fixes, and regenerate the display:
 .venv/bin/python scripts/2026-07/audit_comment_suggestions.py
 .venv/bin/python scripts/2026-07/retag_partly.py --fix
 
+# 15b. Retag either/哪 tokens after the fixwn.py pronoun fixes
+.venv/bin/python scripts/2026-07/fix_pronoun_tags.py --fix
+
 # 16. Audit to verify
 .venv/bin/python scripts/fix_corpus.py --audit
 .venv/bin/python scripts/check_cwl.py

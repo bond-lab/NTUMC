@@ -351,6 +351,15 @@ FIX_DEF = [
     ("00524607-n", "eng",
      "pronoun, entity; quantifier: quantifier, dual, negative",
      "pronoun, entity; quantifier: quantifier, of two, negative"),  # neither
+    # the either/neither pronouns are singular, like their determiners
+    # (applied after the dual -> of two rows above)
+    ("77000074-n", "eng",
+     "entity, of two, elective existential pronoun",
+     "entity, singular, of two, elective existential pronoun"),     # either
+    ("00524607-n", "eng",
+     "pronoun, entity; quantifier: quantifier, of two, negative",
+     ("pronoun, entity, singular; quantifier: quantifier, of two, "
+      "negative")),                                                 # neither
     # Indonesian is two-way adnominally (and Chinese two-way), so the
     # manner pronoun is distal, matching its existing link
     ("77000088-r", "eng",
@@ -568,6 +577,8 @@ ADD_TWO_LINKS = [(ss, "dmnu", TWO) for ss in OF_TWO] + [
     (EITHER_ELEC, "dmnu", QUANTIFIER),
     (EITHER_ELEC, "dmnu", SINGULAR),
     ("77000074-n", "hasq", EITHER_ELEC),
+    ("77000074-n", "dmnu", SINGULAR),
+    ("00524607-n", "dmnu", SINGULAR),
 ]
 
 # Move the English either sense from both (77000076-a) to universal either
