@@ -1,0 +1,151 @@
+id	word	verdict	reason
+34800	入格	WRONG	illative grammatical case, not 'inferential'
+88685	口蓋	WRONG	palate (anatomy), not the Roman official 'palatine'
+46065	流す	WRONG	'let flow/wash away', not converting to floating-point notation
+13706	作り方	WRONG	'way of making, recipe', not the construction industry
+52015	袋入り	WRONG	'in a bag' (from 'sacked' misread), not plundered
+91197	仕上げ工	WRONG	finishing worker (person), not a race car that finishes
+51635	参照付き	WRONG	'with cross-references' (index sense of syndetic), not connected by a conjunction
+89713	輝度	WRONG	luminance/brightness, not clearness of water
+24395	宿り木	WRONG	mistletoe, a specific parasitic plant, not 'parasite' in general
+13037	従属して	WRONG	'subordinately', not 'going under' to defeat or ruin
+89107	切断機	WRONG	cutting machine, not a person who cuts
+39194	散々	UNSURE	usually 'severely/thoroughly'; the rare 'scattered' reading is an adverb, not the spatial property
+51888	上手い	OK
+18579	焦げる	OK
+67384	狭心症	WRONG	angina pectoris, not coronary occlusion
+78822	身を落とす	UNSURE	'lower oneself in station'; only loosely 'make concessions'
+39495	折り返す	OK
+48794	触れる	OK
+71114	動体	OK
+80290	事象	OK
+92520	務める	WRONG	'serve as / play a role', not toy or fiddle with
+11406	慇懃	OK
+73368	両	OK
+64643	ばい貝	WRONG	noun 'whelk' linked to the verb 'gather whelk'
+57785	萌える	OK
+17216	由来	OK
+31392	実	OK
+80528	裏側	WRONG	'back side' (hind = rear), not the fish
+88529	交換局	WRONG	telephone exchange office, not currency exchange
+89877	尾状核	WRONG	caudate nucleus (brain), not the leaf shape
+10451	言い返す	OK
+14976	医	OK
+76633	枝分かれ	OK
+65723	乗り越える	WRONG	'overcome / climb over', not 'be on top of'
+99544	育つ	OK
+93625	財産贈与	WRONG	gift of property; the divorce settlement is 財産分与
+77802	外壁	WRONG	outer wall (bailey), not singer Pearl Bailey
+57590	重荷	WRONG	burden, not a generator's power output
+36533	抑える	OK
+54444	玉転	WRONG	bagatelle the table game, not the piano piece
+40441	不謹慎	WRONG	indiscretion/impropriety, not vanity or conceit
+81703	出軍	WRONG	military dispatch, not promptness or efficiency
+52541	逸興	WRONG	'special delight/amusement', not a lobby group
+12979	祭司	WRONG	priest; a rabbi is not a priest, and this synset is the title
+61255	もろ手を挙げて	OK
+35741	チェック	WRONG	not the hunting sense 'stop in a chase when scent is lost'
+42203	便り	WRONG	noun 'letter/news', not the verb 'mark with letters'
+58126	耳障り	OK
+25271	損なう	WRONG	'damage/harm (something)', not 'feel pain'
+72364	スティール山	WRONG	a mountain, not the writer Richard Steele
+67967	ヒゲクジラ亜目	WRONG	taxon name (Mysticeti suborder), not a baleen whale itself
+21417	察知	OK
+92114	運河	WRONG	man-made canal, not a bodily duct
+92935	清める	OK
+50615	発す	OK
+70464	借り換える	WRONG	refinance a loan, not convert someone to a faith
+34277	ニオイヤグルマ	UNSURE	means sweet sultan (Centaurea moschata); PWN wrongly lists 'sweet sultan' in this blessed-thistle synset
+36015	自由	OK
+56005	一向	OK
+60057	丸で	OK
+64540	直接的	OK
+34246	卑俗	WRONG	'vulgar' (philistine), not relating to ancient Philistia
+30671	膝状体	WRONG	geniculate body (anatomy), not 'bent at a sharp angle'
+51915	間違い	OK
+57928	オープン	OK
+38960	迎える	OK
+38241	ホープ	OK
+20892	晴渡る	WRONG	'clear up (sky)', not permission to proceed
+27964	基本伝送単位	WRONG	'basic transmission unit' (another BTU acronym), not the heat unit
+50487	御拾	OK
+40751	居酒屋	WRONG	tavern, not the unit of pressure 'bar'
+80426	バルカン山脈	WRONG	Balkan Mountains, not the Balkan countries
+18707	文句	WRONG	grumble/phrase, not the archaic loud cry of pain or grief
+61896	恩知らず	WRONG	'ingrate', not 'disagreeable' (as in an ungrateful task)
+88269	シェパード	WRONG	German shepherd dog, not a person from Alsace
+40857	蔵	OK
+35734	秉燭	WRONG	'holding a lamp / dusk', not a lampshade
+95875	御目出度	OK
+69004	七竈	WRONG	Sorbus (rowan), not the Texas ash Fraxinus texensis
+92080	殴り込み	WRONG	violent raid on a gang, not a speculators' bear raid
+30101	多幸	OK
+26387	煙る	WRONG	'smoke/be hazy', not 'be furious'
+30702	七竈	WRONG	Sorbus (rowan), not Eucalyptus regnans
+77491	母系性	WRONG	the noun 'matrilineality', not the adjective 'parental'
+22907	摩擦	WRONG	friction (attrition), not contrition for sin
+43372	競	OK
+35296	焦げる	OK
+42749	取こぼし	OK
+50021	可愛がる	OK
+83877	演じる	WRONG	'perform a role', not discharge one's duties
+42992	花形	WRONG	'star/flower pattern' (flourish), not the act of waving
+96932	後悔して	OK
+17932	ガラゴ科	WRONG	taxon name (family Galagidae), not a galago itself
+82306	モアス島	WRONG	an island, not the Roman god of death Mors
+99862	走る	OK
+22244	アドヴァイス	OK
+20519	スモック	WRONG	smock, not a smoking jacket
+64423	然る	OK
+62402	鍵盤楽器	WRONG	keyboard instrument, not the keyboard (bank of keys) itself
+98880	アーン川	WRONG	River Earn, not the sea eagle
+26687	引用	WRONG	quotation, not a legal summons
+72415	茫然たる	WRONG	'dazed/stunned', not 'ambiguously'
+77234	振りだし	OK
+46057	コック	OK
+33036	未練	OK
+54527	発育阻止	WRONG	stunted growth, not 'perform a stunt'
+85286	警策	OK
+33207	ライトヘビー級	OK
+52450	幼時	WRONG	'early childhood' (cradle), not the verb 'hold as in a cradle'
+52085	無機的	UNSURE	'inorganic/mechanical'; only loosely 'not part of a structured whole'
+27553	硫酸塩	WRONG	sulfate, not sulfuric acid
+31563	塞ぐ	WRONG	'block up/obstruct', not 'shape with a block'
+41521	扇動	WRONG	incitement (political agitation), not a mental state
+22193	不良	WRONG	delinquent ('fallen' in the moral sense), not killed in battle
+86382	旅先	WRONG	place one is travelling to, not a postal address
+22087	押出し	WRONG	'imposing bearing/presence', not the act of being present
+22307	決断	WRONG	decision (resolve), not analysis into components
+65079	除去剤	WRONG	chemical remover, not a furniture mover
+46611	許容的な	UNSURE	'permissive/tolerant' rather than 'deserving to be admitted'
+56264	受け止める	WRONG	'catch/receive', not freezing assets
+23373	人集り	WRONG	noun 'crowd of people', not the verb 'to crowd together'
+28464	定規	OK
+83153	拒絶	OK
+66957	ディフェンス	OK
+39055	ソフトスキル	WRONG	soft skills, not 'well-spoken'
+34683	対語	OK
+56743	散乱	OK
+16047	顧みる	WRONG	'look back on / consider', not 'give evidence of a quality'
+22933	厚さ	WRONG	physical thickness, not viscosity (resistance to flow)
+22620	シアン化物	OK
+60044	築城	WRONG	castle building (military fortification), not food or wine enrichment
+41911	梳る	WRONG	'comb the hair', not 'reduce'
+26393	破る	OK
+33562	浮遊選鉱法	WRONG	ore flotation process, not financing by stock flotation
+83556	免許	OK
+94341	監禁	OK
+64712	付き合い	OK
+42859	単音	WRONG	single sound/tone, not monotony
+86917	レーンコート	WRONG	raincoat garment, not the waterproof fabric
+31580	幹線	OK
+65194	取手	OK
+39603	蒸発	OK
+87342	アニメーション製作	OK
+63970	言聞かす	WRONG	'admonish/tell', not 'get warm'
+29312	遅く	OK
+30681	腹筋	WRONG	abdominal muscles (abs), not ABS plastic
+46364	空	OK
+65955	羅紗綿	OK
+18388	プリンスエドワード島	WRONG	Prince Edward Island, not Prince Edward the person
+88267	アコンカグア川	WRONG	Aconcagua River, not the mountain
