@@ -1,0 +1,143 @@
+n	word	verdict	reason
+3-1	手違い	OK	mishap/mistake; synset already lumps failures and mistakes
+3-2	フラスコ	UNSURE	normally 'flask'; use for fresco unattested in modern Japanese
+3-3	丸呑	OK	丸呑みする = accept (demands) wholesale, swallow
+3-4	ベタ	OK	variant transliteration of beta (usual ベータ)
+3-5	煩わせる	OK	心を煩わせる = trouble oneself; synset has 煩わす
+3-6	散々	UNSURE	rare 'scattered' reading; not clearly the spatial property
+3-7	必要	WRONG	noun/na-adj 'necessity', not the adverb necessarily
+3-8	羽子板	UNSURE	the paddle rather than the game (羽根つき)
+3-9	天災	OK	natural disaster; near-synonym of 災害 in synset
+3-10	伝統主義者	WRONG	noun for a person; synset is the adjective
+3-11	縛り	WRONG	restriction/binding, not a deadline
+3-12	坊さん	OK	dictionaries list 坊さん as an affectionate term for a boy besides 'monk'
+3-13	自動性	WRONG	noun 'automaticity', not the adjective
+3-14	募る	OK	solicit and collect contributions; close to 'call for and obtain payment'
+3-15	不義	OK	illicit intimacy (不義密通) fits an act of undue intimacy
+3-16	出先	WRONG	place one has gone out to, not a written address
+3-17	打ち付け	UNSURE	abrupt/blunt; only loosely 'overt'
+3-18	弾道弾	WRONG	ballistic missile is self-propelled; synset is non-self-propelled projectile
+3-19	扇情	OK	stirring up passions; agitation
+3-20	カロリング朝	WRONG	the dynasty, not a member of it
+3-21	残忍に	UNSURE	cruelly vs grimly; partial overlap
+3-22	身を落とす	UNSURE	fall in status; only loosely stoop to / concede
+3-23	宜しい	WRONG	good/all right, not morally right
+3-24	末期的	UNSURE	terminal-stage (temporal); synset is being situated at an end
+3-25	ファシリテイ	WRONG	katakana facility means facilities, not dexterity
+3-26	巧者	OK	skilled/adept; close to trained
+3-27	ギャング	WRONG	criminal gang, not a gang tool
+3-28	頭が切れる	OK	sharp, on the ball
+3-29	再析	UNSURE	unclear form (re-precipitation?); fit unclear
+3-30	デマ	OK	from Demagogie; deceptive agitation to the masses
+3-31	化身	OK	incarnation/embodiment; incarnation is in the synset
+3-32	偶発的	OK	happening by chance, without plan
+3-33	思いあがり	WRONG	conceit/arrogance, not self-respect
+3-34	聴き入れる	WRONG	grant a request, not hold as true
+3-35	首長国	WRONG	emirate as a state, not the office of emir
+3-36	変幻自在	UNSURE	protean/ever-changing; partial overlap with phantasmagoric
+3-37	骨付	WRONG	bone-in (meat), not skeleton
+3-38	人種差別主義者	WRONG	noun for a person; synset is the adjective
+3-39	傾向	OK	historical sense: leftist leanings (傾向文学)
+3-40	分娩促進	WRONG	labour induction process, not the drug
+3-41	盲蛇	WRONG	blind snake (Typhlopidae), not Carphophis
+3-42	一国一城	UNSURE	idiom for being one's own master; loosely feudal lordship
+3-43	ディフェンス	UNSURE	mostly sports; legal defence normally 弁護
+3-44	伝導	WRONG	conduction, not transmittance fraction
+3-45	別体	WRONG	separate body; unrelated to crystal allomorph
+3-46	煙管	OK	えんかん = flue/smoke tube
+3-47	双眼鏡	WRONG	binoculars, not a single small telescope
+3-48	発動	WRONG	invoke/set in motion, not supply power to
+3-49	ブーム	OK	economic boom as sudden money-making opportunity; boom in synset
+3-50	切り手	UNSURE	usually a person who cuts; tool reading doubtful
+3-51	七曲	WRONG	noun (winding path), not the verb meander
+3-52	折り返す	UNSURE	mainly fold/turn back; repeat (refrain) sense marginal
+3-53	透明	OK	clear, free of impurity (透明な水晶)
+3-54	年記	UNSURE	record of years; unclear fit with elapsed time
+3-55	設営	WRONG	setting up camp/venue, not construction industry
+3-56	前書	WRONG	preface, not an elementary textbook
+3-57	アオイ	OK	葵 also denotes Asarum (フタバアオイ, 葵祭); genus-level wild ginger
+3-58	娼嫉	WRONG	not a real word; likely 媢嫉 'jealousy', not hate
+3-59	快気	UNSURE	mainly recovery from illness; 'pleasant feeling' sense rare
+3-60	存する	OK	transitive 'keep, preserve'; loosely have as a supply
+3-61	汚点	UNSURE	stain/blemish; only loosely metal tarnish
+3-62	スーパー	WRONG	supermarket, not department store
+3-63	倨傲	WRONG	arrogance, not self-respect
+3-64	自然淘汰	UNSURE	natural selection; only figuratively obsolescence
+3-65	エラー	OK	error; synset lumps failures and mistakes
+3-66	無能	OK	lacking ability/power
+3-67	粒状	WRONG	granular state, not the act of granulating
+3-68	寺	UNSURE	temple; gambling-den sense only slang (寺銭)
+3-69	シェルロース	UNSURE	unattested spelling of cellulose
+3-70	トランスミッション	WRONG	gearbox/transmitting; transmittance is 透過率
+3-71	畏まり	OK	archaic かしこまり = thanks, acknowledgement of a favour
+3-72	素っ頓狂	UNSURE	wacky/outlandish rather than reckless
+3-73	コバイケイソウ	UNSURE	Japanese Veratrum species, congener of V. viride
+3-74	操作	WRONG	manipulation, not employee fraud/theft
+3-75	脚	UNSURE	general leg; can refer to a peg leg only loosely
+3-76	ミスターレディー	WRONG	noun for drag performer; synset is fetishistic adjective
+3-77	イントロダクション	WRONG	musical/text intro; introducing something new is 導入
+3-78	でかい	WRONG	big, not high in elevation
+3-79	髪	WRONG	human hair; mane is たてがみ
+3-80	付す	WRONG	attach/append, not accompany
+3-81	意義深い	WRONG	meaningful/significant, not purposeful
+3-82	嘯く	UNSURE	feign/boast; roar of beasts only archaic
+3-83	御座在る	OK	honorific 'come'; synset already has 来る
+3-84	好き	OK	classical 好き = amorousness, lechery (好き者)
+3-85	大臣	UNSURE	minister of state; courtier only in historical court sense
+3-86	可哀相	WRONG	pity for others, not one's own regret
+3-87	動体	WRONG	moving body, not fluid
+3-88	既約分数	OK	irreducible fraction; narrower kind of common fraction
+3-89	墨付き	UNSURE	ink quality/handwriting result or certificate, not the activity
+3-90	順道	UNSURE	rare word; unclear as reasonable
+3-91	厳しい	OK	read いかめしい = imposing, dignified
+3-92	蒼白	UNSURE	pale in colour; adverbial 'lacking vitality' doubtful
+3-93	傲り	WRONG	arrogance, not self-respect
+3-94	ピラニア	UNSURE	fish; figurative 'marauder' use rare in Japanese
+3-95	許容的な	UNSURE	permissive rather than deserving admission
+3-96	槿花	UNSURE	槿花 is rose of Sharon; 槿 only historically written for あさがお
+3-97	粗大	UNSURE	coarse/crude; approximate sense marginal
+3-98	小突きまわす	OK	push around, bully; torment
+3-99	迎え火	OK	also used for a firefighting counterfire (= 向かい火)
+3-100	高雅さ	WRONG	elegance/refinement, not lack of ornamentation
+3-101	万出	WRONG	not a Japanese word for Mande
+3-102	殺風景	UNSURE	dreary/tasteless; only loosely prosaic
+3-103	指	UNSURE	finger/toe; hoof forepart doubtful
+3-104	イトメ	WRONG	nereid bait worm (Tylorrhynchus), not lugworm
+3-105	鶏血石	UNSURE	dickite/pyrophyllite with cinnabar, not plain pyrophyllite
+3-106	アオイ	UNSURE	葵 covers Japanese Asarum; European species only loosely
+3-107	オープン	WRONG	open (a shop/event), not hold/organize
+3-108	無能	UNSURE	incompetent in ability; legal sense is 無能力
+3-109	触れ込む	UNSURE	announce/advertise; not clearly 'give the names of'
+3-110	虚構	WRONG	fabrication/fiction, not a novel
+3-111	死産	OK	stillbirth; synset includes 流産, a kind of pregnancy termination
+3-112	ギーギーという音	WRONG	creaking noise, not irritated utterance
+3-113	出口	OK	figurative outlet (感情の出口)
+3-114	遵奉者	WRONG	noun for a person; synset is the adjective
+3-115	分かる	OK	この辺は分かる = know/be familiar with
+3-116	余業無く	WRONG	misspelling of 余儀無く; 余業 = side business
+3-117	彫り物	WRONG	noun 'carving', not the verb
+3-118	取る	WRONG	'be designed to take (film/fuel)' is not expressed by 取る
+3-119	マトリカニア	WRONG	Matricaria (chamomile), not Anacyclus
+3-120	トックリクジラ属	WRONG	genus, not the species
+3-121	難渋	UNSURE	difficulty/hardship; loosely painfulness
+3-122	グリシン	WRONG	amino acid; genus is ダイズ属
+3-123	弔い	UNSURE	funeral/mourning rites rather than the emotion
+3-124	流暢	UNSURE	fluent speech; smooth physical movement doubtful
+3-125	弾薬	WRONG	ammunition, not gunpowder
+3-126	概ね	OK	noun おおむね = gist, outline
+3-127	霊位	UNSURE	Buddhist spirit tablet, not a brass memorial
+3-128	奥ゆかしい	UNSURE	refined/graceful; only partly beautiful
+3-129	祝宴	WRONG	celebratory banquet, not a festival
+3-130	一方	WRONG	one side; 'ordinary' only in 一方ならぬ
+3-131	アイマスク	UNSURE	usually a sleep mask without eye holes
+3-132	粋	OK	sympathetic understanding of human feelings (粋な計らい)
+3-133	一部	UNSURE	day division (第一部) at most, not a day school
+3-134	黄経	OK	celestial longitude, a lemma in the synset (conflated with RA)
+3-135	突き落とす	UNSURE	push down; figurative ousting from position marginal
+3-136	省	UNSURE	ministry/omit; standalone thrift noun doubtful
+3-137	辞む	OK	variant of 否む (いなむ), which includes deny
+3-138	嵌入	WRONG	wedging impaction, not a sharp collision
+3-139	汚	UNSURE	truncation of 汚鮫; not used alone
+3-140	極上	WRONG	finest quality, not excessively refined
+3-141	三図	UNSURE	さんず (usually 三頭) = horse's rump; spelling doubtful
+3-142	遮る	WRONG	block/interrupt (transitive), not cease

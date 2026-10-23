@@ -1,0 +1,141 @@
+n	word	verdict	reason
+4-1	去勢	WRONG	castration/emasculation; not used for expurgating text
+4-2	血管拡張性	OK	matches the listed lemma 'vasodilative'
+4-3	付随的	UNSURE	incidental/attendant; only loosely 'contingent on'
+4-4	多分化能	OK	the biological term for multipotent (cells)
+4-5	四角	WRONG	square; formality only via 四角張る
+4-6	寝殿	UNSURE	main residential hall (Chinese use: sleeping chamber); not clearly a master bedroom
+4-7	丸	UNSURE	slang use of 丸 for money not attested
+4-8	有限	OK	limited as in 有限責任 (limited liability)
+4-9	捻る	UNSURE	transitive twist; doubtful for a winding road
+4-10	足下	UNSURE	footing/one's steps; only loosely gait
+4-11	香	WRONG	incense/fragrance (香の物 = pickles); not miso
+4-12	スライサー	OK	golf jargon for a player who slices
+4-13	種子	WRONG	the seed proper (technical term), not the stone/endocarp
+4-14	フック	UNSURE	rugby hooking is フッキング; unclear for フック
+4-15	絆	OK	original meaning is a tether/rope tying animals, a connecting fastener (historical)
+4-16	感謝の祈り	UNSURE	prayer of thanks (grace) rather than prayer for protection
+4-17	不注意	WRONG	careless/inattentive, not idle or listless
+4-18	公然	UNSURE	openly/publicly known, not really 'accessible to all'
+4-19	甲羅	OK	colloquial for a person's back (甲羅干し); synset includes 背中
+4-20	決めこむ	UNSURE	assume/take for granted or pretend; not clearly hazarding a guess
+4-21	顧み	WRONG	consideration/regard, not an anxious feeling
+4-22	マクロ	OK	macro/overall view, close to comprehensive/全般的
+4-23	党風	UNSURE	party ethos rather than devotion to a party
+4-24	長大	WRONG	Japanese adjective 'long and large'; 'grow up' is Chinese 长大
+4-25	放列	WRONG	battery of guns in line, not the path of a projectile
+4-26	較	WRONG	single kanji meaning 'compare', not a word for competition
+4-27	入れる	WRONG	put in; not introduce/submit before a body
+4-28	焦げる	WRONG	intransitive 'get scorched', not cauterize
+4-29	塗抹	WRONG	act of smearing, not the material daub
+4-30	割	OK	割り can mean allotment (部屋割り)
+4-31	薄べったい	UNSURE	flat and thin, mostly of objects; rarely a lean body
+4-32	百鬼夜行	UNSURE	evildoers running rampant; not specifically a rise in crime rate
+4-33	賞味	UNSURE	savouring/appreciating taste; only loosely favourable judgment
+4-34	新紙	OK	Meiji-era term for newspaper
+4-35	楽しみ	UNSURE	enjoyment/anticipation; weak fit for the formal expression 'pleasure'
+4-36	落下傘部隊	WRONG	the paratroop unit, not an individual soldier
+4-37	入眠時	OK	hypnagogic is a lemma of the synset
+4-38	已むを得ず	OK	unavoidably ~ necessarily; matches 余儀無く in synset
+4-39	出発	WRONG	departure, not the starting line
+4-40	続目	OK	継ぎ目 also means succession/heir (跡継ぎ)
+4-41	こづき回す	OK	figuratively to bully/harass persistently
+4-42	赤虫	UNSURE	usually midge larvae; marine bloodworm doubtful
+4-43	草片	UNSURE	possibly archaic くさびら (vegetables/fungi); unclear
+4-44	トランス系	OK	colloquial for transgender/transsexual
+4-45	反る	OK	かえる reading means overturn (= 覆る)
+4-46	突っ込み	UNSURE	thrust or retort; not specifically a fencing riposte
+4-47	純然たる	WRONG	sheer/pure (as in 'perfect stranger'), not without defect
+4-48	メギ科	WRONG	the family Berberidaceae, not the barberry plant
+4-49	懸命	UNSURE	all-out effort of a person rather than an arduous task
+4-50	優性遺伝	WRONG	dominant inheritance, not the gene
+4-51	イケてる	WRONG	cool/stylish, not street-smart
+4-52	鵜呑み	WRONG	accept uncritically (believe), not tolerate
+4-53	嵌る	UNSURE	fit (a role) well; unclear for enhancing appearance
+4-54	共同研究	WRONG	noun 'joint research', not the adjective collaborative
+4-55	スパイダー	WRONG	not used for a cast-iron skillet
+4-56	発売中	UNSURE	'on sale'; only loosely available when required
+4-57	アリゾナ	UNSURE	mainly the state; as genus name only in アリゾナ属
+4-58	育てる	WRONG	raise/rear, not reproduce
+4-59	演出	UNSURE	stage direction/production rather than a performance
+4-60	直ぐ	OK	すぐそこ/駅はすぐです = a short distance
+4-61	乙	OK	乙なことを言う = clever, witty
+4-62	ブロック	WRONG	obstruct, not prop up with a block
+4-63	睡眠病	WRONG	Japanese 睡眠病 is African trypanosomiasis, not encephalitis lethargica
+4-64	数学的直観主義	WRONG	philosophy of mathematics, distinct from epistemological intuitionism
+4-65	人集り	WRONG	noun 'a crowd', not the verb 'to crowd together'
+4-66	緩怠	UNSURE	negligence/discourtesy; only loosely a faux pas
+4-67	梱包	WRONG	packing goods, not sealing with packing
+4-68	笛竹	UNSURE	bamboo flute; metonymy for music doubtful
+4-69	適応	UNSURE	adaptation; only loosely conformity to standards
+4-70	押し売り	UNSURE	forcing things on people (親切の押し売り); not the quality itself
+4-71	ラッシャ	WRONG	羅紗 woollen cloth, not a lasher
+4-72	野放図	OK	self-indulgent, willful; close to egoistic
+4-73	ピリオド	OK	time period in sports and loosely in general
+4-74	不穏	UNSURE	tense/threatening atmosphere; only loosely emotionally charged
+4-75	ええ	UNSURE	usually yes/surprise; intimidating use doubtful
+4-76	記す	OK	心に記す = remember; close to 銘記
+4-77	温泉	WRONG	hot spring/spa resort, not a resort hotel
+4-78	邪魔	WRONG	obstructive/nuisance, not deterrent
+4-79	ソテツ科	WRONG	the family Cycadaceae, not the order
+4-80	公正	WRONG	fair/impartial, not correct in judgment
+4-81	偶像礼拝	UNSURE	idol worship; matches the lemma idolatry but not religious zeal to serve God
+4-82	木筆	WRONG	wooden stylus, not a dial pointer
+4-83	悽惨	WRONG	adjective 'gruesome', not the verb to disgust
+4-84	充てる	OK	字を充てる = apply characters/a name to something
+4-85	序題	OK	preface/introduction, fits the synset's words
+4-86	遠心機	OK	centrifuge; slightly broader than spin dryer (遠心脱水機)
+4-87	２分岐の	WRONG	adjectival phrase, not a verb; malformed entry
+4-88	取りくずす	WRONG	demolish / draw down savings, not eliminate
+4-89	作物	OK	つくりもの reading = imitation, artificial thing
+4-90	-以外の	UNSURE	'other than' is exclusion rather than negation
+4-91	儀式張る	WRONG	be ceremonious, not make formal or official
+4-92	刺抜き	UNSURE	splinter tweezers; only loosely forceps
+4-93	従って	WRONG	in accordance with / therefore, not 'as reported by'
+4-94	実際的	WRONG	practical, not veridical
+4-95	対地攻撃	WRONG	air-to-ground attack, not attack by ground troops
+4-96	リウマチ熱	WRONG	rheumatic fever, a specific disease, not rheumatism
+4-97	帝国主義論	WRONG	theory of imperialism, not the policy
+4-98	視話法	UNSURE	Bell's Visible Speech notation; same English term but not a spectrogram
+4-99	いんぎんに	OK	politely, suavely; close to blandly
+4-100	乗り込む	UNSURE	board/embark as crew; only loosely to man a post
+4-101	ファシリティ	WRONG	in Japanese means facilities, not deftness
+4-102	有限	UNSURE	finite; only loosely small in scope
+4-103	ロック	UNSURE	katakana rock rarely means the material alone
+4-104	取落とす	OK	取り落とす can mean lose/omit; close to misplace
+4-105	モロコ	WRONG	Japanese gudgeon, a different fish from Rutilus rutilus
+4-106	使う	WRONG	use, not be designed to hold
+4-107	千手観音	UNSURE	Buddhist deity; jocular name for louse unverified
+4-108	失態	UNSURE	disgraceful blunder rather than mismanagement
+4-109	親代わり	UNSURE	substitute parent (role/person) rather than foster care
+4-110	海坊主	OK	regional name for the green turtle
+4-111	被り	WRONG	noun 'covering', not the verb sheathe
+4-112	マンツーマン	WRONG	one-on-one, not frankly/directly
+4-113	吊る	WRONG	hang; cramp is 攣る, and not twitch
+4-114	誓う	WRONG	swear/vow, not give as a guarantee
+4-115	小突き回す	UNSURE	pushing around/bullying, not playful teasing
+4-116	割下	WRONG	sukiyaki seasoning sauce, not soup
+4-117	比興	UNSURE	archaic 'amusing' (or cowardly); fit to exciting doubtful
+4-118	耽溺	UNSURE	overindulgence; matches lemma indulgence but not foolish behaviour
+4-119	恩沢	UNSURE	favour/blessing bestowed; only loosely charity
+4-120	回復	WRONG	recovery, not memory retrieval
+4-121	固執	OK	persistent adherence
+4-122	通勤学	WRONG	not a real word (fragment of 通勤通学)
+4-123	前説	OK	preface/introduction (ぜんせつ), fits the synset's words
+4-124	無機的	UNSURE	inorganic/mechanical; only loosely unorganized
+4-125	空っけつ	OK	variant of 空っ穴 in synset; scanty/empty
+4-126	ルンパ	OK	spice paste for curry (rempah), matches definition
+4-127	支持	WRONG	support/back, not consider as favourite
+4-128	膝車	OK	old word for kneecap/knee (also a judo throw)
+4-129	ゴシキドリ亜科	WRONG	the subfamily taxon, not the bird
+4-130	牛	WRONG	the animal; not an insult for a woman
+4-131	色差	OK	variant spelling of 色ざし (complexion)
+4-132	単純	OK	plain, simple
+4-133	偶像崇拝	UNSURE	idol worship; matches lemma idolatry but not religious zeal to serve God
+4-134	フレックス	WRONG	flextime, not the act of flexing
+4-135	袋鼠	OK	kanji for フクロネズミ (opossum)
+4-136	ウルバリン	WRONG	the animal, not a Michigan resident
+4-137	縛り首	WRONG	hanging, not throttling
+4-138	間違い	OK	mistake/mishap, close to failure
+4-139	トローリーバス会社	WRONG	trolleybus company, not the transit line
+4-140	骨片	OK	used for insect sclerites (e.g. genital sclerites)

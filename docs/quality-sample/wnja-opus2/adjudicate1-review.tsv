@@ -1,0 +1,143 @@
+n	word	verdict	reason
+1-1	渡り	OK	わたり is attested for diameter/span in measurements (渡り二尺の鉢), same as 差し渡し
+1-2	押し送り	UNSURE	rowing a fast oared boat (押送船); not clearly single-sculler rowing
+1-3	密通	UNSURE	adultery/secret collusion; a much narrower kind of misconduct
+1-4	受け売り	OK	original sense is retailing goods bought from a wholesaler; parroting is the figurative sense
+1-5	差す	WRONG	insert/hold up/shine; no sense of invigorate or heighten
+1-6	売り込む	WRONG	promote/sell or make a name; betraying is 売る, not 売り込む
+1-7	ウォッチ	OK	ワッチ/ウォッチ is standard seafarers' jargon for a watch (当直) period
+1-8	確り	OK	colloquial しっかり also means plenty/a lot (しっかり食べる, しっかり儲ける)
+1-9	締める	UNSURE	tie/fasten (obi, necktie); 'make by tying pieces together' is a poor fit
+1-10	求心的	UNSURE	centripetal; figurative 'inward-looking' only loosely introspective
+1-11	義兄弟	OK	義兄弟 is used for step-siblings (brothers by a parent's remarriage)
+1-12	麦藁	OK	dictionaries list むぎわら as short for 麦藁帽子
+1-13	糞袋	WRONG	derogatory term for the (living) body or guts, not a corpse
+1-14	抗原虫性	UNSURE	adjectival property 'antiprotozoal'; the drug would be 抗原虫薬
+1-15	横奪	OK	unlawful seizure/usurpation, a kind of theft
+1-16	借り換え	WRONG	refinancing a loan; not changing use or function
+1-17	すると	OK	'thereupon, just then' introducing what happened at that moment
+1-18	魚包丁	UNSURE	kitchen knife for fish, not a table knife for eating fish
+1-19	先決	WRONG	deciding first/prior settlement, not predestination
+1-20	えっ	OK	can be a menacing interjection (えっ、文句あるのか); fits this wnja-specific synset
+1-21	呵する	WRONG	breathe on / scold; not write
+1-22	課税控除	WRONG	tax deduction, not the act of exempting someone
+1-23	九重の天	OK	九重(の天) is a literary term for the imperial palace/court
+1-24	千三屋	WRONG	real-estate broker (or liar), not an estate administrator
+1-25	尾翼で	UNSURE	'at the tail fin' is not a natural Japanese word for aft/astern
+1-26	無軌道	OK	literal sense 'trackless/without tracks' matches trackless
+1-27	務める	WRONG	serve as / play a role; not perform at a venue
+1-28	悩ます	UNSURE	transitive 'trouble'; only 頭を悩ます approaches 'concern oneself'
+1-29	補習教育	UNSURE	supplementary/remedial education, only partly adult continuing education
+1-30	リーダ	OK	variant of リーダー, used for the UK university rank reader
+1-31	閲覧	UNSURE	perusal of documents; formal inspection only in older 閲 sense
+1-32	驕り	UNSURE	arrogance; synset is positive self-respect
+1-33	先方	WRONG	the other party / ahead; not a written address or destination
+1-34	頂戴	WRONG	humble 'receive' (or jocular 'pinch'); not take by force
+1-35	損壊	UNSURE	physical damage/destruction rather than ceasing to function
+1-36	ラッキー	UNSURE	lucky rather than opportune/timely
+1-37	悩ましい	UNSURE	sensual/seductive or troubling; only loosely 'of the flesh'
+1-38	比	UNSURE	bare 比 means ratio; くらべ reading for contest is marginal
+1-39	サテュロス	WRONG	generic satyr; Silenus is a specific figure (シレノス)
+1-40	背教者	WRONG	noun 'apostate (person)' for an adjective synset
+1-41	母系的	WRONG	matrilineal, not motherly/parental
+1-42	一飲み	UNSURE	one gulp/swallow; not really a morsel of solid food
+1-43	抜け	UNSURE	mainly omission; 'foolishness' mainly via 間抜け
+1-44	交わす	UNSURE	かわす can mean dodge, but synset is block/impede
+1-45	下ろし	OK	dictionaries list おろし as short for おろし金 (grater)
+1-46	チャリオット	WRONG	noun only; cannot mean transport in a chariot
+1-47	バクバク	WRONG	munching/heart-pounding onomatopoeia, not loud banging
+1-48	舗	WRONG	shop (the other sense of store), not storehouse/depot
+1-49	聴入れる	WRONG	grant/comply with a request, not hold as true
+1-50	引き立てる	OK	戸を引き立てる = pull a sliding door shut; dictionary sense
+1-51	定か	UNSURE	describes facts being certain, not a person being convinced
+1-52	消滅	WRONG	disappearance/extinction, not neutralize
+1-53	不作	UNSURE	poor harvest; figurative poor results only loosely general failure
+1-54	口唇ヘルペス	WRONG	the disease (cold sores), not the virus HSV-1
+1-55	箱入	OK	variant of 箱入り (in synset); cherished treasure
+1-56	天上	UNSURE	heaven; verbal 'ascend to heaven/die' is rare
+1-57	頃合い	UNSURE	suitable time/degree, not the trait of temperance
+1-58	陰湿	WRONG	dank, or insidious/nasty; not a melancholy mood
+1-59	生木	WRONG	living tree/green wood; fruit tree is 生り木
+1-60	取り落す	UNSURE	drop/omit; only marginally misplace
+1-61	平和	WRONG	peace (state); a peace treaty is 講和/平和条約
+1-62	え	OK	same wnja-specific interjection synset as えっ
+1-63	開発	WRONG	development of land/products; photographic development is 現像
+1-64	躓く	WRONG	intransitive stumble, not causative 'cause to stumble'
+1-65	口分	UNSURE	possibly 口分け without okurigana, but not attested in this sense
+1-66	普通	WRONG	ordinary/usual, not 'in accordance with scientific laws'
+1-67	女菩薩	OK	attested as a (euphemistic) term for a courtesan/prostitute
+1-68	ドッド	UNSURE	DoD is normally ディーオーディー or 国防総省; ドッド doubtful
+1-69	不安	UNSURE	mental anxiety rather than physical tension and pain
+1-70	語らい	UNSURE	intimate talk/union; pledge-of-fidelity sense marginal
+1-71	チョーク	OK	チョーク is used in aviation/ground-crew jargon for wheel chocks
+1-72	解答	OK	solve/answer a question or riddle fits 'answer, resolve'
+1-73	工作	WRONG	behind-the-scenes scheming, not evasive action
+1-74	斎戒	UNSURE	ritual purification; synset is physical cleaning of impurities
+1-75	物覚え	WRONG	faculty of remembering, not something remembered
+1-76	戸	WRONG	the door itself or household, not a room entered via a door
+1-77	ジャーゴン	OK	ジャーゴン is the Japanese gem name for jargoon zircon
+1-78	発展的に	UNSURE	developmentally/progressively rather than expansively
+1-79	特約	WRONG	special clause/agreement, not a contract under seal
+1-80	一丸	OK	いちがん = one lump/mass (ひとかたまり)
+1-81	露呈	UNSURE	expose/reveal but lacks the ridiculing sense of debunk
+1-82	感触	UNSURE	noun 'feel/impression'; not used as the verb 'come to believe'
+1-83	さい先	UNSURE	noun 'omen'; adjectival only in さい先のよい
+1-84	困らす	WRONG	trouble/embarrass someone, not make more complicated
+1-85	有能	WRONG	capable/competent (of people), not having a useful function
+1-86	後ろめたい	UNSURE	guilty conscience; only partly overlaps with uneasy
+1-87	細説	WRONG	detailed explanation, not delay/linger
+1-88	レポ	UNSURE	short for report, or liaison courier; news reporter marginal
+1-89	パイ	UNSURE	possible transliteration of pye(-dog) but normally pie
+1-90	黄白	WRONG	gold and silver, i.e. money (bribes); not the act of corruption
+1-91	後衛	WRONG	rear guard / back player, not the rear side of something
+1-92	口書	UNSURE	deposition or preface; synset is an elementary textbook
+1-93	行方	UNSURE	whereabouts/destination; not a written address
+1-94	負えない	WRONG	fragment of 手に負えない; alone just 'cannot bear'
+1-95	舌	WRONG	tongue/speech manner; not language as a system
+1-96	作り出す	OK	produce/turn out; broader than churn out
+1-97	センタリング	WRONG	soccer centring/cross; the American football snap is スナップ
+1-98	滅多	UNSURE	reckless/thoughtless; only loosely frivolous
+1-99	鎌	WRONG	sickle; only 鎌錠 means the hook lock
+1-100	投資顧問業	WRONG	the investment-advisory business, not the adviser
+1-101	地色の	UNSURE	base/natural colour; only loosely uncolored
+1-102	徒党	WRONG	noun 'faction/gang'; conspire is 徒党を組む
+1-103	大柄	OK	read おおへい, a variant of 横柄 'haughty, arrogant'
+1-104	hn	WRONG	lowercase Latin string, not a Japanese word; formula is HN3
+1-105	車回し	UNSURE	carriage turnaround at an entrance, not quite a front yard
+1-106	折りかえす	OK	variant of 折り返す (in synset); can mean repeat (refrain)
+1-107	スピッツ	WRONG	Japanese Spitz, a distinct breed from Pomeranian
+1-108	軍配	OK	ぐんばい also means directing/commanding troops
+1-109	レーン	UNSURE	old variant (レーンコート) but レーン alone for rain is rare
+1-110	唯心論	OK	spiritualism/idealism as opposed to materialism; close enough
+1-111	与太	UNSURE	nonsense/good-for-nothing; 'irresponsible' marginal
+1-112	競り売り	OK	糶り売り also means hawking wares / hawker (variants in synset)
+1-113	磯巾着	WRONG	sea anemone; hanger-on is 腰巾着
+1-114	蒼茫	WRONG	vast and dim/blue, not insubstantial
+1-115	お先に	UNSURE	before others (going first); not forward direction
+1-116	留め	UNSURE	stop/fastening; 'end in time' doubtful
+1-117	依頼	OK	older sense 'rely/depend on' (依頼心)
+1-118	不整合	UNSURE	inconsistency/unconformity rather than disproportion
+1-119	付汁	UNSURE	usually dipping sauce; soup sense (おつけ) uncertain
+1-120	聖	OK	ひじり is a known byname for clear sake
+1-121	押し返し	UNSURE	pushing back; adverbial 'contrariwise' not clearly attested
+1-122	後	UNSURE	after/behind; trace/site is usually 跡 but 後 is a variant spelling
+1-123	西	OK	西 can mean west wind (西が吹く)
+1-124	豪快	UNSURE	bold/dynamic; only loosely stirring
+1-125	疱疹	UNSURE	names the eruption/disease rather than the virus
+1-126	納める	OK	hold/accommodate (箱に納める) fits 'take, be designed to hold'
+1-127	ボーゲン	WRONG	ski snowplough turn in Japanese; violin bow is 弓
+1-128	濫りがわしい	OK	dictionary sense: disorderly, slovenly (だらしない)
+1-129	作興	UNSURE	transitive 'rouse/promote' rather than intransitive thrive
+1-130	コルク	WRONG	noun cork; cannot mean to cork a bottle
+1-131	空疎	WRONG	empty/hollow of content, not physically sparse
+1-132	上手	UNSURE	high-handed only in 上手に出る; doubtful as adjective
+1-133	概説	WRONG	outline/overview, not a critical review
+1-134	先端巨大症	UNSURE	disease noun for an adjective synset
+1-135	同期式	UNSURE	synchronous type, not the act of synchronizing
+1-136	効用逓減の法則	WRONG	diminishing marginal utility, a different law
+1-137	別刷	WRONG	offprint, not a reissued publication
+1-138	守り	WRONG	defence/protection, not extortion money
+1-139	ゴンドウクジラ属	WRONG	the genus Globicephala, not the species
+1-140	緩和性	WRONG	the property of easing, not a remedy
+1-141	正式	UNSURE	formal/official; only loosely 'proper' as fully typical
+1-142	ニオイヤグルマ	UNSURE	sweet sultan (Amberboa), matches a PWN lemma error, not Cnicus

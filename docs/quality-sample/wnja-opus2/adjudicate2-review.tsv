@@ -1,0 +1,143 @@
+n	word	verdict	reason
+2-1	ピパ属	WRONG	genus name (taxon), not the species Surinam toad
+2-2	遠慮	OK	holding back / refraining; loose fit for keeping back
+2-3	派手	UNSURE	showy/flashy; overlaps with cheap-showy goods but not 'made to sell quickly'
+2-4	身体障害	WRONG	the disability itself; disabled people is 身体障害者
+2-5	続ぎ目	OK	variant spelling of 継ぎ目, which has an (archaic) heir/successor sense
+2-6	一蹴	OK	literally a kick; fits kick loosely
+2-7	松	OK	松 can stand for 松明 'pine torch' (cf. 続松)
+2-8	扇面	WRONG	the face/surface of a fan or fan-shaped painting, not the device
+2-9	簡単	WRONG	simple/brief, not unvarnished (ありのまま)
+2-10	動	WRONG	movement; does not mean confusion
+2-11	手っ取り早い	OK	quick, without delay; loose fit for prompt
+2-12	開	OK	okurigana-less spelling of 開き 'hinged door'
+2-13	正規化器	WRONG	a device, not a person who normalizes
+2-14	沸騰	WRONG	boiling of a liquid (physical), not cooking by boiling
+2-15	風力タービン	WRONG	wind turbine generates electricity; synset is a wind-driven mill
+2-16	偽者	WRONG	impostor/fake, not a liar
+2-17	馴れあう	OK	collude; a put-up job is a 馴れ合い, POS mismatch tolerable
+2-18	落とし込む	OK	can mean trap/lure someone into (陥れる); close to entice
+2-19	内端	OK	reserved/retiring; near-synonym of introverted
+2-20	検疫船	OK	lazarettos included quarantine ships; close enough
+2-21	事変	OK	disturbance/incident; fits the disturbance synset loosely
+2-22	イントロ	WRONG	intro of a song/piece, not an instructional text
+2-23	脳幹神経節	OK	older Japanese term for basal ganglia
+2-24	砂糖大根	WRONG	sugar beet, not red beetroot
+2-25	湯婆	WRONG	hot-water bottle, a different bed-warming device
+2-26	つぎ目	OK	kana spelling of 継ぎ目 in its heir/successor sense
+2-27	軟派	UNSURE	soft-liner/womanizer; weak sentimental person only marginal
+2-28	クラッシャー	WRONG	crusher; not used for a gatecrasher
+2-29	ヴィジョン	OK	variant of ビジョン; vision as eyesight is a listed if minor sense
+2-30	サーメン	WRONG	semen (fluid), not the sperm cell
+2-31	筋ちがい	WRONG	misguided/unreasonable or a sprain, not malfunctioning
+2-32	艶消し	WRONG	matte / disenchanting, not a disillusioned person
+2-33	車内灯	WRONG	vehicle interior light, not room lighting
+2-34	膣垢	OK	used in Japanese gynecology for the vaginal smear sample (腟垢細胞診)
+2-35	一部	WRONG	'part/one copy'; unrelated to day school
+2-36	カイツブリ目	WRONG	order Podicipediformes, not the bird
+2-37	バス	WRONG	bath/bus; the Hebrew measure is usually バト
+2-38	歩路	UNSURE	rare word, seems to be a walking path rather than the act
+2-39	携帯	WRONG	carry; synset is bring (a ship) to port
+2-40	甘い	OK	doting/soft on someone (子に甘い); fits foolish fondness
+2-41	擦り寄せる	OK	snuggle up close (身を擦り寄せる); near nestle
+2-42	損失者	UNSURE	one who has suffered loss; not an established word for a failure
+2-43	頑丈	OK	sturdy/stout; acceptable for stalwart
+2-44	剪裁	UNSURE	cutting and trimming (cloth/plants), not clearly mowing
+2-45	オークション	WRONG	auction sale; the game is オークションブリッジ
+2-46	結紮	WRONG	the act of ligation; the thread is 結紮糸
+2-47	手署	OK	sign by hand; loose fit for signing on
+2-48	バース	OK	loanword used in birthing contexts (アクティブバース)
+2-49	雄陽皺	UNSURE	unusual kanji for オヒシバ (normally 雄日芝); cannot verify
+2-50	追い詰める	OK	hunt down/corner; close to run down
+2-51	探り	OK	classical sense of 探り as a spy/scout (間者)
+2-52	上を下へ	UNSURE	describes turmoil/commotion rather than a panicked person
+2-53	濁	UNSURE	impurity; moral wrong only in Buddhist compounds
+2-54	組み立て式の	UNSURE	knock-down/assemblable; only loosely collapsible
+2-55	届く	WRONG	reach/arrive; well-kept needs 行き届いた
+2-56	動転	OK	historical sense 'change, shift' (移り変わり)
+2-57	タフ	OK	tough as in hard to bear (タフな状況)
+2-58	堕胎罪	WRONG	the crime of abortion, not the act
+2-59	好く	OK	kanji spelling of adverb よく (often, much)
+2-60	襲来	UNSURE	invasion/onslaught; rarely a sudden bout of illness
+2-61	驢馬	UNSURE	donkey; not a common insult for a stupid person in Japanese
+2-62	免役	WRONG	exemption from (military) service, not unsusceptibility
+2-63	亡者	WRONG	the dead / ghosts, not an evil demon
+2-64	固くなる	OK	become tense/stiff; transitivity difference tolerable
+2-65	果敢無い	OK	はかない can mean miserable/wretched (はかない暮らし)
+2-66	座主	WRONG	the head priest (person), not the office
+2-67	心身一体	UNSURE	mind-body unity, narrower than holism as a theory
+2-68	洒落	UNSURE	unconstrained/stylish; not clearly suavely
+2-69	言いこなす	OK	classical いひこなす 'disparage, speak ill of'
+2-70	辟易	OK	be taken aback/daunted; close to disconcerted
+2-71	リーダー	UNSURE	usually leader or reader device; rarely a literate person
+2-72	鱗屑	WRONG	skin flakes (desquamation), not animal scales
+2-73	楓属	OK	in Japanese botany 楓 (フウ) is Liquidambar; フウ属
+2-74	移ろう	UNSURE	mainly change/fade; relocation only archaic
+2-75	糠	WRONG	rice bran; 'vain' only as prefix (糠喜び)
+2-76	通信情報	UNSURE	communications intelligence, related but not the same
+2-77	壊す	WRONG	destroy; synset is breaking ranks by fleeing
+2-78	等圧式	UNSURE	not the usual term for isobar (等圧線)
+2-79	ござ有る	OK	honorific of come; loose fit
+2-80	アラム語	WRONG	the Aramaic language; the script is アラム文字
+2-81	コンセプション	UNSURE	loanword normally means concept
+2-82	浮き雲	UNSURE	floating cloud; instability only as metaphor
+2-83	続ける	WRONG	continue, not observe/keep (a rule)
+2-84	参照先	WRONG	noun 'reference target' for adjective 'having reference'
+2-85	査問	WRONG	inquiry/interrogation, not analysis
+2-86	純正	UNSURE	pure/genuine rather than perfect
+2-87	ソネット	WRONG	noun sonnet, not verb 'praise in a sonnet'
+2-88	軍医総監	WRONG	military surgeon general; US PHS head is 公衆衛生局長官
+2-89	南蛮文化	WRONG	16th-c. Iberian-influenced culture in Japan, not modern Western culture
+2-90	比	UNSURE	normally ratio; くらべ 'contest' reading rare without okurigana
+2-91	上位	UNSURE	only 上位性 clearly names epistasis
+2-92	定式	OK	established form/customary procedure
+2-93	写照	UNSURE	portrayal/depiction rather than copying verbatim
+2-94	外陣	WRONG	outer worship area/nave, not transept (翼廊)
+2-95	険要	OK	strategically impregnable position; fits physical sense
+2-96	無保険者	WRONG	noun 'uninsured person', not the adjective
+2-97	開示	UNSURE	disclosure; self-disclosure of feelings possible but loose
+2-98	きちんとなる	UNSURE	unnatural; unclear whether it means sitting up straight
+2-99	頭状花序	WRONG	capitulum (flower head), not ear of grain
+2-100	母系性	WRONG	matrilineality (noun), not parental
+2-101	縮らす	WRONG	crimp/frizz (hair), not wind around in coils
+2-102	修文	WRONG	polishing writing / promoting letters, not studying
+2-103	捕りもの	WRONG	arrest/capture, not a criminal
+2-104	発動	WRONG	invoke a power or measure, not cite an authority
+2-105	根から	UNSURE	through and through/by nature; figurative overlap with head to toe
+2-106	ヒゲクジラ亜目	WRONG	suborder Mysticeti, not the whale
+2-107	兌換	WRONG	currency convertibility, not change of use
+2-108	後天	WRONG	acquired after birth / a posteriori, not subsequence in time
+2-109	大時代	WRONG	old-fashioned/anachronistic, not evolutionarily primitive
+2-110	思わしい	UNSURE	satisfactory; used of health mainly in negative (思わしくない)
+2-111	容量分析	UNSURE	usually titrimetric analysis, not gas-volume determination
+2-112	軽い	WRONG	light in weight, not thin and wispy
+2-113	宜しい	OK	used of health in polite inquiries (お加減はよろしいですか)
+2-114	解剖学的	UNSURE	adjective 'anatomical' for a noun synset
+2-115	永続的	WRONG	lasting/permanent, not botanical 'not shed'
+2-116	光栄	UNSURE	honour/glory; only loosely 'worthy of honour'
+2-117	薄ぼんやり	WRONG	vague/absent-minded, not a gullible person
+2-118	リーダー	UNSURE	university Reader title rarely rendered リーダー
+2-119	シンチグラフィ	WRONG	one imaging technique, not the branch nuclear medicine
+2-120	インシュレーション	WRONG	insulation, not isolation
+2-121	立場	OK	historical たてば, a junk/ragpicker's dealer
+2-122	非常駐の	UNSURE	adjectival 'non-resident', not a person noun
+2-123	高慢なこと	WRONG	arrogance, not the positive self-respect sense of pride
+2-124	パテ	OK	pâté/patty; fits small meat pie loosely
+2-125	真っ黒	OK	face can be 真っ黒; acceptable
+2-126	リッチ	WRONG	adjective 'rich', not a fortune
+2-127	赫然たる	WRONG	blazing/flaring up, not vigorous
+2-128	怒らせる	OK	肩を怒らせる 'square one's shoulders'
+2-129	慰み事	UNSURE	pastime; gambling only via 手慰み
+2-130	火星人	WRONG	noun Martian person, not relational adjective
+2-131	ええっ	UNSURE	normally surprise; intimidating cry is ええい
+2-132	纏	UNSURE	normally まとい; okurigana-less まとめ doubtful
+2-133	ボーダー	WRONG	border/stripes/snowboarder, not a lodger
+2-134	先ず	UNSURE	first/probably; approximately sense marginal
+2-135	ヘッド	OK	used in soccer for a header (ヘッドで合わせる)
+2-136	凡	UNSURE	ordinary/roughly; summary sense doubtful without okurigana
+2-137	アスファルト道路	WRONG	asphalt road, not the paving material
+2-138	甲斐甲斐しい	UNSURE	diligent/brisk; brave only via archaic 'reliable'
+2-139	流入液	WRONG	noun 'influent liquid', not adjective flowing inward
+2-140	視聴者参加番組	WRONG	the program, not the phone call
+2-141	恒久的	WRONG	permanent, not 'not shed'
+2-142	破る	UNSURE	break/destroy/defeat; despoil only loosely

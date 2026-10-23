@@ -1,0 +1,101 @@
+n	word	verdict	reason
+1	今や	OK	
+2	宜しい	OK	
+3	有意義	OK	
+4	思わしい	OK	
+5	歳歳	OK	
+6	そこに	OK	
+7	美しい	OK	
+8	洗浄	OK	
+9	杲杲たる	OK	
+10	ピカピカ	OK	
+11	徒路	OK	
+12	繰出し	WRONG	繰り出し means paying out (rope) or going out en masse, not the act of walking
+13	繁忙	OK	
+14	旅	OK	
+15	拝見	OK	
+16	話す	OK	
+17	仰せられる	OK	
+18	記す	OK	
+19	書き付る	OK	
+20	頂く	OK	
+21	挿す	OK	
+22	若やか	OK	
+23	書表わす	OK	
+24	書き綴る	OK	
+25	行なう	OK	
+26	執行なう	OK	
+27	弾じる	OK	
+28	娼嫉	WRONG	likely a typo for 媢嫉 'jealousy/envy', not hate
+29	嫌悪	OK	
+30	満足	OK	
+31	面白い	OK	
+32	引き抜く	OK	
+33	乗り込む	OK	
+34	買込む	OK	
+35	拙	OK	
+36	返附	OK	
+37	辛い	OK	
+38	朦々たる	WRONG	朦々たる means dim/misty (thick fog), not physically thick in dimension
+39	成り変わる	OK	
+40	御召物	OK	
+41	装い	OK	
+42	ダブルデッカ	OK	
+43	バス	OK	
+44	チェア	OK	
+45	思い草	OK	
+46	歩廊	OK	
+47	絵画	OK	
+48	宅	OK	
+49	エレヴェータ	OK	
+50	御錠口	OK	
+51	封筒	OK	
+52	前	OK	
+53	被り笠	OK	
+54	御宿	OK	
+55	住居	OK	
+56	棲み家	OK	
+57	ヤッケ	OK	
+58	勝手方	WRONG	勝手方 means kitchen staff (or Edo finance office), not the kitchen room
+59	図書館	OK	
+60	写真絵	OK	
+61	ラジオ受信機	OK	
+62	後押し	WRONG	後押し means pushing from behind / backing, support; not the rear side
+63	飲食店	OK	
+64	ティールーム	OK	
+65	手洗い場	OK	
+66	憚り	OK	
+67	雪隠	OK	
+68	色合い	OK	
+69	幅員	OK	
+70	五体	OK	
+71	物言い	WRONG	物言い means way of speaking or an objection, not language as a system
+72	篇章	UNSURE	篇章 means chapters/sections or a piece of writing; 'book' is a stretch
+73	ノート	OK	
+74	字引	OK	
+75	状	OK	
+76	レター	OK	
+77	課題	OK	
+78	言の葉	OK	
+79	話	OK	
+80	質問	OK	
+81	供米	OK	
+82	乳	OK	
+83	酒	OK	
+84	キャフェ	UNSURE	キャフェ usually means a café (coffee shop), coffee only marginally
+85	企業	OK	
+86	門	OK	
+87	お側	OK	
+88	姉さん	OK	
+89	マドモアゼル	OK	
+90	御坊さん	OK	
+91	小僧	OK	
+92	御袋	OK	
+93	警察官	OK	
+94	人妻	OK	
+95	女性	OK	
+96	夕景	OK	
+97	夜半	OK	
+98	夏場	OK	
+99	どういう	OK	
+100	先月	OK	
