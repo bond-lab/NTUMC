@@ -3,7 +3,7 @@
 # requires-python = ">=3.10"
 # dependencies = ["openpyxl"]
 # ///
-"""Apply Jia Qi's Chinese wordnet edits (COW spreadsheet) to wn-ntumc.db.
+"""Apply Jia Qi Yeo's Chinese wordnet edits (COW spreadsheet) to wn-ntumc.db.
 
 Input: data/COW Definitions (Jia Qi).xlsx, four sheets (cmn_edu,
 ntumc_intersect_core, rest_of_core, tufs_lexicon) of synsets with

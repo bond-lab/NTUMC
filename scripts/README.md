@@ -227,7 +227,7 @@ Download fresh databases, apply all fixes, and regenerate the display:
 scp compling.upol.cz:/var/www/ntumc/db/wn-ntumc.db build/
 .venv/bin/python scripts/fixlinks.py build/wn-ntumc.db
 .venv/bin/python scripts/fixwn.py build/wn-ntumc.db
-scripts/2026-07/apply_cow_cmn.py build/wn-ntumc.db --fix   # Jia Qi's cmn edits
+scripts/2026-07/apply_cow_cmn.py build/wn-ntumc.db --fix   # Jia Qi Yeo's cmn edits
 
 # 2. Apply corpus metadata fixes (missing corpus rows, stype h0, NULL language)
 .venv/bin/python scripts/fix_corpus.py --fix
