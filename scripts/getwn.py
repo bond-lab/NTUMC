@@ -48,7 +48,8 @@ LANGUAGES = {
         "label": "NTU-MC Chinese Open Wordnet",
         "lg": "cmn-Hans",
         "email": "bond@ieee.org",
-        "license": "https://creativecommons.org/licenses/by/4.0/",
+        # COW keeps its own (WordNet-style) license
+        "license": "https://bond-lab.github.io/cow/LICENSE",
     },
     "ind": {
         "id": "ntumc-id",
@@ -152,6 +153,10 @@ def load_ili_map(source):
         parts = line.split("\t")
         if len(parts) >= 2:
             ili[parts[1]] = parts[0]
+            # the DB stores adjective satellites (-s in the map) as -a;
+            # adjectives and satellites share one offset space, so no clash
+            if parts[1].endswith("-s"):
+                ili.setdefault(parts[1][:-2] + "-a", parts[0])
     return ili
 
 
@@ -252,7 +257,41 @@ def merge_wordids(words, senses, lang):
     return canonical, merged_senses
 
 
-def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None, base=None):
+def source_tags(src):
+    """Split a sense's src field ('bow;sew', 'pron:wikt') into tags."""
+    tags = set()
+    for part in (src or "").split(";"):
+        tags |= {part} if part == "cmn:mwe" else {t for t in part.split(":") if t}
+    return tags
+
+
+def filter_senses(rows, exclude):
+    """Drop senses that come only from excluded sources.
+
+    A sense is dropped if all its source tags are in ``exclude`` (senses
+    with no source are kept).  The tag
+    'cmn:mwe' marks segmented forms (购物 中心); if it is excluded, every
+    sense carrying it is dropped, whatever its other tags.
+
+    Args:
+        rows: (synset, wordid, freq, confidence, src) sense rows.
+        exclude: Source tags to exclude, e.g. {'bow', 'sew', 'wikt', 'cmn:mwe'}.
+
+    Returns:
+        The rows that are kept.
+    """
+    always = exclude & {"cmn:mwe"}
+    kept = []
+    for r in rows:
+        tags = source_tags(r[4])
+        if tags & always or (tags and tags <= exclude):
+            continue
+        kept.append(r)
+    return kept
+
+
+def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None,
+                    base=None, exclude_src=None):
     """Extract a single language wordnet from the DB and write XML.
 
     Args:
@@ -261,21 +300,12 @@ def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None, bas
               base are omitted and synsets with no senses/definitions that exist
               in the base are dropped, producing a smaller XML that declares
               ``<Requires>`` on the base wordnet.
+        exclude_src: Optional set of source tags; senses only from these
+              sources are left out (see filter_senses).
     """
     freqs = load_freqs(outdir, lang)
     con = sqlite3.connect(db_path)
     c = con.cursor()
-
-    # Collect senses: wordid -> [(synset, freq, confidence), ...]
-    senses = dd(set)
-    synsets_used = set()
-    c.execute(
-        "SELECT synset, wordid, freq, confidence FROM sense WHERE lang = ?",
-        (lang,),
-    )
-    for synset, wid, freq, confidence in c:
-        senses[wid].add((synset, freq or 0, confidence or 1.0))
-        synsets_used.add(synset)
 
     # Collect words: [(wordid, lemma, pos), ...]
     c.execute(
@@ -283,6 +313,22 @@ def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None, bas
         (lang,),
     )
     words = {wid: (lemma, pos) for wid, lemma, pos in c}
+
+    # Collect senses: wordid -> [(synset, freq, confidence), ...]
+    senses = dd(set)
+    synsets_used = set()
+    rows = c.execute(
+        "SELECT synset, wordid, freq, confidence, src FROM sense WHERE lang = ?",
+        (lang,),
+    ).fetchall()
+    if exclude_src:
+        n = len(rows)
+        rows = filter_senses(rows, exclude_src)
+        print(f"  {lang}: excluded {n - len(rows)} senses only from "
+              f"{', '.join(sorted(exclude_src))}")
+    for synset, wid, freq, confidence, _ in rows:
+        senses[wid].add((synset, freq or 0, confidence or 1.0))
+        synsets_used.add(synset)
 
     # Merge whitespace-variant lemmas (Chinese only, for now)
     canonical, merged_senses = merge_wordids(words, senses, lang)
@@ -445,6 +491,10 @@ def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None, bas
             continue
         lemma, pos, variants = entry_source[wid]
         pos = norm_pos(pos)
+        # skip words with no senses in an exported synset (W201)
+        if not any(editor.get_synset(f"{wn_id}-{synset}") is not None
+                   for synset, _, _ in sense_source.get(wid, set())):
+            continue
         entry_id = f"w{entry_num}"
         entry_num += 1
         entry = editor.create_entry(lemma, pos, entry_id=entry_id)
@@ -549,7 +599,15 @@ def main():
              "via 'python -m wn download omw-en:2.0'. Shared relations and empty "
              "synsets are omitted; a <Requires> declaration is added.",
     )
+    parser.add_argument(
+        "--exclude-src",
+        type=str,
+        default=None,
+        help="Comma-separated sense sources to leave out, e.g. "
+             "'bow,sew,wikt,cmn:mwe' for the curated Chinese Open Wordnet (COW).",
+    )
     args = parser.parse_args()
+    exclude_src = set(args.exclude_src.split(",")) if args.exclude_src else None
 
     outdir = Path(args.outdir)
     outdir.mkdir(parents=True, exist_ok=True)
@@ -577,7 +635,7 @@ def main():
             continue
         outfile, stats = extract_wordnet(
             args.db, lang, LANGUAGES[lang], outdir, ili_map,
-            version=args.version, base=base,
+            version=args.version, base=base, exclude_src=exclude_src,
         )
         summary = (
             f"  {lang}: {stats['synsets']} synsets, "
