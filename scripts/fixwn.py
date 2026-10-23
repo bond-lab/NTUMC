@@ -10,6 +10,8 @@ Addresses three categories of problems found during wordnet validation:
   SENSE Wrong senses — deleted
   DEIX  Missing deixis links (dmnu/dmtu) from demonstratives to
         medial/proximal/distal/remote
+  LEMMA Bracketed Chinese lemmas (truncated glosses, alternatives,
+        CLDR annotations) in COW replaced or deleted
   TWO   "of two" feature replaces dual for either/neither/both and the
         one-of-two pronouns; either split into universal and elective
 
@@ -685,6 +687,74 @@ def fix_two(db, dry_run):
     return n
 
 
+# ── LEMMA: bracketed Chinese lemmas in COW ───────────────────────────
+
+# (synset, old lemma, new lemma or None to delete); cmn only.  A sense is
+# moved to the new word (keeping src, confidence, freq), or deleted if the
+# new lemma is already in the synset (whose sense then gets the old src tags).  '+的' marks a compositional,
+# non-lexicalized form (addpinyin.py strips it and sets lexicalized=false).
+FIX_CMN_LEMMA = [
+    ("01306645-a", "了解最新发展的(", "了解最新发展+的"),
+    ("15216563-n", "亚比月(公历11月", "亚比月"),
+    ("15215816-n", "尼散月(即犹太教历1月", "尼散月"),
+    ("15215480-n", "阿达尔月(即犹太教历12月", "阿达尔月"),
+    ("02233072-a", "尘[粉]状", "粉状"),
+    ("02233072-a", "尘[粉]状+的", "粉状+的"),
+    ("13766637-n", "篮[箱]的量", "一箱+的+量"),        # crate: not lexicalized
+    ("00050454-v", "脱（衣帽等）", None),               # 脱 already there
+    ("08718391-n", "福克兰群岛（马尔维纳斯群岛）", "马尔维纳斯群岛"),
+    ("06361934-n", "线形文字（A）", "线形文字A"),
+    ("06362059-n", "线形文字（B）", "线形文字B"),
+    ("06926212-n", "阿尔泰诸语言（其他）", "阿尔泰诸语言"),
+    ("08961630-n", "马其顿（前南斯拉夫的马其顿共和国）", "北马其顿"),  # country
+    ("08915372-n", "马其顿（前南斯拉夫的马其顿共和国）", None),  # ancient kingdom
+]
+
+
+def fix_cmn_lemmas(db, dry_run):
+    """Move senses of bracketed Chinese lemmas to corrected words."""
+    n = 0
+    for ss, old, new in FIX_CMN_LEMMA:
+        row = db.execute(
+            "SELECT s.wordid FROM sense s JOIN word w USING (wordid) "
+            "WHERE s.synset=? AND w.lang='cmn' AND w.lemma=?", (ss, old)
+        ).fetchone()
+        if not row:
+            continue
+        old_wid = row[0]
+        have_new = new and db.execute(
+            "SELECT s.wordid, s.src FROM sense s JOIN word w USING (wordid) "
+            "WHERE s.synset=? AND w.lang='cmn' AND w.lemma=?", (ss, new)
+        ).fetchone()
+        if have_new:
+            # keep the old sense's provenance (e.g. cow) on the existing one,
+            # so a curated sense is not lost when the existing one is bow-only
+            old_src = db.execute("SELECT src FROM sense WHERE synset=? AND "
+                                 "wordid=?", (ss, old_wid)).fetchone()[0]
+            tags = [t for t in (have_new[1] or "").split(";") if t]
+            tags += [t for t in (old_src or "").split(";") if t and t not in tags]
+            print(f"    {ss}: delete {old!r}; {new!r} src -> {';'.join(tags)}")
+            if not dry_run:
+                db.execute("UPDATE sense SET src=? WHERE synset=? AND wordid=?",
+                           (";".join(tags), ss, have_new[0]))
+                db.execute("DELETE FROM sense WHERE synset=? AND wordid=?",
+                           (ss, old_wid))
+        elif new is None:
+            print(f"    {ss}: delete {old!r}")
+            if not dry_run:
+                db.execute("DELETE FROM sense WHERE synset=? AND wordid=?",
+                           (ss, old_wid))
+        else:
+            wid = _wordid(db, "cmn", new, ss[-1], dry_run)
+            print(f"    {ss}: {old!r} -> {new!r}")
+            if not dry_run:
+                db.execute("UPDATE sense SET wordid=? WHERE synset=? AND wordid=?",
+                           (wid, ss, old_wid))
+        n += 1
+    print(f"  {n} lemmas {'to fix' if dry_run else 'fixed'}.")
+    return n
+
+
 # ── Main ──────────────────────────────────────────────────────────────
 
 def main():
@@ -735,6 +805,10 @@ def main():
 
     print("--- TWO: of-two feature, either split ---")
     fix_two(db, args.dry_run)
+    print()
+
+    print("--- LEMMA: bracketed Chinese lemmas ---")
+    fix_cmn_lemmas(db, args.dry_run)
     print()
 
     if not args.dry_run:
