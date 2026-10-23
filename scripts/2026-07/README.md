@@ -33,6 +33,7 @@ from scratch"), whenever the databases are re-downloaded from the server:
 | `import_links.py` | first import of clinks/wlinks from 2013 link DBs (superseded by `realign_clinks.py`) |
 | `realign_clinks.py` | re-derive all clinks from the 2013-10-05 sources against current numbering (fixes issue #6) |
 | `apply_cow_cmn.py` | apply Jia Qi's Chinese definitions and lemma edits from `data/COW Definitions (Jia Qi).xlsx`; everything not applied goes to `docs/cow-cmn-review.tsv` |
+| `restore_triggers.py` | re-create missing change-log triggers from `corpus_triggers.sql` and repair misdirected ones (cmn `delete_word_log` wrote to `sent_log`) |
 | `fix_pronoun_tags.py` | retag either/哪 tokens after the `fixwn.py` pronoun fixes (universal/elective either, either…or → x, 哪 → interrogative); see `test_fix_pronoun_tags.py` |
 
 ## Comment-suggestion workflow

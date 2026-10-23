@@ -273,6 +273,10 @@ scripts/2026-07/apply_cow_cmn.py build/wn-ntumc.db --fix   # Jia Qi's cmn edits
 .venv/bin/python scripts/2026-07/audit_comment_suggestions.py
 .venv/bin/python scripts/2026-07/retag_partly.py --fix
 
+# 15a. Restore change-log triggers (several fix scripts drop them; the
+#      2026-08-10 push lost all of eng.db's).  Run before 15b so it is logged.
+.venv/bin/python scripts/2026-07/restore_triggers.py build/{eng,cmn,jpn,ind,ita,ces,yue,zsm}.db --fix
+
 # 15b. Retag either/哪 tokens after the fixwn.py pronoun fixes
 .venv/bin/python scripts/2026-07/fix_pronoun_tags.py --fix
 
