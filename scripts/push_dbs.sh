@@ -12,6 +12,8 @@
 #   --host HOST   SSH host (default: compling.upol.cz)
 #   --dry-run     Show what would happen without copying anything
 #   --yes         Skip the interactive confirmation
+#   --note TEXT   What was applied (scripts, commits); recorded in
+#                 CHANGELOG.md and the server's PUSHLOG.tsv
 #
 # Safety: refuses to push a database whose local copy has no *_log
 # tables (that would erase the server's annotation history — see
@@ -26,6 +28,7 @@ BUILD_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/build"
 BACKUP_SUBDIR="backup-$(date +%Y-%m-%d)"
 DRY_RUN=0
 ASSUME_YES=0
+NOTE=""
 DBS=()
 
 while [[ $# -gt 0 ]]; do
@@ -33,6 +36,7 @@ while [[ $# -gt 0 ]]; do
         --host)    HOST="$2"; shift 2 ;;
         --dry-run) DRY_RUN=1; shift ;;
         --yes)     ASSUME_YES=1; shift ;;
+        --note)    NOTE="$2"; shift 2 ;;
         -*)        echo "Unknown option: $1" >&2; exit 1 ;;
         *)         DBS+=("$1"); shift ;;
     esac
@@ -108,3 +112,31 @@ for db in "${DBS[@]}"; do
 done
 
 echo "=== Done: ${#DBS[@]} database(s) pushed and verified ==="
+
+# ── record the push ──
+STAMP="$(date '+%Y-%m-%d %H:%M')"
+COMMIT="$(git -C "${BUILD_DIR}/.." rev-parse --short HEAD 2>/dev/null || echo unknown)"
+DB_LIST="${DBS[*]}"
+# shellcheck disable=SC2029  # server-side expansion is intended
+ssh "$HOST" "printf '%s\t%s\t%s\t%s\t%s\t%s\n' '${STAMP}' '$(whoami)@$(hostname -s)' \
+    '${COMMIT}' '${BACKUP_SUBDIR}' '${DB_LIST}' '${NOTE//\'/}' \
+    >> '${REMOTE_DIR}/PUSHLOG.tsv'"
+CHANGELOG="${BUILD_DIR}/../CHANGELOG.md"
+ENTRY="### ${STAMP} — ${DB_LIST}
+
+- **Pushed:** ${DB_LIST}
+- **Backup:** \`${BACKUP_SUBDIR}/\`
+- **Code:** \`${COMMIT}\` (from $(whoami)@$(hostname -s))
+- **Applied:** ${NOTE:-(no note given)}
+"
+# insert the entry above the newest existing one
+python3 - "$CHANGELOG" "$ENTRY" <<'PY'
+import sys
+path, entry = sys.argv[1], sys.argv[2]
+text = open(path, encoding="utf-8").read()
+i = text.find("\n### ")
+text = text + "\n" + entry if i < 0 else text[:i + 1] + entry + "\n" + text[i + 1:]
+open(path, "w", encoding="utf-8").write(text)
+PY
+echo "Recorded in CHANGELOG.md and ${HOST}:${REMOTE_DIR}/PUSHLOG.tsv"
+echo "Remember to commit CHANGELOG.md."

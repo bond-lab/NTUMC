@@ -3,7 +3,8 @@
 
 Downloads fresh copies from the compling server, applies fixes, and
 produces an audit report.  Changes are applied to local copies only;
-push back to the server manually after review.
+push back to the server with scripts/push_dbs.sh after review (it backs
+up the server copies, refuses log-less databases and records the push).
 
 Usage:
     # Audit only (no changes)
@@ -17,9 +18,6 @@ Usage:
 
     # Download, fix, and audit
     .venv/bin/python scripts/fix_corpus.py --download --fix --audit
-
-    # Push fixed databases back to server (interactive confirmation)
-    .venv/bin/python scripts/fix_corpus.py --push
 """
 
 import argparse
@@ -779,36 +777,6 @@ def _fix_doc_pk(conn: sqlite3.Connection, lang: str, dry_run: bool) -> int:
 # ---------------------------------------------------------------------------
 
 
-def push_databases() -> None:
-    """Push fixed databases back to the server (with confirmation)."""
-    print("\nDatabases to push:")
-    for lang in CORE_LANGS:
-        local = BUILD_DIR / f"{lang}.db"
-        if local.exists():
-            print(f"  {local} → {SERVER}:{REMOTE_DB_DIR}/{lang}.db")
-
-    answer = input("\nPush these to the server? [y/N] ").strip().lower()
-    if answer != "y":
-        print("Aborted.")
-        return
-
-    for lang in CORE_LANGS:
-        local = BUILD_DIR / f"{lang}.db"
-        if not local.exists():
-            continue
-        remote = f"{SERVER}:{REMOTE_DB_DIR}/{lang}.db"
-        logger.info("Pushing %s → %s", local, remote)
-        result = subprocess.run(
-            ["scp", str(local), remote],
-            capture_output=True,
-            text=True,
-        )
-        if result.returncode != 0:
-            logger.error("Failed to push %s: %s", local, result.stderr.strip())
-        else:
-            logger.info("  OK")
-
-
 # ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
@@ -836,10 +804,6 @@ def parse_args() -> argparse.Namespace:
         help="With --fix, report what would change without modifying files",
     )
     parser.add_argument(
-        "--push", action="store_true",
-        help="Push fixed databases back to the server (interactive confirmation)",
-    )
-    parser.add_argument(
         "--lang", nargs="+", default=CORE_LANGS,
         help=f"Languages to process (default: {' '.join(CORE_LANGS)})",
     )
@@ -850,8 +814,8 @@ def main() -> None:
     """Entry point."""
     args = parse_args()
 
-    if not (args.download or args.audit or args.fix or args.push):
-        logger.error("Specify at least one of --download, --audit, --fix, --push")
+    if not (args.download or args.audit or args.fix):
+        logger.error("Specify at least one of --download, --audit, --fix")
         sys.exit(1)
 
     if args.download:
@@ -871,9 +835,6 @@ def main() -> None:
             db_path = BUILD_DIR / f"{lang}.db"
             all_findings.append(audit_database(db_path))
         print_audit(all_findings)
-
-    if args.push:
-        push_databases()
 
 
 if __name__ == "__main__":
