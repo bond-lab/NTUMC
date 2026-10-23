@@ -32,6 +32,7 @@ from scratch"), whenever the databases are re-downloaded from the server:
 | `align_kc.py` | create slinks + stypes for kc01/kc02 from article ids in comments |
 | `import_links.py` | first import of clinks/wlinks from 2013 link DBs (superseded by `realign_clinks.py`) |
 | `realign_clinks.py` | re-derive all clinks from the 2013-10-05 sources against current numbering (fixes issue #6) |
+| `apply_cow_cmn.py` | apply Jia Qi's Chinese definitions and lemma edits from `data/COW Definitions (Jia Qi).xlsx`; everything not applied goes to `docs/cow-cmn-review.tsv` |
 | `fix_pronoun_tags.py` | retag either/哪 tokens after the `fixwn.py` pronoun fixes (universal/elective either, either…or → x, 哪 → interrogative); see `test_fix_pronoun_tags.py` |
 
 ## Comment-suggestion workflow

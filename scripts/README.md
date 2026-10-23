@@ -88,8 +88,9 @@ stype) across all language databases.
 .venv/bin/python scripts/fix_corpus.py --fix --dry-run --audit
 .venv/bin/python scripts/fix_corpus.py --fix --audit
 
-# Push fixed databases back to server (interactive confirmation)
-.venv/bin/python scripts/fix_corpus.py --push
+# Push fixed databases back to the server: use push_dbs.sh, which backs
+# up the server copies first and records the push in CHANGELOG.md
+scripts/push_dbs.sh --note "what was applied" eng.db cmn.db
 ```
 
 Automated fixes:
@@ -222,6 +223,12 @@ Download fresh databases, apply all fixes, and regenerate the display:
 # 1. Download databases from the server
 .venv/bin/python scripts/fix_corpus.py --download
 
+# 1b. Wordnet (the server copy is the master; --download does not fetch it)
+scp compling.upol.cz:/var/www/ntumc/db/wn-ntumc.db build/
+.venv/bin/python scripts/fixlinks.py build/wn-ntumc.db
+.venv/bin/python scripts/fixwn.py build/wn-ntumc.db
+scripts/2026-07/apply_cow_cmn.py build/wn-ntumc.db --fix   # Jia Qi's cmn edits
+
 # 2. Apply corpus metadata fixes (missing corpus rows, stype h0, NULL language)
 .venv/bin/python scripts/fix_corpus.py --fix
 
@@ -272,6 +279,9 @@ Download fresh databases, apply all fixes, and regenerate the display:
 # 16. Audit to verify
 .venv/bin/python scripts/fix_corpus.py --audit
 .venv/bin/python scripts/check_cwl.py
+
+# Push back with a note; this records the push in CHANGELOG.md
+# scripts/push_dbs.sh --note "what was applied" wn-ntumc.db eng.db cmn.db
 
 # 17. Regenerate display HTML
 for lang in eng cmn ind ita ces; do

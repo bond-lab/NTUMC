@@ -1,0 +1,246 @@
+synset	sheet	kind	text	english_definition
+00002950-r	tufs_lexicon	note	No lemmas	exactly at this moment or the moment described
+00009966-r	tufs_lexicon	alt_def	礼貌性使用的请求词	used in polite request
+00024356-r	tufs_lexicon	alt_def	用于表达拒绝, 否认或分歧等, 特别是强调否定的单词	used to express refusal or denial or disagreement etc or especially to emphasize a negative statement
+00027918-r	cmn_edu	alt_def	用于否定句，表示目前的情况	used in negative statement to describe a situation that has existed up to this point or up to the present time
+00031304-r	tufs_lexicon	alt_def	指行动或状态没有任何变化, 中断或停止	with reference to action or condition; without change, interruption, or cessation
+00037919-v	tufs_lexicon	note	Keyword immersion	clean one's body by immersion into water
+00050652-v	tufs_lexicon	alt_def	把衣服穿在身上	put clothing on one's body
+00150351-r	cmn_edu	old_def_replaced	对，你说的很有道理	an interjection expressing agreement; Yes, you are indeed correct
+00251013-n	tufs_lexicon	note	It doesn't include metaphorical cleansing (innocence etc)? Chn extends the metaphor	the act of making something clean
+00255710-n	tufs_lexicon	note	Cf. n=1, 76, 96, 160	the work of cleansing (usually with soap and water)
+00273734-v	tufs_lexicon	note	This is not the usual sense of the word! So there is no direct equivalent in Chinese, the closest is 'habituate'	accustom gradually to some action or attitude
+00292937-a	tufs_lexicon	alt_def	积极地或完全地参与某事, 或精神和注意力完全被某事占领	actively or fully engaged or occupied
+00429048-n	rest_of_core	full_def_replaced_by_easy	使人转移视线并集中注意的活动	an activity that is diverting and that holds the attention
+00431893-n	rest_of_core	easy_def	玩耍	activity by children that is guided more by imagination than by fixed rules
+00490968-v	ntumc_intersect_core	easy_def	计算一个事件或行动的时间或时长	measure the time or duration of an event or action or the person who performs an action in a certain period of time
+00514884-a	tufs_lexicon	alt_def	包括所有组件, 无一例外; 是一个单位或构成整个数量, 范围或时间段; 完整的状态	including all components without exception; being one unit or constituting the full amount or extent or duration; complete
+00584367-n	tufs_lexicon	alt_def	让你赚钱的职业	the occupation for which you are paid
+00690058-a	ntumc_intersect_core	full_def_replaced_by_easy	有很大的空间伸展，或从表面向下或内深入，或从中心向后或横向或向外	having great spatial extension or penetration downward or inward from an outer surface or backward or laterally or outward from a center
+00729108-n	cmn_edu	alt_def	校外（尤其在家中）所做的备课练习	preparatory school work done outside school (especially at home)
+00749230-a	tufs_lexicon	alt_def	不困难; 需要很少的努力	posing no difficulty; requiring little effort
+00908492-n	ntumc_intersect_core	easy_def	创造出新的事物	the human act of creating
+00941990-v	tufs_lexicon	alt_def	以口语表达	express in speech
+00976508-a	tufs_lexicon	note	Cf. n=46	acting or moving or capable of acting or moving quickly
+00979862-a	tufs_lexicon	note	Cf. n=56	characterized by speed; moving with or capable of moving with high speed
+01009240-v	tufs_lexicon	alt_def	以言语表达	express in words
+01020393-a	cmn_edu	easy_def	达到标准	meeting adequate standards for a purpose
+01048762-a	cmn_edu	alt_def	颇为满意的效果	resulting favorably
+01074650-a	rest_of_core	easy_def	亲近友善	characteristic of or befitting a friend
+01089369-a	rest_of_core	easy_def	利用业余时间做其他工作	involving less than the standard or customary time for an activity
+01123148-a	tufs_lexicon	alt_def	具有理想或积极品质, 特别是适合某特定事物的品质	having desirable or positive qualities especially those suitable for a thing specified
+01170052-v	tufs_lexicon	alt_def	服下液体	take in liquids
+01206153-n	rest_of_core	easy_def	将自己的全部献给某事或某人	the act of binding yourself (intellectually or emotionally) to a course of action
+01212519-n	rest_of_core	full_def_replaced_by_easy	帮助其因或政策	aiding the cause or policy or interests of
+01247240-a	cmn_edu	alt_def	使用热能；高温或高于所需温度或发出热度或导致高温或燃烧的感觉	used of physical heat; having a high or higher than desirable temperature or giving off heat or feeling or causing a sensation of heat or burning
+01251128-a	tufs_lexicon	alt_def	温度过低或不足, 或感觉寒冷,或因冰或冷藏等原因而寒冷	having a low or inadequate temperature or feeling a sensation of coldness or having been made cold by e.g. ice or refrigeration
+01270199-v	tufs_lexicon	note	Cf. n=1, 62, 96, 160	clean with some chemical process
+01291589-a	rest_of_core	easy_def	方便随身携带	of a motor designed to be attached to the outside of a boat's hull
+01308381-v	tufs_lexicon	note	There is a slight distinction between 'where it belongs' and 'its original location', I think the latter is better in this case	put something back where it belongs
+01343918-a	tufs_lexicon	alt_def	吸引或继续吸引注意力	arousing or holding the attention
+01344344-a	tufs_lexicon	note	Eng definition is over-formal	agreeably diverting
+01375831-a	tufs_lexicon	alt_def	声名远播	widely known and esteemed
+01375831-a	tufs_lexicon	note	Chn has endless idioms, etc constructions for this	widely known and esteemed
+01433493-a	ntumc_intersect_core	full_def_replaced_by_easy	空间概念；相当长或比一般的空间长	primarily spatial sense; of relatively great or greater than average spatial extension or extension as specified
+01447632-v	rest_of_core	easy_def	向外或向前用力移动	make strenuous pushing movements during birth to expel the baby
+01450969-a	rest_of_core	easy_def	不知如何是好	spiritually or physically doomed or destroyed
+01478182-a	cmn_edu	easy_def	涉及女性	for or pertaining to or composed of women or girls
+01532589-v	tufs_lexicon	note	Presumably this is a hypernym of 'wash'? Cf. n=62, 76, 96, 160	make clean by removing dirt, filth, or unwanted substances from
+01535246-v	tufs_lexicon	alt_def	用肥皂和水等清洁剂清洗	cleanse with a cleaning agent, such as soap, and water
+01535246-v	tufs_lexicon	note	Cf. n=1, 62, 76, 160	cleanse with a cleaning agent, such as soap, and water
+01536168-v	tufs_lexicon	note	Cf. n=1, 62, 76, 96	wash off soap or remaining dirt
+01546111-v	tufs_lexicon	alt_def	站立; 直立	be standing; be upright
+01552885-a	tufs_lexicon	alt_def	形容数目小但不确定	a quantifier that can be used with count nouns and is often preceded by `a'; a small but indefinite number
+01555133-a	cmn_edu	old_def_replaced	多过	a quantifier meaning greater in size or amount or extent or degree; above; more than
+01586752-a	tufs_lexicon	alt_def	令人愉快的	agreeable or pleasing
+01663571-a	rest_of_core	easy_def	开朗，积极向上	expecting the best in this best of all possible worlds
+01691057-v	tufs_lexicon	alt_def	在某物体表面上刻划字或标记	mark or trace words or symbols on a surface
+01712704-v	tufs_lexicon	alt_def	采取某动作	carry out or perform an action
+01712753-a	tufs_lexicon	note	FIXENG This definition seems over-generic; it evidently covers minor wounds (bruises) as well as major injuries (raw wounds); maybe remove *raw*	easily pained, grieved, or hurt;  susceptible of irritation
+01800349-a	tufs_lexicon	alt_def	让人称心, 舒服, 符和人的喜好或要求	affording pleasure; being in harmony with your taste or likings
+01848718-v	tufs_lexicon	alt_def	从一个地方向另一个方向移动	move away from a place into another direction
+01854129-a	rest_of_core	full_def_replaced_by_easy	在旁运作	functioning in a supporting capacity
+01872745-a	rest_of_core	easy_def	见解深刻	showing intellectual penetration or emotional depth
+01889610-v	rest_of_core	easy_def	摇东西使其动	move or cause to move back and forth
+01970348-v	rest_of_core	easy_def	由低往高处移动	come up, of celestial bodies
+01984902-v	tufs_lexicon	alt_def	就坐的举动	take a seat
+02005948-v	tufs_lexicon	alt_def	到达目的地; 通过移动或行进到达	reach a destination; arrive by movement or progress
+02107442-v	tufs_lexicon	note	Includes non-auditory hearing. Eng and Chn concur in making this meaning extension of 'hear'	receive a communication from someone
+02157415-n	cmn_edu	old_def_replaced	某些脊椎动物(例如蛇或鱼类）的下部	the underpart of the body of certain vertebrates such as snakes or fish
+02440250-n	tufs_lexicon	alt_def	在某些脊椎动物中 (例如猿猴或袋鼠) 前肢的末端	terminal part of the forelimb in certain vertebrates (e.g. apes or kangaroos)
+02440250-n	tufs_lexicon	note	Not humans??	terminal part of the forelimb in certain vertebrates (e.g. apes or kangaroos)
+02604760-v	cmn_edu	full_def_replaced_by_easy	表示特征	have the quality of being
+02616386-v	cmn_edu	easy_def	联系两种事物，表示等同或	be identical to; be someone or something
+02770717-v	tufs_lexicon	note	Literally or metaphorically cloudy??	make overcast or cloudy
+02935891-n	tufs_lexicon	alt_def	自助服务并给收银员付钱的餐厅	a restaurant where you serve yourself and pay a cashier
+02977438-n	rest_of_core	delete_not_matched	一个带有加入机器的钱箱来注册交易	a cashbox with an adding machine to register transactions; used in shops to add up the bill
+03102654-n	tufs_lexicon	note	Must it be liquids?	a refrigerator for cooling liquids
+03112099-n	tufs_lexicon	note	FIXENG Corridors need not be enclosed per se, or even indoor	an passageway in a building; rooms usually open onto it
+03221720-n	tufs_lexicon	alt_def	旋转或滑动的障碍物, 关闭房间, 建筑物或车辆的入口	a swinging or sliding barrier that will close the entrance to a room or building or vehicle
+03259505-n	tufs_lexicon	alt_def	有人居住的住宅	housing that someone is living in
+03365991-n	tufs_lexicon	alt_def	由一个或一组左右平行的房间组成的结构	a structure consisting of a room or set of rooms at a single position along a vertical scale
+03365991-n	cmn_edu	full_def_replaced_by_easy	由一个或几个房间组成，并置于同个位置且垂直的结构	a structure consisting of a room or set of rooms at a single position along a vertical scale
+03388183-n	tufs_lexicon	note	Technically this description works for all pens?	a pen that is supplied with ink from a reservoir in its barrel
+03417345-n	tufs_lexicon	note	Size should be considered to distinguish this from farm, plantation, etc	a plot of ground where plants are cultivated
+03417749-n	tufs_lexicon	note	Cf. n=27	a yard or lawn adjoining a house
+03485794-n	tufs_lexicon	note	Amazingly, the concept of a handkerchief independently developed in Chn culture!	a square piece of cloth used for wiping the eyes or nose or as a costume accessory
+03540595-n	tufs_lexicon	alt_def	病人可以接受治疗的医疗设施	a health facility where patients receive treatment
+03540595-n	tufs_lexicon	note	This seems to cover all medical facilities of all sorts	a health facility where patients receive treatment
+03544360-n	tufs_lexicon	alt_def	可作为人居住的住所	a dwelling that serves as living quarters for one or more families
+03544360-n	tufs_lexicon	note	FIXENG I find it very odd that it must be for families. So if one lives alone, one's home is not a house??	a dwelling that serves as living quarters for one or more families
+03544360-n	tufs_lexicon	note	extra column: a dwelling that serves as living quarters for one or more people	a dwelling that serves as living quarters for one or more families
+03624134-n	tufs_lexicon	note	A size distinction needs to be made between knives and larger but similar weapons in Chinese which would not be termed knives in English	a weapon with a handle and blade with a sharp point
+03871083-n	tufs_lexicon	note	Is there a separate synset for postal parcel or is it under here? If it is, 邮包 can remain	a wrapped container
+03925226-n	tufs_lexicon	alt_def	以印刷品或透明幻灯片表现人或场景的方式, 用相机在感光材料上记录	a representation of a person or scene in the form of a print or transparent slide; recorded by a camera on light-sensitive material
+04048568-n	ntumc_intersect_core	easy_def	供火车行驶的轨道	line that is the commercial organization responsible for operating a system of transportation for trains that pull passengers or freight
+04203889-n	tufs_lexicon	note	There isn't a specific word in Chn for this	the commodities purchased from stores
+04446276-n	tufs_lexicon	alt_def	配备一个或多个厕所的房间或建筑物	a room or building equipped with one or more toilets
+04956594-n	tufs_lexicon	note	A lot of incorrect lemmas that are homographs in English	a visual attribute of things that results from the light they emit or transmit or reflect
+04967191-n	tufs_lexicon	alt_def	绿的颜色, 犹如嫩草的颜色	green color or pigment; resembling the color of growing grass
+05068080-n	rest_of_core	note	This lemma is a translation of 'inclination' in the psychological sense	the property possessed by a line or surface that departs from the vertical
+05120310-n	rest_of_core	note	I do not think these lemmas convey the idea of redundancy, more of excess or burden	the attribute of being superfluous and unneeded
+05175467-n	rest_of_core	note	These refer to interviewing, going in and out and coming close to respectively which do not fall under this particular definition of access	the right to obtain or make use of or take advantage of something (as services or membership)
+05194874-n	rest_of_core	note	These refer to holding concrete objects. I have inserted the corresponding metaphor lemma 掌握 (grasp/grip; literally 'palm-hold') and the literal lemma 理解 (understanding).	an intellectual hold or understanding
+05211793-n	rest_of_core	easy_def	开朗，积极向上	a general disposition to expect the best in all things
+05216365-n	tufs_lexicon	alt_def	生物 (动物, 植物或人类) 的整个结构体	the entire structure of an organism (an animal, plant, or human being)
+05282746-n	tufs_lexicon	alt_def	脊椎动物颌骨中坚硬的骨状结构; 用于咬和咀嚼, 或攻击和防御	hard bonelike structures in the jaws of vertebrates; used for biting and chewing or for attack and defense
+05560787-n	tufs_lexicon	note	Really?	a human limb; commonly used to refer to a whole limb but technically only the part of the limb between the knee and ankle
+05718935-n	tufs_lexicon	alt_def	歌手或乐器产生的声音(或此类声音的复制品)	the sounds produced by singers or musical instruments (or reproductions of such sounds)
+05821486-n	ntumc_intersect_core	full_def_replaced_by_easy	用来证实后来发生的情况的事例	an example that is used to justify similar occurrences at a later time
+06267145-n	tufs_lexicon	alt_def	折页上的每日或每周出版物; 包含新闻, 文章和广告	a daily or weekly publication on folded sheets; contains news and articles and advertisements
+06282651-n	tufs_lexicon	alt_def	通过使用声音或常规符号进行交流的系统性方式	a systematic means of communicating by the use of sounds or conventional symbols
+06415419-n	tufs_lexicon	alt_def	一本页面空白的书, 用于记录下笔记或备忘录	a book with blank pages for recording notes or memoranda
+06613686-n	tufs_lexicon	alt_def	一种娱乐形式, 通过声音和一系列图像来给人画面正不停移动的错觉, 从而讲述一个故事	a form of entertainment that enacts a story by sound and a sequence of images giving the illusion of continuous movement
+06964901-n	tufs_lexicon	alt_def	在法国及其曾经的殖民地等地的当地语言	the Romance language spoken in France and in countries colonized by France
+07196682-n	tufs_lexicon	alt_def	寻求答复的问句	a sentence of inquiry that asks for a reply
+07557434-n	cmn_edu	alt_def	经烹调的食物	a particular item of prepared food
+07575076-n	cmn_edu	alt_def	中餐	a midday meal
+07575726-n	cmn_edu	alt_def	一天中的正餐，傍晚或午后用餐	the main meal of the day served in the evening or at midday
+07578363-n	ntumc_intersect_core	old_def_replaced	一份或一客食物	an individual quantity of food or drink taken as part of a meal
+07884567-n	tufs_lexicon	alt_def	酒精为主要活性成分的酒类饮料	a liquor or brew containing alcohol as the active agent
+07891726-n	tufs_lexicon	alt_def	经发酵的果汁(尤其葡萄汁)	fermented juice (of grapes especially)
+07929519-n	tufs_lexicon	alt_def	一种由研磨咖啡豆制成的饮料	a beverage consisting of an infusion of ground coffee beans
+08078020-n	tufs_lexicon	alt_def	共同居住的社会单位	a social unit living together
+08278169-n	tufs_lexicon	note	No lemmas; this usage is an extension	the body of faculty and students of a college
+08544813-n	tufs_lexicon	alt_def	国家的领土	the territory occupied by a nation
+08544813-n	tufs_lexicon	note	Here we ignore the difference between nations and states	the territory occupied by a nation
+08559508-n	cmn_edu	alt_def	居住的地方	where you live at a particular time
+08588152-n	tufs_lexicon	old_def_replaced	里面	the inner or enclosed surface of something
+08588152-n	tufs_lexicon	old_def_replaced	不是外部	the inner or enclosed surface of something
+09409752-n	ntumc_intersect_core	easy_def	山的高处像兽脊凸起的部分	a long narrow range of hills
+09792555-n	ntumc_intersect_core	easy_def	较早的上代	someone from whom you are descended (but usually more remote than a grandparent)
+09853467-n	cmn_edu	alt_def	年长的兄长	an older brother
+09853467-n	tufs_lexicon	note	There is no generic/unmarked-for-gender word for sibling in Chinese	an older brother
+09854218-n	cmn_edu	alt_def	年纪比自己大的女子	an older sister
+09854218-n	tufs_lexicon	note	There is no generic/unmarked-for-gender word for sibling in Chinese	an older sister
+09874725-n	ntumc_intersect_core	easy_def	刚结婚的女子	a woman participant in her own marriage ceremony
+09918248-n	tufs_lexicon	alt_def	任何年龄的儿女	a human offspring (son or daughter) of any age
+09992538-n	rest_of_core	note	These refer to generic meetings, not romantic dates	a participant in a date
+10020890-n	tufs_lexicon	alt_def	有行医执照的医生	a licensed medical practitioner
+10020890-n	tufs_lexicon	note	Cf n=51	a licensed medical practitioner
+10055847-n	rest_of_core	note	These lemmas refer to political opposition and those who may be unarmed. 对抗者 can be armed or unarmed.	an armed adversary (especially a member of an opposing military force)
+10080869-n	tufs_lexicon	alt_def	男性家长(也作为对父亲的称呼)	a male parent (also used as a term of address to your father)
+10129825-n	tufs_lexicon	alt_def	年轻的女子	a young woman
+10142747-n	tufs_lexicon	alt_def	你父亲或母亲的母亲	the mother of your father or mother
+10325013-n	rest_of_core	note	Note definition is gendered, so women cannot be heroes (??)	a man distinguished by exceptional courage and nobility and strength
+10332385-n	tufs_lexicon	alt_def	生了孩子的妇女 (也用作对母亲的称呼)	a woman who has given birth to a child (also used as a term of address to your mother)
+10368009-n	cmn_edu	full_def_replaced_by_easy	宗教相关的妇女	a woman religious
+10373998-n	rest_of_core	note	Note: Eng definition refers to the immediate descendants i.e. children ONLY, but all the Chn lemmas refer to ALL descendants who can be traced back by blood descent to the individual (i.e. excluding marriage). I have translated the former  -- THIS SYNSET IS EXPECTED TO BE EMPTY	the immediate descendants of a person
+10407310-n	rest_of_core	note	Note that 捍卫 need not involve taking up arms, compared to other variants	one who loves and defends his or her country
+10655594-n	rest_of_core	note	This synset is unmarked for gender	an attendant on an airplane
+10665698-n	tufs_lexicon	alt_def	就读于教育机构的学习者	a learner who is enrolled in an educational institution
+10694258-n	tufs_lexicon	alt_def	教书的职业人士	a person whose occupation is teaching
+11524662-n	tufs_lexicon	alt_def	就温度, 风, 云和降雨而言, 构成大气状态的大气条件	the atmospheric conditions that comprise the state of the atmosphere in terms of temperature and wind and clouds and precipitation
+12268246-n	rest_of_core	note	not all oaks are deciduous; the genus is correct FIXENG	a tree of the genus Quercus; has acorns and lobed leaves
+12897493-n	rest_of_core	note	potatoes are perennial; FIXENG	perennial native to South America having underground stolons bearing edible starchy tubers; widely cultivated as a garden vegetable; vines are poisonous ❲Solanum tuberosum❳
+13134059-n	rest_of_core	note	bulbs are modified stems, not buds; FIXENG	a modified bud consisting of a thickened globular underground stem serving as a reproductive structure
+13286254-n	rest_of_core	note	This synset covers non-money quantities/allowances too; there is no Chinese expression	an amount allowed or granted (as during a given period)
+13384557-n	tufs_lexicon	alt_def	最常见的交换方式, 充当法定货币	the most common medium of exchange; functions as legal tender
+13563746-n	rest_of_core	note	the direct translation (from the first Chinese translations of The Origin of Species) is ‘物竞天择,适者生存'; the lemmas allow for imprecision	a natural process resulting in the evolution of organisms best adapted to the environment
+13729236-n	cmn_edu	easy_def	扣除后剩下的数字	the number that remains after subtraction; the number that when added to the subtrahend gives the minuend
+13809207-n	ntumc_intersect_core	easy_def	整体里的各个个体	something determined in relation to something that includes it
+13828795-n	tufs_lexicon	note	Notice this is a noun, not adjective, so 'the vertical' (??)	something that is oriented vertically
+13990675-n	rest_of_core	note	FIXENG This definition refers to guilt in the legal (although the 'offence' may not be technically illegal under law) rather than emotional sense, so 'guiltiness' seems odd - one may have committed an offence but not feel guilty	the state of having committed an offense
+14062725-n	rest_of_core	note	This refers to addiction, not mere dependence on any drug (e.g. long term medication), which can be tagged using the normal 'dependence'. This lemma has a 1-1 correspondence with 瘾	being abnormally tolerant to and dependent on something that is psychologically or physically habit-forming (especially alcohol or narcotic drugs)
+14066492-n	rest_of_core	note	As in insanity or nervous collapse, not weakening; This lemma has a 1-1 correspondence with 崩溃	a mental or physical breakdown
+14082303-n	rest_of_core	note	FIXENG Strokes may not involve loss of consciousness, as compared to seizures	a sudden loss of consciousness resulting when the rupture or occlusion of a blood vessel leads to oxygen lack in the brain
+14082303-n	rest_of_core	note	extra column: a sudden loss of brain function resulting from oxygen lack in the brain due to the rupture or occlusion of a blood vessel	a sudden loss of consciousness resulting when the rupture or occlusion of a blood vessel leads to oxygen lack in the brain
+14082788-n	rest_of_core	note	All the Chinese lemmas are in the epileptic sense, but the English definition is not (one can have a paroxysm of rage). The non-epileptic sense does not translate well into Chinese because it is a figurative extension	a sudden uncontrollable attack
+14297870-n	rest_of_core	note	FIXENG Another problematic one - insect bites are generally more likely from mouthparts (ants, mosquitoes...) than stingers. Also this definition excludes the bites/stings of non-insects (scorpions, snakes, stingrays...)	a painful wound caused by the thrust of an insect's stinger into skin
+14297870-n	rest_of_core	note	extra column: Change this synset to more general sting, move mosquito bite and flea bite to under bite.	a painful wound caused by the thrust of an insect's stinger into skin
+14359952-n	rest_of_core	note	FIXENG Very odd that 'sickness' is included here - is it because of terms such as 'motion sickness', 'morning sickness'... where nausea is a common symptom? If so, these should be tagged as a whole unit (i.e. not as 'morning' and 'sickness'), and so this synset should only need the lemma 'nausea', otherwise 'in nausea and in health' would be odd	the state that precedes vomiting
+14359952-n	rest_of_core	note	extra column: a sensation of unease and discomfort, often with an urge to vomit.	the state that precedes vomiting
+14444114-n	rest_of_core	note	The concept of monopolisation can be indicated by 独 prefixed to essentially any semantically congruent noun, although the 1-1 corresponding term is 垄断, so there is a need to add the lemma 独 alone	exclusive control or possession of something
+14448333-n	rest_of_core	note	The English definition does not fully capture the range of intensities possible. There is quite a big gap between 不幸 (mere bad luck) and 悲惨 etc. The English lemmas lean towards more severe	a state of ill-being due to affliction or misfortune
+14473054-n	tufs_lexicon	note	As in metaphorical sickness??	defectiveness or unsoundness
+14513694-n	tufs_lexicon	note	Eng and Chn concur in allowing 'home' to be used even when there is no family (i.e. this is home/这里是家 works whether or not there is family). However the requirement for residence is absent from this definition	an environment offering affection and security
+14796748-n	tufs_lexicon	note	Missing the obvious one	graphite (or a similar substance) used in such a way as to be a medium of communication
+15119536-n	ntumc_intersect_core	easy_def	这个时候，包括说话的时候	the period of time that is happening now; any continuous stretch of time including the moment of speech
+15122231-n	tufs_lexicon	note	An example sentence would help	an indefinite period (usually marked by specific attributes or activities)
+15129927-n	tufs_lexicon	alt_def	时钟提供的时间点	a reading of a point in time as given by a clock
+15155891-n	tufs_lexicon	alt_def	今天之后的日子	the day after today
+15156001-n	tufs_lexicon	alt_def	包括现时的日子(区别于昨天或明天)	the day that includes the present moment (as opposed to yesterday or tomorrow)
+15164354-n	tufs_lexicon	alt_def	一周的第五天(如星期定义为星期天开始); 第四工作日	the fifth day of the week; the fourth working day
+15164354-n	tufs_lexicon	note	Assuming your week starts on Sunday!	the fifth day of the week; the fourth working day
+15165289-n	tufs_lexicon	alt_def	黎明至中午之间的时间段	the time period between dawn and noon
+15166191-n	tufs_lexicon	alt_def	一天在中午和晚上之间的部分	the part of the day between noon and evening
+15166462-n	tufs_lexicon	alt_def	白天的尾部分(从下午到夜晚, 日光减弱的部分)	the latter part of the day (the period of decreasing daylight from late afternoon until nightfall)
+15167027-n	tufs_lexicon	alt_def	外面黑暗, 日落之后和日出之前的时间	the time after sunset and before sunrise while it is dark outside
+15167474-n	tufs_lexicon	note	One might have insomnia, be nocturnal, work night shifts, etc.	the period spent sleeping
+15210045-n	tufs_lexicon	note	Months	the first month of the year; begins 10 days after the winter solstice
+15211189-n	tufs_lexicon	note	Months	the month following March and preceding May
+15211484-n	tufs_lexicon	note	Months	the month following April and preceding June
+15211806-n	tufs_lexicon	note	Months	the month following May and preceding July
+15212167-n	tufs_lexicon	note	Months	the month following June and preceding August
+15212455-n	tufs_lexicon	note	Months	the month following July and preceding September
+15212739-n	tufs_lexicon	note	Months	the month following August and preceding October
+15213115-n	tufs_lexicon	alt_def	九月之后, 十一月之前的月份	the month following September and preceding November
+15213115-n	tufs_lexicon	note	Months	the month following September and preceding November
+15213406-n	tufs_lexicon	alt_def	十月之后, 十二月之前的月份	the month following October and preceding December
+15213406-n	tufs_lexicon	note	Months	the month following October and preceding December
+15213774-n	tufs_lexicon	note	Months	the last (12th) month of the year
+15237782-n	tufs_lexicon	alt_def	一年中最冷的季节; 在北半球, 从冬至延伸到春分	the coldest season of the year; in the northern hemisphere it extends from the winter solstice to the vernal equinox
+15270431-n	tufs_lexicon	alt_def	一段被认为是您所控制的资源, 足以完成某件事的时间	a period of time considered as a resource under your control and sufficient to accomplish something
+76100002-x	tufs_lexicon	alt_def	用于装订印刷物的量词, 如一本书, 一本字典或一本杂志	a sortal classifier used for bound volumes, such a book, a dictionary, or a magazine
+77000002-n	tufs_lexicon	alt_def	第一人称复数代词	1st person, plural pronoun; personal pronoun, person, 1st person, plural
+77000012-n	tufs_lexicon	note	No lemma	1st person, singular, formal, polite pronoun; personal pronoun, person, 1st person, singular, formal, polite
+77000015-n	tufs_lexicon	alt_def	第一人称代名词, 单数	personal pronoun, person, 1st person, singular
+77000061-a	tufs_lexicon	note	The Chinese use of 本 is rather specialised and I would hesitate to call it a demonstrative determiner even though it can indeed be translated as 'this'. Some membership of the referred organisation by the speaker is often necessary e.g. '本大学' (this university) can only be spoken by individuals who are part of that university. For objects that cannot have members, it is often not possible e.g. *本孩子 (this child) is rightly translated as 这个孩子	demonstrative determiner, singular, proximal
+77000064-n	tufs_lexicon	note	Lemma is odd	entity, interrogative pronoun
+77000072-n	tufs_lexicon	note	No lemmas	entity, dual, formal, proximal pronoun; demonstrative pronoun, entity, formal; quantifier: demonstrative determiner, proximal
+77000084-n	tufs_lexicon	alt_def	询问地点的疑问代词	location, interrogative pronoun
+77000089-a	tufs_lexicon	note	Cf. n=188	demonstrative determiner, kind, proximal
+77000090-n	cmn_edu	alt_def	礼貌性，疑问代词	manner, interrogative pronoun
+77000091-n	tufs_lexicon	alt_def	事物(宾语), 疑问代词; 事物, 疑问代词; 什么	thing (object:), interrogative pronoun; thing, interrogative pronoun; what
+77000091-n	tufs_lexicon	note	There is a difference between what and which	thing (object:), interrogative pronoun; thing, interrogative pronoun; what
+77000095-n	tufs_lexicon	alt_def	询问身份的疑问词	person, interrogative pronoun
+80000013-n	cmn_edu	synset_not_in_wordnet	中式料理；中餐	Chinese cuisine; Chinese food
+80000433-n	cmn_edu	easy_def	本国以外的语言	a language of other lands that one does not speak
+80000672-x	tufs_lexicon	alt_def	用来道歉或引起别人注意的短语	A phrase used to apologise or get someone's attention
+80000672-x	cmn_edu	easy_def	用于请教对方问题	A phrase used to apologise or get someone's attention
+80000677-n	tufs_lexicon	note	Must there be something on it?	A sheet of paper with something on it
+80001047-v	tufs_lexicon	note	The key here is unnatural causes	pass from physical life and lose all bodily attributes and functions necessary to sustain life through unnatural or violent means
+80001077-n	tufs_lexicon	alt_def	询问数量的疑问代词	quantity, interrogative pronoun
+80001284-v	cmn_edu	old_def_replaced	能够（做）;可以（做）	to be able to; to be okay to; to work
+80001284-v	cmn_edu	old_def_replaced	可以（接受)	to be able to; to be okay to; to work
+80001331-x	tufs_lexicon	note	No lemmas	phrase used when suggesting or recommending something; used in interrogative sentence
+80001545-n	tufs_lexicon	note	No lemmas	the place adjacent to; the nearest place in space or position
+80001595-v	tufs_lexicon	note	See n=335. Is 335 metaphorical repayment considering the existence of this lemma??	to take or bring (by giving, placing, sending, etc) something back to a person whom it belongs to, or a place where it came from or should be
+80001619-a	tufs_lexicon	note	No lemmas	signifying the continuous time until now
+80001661-n	tufs_lexicon	note	Chn (& Jap) allow nominalisation (我的下面) where Eng uses Prep (below me)	the place which is lower, closer to you or closer to the center than the referential place
+80001691-n	tufs_lexicon	note	Chn (& Jap) allow nominalisation (我的上面) where Eng uses Prep (above me)	the direction toward a higher position from the point
+80001808-n	rest_of_core	note	they should be hyponyms of 10755257-n	a male person who has never had sex
+80001809-n	rest_of_core	note	they should be hyponyms of 10755257-n	a female person who has never had sex
+80001810-n	rest_of_core	note	Hyponym of 13286254-n; allowance strictly for money	a monetary amount allowed or granted (as during a given period)
+90000412-n	cmn_edu	synset_not_in_wordnet	面或装有面的菜肴	Noodles or a dish containing noodles
+90000500-n	tufs_lexicon	old_def_replaced	去年的前一年	two years before this year
+90000501-n	tufs_lexicon	old_def_replaced	今年的前一年	the year before this year
+90000502-n	tufs_lexicon	alt_def	现在的年份	this present year
+90000502-n	cmn_edu	old_def_replaced	现在这一年	this present year
+90000503-n	tufs_lexicon	old_def_replaced	今年后的一年，下个年	the year after this year
+90000504-n	tufs_lexicon	old_def_replaced	明年的下一年	two years from now
+90000506-n	tufs_lexicon	old_def_replaced	这个星期的前一个星期	one week ago
+90000507-n	tufs_lexicon	old_def_replaced	现在的这一个星期	this present week
+90000508-n	tufs_lexicon	old_def_replaced	这个星期的下一个星期	the week after this week
+90000511-n	tufs_lexicon	old_def_replaced	昨天的前一天	two days ago
+90000515-n	tufs_lexicon	old_def_replaced	明天的后一天	two days from now
