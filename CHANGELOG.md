@@ -8,6 +8,13 @@ newest first. `scripts/push_dbs.sh` adds an entry here and a line to
 from other machines). Before each push, the server copies are backed
 up to `backup-YYYY-MM-DD/` on the server.
 
+### 2026-10-23 16:45 — eng.db cmn.db
+
+- **Pushed:** eng.db cmn.db
+- **Backup:** `backup-2026-10-23/`
+- **Code:** `04f90fc` (from bond@tanso)
+- **Applied:** restore_triggers.py: eng.db all 14 change-log triggers re-created (lost in the 2026-08-10 push); cmn.db delete_concept_log and delete_cwl_log re-created, delete_word_log repaired (wrote to sent_log, so word deletes failed) (04f90fc). fix_pronoun_tags.py: 25 eng 'either' tokens and 6 cmn 哪 tokens retagged after the pronoun fixes, logged (0916c58). Base: server copies of 2026-08-10, downloaded 2026-10-23.
+
 ### 2026-10-23 16:40 — wn-ntumc.db
 
 - **Pushed:** wn-ntumc.db
