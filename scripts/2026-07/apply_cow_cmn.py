@@ -78,6 +78,9 @@ EASY_WINS = {
     "01854129-a",  # auxiliary: 从旁帮助
 }
 
+# synsets renamed by fixwn.py (RENAME_SYNSET) that the sheet uses by old ID
+RENAMED = {"80001711-z": "80001711-x"}  # 们, plural suffix
+
 # lemmas to delete as written in the sheet -> as found in the wordnet
 DELETE_ALIASES = {
     ("00251013-n", "洗清罪恶等"): "洗清[罪恶等",
@@ -274,6 +277,7 @@ def main() -> None:
 
     by_ss: dict[str, list[Row]] = defaultdict(list)
     for r in read_rows(XLSX):
+        r.synset = RENAMED.get(r.synset, r.synset)
         by_ss[r.synset].append(r)
 
     conn = sqlite3.connect(args.db)
