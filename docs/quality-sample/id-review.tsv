@@ -1,0 +1,101 @@
+n	synset	word	verdict	reason	suggestion
+1	i21856	mengundurkan memensiunkan menidurkan	OK		
+2	i353		OK		
+3	i23087	menggurui membaban	OK		
+4	i36886		OK	noun synset but verb form 'stroll' fits; acceptable	jalan-jalan
+5	i1626	kocah-kacih sibuk hibuk	WRONG	ribut means noisy/riotous, not busy	sibuk
+6	i2378	mengotorkan celomok kumal kotor bersempuras jijik pencemaran berselekeh berlemuas ladah tais comot comok cemomot mesum b	UNSURE	rare reduplicated variant of comot; cannot confirm	comot
+7	i2504	berhampiran	OK		
+8	i2958	besar	OK		
+9	i24940		WRONG	membilai means to caress/fondle, not add numbers	menjumlahkan
+10	i25800	memesani ajar berpesan mengamanatkan mengajar menggurui mendidik mengajari beramanat belajar mengajarkan membaban mengin	WRONG	mempelajari = to study/learn, not to impart skill (teach sense)	mengajar; belajar synset
+11	i25800	memesani ajar berpesan mempelajari mengamanatkan mengajar menggurui mendidik mengajari beramanat belajar mengajarkan mem	OK		
+12	i26316	berbincang-bincang mengungkapkan berkata bersyarah bertitah bertutur berbicara melafazkan berpidato berceramah bercakap-	OK		
+13	i26408	berbincang-bincang berkata bersyarah berbincang bertitah mengobrol bertutur perundingan berbicara berceramah membincangk	OK		
+14	i26408	berbincang-bincang berkata bersyarah berbincang bertitah bertutur perundingan berbicara berceramah membincangkan bercaka	OK		
+15	i26408	berbincang-bincang berkata bersyarah berbincang bertitah mengobrol bertutur perundingan berceramah membincangkan bercaka	OK		
+16	i5342	pantas cepat laju deras	OK		
+17	i5410	ramping dengkik langsing cengkung kurus kurus meranting	UNSURE	kotai unknown/dialectal	kurus
+18	i26548	menyurati mengarang menulis	OK		
+19	i26586	merebu mendaftarkan mencatat merakam merekodkan memasukkan merekam membaringkan merekamkan mencatatkan merakamkan	OK		
+20	i26586	rekam merebu mendaftarkan mencatat merakam merekodkan merekam membaringkan merekamkan mencatatkan merakamkan	OK		
+21	i6163	enak sedap bagus	OK		
+22	i27466	membasahi kerongkongan minum meminum reguk	OK		
+23	i28007	menggilas membasuh bergurah mengumbah membilas	OK		
+24	i7494	masyhur termasyhur kondang terkemuka terkenal kenamaan	OK		
+25	i7494	termasyhur kondang terkemuka ternama terkenal kenamaan	OK		
+26	i7530	terbesar banyak besar bidang ramai luas gadang gede	UNSURE	dialectal (Javanese/Minang) form	besar
+27	i29395	menyiang menyucikan mengeruk menghapus menggosokkan membersihkan mencuci mengobak	UNSURE	membeningkan = make clear (liquid), only loosely 'clean'	membersihkan
+28	i9236	original tersendiri unik	OK		
+29	i30355	melakukan melatih berlatih latih memahirkan mempraktikkan latihan	WRONG	melaksanakan = carry out, not rehearse	berlatih
+30	i30364	bermain main	OK		
+31	i30364	memainkan bermain	OK		
+32	i30870	gemar menikmati menyukai mengecap seronok meregup suka sayang mencintai mengasihi	OK		
+33	i30940	berpesiar terbang menjalani mengembara kembara trip berjalan-jalan bepergian pergi	OK		
+34	i30954	hidup pulang berangkat berjalan balik bertolak pergi bertolak punggung	FORM	berlepas is Malaysian usage	berangkat
+35	i31263	memengkol bersilih berbeleng mengitar berbaling memutar mengelilingi membeleng-beleng beredar mempergilirkan berpusing m	OK		
+36	i31263	memengkol bersilih berbeleng mengitar berbaling memutar mengelilingi berkitar beredar mempergilirkan berpusing mengedar 	UNSURE	rare; reduplicated form of membeleng	mengelilingi
+37	i31263	memengkol bersilih berbeleng mengitar berbaling memutar mengelilingi membeleng-beleng berkitar beredar berpusing mengeda	UNSURE	mempergilirkan = rotate shifts/alternate, weak fit	bergilir
+38	i31263	memengkol bersilih berbeleng mengitar berbaling memutar mengelilingi membeleng-beleng berkitar beredar mempergilirkan be	OK		
+39	i12307	cekap handal pakar berbakat terampil mahir pintar pandai bagus	OK		
+40	i32898	membalik menjangkau mencapai menyerahkan memberikan menyalip mengagih memanjangkan membuat mengoper mengangsurkan mengop	OK		
+41	i32898	membalik menjangkau mencapai memberikan menyalip mengagih memanjangkan membuat mengoper mengangsurkan memberi mengoperka	OK		
+42	i32898	membalik menjangkau menyerahkan memberikan menyalip mengagih memanjangkan membuat mengoper mengangsurkan memberi mengope	OK		
+43	i32953	mendagangkan jual berjual	OK		
+44	i12875	langlai lemah layu lintuh lembab rapuh kendur lesa daif lahip	UNSURE	rengsa unclear as 'weak'; not standard Indonesian	lemah
+45	i12875	langlai lemah layu lintuh lembab rapuh kendur lesa rengsa daif	UNSURE	lahip not attested in standard Indonesian	lemah
+46	i33358	mengepil mencampurkan memberikan berjasa membubuh menyebabkan melambuk membantu menuntun membawa menambah menyampaikan m	WRONG	menyesuaikan = adjust/adapt, not bestow a quality	memberikan
+47	i13256	gurih	OK		
+48	i34719	mula berawal mengawali berangkat memulai bertolak bermula mulai memulakan membuka	WRONG	berinduk = have a mother/parent body, not begin	bermula
+49	i34806	membalik berubah menjadi memengkol bersilih berbeleng mengitar berbaling membeleng-beleng berkitar menjadi bertukar bere	OK		
+50	i34806	berubah membalik berubah menjadi memengkol bersilih berbeleng mengitar berbaling membeleng-beleng berkitar bertukar bere	OK		
+51	i34806	berubah membalik berubah menjadi memengkol bersilih berbeleng berbaling membeleng-beleng berkitar menjadi bertukar bered	WRONG	mengitar = go around/circle, not become	berubah
+52	i50359	kantung kantong sumpit bungkus guni beg tas buntil	OK		
+53	i50635	katil ranjang	OK		
+54	i50953	kitab isi padu jilid	OK		
+55	i51221	gedung bangunan binaan	WRONG	perumahan = housing/residential estate, not a building	bangunan; gedung
+56	i52386		OK		
+57	i55158	persilangan persimpangan	OK		
+58	i55213		OK		
+59	i55941	kotak surat	OK		
+60	i57109		FORM	Malaysian spelling; Indonesian is pensil	pensil
+61	i57481	kocek saku poket	OK		
+62	i57905	radio	WRONG	siaran radio = broadcast, not the receiver	radio; pesawat radio
+63	i58265	kamar bilik	OK		
+64	i59922	jadual	OK		
+65	i60086	kamera televisi	OK		
+66	i61169	tingkap	OK		
+67	i61623		OK		
+68	i63098		OK		
+69	i64821	mulut kuala muara	OK		
+70	i65328		OK		
+71	i66150	tangan	OK		
+72	i66801	kepayahan kebimbangan kerisauan masalah kekacauan kerewelan kesusahan persoalan	OK		
+73	i66801	kepayahan kebimbangan kerisauan masalah kekacauan kerewelan kesukaran kesusahan	OK		
+74	i70643	salinan	OK		
+75	i74460	penyiasatan persoalan pertanyaan interogasi	FORM	soalan is Malaysian; Indonesian pertanyaan	pertanyaan
+76	i76564	alas perut makan pagi	OK		
+77	i76721	manisan kembang gula gula-gula	OK		
+78	i77063	ayam	OK		
+79	i81364		OK		
+80	i81667		OK		
+81	i82421	samping tepi	OK		
+82	i82495	atas permukaan puncak	OK		
+83	i85050	pangkal tapak landasan pangkalan alas dasar kaki	OK		
+84	i86003	paya waduk lubuk lopak kolam	OK		
+85	i87152	dewasa	UNSURE	matang = ripe/mature (adj), not the noun adult	dewasa; orang dewasa
+86	i89560	tabib dokter Dr dr.	OK		
+87	i90206	gadis	UNSURE	anak dara is mostly Malay usage	gadis
+88	i90289	opah nenek	OK		
+89	i90958	penuntut pelajar	OK		
+90	i93383	penuntut murid pelajar anak murid pelatih	OK		
+91	i101266	sayuran sayur-sayuran	OK	word fine; own_definition is wrong (describes a sick neglected person)	
+92	i109576		OK		
+93	i109606	selatan	OK		
+94	i110789	penyakit cedera kesakitan	OK		
+95	i116704	jam masa pukul	OK		
+96	i116901	Selasa selasa	OK		
+97	i117156	Maret maret	OK		
+98	i117172	November november Nov.	OK		
+99	i117493	masa kala pukul waktu	FORM	tempoh is Malaysian; Indonesian jangka waktu	jangka waktu
+100	i117514	berehat masa rehat istirahat selingan beristirahat	UNSURE	rahat archaic/Malay; Indonesian rehat	rehat

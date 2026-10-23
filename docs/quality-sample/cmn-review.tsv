@@ -1,0 +1,101 @@
+n	synset	word	verdict	reason	suggestion
+1	cow-00035058-r	经常	OK	ordinary use fits	
+2	cow-00036362-v	冲洗	OK	ordinary use fits	
+3	cow-00050454-v	脱（衣帽等）	FORM	annotation in brackets in lemma	脱
+4	cow-00061203-r	之后	OK	ordinary use fits	
+5	cow-00061203-r	继而	OK	ordinary use fits	
+6	cow-00273082-a	黑黑的	OK	ordinary use fits	
+7	cow-00273734-v	习惯	OK	weak fit: 习惯 is "become accustomed", fine in causative use	
+8	cow-00292937-a	繁忙的	OK	ordinary use fits	
+9	cow-00409440-a	黑黑	OK	ordinary use fits	
+10	cow-00422620-a	沾上泥污	FORM	phrase (adjectival clause) rather than a word	脏/泥泞
+11	cow-00514884-a	全	OK	ordinary use fits	
+12	cow-00584367-n	工作	OK	ordinary use fits	
+13	cow-00635523-v	解决	OK	ordinary use fits	
+14	cow-00744916-a	艰苦的	OK	ordinary use fits	
+15	cow-00815686-v	回	OK	ordinary use fits	
+16	cow-00894552-n	行使	WRONG	行使 means exercise (power/rights), not training exercise	练习
+17	cow-01031256-v	邮递	OK	ordinary use fits	
+18	cow-01166351-v	用餐	OK	ordinary use fits	
+19	cow-01198101-v	抽烟	OK	ordinary use fits	
+20	cow-01198101-v	吸烟	OK	ordinary use fits	
+21	cow-01206474-a	低	OK	ordinary use fits	
+22	cow-01343918-a	精彩的	OK	ordinary use fits	
+23	cow-01346003-v	开	OK	ordinary use fits	
+24	cow-01346003-v	开启	OK	ordinary use fits	
+25	cow-01376705-a	著称	OK	ordinary use fits	
+26	cow-01437963-a	长时间	OK	ordinary use fits	
+27	cow-01442186-a	短	OK	ordinary use fits	
+28	cow-01586342-a	友好的	OK	ordinary use fits	
+29	cow-01586342-a	讨人喜欢的	OK	ordinary use fits	
+30	cow-01614426-v	钉	OK	ordinary use fits	
+31	cow-01723224-v	排演	OK	ordinary use fits	
+32	cow-01774136-v	仇恨	OK	ordinary use fits	
+33	cow-01776727-v	讨厌	OK	ordinary use fits	
+34	cow-01777210-v	爱	OK	ordinary use fits	
+35	cow-01901186-a	迟	OK	ordinary use fits	
+36	cow-01918984-a	安静的	OK	ordinary use fits	
+37	cow-01995211-v	拉出	OK	ordinary use fits	
+38	cow-02005496-v	回城	WRONG	回城 means return to the city, not go home	回家
+39	cow-02040233-a	老朽	OK	ordinary use fits	
+40	cow-02226162-a	拿手	OK	ordinary use fits	
+41	cow-02226162-a	巧妙	OK	ordinary use fits	
+42	cow-02324182-v	借给	OK	ordinary use fits	
+43	cow-02324182-v	贷款	OK	ordinary use fits	
+44	cow-02396720-a	可口的	OK	ordinary use fits	
+45	cow-02415390-a	深厚	WRONG	深厚 means profound/deep, not thick in consistency	稠
+46	cow-02428924-v	聚	OK	ordinary use fits	
+47	cow-02561888-a	窄的	OK	ordinary use fits	
+48	cow-02730813-v	读	UNSURE	读 does not naturally mean "have a certain wording" (写道/说)	
+49	cow-03038685-n	教室	OK	ordinary use fits	
+50	cow-03234306-n	图画	OK	ordinary use fits	
+51	cow-03273913-n	冰箱	OK	ordinary use fits	
+52	cow-03365991-n	楼	OK	ordinary use fits	
+53	cow-03438257-n	杯子	OK	ordinary use fits	
+54	cow-03561345-n	图示	OK	ordinary use fits	
+55	cow-03710193-n	邮箱	OK	ordinary use fits	
+56	cow-03876519-n	画儿	OK	ordinary use fits	
+57	cow-04081281-n	酒家	OK	ordinary use fits	
+58	cow-04081281-n	食肆	OK	ordinary use fits	
+59	cow-04081281-n	餐饮店	OK	ordinary use fits	
+60	cow-04081281-n	餐室	UNSURE	餐室 mostly means dining room rather than restaurant	餐厅
+61	cow-04284002-n	匙	OK	ordinary use fits	
+62	cow-05131647-n	海拔	OK	ordinary use fits	
+63	cow-05563770-n	臂膀	OK	ordinary use fits	
+64	cow-06262567-n	赛璐珞	OK	ordinary use fits	
+65	cow-06418901-n	辞典	OK	ordinary use fits	
+66	cow-06601327-n	语意	OK	ordinary use fits	
+67	cow-07193596-n	问题	OK	ordinary use fits	
+68	cow-07193596-n	审问	OK	ordinary use fits	
+69	cow-07859284-n	糖	OK	ordinary use fits	
+70	cow-07989373-n	已婚夫妇	OK	ordinary use fits	
+71	cow-08420278-n	银行	OK	ordinary use fits	
+72	cow-08489627-n	那里	OK	ordinary use fits	
+73	cow-08544813-n	国	OK	ordinary use fits	
+74	cow-08625462-n	左边	OK	ordinary use fits	
+75	cow-08625462-n	左手边	OK	ordinary use fits	
+76	cow-09823502-n	婶婶	OK	ordinary use fits	
+77	cow-09918248-n	孩子	OK	ordinary use fits	
+78	cow-10084295-n	女孩儿	OK	ordinary use fits	
+79	cow-10448983-n	警察	OK	ordinary use fits	
+80	cow-10665698-n	学生	OK	ordinary use fits	
+81	cow-10736091-n	伯父	OK	ordinary use fits	
+82	cow-10787470-n	女人	OK	ordinary use fits	
+83	cow-11525955-n	气流	OK	ordinary use fits	
+84	cow-13384557-n	钱	OK	ordinary use fits	
+85	cow-14055408-n	疾病	OK	ordinary use fits	
+86	cow-15129927-n	时间	OK	ordinary use fits	
+87	cow-15137890-n	休息日	OK	ordinary use fits	
+88	cow-15137890-n	假期	OK	ordinary use fits	
+89	cow-15164354-n	周四	OK	ordinary use fits	
+90	cow-15165289-n	拂晓	WRONG	拂晓 is dawn, not morning	早晨
+91	cow-15167027-n	夜间	OK	ordinary use fits	
+92	cow-15169873-n	一星期	OK	ordinary use fits	
+93	cow-15210045-n	一月	OK	ordinary use fits	
+94	cow-15210486-n	２月	FORM	full-width digit in lemma	2月
+95	cow-15210486-n	2月	OK	ordinary use fits	
+96	cow-15211189-n	四月	OK	ordinary use fits	
+97	cow-15236859-n	秋季	OK	ordinary use fits	
+98	cow-15269513-n	相隔	UNSURE	相隔 is a verb "be separated by", not the interval noun	间隔
+99	cow-77000091-n	何	OK	ordinary use fits	
+100	cow-80001734-n	课堂	OK	ordinary use fits	

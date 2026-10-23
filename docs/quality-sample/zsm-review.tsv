@@ -1,0 +1,101 @@
+n	synset	word	verdict	reason	suggestion
+1	wnb-zsm-00021212-r	berkala-kala	FORM	berkala-kala is not a standard word; berkali-kali means 'many times', berkala means periodic	sekali-sekala
+2	wnb-zsm-00031304-r	masih	OK	acceptable	
+3	wnb-zsm-00035058-r	kerap kali	OK	acceptable	
+4	wnb-zsm-00081836-n	berbelanja	OK	acceptable	
+5	wnb-zsm-00120095-r	serentak	OK	acceptable	
+6	wnb-zsm-00220082-a	cantik	OK	acceptable	
+7	wnb-zsm-00255710-n	membasuh	OK	acceptable	
+8	wnb-zsm-00255710-n	cucian	OK	acceptable	
+9	wnb-zsm-00273082-a	silam	WRONG	silam means past/bygone, not dark	gelap
+10	wnb-zsm-00419289-a	jijik	WRONG	jijik means disgusting/revolting, not dirty	kotor
+11	wnb-zsm-00419289-a	pencemaran	WRONG	pencemaran is the noun 'pollution'	pencemar / kotor
+12	wnb-zsm-00419289-a	ceporah	UNSURE	rare/dialectal word, cannot verify	
+13	wnb-zsm-00479391-v	menghapuskan	OK	acceptable	
+14	wnb-zsm-00635523-v	membalas	WRONG	membalas is reply/repay, not 'solve/understand'	menyelesaikan / menjawab
+15	wnb-zsm-00709215-a	rapuh	OK	acceptable	
+16	wnb-zsm-00816481-a	lambat	OK	acceptable	
+17	wnb-zsm-00842199-a	erat	OK	acceptable	
+18	wnb-zsm-00894552-n	amalan	OK	acceptable	
+19	wnb-zsm-00963570-v	bual	OK	acceptable	
+20	wnb-zsm-00963570-v	berbicara	OK	acceptable	
+21	wnb-zsm-00979862-a	cepat	OK	acceptable	
+22	wnb-zsm-00988232-a	kurus meranting	FORM	two-word lemma 'kurus meranting' (kurus + descriptor)	kurus
+23	wnb-zsm-00988232-a	langsing	OK	acceptable	
+24	wnb-zsm-01000214-v	merekam	FORM	merekam is Indonesian; Malaysian usage is merakam/merakamkan	merakam
+25	wnb-zsm-01000214-v	merakamkan	OK	acceptable	
+26	wnb-zsm-01009240-v	katakan	OK	acceptable	
+27	wnb-zsm-01009240-v	mengutarakan	OK	acceptable	
+28	wnb-zsm-01179865-v	menyuap	OK	acceptable	
+29	wnb-zsm-01198101-v	merokok	OK	acceptable	
+30	wnb-zsm-01265308-a	pelik	WRONG	pelik means strange/odd, not funny	lucu
+31	wnb-zsm-01265308-a	menggelikan hati	OK	acceptable	
+32	wnb-zsm-01344485-a	menghiburkan	OK	acceptable	
+33	wnb-zsm-01367431-a	meriah	OK	acceptable	
+34	wnb-zsm-01421622-v	mencantumkan	UNSURE	mencantumkan is 'to join/attach'; insert only marginal	
+35	wnb-zsm-01421622-v	memasukkan	OK	acceptable	
+36	wnb-zsm-01532589-v	membersihkan	OK	acceptable	
+37	wnb-zsm-01532589-v	mencuci	OK	acceptable	
+38	wnb-zsm-01546111-v	berserenjang	WRONG	berserenjang means perpendicular, not standing	berdiri
+39	wnb-zsm-01586342-a	menarik	OK	acceptable	
+40	wnb-zsm-01586866-a	sedap	WRONG	sedap means tasty/pleasant to senses; synset is friendly manners	mesra
+41	wnb-zsm-01638438-a	bekas	WRONG	bekas means former/used container, not old (duration)	lama
+42	wnb-zsm-01638438-a	buruk	OK	acceptable	
+43	wnb-zsm-01642477-a	akhir-akhir ini	OK	acceptable	
+44	wnb-zsm-01646941-a	anak	OK	acceptable	
+45	wnb-zsm-01677433-a	ulung	OK	acceptable	
+46	wnb-zsm-01686439-a	tersendiri	OK	acceptable	
+47	wnb-zsm-01698271-v	mencipta	OK	acceptable	
+48	wnb-zsm-01712753-a	mudah tersinggung	OK	acceptable	
+49	wnb-zsm-01754737-v	menggoreskan	OK	acceptable	
+50	wnb-zsm-01800349-a	gembira	UNSURE	gembira means happy (person), not pleasing/affording pleasure	menyeronokkan
+51	wnb-zsm-01846916-v	berjalan	OK	acceptable	
+52	wnb-zsm-01901186-a	terlambat	OK	acceptable	
+53	wnb-zsm-01918984-a	tenteram	OK	acceptable	
+54	wnb-zsm-01984902-v	duduk	OK	acceptable	
+55	wnb-zsm-01993408-a	tertib	OK	acceptable	
+56	wnb-zsm-02229324-a	cemerkap	OK	acceptable	
+57	wnb-zsm-02324397-a	rengsa	UNSURE	rare word, cannot verify	
+58	wnb-zsm-02428924-v	ketemu	FORM	ketemu is Indonesian; Malay is bertemu; and means 'find/meet' not gather	berkumpul
+59	wnb-zsm-02560548-a	luas	OK	acceptable	
+60	wnb-zsm-02561888-a	kuncup	WRONG	kuncup means bud/closed up, not narrow	sempit
+61	wnb-zsm-02561888-a	sempit	OK	acceptable	
+62	wnb-zsm-02626604-v	berkisar	WRONG	berkisar means revolve/range, not become	menjadi
+63	wnb-zsm-02632567-v	ketiadaan	OK	acceptable	
+64	wnb-zsm-02774630-n	bagasi	OK	acceptable	
+65	wnb-zsm-02818832-n	katil	OK	acceptable	
+66	wnb-zsm-02924116-n	bas persiaran	OK	acceptable	
+67	wnb-zsm-02930766-n	kereta sewa	OK	acceptable	
+68	wnb-zsm-03259505-n	tempat tinggal	OK	acceptable	
+69	wnb-zsm-03259505-n	kediaman	OK	acceptable	
+70	wnb-zsm-03282295-n	kedutaan	OK	acceptable	
+71	wnb-zsm-03623556-n	pisau	OK	acceptable	
+72	wnb-zsm-03740161-n	ubat	OK	acceptable	
+73	wnb-zsm-03815615-n	tali leher	OK	acceptable	
+74	wnb-zsm-04059701-n	belakang	OK	acceptable	
+75	wnb-zsm-04202417-n	perniagaan	WRONG	perniagaan is 'business/trade', not a shop	kedai
+76	wnb-zsm-04203889-n	belanja	UNSURE	belanja is spending/expenses; 'purchases' only marginal	barang belian
+77	wnb-zsm-04298308-n	tangga	OK	acceptable	
+78	wnb-zsm-05216365-n	badan	OK	acceptable	
+79	wnb-zsm-05687338-n	kesusahan	OK	acceptable	
+80	wnb-zsm-05797597-n	penyelidikan	OK	acceptable	
+81	wnb-zsm-05797597-n	pertanyaan	OK	acceptable	
+82	wnb-zsm-06597466-n	diari	WRONG	diari is a personal diary, not a periodical	jurnal
+83	wnb-zsm-07110615-n	pembunyian	UNSURE	pembunyian (sounding/making sound) not a normal word for voice	suara
+84	wnb-zsm-07596684-n	konfeksi	OK	acceptable	
+85	wnb-zsm-07707451-n	sayuran	OK	acceptable	
+86	wnb-zsm-07844042-n	susu	OK	acceptable	
+87	wnb-zsm-07884567-n	arak	OK	acceptable	
+88	wnb-zsm-07891433-n	saki	OK	acceptable	
+89	wnb-zsm-08078020-n	serumah	UNSURE	serumah is adverb/adjective 'in the same house', noun household doubtful	isi rumah
+90	wnb-zsm-08615374-n	taman	OK	acceptable	
+91	wnb-zsm-08641113-n	sekeliling	OK	acceptable	
+92	wnb-zsm-08649345-n	samping	OK	acceptable	
+93	wnb-zsm-09215315-n	pangkal	OK	acceptable	
+94	wnb-zsm-10332385-n	ummi	OK	acceptable	
+95	wnb-zsm-10694258-n	cikgu	OK	acceptable	
+96	wnb-zsm-10694258-n	jurulatih	OK	acceptable	
+97	wnb-zsm-10694258-n	pendidik	OK	acceptable	
+98	wnb-zsm-15129927-n	waktu	OK	acceptable	
+99	wnb-zsm-15137890-n	cuti	OK	acceptable	
+100	wnb-zsm-15274074-n	beristirahat	FORM	beristirahat is Indonesian; Malaysian is berehat	berehat
