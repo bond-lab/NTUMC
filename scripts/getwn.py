@@ -343,6 +343,17 @@ def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None,
         defs[synset].append(d)
         synsets_used.add(synset)
 
+    # English definitions, for NTU-MC synsets with no ILI and no definition
+    # in this language (otherwise nothing says what they mean)
+    eng_defs = dd(list)
+    if lang != "eng":
+        c.execute("SELECT synset, def FROM synset_def WHERE lang = 'eng' "
+                  "ORDER BY sid")
+        for synset, d in c:
+            eng_defs[synset].append(d)
+    sense_synsets = {synset for _, wid_senses in senses.items()
+                     for synset, _, _ in wid_senses}
+
     # Collect synset relations (only for synsets we use)
     synlinks = dd(list)
     c.execute("SELECT synset1, synset2, link FROM synlink")
@@ -452,12 +463,16 @@ def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None,
             continue
         defn = "; ".join(defs[synset]) if synset in defs else None
         ili = ili_map.get(synset, "")
-        editor.create_synset(
+        ss = editor.create_synset(
             pos=pos,
             synset_id=f"{wn_id}-{synset}",
             definition=defn,
             ili=ili,
         )
+        if (not defn and not ili and synset in sense_synsets
+                and synset in eng_defs):
+            ss["definitions"] = [{"text": "; ".join(eng_defs[synset]),
+                                  "language": "en"}]
 
     # Add synset relations (after all synsets exist)
     for synset in synlinks:
