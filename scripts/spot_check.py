@@ -1,10 +1,12 @@
-"""Human spot check of the LLM review decisions for COW and Wordnet Bahasa.
+"""Human spot check of the LLM review decisions for wnja, COW and Wordnet Bahasa.
 
   make   draw a stratified sample of the released decisions and write, per
          language, a blind sheet for a native-speaker checker (no model
-         verdicts) and a key with the decision and stratum of each item
+         verdicts), a key with the decision and stratum of each item,
+         and an overlap sheet of 50 of the same items for a second checker
   score  compare filled-in sheets with the keys: agreement per stratum
-         with a 95% Wilson interval, and estimates weighted by stratum size
+         (per language and pooled) with a 95% Wilson interval, and the
+         agreement of the two checkers on the overlap items (Cohen's kappa)
 
   spot_check.py make  [--out docs/quality-sample/spot-check] [--n 20]
   spot_check.py score [--out docs/quality-sample/spot-check]
@@ -41,7 +43,9 @@ PREFIX = {"cmn": "cow-", "id": "wnb-id-", "zsm": "wnb-zsm-"}
 OTHER = {"id": "zsm", "zsm": "id"}
 VARIETY = {"cmn": "", "id": "Malaysian only", "zsm": "Indonesian only"}
 ALL = (*LANGS, "ja")  # ja: wnja, whose decisions come from other reviews (population_ja)
-BIG = {"unflagged": 2}  # multiples of --n for strata with few expected errors
+# sample sizes that differ from --n: the strata behind the main claims (how many
+# errors are left; how many removals were right) get more items
+SIZE = {"unflagged": 100, "remove-wrong": 50}
 SHEET = ["item", "word", "other_words_in_synset", "english_words", "english_definition",
          "own_definition", "meaning", "form", "comment"]
 KEY = ["item", "stratum", "synset", "word", "old_word", "decision", "decided_by",
@@ -211,7 +215,7 @@ def make(a: argparse.Namespace) -> None:
         rng = random.Random(f"{SEED}-{lang}")
         items = []
         for s in sorted(pop):
-            k = min(len(pop[s]), a.n * BIG.get(s, 1))
+            k = min(len(pop[s]), SIZE.get(s, a.n))
             items += [(s, x) for x in rng.sample(sorted(pop[s], key=lambda x: (
                 x["synset"], x["word"])), k)]
             strata_rows.append([lang, s, len(pop[s]), k])
@@ -225,8 +229,10 @@ def make(a: argparse.Namespace) -> None:
             key.append([item, s, x["synset"], x["word"], x["old_word"], x["decision"],
                         x["decided_by"], x["model_reason"]])
         tr.write_tsv(a.out / f"{lang}-sheet.tsv", SHEET, sheet)
+        overlap = random.Random(f"{SEED}-{lang}-overlap").sample(sheet, min(a.overlap, len(sheet)))
+        tr.write_tsv(a.out / f"{lang}-overlap-sheet.tsv", SHEET, overlap)
         tr.write_tsv(a.out / "key" / f"{lang}-key.tsv", KEY, key)
-        print(lang, len(sheet), "items")
+        print(lang, len(sheet), "items,", len(overlap), "in the overlap sheet")
     tr.write_tsv(a.out / "key" / "strata.tsv", ["lang", "stratum", "population", "sample"],
                  strata_rows)
 
@@ -255,11 +261,40 @@ def agrees(stratum_name: str, meaning: str, form: str) -> bool | None:
     return meaning == "OK" and form in ("", "OK")
 
 
+def kappa(pairs: list[tuple[str, str]]) -> float | None:
+    """Cohen's kappa of two raters' labels."""
+    n = len(pairs)
+    if not n:
+        return None
+    po = sum(x == y for x, y in pairs) / n
+    c1, c2 = Counter(x for x, _ in pairs), Counter(y for _, y in pairs)
+    pe = sum(c1[k] * c2[k] for k in c1) / (n * n)
+    return 1.0 if pe == 1 else (po - pe) / (1 - pe)
+
+
+def human_agreement(a: argparse.Namespace) -> list[list]:
+    """Agreement of the second checker (overlap sheet) with the first, per language."""
+    out = []
+    for lang in ALL:
+        first, second = a.out / f"{lang}-sheet.tsv", a.out / f"{lang}-overlap-sheet.tsv"
+        if not (first.exists() and second.exists()):
+            continue
+        one = {r["item"]: r["meaning"].strip().upper() for r in tr.read_tsv(first)}
+        pairs = [(one[r["item"]], r["meaning"].strip().upper()) for r in tr.read_tsv(second)
+                 if r["meaning"].strip() and one.get(r["item"])]
+        if pairs:
+            k = kappa(pairs)
+            out.append([lang, len(pairs), f"{sum(x == y for x, y in pairs) / len(pairs):.2f}",
+                        f"{k:.2f}" if k is not None else ""])
+    return out
+
+
 def score(a: argparse.Namespace) -> None:
-    """Print agreement per stratum and stratum-weighted estimates per language."""
+    """Print agreement per stratum (per language and pooled), and checker agreement."""
     pops = {(r["lang"], r["stratum"]): int(r["population"])
             for r in tr.read_tsv(a.out / "key" / "strata.tsv")}
     out = []
+    pooled = defaultdict(Counter)
     for lang in ALL:
         sheet = a.out / f"{lang}-sheet.tsv"
         if not sheet.exists():
@@ -273,6 +308,7 @@ def score(a: argparse.Namespace) -> None:
                 res["lower"][r["meaning"].strip().upper()] += 1
             elif ok is not None:
                 res[k["stratum"]]["agree" if ok else "disagree"] += 1
+                pooled[k["stratum"]]["agree" if ok else "disagree"] += 1
         for s, c in sorted(res.items()):
             n = c["agree"] + c["disagree"]
             if s == "lower":
@@ -282,10 +318,20 @@ def score(a: argparse.Namespace) -> None:
             lo, hi = wilson(c["agree"], n)
             out.append([lang, s, pops.get((lang, s), ""), n, f"{c['agree'] / n:.2f}" if n else "",
                         f"{lo:.2f}", f"{hi:.2f}"])
+    for s, c in sorted(pooled.items()):
+        n = c["agree"] + c["disagree"]
+        lo, hi = wilson(c["agree"], n)
+        out.append(["all", s, sum(v for (_, st), v in pops.items() if st == s), n,
+                    f"{c['agree'] / n:.2f}", f"{lo:.2f}", f"{hi:.2f}"])
     tr.write_tsv(a.out / "key" / "score.tsv",
                  ["lang", "stratum", "population", "checked", "agreement", "low95", "high95"], out)
     for row in out:
         print("\t".join(map(str, row)))
+    hum = human_agreement(a)
+    tr.write_tsv(a.out / "key" / "checker-agreement.tsv",
+                 ["lang", "items", "agreement", "kappa"], hum)
+    for row in hum:
+        print("checkers", "\t".join(map(str, row)))
 
 
 def main() -> None:
@@ -294,7 +340,8 @@ def main() -> None:
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("step", choices=("make", "score"))
     ap.add_argument("--out", type=Path, default=Path("docs/quality-sample/spot-check"))
-    ap.add_argument("--n", type=int, default=20, help="items per stratum")
+    ap.add_argument("--n", type=int, default=20, help="items per stratum (see SIZE)")
+    ap.add_argument("--overlap", type=int, default=50, help="items for a second checker")
     ap.add_argument("--triage", type=Path, default=Path("build/triage"))
     ap.add_argument("--review", type=Path, default=Path("build/triage-opus"))
     ap.add_argument("--rescue", type=Path, default=Path("build/rescue"))

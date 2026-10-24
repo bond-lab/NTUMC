@@ -1,182 +1,272 @@
 item	stratum	synset	word	old_word	decision	decided_by	model_reason
-zsm-001	unflagged	wnb-zsm-02093610-v	pukul		keep	triage	
-zsm-002	unflagged	wnb-zsm-01870043-v	mengimbas		keep	triage	
-zsm-003	remove-form	wnb-zsm-01024190-v	mencantumkan		remove	adjudication	Indonesian, not Malaysian: join/attach in Malay; cite/mention sense is Indonesian list-in-writing
-zsm-004	lower	wnb-zsm-00781644-a	redam		lower	adjudication	redam is muffled/dim; blurred outline doubtful
-zsm-005	remove-form	wnb-zsm-00439588-a	cogo		remove	adjudication	malformed or not a word: not a recognisable Malay word; possibly misspelt
-zsm-006	remove-wrong	wnb-zsm-02361600-v	memisahkan		remove	both	means separate, not provide with border
-zsm-007	remove-wrong	wnb-zsm-05107216-n	kelembutan		remove	both	kelembutan is softness/gentleness, not small stature
-zsm-008	remove-wrong	wnb-zsm-00676450-v	mengorek		remove	both	mengorek 'dig out, scrape', not select
-zsm-009	move	wnb-zsm-02477755-v	mengensel		add	both	moved from wnb-id: Malaysian, not Indonesian
-zsm-010	keep-adj	wnb-zsm-01833401-a	rang		keep	adjudication	rang (of land) = lying unworked/open; rare dictionary sense of fallow
-zsm-011	remove-form	wnb-zsm-02236124-v	membutuhkan		remove	both	Indonesian, not Malaysian: membutuhkan means need, not accept
-zsm-012	remove-wrong	wnb-zsm-07529377-n	keriuhan		remove	both	means uproar/noisiness, not merriment
-zsm-013	unflagged	wnb-zsm-04081044-n	sandaran		keep	triage	
-zsm-014	remove-wrong-adj	wnb-zsm-00901345-a	resaman		remove	adjudication	not a word for constitutional
-zsm-015	lower	wnb-zsm-00919155-a	keracak		lower	adjudication	unfamiliar word; cannot confirm skittish meaning
-zsm-016	keep	wnb-zsm-00891216-v	menaja jamin		keep	both	
-zsm-017	remove-wrong	wnb-zsm-01907258-v	mengedar		remove	both	mengedar means circulate or distribute, not turn
-zsm-018	remove-form	wnb-zsm-00022131-r	kayak		remove	adjudication	Indonesian, not Malaysian: colloquial like/as, fits as...as
-zsm-019	move	wnb-zsm-02924116-n	koc		add	both	moved from wnb-id: Malaysian, not Indonesian
-zsm-020	unflagged	wnb-zsm-11173199-n	Johann Mendel		keep	triage	
-zsm-021	lower	wnb-zsm-03189083-n	penghenti		lower	adjudication	penghenti may be a technical calque for stop; not verifiable
-zsm-022	unflagged	wnb-zsm-06733476-n	ugutan		keep	triage	
-zsm-023	remove-form	wnb-zsm-06694540-n	rekomendasi		remove	both	Indonesian, not Malaysian
-zsm-024	unflagged	wnb-zsm-01565751-a	pegun		keep	triage	
-zsm-025	remove-form	wnb-zsm-02073714-v	kabur		remove	both	Indonesian, not Malaysian: run off (slang)
-zsm-026	unflagged	wnb-zsm-01190494-v	memabukkan		keep	triage	
-zsm-027	keep-adj	wnb-zsm-01471723-a	sedikit		keep	adjudication	sedikit/slight approximates minor
-zsm-028	move	wnb-zsm-05934396-n	sekali imbas		add	both	moved from wnb-id: Malaysian, not Indonesian
-zsm-029	unflagged	wnb-zsm-11324619-n	Sullivan		keep	triage	
-zsm-030	move	wnb-zsm-07464725-n	kejohanan		add	both	moved from wnb-id: Malaysian, not Indonesian
-zsm-031	keep	wnb-zsm-00075021-v	haus		keep	both	worn out through use
-zsm-032	lower	wnb-zsm-05526713-n	punai		lower	adjudication	punai is green pigeon; slang penis use unattested to me
-zsm-033	remove-wrong	wnb-zsm-00812952-a	muda		remove	both	muda means young, not early in time
-zsm-034	remove-wrong-adj	wnb-zsm-02506029-a	terus		remove	adjudication	terus = directly/continuously, not invariant
-zsm-035	remove-wrong	wnb-zsm-02221635-v	lalu		remove	both	'lalu' means go past, not transfer of rights
-zsm-036	keep-adj	wnb-zsm-03009269-n	rata		keep	adjudication	rata is the classical word for chariot (Skt ratha)
-zsm-037	unflagged	wnb-zsm-05618293-n	keluasan		keep	triage	
-zsm-038	remove-form	wnb-zsm-14447908-n	kesehatan		remove	both	Indonesian, not Malaysian
-zsm-039	lower	wnb-zsm-00754873-a	cupai		lower	adjudication	unattested form; possibly a typo for cuai
-zsm-040	keep-adj	wnb-zsm-05792010-n	keharusan		keep	adjudication	harus also means may/possibly, so keharusan can mean possibility
-zsm-041	unflagged	wnb-zsm-10989339-n	Gandhi		keep	triage	
-zsm-042	unflagged	wnb-zsm-11076079-n	Thomas Jackson		keep	triage	
-zsm-043	move	wnb-zsm-07609840-n	pembasuh mulut		add	both	moved from wnb-id: Malaysian, not Indonesian
-zsm-044	keep-adj	wnb-zsm-01796346-v	mengghairahkan		keep	adjudication	excite/thrill (misspelt menggairahkan), loose rendering
-zsm-045	remove-wrong-adj	wnb-zsm-00882523-v	mengingat		remove	adjudication	mengingat is remember; greetings are sent with kirim salam
-zsm-046	move	wnb-zsm-03925226-n	imej		add	both	moved from wnb-id: Malaysian, not Indonesian
-zsm-047	remove-form	wnb-zsm-01414916-v	lampang		remove	adjudication	malformed or not a word: possibly variant of lempang (slap); cannot confirm
-zsm-048	lower	wnb-zsm-03471190-n	kekek		lower	adjudication	kekek for gusset not verifiable
-zsm-049	remove-wrong-adj	wnb-zsm-07228751-n	niat		remove	adjudication	intention, not a vow (nazar/ikrar)
-zsm-050	remove-form	wnb-zsm-02741546-v	membutuhkan		remove	both	Indonesian, not Malaysian: means need, not accept/hold
-zsm-051	remove-wrong-adj	wnb-zsm-13271320-n	biaya		remove	adjudication	cost/funding, not endowment capital
-zsm-052	lower	wnb-zsm-03646296-n	bindu		lower	adjudication	bindu not verifiable as lathe
-zsm-053	remove-wrong-adj	wnb-zsm-00716370-a	orang ramai		remove	adjudication	noun the public, not adjective popular
-zsm-054	unflagged	wnb-zsm-01674990-n	cicak		keep	triage	
-zsm-055	keep	wnb-zsm-02988402-a	kebangsaan		keep	both	
-zsm-056	keep	wnb-zsm-05023591-n	kekerasan		keep	both	hardness/rigidity
-zsm-057	unflagged	wnb-zsm-00352826-v	menutup		keep	triage	
-zsm-058	unflagged	wnb-zsm-06639674-n	penanda		keep	triage	
-zsm-059	unflagged	wnb-zsm-01594978-v	menumbuk		keep	triage	
-zsm-060	remove-wrong-adj	wnb-zsm-01579813-v	menggelar		remove	adjudication	menggelar means give a title in Malaysian Malay; spread-mat sense is Indonesian
-zsm-061	lower	wnb-zsm-00006100-v	mengokol		lower	adjudication	mengokol cannot be confirmed as spasmodic coughing
-zsm-062	keep-adj	wnb-zsm-01298283-v	mengenakan		keep	adjudication	mengenakan imbuhan = attach an affix
-zsm-063	keep	wnb-zsm-13349662-n	simpanan		keep	both	deposit/savings
-zsm-064	keep-adj	wnb-zsm-00420549-v	memejalkan		keep	adjudication	firm up; close to firm/tauten
-zsm-065	remove-form	wnb-zsm-01925170-v	gelayaran		remove	adjudication	malformed or not a word: gelayaran not a recognised form; cannot confirm
-zsm-066	keep-adj	wnb-zsm-04250026-n	kutipan		keep	adjudication	excerpt/quote, matches snippet as rendered by synset
-zsm-067	remove-wrong	wnb-zsm-00173283-n	elak		remove	both	elak means avoid, not a means of escape
-zsm-068	move	wnb-zsm-03249569-n	dram		add	both	moved from wnb-id: Malaysian, not Indonesian
-zsm-069	unflagged	wnb-zsm-11375087-n	Richard Neville		keep	triage	
-zsm-070	remove-wrong	wnb-zsm-02104373-v	menggulingkan		remove	both	menggulingkan = overthrow/roll over, not hit violently
-zsm-071	move	wnb-zsm-02567519-v	merogol		add	both	moved from wnb-id: Malaysian, not Indonesian
-zsm-072	remove-form	wnb-zsm-01610101-v	beristirahat		remove	both	Indonesian, not Malaysian: intransitive rest, not put in resting position
-zsm-073	remove-wrong-adj	wnb-zsm-02672187-v	bertanding		remove	adjudication	compete, not be equal to
-zsm-074	unflagged	wnb-zsm-01821132-v	menarik		keep	triage	
-zsm-075	unflagged	wnb-zsm-06471345-n	surat akuan		keep	triage	
-zsm-076	keep-adj	wnb-zsm-11503968-n	galangan		keep	adjudication	galangan is the Malaysian standard technical term for impedance
-zsm-077	keep	wnb-zsm-00557216-v	berubah		keep	both	change; broader
-zsm-078	keep	wnb-zsm-00638243-n	klon		keep	both	clone; pengklonan more precise
-zsm-079	remove-wrong-adj	wnb-zsm-01282294-v	mencakup		remove	adjudication	include/scoop with hands, not hollow out
-zsm-080	remove-wrong	wnb-zsm-09504915-n	kutukan		remove	both	'curse', not destiny
-zsm-081	remove-wrong	wnb-zsm-14441610-n	perseteruan		remove	both	perseteruan means enmity, not disgrace
-zsm-082	keep	wnb-zsm-02052333-a	kota		keep	both	city, attributive
-zsm-083	unflagged	wnb-zsm-01244106-a	peramah		keep	triage	
-zsm-084	remove-form	wnb-zsm-00433216-n	olahraga		remove	both	Indonesian, not Malaysian
-zsm-085	lower	wnb-zsm-02093390-v	berdengap		lower	adjudication	obscure word; may denote thudding sound rather than flapping
-zsm-086	lower	wnb-zsm-02556846-n	kerakap		lower	adjudication	kerakap is chiefly a plant; fish sense unverified
-zsm-087	keep-adj	wnb-zsm-00720296-a	demonstratif		keep	adjudication	loan demonstratif usable for emotionally demonstrative
-zsm-088	remove-wrong-adj	wnb-zsm-00705227-v	mencadangkan		remove	adjudication	mencadangkan means propose, not intend
-zsm-089	move	wnb-zsm-13318584-n	faedah		add	both	moved from wnb-id: Malaysian, not Indonesian
-zsm-090	unflagged	wnb-zsm-00196934-a	menenteramkan		keep	triage	
-zsm-091	unflagged	wnb-zsm-00123170-v	berbeda-beda		keep	triage	
-zsm-092	unflagged	wnb-zsm-00473572-v	menyempurnakan		keep	triage	
-zsm-093	keep	wnb-zsm-13930928-n	penyerapan		keep	both	cultural absorption; acceptable
-zsm-094	remove-wrong-adj	wnb-zsm-06733939-n	tanda		remove	adjudication	tanda is sign/mark; legal evidence is bukti
-zsm-095	unflagged	wnb-zsm-05030806-n	kekuatan		keep	triage	
-zsm-096	unflagged	wnb-zsm-00947077-v	memutuskan		keep	triage	
-zsm-097	keep	wnb-zsm-02081795-v	memotong		keep	both	overtake
-zsm-098	remove-wrong-adj	wnb-zsm-07085375-n	tekan		remove	adjudication	verb press; syllable stress is tekanan
-zsm-099	move	wnb-zsm-01127782-a	cabuk		add	both	moved from wnb-id: Malaysian, not Indonesian
-zsm-100	remove-wrong	wnb-zsm-09989045-n	anak patung		remove	both	toy doll, not slang woman
-zsm-101	lower	wnb-zsm-00764484-a	mulut jelabas		lower	adjudication	jelabas unattested; seems loose-tongued rather than frank
-zsm-102	lower	wnb-zsm-00685683-v	menumangkan		lower	adjudication	unclear form
-zsm-103	remove-wrong-adj	wnb-zsm-05807933-n	bayangan		remove	adjudication	bayangan is image/hint, not enlightening understanding
-zsm-104	remove-wrong-adj	wnb-zsm-02670578-v	meladeni		remove	adjudication	meladeni means attend to someone, not benefit
-zsm-105	keep-adj	wnb-zsm-01108148-v	menggulung		keep	adjudication	menggulung is used colloquially for crushing an opponent
-zsm-106	move	wnb-zsm-01215137-v	melokap		add	both	moved from wnb-id: Malaysian, not Indonesian
-zsm-107	unflagged	wnb-zsm-01099951-a	tertentu		keep	triage	
-zsm-108	unflagged	wnb-zsm-10120533-n	tukang kebun		keep	triage	
-zsm-109	keep	wnb-zsm-11674914-n	putik		keep	both	bud
-zsm-110	remove-wrong	wnb-zsm-14250850-n	bundar		remove	both	bundar = round; not retinoblastoma
-zsm-111	keep-adj	wnb-zsm-02193765-v	melainkan		keep	adjudication	melainkan has sense membezakan (make different, distinguish)
-zsm-112	rename-mechanical	wnb-zsm-11454591-n	banjir	banjir 	rename		stray space
-zsm-113	unflagged	wnb-zsm-11109970-n	Serge Koussevitzky		keep	triage	
-zsm-114	remove-wrong-adj	wnb-zsm-02594674-v	menyamai		remove	adjudication	menyamai is equal, not satisfy/fulfil
-zsm-115	move	wnb-zsm-00658052-v	menggredkan		add	both	moved from wnb-id: Malaysian, not Indonesian
-zsm-116	remove-wrong-adj	wnb-zsm-01649999-v	menyebabkan		remove	adjudication	cause, not motivate/give incentive
-zsm-117	remove-form	wnb-zsm-01106614-a	internasional		remove	both	Indonesian, not Malaysian: international, not widely distributed
-zsm-118	lower	wnb-zsm-02796623-n	rebat		lower	adjudication	rebat possibly embankment; unclear as barrier
-zsm-119	remove-form	wnb-zsm-00967625-v	memproduksi		remove	adjudication	Indonesian, not Malaysian: memproduksi means produce/manufacture, not publish
-zsm-120	lower	wnb-zsm-10076033-n	darai		lower	adjudication	darai not a confirmable term for homosexual man
-zsm-121	keep-adj	wnb-zsm-08095647-n	muslimin		keep	adjudication	Muslims collectively
-zsm-122	unflagged	wnb-zsm-04876985-n	ketaatan		keep	triage	
-zsm-123	lower	wnb-zsm-00843146-a	gayal		lower	adjudication	gayal usually means sluggish; elastic sense unattested to me
-zsm-124	remove-wrong-adj	wnb-zsm-02159890-v	mencetus		remove	adjudication	cetus is spark/trigger, not twinkle
-zsm-125	remove-form	wnb-zsm-90000222-n	ila Anda		remove	both	malformed or not a word: not a lexical item
-zsm-126	remove-form	wnb-zsm-01767949-v	membajau		remove	adjudication	malformed or not a word: not a recognised word in this sense
-zsm-127	unflagged	wnb-zsm-09884133-n	pembantai		keep	triage	
-zsm-128	remove-wrong	wnb-zsm-02145814-v	mengamankan		remove	both	mengamankan = secure/make safe, not hide
-zsm-129	move	wnb-zsm-01038666-v	merepek		add	both	moved from wnb-id: Malaysian, not Indonesian
-zsm-130	keep	wnb-zsm-01828256-v	menginginkan		keep	both	desire; broader than lust after
-zsm-131	lower	wnb-zsm-00064095-v	mengabar		lower	adjudication	mengabar not confirmable as relieve
-zsm-132	move	wnb-zsm-04008634-n	projektil		add	both	moved from wnb-id: Malaysian, not Indonesian
-zsm-133	remove-wrong-adj	wnb-zsm-04790774-n	berbahaya		remove	adjudication	adjective dangerous for noun harmfulness
-zsm-134	keep	wnb-zsm-00526062-a	meliputi		keep	both	covering; broad in scope
-zsm-135	unflagged	wnb-zsm-11204276-n	Nestor		keep	triage	
-zsm-136	keep	wnb-zsm-02717362-v	menggeleber		keep	both	hang loose, flabby
-zsm-137	unflagged	wnb-zsm-01766638-v	mengganggu		keep	triage	
-zsm-138	lower	wnb-zsm-01374767-v	mencepuk		lower	adjudication	unknown form; cannot confirm splash
-zsm-139	keep	wnb-zsm-01803936-v	memerintah		keep	both	rule/control
-zsm-140	keep-adj	wnb-zsm-00698256-v	menganggarkan		keep	adjudication	menganggarkan = estimate, which fits 'I make it 10 miles'
-zsm-141	unflagged	wnb-zsm-08916111-n	Adrianopolis		keep	triage	
-zsm-142	keep-adj	wnb-zsm-02634808-v	terbabit		keep	adjudication	involved/implicated; passive rendering of implicate
-zsm-143	remove-form	wnb-zsm-13585429-n	konstan		remove	both	Indonesian, not Malaysian
-zsm-144	unflagged	wnb-zsm-00712708-v	mengandalkan		keep	triage	
-zsm-145	remove-wrong-adj	wnb-zsm-00465762-v	terpeleset		remove	adjudication	slip and lose footing, not move out of position
-zsm-146	move	wnb-zsm-01092981-v	berkusti		add	both	moved from wnb-id: Malaysian, not Indonesian
-zsm-147	lower	wnb-zsm-04952944-n	geridip		lower	adjudication	geridip unattested to me; possibly a variant of gemerdip
-zsm-148	remove-wrong	wnb-zsm-02703289-v	membuahkan		remove	both	bear fruit, produce; not give in
-zsm-149	move	wnb-zsm-00872107-n	kira-kira campur		add	both	moved from wnb-id: Malaysian, not Indonesian
-zsm-150	keep-adj	wnb-zsm-01632897-v	merejam		keep	adjudication	rejam = throw/hurl (a stone or spear), fits put or send forth
-zsm-151	remove-wrong-adj	wnb-zsm-00785962-v	bertanya		remove	adjudication	bertanya = ask, not investigate
-zsm-152	unflagged	wnb-zsm-10889689-n	Arthur Neville Chamberlain		keep	triage	
-zsm-153	keep-adj	wnb-zsm-03267468-n	kapsul		keep	adjudication	escape capsule; capsule in synset
-zsm-154	lower	wnb-zsm-02560548-a	awah		lower	adjudication	awah not verifiable as wide
-zsm-155	remove-wrong	wnb-zsm-07047011-n	pembantu		remove	both	pembantu means assistant, not musical suite
-zsm-156	keep	wnb-zsm-02272549-v	meraih		keep	both	
-zsm-157	lower	wnb-zsm-02887489-n	tali bawat		lower	adjudication	cannot confirm term for suspenders
-zsm-158	keep	wnb-zsm-03096448-a	tepok		keep	both	paralysed (legs)
-zsm-159	unflagged	wnb-zsm-10897796-n	John Anthony Ciardi		keep	triage	
-zsm-160	remove-form	wnb-zsm-01277649-v	menguber		remove	both	Indonesian, not Malaysian: menguber = chase (pursue), not cut a furrow
-zsm-161	keep	wnb-zsm-01240514-v	menggeser		keep	both	rub/scrape
-zsm-162	keep	wnb-zsm-02077253-a	psikopat		keep	both	
-zsm-163	unflagged	wnb-zsm-02654947-v	bersarang		keep	triage	
-zsm-164	remove-form	wnb-zsm-01352806-v	menyekrup		remove	both	Indonesian, not Malaysian: screw (Malay usually menskru)
-zsm-165	remove-wrong	wnb-zsm-00065639-v	beroleh		remove	both	beroleh means obtain, not suffer injuries
-zsm-166	move	wnb-zsm-09763784-n	rakan		add	both	moved from wnb-id: Malaysian, not Indonesian
-zsm-167	move	wnb-zsm-02523221-v	menadbirkan		add	both	moved from wnb-id: Malaysian, not Indonesian
-zsm-168	remove-wrong	wnb-zsm-08879388-n	Lapangan Terbang Williamtown Military		remove	both	Australian airbase, not Newcastle upon Tyne
-zsm-169	keep-adj	wnb-zsm-01264447-n	pembebasan		keep	adjudication	release of emotion
-zsm-170	keep	wnb-zsm-02692089-v	mengapung		keep	both	float at anchor
-zsm-171	unflagged	wnb-zsm-01514525-v	melemparkan		keep	triage	
-zsm-172	move	wnb-zsm-00780575-v	mengumbara		add	adjudication	moved from wnb-id: Malaysian, not Indonesian
-zsm-173	unflagged	wnb-zsm-08493261-n	Andalusia		keep	triage	
-zsm-174	remove-wrong	wnb-zsm-02425462-v	terbuka		remove	both	adjective 'open', not begin a meeting
-zsm-175	unflagged	wnb-zsm-00717748-n	deburan		keep	triage	
-zsm-176	unflagged	wnb-zsm-01758895-n	bangkai		keep	triage	
-zsm-177	remove-form	wnb-zsm-00599992-v	membutuhkan		remove	both	Indonesian, not Malaysian: means need (other sense of take), not study
-zsm-178	keep-adj	wnb-zsm-00206998-v	menyumbang		keep	adjudication	menyumbang kepada = help/contribute to improvement
-zsm-179	move	wnb-zsm-00312932-n	belayar		add	both	moved from wnb-id: Malaysian, not Indonesian
-zsm-180	keep-adj	wnb-zsm-00392950-n	penyedutan		keep	adjudication	suction, a kind of extraction
-zsm-181	remove-wrong	wnb-zsm-02227487-v	pergi		remove	both	means go, not renounce
+zsm-001	lower	wnb-zsm-02556846-n	kerakap		lower	adjudication	kerakap is chiefly a plant; fish sense unverified
+zsm-002	unflagged	wnb-zsm-02553234-a	kering		keep	triage	
+zsm-003	keep	wnb-zsm-02717362-v	menggeleber		keep	both	hang loose, flabby
+zsm-004	keep-adj	wnb-zsm-01833401-a	rang		keep	adjudication	rang (of land) = lying unworked/open; rare dictionary sense of fallow
+zsm-005	unflagged	wnb-zsm-00267871-a	tercungap-cungap		keep	triage	
+zsm-006	move	wnb-zsm-09763784-n	rakan		add	both	moved from wnb-id: Malaysian, not Indonesian
+zsm-007	lower	wnb-zsm-05526713-n	punai		lower	adjudication	punai is green pigeon; slang penis use unattested to me
+zsm-008	unflagged	wnb-zsm-00027807-n	berbentuk		keep	triage	
+zsm-009	lower	wnb-zsm-00754873-a	cupai		lower	adjudication	unattested form; possibly a typo for cuai
+zsm-010	unflagged	wnb-zsm-00556193-v	mencampur		keep	triage	
+zsm-011	unflagged	wnb-zsm-10883380-n	Nicolas Leonard Sadi Carnot		keep	triage	
+zsm-012	remove-wrong	wnb-zsm-02425462-v	terbuka		remove	both	adjective 'open', not begin a meeting
+zsm-013	remove-form	wnb-zsm-00599992-v	membutuhkan		remove	both	Indonesian, not Malaysian: means need (other sense of take), not study
+zsm-014	remove-wrong	wnb-zsm-09989045-n	anak patung		remove	both	toy doll, not slang woman
+zsm-015	unflagged	wnb-zsm-14421585-n	nikah		keep	triage	
+zsm-016	unflagged	wnb-zsm-02585860-v	berjaya		keep	triage	
+zsm-017	unflagged	wnb-zsm-10877456-n	James Branch Cabell		keep	triage	
+zsm-018	move	wnb-zsm-02567519-v	merogol		add	both	moved from wnb-id: Malaysian, not Indonesian
+zsm-019	remove-form	wnb-zsm-13585429-n	konstan		remove	both	Indonesian, not Malaysian
+zsm-020	remove-wrong-adj	wnb-zsm-03778302-n	perubahan		remove	adjudication	perubahan means change, not a modified copy
+zsm-021	remove-wrong	wnb-zsm-01773825-v	menghina		remove	both	means insult, not rankle
+zsm-022	remove-form	wnb-zsm-90000222-n	ila Anda		remove	both	malformed or not a word: not a lexical item
+zsm-023	unflagged	wnb-zsm-14008567-n	ledakan		keep	triage	
+zsm-024	remove-wrong	wnb-zsm-01647543-v	mencontohi		remove	both	mencontohi = imitate, not fix/set
+zsm-025	keep	wnb-zsm-05023591-n	kekerasan		keep	both	hardness/rigidity
+zsm-026	remove-wrong	wnb-zsm-09504915-n	kutukan		remove	both	'curse', not destiny
+zsm-027	unflagged	wnb-zsm-08994834-n	Jeddah		keep	triage	
+zsm-028	remove-wrong	wnb-zsm-02678438-v	mencakupi		remove	both	mencakupi means cover/include, not be on the mind of
+zsm-029	unflagged	wnb-zsm-02135487-v	menembusi		keep	triage	
+zsm-030	move	wnb-zsm-01038666-v	merepek		add	both	moved from wnb-id: Malaysian, not Indonesian
+zsm-031	remove-wrong	wnb-zsm-02422559-v	juruwang		remove	both	cashier noun, not dishonourable discharge
+zsm-032	unflagged	wnb-zsm-10077504-n	penolong		keep	triage	
+zsm-033	unflagged	wnb-zsm-06051542-n	imunologi		keep	triage	
+zsm-034	unflagged	wnb-zsm-01381549-v	memanggil		keep	triage	
+zsm-035	keep	wnb-zsm-02692089-v	mengapung		keep	both	float at anchor
+zsm-036	remove-wrong	wnb-zsm-00776988-v	mengancam		remove	both	means threaten, not bewitch
+zsm-037	remove-wrong	wnb-zsm-02621395-v	membuatkan		remove	both	make for someone, not constitute
+zsm-038	unflagged	wnb-zsm-01797582-v	memilukan		keep	triage	
+zsm-039	unflagged	wnb-zsm-00264386-v	membesarkan		keep	triage	
+zsm-040	unflagged	wnb-zsm-06748133-n	berita kematian		keep	triage	
+zsm-041	lower	wnb-zsm-02093390-v	berdengap		lower	adjudication	obscure word; may denote thudding sound rather than flapping
+zsm-042	unflagged	wnb-zsm-00480211-n	bola tampar		keep	triage	
+zsm-043	remove-wrong	wnb-zsm-06774316-n	resam		remove	both	means custom (convention as practice), not treaty
+zsm-044	unflagged	wnb-zsm-07490713-n	gembira		keep	triage	
+zsm-045	lower	wnb-zsm-00781644-a	redam		lower	adjudication	redam is muffled/dim; blurred outline doubtful
+zsm-046	remove-wrong-adj	wnb-zsm-01681307-a	sedia		remove	adjudication	sedia = ready, not laid down to a plan
+zsm-047	unflagged	wnb-zsm-01062253-v	memberikan		keep	triage	
+zsm-048	remove-wrong-adj	wnb-zsm-01505958-v	mendapat		remove	adjudication	mendapat = obtain, not attract and fix
+zsm-049	move	wnb-zsm-00780575-v	mengumbara		add	adjudication	moved from wnb-id: Malaysian, not Indonesian
+zsm-050	unflagged	wnb-zsm-11320044-n	Marie Stopes		keep	triage	
+zsm-051	unflagged	wnb-zsm-04768028-n	irama		keep	triage	
+zsm-052	keep	wnb-zsm-02052333-a	kota		keep	both	city, attributive
+zsm-053	move	wnb-zsm-03925226-n	imej		add	both	moved from wnb-id: Malaysian, not Indonesian
+zsm-054	remove-wrong	wnb-zsm-02227487-v	pergi		remove	both	means go, not renounce
+zsm-055	lower	wnb-zsm-00064095-v	mengabar		lower	adjudication	mengabar not confirmable as relieve
+zsm-056	remove-wrong	wnb-zsm-03086963-n	dataran		remove	both	dataran means plain/square, not a hallway
+zsm-057	keep-adj	wnb-zsm-01108148-v	menggulung		keep	adjudication	menggulung is used colloquially for crushing an opponent
+zsm-058	move	wnb-zsm-02523221-v	menadbirkan		add	both	moved from wnb-id: Malaysian, not Indonesian
+zsm-059	remove-wrong-adj	wnb-zsm-07488340-n	kasih		remove	adjudication	kasih = affection, not sexual love
+zsm-060	unflagged	wnb-zsm-01888295-v	menyusup		keep	triage	
+zsm-061	remove-wrong	wnb-zsm-05107216-n	kelembutan		remove	both	kelembutan is softness/gentleness, not small stature
+zsm-062	move	wnb-zsm-07464725-n	kejohanan		add	both	moved from wnb-id: Malaysian, not Indonesian
+zsm-063	unflagged	wnb-zsm-01129876-v	menunggui		keep	triage	
+zsm-064	move	wnb-zsm-01215137-v	melokap		add	both	moved from wnb-id: Malaysian, not Indonesian
+zsm-065	unflagged	wnb-zsm-01030691-a	berombak-ombak		keep	triage	
+zsm-066	move	wnb-zsm-04008634-n	projektil		add	both	moved from wnb-id: Malaysian, not Indonesian
+zsm-067	keep	wnb-zsm-01240514-v	menggeser		keep	both	rub/scrape
+zsm-068	remove-wrong	wnb-zsm-01907258-v	mengedar		remove	both	mengedar means circulate or distribute, not turn
+zsm-069	lower	wnb-zsm-04952944-n	geridip		lower	adjudication	geridip unattested to me; possibly a variant of gemerdip
+zsm-070	unflagged	wnb-zsm-05120116-n	kelimpahan		keep	triage	
+zsm-071	remove-wrong	wnb-zsm-00677021-v	menarik		remove	both	means pull/attract, not excerpt from text
+zsm-072	remove-wrong	wnb-zsm-07529377-n	keriuhan		remove	both	means uproar/noisiness, not merriment
+zsm-073	lower	wnb-zsm-03189083-n	penghenti		lower	adjudication	penghenti may be a technical calque for stop; not verifiable
+zsm-074	unflagged	wnb-zsm-00518395-v	meringankan		keep	triage	
+zsm-075	remove-wrong	wnb-zsm-01733477-v	mengalami		remove	both	mengalami means experience, not organize
+zsm-076	remove-wrong	wnb-zsm-00688261-v	cenderung		remove	both	tend/incline, not rely on
+zsm-077	unflagged	wnb-zsm-01263445-a	ganas		keep	triage	
+zsm-078	remove-wrong-adj	wnb-zsm-01171746-a	semangat		remove	adjudication	noun spirit; adjective is bersemangat
+zsm-079	remove-form	wnb-zsm-01414916-v	lampang		remove	adjudication	malformed or not a word: possibly variant of lempang (slap); cannot confirm
+zsm-080	unflagged	wnb-zsm-09454412-n	kusut		keep	triage	
+zsm-081	remove-wrong	wnb-zsm-01651196-a	di		remove	both	di is a locative preposition, not operational
+zsm-082	remove-wrong	wnb-zsm-08183398-n	surat khabar		remove	both	newspaper, not a crowd crush
+zsm-083	unflagged	wnb-zsm-02819474-n	batas		keep	triage	
+zsm-084	unflagged	wnb-zsm-01765908-v	menjengkelkan		keep	triage	
+zsm-085	remove-form	wnb-zsm-01277649-v	menguber		remove	both	Indonesian, not Malaysian: menguber = chase (pursue), not cut a furrow
+zsm-086	move	wnb-zsm-02924116-n	koc		add	both	moved from wnb-id: Malaysian, not Indonesian
+zsm-087	remove-wrong	wnb-zsm-00447309-v	memutuskan		remove	both	memutuskan means decide/sever, not dissolve in solution
+zsm-088	move	wnb-zsm-07609840-n	pembasuh mulut		add	both	moved from wnb-id: Malaysian, not Indonesian
+zsm-089	unflagged	wnb-zsm-08769836-n	Berlin Barat		keep	triage	
+zsm-090	remove-wrong	wnb-zsm-02104373-v	menggulingkan		remove	both	menggulingkan = overthrow/roll over, not hit violently
+zsm-091	keep-adj	wnb-zsm-01264447-n	pembebasan		keep	adjudication	release of emotion
+zsm-092	keep-adj	wnb-zsm-00392950-n	penyedutan		keep	adjudication	suction, a kind of extraction
+zsm-093	remove-wrong	wnb-zsm-00719442-a	aneh		remove	both	strange, not capricious
+zsm-094	remove-wrong	wnb-zsm-01527754-v	merejam		remove	both	means stone (to death), not throw a rider
+zsm-095	unflagged	wnb-zsm-02393726-v	berselang-seli		keep	triage	
+zsm-096	remove-wrong-adj	wnb-zsm-05176607-n	hak		remove	adjudication	right/entitlement, not permission
+zsm-097	keep	wnb-zsm-00526062-a	meliputi		keep	both	covering; broad in scope
+zsm-098	unflagged	wnb-zsm-10209246-n	pengacum		keep	triage	
+zsm-099	unflagged	wnb-zsm-09968845-n	kaunselor		keep	triage	
+zsm-100	keep-adj	wnb-zsm-04250026-n	kutipan		keep	adjudication	excerpt/quote, matches snippet as rendered by synset
+zsm-101	unflagged	wnb-zsm-03073832-n	Universiti Columbia		keep	triage	
+zsm-102	move	wnb-zsm-00312932-n	belayar		add	both	moved from wnb-id: Malaysian, not Indonesian
+zsm-103	remove-wrong	wnb-zsm-00454251-v	naik		remove	both	means rise, not suffuse
+zsm-104	keep	wnb-zsm-00638243-n	klon		keep	both	clone; pengklonan more precise
+zsm-105	unflagged	wnb-zsm-00717045-v	berkeras		keep	triage	
+zsm-106	remove-form	wnb-zsm-01352806-v	menyekrup		remove	both	Indonesian, not Malaysian: screw (Malay usually menskru)
+zsm-107	keep	wnb-zsm-03096448-a	tepok		keep	both	paralysed (legs)
+zsm-108	remove-wrong	wnb-zsm-14441610-n	perseteruan		remove	both	perseteruan means enmity, not disgrace
+zsm-109	unflagged	wnb-zsm-02589576-v	mendesak		keep	triage	
+zsm-110	move	wnb-zsm-05934396-n	sekali imbas		add	both	moved from wnb-id: Malaysian, not Indonesian
+zsm-111	remove-wrong-adj	wnb-zsm-01530273-v	terbenam		remove	adjudication	terbenam is the stative 'sunken', not the action of countersinking
+zsm-112	keep-adj	wnb-zsm-00420549-v	memejalkan		keep	adjudication	firm up; close to firm/tauten
+zsm-113	unflagged	wnb-zsm-00311687-n	naik haji		keep	triage	
+zsm-114	unflagged	wnb-zsm-00378664-v	membakar		keep	triage	
+zsm-115	remove-wrong-adj	wnb-zsm-00364260-n	kemaraan		remove	adjudication	military advance/progress, not price rise
+zsm-116	unflagged	wnb-zsm-06836059-n	tau		keep	triage	
+zsm-117	remove-wrong	wnb-zsm-02703289-v	membuahkan		remove	both	bear fruit, produce; not give in
+zsm-118	remove-wrong	wnb-zsm-00812952-a	muda		remove	both	muda means young, not early in time
+zsm-119	keep	wnb-zsm-02988402-a	kebangsaan		keep	both	
+zsm-120	remove-wrong	wnb-zsm-01240720-v	melelas		remove	both	melelas means abrade, not touch lightly
+zsm-121	unflagged	wnb-zsm-05307091-n	siung		keep	triage	
+zsm-122	unflagged	wnb-zsm-14493145-n	kepapaan		keep	triage	
+zsm-123	remove-wrong-adj	wnb-zsm-00926472-v	menghitung		remove	adjudication	count/calculate, not predict
+zsm-124	remove-wrong	wnb-zsm-02221635-v	lalu		remove	both	'lalu' means go past, not transfer of rights
+zsm-125	unflagged	wnb-zsm-02512305-v	mendiskriminasi		keep	triage	
+zsm-126	unflagged	wnb-zsm-00201058-n	masa peralihan		keep	triage	
+zsm-127	lower	wnb-zsm-02560548-a	awah		lower	adjudication	awah not verifiable as wide
+zsm-128	unflagged	wnb-zsm-14600504-n	aseton		keep	triage	
+zsm-129	remove-wrong-adj	wnb-zsm-09218159-n	sambang		remove	adjudication	sambang is a kind of wasp/hornet, not a beehive
+zsm-130	unflagged	wnb-zsm-02025353-v	berbondong-bondong		keep	triage	
+zsm-131	lower	wnb-zsm-02796623-n	rebat		lower	adjudication	rebat possibly embankment; unclear as barrier
+zsm-132	lower	wnb-zsm-10076033-n	darai		lower	adjudication	darai not a confirmable term for homosexual man
+zsm-133	unflagged	wnb-zsm-11369444-n	Andrei Voznesenski		keep	triage	
+zsm-134	remove-form	wnb-zsm-01610101-v	beristirahat		remove	both	Indonesian, not Malaysian: intransitive rest, not put in resting position
+zsm-135	unflagged	wnb-zsm-05760202-n	memori		keep	triage	
+zsm-136	remove-form	wnb-zsm-01767949-v	membajau		remove	adjudication	malformed or not a word: not a recognised word in this sense
+zsm-137	keep	wnb-zsm-00891216-v	menaja jamin		keep	both	
+zsm-138	keep	wnb-zsm-13349662-n	simpanan		keep	both	deposit/savings
+zsm-139	unflagged	wnb-zsm-01439155-a	lama		keep	triage	
+zsm-140	unflagged	wnb-zsm-11167269-n	Willie Mays		keep	triage	
+zsm-141	unflagged	wnb-zsm-08544813-n	tanah air		keep	triage	
+zsm-142	unflagged	wnb-zsm-01638368-v	merencanakan		keep	triage	
+zsm-143	rename-mechanical	wnb-zsm-11454591-n	banjir	banjir 	rename		stray space
+zsm-144	keep	wnb-zsm-02081795-v	memotong		keep	both	overtake
+zsm-145	unflagged	wnb-zsm-00120202-n	ambul		keep	triage	
+zsm-146	keep	wnb-zsm-00557216-v	berubah		keep	both	change; broader
+zsm-147	unflagged	wnb-zsm-08653314-n	angkasa		keep	triage	
+zsm-148	remove-form	wnb-zsm-01925170-v	gelayaran		remove	adjudication	malformed or not a word: gelayaran not a recognised form; cannot confirm
+zsm-149	unflagged	wnb-zsm-02580237-v	menular		keep	triage	
+zsm-150	keep	wnb-zsm-02077253-a	psikopat		keep	both	
+zsm-151	keep	wnb-zsm-00075021-v	haus		keep	both	worn out through use
+zsm-152	unflagged	wnb-zsm-14899530-n	bahantara		keep	triage	
+zsm-153	keep	wnb-zsm-01803936-v	memerintah		keep	both	rule/control
+zsm-154	unflagged	wnb-zsm-01565921-v	menghabiskan		keep	triage	
+zsm-155	unflagged	wnb-zsm-00937186-a	hijau		keep	triage	
+zsm-156	lower	wnb-zsm-02887489-n	tali bawat		lower	adjudication	cannot confirm term for suspenders
+zsm-157	keep-adj	wnb-zsm-01298283-v	mengenakan		keep	adjudication	mengenakan imbuhan = attach an affix
+zsm-158	unflagged	wnb-zsm-10689784-n	pembeli		keep	triage	
+zsm-159	unflagged	wnb-zsm-04679738-n	muka		keep	triage	
+zsm-160	remove-wrong	wnb-zsm-02361600-v	memisahkan		remove	both	means separate, not provide with border
+zsm-161	unflagged	wnb-zsm-02469080-n	primer		keep	triage	
+zsm-162	move	wnb-zsm-13318584-n	faedah		add	both	moved from wnb-id: Malaysian, not Indonesian
+zsm-163	move	wnb-zsm-01127782-a	cabuk		add	both	moved from wnb-id: Malaysian, not Indonesian
+zsm-164	remove-form	wnb-zsm-02236124-v	membutuhkan		remove	both	Indonesian, not Malaysian: membutuhkan means need, not accept
+zsm-165	lower	wnb-zsm-00006100-v	mengokol		lower	adjudication	mengokol cannot be confirmed as spasmodic coughing
+zsm-166	unflagged	wnb-zsm-01580306-a	penting		keep	triage	
+zsm-167	move	wnb-zsm-03249569-n	dram		add	both	moved from wnb-id: Malaysian, not Indonesian
+zsm-168	remove-wrong-adj	wnb-zsm-01630751-v	mengugut		remove	adjudication	mengugut means threaten, not obtain with difficulty
+zsm-169	unflagged	wnb-zsm-00919445-a	tenang		keep	triage	
+zsm-170	lower	wnb-zsm-00919155-a	keracak		lower	adjudication	unfamiliar word; cannot confirm skittish meaning
+zsm-171	remove-wrong	wnb-zsm-00173283-n	elak		remove	both	elak means avoid, not a means of escape
+zsm-172	remove-wrong-adj	wnb-zsm-01081340-a	rimbun		remove	adjudication	lush dense foliage, not fruitfulness
+zsm-173	unflagged	wnb-zsm-00433232-v	menaik		keep	triage	
+zsm-174	remove-wrong	wnb-zsm-00888326-v	menganut		remove	both	adhere to a religion, not take vows
+zsm-175	remove-wrong-adj	wnb-zsm-02717102-v	ada		remove	adjudication	exist/have, not carry
+zsm-176	remove-wrong	wnb-zsm-14250850-n	bundar		remove	both	bundar = round; not retinoblastoma
+zsm-177	remove-wrong	wnb-zsm-00676450-v	mengorek		remove	both	mengorek 'dig out, scrape', not select
+zsm-178	unflagged	wnb-zsm-11428699-n	sinar beta		keep	triage	
+zsm-179	unflagged	wnb-zsm-06371413-n	dongeng dewata		keep	triage	
+zsm-180	remove-wrong	wnb-zsm-05694527-n	perhubungan		remove	both	perhubungan means relations/communication, not lifeline
+zsm-181	unflagged	wnb-zsm-10864635-n	Edward Benjamin Britten		keep	triage	
+zsm-182	remove-wrong	wnb-zsm-02681524-v	memecahkan		remove	both	break physically, not give up
+zsm-183	remove-form	wnb-zsm-00439588-a	cogo		remove	adjudication	malformed or not a word: not a recognisable Malay word; possibly misspelt
+zsm-184	unflagged	wnb-zsm-00371487-n	penghuraian		keep	triage	
+zsm-185	unflagged	wnb-zsm-10993636-n	Theodor Seuss Geisel		keep	triage	
+zsm-186	keep-adj	wnb-zsm-00206998-v	menyumbang		keep	adjudication	menyumbang kepada = help/contribute to improvement
+zsm-187	remove-form	wnb-zsm-00433216-n	olahraga		remove	both	Indonesian, not Malaysian
+zsm-188	keep-adj	wnb-zsm-03009269-n	rata		keep	adjudication	rata is the classical word for chariot (Skt ratha)
+zsm-189	unflagged	wnb-zsm-02201758-n	Culex		keep	triage	
+zsm-190	unflagged	wnb-zsm-10876661-n	William Butterfield		keep	triage	
+zsm-191	unflagged	wnb-zsm-01138523-v	berjudi		keep	triage	
+zsm-192	keep-adj	wnb-zsm-01632897-v	merejam		keep	adjudication	rejam = throw/hurl (a stone or spear), fits put or send forth
+zsm-193	unflagged	wnb-zsm-00063557-v	mengobarkan		keep	triage	
+zsm-194	keep-adj	wnb-zsm-02193765-v	melainkan		keep	adjudication	melainkan has sense membezakan (make different, distinguish)
+zsm-195	remove-wrong	wnb-zsm-14411884-n	ikut-ikutan		remove	both	ikut-ikutan is copycat conformism, not a state of general acceptance
+zsm-196	remove-wrong-adj	wnb-zsm-01971603-v	mundur		remove	adjudication	mundur means retreat or regress, not go down in value
+zsm-197	unflagged	wnb-zsm-09306840-n	Hudson		keep	triage	
+zsm-198	remove-wrong	wnb-zsm-01563005-v	seksi		remove	both	noun section (or 'sexy'), not verb to segment
+zsm-199	remove-form	wnb-zsm-14447908-n	kesehatan		remove	both	Indonesian, not Malaysian
+zsm-200	remove-wrong	wnb-zsm-07524242-n	kesukaran		remove	both	difficulty, not anxiety
+zsm-201	unflagged	wnb-zsm-00218440-a	cantik		keep	triage	
+zsm-202	move	wnb-zsm-00658052-v	menggredkan		add	both	moved from wnb-id: Malaysian, not Indonesian
+zsm-203	remove-wrong-adj	wnb-zsm-01228645-n	jagaan		remove	adjudication	care/custody, not a courteous act
+zsm-204	unflagged	wnb-zsm-13270373-n	sedekah		keep	triage	
+zsm-205	unflagged	wnb-zsm-00118869-r	dahulu		keep	triage	
+zsm-206	remove-form	wnb-zsm-01024190-v	mencantumkan		remove	adjudication	Indonesian, not Malaysian: join/attach in Malay; cite/mention sense is Indonesian list-in-writing
+zsm-207	unflagged	wnb-zsm-01469080-v	membuang		keep	triage	
+zsm-208	unflagged	wnb-zsm-00990442-a	berkerepot		keep	triage	
+zsm-209	unflagged	wnb-zsm-10614629-n	pandai		keep	triage	
+zsm-210	remove-wrong-adj	wnb-zsm-00228535-n	penghapusan		remove	adjudication	abolition/write-off, not business liquidation
+zsm-211	keep	wnb-zsm-02272549-v	meraih		keep	both	
+zsm-212	keep-adj	wnb-zsm-11503968-n	galangan		keep	adjudication	galangan is the Malaysian standard technical term for impedance
+zsm-213	lower	wnb-zsm-03471190-n	kekek		lower	adjudication	kekek for gusset not verifiable
+zsm-214	remove-form	wnb-zsm-02073714-v	kabur		remove	both	Indonesian, not Malaysian: run off (slang)
+zsm-215	lower	wnb-zsm-03646296-n	bindu		lower	adjudication	bindu not verifiable as lathe
+zsm-216	unflagged	wnb-zsm-05020981-n	pantulan		keep	triage	
+zsm-217	remove-form	wnb-zsm-06694540-n	rekomendasi		remove	both	Indonesian, not Malaysian
+zsm-218	lower	wnb-zsm-01374767-v	mencepuk		lower	adjudication	unknown form; cannot confirm splash
+zsm-219	lower	wnb-zsm-00843146-a	gayal		lower	adjudication	gayal usually means sluggish; elastic sense unattested to me
+zsm-220	remove-wrong	wnb-zsm-02501278-v	berikhtiar		remove	both	means make an effort (try other sense), not judge a case
+zsm-221	move	wnb-zsm-02477755-v	mengensel		add	both	moved from wnb-id: Malaysian, not Indonesian
+zsm-222	unflagged	wnb-zsm-00352331-n	pemotongan		keep	triage	
+zsm-223	unflagged	wnb-zsm-04314216-n	stensil		keep	triage	
+zsm-224	remove-wrong	wnb-zsm-02210754-v	mengandung		remove	both	means contain/be pregnant, not receive stolen goods
+zsm-225	unflagged	wnb-zsm-02027411-v	menggabungkan		keep	triage	
+zsm-226	remove-wrong	wnb-zsm-02145814-v	mengamankan		remove	both	mengamankan = secure/make safe, not hide
+zsm-227	remove-form	wnb-zsm-02741546-v	membutuhkan		remove	both	Indonesian, not Malaysian: means need, not accept/hold
+zsm-228	unflagged	wnb-zsm-01781882-a	salih		keep	triage	
+zsm-229	lower	wnb-zsm-00685683-v	menumangkan		lower	adjudication	unclear form
+zsm-230	unflagged	wnb-zsm-09443453-n	pancutan		keep	triage	
+zsm-231	unflagged	wnb-zsm-06391902-n	jilid		keep	triage	
+zsm-232	remove-wrong-adj	wnb-zsm-00487198-a	kebiasaan		remove	adjudication	kebiasaan is the noun habit/custom, not the adjective general/prevailing
+zsm-233	unflagged	wnb-zsm-10818469-n	Anne		keep	triage	
+zsm-234	keep-adj	wnb-zsm-01796346-v	mengghairahkan		keep	adjudication	excite/thrill (misspelt menggairahkan), loose rendering
+zsm-235	unflagged	wnb-zsm-00400192-r	sebenarnya		keep	triage	
+zsm-236	keep-adj	wnb-zsm-05792010-n	keharusan		keep	adjudication	harus also means may/possibly, so keharusan can mean possibility
+zsm-237	lower	wnb-zsm-00764484-a	mulut jelabas		lower	adjudication	jelabas unattested; seems loose-tongued rather than frank
+zsm-238	remove-form	wnb-zsm-00022131-r	kayak		remove	adjudication	Indonesian, not Malaysian: colloquial like/as, fits as...as
+zsm-239	move	wnb-zsm-01092981-v	berkusti		add	both	moved from wnb-id: Malaysian, not Indonesian
+zsm-240	keep-adj	wnb-zsm-01471723-a	sedikit		keep	adjudication	sedikit/slight approximates minor
+zsm-241	unflagged	wnb-zsm-00724832-v	cengang		keep	triage	
+zsm-242	keep-adj	wnb-zsm-00720296-a	demonstratif		keep	adjudication	loan demonstratif usable for emotionally demonstrative
+zsm-243	unflagged	wnb-zsm-07899769-n	Vouvray		keep	triage	
+zsm-244	unflagged	wnb-zsm-01684663-v	melukis		keep	triage	
+zsm-245	keep-adj	wnb-zsm-08095647-n	muslimin		keep	adjudication	Muslims collectively
+zsm-246	remove-form	wnb-zsm-00967625-v	memproduksi		remove	adjudication	Indonesian, not Malaysian: memproduksi means produce/manufacture, not publish
+zsm-247	keep	wnb-zsm-11674914-n	putik		keep	both	bud
+zsm-248	unflagged	wnb-zsm-12761123-n	Mangifera		keep	triage	
+zsm-249	keep	wnb-zsm-13930928-n	penyerapan		keep	both	cultural absorption; acceptable
+zsm-250	remove-wrong	wnb-zsm-00854904-v	mencerna		remove	both	mencerna means digest; take in sense of fool is wrong
+zsm-251	unflagged	wnb-zsm-02198752-a	ribu		keep	triage	
+zsm-252	keep	wnb-zsm-01828256-v	menginginkan		keep	both	desire; broader than lust after
+zsm-253	unflagged	wnb-zsm-08970445-n	Rabat		keep	triage	
+zsm-254	unflagged	wnb-zsm-01246095-v	menggosok		keep	triage	
+zsm-255	remove-wrong	wnb-zsm-07047011-n	pembantu		remove	both	pembantu means assistant, not musical suite
+zsm-256	remove-wrong-adj	wnb-zsm-13888783-n	ha		remove	adjudication	ha is hectare, not hour angle
+zsm-257	remove-wrong	wnb-zsm-00094460-v	memahirkan		remove	both	means make skilled, not grow features
+zsm-258	keep-adj	wnb-zsm-03267468-n	kapsul		keep	adjudication	escape capsule; capsule in synset
+zsm-259	unflagged	wnb-zsm-00965871-v	mengumumkan		keep	triage	
+zsm-260	remove-form	wnb-zsm-01106614-a	internasional		remove	both	Indonesian, not Malaysian: international, not widely distributed
+zsm-261	keep-adj	wnb-zsm-02634808-v	terbabit		keep	adjudication	involved/implicated; passive rendering of implicate
+zsm-262	move	wnb-zsm-00872107-n	kira-kira campur		add	both	moved from wnb-id: Malaysian, not Indonesian
+zsm-263	remove-wrong	wnb-zsm-08879388-n	Lapangan Terbang Williamtown Military		remove	both	Australian airbase, not Newcastle upon Tyne
+zsm-264	keep-adj	wnb-zsm-00698256-v	menganggarkan		keep	adjudication	menganggarkan = estimate, which fits 'I make it 10 miles'
+zsm-265	unflagged	wnb-zsm-01627355-v	melahirkan		keep	triage	
+zsm-266	unflagged	wnb-zsm-00946806-n	penyelongkaran		keep	triage	
+zsm-267	remove-wrong	wnb-zsm-05091316-n	perintah		remove	both	perintah means command (order sense)
+zsm-268	remove-wrong-adj	wnb-zsm-00705227-v	mereka		remove	adjudication	they/devise, not intend
+zsm-269	remove-wrong-adj	wnb-zsm-05115418-n	banyak		remove	adjudication	banyak = many/much, not the property of abundance
+zsm-270	remove-wrong	wnb-zsm-00065639-v	beroleh		remove	both	beroleh means obtain, not suffer injuries
+zsm-271	remove-wrong	wnb-zsm-07834286-n	minyak		remove	both	means oil, not half-and-half dressing

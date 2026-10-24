@@ -65,3 +65,27 @@ def test_jsemcor_strata() -> None:
     assert sc.agrees("jsemcor-reject", "WRONG", "") is True
     assert sc.agrees("jsemcor-reject", "OK", "") is False
     assert sc.bare("wnja-00002621-r") == "00002621-r"
+
+
+def test_kappa() -> None:
+    assert sc.kappa([("OK", "OK"), ("WRONG", "WRONG")]) == 1.0
+    assert sc.kappa([]) is None
+    # agreement no better than chance
+    assert round(sc.kappa([("OK", "OK"), ("OK", "WRONG"), ("WRONG", "OK"), ("WRONG", "WRONG")]),
+                 2) == 0.0
+
+
+def test_human_agreement(tmp_path: Path) -> None:
+    # Arrange
+    tr.write_tsv(tmp_path / "ja-sheet.tsv", sc.SHEET,
+                 [["ja-001", "犬", "", "", "", "", "OK", "", ""],
+                  ["ja-002", "猫", "", "", "", "", "WRONG", "", ""]])
+    tr.write_tsv(tmp_path / "ja-overlap-sheet.tsv", sc.SHEET,
+                 [["ja-002", "猫", "", "", "", "", "wrong", "", ""],
+                  ["ja-001", "犬", "", "", "", "", "", "", ""]])
+
+    # Act
+    got = sc.human_agreement(Namespace(out=tmp_path))
+
+    # Assert: only the item both answered counts
+    assert got == [["ja", 1, "1.00", "1.00"]]

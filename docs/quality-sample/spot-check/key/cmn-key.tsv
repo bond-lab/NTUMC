@@ -1,221 +1,311 @@
 item	stratum	synset	word	old_word	decision	decided_by	model_reason
-cmn-001	remove-wrong	cow-00422735-r	鳍状		remove	both	fin-shaped, not pinnate
-cmn-002	rescue	cow-08284481-n	法国公立中等学校		add	both	rescued from excluded sources: lycee, narrower
-cmn-003	remove-form	cow-00113082-r	除了...之外		remove	both	malformed or not a word: means 'except/besides', not adverb 'differently, in another manner'
-cmn-004	rename	cow-80000060-n	凯悦酒店	凯悦 酒店	rename	both	fixed form
-cmn-005	remove-wrong	cow-14493716-n	缺乏		remove	both	缺乏 means lack, not poverty
-cmn-006	remove-wrong-adj	cow-14710935-n	醋酰胺胂		remove	adjudication	acetarsol, not acetaldol
-cmn-007	keep-adj	cow-12876899-n	端		keep	adjudication	classical alias of 玄参 (Bencao Gangmu)
-cmn-008	rename	cow-07258664-n	参考书目	参考 书目	rename	both	fixed form
-cmn-009	remove-wrong	cow-00402395-r	内阁		remove	both	内阁 is cabinet, not ministerially
-cmn-010	remove-wrong	cow-13322343-n	持续使用费		remove	both	'ongoing usage fee', not counsel's refresher fee
-cmn-011	rename-mechanical	cow-80000009-n	副队长	副 队长	rename		spaces between Han characters
-cmn-012	unflagged	cow-02126640-n	虎猫		keep	triage	
-cmn-013	lower	cow-02892767-n	乳搭		lower	adjudication	unattested term for bra
-cmn-014	keep-adj	cow-12903367-n	闹羊花		keep	adjudication	listed folk alias of 曼陀罗 (Datura) as well as Rhododendron molle
-cmn-015	unflagged	cow-02748837-a	婴儿期		keep	triage	
-cmn-016	keep	cow-02108654-v	得到		keep	both	
-cmn-017	keep-adj	cow-14644063-n	镏		keep	adjudication	镏 is the former name for lutetium
-cmn-018	unflagged	cow-14571181-n	孤儿身份		keep	triage	
-cmn-019	keep	cow-80000785-n	漂移		keep	both	
-cmn-020	unflagged	cow-02636461-a	多水的		keep	triage	
-cmn-021	rename	cow-02721438-v	可供	可 供	rename	both	fixed form: space inside lemma
-cmn-022	rescue	cow-01536168-v	清洗		add	both	rescued from excluded sources
-cmn-023	lower	cow-80001415-n	卡那提克		lower	adjudication	no gloss or context
-cmn-024	remove-form	cow-01432176-v	licking		remove	both	malformed or not a word: English word, not Chinese
-cmn-025	remove-form	cow-02771485-a	属于或关于嘴		remove	both	malformed or not a word
-cmn-026	remove-wrong-adj	cow-13541975-n	分芽繁殖		remove	adjudication	budding propagation, not proliferation
-cmn-027	keep	cow-02254767-v	被银行退票		keep	both	
-cmn-028	remove-form	cow-15218149-n	Sha.		remove	both	malformed or not a word: abbreviation
-cmn-029	rescue	cow-09397391-n	池塘		add	both	rescued from excluded sources
-cmn-030	remove-wrong	cow-09466280-n	太空		remove	both	outer space, not the universe
-cmn-031	unflagged	cow-00427580-n	滑稽动作		keep	triage	
-cmn-032	rename-mechanical	cow-00031663-v	格格笑	格格 笑	rename		spaces between Han characters
-cmn-033	remove-wrong	cow-00615774-v	之外		remove	both	之外 means outside/besides, not the verb exclude
-cmn-034	rename	cow-80000136-n	国家公园管理局	国家 公园 管理 局	rename	both	fixed form
-cmn-035	lower	cow-02653174-a	促诱		lower	adjudication	促诱 unattested as term for auxetic
-cmn-036	unflagged	cow-02706586-n	避邪物		keep	triage	
-cmn-037	keep-adj	cow-15278281-n	周率		keep	adjudication	周率 is an older term for frequency (cycles per time)
-cmn-038	unflagged	cow-03186399-n	图解		keep	triage	
-cmn-039	remove-wrong	cow-00411427-r	失去知觉		remove	both	lose consciousness (verb), not numbly
-cmn-040	lower	cow-13183874-n	水客妈菜		lower	adjudication	cannot verify 水客妈菜 as Schaffneria
-cmn-041	lower	cow-15049309-n	起泡金属		lower	adjudication	起泡 suggests blister copper rather than sparkle metal matte
-cmn-042	keep-adj	cow-02366618-a	未批准		keep	adjudication	unexcused (absence) = not approved; acceptable
-cmn-043	remove-wrong	cow-03628215-n	古琴		remove	both	古琴 is the Chinese guqin; koto is 筝
-cmn-044	rename-mechanical	cow-08551177-n	受灾地	受灾 地	rename		spaces between Han characters
+cmn-001	unflagged	cow-02038126-a	魁梧的		keep	triage	
+cmn-002	rename	cow-80001223-n	独生的女孩	独生 的 女孩	rename	both	fixed form
+cmn-003	remove-wrong	cow-00402395-r	内阁		remove	both	内阁 is cabinet, not ministerially
+cmn-004	remove-wrong	cow-00419644-n	烦恼		remove	both	worry/vexation, not the act of harassment
+cmn-005	unflagged	cow-00408992-a	失色		keep	triage	
+cmn-006	remove-form	cow-02733378-n	有拱廊的街道		remove	both	malformed or not a word: descriptive phrase
+cmn-007	lower	cow-12815198-n	降马		lower	adjudication	not a recognisable name for Chilopsis
+cmn-008	keep	cow-02988402-a	民族		keep	both	national
+cmn-009	rename	cow-02051059-n	斑嘴巨䴙䴘	斑嘴巨鸊鷉	rename	both	fixed form: pied-billed grebe
+cmn-010	lower	cow-12765846-n	外木个		lower	adjudication	unverifiable name for Spondias mombin
+cmn-011	unflagged	cow-00294579-a	怠惰的		keep	triage	
+cmn-012	unflagged	cow-02071627-v	渗滤		keep	triage	
+cmn-013	unflagged	cow-02135773-a	雌雄异体		keep	triage	
+cmn-014	remove-wrong	cow-02344070-a	纯良		remove	both	pure and good in character, not first-class genuine
+cmn-015	remove-wrong-adj	cow-12840749-n	丝线吊铜钟		remove	adjudication	folk name of Prunella, not Ajuga bugle
+cmn-016	keep-adj	cow-09991867-n	亲昵的人		keep	adjudication	intimate/dear person = darling; reviewer A's reason is unrelated
+cmn-017	unflagged	cow-00790965-v	发电报		keep	triage	
+cmn-018	keep	cow-05823054-n	辩护		keep	both	
+cmn-019	rescue	cow-00275843-v	整顿		add	both	rescued from excluded sources
+cmn-020	rename	cow-07230089-n	雷声大雨点小	雷声大 雨点小	rename	both	fixed form: idiom for empty bluster
+cmn-021	remove-form	cow-14859100-n	建围墙的材料		remove	both	malformed or not a word
+cmn-022	remove-wrong	cow-03357716-n	副翼		remove	both	aileron, not flap
+cmn-023	keep	cow-02502901-a	有缺陷		keep	both	
+cmn-024	keep-adj	cow-00390725-a	牛津灰白色		keep	adjudication	rendering of Oxford grey name, despite 灰白
+cmn-025	unflagged	cow-13196234-n	高山冷蕨		keep	triage	
+cmn-026	unflagged	cow-01439745-v	抢夺		keep	triage	
+cmn-027	unflagged	cow-13929037-n	业务关系		keep	triage	
+cmn-028	unflagged	cow-00137313-v	作用		keep	triage	
+cmn-029	rescue	cow-01333477-a	好		add	both	rescued from excluded sources
+cmn-030	unflagged	cow-02751733-a	局部缺血的		keep	triage	
+cmn-031	lower	cow-80002081-a	乌		lower	adjudication	unclear dialect sense for soy-braised food
+cmn-032	remove-wrong	cow-00393508-a	单色		remove	both	means monochrome; concept is saturated (pure) colour
+cmn-033	unflagged	cow-14568621-n	锯齿形		keep	triage	
+cmn-034	remove-wrong	cow-02819346-a	倒圆锥体		remove	both	inverted cone (turbinate shape sense), not turbinate bones
+cmn-035	remove-wrong	cow-00419576-r	焦虑地		remove	both	anxiously, not pensively
+cmn-036	remove-wrong	cow-02122983-v	戳		remove	both	戳 means poke/jab, not cause tingling
+cmn-037	unflagged	cow-02902883-a	微小陨石		keep	triage	
+cmn-038	keep-adj	cow-10570429-n	检查长		keep	adjudication	common misspelling of 检察长 (attorney general)
+cmn-039	lower	cow-13861934-n	描述平面		lower	adjudication	unestablished descriptive term for picture plane
+cmn-040	remove-form	cow-00525453-a	综合性时		remove	adjudication	malformed or not a word: malformed lemma with +时
+cmn-041	unflagged	cow-11539675-n	黑苔目		keep	triage	
+cmn-042	remove-wrong-adj	cow-03104585-a	拳击家		remove	adjudication	noun boxer, not adjective pugilistic
+cmn-043	unflagged	cow-03178538-n	钻架		keep	triage	
+cmn-044	unflagged	cow-03625943-n	针织品		keep	triage	
 cmn-045	remove-wrong	cow-02731850-a	焦躁		remove	both	fretful sense, not having frets
-cmn-046	remove-wrong-adj	cow-02282376-a	无意识的		remove	adjudication	unconscious, not arising without external cause
-cmn-047	rename	cow-80000329-n	圣尼罗乌达玛	圣尼罗 乌达玛	rename	both	fixed form: space inside lemma
-cmn-048	remove-form	cow-01247804-v	轻轻地击打		remove	both	malformed or not a word
-cmn-049	rename-mechanical	cow-80000322-n	摆盘	摆 盘	rename		spaces between Han characters
-cmn-050	remove-wrong-adj	cow-00428722-r	现实主义		remove	adjudication	noun 'realism', not the adverb
-cmn-051	remove-wrong-adj	cow-00377702-a	咖啡色		remove	adjudication	coffee brown, not maroon
-cmn-052	unflagged	cow-09960117-n	经纪人		keep	triage	
-cmn-053	unflagged	cow-02877513-n	玻璃瓶回收站		keep	triage	
-cmn-054	keep	cow-12946849-n	萸肉		keep	both	
-cmn-055	rescue	cow-01909812-v	拐弯		add	both	rescued from excluded sources
-cmn-056	remove-wrong-adj	cow-00397466-r	谦恭地		remove	adjudication	humbly, not in a miserly manner
-cmn-057	unflagged	cow-03665083-n	结扎线		keep	triage	
-cmn-058	lower	cow-12765846-n	外木个		lower	adjudication	unverifiable name for Spondias mombin
-cmn-059	remove-wrong	cow-00390735-n	分词		remove	both	participle / word segmentation, not hyphenation
-cmn-060	remove-form	cow-02733378-n	有拱廊的街道		remove	both	malformed or not a word: descriptive phrase
-cmn-061	remove-form	cow-07178525-n	债务替代清偿协议抵偿		remove	both	malformed or not a word: phrase-like legal term
-cmn-062	lower	cow-12851469-n	陀螺艾		lower	adjudication	cannot verify as a folk name for motherwort
-cmn-063	unflagged	cow-13150178-n	澄茄		keep	triage	
-cmn-064	rescue	cow-00220082-a	优美		add	both	rescued from excluded sources
-cmn-065	keep-adj	cow-00815000-a	不时		keep	adjudication	classical 'untimely'
-cmn-066	lower	cow-12499163-n	细密梳		lower	adjudication	unclear plant name for senna
-cmn-067	keep-adj	cow-02752987-a	法院		keep	adjudication	noun as modifier for judicial (法院的 in synset)
-cmn-068	remove-wrong	cow-02819346-a	倒圆锥体		remove	both	inverted cone (turbinate shape sense), not turbinate bones
-cmn-069	lower	cow-80002081-a	乌		lower	adjudication	unclear dialect sense for soy-braised food
-cmn-070	keep	cow-02494499-a	下流		keep	both	lower reaches
-cmn-071	remove-form	cow-01228245-n	谦恭有礼的举止		remove	both	malformed or not a word
-cmn-072	unflagged	cow-02942542-a	基因型		keep	triage	
-cmn-073	rename	cow-00018781-r	有一点	有 一点	rename	both	fixed form
-cmn-074	rescue	cow-00850183-a	高尚		add	both	rescued from excluded sources
-cmn-075	rename	cow-80000168-n	大奖赛	大奖 赛	rename	both	fixed form
-cmn-076	rescue	cow-01150475-a	觉得难过		add	both	rescued from excluded sources
-cmn-077	unflagged	cow-90000463-n	土		keep	triage	
-cmn-078	unflagged	cow-07942152-n	人们		keep	triage	
-cmn-079	rescue	cow-01903756-n	壳		add	both	rescued from excluded sources
-cmn-080	lower	cow-12849952-n	爱情草		lower	adjudication	unverified folk name for lavender
-cmn-081	keep	cow-02166277-a	不安静的		keep	both	
-cmn-082	remove-form	cow-02254434-a	织为单色宽幅		remove	both	malformed or not a word
-cmn-083	rescue	cow-03989074-n	信筒		add	both	rescued from excluded sources
-cmn-084	unflagged	cow-08278324-n	大学		keep	triage	
-cmn-085	remove-wrong	cow-12538380-n	陆地莲		remove	both	name of nasturtium/globeflower, not laburnum (金链花)
-cmn-086	keep-adj	cow-09797257-n	持惟信仰论者		keep	adjudication	唯信仰论 is the standard Chinese term for antinomianism
-cmn-087	lower	cow-12851469-n	红梗玉米膏		lower	adjudication	unattested folk name for motherwort
-cmn-088	unflagged	cow-13411943-n	支出账目		keep	triage	
-cmn-089	remove-wrong-adj	cow-02373599-a	不均匀		remove	adjudication	uneven, not asymmetrical
-cmn-090	lower	cow-12815198-n	降马		lower	adjudication	not a recognisable name for Chilopsis
-cmn-091	remove-wrong-adj	cow-14004317-n	行动		remove	adjudication	action, not a state of change
-cmn-092	remove-wrong	cow-00003662-v	封杀		remove	both	ban/block (or baseball out), not emit with force
-cmn-093	remove-wrong	cow-03532672-n	镰刀		remove	both	镰刀 is a sickle, not a mechanical hook
-cmn-094	unflagged	cow-04391569-n	胶带		keep	triage	
-cmn-095	rename-mechanical	cow-02644817-n	鲈鲉	鲈鮋	rename		traditional characters
-cmn-096	lower	cow-12463134-n	瓜子松		lower	adjudication	瓜子松 unverified as name for butcher's broom
-cmn-097	rescue	cow-03931044-n	图画		add	both	rescued from excluded sources
-cmn-098	keep-adj	cow-13219833-n	接骨草		keep	adjudication	plausible folk name alongside 接续草 etc.
-cmn-099	remove-form	cow-00525453-a	综合性时		remove	adjudication	malformed or not a word: malformed lemma with +时
-cmn-100	lower	cow-13861934-n	描述平面		lower	adjudication	unestablished descriptive term for picture plane
-cmn-101	rename-mechanical	cow-00155621-r	一般来说	一般 来说	rename		spaces between Han characters
-cmn-102	keep	cow-12504783-n	棉条		keep	both	
-cmn-103	keep	cow-02534042-a	滴干后保持挺括的		keep	both	
-cmn-104	keep	cow-02502901-a	有缺陷		keep	both	
-cmn-105	rename-mechanical	cow-02525447-v	发挥作用	发挥 作用	rename		spaces between Han characters
-cmn-106	keep-adj	cow-01101391-a	全体		keep	adjudication	全体的 already in synset; applies to all members
-cmn-107	rename	cow-02069014-v	嘶嘶作声	嘶嘶 作声	rename	both	fixed form
-cmn-108	unflagged	cow-00397192-v	熔化		keep	triage	
-cmn-109	remove-form	cow-01965096-a	因法律或社会的原因不适于被出版		remove	both	malformed or not a word: explanatory phrase
-cmn-110	remove-form	cow-14859100-n	建围墙的材料		remove	both	malformed or not a word
-cmn-111	rescue	cow-01459422-a	惹人怜爱的		add	both	rescued from excluded sources
-cmn-112	unflagged	cow-00784598-n	逼勒		keep	triage	
-cmn-113	remove-form	cow-03012373-n	一种粗棉布		remove	both	malformed or not a word: explanation 'a kind of coarse cotton cloth'
-cmn-114	remove-form	cow-00358951-a	不嗬电		remove	both	malformed or not a word: typo (嗬 for 带)
-cmn-115	rename	cow-15137676-n	休闲时间	休闲 时间	rename	both	fixed form
-cmn-116	rename-mechanical	cow-02652335-n	鲀形目	魨形目	rename		traditional characters
-cmn-117	unflagged	cow-02711375-v	以堤防堵挡		keep	triage	
-cmn-118	remove-wrong-adj	cow-02737724-v	适应环境		remove	adjudication	adapt to environment, not be suitable
-cmn-119	keep-adj	cow-12557280-n	刀豆角		keep	adjudication	刀豆 is a regional (Jiangnan) name for string beans
-cmn-120	unflagged	cow-80000070-n	乔·本特利		keep	triage	
-cmn-121	keep-adj	cow-00390725-a	牛津灰白色		keep	adjudication	rendering of Oxford grey name, despite 灰白
-cmn-122	unflagged	cow-13886371-n	抛物线		keep	triage	
-cmn-123	keep-adj	cow-06492939-n	单		keep	adjudication	list/bill; colloquially used for menu (cf. 菜单)
-cmn-124	rescue	cow-00597915-v	掌握		add	both	rescued from excluded sources
-cmn-125	unflagged	cow-03550671-n	肼苯哒嗪		keep	triage	
-cmn-126	unflagged	cow-07916041-n	马提尼		keep	triage	
-cmn-127	unflagged	cow-02274482-v	占领		keep	triage	
-cmn-128	unflagged	cow-13908777-n	轮转线		keep	triage	
-cmn-129	remove-form	cow-07151892-n	有关解剖学的表达		remove	both	malformed or not a word: explanation
-cmn-130	rename-mechanical	cow-02661765-n	腹肢鲆属	腹肢鮃属	rename		traditional characters
-cmn-131	keep	cow-00020671-v	使进入催眠状态		keep	both	
-cmn-132	remove-wrong-adj	cow-00429440-n	空想主义		remove	adjudication	utopianism, not escapism
-cmn-133	remove-wrong	cow-12852234-n	牛牯草		remove	both	Prunella (夏枯草), not Lycopus
-cmn-134	lower	cow-14867690-n	金丝草		lower	adjudication	金丝草 is Pogonatherum; unclear for buntal fibre
-cmn-135	unflagged	cow-01449564-a	丧失的		keep	triage	
-cmn-136	rescue	cow-09397391-n	水池		add	both	rescued from excluded sources
-cmn-137	keep-adj	cow-09991867-n	亲昵的人		keep	adjudication	intimate/dear person = darling; reviewer A's reason is unrelated
-cmn-138	rename-mechanical	cow-80001115-n	潮州话	潮州 话	rename		spaces between Han characters
-cmn-139	remove-wrong-adj	cow-02324478-v	发		remove	adjudication	too generic; not bestow a quality
-cmn-140	rename-mechanical	cow-13019496-n	绯红色折菌	绯红色摺菌	rename		traditional characters
-cmn-141	remove-wrong-adj	cow-00359862-a	严厉的		remove	adjudication	严厉 is stern/severe, not lacking love and generosity
-cmn-142	keep-adj	cow-10570429-n	检查长		keep	adjudication	common misspelling of 检察长 (attorney general)
-cmn-143	rename	cow-00023383-a	不准	不 准	rename	both	fixed form
-cmn-144	keep-adj	cow-13556249-n	下降		keep	adjudication	decrease, broader but acceptable
-cmn-145	unflagged	cow-77000080-a	那		keep	triage	
-cmn-146	unflagged	cow-02151625-n	翼		keep	triage	
-cmn-147	keep	cow-02253592-n	绵蚜属		keep	both	
-cmn-148	remove-form	cow-02552052-v	靠自身努力摆脱某种状况		remove	both	malformed or not a word
-cmn-149	remove-wrong-adj	cow-03054409-a	催化剂		remove	adjudication	noun catalyst, not adjective catalytic
-cmn-150	rename	cow-12104384-n	柠檬香草	柠檬 香草	rename	both	fixed form
-cmn-151	unflagged	cow-00345000-v	降临		keep	triage	
-cmn-152	rescue	cow-00748972-v	给		add	both	rescued from excluded sources
-cmn-153	unflagged	cow-01974062-v	掀起		keep	triage	
-cmn-154	keep-adj	cow-03699280-n	里拉		keep	adjudication	transliteration used for lyre (里拉琴)
-cmn-155	unflagged	cow-00521811-a	完全的		keep	triage	
-cmn-156	keep-adj	cow-00366490-r	鲁莽		keep	adjudication	brash, impertinent manner; overlaps with 冒失
-cmn-157	rescue	cow-00597915-v	学		add	both	rescued from excluded sources
-cmn-158	unflagged	cow-01342949-a	不感兴趣		keep	triage	
-cmn-159	rename	cow-08187033-n	艺团	艺 团	rename	both	fixed form: art troupe
-cmn-160	keep	cow-02938361-a	手写的		keep	both	
-cmn-161	keep	cow-80000736-a	弹牙		keep	both	springy/tender food texture
-cmn-162	remove-wrong-adj	cow-00312691-n	途经		remove	adjudication	verb pass via, not a journey
-cmn-163	unflagged	cow-01349333-n	嗜酸菌		keep	triage	
-cmn-164	keep	cow-02284951-v	报偿		keep	both	
-cmn-165	remove-wrong-adj	cow-02806261-a	可以忍受的		remove	adjudication	means bearable/tolerable, not sustainable
-cmn-166	rename	cow-80000465-v	身兼两职	身兼 两职	rename	both	fixed form
-cmn-167	unflagged	cow-02889746-a	海运		keep	triage	
-cmn-168	rename	cow-08524735-n	大都市	大 都市	rename	both	fixed form: space inside lemma
-cmn-169	unflagged	cow-02150328-v	审察		keep	triage	
-cmn-170	remove-form	cow-02037713-n	矶鹞之类		remove	adjudication	malformed or not a word: 'sandpipers and the like', not the phalarope genus
-cmn-171	rename-mechanical	cow-08296332-n	联合国安理会	联合国 安理会	rename		spaces between Han characters
-cmn-172	keep	cow-05823054-n	辩护		keep	both	
-cmn-173	rename	cow-90000334-n	中华春节	中華春節	rename	both	fixed form: traditional characters
-cmn-174	remove-wrong	cow-02248078-a	用步枪射击的		remove	both	means shooting with a rifle, not having rifling
-cmn-175	unflagged	cow-02906438-n	别针		keep	triage	
-cmn-176	rename-mechanical	cow-01898722-a	有见地	有 见地	rename		spaces between Han characters
-cmn-177	remove-wrong	cow-02075594-a	可证明		remove	both	provable, not certifiable as insane
-cmn-178	rescue	cow-05797597-n	询问		add	both	rescued from excluded sources
-cmn-179	lower	cow-02923802-n	毛头		lower	adjudication	usually tuft/youngster; possibly industrial term for burr
-cmn-180	keep	cow-02532079-v	传播		keep	both	
-cmn-181	keep-adj	cow-03384535-n	模型		keep	adjudication	模型 also means mould/pattern for casting
-cmn-182	keep	cow-05600637-n	人类的脸		keep	both	
-cmn-183	unflagged	cow-00423888-r	逐渐缓慢地		keep	triage	
-cmn-184	rename-mechanical	cow-01898722-a	有见地的	有 见地的	rename	both	spaces between Han characters
-cmn-185	keep	cow-00918872-v	锁定		keep	both	
-cmn-186	rescue	cow-01308381-v	放回原处		add	both	rescued from excluded sources
-cmn-187	unflagged	cow-02667741-a	布尔数学体系的		keep	triage	
-cmn-188	remove-form	cow-02438043-a	主调音或基音		remove	both	malformed or not a word: phrase with 'or'
-cmn-189	rename	cow-12357802-n	非洲豆蔻属	非洲豆蔻屬	rename	both	fixed form
-cmn-190	remove-wrong-adj	cow-02250430-a	隐士		remove	adjudication	hermit (person), not adjective solitary
-cmn-191	rename-mechanical	cow-02540412-n	胡瓜鱼	胡瓜魚	rename		traditional characters
-cmn-192	remove-wrong	cow-02097796-a	品质恶劣		remove	both	bad character, not seducing into corruption
-cmn-193	rename-mechanical	cow-02644817-n	平鲉	平鮋	rename		traditional characters
-cmn-194	rename-mechanical	cow-01247426-v	扳起击铁	扳起 击铁	rename		spaces between Han characters
-cmn-195	remove-form	cow-76000007-x	哎呀，我的妈呀		remove	both	malformed or not a word
-cmn-196	lower	cow-02610373-n	蓝鲈鱼		lower	adjudication	cunner is a wrasse; 'blue perch' doubtful
-cmn-197	rescue	cow-00506928-r	先行		add	both	rescued from excluded sources
-cmn-198	remove-wrong-adj	cow-13558696-n	资料排架		remove	adjudication	资料排架 is shelving of materials, not a sort operation
-cmn-199	rename	cow-80000754-r	无论如何	无论 如何	rename	both	fixed form: no matter what
-cmn-200	keep	cow-02026203-v	护卫		keep	both	
-cmn-201	keep-adj	cow-01277426-a	大		keep	adjudication	大 can mean main/chief
-cmn-202	lower	cow-02336275-n	小长尾鼠属鼠		lower	adjudication	unclear genus name for harvest mouse
-cmn-203	unflagged	cow-04118635-n	遗址		keep	triage	
-cmn-204	keep	cow-02988402-a	民族		keep	both	national
-cmn-205	lower	cow-12862116-n	棉铃花		lower	adjudication	cannot confirm as a name of Physostegia
-cmn-206	remove-wrong-adj	cow-02632353-v	掉		remove	adjudication	drop/fall, not be without
-cmn-207	lower	cow-12543455-n	牛黄黄		lower	adjudication	unverified folk name for Lespedeza striata
-cmn-208	rescue	cow-00450147-a	接近的		add	both	rescued from excluded sources
-cmn-209	rename-mechanical	cow-80001718-n	粤剧	粵劇	rename		traditional characters
-cmn-210	remove-wrong	cow-00084738-v	毒		remove	both	means poison; concept is administer a drug
-cmn-211	rename	cow-00258857-v	造成损害	造成 损害	rename	both	fixed form
-cmn-212	rename-mechanical	cow-80001123-n	一臂之力	一 臂 之 力	rename		spaces between Han characters
-cmn-213	rescue	cow-10548681-n	售货员		add	both	rescued from excluded sources
-cmn-214	remove-wrong-adj	cow-02777548-a	光度计		remove	adjudication	光度计 is the photometer instrument, not photometric
-cmn-215	rename-mechanical	cow-80000409-n	献血活动	献血 活动	rename		spaces between Han characters
-cmn-216	rename	cow-80000127-n	梅村酒家	梅村 酒家	rename	both	fixed form
-cmn-217	remove-form	cow-06889138-n	状观		remove	both	malformed or not a word: typo for 壮观
-cmn-218	rename	cow-01525666-v	起作用	起 作用	rename	both	fixed form: spaces
-cmn-219	remove-wrong	cow-02344070-a	纯良		remove	both	pure and good in character, not first-class genuine
-cmn-220	remove-wrong-adj	cow-02648625-n	长蛇齿鱼		remove	adjudication	lancetfish-type name, not greenling
+cmn-046	remove-wrong-adj	cow-03497352-n	挂钩		remove	adjudication	hook, not a hasp
+cmn-047	keep-adj	cow-01101391-a	全体		keep	adjudication	全体的 already in synset; applies to all members
+cmn-048	unflagged	cow-03579355-n	室内装潢		keep	triage	
+cmn-049	remove-wrong	cow-06806469-n	代号		remove	both	means code name, not a symbol
+cmn-050	remove-wrong	cow-03532672-n	镰刀		remove	both	镰刀 is a sickle, not a mechanical hook
+cmn-051	unflagged	cow-13404655-n	总账		keep	triage	
+cmn-052	unflagged	cow-00346246-a	可调整		keep	triage	
+cmn-053	unflagged	cow-02571536-a	愚蠢		keep	triage	
+cmn-054	remove-wrong	cow-03135403-a	直接论证的		remove	both	logic sense of deictic (direct proof), not linguistic deixis
+cmn-055	remove-wrong-adj	cow-03045074-n	轧刀		remove	adjudication	fodder chopper, not grass shears
+cmn-056	keep	cow-02253592-n	绵蚜属		keep	both	
+cmn-057	unflagged	cow-02667741-a	布尔数学体系的		keep	triage	
+cmn-058	remove-wrong-adj	cow-02585360-v	密谋		remove	adjudication	conspire, not encourage/assent
+cmn-059	remove-wrong	cow-02496323-a	杂居		remove	both	杂居 means living together mixed, not multipurpose
+cmn-060	remove-wrong-adj	cow-02840935-a	脐带		remove	adjudication	脐带 is the umbilical cord, not the adjective umbilical
+cmn-061	rename-mechanical	cow-02150569-a	T形	Ｔ形	rename		full-width characters
+cmn-062	unflagged	cow-10177150-n	历史学家		keep	triage	
+cmn-063	rename-mechanical	cow-01247426-v	扳起击铁	扳起 击铁	rename		spaces between Han characters
+cmn-064	remove-form	cow-01432176-v	licking		remove	both	malformed or not a word: English word, not Chinese
+cmn-065	remove-form	cow-76000007-x	哎呀，我的妈呀		remove	both	malformed or not a word
+cmn-066	remove-wrong	cow-00352337-r	罪		remove	both	noun sin/crime, not guiltily
+cmn-067	keep-adj	cow-01277426-a	大		keep	adjudication	大 can mean main/chief
+cmn-068	keep-adj	cow-06492939-n	单		keep	adjudication	list/bill; colloquially used for menu (cf. 菜单)
+cmn-069	remove-wrong	cow-14493716-n	缺乏		remove	both	缺乏 means lack, not poverty
+cmn-070	remove-wrong	cow-12852234-n	牛牯草		remove	both	Prunella (夏枯草), not Lycopus
+cmn-071	unflagged	cow-02847894-a	金融的		keep	triage	
+cmn-072	remove-form	cow-07151892-n	有关解剖学的表达		remove	both	malformed or not a word: explanation
+cmn-073	remove-wrong	cow-02614435-a	不按字母表顺序		remove	both	not in alphabetical order; concept is non-alphabetic script
+cmn-074	remove-wrong	cow-13322343-n	持续使用费		remove	both	'ongoing usage fee', not counsel's refresher fee
+cmn-075	lower	cow-12543455-n	牛黄黄		lower	adjudication	unverified folk name for Lespedeza striata
+cmn-076	unflagged	cow-13541167-n	处理		keep	triage	
+cmn-077	lower	cow-02892767-n	乳搭		lower	adjudication	unattested term for bra
+cmn-078	remove-wrong	cow-02054251-n	天蛾科		remove	both	hawkmoth family Sphingidae, not snakebirds
+cmn-079	remove-form	cow-00113082-r	除了...之外		remove	both	malformed or not a word: means 'except/besides', not adverb 'differently, in another manner'
+cmn-080	unflagged	cow-08491027-n	址		keep	triage	
+cmn-081	remove-wrong	cow-00173353-r	深受		remove	both	verb 'deeply receive/suffer', not adverb profoundly
+cmn-082	rename-mechanical	cow-15212739-n	9月份	９月份	rename		full-width characters
+cmn-083	remove-wrong	cow-06319157-n	状语词组		remove	both	adverbial phrase, not the word class adverb
+cmn-084	unflagged	cow-03083842-a	马耳他		keep	triage	
+cmn-085	keep-adj	cow-15278281-n	周率		keep	adjudication	周率 is an older term for frequency (cycles per time)
+cmn-086	lower	cow-12851469-n	红梗玉米膏		lower	adjudication	unattested folk name for motherwort
+cmn-087	keep	cow-80000785-n	漂移		keep	both	
+cmn-088	unflagged	cow-03396311-n	回纹饰		keep	triage	
+cmn-089	keep	cow-80000736-a	弹牙		keep	both	springy/tender food texture
+cmn-090	remove-wrong	cow-12631637-n	细叶水团花		remove	both	Adina rubella, not yellow avens
+cmn-091	remove-wrong	cow-00003662-v	封杀		remove	both	ban/block (or baseball out), not emit with force
+cmn-092	remove-wrong-adj	cow-00394331-a	黑白混合		remove	adjudication	mixture of black and white, not colourless
+cmn-093	unflagged	cow-02881246-a	词汇统计学的		keep	triage	
+cmn-094	remove-wrong-adj	cow-02777548-a	光度计		remove	adjudication	光度计 is the photometer instrument, not photometric
+cmn-095	remove-wrong-adj	cow-00025728-r	各方		remove	adjudication	all parties/sides, not everywhere
+cmn-096	unflagged	cow-14329262-n	神经痛		keep	triage	
+cmn-097	remove-form	cow-02552052-v	靠自身努力摆脱某种状况		remove	both	malformed or not a word
+cmn-098	rescue	cow-04965661-n	黄色		add	both	rescued from excluded sources
+cmn-099	lower	cow-02610373-n	蓝鲈鱼		lower	adjudication	cunner is a wrasse; 'blue perch' doubtful
+cmn-100	unflagged	cow-03018349-n	陶瓷器陈列柜		keep	triage	
+cmn-101	unflagged	cow-03548797-n	亨伯桥		keep	triage	
+cmn-102	remove-wrong	cow-00084738-v	毒		remove	both	means poison; concept is administer a drug
+cmn-103	unflagged	cow-07064715-n	摇滚		keep	triage	
+cmn-104	unflagged	cow-00417510-r	插句		keep	triage	
+cmn-105	remove-wrong-adj	cow-02251247-v	保护		remove	adjudication	保护 means protect in general, not indemnify
+cmn-106	remove-wrong	cow-00615774-v	之外		remove	both	之外 means outside/besides, not the verb exclude
+cmn-107	unflagged	cow-03537714-n	黄道十二宫图		keep	triage	
+cmn-108	keep	cow-02254767-v	被银行退票		keep	both	
+cmn-109	unflagged	cow-00681930-a	耳聋		keep	triage	
+cmn-110	rename	cow-80000160-n	森林计算机电业广场	森林 计算机 电业 广场	rename	both	fixed form: Sim Lim Square
+cmn-111	remove-wrong	cow-02248078-a	用步枪射击的		remove	both	means shooting with a rifle, not having rifling
+cmn-112	unflagged	cow-13705559-n	印尼货币单位		keep	triage	
+cmn-113	unflagged	cow-02837702-n	首饰		keep	triage	
+cmn-114	remove-wrong	cow-00390735-n	分词		remove	both	participle / word segmentation, not hyphenation
+cmn-115	lower	cow-12862116-n	棉铃花		lower	adjudication	cannot confirm as a name of Physostegia
+cmn-116	rename	cow-80000309-n	药材行	药材 行	rename	both	fixed form
+cmn-117	rescue	cow-00334996-v	击破		add	both	rescued from excluded sources
+cmn-118	unflagged	cow-02162162-v	重调焦距		keep	triage	
+cmn-119	remove-form	cow-02771485-a	属于或关于嘴		remove	both	malformed or not a word
+cmn-120	remove-wrong-adj	cow-13541975-n	分芽繁殖		remove	adjudication	budding propagation, not proliferation
+cmn-121	remove-wrong	cow-02422283-v	削减		remove	both	means reduce/cut back, not dismiss from a group
+cmn-122	keep-adj	cow-00366490-r	鲁莽		keep	adjudication	brash, impertinent manner; overlaps with 冒失
+cmn-123	rescue	cow-00220082-a	标致		add	both	rescued from excluded sources
+cmn-124	keep	cow-02532079-v	传播		keep	both	
+cmn-125	keep	cow-00020671-v	使进入催眠状态		keep	both	
+cmn-126	unflagged	cow-03754676-n	抗组胺药		keep	triage	
+cmn-127	unflagged	cow-00343660-r	轻柔地		keep	triage	
+cmn-128	keep-adj	cow-02366618-a	未批准		keep	adjudication	unexcused (absence) = not approved; acceptable
+cmn-129	unflagged	cow-00354934-a	变形		keep	triage	
+cmn-130	rename-mechanical	cow-02540637-n	胡瓜鱼属	胡瓜魚属	rename		traditional characters
+cmn-131	keep	cow-02938361-a	手写的		keep	both	
+cmn-132	lower	cow-13183874-n	水客妈菜		lower	adjudication	cannot verify 水客妈菜 as Schaffneria
+cmn-133	remove-wrong	cow-03628215-n	古琴		remove	both	古琴 is the Chinese guqin; koto is 筝
+cmn-134	remove-wrong-adj	cow-01958103-v	乘坐畜群		remove	adjudication	literal 'ride on a herd', not driving herds
+cmn-135	unflagged	cow-02370525-n	有蹄类		keep	triage	
+cmn-136	rescue	cow-07970301-n	朋友		add	both	rescued from excluded sources
+cmn-137	remove-wrong	cow-03787308-n	铆		remove	both	rivet, not mortise
+cmn-138	remove-wrong-adj	cow-14376855-n	错觉		remove	adjudication	illusion, not delusion (妄想)
+cmn-139	keep	cow-02494499-a	下流		keep	both	lower reaches
+cmn-140	rename	cow-08457976-n	一连串	一 连串	rename	both	fixed form: a series of
+cmn-141	unflagged	cow-14482852-n	潜在		keep	triage	
+cmn-142	keep-adj	cow-03699280-n	里拉		keep	adjudication	transliteration used for lyre (里拉琴)
+cmn-143	unflagged	cow-04118635-n	遗址		keep	triage	
+cmn-144	unflagged	cow-01960557-a	秩序井然		keep	triage	
+cmn-145	unflagged	cow-02757316-a	月		keep	triage	
+cmn-146	remove-form	cow-15218149-n	Sha.		remove	both	malformed or not a word: abbreviation
+cmn-147	lower	cow-12849952-n	爱情草		lower	adjudication	unverified folk name for lavender
+cmn-148	unflagged	cow-05091770-n	概率		keep	triage	
+cmn-149	rename-mechanical	cow-02566227-v	出娄子	出 娄子	rename		spaces between Han characters
+cmn-150	lower	cow-12499163-n	细密梳		lower	adjudication	unclear plant name for senna
+cmn-151	rename	cow-90000416-n	印度肉碎煎饼	印度 肉碎 煎饼	rename	both	fixed form
+cmn-152	unflagged	cow-02386310-n	役马		keep	triage	
+cmn-153	keep-adj	cow-00815000-a	不时		keep	adjudication	classical 'untimely'
+cmn-154	remove-wrong-adj	cow-02803299-a	侧眼的		remove	adjudication	insect ocellus sense, not textual stemma
+cmn-155	remove-wrong	cow-00422735-r	鳍状		remove	both	fin-shaped, not pinnate
+cmn-156	keep-adj	cow-13219833-n	接骨草		keep	adjudication	plausible folk name alongside 接续草 etc.
+cmn-157	unflagged	cow-14340734-n	胆管炎		keep	triage	
+cmn-158	remove-form	cow-01247804-v	轻轻地击打		remove	both	malformed or not a word
+cmn-159	unflagged	cow-13181988-n	鹿仙草		keep	triage	
+cmn-160	remove-wrong	cow-02086667-a	不可知的		remove	both	unknowable, not sealed
+cmn-161	rescue	cow-10129825-n	姑娘		add	both	rescued from excluded sources
+cmn-162	rename-mechanical	cow-12953079-n	紫萁属	紫萁 属	rename		spaces between Han characters
+cmn-163	unflagged	cow-02565687-v	犯罪		keep	triage	
+cmn-164	unflagged	cow-00423702-v	出现		keep	triage	
+cmn-165	rescue	cow-07861813-n	鸡肉饭		add	both	rescued from excluded sources
+cmn-166	rename	cow-80001062-n	一辈子	一 辈子	rename	both	fixed form: space inside lemma
+cmn-167	unflagged	cow-02965985-a	智利人的		keep	triage	
+cmn-168	unflagged	cow-01342949-a	不感兴趣		keep	triage	
+cmn-169	rename-mechanical	cow-80000706-n	单马车	单 马车	rename		spaces between Han characters
+cmn-170	remove-wrong-adj	cow-05069199-n	前倾		remove	adjudication	lean forward, not degree of slope
+cmn-171	remove-wrong	cow-02014646-n	白骨顶科		remove	both	白骨顶 is the coot genus, not the rail family
+cmn-172	unflagged	cow-10464711-n	前身		keep	triage	
+cmn-173	unflagged	cow-02570183-a	精明的		keep	triage	
+cmn-174	keep-adj	cow-03384535-n	模型		keep	adjudication	模型 also means mould/pattern for casting
+cmn-175	remove-wrong	cow-02318165-v	推翻		remove	both	overthrow, not bankrupt
+cmn-176	unflagged	cow-00862718-a	学术		keep	triage	
+cmn-177	remove-wrong	cow-00411427-r	失去知觉		remove	both	lose consciousness (verb), not numbly
+cmn-178	unflagged	cow-09776261-n	誓约人		keep	triage	
+cmn-179	rename-mechanical	cow-15211189-n	4月	４月	rename		full-width characters
+cmn-180	remove-wrong	cow-14092456-n	睾丸粘连		remove	both	testicular adhesion, not undescended testis
+cmn-181	unflagged	cow-02733334-v	出众		keep	triage	
+cmn-182	lower	cow-15049309-n	起泡金属		lower	adjudication	起泡 suggests blister copper rather than sparkle metal matte
+cmn-183	unflagged	cow-02758935-a	有颚的		keep	triage	
+cmn-184	unflagged	cow-00052246-a	无能的		keep	triage	
+cmn-185	rename-mechanical	cow-03162714-n	缝合折	缝合摺	rename		traditional characters
+cmn-186	lower	cow-14867690-n	金丝草		lower	adjudication	金丝草 is Pogonatherum; unclear for buntal fibre
+cmn-187	keep	cow-02534042-a	滴干后保持挺括的		keep	both	
+cmn-188	rescue	cow-07927931-n	可乐类饮料		add	both	rescued from excluded sources
+cmn-189	unflagged	cow-02755634-a	维持生命的		keep	triage	
+cmn-190	unflagged	cow-08751126-n	瓜德罗普岛		keep	triage	
+cmn-191	unflagged	cow-02171836-a	双生		keep	triage	
+cmn-192	remove-wrong	cow-02075594-a	可证明		remove	both	provable, not certifiable as insane
+cmn-193	unflagged	cow-02114190-a	成溃疡		keep	triage	
+cmn-194	keep	cow-00918872-v	锁定		keep	both	
+cmn-195	unflagged	cow-08278324-n	大学		keep	triage	
+cmn-196	unflagged	cow-12616248-n	虾藻		keep	triage	
+cmn-197	remove-form	cow-02438043-a	主调音或基音		remove	both	malformed or not a word: phrase with 'or'
+cmn-198	rename-mechanical	cow-80001305-n	巴东人	巴东 人	rename		spaces between Han characters
+cmn-199	remove-wrong	cow-09525579-n	弘法		remove	both	propagate the dharma (verb), not the principles
+cmn-200	keep	cow-02108654-v	得到		keep	both	
+cmn-201	rescue	cow-06496499-n	计划表		add	both	rescued from excluded sources
+cmn-202	rescue	cow-00037919-v	洗浴		add	both	rescued from excluded sources
+cmn-203	unflagged	cow-00136354-a	应付的		keep	triage	
+cmn-204	keep	cow-02026203-v	护卫		keep	both	
+cmn-205	rename	cow-80000032-n	新沪交响曲	新 沪 交响曲	rename	both	fixed form
+cmn-206	rename	cow-01047561-a	后者的	後者的	rename	both	fixed form
+cmn-207	keep	cow-02284951-v	报偿		keep	both	
+cmn-208	rename	cow-01735736-a	耐着性子	耐 着 性子	rename	both	fixed form
+cmn-209	rename-mechanical	cow-02518488-n	电鲇属	电鮎属	rename		traditional characters
+cmn-210	rescue	cow-00957378-v	下定义		add	both	rescued from excluded sources
+cmn-211	keep-adj	cow-12903367-n	闹羊花		keep	adjudication	listed folk alias of 曼陀罗 (Datura) as well as Rhododendron molle
+cmn-212	rescue	cow-00245166-r	一起		add	both	rescued from excluded sources
+cmn-213	rename	cow-01059564-v	不理	不 理	rename	both	fixed form: ignore
+cmn-214	rename-mechanical	cow-03618219-n	老K	老Ｋ	rename		full-width characters
+cmn-215	lower	cow-12463134-n	瓜子松		lower	adjudication	瓜子松 unverified as name for butcher's broom
+cmn-216	unflagged	cow-00333758-v	粉碎		keep	triage	
+cmn-217	remove-wrong	cow-15020628-n	清道夫		remove	both	street sweeper/scavenging animal, not chemical scavenger
+cmn-218	unflagged	cow-02367032-v	离开		keep	triage	
+cmn-219	remove-wrong	cow-02097796-a	品质恶劣		remove	both	bad character, not seducing into corruption
+cmn-220	rename-mechanical	cow-80000322-n	摆盘	摆 盘	rename		spaces between Han characters
+cmn-221	lower	cow-80001415-n	卡那提克		lower	adjudication	no gloss or context
+cmn-222	unflagged	cow-02668093-n	美服培酮		keep	triage	
+cmn-223	unflagged	cow-10373801-n	联邦代理		keep	triage	
+cmn-224	rescue	cow-07879450-n	日本寿司		add	both	rescued from excluded sources
+cmn-225	rename	cow-01785341-a	不宽容	不 宽容	rename	both	fixed form
+cmn-226	unflagged	cow-13973059-n	无法无天		keep	triage	
+cmn-227	remove-wrong	cow-13188096-n	曼佗罗树		remove	both	曼陀罗树 is a camellia name, not a Davallia fern
+cmn-228	remove-wrong	cow-12538380-n	陆地莲		remove	both	name of nasturtium/globeflower, not laburnum (金链花)
+cmn-229	unflagged	cow-02560035-a	使人作呕的		keep	triage	
+cmn-230	rename-mechanical	cow-02654425-n	箱鲀	箱魨	rename		traditional characters
+cmn-231	rename	cow-80000200-n	武吉知马	武吉 知马	rename	both	fixed form
+cmn-232	lower	cow-02653174-a	促诱		lower	adjudication	促诱 unattested as term for auxetic
+cmn-233	unflagged	cow-01310660-v	挖		keep	triage	
+cmn-234	rename-mechanical	cow-10059582-n	衷情者	衷情 者	rename		spaces between Han characters
+cmn-235	remove-form	cow-02254434-a	织为单色宽幅		remove	both	malformed or not a word
+cmn-236	remove-wrong	cow-08554872-n	增建物		remove	both	building extension, not suburban addition
+cmn-237	rescue	cow-00636547-a	乡下的		add	both	rescued from excluded sources
+cmn-238	rename-mechanical	cow-11311173-n	斯蒂芬斯皮尔伯格	斯蒂芬 斯皮尔伯格	rename		spaces between Han characters
+cmn-239	lower	cow-02923802-n	毛头		lower	adjudication	usually tuft/youngster; possibly industrial term for burr
+cmn-240	remove-form	cow-02037713-n	矶鹞之类		remove	adjudication	malformed or not a word: 'sandpipers and the like', not the phalarope genus
+cmn-241	unflagged	cow-13895745-n	尖利物		keep	triage	
+cmn-242	keep	cow-12504783-n	棉条		keep	both	
+cmn-243	keep-adj	cow-12876899-n	端		keep	adjudication	classical alias of 玄参 (Bencao Gangmu)
+cmn-244	rescue	cow-00120223-r	同时		add	both	rescued from excluded sources
+cmn-245	unflagged	cow-02477557-a	合并的		keep	triage	
+cmn-246	unflagged	cow-00780731-n	骗局		keep	triage	
+cmn-247	rescue	cow-01308381-v	放回原位		add	both	rescued from excluded sources
+cmn-248	remove-wrong	cow-13415381-n	无记名证券		remove	both	bearer security, not a floating-rate note
+cmn-249	rename-mechanical	cow-02205271-a	第25	第２５	rename	both	full-width characters
+cmn-250	unflagged	cow-12584365-n	洗瘴丹		keep	triage	
+cmn-251	remove-form	cow-06889138-n	状观		remove	both	malformed or not a word: typo for 壮观
+cmn-252	unflagged	cow-02520824-a	出于自愿的		keep	triage	
+cmn-253	unflagged	cow-00956131-a	持平		keep	triage	
+cmn-254	unflagged	cow-07942152-n	人们		keep	triage	
+cmn-255	remove-form	cow-01965096-a	因法律或社会的原因不适于被出版		remove	both	malformed or not a word: explanatory phrase
+cmn-256	rename	cow-02190188-v	沉寂下来	沉寂 下来	rename	both	fixed form
+cmn-257	remove-wrong-adj	cow-00377702-a	咖啡色		remove	adjudication	coffee brown, not maroon
+cmn-258	remove-wrong	cow-14794418-n	矿浆		remove	both	ore pulp, not cellulose pulp
+cmn-259	rescue	cow-06277280-n	电视广播		add	both	rescued from excluded sources
+cmn-260	lower	cow-12851469-n	陀螺艾		lower	adjudication	cannot verify as a folk name for motherwort
+cmn-261	unflagged	cow-06399631-n	附表		keep	triage	
+cmn-262	unflagged	cow-03426984-n	天然气井		keep	triage	
+cmn-263	keep-adj	cow-02752987-a	法院		keep	adjudication	noun as modifier for judicial (法院的 in synset)
+cmn-264	keep-adj	cow-12557280-n	刀豆角		keep	adjudication	刀豆 is a regional (Jiangnan) name for string beans
+cmn-265	remove-wrong-adj	cow-13925015-n	调整		remove	adjudication	adjust, not regularization
+cmn-266	unflagged	cow-11644226-n	北美香柏		keep	triage	
+cmn-267	remove-wrong	cow-09466280-n	太空		remove	both	outer space, not the universe
+cmn-268	unflagged	cow-01972541-n	墨鱼		keep	triage	
+cmn-269	keep	cow-02166277-a	不安静的		keep	both	
+cmn-270	keep-adj	cow-09797257-n	持惟信仰论者		keep	adjudication	唯信仰论 is the standard Chinese term for antinomianism
+cmn-271	unflagged	cow-12732756-n	白杨的一种		keep	triage	
+cmn-272	remove-wrong-adj	cow-13909071-n	椭圆线		remove	adjudication	ellipse line, not prolate cycloid
+cmn-273	unflagged	cow-03124111-a	破伤风的		keep	triage	
+cmn-274	keep	cow-05600637-n	人类的脸		keep	both	
+cmn-275	unflagged	cow-02284324-a	口头		keep	triage	
+cmn-276	unflagged	cow-03017468-a	皮奥夏人的		keep	triage	
+cmn-277	unflagged	cow-06726158-n	宣言		keep	triage	
+cmn-278	remove-wrong	cow-13188096-n	薮春		remove	both	薮春 is a camellia name, not Davallia fern
+cmn-279	rename-mechanical	cow-02662081-n	副棘鲆属	副棘鮃属	rename		traditional characters
+cmn-280	keep-adj	cow-14644063-n	镏		keep	adjudication	镏 is the former name for lutetium
+cmn-281	remove-wrong	cow-12936469-n	荷兰芹		remove	both	parsley, not coriander
+cmn-282	unflagged	cow-00775156-v	拌嘴		keep	triage	
+cmn-283	rename-mechanical	cow-02054834-n	鹲鸟科	鸏鸟科	rename		traditional characters
+cmn-284	remove-form	cow-01228245-n	谦恭有礼的举止		remove	both	malformed or not a word
+cmn-285	keep-adj	cow-13556249-n	下降		keep	adjudication	decrease, broader but acceptable
+cmn-286	remove-form	cow-00358951-a	不嗬电		remove	both	malformed or not a word: typo (嗬 for 带)
+cmn-287	remove-form	cow-07178525-n	债务替代清偿协议抵偿		remove	both	malformed or not a word: phrase-like legal term
+cmn-288	remove-wrong	cow-02340458-a	谦虚		remove	both	modest in attitude, not low in station
+cmn-289	unflagged	cow-00677313-a	无环的		keep	triage	
+cmn-290	unflagged	cow-00398978-a	杂色		keep	triage	
+cmn-291	unflagged	cow-03005593-a	自学者		keep	triage	
+cmn-292	unflagged	cow-02458497-a	精神不好		keep	triage	
+cmn-293	unflagged	cow-00366393-r	亲自		keep	triage	
+cmn-294	unflagged	cow-12649065-n	青肤樱		keep	triage	
+cmn-295	rename	cow-00041954-r	一般来说	一般 来说	rename	both	fixed form
+cmn-296	remove-wrong-adj	cow-03415486-n	踏板		remove	adjudication	pedal/footboard, not gangplank
+cmn-297	rescue	cow-10736602-n	大学学生		add	both	rescued from excluded sources
+cmn-298	rename	cow-80000700-n	最佳搭配	最 佳 搭配	rename	both	fixed form
+cmn-299	unflagged	cow-06623614-n	通信		keep	triage	
+cmn-300	remove-wrong	cow-14785197-n	杂木林		remove	both	copse/thicket, not wood from bushes
+cmn-301	rename-mechanical	cow-04388473-n	坦都烤炉	坦 都 烤炉	rename		spaces between Han characters
+cmn-302	remove-wrong-adj	cow-00051696-a	不适当		remove	adjudication	inappropriate, not inadequate to a task
+cmn-303	remove-form	cow-03012373-n	一种粗棉布		remove	both	malformed or not a word: explanation 'a kind of coarse cotton cloth'
+cmn-304	rename	cow-00017782-a	可以接受	可以 接受	rename	both	fixed form
+cmn-305	unflagged	cow-13436503-n	自动调整		keep	triage	
+cmn-306	rename	cow-80000156-n	苹果公司	苹果 公司	rename	both	fixed form
+cmn-307	lower	cow-02336275-n	小长尾鼠属鼠		lower	adjudication	unclear genus name for harvest mouse
+cmn-308	keep	cow-12946849-n	萸肉		keep	both	
+cmn-309	rescue	cow-13713300-n	英吋		add	both	rescued from excluded sources: variant of 英寸
+cmn-310	rename	cow-02507772-a	多项	多 项	rename	both	fixed form

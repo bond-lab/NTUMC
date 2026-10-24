@@ -12,10 +12,17 @@ the sheet is returned.
 
 | | cmn (Mandarin) | id (Indonesian) | zsm (Malay) | ja (Japanese) |
 |---|---|---|---|---|
-| Items | 220 | 166 | 181 | 200 |
+| Items | 310 | 256 | 271 | 290 |
+| Overlap sheet | 50 | 50 | 50 | 50 |
 
 The Japanese checker gets `ja-sheet.tsv` and `ja-instructions.md` (the
 instructions in Japanese and English).
+
+`<lang>-overlap-sheet.tsv` holds 50 items of the main sheet (same item
+ids, another order) for a second checker, with the same instructions; it
+takes about half an hour.  The two checkers' agreement is the ceiling
+against which the models' agreement should be read: people also disagree
+about word senses.
 
 ## Instructions for checkers
 
@@ -46,9 +53,12 @@ dictionary is fine).  Roughly 100 items an hour is a normal pace.
 
 ## Strata
 
-`key/strata.tsv` gives the population and sample size of each stratum
-(20 per stratum; 40 for unflagged senses, where errors are rarer; all
-items when a stratum is smaller).
+`key/strata.tsv` gives the population and sample size of each stratum:
+20 per stratum, all items when a stratum is smaller, and more for the
+strata behind the main claims: 100 unflagged senses (how many errors are
+left; a 5% error rate is then known to about 2--11%) and 50 senses that
+both Opus runs judged wrong (how many removals were right).  Pooled over
+the four languages, the strata they share have 80--400 items.
 
 | Stratum | Decision | Supported if the checker says |
 |---|---|---|
@@ -83,8 +93,11 @@ Put the returned sheets back here under the same names, then run
 
     .venv/bin/python scripts/spot_check.py score
 
-which writes `key/score.tsv`: per language and stratum, the number of items
-checked, the share supporting the decision and a 95% Wilson interval.
+which writes `key/score.tsv`: per language and stratum, and pooled over
+the languages (`all`), the number of items checked, the share supporting
+the decision and a 95% Wilson interval; and, if overlap sheets have come
+back, `key/checker-agreement.tsv`: the two checkers' agreement on
+`meaning` and Cohen's kappa.
 Multiplying by the stratum populations gives, for example, how many of the
 removed senses were in fact right, and how many wrong senses remain among
 the unflagged ones.

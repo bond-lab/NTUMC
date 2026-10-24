@@ -1,201 +1,291 @@
 item	stratum	synset	word	old_word	decision	decided_by	model_reason
-ja-001	unflagged	wnja-04184701-n	切れ		keep	not flagged	
-ja-002	remove-wrong	wnja-06811625-n	目印		remove	both runs	landmark/mark, not a mathematical sign
-ja-003	remove-wrong-adj	wnja-14819856-n	別体		remove	adjudicated	separate body; unrelated to crystal allomorph
-ja-004	keep	wnja-01662119-a	生憎		keep	both runs	
-ja-005	keep	wnja-00219748-r	かたずをのんで		keep	both runs	with bated breath
-ja-006	jsemcor-add	wnja-08652970-n	場所		add		JSemCor translation (all runs)
-ja-007	keep-adj	wnja-10624074-n	坊さん		keep	adjudicated	dictionaries list 坊さん as an affectionate term for a boy besides 'monk'
-ja-008	jsemcor-add	wnja-00329819-n	氾濫		add		JSemCor translation (all runs)
-ja-009	keep-adj	wnja-01745946-a	粋		keep	adjudicated	sympathetic understanding of human feelings (粋な計らい)
-ja-010	rename-mechanical	wnja-90000536-n	2日	２日	rename		full-width characters
-ja-011	remove-wrong	wnja-00338641-n	就職口		remove	both runs	job opening, not the act of opening something
-ja-012	jsemcor-reject	wnja-00082081-v	救う		not added	adjudicated	救う is save/rescue, stronger than help improve
-ja-013	remove-wrong	wnja-06402425-n	現価		remove	both runs	present value (financial capitalization), not writing in capitals
-ja-014	remove-wrong-adj	wnja-00471572-a	従って		remove	adjudicated	in accordance with / therefore, not 'as reported by'
-ja-015	keep	wnja-01468097-a	幸せ		keep	both runs	
-ja-016	keep-adj	wnja-00230324-n	死産		keep	adjudicated	stillbirth; synset includes 流産, a kind of pregnancy termination
-ja-017	keep	wnja-09082058-n	ナンパ		keep	both runs	katakana transliteration of Nampa
-ja-018	remove-wrong	wnja-00597385-v	取り締まる		remove	both runs	control/regulate, not master a subject
-ja-019	jsemcor-add	wnja-00100681-r	早く		add		JSemCor translation (all runs)
-ja-020	unflagged	wnja-00849523-n	繁殖		keep	not flagged	
-ja-021	jsemcor-add	wnja-08663860-n	上		add		JSemCor translation (all runs)
-ja-022	unflagged	wnja-05817145-n	面識		keep	not flagged	
-ja-023	remove-wrong	wnja-05634219-n	複方		remove	both runs	compound medical prescription, not inventing a story
-ja-024	remove-wrong	wnja-04879658-n	悪虐		remove	both runs	akugyaku = atrocity/wickedness, not treason
-ja-025	lower	wnja-00337172-a	定か		lower	adjudicated	describes facts being certain, not a person being convinced
-ja-026	remove-wrong-adj	wnja-07130774-n	ギーギーという音		remove	adjudicated	creaking noise, not irritated utterance
-ja-027	remove-wrong	wnja-11482985-n	瞬時		remove	both runs	instant; synset is physics moment (torque)
-ja-028	jsemcor-add	wnja-05698791-n	疑い		add		JSemCor translation (all runs)
-ja-029	keep-adj	wnja-05654362-n	ヴィジョン		keep	adjudicated	variant of ビジョン; vision as eyesight is a listed if minor sense
-ja-030	lower	wnja-07228105-n	語らい		lower	adjudicated	intimate talk/union; pledge-of-fidelity sense marginal
-ja-031	lower	wnja-00975427-v	触れ込む		lower	adjudicated	announce/advertise; not clearly 'give the names of'
-ja-032	keep-adj	wnja-00737070-n	不義		keep	adjudicated	illicit intimacy (不義密通) fits an act of undue intimacy
-ja-033	lower	wnja-01089635-n	恩沢		lower	adjudicated	favour/blessing bestowed; only loosely charity
-ja-034	keep	wnja-00460735-a	朗らか		keep	both runs	clear weather (literary)
-ja-035	keep	wnja-01190948-v	大喜び		keep	both runs	
-ja-036	jsemcor-reject	wnja-05677504-n	感性		not added	all runs	感性 means sensibility, not awareness
-ja-037	lower	wnja-14081375-n	襲来		lower	adjudicated	invasion/onslaught; rarely a sudden bout of illness
-ja-038	keep-adj	wnja-00164345-n	割		keep	adjudicated	割り can mean allotment (部屋割り)
-ja-039	remove-wrong-adj	wnja-01442450-n	モロコ		remove	adjudicated	Japanese gudgeon, a different fish from Rutilus rutilus
-ja-040	unflagged	wnja-13546169-n	合理化		keep	not flagged	
-ja-041	rename-mechanical	wnja-13810615-n	1員	１員	rename		full-width characters
-ja-042	rename-mechanical	wnja-90000538-n	4日	４日	rename		full-width characters
-ja-043	rename-mechanical	wnja-00295172-n	1周	１周	rename		full-width characters
-ja-044	jsemcor-add	wnja-01759326-v	焚きつける		add		JSemCor translation (all runs)
-ja-045	keep-adj	wnja-14924915-n	ジャーゴン		keep	adjudicated	ジャーゴン is the Japanese gem name for jargoon zircon
-ja-046	jsemcor-reject	wnja-00096333-r	up to で、まで		not added	all runs	not a word; particle gloss
-ja-047	lower	wnja-14693275-n	鶏血石		lower	adjudicated	dickite/pyrophyllite with cinnabar, not plain pyrophyllite
-ja-048	remove-wrong-adj	wnja-04107743-n	車内灯		remove	adjudicated	vehicle interior light, not room lighting
-ja-049	remove-wrong-adj	wnja-00668805-v	鵜呑み		remove	adjudicated	accept uncritically (believe), not tolerate
-ja-050	unflagged	wnja-02829696-n	カーヴ		keep	not flagged	
-ja-051	unflagged	wnja-06073494-n	鳥類学		keep	not flagged	
-ja-052	keep	wnja-07508486-n	驕心		keep	both runs	
-ja-053	unflagged	wnja-10309614-n	傭兵		keep	not flagged	
-ja-054	unflagged	wnja-14758536-n	外殻		keep	not flagged	
-ja-055	keep	wnja-00850501-v	嬲る		keep	both runs	
-ja-056	unflagged	wnja-00475014-n	ノーヒットノーラン		keep	not flagged	
-ja-057	lower	wnja-01168961-n	比		lower	adjudicated	bare 比 means ratio; くらべ reading for contest is marginal
-ja-058	unflagged	wnja-04640356-n	恩情		keep	not flagged	
-ja-059	jsemcor-add	wnja-01190993-a	浅い		add		JSemCor translation (all runs)
-ja-060	unflagged	wnja-01284908-v	緩める		keep	not flagged	
-ja-061	keep	wnja-00179060-v	脱する		keep	both runs	
-ja-062	keep-adj	wnja-01839690-v	ござ有る		keep	adjudicated	honorific of come; loose fit
-ja-063	keep-adj	wnja-01268194-a	乙		keep	adjudicated	乙なことを言う = clever, witty
-ja-064	rename-mechanical	wnja-14628494-n	Am	Ａｍ	rename		full-width characters
-ja-065	unflagged	wnja-04969798-n	ターコワーズ		keep	not flagged	
-ja-066	remove-wrong	wnja-10442232-n	ヤドン		remove	both runs	Pokemon name (Slowpoke), not a slow person
-ja-067	unflagged	wnja-14481929-n	可能性		keep	not flagged	
-ja-068	rename-mechanical	wnja-90000540-n	6日	６日	rename		full-width characters
-ja-069	unflagged	wnja-02672831-n	アコーディアン		keep	not flagged	
-ja-070	jsemcor-reject	wnja-01877355-v	揺さぶる		not added	all runs	揺さぶる is shake (transitive)
-ja-071	rename-mechanical	wnja-02988066-n	G型クランプ	Ｇ型クランプ	rename		full-width characters
-ja-072	lower	wnja-00732746-n	密通		lower	adjudicated	adultery/secret collusion; a much narrower kind of misconduct
-ja-073	jsemcor-reject	wnja-07882497-n	混合物		not added	adjudicated	混合物 is a general/chemical mixture, not food concoction
-ja-074	lower	wnja-01226240-a	光栄		lower	adjudicated	honour/glory; only loosely 'worthy of honour'
-ja-075	jsemcor-reject	wnja-04258982-n	底		not added	adjudicated	底 is bottom in general; sole is 靴底
-ja-076	remove-wrong	wnja-00477528-v	塞ぐ		remove	both runs	'block up/obstruct', not 'shape with a block'
-ja-077	keep	wnja-01923890-n	毛顎動物		keep	both runs	
-ja-078	keep	wnja-02017937-v	詰め寄る		keep	both runs	
-ja-079	remove-wrong	wnja-04942869-n	配列		remove	both runs	arrangement (disposition of things), not temperament
-ja-080	remove-wrong-adj	wnja-09921409-n	薄ぼんやり		remove	adjudicated	vague/absent-minded, not a gullible person
-ja-081	unflagged	wnja-15135996-n	週労働日数		keep	not flagged	
-ja-082	unflagged	wnja-01323958-v	眠らす		keep	not flagged	
-ja-083	unflagged	wnja-00155547-v	上がる		keep	not flagged	
-ja-084	jsemcor-reject	wnja-10508710-n	読者		not added	all runs	読者 means reader of a text, not avid reader
-ja-085	unflagged	wnja-04709011-n	滑らかさ		keep	not flagged	
-ja-086	rename-mechanical	wnja-13765207-n	1かごの量	１かごの量	rename		full-width characters
-ja-087	jsemcor-reject	wnja-01629589-v	導く		not added	all runs	導く is lead/guide
-ja-088	jsemcor-reject	wnja-02238770-v	得る		not added	all runs	general 'get'; hypernym
-ja-089	rename-mechanical	wnja-13745086-n	8	８	rename		full-width characters
-ja-090	lower	wnja-00358431-v	天上		lower	adjudicated	heaven; verbal 'ascend to heaven/die' is rare
-ja-091	rename-mechanical	wnja-15150134-n	60年代	６０年代	rename		full-width characters
-ja-092	keep-adj	wnja-00183716-r	いんぎんに		keep	adjudicated	politely, suavely; close to blandly
-ja-093	remove-wrong	wnja-13630864-n	電子ブック		remove	both runs	e-book (EB confusion), not exabyte
-ja-094	remove-wrong	wnja-00234423-n	ニュートラル		remove	both runs	neutral (gear/position), not neutralization act
-ja-095	unflagged	wnja-08565506-n	極楽浄土		keep	not flagged	
-ja-096	remove-wrong-adj	wnja-07583197-n	割下		remove	adjudicated	sukiyaki seasoning sauce, not soup
-ja-097	unflagged	wnja-00023074-r	其れほど		keep	not flagged	
-ja-098	remove-wrong	wnja-00965606-a	人なつかしい		remove	both runs	means 'missing people's company', not 'well known'
-ja-099	jsemcor-add	wnja-00031899-r	まさに		add		JSemCor translation (adjudicated)
-ja-100	unflagged	wnja-01733213-v	導く		keep	not flagged	
-ja-101	jsemcor-add	wnja-00500310-a	言語的		add		JSemCor translation 言語, POS corrected
-ja-102	keep	wnja-08344917-n	アイアイエス		keep	both runs	
-ja-103	remove-wrong-adj	wnja-06270308-n	別刷		remove	adjudicated	offprint, not a reissued publication
-ja-104	jsemcor-reject	wnja-01260867-n	興奮		not added	adjudicated	state of excitement, not the stimulus
-ja-105	unflagged	wnja-02673134-v	釣り合う		keep	not flagged	
-ja-106	rename-mechanical	wnja-13744521-n	5	５	rename		full-width characters
-ja-107	keep-adj	wnja-00635523-v	解答		keep	adjudicated	solve/answer a question or riddle fits 'answer, resolve'
-ja-108	jsemcor-reject	wnja-05022457-n	弾力性		not added	adjudicated	弾力性 is elasticity; flexibility is 柔軟性
-ja-109	unflagged	wnja-12811027-n	ハナツメクサ		keep	not flagged	
-ja-110	jsemcor-add	wnja-00856824-v	誉め上げる		add		JSemCor translation (all runs)
-ja-111	unflagged	wnja-03777283-n	真似形		keep	not flagged	
-ja-112	jsemcor-add	wnja-00588888-v	心得る		add		JSemCor translation (all runs)
-ja-113	rename-mechanical	wnja-02933540-a	直腸S状部	直腸Ｓ状部	rename		full-width characters
-ja-114	keep	wnja-10628644-n	君		keep	both runs	
-ja-115	keep-adj	wnja-10641755-n	探り		keep	adjudicated	classical sense of 探り as a spy/scout (間者)
-ja-116	remove-wrong-adj	wnja-00732552-v	続ける		remove	adjudicated	continue, not observe/keep (a rule)
-ja-117	remove-wrong-adj	wnja-00765666-a	簡単		remove	adjudicated	simple/brief, not unvarnished (ありのまま)
-ja-118	rename-mechanical	wnja-02813874-n	BB弾	ＢＢ弾	rename		full-width characters
-ja-119	remove-wrong-adj	wnja-07508486-n	高慢なこと		remove	adjudicated	arrogance, not the positive self-respect sense of pride
-ja-120	unflagged	wnja-14117805-n	糖尿		keep	not flagged	
-ja-121	keep-adj	wnja-00106821-a	空っけつ		keep	adjudicated	variant of 空っ穴 in synset; scanty/empty
-ja-122	unflagged	wnja-03482523-n	時計の針		keep	not flagged	
-ja-123	rename-mechanical	wnja-15092942-n	ビタミンK1	ビタミンＫ１	rename		full-width characters
-ja-124	jsemcor-reject	wnja-00081725-v	治療		not added	adjudicated	治療 is treatment, not cure
-ja-125	jsemcor-add	wnja-00205046-v	上がる		add		JSemCor translation (adjudicated)
-ja-126	remove-wrong-adj	wnja-02071636-n	ゴンドウクジラ属		remove	adjudicated	the genus Globicephala, not the species
-ja-127	remove-wrong	wnja-13172923-n	いのもとそう科		remove	both runs	Pteridaceae family, not Polypodium
-ja-128	rename-mechanical	wnja-13752443-n	1兆	１兆	rename		full-width characters
-ja-129	jsemcor-reject	wnja-07970721-n	家族		not added	adjudicated	household family, not lineage
-ja-130	lower	wnja-01747374-v	写照		lower	adjudicated	portrayal/depiction rather than copying verbatim
-ja-131	jsemcor-add	wnja-01951480-v	寄越す		add		JSemCor translation (all runs)
-ja-132	remove-wrong-adj	wnja-09542339-n	亡者		remove	adjudicated	the dead / ghosts, not an evil demon
-ja-133	lower	wnja-00467016-r	豪快		lower	adjudicated	bold/dynamic; only loosely stirring
-ja-134	lower	wnja-02003357-a	公然		lower	adjudicated	openly/publicly known, not really 'accessible to all'
-ja-135	unflagged	wnja-14473222-n	宿命		keep	not flagged	
-ja-136	jsemcor-add	wnja-00920336-v	突止める		add		JSemCor translation (all runs)
-ja-137	keep	wnja-01848718-v	消え失せる		keep	both runs	
-ja-138	keep-adj	wnja-10411551-n	競り売り		keep	adjudicated	糶り売り also means hawking wares / hawker (variants in synset)
-ja-139	unflagged	wnja-10078806-n	農場主		keep	not flagged	
-ja-140	keep-adj	wnja-01202634-a	トランス系		keep	adjudicated	colloquial for transgender/transsexual
-ja-141	remove-wrong-adj	wnja-07376539-n	バクバク		remove	adjudicated	munching/heart-pounding onomatopoeia, not loud banging
-ja-142	unflagged	wnja-01959333-n	シャコガイ属		keep	not flagged	
-ja-143	unflagged	wnja-02846399-n	モノクローム		keep	not flagged	
-ja-144	jsemcor-reject	wnja-08659993-n	隈		not added	all runs	隈 is nook/shading, not corner point
-ja-145	unflagged	wnja-02120451-v	焼け焦がす		keep	not flagged	
-ja-146	rename-mechanical	wnja-14130661-n	A型肝炎	Ａ型肝炎	rename		full-width characters
-ja-147	keep	wnja-08997487-n	星		keep	both runs	
-ja-148	remove-wrong-adj	wnja-03532919-n	鎌		remove	adjudicated	sickle; only 鎌錠 means the hook lock
-ja-149	remove-wrong	wnja-02708123-v	しっこ		remove	both runs	pee, not idling time away
-ja-150	rename-mechanical	wnja-10975202-n	ヘンリー・フォード2世	ヘンリー・フォード２世	rename		full-width characters
-ja-151	keep-adj	wnja-06414849-n	序題		keep	adjudicated	preface/introduction, fits the synset's words
-ja-152	rename-mechanical	wnja-15149351-n	40代	４０代	rename		full-width characters
-ja-153	jsemcor-reject	wnja-01592072-v	引っ張る		not added	adjudicated	引っ張る is pull; hypernym of jerk
-ja-154	unflagged	wnja-00779374-a	判然たる		keep	not flagged	
-ja-155	lower	wnja-11802995-n	アオイ		lower	adjudicated	葵 covers Japanese Asarum; European species only loosely
-ja-156	remove-wrong	wnja-07955961-n	答申		remove	both runs	report to authority; synset is artisan's findings (supplies)
-ja-157	unflagged	wnja-01090446-n	商		keep	not flagged	
-ja-158	unflagged	wnja-05786871-n	自己解剖		keep	not flagged	
-ja-159	remove-wrong-adj	wnja-01948958-a	極上		remove	adjudicated	finest quality, not excessively refined
-ja-160	keep	wnja-01763159-a	緩やか		keep	both runs	lenient
-ja-161	keep-adj	wnja-02691354-v	擦り寄せる		keep	adjudicated	snuggle up close (身を擦り寄せる); near nestle
-ja-162	lower	wnja-05577654-n	指		lower	adjudicated	finger/toe; hoof forepart doubtful
-ja-163	unflagged	wnja-06628861-n	諒と		keep	not flagged	
-ja-164	lower	wnja-01198750-n	ディフェンス		lower	adjudicated	mostly sports; legal defence normally 弁護
+ja-001	unflagged	wnja-00155547-v	上がる		keep	not flagged	
+ja-002	lower	wnja-00975427-v	触れ込む		lower	adjudicated	announce/advertise; not clearly 'give the names of'
+ja-003	lower	wnja-07228105-n	語らい		lower	adjudicated	intimate talk/union; pledge-of-fidelity sense marginal
+ja-004	unflagged	wnja-01919931-a	囂しい		keep	not flagged	
+ja-005	keep-adj	wnja-00106821-a	空っけつ		keep	adjudicated	variant of 空っ穴 in synset; scanty/empty
+ja-006	rename-mechanical	wnja-13757249-n	1またの幅	１またの幅	rename		full-width characters
+ja-007	unflagged	wnja-00072473-n	混同		keep	not flagged	
+ja-008	lower	wnja-00337172-a	定か		lower	adjudicated	describes facts being certain, not a person being convinced
+ja-009	unflagged	wnja-00023074-r	其れほど		keep	not flagged	
+ja-010	remove-wrong	wnja-00338641-n	就職口		remove	both runs	job opening, not the act of opening something
+ja-011	keep-adj	wnja-10411551-n	競り売り		keep	adjudicated	糶り売り also means hawking wares / hawker (variants in synset)
+ja-012	unflagged	wnja-05971394-n	運命論		keep	not flagged	
+ja-013	lower	wnja-05577654-n	指		lower	adjudicated	finger/toe; hoof forepart doubtful
+ja-014	unflagged	wnja-00973077-n	戦火		keep	not flagged	
+ja-015	rename-mechanical	wnja-13395296-n	20ドル紙幣	２０ドル紙幣	rename		full-width characters
+ja-016	remove-wrong-adj	wnja-08292051-n	南蛮文化		remove	adjudicated	16th-c. Iberian-influenced culture in Japan, not modern Western culture
+ja-017	unflagged	wnja-04969798-n	ターコワーズ		keep	not flagged	
+ja-018	remove-wrong-adj	wnja-08653873-n	出発		remove	adjudicated	departure, not the starting line
+ja-019	keep-adj	wnja-00164345-n	割		keep	adjudicated	割り can mean allotment (部屋割り)
+ja-020	unflagged	wnja-07373277-n	組合		keep	not flagged	
+ja-021	jsemcor-add	wnja-01951480-v	寄越す		add		JSemCor translation (all runs)
+ja-022	jsemcor-add	wnja-00500310-a	言語的		add		JSemCor translation 言語, POS corrected
+ja-023	unflagged	wnja-08934174-n	シャンゼリゼ		keep	not flagged	
+ja-024	unflagged	wnja-07270718-n	消印		keep	not flagged	
+ja-025	unflagged	wnja-01129363-n	養成		keep	not flagged	
+ja-026	jsemcor-add	wnja-00588888-v	心得る		add		JSemCor translation (all runs)
+ja-027	remove-wrong	wnja-02612787-a	類同		remove	both runs	similarity (allied = related), not the WWI Allies
+ja-028	unflagged	wnja-02829696-n	カーヴ		keep	not flagged	
+ja-029	lower	wnja-02003357-a	公然		lower	adjudicated	openly/publicly known, not really 'accessible to all'
+ja-030	remove-wrong-adj	wnja-06052685-n	シンチグラフィ		remove	adjudicated	one imaging technique, not the branch nuclear medicine
+ja-031	unflagged	wnja-00782216-a	不分明		keep	not flagged	
+ja-032	remove-wrong	wnja-02989316-a	独特		remove	both runs	独特 means peculiar/unique, not the taxonomic 'specific'
+ja-033	rename-mechanical	wnja-13658998-n	dm	ｄｍ	rename		full-width characters
+ja-034	unflagged	wnja-05817145-n	面識		keep	not flagged	
+ja-035	remove-wrong	wnja-10442232-n	ヤドン		remove	both runs	Pokemon name (Slowpoke), not a slow person
+ja-036	remove-wrong-adj	wnja-01204557-a	でかい		remove	adjudicated	big, not high in elevation
+ja-037	lower	wnja-01043693-n	感謝の祈り		lower	adjudicated	prayer of thanks (grace) rather than prayer for protection
+ja-038	jsemcor-add	wnja-01759326-v	焚きつける		add		JSemCor translation (all runs)
+ja-039	rename-mechanical	wnja-90000547-n	13日	１３日	rename		full-width characters
+ja-040	remove-wrong-adj	wnja-05217859-n	糞袋		remove	adjudicated	derogatory term for the (living) body or guts, not a corpse
+ja-041	remove-wrong-adj	wnja-01523986-v	縮らす		remove	adjudicated	crimp/frizz (hair), not wind around in coils
+ja-042	unflagged	wnja-10078806-n	農場主		keep	not flagged	
+ja-043	remove-wrong	wnja-05844282-n	口当たり		remove	both runs	taste or mouthfeel, not quark flavour
+ja-044	rename-mechanical	wnja-13846900-n	3番	３番	rename		full-width characters
+ja-045	keep-adj	wnja-00635523-v	解答		keep	adjudicated	solve/answer a question or riddle fits 'answer, resolve'
+ja-046	keep	wnja-08344917-n	アイアイエス		keep	both runs	
+ja-047	unflagged	wnja-10633450-n	見手		keep	not flagged	
+ja-048	unflagged	wnja-14481929-n	可能性		keep	not flagged	
+ja-049	remove-wrong-adj	wnja-04008634-n	弾道弾		remove	adjudicated	ballistic missile is self-propelled; synset is non-self-propelled projectile
+ja-050	unflagged	wnja-00232057-r	慥かに		keep	not flagged	
+ja-051	unflagged	wnja-00152285-a	黙々たる		keep	not flagged	
+ja-052	unflagged	wnja-02321757-v	盗み取る		keep	not flagged	
+ja-053	remove-wrong	wnja-00477528-v	塞ぐ		remove	both runs	'block up/obstruct', not 'shape with a block'
+ja-054	jsemcor-reject	wnja-04258982-n	底		not added	adjudicated	底 is bottom in general; sole is 靴底
+ja-055	keep-adj	wnja-01465668-a	甘い		keep	adjudicated	doting/soft on someone (子に甘い); fits foolish fondness
+ja-056	unflagged	wnja-10661002-n	渡者		keep	not flagged	
+ja-057	jsemcor-add	wnja-00031899-r	まさに		add		JSemCor translation (adjudicated)
+ja-058	remove-wrong	wnja-11482985-n	瞬時		remove	both runs	instant; synset is physics moment (torque)
+ja-059	unflagged	wnja-02629535-v	織りこむ		keep	not flagged	
+ja-060	unflagged	wnja-03669245-n	リンバー		keep	not flagged	
+ja-061	lower	wnja-00732746-n	密通		lower	adjudicated	adultery/secret collusion; a much narrower kind of misconduct
+ja-062	unflagged	wnja-08182105-n	プチ・ブルジョワ		keep	not flagged	
+ja-063	jsemcor-add	wnja-15117516-n	時間		add		JSemCor translation (adjudicated)
+ja-064	unflagged	wnja-00625119-v	披見		keep	not flagged	
+ja-065	keep	wnja-01190948-v	大喜び		keep	both runs	
+ja-066	keep-adj	wnja-10641755-n	探り		keep	adjudicated	classical sense of 探り as a spy/scout (間者)
+ja-067	unflagged	wnja-00849523-n	繁殖		keep	not flagged	
+ja-068	unflagged	wnja-08460585-n	流れ		keep	not flagged	
+ja-069	remove-wrong-adj	wnja-02478936-v	儀式張る		remove	adjudicated	be ceremonious, not make formal or official
+ja-070	keep	wnja-01923890-n	毛顎動物		keep	both runs	
+ja-071	jsemcor-reject	wnja-05029706-n	勢い		not added	all runs	勢い is momentum/vigour, not strength
+ja-072	unflagged	wnja-02846399-n	モノクローム		keep	not flagged	
+ja-073	jsemcor-reject	wnja-00082081-v	救う		not added	adjudicated	救う is save/rescue, stronger than help improve
+ja-074	unflagged	wnja-00779374-a	判然たる		keep	not flagged	
+ja-075	jsemcor-reject	wnja-08659993-n	隈		not added	all runs	隈 is nook/shading, not corner point
+ja-076	remove-wrong	wnja-03787164-n	角帽		remove	both runs	square academic cap (mortarboard hat), not the mason's hawk board
+ja-077	remove-wrong	wnja-04705536-n	切迫		remove	both runs	urgency/imminence, not sharpness of an edge
+ja-078	unflagged	wnja-06371413-n	神話		keep	not flagged	
+ja-079	jsemcor-reject	wnja-05022457-n	弾力性		not added	adjudicated	弾力性 is elasticity; flexibility is 柔軟性
+ja-080	unflagged	wnja-00893955-n	トレイニング		keep	not flagged	
+ja-081	unflagged	wnja-09807075-n	主席主教		keep	not flagged	
+ja-082	unflagged	wnja-02293321-v	譲渡		keep	not flagged	
+ja-083	unflagged	wnja-00853195-v	あばき出す		keep	not flagged	
+ja-084	lower	wnja-00467016-r	豪快		lower	adjudicated	bold/dynamic; only loosely stirring
+ja-085	jsemcor-add	wnja-08663860-n	上		add		JSemCor translation (all runs)
+ja-086	rename-mechanical	wnja-15149351-n	40代	４０代	rename		full-width characters
+ja-087	remove-wrong	wnja-07534700-n	摩擦		remove	both runs	friction (attrition), not contrition for sin
+ja-088	unflagged	wnja-08094013-n	ユダヤ教		keep	not flagged	
+ja-089	remove-wrong	wnja-04879658-n	悪虐		remove	both runs	akugyaku = atrocity/wickedness, not treason
+ja-090	unflagged	wnja-05467758-n	星状膠細胞		keep	not flagged	
+ja-091	keep-adj	wnja-14924915-n	ジャーゴン		keep	adjudicated	ジャーゴン is the Japanese gem name for jargoon zircon
+ja-092	rename-mechanical	wnja-04493259-n	T定規	Ｔ定規	rename		full-width characters
+ja-093	remove-wrong	wnja-09859285-n	ブレード		remove	both runs	blade = cutting edge, not 'dashing young man'
+ja-094	unflagged	wnja-00159498-a	無柄		keep	not flagged	
+ja-095	unflagged	wnja-01594978-v	齧る		keep	not flagged	
+ja-096	remove-wrong	wnja-00831919-n	人工気胸療法		remove	both runs	artificial pneumothorax therapy, not artificial respiration
+ja-097	lower	wnja-01747374-v	写照		lower	adjudicated	portrayal/depiction rather than copying verbatim
+ja-098	remove-wrong-adj	wnja-02034828-a	宜しい		remove	adjudicated	good/all right, not morally right
+ja-099	jsemcor-add	wnja-00100681-r	早く		add		JSemCor translation (all runs)
+ja-100	jsemcor-add	wnja-01029406-n	儀式		add		JSemCor translation (all runs)
+ja-101	remove-wrong	wnja-09660138-n	母		remove	both runs	mother, not the Mam people
+ja-102	jsemcor-reject	wnja-01592072-v	引っ張る		not added	adjudicated	引っ張る is pull; hypernym of jerk
+ja-103	remove-wrong	wnja-15093482-n	硫酸塩		remove	both runs	sulfate, not sulfuric acid
+ja-104	jsemcor-add	wnja-00856824-v	誉め上げる		add		JSemCor translation (all runs)
+ja-105	remove-wrong	wnja-01049606-v	佩びる		remove	both runs	wear (sword); not musical 'carry'
+ja-106	jsemcor-add	wnja-01190993-a	浅い		add		JSemCor translation (all runs)
+ja-107	keep-adj	wnja-07627310-n	パテ		keep	adjudicated	pâté/patty; fits small meat pie loosely
+ja-108	remove-wrong-adj	wnja-07719839-n	砂糖大根		remove	adjudicated	sugar beet, not red beetroot
+ja-109	remove-wrong	wnja-04942869-n	配列		remove	both runs	arrangement (disposition of things), not temperament
+ja-110	keep	wnja-07508486-n	驕心		keep	both runs	
+ja-111	keep	wnja-10628644-n	君		keep	both runs	
+ja-112	jsemcor-reject	wnja-00081725-v	治療		not added	adjudicated	治療 is treatment, not cure
+ja-113	remove-wrong	wnja-07468861-n	走行会		remove	both runs	a driving/circuit event for cars, not a footrace on a track
+ja-114	remove-wrong	wnja-00597385-v	取り締まる		remove	both runs	control/regulate, not master a subject
+ja-115	keep	wnja-01468097-a	幸せ		keep	both runs	
+ja-116	unflagged	wnja-04709011-n	滑らかさ		keep	not flagged	
+ja-117	unflagged	wnja-14363027-n	頻脈		keep	not flagged	
+ja-118	jsemcor-add	wnja-00063652-n	成果		add		JSemCor translation (all runs)
+ja-119	unflagged	wnja-01733213-v	導く		keep	not flagged	
+ja-120	rename-mechanical	wnja-15149763-n	50年代	５０年代	rename		full-width characters
+ja-121	rename-mechanical	wnja-13749146-n	28	２８	rename		full-width characters
+ja-122	keep	wnja-13939892-n	度		keep	both runs	
+ja-123	jsemcor-reject	wnja-10508710-n	読者		not added	all runs	読者 means reader of a text, not avid reader
+ja-124	unflagged	wnja-02407959-n	野牛		keep	not flagged	
+ja-125	jsemcor-reject	wnja-01629589-v	導く		not added	all runs	導く is lead/guide
+ja-126	lower	wnja-01198750-n	ディフェンス		lower	adjudicated	mostly sports; legal defence normally 弁護
+ja-127	remove-wrong	wnja-03164532-n	塗抹		remove	both runs	smearing or painting over; synset is an unskillful painting
+ja-128	rename-mechanical	wnja-13749527-n	40	４０	rename		full-width characters
+ja-129	remove-wrong	wnja-13908021-n	年期奉公		remove	both runs	indentured service, not an indentation
+ja-130	unflagged	wnja-04640356-n	恩情		keep	not flagged	
+ja-131	keep-adj	wnja-01268194-a	乙		keep	adjudicated	乙なことを言う = clever, witty
+ja-132	remove-wrong	wnja-13630864-n	電子ブック		remove	both runs	e-book (EB confusion), not exabyte
+ja-133	unflagged	wnja-01517662-v	撚合せる		keep	not flagged	
+ja-134	remove-wrong	wnja-00385385-v	借り換える		remove	both runs	refinance a loan, not convert someone to a faith
+ja-135	unflagged	wnja-15135996-n	週労働日数		keep	not flagged	
+ja-136	lower	wnja-05087297-n	散々		lower	adjudicated	rare 'scattered' reading; not clearly the spatial property
+ja-137	lower	wnja-01168961-n	比		lower	adjudicated	bare 比 means ratio; くらべ reading for contest is marginal
+ja-138	keep-adj	wnja-00737070-n	不義		keep	adjudicated	illicit intimacy (不義密通) fits an act of undue intimacy
+ja-139	keep	wnja-00179060-v	脱する		keep	both runs	
+ja-140	rename-mechanical	wnja-02813874-n	BB弾	ＢＢ弾	rename		full-width characters
+ja-141	jsemcor-add	wnja-00329819-n	氾濫		add		JSemCor translation (all runs)
+ja-142	remove-wrong	wnja-12330891-n	楊梅		remove	both runs	yamamomo is Myrica rubra, not Pimenta bay-rum tree
+ja-143	unflagged	wnja-03032576-n	シプロフロキサシン		keep	not flagged	
+ja-144	jsemcor-reject	wnja-01877355-v	揺さぶる		not added	all runs	揺さぶる is shake (transitive)
+ja-145	unflagged	wnja-02343931-a	高価		keep	not flagged	
+ja-146	remove-wrong-adj	wnja-00784755-n	守り		remove	adjudicated	defence/protection, not extortion money
+ja-147	unflagged	wnja-02401809-v	叩出す		keep	not flagged	
+ja-148	remove-wrong	wnja-05634219-n	複方		remove	both runs	compound medical prescription, not inventing a story
+ja-149	unflagged	wnja-14473222-n	宿命		keep	not flagged	
+ja-150	unflagged	wnja-02920369-n	サンドトラップ		keep	not flagged	
+ja-151	unflagged	wnja-07447022-n	リターン		keep	not flagged	
+ja-152	unflagged	wnja-13586455-n	吸収係数		keep	not flagged	
+ja-153	remove-wrong	wnja-06402425-n	現価		remove	both runs	present value (financial capitalization), not writing in capitals
+ja-154	remove-wrong	wnja-01685960-v	申し受ける		remove	both runs	accept/charge a fee; not placing a heraldic charge
+ja-155	remove-wrong-adj	wnja-10399019-n	落下傘部隊		remove	adjudicated	the paratroop unit, not an individual soldier
+ja-156	keep-adj	wnja-02691354-v	擦り寄せる		keep	adjudicated	snuggle up close (身を擦り寄せる); near nestle
+ja-157	remove-wrong	wnja-00578662-a	じゃりじゃり		remove	both runs	gritty texture, not inconsistency
+ja-158	keep-adj	wnja-00183716-r	いんぎんに		keep	adjudicated	politely, suavely; close to blandly
+ja-159	unflagged	wnja-01442361-v	さし通す		keep	not flagged	
+ja-160	rename-mechanical	wnja-13769033-n	1鍋の量	１鍋の量	rename		full-width characters
+ja-161	remove-wrong-adj	wnja-01442450-n	モロコ		remove	adjudicated	Japanese gudgeon, a different fish from Rutilus rutilus
+ja-162	unflagged	wnja-00417596-v	硬直させる		keep	not flagged	
+ja-163	keep-adj	wnja-01202634-a	トランス系		keep	adjudicated	colloquial for transgender/transsexual
+ja-164	keep	wnja-01763159-a	緩やか		keep	both runs	lenient
 ja-165	jsemcor-reject	wnja-01129920-n	役割		not added	all runs	役割 means role, not obligation
-ja-166	remove-wrong-adj	wnja-05047617-n	後天		remove	adjudicated	acquired after birth / a posteriori, not subsequence in time
-ja-167	jsemcor-add	wnja-00609683-v	想う		add		JSemCor translation (all runs)
-ja-168	remove-wrong	wnja-00889229-v	自署		remove	both runs	jisho = sign one's own name, not be engaged by contract
-ja-169	unflagged	wnja-02293321-v	譲渡		keep	not flagged	
-ja-170	keep-adj	wnja-01465668-a	甘い		keep	adjudicated	doting/soft on someone (子に甘い); fits foolish fondness
-ja-171	jsemcor-reject	wnja-00191142-n	変化		not added	adjudicated	undergoing change, not act of changing something
-ja-172	jsemcor-reject	wnja-06615026-n	呼び物		not added	adjudicated	main attraction, not feature film
-ja-173	jsemcor-reject	wnja-02720354-v	伴う		not added	all runs	伴う means accompany
-ja-174	rename-mechanical	wnja-13750712-n	500	５００	rename		full-width characters
-ja-175	jsemcor-add	wnja-04839154-n	公正		add		JSemCor translation (all runs)
-ja-176	jsemcor-add	wnja-15271008-n	休憩		add		JSemCor translation (all runs)
-ja-177	remove-wrong-adj	wnja-10256537-n	偽者		remove	adjudicated	impostor/fake, not a liar
-ja-178	jsemcor-add	wnja-00063652-n	成果		add		JSemCor translation (all runs)
-ja-179	remove-wrong-adj	wnja-02640226-v	細説		remove	adjudicated	detailed explanation, not delay/linger
-ja-180	keep	wnja-00733044-v	解答		keep	both runs	
-ja-181	lower	wnja-01043693-n	感謝の祈り		lower	adjudicated	prayer of thanks (grace) rather than prayer for protection
-ja-182	keep	wnja-13939892-n	度		keep	both runs	
-ja-183	unflagged	wnja-09807075-n	主席主教		keep	not flagged	
-ja-184	unflagged	wnja-00074594-a	自然		keep	not flagged	
-ja-185	jsemcor-reject	wnja-05029706-n	勢い		not added	all runs	勢い is momentum/vigour, not strength
-ja-186	remove-wrong	wnja-02612787-a	類同		remove	both runs	similarity (allied = related), not the WWI Allies
-ja-187	keep-adj	wnja-02859184-n	麦藁		keep	adjudicated	dictionaries list むぎわら as short for 麦藁帽子
-ja-188	keep-adj	wnja-07627310-n	パテ		keep	adjudicated	pâté/patty; fits small meat pie loosely
-ja-189	remove-wrong	wnja-07534700-n	摩擦		remove	both runs	friction (attrition), not contrition for sin
-ja-190	keep	wnja-00299476-a	耳障り		keep	both runs	
-ja-191	keep	wnja-01594978-v	グラインド		keep	both runs	grind
-ja-192	lower	wnja-05087297-n	散々		lower	adjudicated	rare 'scattered' reading; not clearly the spatial property
-ja-193	jsemcor-add	wnja-15117516-n	時間		add		JSemCor translation (adjudicated)
-ja-194	remove-wrong	wnja-01852548-a	結構		remove	both runs	結構 means fine/quite, not 'of primary importance'
-ja-195	rename-mechanical	wnja-10671736-n	跡取り	跡取リ	rename		katakana for hiragana okurigana
-ja-196	jsemcor-add	wnja-01029406-n	儀式		add		JSemCor translation (all runs)
-ja-197	unflagged	wnja-02401809-v	叩出す		keep	not flagged	
-ja-198	lower	wnja-01982044-v	きちんとなる		lower	adjudicated	unnatural; unclear whether it means sitting up straight
-ja-199	unflagged	wnja-10613996-n	佳人		keep	not flagged	
-ja-200	lower	wnja-07325102-n	百鬼夜行		lower	adjudicated	evildoers running rampant; not specifically a rise in crime rate
+ja-166	unflagged	wnja-06489659-n	目次		keep	not flagged	
+ja-167	jsemcor-reject	wnja-02238770-v	得る		not added	all runs	general 'get'; hypernym
+ja-168	unflagged	wnja-01726172-v	弾く		keep	not flagged	
+ja-169	remove-wrong	wnja-00965606-a	人なつかしい		remove	both runs	means 'missing people's company', not 'well known'
+ja-170	keep	wnja-01662119-a	生憎		keep	both runs	
+ja-171	jsemcor-add	wnja-00920336-v	突止める		add		JSemCor translation (all runs)
+ja-172	lower	wnja-00358431-v	天上		lower	adjudicated	heaven; verbal 'ascend to heaven/die' is rare
+ja-173	unflagged	wnja-10309614-n	傭兵		keep	not flagged	
+ja-174	remove-wrong	wnja-10302816-n	尊属殺人		remove	both runs	murder of an ascendant (act), not a person who kills mother
+ja-175	unflagged	wnja-01983162-a	名誉		keep	not flagged	
+ja-176	unflagged	wnja-14315192-n	地腫れ		keep	not flagged	
+ja-177	unflagged	wnja-14870525-n	角岩		keep	not flagged	
+ja-178	unflagged	wnja-06716234-n	嘲り		keep	not flagged	
+ja-179	keep	wnja-08997487-n	星		keep	both runs	
+ja-180	jsemcor-add	wnja-08652970-n	場所		add		JSemCor translation (all runs)
+ja-181	unflagged	wnja-10741590-n	遣手		keep	not flagged	
+ja-182	lower	wnja-01982044-v	きちんとなる		lower	adjudicated	unnatural; unclear whether it means sitting up straight
+ja-183	unflagged	wnja-00663353-v	照査		keep	not flagged	
+ja-184	jsemcor-reject	wnja-02720354-v	伴う		not added	all runs	伴う means accompany
+ja-185	remove-wrong-adj	wnja-06351888-n	アラム語		remove	adjudicated	the Aramaic language; the script is アラム文字
+ja-186	remove-wrong	wnja-01090820-a	敏腕		remove	both runs	敏腕 means able/capable (of a person), not useful
+ja-187	unflagged	wnja-05257593-n	カット		keep	not flagged	
+ja-188	unflagged	wnja-03482523-n	時計の針		keep	not flagged	
+ja-189	jsemcor-add	wnja-15271008-n	休憩		add		JSemCor translation (all runs)
+ja-190	unflagged	wnja-11466043-n	熱エネルギー		keep	not flagged	
+ja-191	remove-wrong	wnja-07999471-n	方面		remove	both runs	means direction or area, not the competitors in a contest
+ja-192	rename-mechanical	wnja-15206195-n	4分の1世紀	４分の１世紀	rename		full-width characters
+ja-193	unflagged	wnja-00630380-v	熟慮		keep	not flagged	
+ja-194	unflagged	wnja-02764779-n	車軸		keep	not flagged	
+ja-195	remove-wrong	wnja-00482892-n	休憩		remove	both runs	rest break, not a tennis service break
+ja-196	jsemcor-reject	wnja-00096333-r	up to で、まで		not added	all runs	not a word; particle gloss
+ja-197	unflagged	wnja-10613996-n	佳人		keep	not flagged	
+ja-198	rename-mechanical	wnja-15150134-n	60年代	６０年代	rename		full-width characters
+ja-199	jsemcor-reject	wnja-06615026-n	呼び物		not added	adjudicated	main attraction, not feature film
+ja-200	keep-adj	wnja-02859184-n	麦藁		keep	adjudicated	dictionaries list むぎわら as short for 麦藁帽子
+ja-201	unflagged	wnja-04131208-n	ビューティーパーラー		keep	not flagged	
+ja-202	remove-wrong	wnja-13172923-n	いのもとそう科		remove	both runs	Pteridaceae family, not Polypodium
+ja-203	lower	wnja-14081375-n	襲来		lower	adjudicated	invasion/onslaught; rarely a sudden bout of illness
+ja-204	keep-adj	wnja-01839690-v	ござ有る		keep	adjudicated	honorific of come; loose fit
+ja-205	unflagged	wnja-13546169-n	合理化		keep	not flagged	
+ja-206	keep	wnja-00460735-a	朗らか		keep	both runs	clear weather (literary)
+ja-207	keep	wnja-09082058-n	ナンパ		keep	both runs	katakana transliteration of Nampa
+ja-208	keep	wnja-00850501-v	嬲る		keep	both runs	
+ja-209	remove-wrong	wnja-06823760-n	離断		remove	both runs	severance/disarticulation, not umlaut
+ja-210	rename-mechanical	wnja-15148867-n	20年代	２０年代	rename		full-width characters
+ja-211	unflagged	wnja-10970279-n	ファインマン		keep	not flagged	
+ja-212	unflagged	wnja-00399553-v	腐れる		keep	not flagged	
+ja-213	remove-wrong	wnja-05168795-n	顔面		remove	both runs	physical face, not social status
+ja-214	unflagged	wnja-01009001-n	ランダム化		keep	not flagged	
+ja-215	remove-wrong	wnja-08250889-n	雲霞		remove	both runs	swarming crowd, not a nomadic community
+ja-216	unflagged	wnja-06025689-n	正規分布		keep	not flagged	
+ja-217	remove-wrong	wnja-05844663-n	風味		remove	both runs	flavour; quark 'flavour' is not quark 'color'
+ja-218	jsemcor-add	wnja-00205046-v	上がる		add		JSemCor translation (adjudicated)
+ja-219	keep	wnja-00219748-r	かたずをのんで		keep	both runs	with bated breath
+ja-220	unflagged	wnja-01389776-v	挿れる		keep	not flagged	
+ja-221	remove-wrong	wnja-07512147-n	重力		remove	both runs	gravitational force, not solemnity
+ja-222	lower	wnja-14693275-n	鶏血石		lower	adjudicated	dickite/pyrophyllite with cinnabar, not plain pyrophyllite
+ja-223	keep	wnja-01594978-v	グラインド		keep	both runs	grind
+ja-224	remove-wrong-adj	wnja-00120943-n	センタリング		remove	adjudicated	soccer centring/cross; the American football snap is スナップ
+ja-225	keep-adj	wnja-00230324-n	死産		keep	adjudicated	stillbirth; synset includes 流産, a kind of pregnancy termination
+ja-226	remove-wrong	wnja-00234423-n	ニュートラル		remove	both runs	neutral (gear/position), not neutralization act
+ja-227	unflagged	wnja-04184701-n	切れ		keep	not flagged	
+ja-228	keep-adj	wnja-05654362-n	ヴィジョン		keep	adjudicated	variant of ビジョン; vision as eyesight is a listed if minor sense
+ja-229	unflagged	wnja-00074594-a	自然		keep	not flagged	
+ja-230	rename-mechanical	wnja-13741512-n	2進数字	２進数字	rename		full-width characters
+ja-231	remove-wrong-adj	wnja-10362428-n	正規化器		remove	adjudicated	a device, not a person who normalizes
+ja-232	rename-mechanical	wnja-14651479-n	Pm	Ｐｍ	rename		full-width characters
+ja-233	unflagged	wnja-14826904-n	シアン化ナトリウム		keep	not flagged	
+ja-234	jsemcor-add	wnja-04839154-n	公正		add		JSemCor translation (all runs)
+ja-235	jsemcor-reject	wnja-01260867-n	興奮		not added	adjudicated	state of excitement, not the stimulus
+ja-236	unflagged	wnja-02425462-v	開幕		keep	not flagged	
+ja-237	remove-wrong	wnja-06811625-n	目印		remove	both runs	landmark/mark, not a mathematical sign
+ja-238	rename-mechanical	wnja-08428756-n	1列縦隊	１列縦隊	rename		full-width characters
+ja-239	lower	wnja-01089635-n	恩沢		lower	adjudicated	favour/blessing bestowed; only loosely charity
+ja-240	jsemcor-reject	wnja-07882497-n	混合物		not added	adjudicated	混合物 is a general/chemical mixture, not food concoction
+ja-241	unflagged	wnja-01284908-v	緩める		keep	not flagged	
+ja-242	unflagged	wnja-03582658-n	発明		keep	not flagged	
+ja-243	keep-adj	wnja-01745946-a	粋		keep	adjudicated	sympathetic understanding of human feelings (粋な計らい)
+ja-244	unflagged	wnja-02672831-n	アコーディアン		keep	not flagged	
+ja-245	unflagged	wnja-09945905-n	侶伴		keep	not flagged	
+ja-246	jsemcor-reject	wnja-00191142-n	変化		not added	adjudicated	undergoing change, not act of changing something
+ja-247	keep	wnja-02017937-v	詰め寄る		keep	both runs	
+ja-248	unflagged	wnja-00404568-a	蒼白		keep	not flagged	
+ja-249	keep-adj	wnja-06414849-n	序題		keep	adjudicated	preface/introduction, fits the synset's words
+ja-250	unflagged	wnja-00198451-n	取立て		keep	not flagged	
+ja-251	remove-wrong	wnja-13517199-n	単性		remove	both runs	unisexuality, not sporulation
+ja-252	keep	wnja-00733044-v	解答		keep	both runs	
+ja-253	unflagged	wnja-14477877-n	シクジリ		keep	not flagged	
+ja-254	unflagged	wnja-02848523-n	羽根		keep	not flagged	
+ja-255	unflagged	wnja-06549661-n	免状		keep	not flagged	
+ja-256	unflagged	wnja-07314838-n	惨禍		keep	not flagged	
+ja-257	remove-wrong	wnja-02706221-n	膨大部		remove	both runs	anatomical ampulla, not Roman flask
+ja-258	remove-wrong	wnja-00889229-v	自署		remove	both runs	jisho = sign one's own name, not be engaged by contract
+ja-259	remove-wrong-adj	wnja-10244913-n	千三屋		remove	adjudicated	real-estate broker (or liar), not an estate administrator
+ja-260	rename-mechanical	wnja-15092942-n	ビタミンK1	ビタミンＫ１	rename		full-width characters
+ja-261	remove-wrong-adj	wnja-00732552-v	続ける		remove	adjudicated	continue, not observe/keep (a rule)
+ja-262	unflagged	wnja-05786871-n	自己解剖		keep	not flagged	
+ja-263	jsemcor-reject	wnja-07970721-n	家族		not added	adjudicated	household family, not lineage
+ja-264	unflagged	wnja-04243370-n	スリット		keep	not flagged	
+ja-265	remove-wrong	wnja-07955961-n	答申		remove	both runs	report to authority; synset is artisan's findings (supplies)
+ja-266	remove-wrong-adj	wnja-10256537-n	偽者		remove	adjudicated	impostor/fake, not a liar
+ja-267	remove-wrong	wnja-00338641-n	口		remove	both runs	口 is an aperture or job opening, not the act of opening
+ja-268	lower	wnja-07325102-n	百鬼夜行		lower	adjudicated	evildoers running rampant; not specifically a rise in crime rate
+ja-269	lower	wnja-11802995-n	アオイ		lower	adjudicated	葵 covers Japanese Asarum; European species only loosely
+ja-270	unflagged	wnja-07318476-n	機能不全		keep	not flagged	
+ja-271	unflagged	wnja-00479598-v	機械化		keep	not flagged	
+ja-272	keep	wnja-01848718-v	消え失せる		keep	both runs	
+ja-273	unflagged	wnja-00594621-v	知る		keep	not flagged	
+ja-274	jsemcor-reject	wnja-05677504-n	感性		not added	all runs	感性 means sensibility, not awareness
+ja-275	remove-wrong	wnja-04765355-n	卓出		remove	both runs	excellence/preeminence, not prevalence
+ja-276	keep-adj	wnja-10624074-n	坊さん		keep	adjudicated	dictionaries list 坊さん as an affectionate term for a boy besides 'monk'
+ja-277	unflagged	wnja-06636524-n	文書		keep	not flagged	
+ja-278	jsemcor-add	wnja-05698791-n	疑い		add		JSemCor translation (all runs)
+ja-279	unflagged	wnja-00075019-a	気どらない		keep	not flagged	
+ja-280	remove-wrong	wnja-01852548-a	結構		remove	both runs	結構 means fine/quite, not 'of primary importance'
+ja-281	remove-wrong-adj	wnja-02061846-v	通勤学		remove	adjudicated	not a real word (fragment of 通勤通学)
+ja-282	lower	wnja-01226240-a	光栄		lower	adjudicated	honour/glory; only loosely 'worthy of honour'
+ja-283	unflagged	wnja-13346912-n	入院		keep	not flagged	
+ja-284	remove-wrong	wnja-02708123-v	しっこ		remove	both runs	pee, not idling time away
+ja-285	unflagged	wnja-07355887-n	下落		keep	not flagged	
+ja-286	jsemcor-add	wnja-00609683-v	想う		add		JSemCor translation (all runs)
+ja-287	keep	wnja-00299476-a	耳障り		keep	both runs	
+ja-288	remove-wrong	wnja-04701460-n	輝度		remove	both runs	luminance/brightness, not clearness of water
+ja-289	rename-mechanical	wnja-03870672-n	1束	１束	rename		full-width characters
+ja-290	unflagged	wnja-01170243-a	壮健		keep	not flagged	
