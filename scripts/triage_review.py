@@ -35,7 +35,7 @@ def write_tsv(path: Path, header: list[str], rows: list[list]) -> None:
     """Write a tab-separated file with a header."""
     with open(path, "w", encoding="utf-8", newline="") as fh:
         t = csv.writer(fh, delimiter="\t", lineterminator="\n", quoting=csv.QUOTE_NONE,
-                       escapechar="\\")
+                       quotechar=None)
         t.writerow(header)
         t.writerows(rows)
 
