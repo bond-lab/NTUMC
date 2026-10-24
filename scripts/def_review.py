@@ -8,9 +8,10 @@ an adjudicator with both verdicts, reasons and suggested fixes.
   build    write OUT/runN/batchNNN.tsv + OUT/runN/key.tsv
   compare  write OUT/adjudicate/batchNNN.tsv + key.tsv from the two runs
   final    combine everything into OUT/final.tsv
-  corrections  write remove rows for WRONG definitions to Wordnet Bahasa's
-           corrections/definitions.tsv, and the suggested fixes, which wait
-           for a human check, to OUT/suggestions-pending.tsv
+  corrections  write rows to Wordnet Bahasa's corrections/definitions.tsv
+           that remove WRONG definitions and give PARTIAL ones confidence 0.5,
+           and the suggested fixes, which wait for a human check, to
+           OUT/suggestions-pending.tsv
 
   def_review.py build WNB_ID_XML --en-data WN_DIR
 """
@@ -142,25 +143,33 @@ def final(a: argparse.Namespace) -> None:
     print(dict(tab))
 
 
-DEF_HEAD = ["synset_id", "old_value", "new_value", "reason", "source", "date"]
+DEF_HEAD = ["synset_id", "old_value", "new_value", "reason", "source", "date", "confidence"]
+PARTIAL_CONFIDENCE = "0.5"
 
 
 def corrections(a: argparse.Namespace) -> None:
-    """Remove WRONG definitions; keep all suggestions pending."""
+    """Remove WRONG definitions, lower PARTIAL ones; keep all suggestions pending."""
     final = tr.read_tsv(a.out / "final.tsv")
     old = tr.read_tsv(a.definitions) if a.definitions.exists() else []
-    keep = [[r[c] for c in DEF_HEAD] for r in old
+    keep = [[r.get(c) or "" for c in DEF_HEAD] for r in old
             if not r["source"].startswith("definition review")]
-    new = [[r["synset"], r["definition"], "", f"wrong definition: {r['reason']}".rstrip(": "),
-            "definition review: 2 blind opus" + (" (adjudicated)" if r["decided_by"]
-                                                 == "adjudication" else ""), a.date]
-           for r in final if r["final"] == "WRONG"]
+    new = []
+    for r in final:
+        if r["final"] not in ("WRONG", "PARTIAL"):
+            continue
+        wrong = r["final"] == "WRONG"
+        src = "definition review: 2 blind opus" + (
+            " (adjudicated)" if r["decided_by"] == "adjudication" else "")
+        new.append([r["synset"], r["definition"], "" if wrong else r["definition"],
+                    f"{r['final'].lower()} definition: {r['reason']}".rstrip(": "), src,
+                    a.date, "" if wrong else PARTIAL_CONFIDENCE])
     tr.write_tsv(a.definitions, DEF_HEAD, keep + sorted(new))
     tr.write_tsv(a.out / "suggestions-pending.tsv",
                  ["synset", "definition", "review", "reason", "suggestion"],
                  [[r["synset"], r["definition"], r["final"], r["reason"], r["suggestion"]]
                   for r in final if r["final"] in ("PARTIAL", "WRONG") and r["suggestion"]])
-    print(f"{len(new)} definitions removed")
+    print(f"{sum(1 for r in new if not r[2])} definitions removed, "
+          f"{sum(1 for r in new if r[2])} lowered")
 
 
 def main() -> None:

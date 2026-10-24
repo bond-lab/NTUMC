@@ -51,12 +51,13 @@ def test_corrections_remove_wrong_and_keep_suggestions(tmp_path: Path) -> None:
         ["s2", "d2", "PARTIAL", "adjudication", "short", "lebih", "", "", "", ""],
         ["s3", "d3", "OK", "both", "", "", "", "", "", ""]])
     defs = tmp_path / "definitions.tsv"
-    tr.write_tsv(defs, dr.DEF_HEAD, [["x", "a", "b", "manual fix", "manual", "2026-01-01"]])
+    tr.write_tsv(defs, dr.DEF_HEAD[:-1], [["x", "a", "b", "manual fix", "manual", "2026-01-01"]])
     # Act
     dr.corrections(argparse.Namespace(out=tmp_path, definitions=defs, date="2026-10-25"))
     # Assert
     rows = tr.read_tsv(defs)
-    assert [(r["synset_id"], r["new_value"], r["source"]) for r in rows] == [
-        ("x", "b", "manual"), ("s1", "", "definition review: 2 blind opus")]
+    assert [(r["synset_id"], r["new_value"], r["source"], r["confidence"]) for r in rows] == [
+        ("x", "b", "manual", ""), ("s1", "", "definition review: 2 blind opus", ""),
+        ("s2", "d2", "definition review: 2 blind opus (adjudicated)", "0.5")]
     pending = tr.read_tsv(tmp_path / "suggestions-pending.tsv")
     assert [(r["synset"], r["suggestion"]) for r in pending] == [("s1", "baru"), ("s2", "lebih")]
