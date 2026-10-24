@@ -8,6 +8,7 @@ Addresses three categories of problems found during wordnet validation:
         synset, delete synset, merge senses, or leave as-is)
   DEF   Wrong definitions — exact-string replacements, duplicate deletion
   EX    Wrong examples — exact-string replacements
+  JSEM  Japanese senses from JSemCor (wnja issue #11)
   EXCL  Missing Japanese exclamatives (thank you, please)
   SENSE Wrong senses — deleted
   DEIX  Missing deixis links (dmnu/dmtu) from demonstratives to
@@ -23,6 +24,7 @@ Usage:
 
 import argparse
 import sqlite3
+from pathlib import Path
 
 
 def _rename_synset(db, old, new, dry_run):
@@ -735,7 +737,7 @@ def _wordid(db, lang, lemma, pos, dry_run):
     ).lastrowid
 
 
-def _add_sense(db, ss, lang, lemma, pos, dry_run, src="pron"):
+def _add_sense(db, ss, lang, lemma, pos, dry_run, src="pron", confidence=1.0):
     """Add a sense unless the word already has one in this synset."""
     if db.execute(
         "SELECT 1 FROM sense s JOIN word w USING (wordid) "
@@ -747,9 +749,33 @@ def _add_sense(db, ss, lang, lemma, pos, dry_run, src="pron"):
     if not dry_run:
         db.execute(
             "INSERT INTO sense (synset, wordid, lang, src, confidence) "
-            "VALUES (?, ?, ?, ?, 1.0)", (ss, wid, lang, src),
+            "VALUES (?, ?, ?, ?, ?)", (ss, wid, lang, src, confidence),
         )
     return 1
+
+
+# ── JSEM: Japanese senses from JSemCor ─────────────────────────────────
+
+# Senses JSemCor translators used that the wordnet lacked, accepted by a
+# blind double review (wnja issue #11, audit/jsemcor-review/ in wnja);
+# confidence 0.9 if both reviews agreed, 0.8 if adjudicated
+JSEMCOR_SENSES = Path(__file__).parent / "jsemcor-senses.tsv"
+
+
+def fix_jsemcor(db, dry_run):
+    """Add the reviewed JSemCor senses (synset, lemma, confidence)."""
+    if not JSEMCOR_SENSES.exists():
+        print(f"    {JSEMCOR_SENSES.name} not found, skipping")
+        return 0
+    n = 0
+    with JSEMCOR_SENSES.open(encoding="utf-8") as fh:
+        next(fh)
+        for line in fh:
+            ss, lemma, conf = line.rstrip("\n").split("\t")
+            n += _add_sense(db, ss, "jpn", lemma, ss[-1], dry_run,
+                            src="jsemcor", confidence=float(conf))
+    print(f"    {n} senses added")
+    return n
 
 
 # ── EXCL: Missing Japanese exclamatives ───────────────────────────────
@@ -934,6 +960,10 @@ def main():
 
     print("--- DEIX: Missing deixis links ---")
     fix_deixis(db, args.dry_run)
+    print()
+
+    print("--- JSEM: senses from JSemCor ---")
+    fix_jsemcor(db, args.dry_run)
     print()
 
     print("--- EXCL: missing Japanese exclamatives ---")
