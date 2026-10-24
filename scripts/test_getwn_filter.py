@@ -35,6 +35,39 @@ def test_drops_every_segmented_sense() -> None:
     assert kept == ["cow"]
 
 
+def test_load_examples_by_language_in_sid_order() -> None:
+    """Examples come back per synset, sid-ordered, for one language only."""
+    import sqlite3
+
+    from getwn import load_examples
+
+    con = sqlite3.connect(":memory:")
+    con.execute("CREATE TABLE synset_ex (synset, lang, def, sid, usr)")
+    con.executemany(
+        "INSERT INTO synset_ex VALUES (?, ?, ?, ?, '')",
+        [("00001740-n", "jpn", "二番目", 1), ("00001740-n", "jpn", "一番目", 0),
+         ("00001740-n", "eng", "first", 0), ("00002137-n", "jpn", " ", 0)],
+    )
+
+    exes = load_examples(con.cursor(), "jpn")
+
+    assert exes == {"00001740-n": ["一番目", "二番目"]}
+
+
+def test_split_gaps_drops_nolex_senses() -> None:
+    """NOLEX and META:NOLEX mark lexical gaps; they are not lemmas."""
+    from getwn import split_gaps
+
+    words = {1: ("NOLEX", "v"), 2: ("META:NOLEX", "a"), 3: ("運ぶ", "v")}
+    rows = [("01451502-v", 1, 0, 1.0, ""), ("80001278-a", 2, 0, 1.0, ""),
+            ("01449974-v", 3, 0, 1.0, "")]
+
+    kept, gaps = split_gaps(rows, words)
+
+    assert [r[1] for r in kept] == [3]
+    assert gaps == {"01451502-v", "80001278-a"}
+
+
 def test_ili_map_matches_satellites_as_adjectives(tmp_path) -> None:
     """A satellite in the ILI map (-s) is also found under -a."""
     from getwn import load_ili_map

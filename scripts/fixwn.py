@@ -7,6 +7,7 @@ Addresses three categories of problems found during wordnet validation:
   W501  POS-mismatch hypernyms — per-case fixes (delete link, rename
         synset, delete synset, merge senses, or leave as-is)
   DEF   Wrong definitions — exact-string replacements, duplicate deletion
+  EX    Wrong examples — exact-string replacements
   SENSE Wrong senses — deleted
   DEIX  Missing deixis links (dmnu/dmtu) from demonstratives to
         medial/proximal/distal/remote
@@ -370,6 +371,76 @@ FIX_DEF = [
     ("77000088-n", "eng",
      "manner, medial pronoun",
      "manner, distal pronoun"),                     # (no senses)
+    # Japanese definition errors reported to jwordnet@gmail.com
+    ("00824767-v", "jpn",
+     "厳しくあるいは怒って避難する",
+     "厳しくあるいは怒って非難する"),                  # 避難 evacuate
+    ("10086074-n", "jpn",
+     "財産を信託受益者として委託された人",
+     "財産を信託受益者のために委託された人"),          # for, not as
+    ("01308160-v", "jpn",
+     "繰り返して引っ掻jく",
+     "繰り返して引っ掻く"),                            # stray j
+    ("09755893-n", "jpn",
+     "集団の規範から著しく外された行動をとる人",
+     "集団の規範から著しく外れた行動をとる人"),
+    ("02338917-a", "jpn",
+     "（行動または態度について使用され）他人を卑下して扱う人に特徴的な",
+     "（行動または態度について使用され）他人を見下して扱う人に特徴的な"),
+    ("13092078-n", "jpn",
+     "子嚢菌の性的生殖行為を経て子嚢胞子が形成される袋状の構造",
+     "子嚢菌の有性生殖を経て子嚢胞子が形成される袋状の構造"),
+    ("00601783-a", "jpn",
+     "物議を醸しだすことで特徴付けられる、あるいは、が可能である",
+     "物議を醸すことで特徴付けられる、あるいは物議を醸しうる"),
+    ("00157925-a", "jpn",
+     "性関係無しに交際する",
+     "排他的な性的関係を持って交際している"),          # committed
+    # PWN has the leap-year exception backwards (2000 was a leap year)
+    ("15202230-n", "eng",
+     ("in the Gregorian calendar: any year divisible by 4 except "
+      "centenary years divisible by 400"),
+     ("in the Gregorian calendar: any year divisible by 4 except "
+      "centenary years not divisible by 400")),
+    ("15202230-n", "jpn",
+     "グレゴリオ暦で：400で割り切れる100年目の年を除いた、4で割り切れる年",
+     "グレゴリオ暦で：4で割り切れる年（ただし400で割り切れない100年目の年を除く）"),
+    ("14119770-n", "jpn",
+     "バソプレッシン（腎臓を調整する下垂体ホルモン）の欠乏から生じる糖尿病の珍しい型",
+     "バソプレッシン（腎臓を調整する下垂体ホルモン）の欠乏から生じるまれな疾患"),
+    ("04513827-n", "jpn",
+     "家具を装飾するカバー（詰め物、バネ、テープ、生地など）",
+     "家具を覆うカバー（詰め物、バネ、テープ、生地など）"),
+    ("00497560-r", "jpn",
+     "そうでけでなくしかし、",
+     "そうであるだけでなく"),                          # not only so, but
+    ("00557537-v", "jpn",
+     "突出するために（表面かデザイン）を安定させ、理念をもたらす",
+     "（表面や図案を）浮き彫りにして突き出させる"),      # relief, not 安定
+    # more of the same kinds of error, found by searching for them
+    ("01101571-v", "jpn",
+     "通貨または採用を確実にする（法案と動議の）",
+     "通過または採用を確実にする（法案と動議の）"),      # passage
+    ("02213074-v", "jpn",
+     "特に、何かの喜びに耽るkとから抑制する",
+     "特に、何かの喜びに耽ることを抑制する"),
+    ("03029573-a", "jpn",
+     "腹式分娩に関連するkじょと",
+     "腹式分娩に関連する"),
+    ("08052690-n", "jpn",
+     ("国が開放されたときに支配者となることを期待される亡命者によって"
+      "外国に移された、あるいは外国で打ち立てられた臨時政府"),
+     ("国が解放されたときに支配者となることを期待される亡命者によって"
+      "外国に移された、あるいは外国で打ち立てられた臨時政府")),  # liberated
+    ("01475536-v", "jpn",
+     "開放する、または制限がなくなる",
+     "解放する、または制限がなくなる"),                  # free from restraint
+    ("01264447-n", "jpn",
+     "創造力または感情を開放する、または、表現する活動",
+     "創造力または感情を解放する、または、表現する活動"),
+    ("01079857-a", "jpn",
+     "氷から開放され、移動しやすい",
+     "氷がなく、通行できる"),                            # free of ice
 ]
 
 
@@ -421,12 +492,51 @@ def delete_defs(db, dry_run):
     return n
 
 
+# ── EX: Wrong examples ────────────────────────────────────────────────
+
+# (synset, lang, old_example, new_example), reported to jwordnet@gmail.com
+FIX_EX = [
+    ("01562891-v", "jpn", "車を溝に音する", "車を溝に突っ込ませる"),  # ditch a car
+    ("02674340-v", "jpn", "これをしゃぶれ！", "こんなのひどい！"),     # this sucks!
+    ("02611373-v", "jpn", "現時点で、私は正しい",
+     "おっしゃるとおり私が間違っていました"),               # I stand corrected
+    ("00547641-a", "jpn", "はっきりした報告", "歯切れのよい切り返し"),  # a crisp retort
+]
+
+
+def fix_examples(db, dry_run):
+    """Replace examples that exactly match a known-bad string."""
+    n = 0
+    for ss, lang, old, new in FIX_EX:
+        found = db.execute(
+            "SELECT COUNT(*) FROM synset_ex "
+            "WHERE synset=? AND lang=? AND def=?", (ss, lang, old)
+        ).fetchone()[0]
+        if not found:
+            print(f"    {ss}: already fixed or not found")
+            continue
+        print(f"    {ss}: {old!r} -> {new!r}")
+        n += found
+        if not dry_run:
+            db.execute(
+                "UPDATE synset_ex SET def=? "
+                "WHERE synset=? AND lang=? AND def=?", (new, ss, lang, old)
+            )
+    return n
+
+
 # ── SENSE: Wrong senses ───────────────────────────────────────────────
 
 # (synset, lang, lemma) senses to delete
 DELETE_SENSE = [
     # 哪 'which' is interrogative (77000091-a), not distal 'that' (那)
     ("77000079-a", "cmn", "哪"),
+    # Japanese senses reported to jwordnet@gmail.com
+    ("09934846-n", "jpn", "鏡台"),         # coiffeuse is a hairdresser
+    ("02935316-n", "jpn", "記念スタンプ"),  # cachet: seal on a letter
+    ("04664628-n", "jpn", "電光石火"),      # alertness
+    ("02118840-a", "jpn", "一生懸命"),      # earnest (humourless belief)
+    ("00486509-r", "jpn", "圧倒されて"),    # under: down to defeat or ruin
 ]
 
 
@@ -793,6 +903,10 @@ def main():
     print("--- DEF: Wrong definitions ---")
     fix_defs(db, args.dry_run)
     delete_defs(db, args.dry_run)
+    print()
+
+    print("--- EX: Wrong examples ---")
+    fix_examples(db, args.dry_run)
     print()
 
     print("--- SENSE: Wrong senses ---")

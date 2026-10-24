@@ -290,6 +290,36 @@ def filter_senses(rows, exclude):
     return kept
 
 
+def is_gap(lemma):
+    """True for the NOLEX / META:NOLEX lemmas that mark a lexical gap."""
+    return lemma.split(":")[-1] == "NOLEX"
+
+
+def split_gaps(rows, words):
+    """Separate lexical-gap senses from real ones.
+
+    Returns (rows without gap senses, synsets that had a gap sense).
+    The gap markers are not words, so they must not become lemmas.
+    """
+    gaps = {wid for wid, (lemma, _) in words.items() if is_gap(lemma)}
+    kept = [r for r in rows if r[1] not in gaps]
+    gap_synsets = {r[0] for r in rows if r[1] in gaps}
+    return kept, gap_synsets
+
+
+def load_examples(c, lang):
+    """Return {synset: [example, ...]} for one language, in sid order."""
+    exes = dd(list)
+    c.execute(
+        "SELECT synset, def FROM synset_ex WHERE lang = ? ORDER BY sid",
+        (lang,),
+    )
+    for synset, text in c:
+        if text and text.strip():
+            exes[synset].append(text.strip())
+    return exes
+
+
 def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None,
                     base=None, exclude_src=None):
     """Extract a single language wordnet from the DB and write XML.
@@ -326,6 +356,8 @@ def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None,
         rows = filter_senses(rows, exclude_src)
         print(f"  {lang}: excluded {n - len(rows)} senses only from "
               f"{', '.join(sorted(exclude_src))}")
+    rows, gap_synsets = split_gaps(rows, words)
+    synsets_used.update(gap_synsets)
     for synset, wid, freq, confidence, _ in rows:
         senses[wid].add((synset, freq or 0, confidence or 1.0))
         synsets_used.add(synset)
@@ -342,6 +374,10 @@ def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None,
     for synset, d in c:
         defs[synset].append(d)
         synsets_used.add(synset)
+
+    # Examples go on synsets that are exported anyway; on their own they
+    # do not make a synset worth exporting
+    exes = load_examples(c, lang)
 
     # English definitions, for NTU-MC synsets with no ILI and no definition
     # in this language (otherwise nothing says what they mean)
@@ -384,8 +420,8 @@ def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None,
     # Filter against base wordnet (remove shared relations & empty synsets)
     if base is not None:
         base_synsets, base_relations, base_id, base_version = base
-        # Synsets with actual content (senses or definitions)
-        content_synsets = set()
+        # Synsets with actual content (senses, definitions or a lexical gap)
+        content_synsets = set(gap_synsets)
         for wid, sense_set in senses.items():
             for synset, _freq, _conf in sense_set:
                 content_synsets.add(synset)
@@ -473,6 +509,11 @@ def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None,
                 and synset in eng_defs):
             ss["definitions"] = [{"text": "; ".join(eng_defs[synset]),
                                   "language": "en"}]
+        if synset in exes:
+            ss["examples"] = [{"text": e, "meta": None}
+                              for e in exes[synset]]
+        if synset in gap_synsets and synset not in sense_synsets:
+            ss["lexicalized"] = False
 
     # Add synset relations (after all synsets exist)
     for synset in synlinks:
