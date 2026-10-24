@@ -1,0 +1,101 @@
+id	words	definition	note
+g7001	angiitis	PARTIAL	'saluran limpa' should be 'saluran limfa' (limpa = spleen)
+g7002	aortitis reumatik	OK	
+g7003	arteritis	OK	
+g7004	periarteritis	OK	
+g7005	arteritis Takayasu	PARTIAL	clumsy: 'karotid arteri' should be 'arteri karotis'
+g7006	oftalmia neonatorum	PARTIAL	misspelt 'optalmia'; omits cause
+g7007	aktinomikosis toraks	OK	
+g7008	aktinomikosis abdominal	OK	
+g7009		PARTIAL	'alveoli' should be 'alveolitis'; no established Indonesian term
+g7010	anaplasmosis	OK	
+g7011	aspergilosis	OK	
+g7012	pneumonia aspirasi	PARTIAL	only the secondary clause; genus missing
+g7013	bagasosis	OK	
+g7014	balanitis	OK	
+g7015	balanopostitis	PARTIAL	foreskin is 'kulup', not 'kulit luar'
+g7016		OK	no Indonesian term
+g7017	bursitis	PARTIAL	only the secondary clause
+g7018	brucellosis; keluron menular	PARTIAL	omits abortion and transmission to humans
+g7019	penyakit lidah biru	PARTIAL	'makhluk kerdil' is a garbled rendering of 'midges' (agas)
+g7020	penyakit sapi gila; BSE	OK	
+g7021		OK	no Indonesian term
+g7022	cacar unta	PARTIAL	omits relation to smallpox
+g7023		PARTIAL	too general; no established term
+g7024		OK	no Indonesian term
+g7025	costiasis	OK	
+g7026	cacar sapi	PARTIAL	only the secondary clause
+g7027		PARTIAL	no Indonesian term
+g7028	septikemia hemoragik; ngorok; pasteurelosis	OK	
+g7029		WRONG	'gelambir' is dewlap, not withers (gumba)
+g7030	kolera unggas	PARTIAL	
+g7031		PARTIAL	covers both fowl plague and Newcastle disease; no single term
+g7032	kolera babi	OK	
+g7033	distemper	OK	
+g7034	distemper anjing	PARTIAL	genus (dogs) missing
+g7035		PARTIAL	genus (horses) missing; no established term
+g7036	enterotoksemia	PARTIAL	omits toxin cause
+g7037	penyakit mulut dan kuku; PMK	PARTIAL	genus missing
+g7038	busuk kuku	OK	
+g7039	distomatosis; fasciolosis	WRONG	cause given as 'hati busuk' instead of liver flukes
+g7040		PARTIAL	'muntah' (vomiting) wrong for heaving of flanks
+g7041	penyakit Marburg; demam berdarah Marburg	PARTIAL	omits human transmission
+g7042	aminoasiduria	OK	
+g7043	amoniuria	OK	
+g7044	hematosituria	OK	
+g7045		PARTIAL	only the secondary clause; usually called tanda Chadwick in Indonesian
+g7046	cincin Kayser-Fleischer	PARTIAL	omits Wilson's disease
+g7047	keratomalasia	PARTIAL	omits softening
+g7048	tanda Kernig	PARTIAL	typo 'dilenturka'; omits meningitis
+g7049	ketonemia; ketosis; asetonemia	PARTIAL	'ketone tubuh' should be 'badan keton'
+g7050	bercak Koplik	PARTIAL	omits measles
+g7051	fruktosuria	OK	
+g7052	glukosuria; glikosuria	OK	
+g7053	limfuria	PARTIAL	'limpa' (spleen) should be 'limfa'
+g7054	monositosis	OK	
+g7055	trombositosis	OK	
+g7056	okronosis	OK	
+g7057	hiperkalsemia	OK	
+g7058	hipokalsemia	OK	
+g7059	hiperkalsiuria	OK	
+g7060	hiperkolesterolemia	OK	
+g7061	hiperkalemia	OK	
+g7062	hipokalemia	OK	
+g7063	kalemia	OK	
+g7064	kaliuresis	OK	
+g7065	natriuresis	PARTIAL	typo 'natirum'
+g7066	hiperlipoproteinemia	OK	
+g7067	hipolipoproteinemia	PARTIAL	fragment; does not say what is low
+g7068	hipoproteinemia	OK	
+g7069	hipernatremia	PARTIAL	only the secondary clause
+g7070	hiponatremia	OK	
+g7071	hipersplenisme	OK	
+g7072		PARTIAL	omits hematuria
+g7073	rinotrakeitis	OK	
+g7074		OK	no lexicalised term
+g7075	scrapie	WRONG	says cattle (sapi) instead of sheep (domba)
+g7076		PARTIAL	no established term
+g7077		PARTIAL	'hock' untranslated; no Indonesian term
+g7078		OK	no Indonesian term
+g7079		OK	no Indonesian term
+g7080		PARTIAL	'tulang rawan' (cartilage) should be bone growth
+g7081		PARTIAL	omits symptoms; no established term
+g7082	penyakit Weil	PARTIAL	omits 'severe'
+g7083		OK	no Indonesian term
+g7084		PARTIAL	no Indonesian term
+g7085		OK	no Indonesian term
+g7086		PARTIAL	'mewakili' should be 'menyerupai'
+g7087		OK	no Indonesian term
+g7088	pulorum; berak kapur	OK	
+g7089		OK	no lexicalised term
+g7090		PARTIAL	hoof wall, not 'telapak kaki'
+g7091		OK	no Indonesian term
+g7092		OK	no Indonesian term
+g7093		PARTIAL	omits horses/cattle and symptoms
+g7094		OK	no Indonesian term
+g7095	demam Texas	OK	
+g7096		OK	no Indonesian term
+g7097	tularemia; demam kelinci	PARTIAL	omits transmission to humans
+g7098	penyakit tanaman; penyakit tumbuhan	OK	
+g7099		PARTIAL	'cemara' for pines should be 'pinus'
+g7100		OK	no Indonesian term

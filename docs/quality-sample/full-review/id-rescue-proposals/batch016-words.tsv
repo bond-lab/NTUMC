@@ -1,0 +1,101 @@
+id	words	definition	note
+g1501	antarsel	OK	
+g1502	berbunga	PARTIAL	garbled join "membayarsbunga"
+g1503		OK	no general Indonesian term
+g1504	intrasel; intraseluler	OK	
+g1505		OK	
+g1506		PARTIAL	omits "like"
+g1507		PARTIAL	"cenobites" left untranslated
+g1508		WRONG	garbled ("kehidupanshermitic")
+g1509	Kenozoikum	OK	
+g1510	mesin pesawat	WRONG	garbled: "power of engine and aircraft"
+g1511		OK	
+g1512	pegas udara	PARTIAL	"udara terbatas" mistranslates "confined air"
+g1513		PARTIAL	gandum = wheat only, concept is grain in general
+g1514	serebelar	OK	
+g1515	serebrospinal	OK	
+g1516	rangka pesawat	WRONG	says "including engines", should be excluding
+g1517	servikal	WRONG	says hand instead of neck
+g1518	palu pneumatik	OK	
+g1519		OK	
+g1520		OK	
+g1521		PARTIAL	garbled join "hinggaskering"
+g1522		OK	
+g1523		OK	
+g1524		OK	
+g1525		PARTIAL	only part of the definition
+g1526	Kasdim	PARTIAL	omits people; reads as noun
+g1527		PARTIAL	mailer is an envelope, not a letter
+g1528	saluran udara; saluran ventilasi	OK	
+g1529	sovinistis	PARTIAL	omits "or kind"
+g1530		OK	
+g1531		OK	
+g1532		PARTIAL	garbled join "menyerupaispenyu"
+g1533		OK	
+g1534	fotokimia; fotokimiawi	OK	
+g1535	fisikokimia	OK	
+g1536	terminal bandara	OK	
+g1537		OK	
+g1538	rudal udara-ke-darat	OK	
+g1539	lorong	PARTIAL	garbled join "dalamsgua"
+g1540		PARTIAL	omits style description
+g1541		PARTIAL	garbled join "olehsberkicau"
+g1542		PARTIAL	omits parasite
+g1543		PARTIAL	word order garbled
+g1544		PARTIAL	adds "in modern music"
+g1545	kedai bir	OK	
+g1546		PARTIAL	noda = blemish, should be zat pewarna
+g1547		OK	
+g1548		OK	
+g1549		PARTIAL	noda = blemish, should be zat pewarna
+g1550	klasik	OK	
+g1551		OK	
+g1552	berkuku belah	OK	
+g1553		PARTIAL	cloze untranslated (tes rumpang)
+g1554		OK	
+g1555		OK	
+g1556		OK	
+g1557	kolegial	PARTIAL	rights rather than authority
+g1558	berkoloni	OK	
+g1559		OK	
+g1560	kolorektal	OK	
+g1561	komensal	OK	
+g1562		OK	
+g1563		OK	
+g1564	konsonantal	OK	
+g1565	sehakikat	OK	
+g1566	kosmologis	PARTIAL	truncated
+g1567		OK	
+g1568		PARTIAL	omits Cornwall
+g1569		OK	
+g1570	intertidal	PARTIAL	omits "above the low-tide mark"
+g1571		PARTIAL	omits tread/sidewall description
+g1572		OK	
+g1573		PARTIAL	croup untranslated
+g1574		PARTIAL	clumsy, omits leg
+g1575		OK	
+g1576	berkerak	PARTIAL	"shell" untranslated
+g1577		OK	
+g1578		PARTIAL	omits adherence to surface
+g1579	kriogenik	OK	
+g1580	kriptografis; kriptologis	OK	
+g1581		OK	
+g1582		OK	
+g1583		PARTIAL	omits other wedge-shaped bones
+g1584	berakhir pekan	PARTIAL	"hujung minggu" is Malaysian; use akhir pekan
+g1585		OK	
+g1586	sitolitik	PARTIAL	omits "of or relating to cytolysis"
+g1587		OK	
+g1588		PARTIAL	clumsy syntax
+g1589	kistik	OK	
+g1590		OK	
+g1591		OK	
+g1592	sitologis	OK	
+g1593	sitotoksik	OK	
+g1594		PARTIAL	omits colloquial basis
+g1595		PARTIAL	garbled join "karakteristikssuatu"
+g1596	nominal	PARTIAL	omits coin and stamp
+g1597		OK	
+g1598		OK	
+g1599	diametral	OK	
+g1600		OK	

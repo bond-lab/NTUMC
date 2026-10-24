@@ -1,0 +1,101 @@
+id	words	definition	note
+g6801	cacar daun teh	OK	Exobasidium vexans; usual Indonesian name
+g6802		OK	no established Indonesian name
+g6803		PARTIAL	bush fruits (raspberries, currants) generalised to 'pohon buah'
+g6804		OK	no established Indonesian name
+g6805		OK	no established Indonesian name
+g6806		OK	no established Indonesian name
+g6807		OK	no established Indonesian name
+g6808	hawar api	OK	used in Indonesian plant pathology for Erwinia amylovora
+g6809		PARTIAL	'penyakit tanaman' too generic (fire blight phase); 'canker' left untranslated
+g6810		OK	no established Indonesian name
+g6811		OK	no established Indonesian name
+g6812		OK	no established Indonesian name
+g6813		OK	no established Indonesian name
+g6814		PARTIAL	omits Phytophthora infestans; Indonesian 'hawar daun/busuk daun' ambiguous with leaf blight
+g6815	hawar daun	OK	
+g6816	penyakit daun	OK	
+g6817		PARTIAL	conifers rendered as 'pohon cemara'; no established name
+g6818		OK	definition matches the (odd) PWN gloss; no Indonesian name
+g6819		WRONG	'tanaman yang sedang berbuah' (plants bearing fruit now) mistranslates 'trees bearing drupes' (buah batu)
+g6820		OK	no established single name
+g6821		OK	no established Indonesian name
+g6822		OK	no established Indonesian name
+g6823		OK	no established Indonesian name
+g6824	hawar batang	OK	
+g6825		PARTIAL	oats rendered vaguely as 'sejenis gandum'
+g6826		OK	no established Indonesian name
+g6827		OK	no established Indonesian name
+g6828		OK	no established Indonesian name
+g6829		OK	no established Indonesian name
+g6830		OK	no established Indonesian name
+g6831	penyakit kulit	OK	
+g6832	lupus vulgaris	PARTIAL	omits 'tuberculosis of the skin' (genus)
+g6833	spondilitis ankilosa	PARTIAL	omits impaired spinal mobility
+g6834	lupus eritematosus diskoid	OK	
+g6835	penyakit Hashimoto; tiroiditis Hashimoto	PARTIAL	fragment only; omits autoimmune thyroid disorder
+g6836	lupus eritematosus	OK	
+g6837	lupus eritematosus sistemik	PARTIAL	omits the characteristic features
+g6838	akantolisis	OK	
+g6839	akantosis	OK	
+g6840	akantosis nigrikans	PARTIAL	'tahi lalat' (moles) for dark wartlike patches
+g6841	rosasea	PARTIAL	clumsy ('cq wanita'); omits flushed appearance
+g6842	dermatitis aktinik	OK	
+g6843	dermatitis atopik; eksim atopik	OK	
+g6844		PARTIAL	fragment; omits allergic contact dermatitis around the lips
+g6845	dermatitis kontak	OK	
+g6846		OK	no established Indonesian name
+g6847		PARTIAL	poison ivy rendered as generic 'tanaman merambat'
+g6848		PARTIAL	poison oak rendered loosely
+g6849		OK	no established Indonesian name
+g6850		PARTIAL	omits 'in infants'
+g6851	ruam popok	PARTIAL	fragment; omits dermatitis of thighs and buttocks
+g6852		PARTIAL	omits cause (Saint John's wort); 'herbibore' typo
+g6853	neurodermatitis	OK	
+g6854	dermatitis serkaria	PARTIAL	omits schistosomes
+g6855	dermatosis	OK	
+g6856		PARTIAL	'pemanggang' is roaster, not baker (pembuat roti)
+g6857		OK	compositional; no lexicalised term
+g6858	eksema herpetikum	PARTIAL	vesicles rendered as 'kista'
+g6859	eksema vaksinatum	PARTIAL	clumsy; omits fever and vesicles
+g6860		PARTIAL	'penonjolan jaringan kulit' for accentuated skin lines
+g6861	eritema multiforme	PARTIAL	'kondisi gatal merah' rather than red rash (ruam merah)
+g6862	eritema nodosum	PARTIAL	'merah-halus' mistranslates tender
+g6863	eritema nodosum leprosum	PARTIAL	causality garbled ('akibat luka')
+g6864	eritroderma	OK	
+g6865		OK	no single Indonesian term for this sense
+g6866	furunkulosis	OK	
+g6867		OK	no established Indonesian name
+g6868	keratoderma	OK	
+g6869		OK	term not in Indonesian use
+g6870	keratosis	OK	
+g6871	keratosis aktinik	OK	
+g6872	keratoderma blenoragika	PARTIAL	'kudis' (scabies) for rash
+g6873	penyakit Darier	OK	
+g6874	keratosis pilaris	OK	
+g6875	keratosis seboroik	PARTIAL	'tahi lalat' for wartlike lesions; omits greasy crust
+g6876	liken planus	PARTIAL	garbled fragment; omits flat-topped papules
+g6877	livedo	OK	
+g6878	lupus	OK	
+g6879		OK	no established Indonesian term
+g6880	moluskum kontagiosum	PARTIAL	fragment; omits viral skin disease
+g6881	nekrobiosis lipoidika	OK	
+g6882	pemfigus	OK	
+g6883	pitiriasis alba	PARTIAL	omits depigmented patches
+g6884	pitiriasis rosea	PARTIAL	'ekstrim' garbled for extremities; 'kudis' for rash
+g6885	prurigo	PARTIAL	'lepuh bernanah' for blister-capped papules
+g6886	ragades	OK	
+g6887		OK	no established Indonesian name
+g6888	skleredema	OK	
+g6889	seborea	OK	
+g6890	dermatitis seboroik	OK	
+g6891	vitiligo	OK	
+g6892	xantelasma	PARTIAL	fragment; omits xanthoma of the eyelids
+g6893	xantoma	OK	
+g6894	xantoma diseminatum	PARTIAL	'kista' for papules
+g6895	xantosis	PARTIAL	'pemudaran' (fading) for discoloration
+g6896	polip adenomatosa	OK	
+g6897	polip sesil	OK	
+g6898	polip bertangkai	PARTIAL	'tangkai bunga' (flower stalk) wrong sense of peduncle
+g6899	akantoma	OK	
+g6900	kondroma	OK	

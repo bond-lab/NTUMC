@@ -1,0 +1,101 @@
+id	words	definition	note
+g7101		PARTIAL	no Indonesian name; definition omits disease and plum/cherry hosts
+g7102	busuk hitam	OK	
+g7103	bercak hitam	OK	
+g7104		PARTIAL	no Indonesian name; definition omits disease and lettuce
+g7105	busuk cokelat	PARTIAL	definition omits browning and decay
+g7106	gumosis	PARTIAL	definition omits that it is a disease of citrus trees
+g7107	gumosis	PARTIAL	'pohon berbuah keras' is a clumsy rendering of stone-fruit trees
+g7108	layu bakteri	PARTIAL	definition garbled and incomplete
+g7109	kanker	OK	plant canker sense
+g7110		OK	no Indonesian name
+g7111	puru mahkota	PARTIAL	'getah' (sap) mistranslates excrescences (growths)
+g7112		PARTIAL	'akar rambut' would mean root hair; definition omits crown gall
+g7113		PARTIAL	no Indonesian name; 'getah' mistranslates excrescences
+g7114	rebah kecambah	PARTIAL	definition omits seedlings and excess moisture
+g7115	mati pucuk	OK	
+g7116	busuk kering	PARTIAL	'menggumpal' (clumping) should be crumbling (rapuh)
+g7117	busuk hati	OK	
+g7118	mosaik kentang	OK	
+g7119	mosaik tembakau	OK	
+g7120		OK	no Indonesian name
+g7121		PARTIAL	no Indonesian name; definition truncated
+g7122		OK	no Indonesian name
+g7123	jamur upas	OK	
+g7124		PARTIAL	no Indonesian name; 'getah' mistranslates excrescences
+g7125	busuk akar	OK	
+g7126		OK	no established Indonesian term
+g7127		PARTIAL	sweet potato is 'ubi jalar', not 'kentang manis'
+g7128		PARTIAL	no Indonesian name; definition omits sclerotia-forming sense
+g7129		OK	no Indonesian name
+g7130	ergot	OK	
+g7131	busuk pangkal batang	OK	
+g7132		OK	no Indonesian name
+g7133		OK	no Indonesian name; onion may be bawang bombai rather than bawang merah
+g7134	layu fusarium	OK	
+g7135	layu verticillium	OK	
+g7136	gosong	OK	
+g7137		PARTIAL	definition lacks 'disease of grains'
+g7138		PARTIAL	definition lacks 'disease of wheat'
+g7139		WRONG	'kotoran' (dirt) mistranslates smut (the fungal disease)
+g7140	gosong palsu	PARTIAL	definition lacks 'disease of rice'
+g7141	busuk lunak	OK	
+g7142		PARTIAL	no Indonesian name; definition omits fungal cause
+g7143	kerdil kuning	PARTIAL	definition lacks 'virus disease of plants'
+g7144		OK	no lexicalised name
+g7145		OK	no lexicalised name; onion is bawang bombai rather than bawang merah
+g7146	bercak kuning	OK	
+g7147	trauma kelahiran	PARTIAL	definition omits the psychoanalytic claim
+g7148		OK	no specific Indonesian term
+g7149		OK	no Indonesian term
+g7150	luka robek; laserasi	OK	
+g7151	gigitan anjing	OK	
+g7152	gigitan ular	PARTIAL	'dikaitkan' (associated) should be 'ditimbulkan'
+g7153	sengatan lebah	PARTIAL	'dikaitkan' (associated) should be 'ditimbulkan'
+g7154	gigitan kutu	OK	
+g7155	gigitan nyamuk	OK	
+g7156	trauma lahir; cedera lahir	OK	
+g7157	trauma ledakan	OK	
+g7158	stroke hemoragik; stroke perdarahan	OK	
+g7159	trauma tumpul	OK	
+g7160	ekimosis	OK	
+g7161	mata lebam	OK	
+g7162	luka bakar listrik	OK	
+g7163	sedasi	OK	
+g7164		OK	only free phrase 'kulit terbakar matahari'
+g7165		OK	no Indonesian term
+g7166	hiperpigmentasi	OK	
+g7167	hipopigmentasi	OK	
+g7168	luka bakar derajat satu	OK	
+g7169	luka bakar derajat dua	OK	
+g7170	luka bakar derajat tiga	OK	
+g7171	sengatan listrik	PARTIAL	definition omits usual symptoms
+g7172	fraktur kominutif	OK	
+g7173	fraktur komplet	OK	
+g7174	fraktur terbuka; patah tulang terbuka	OK	
+g7175	fraktur kompresi	OK	
+g7176	fraktur depresi	OK	
+g7177		OK	no lexicalised Indonesian term
+g7178	fraktur stres	OK	
+g7179	fraktur rambut	OK	
+g7180	fraktur greenstick	OK	
+g7181	fraktur inkomplet	OK	
+g7182	fraktur impaksi	OK	
+g7183	fraktur tertutup; patah tulang tertutup	OK	
+g7184	diastasis	PARTIAL	definition only says 'without fracture'
+g7185	spondilolistesis	OK	
+g7186	intravasasi	OK	
+g7187	trauma tembus; luka tembus	OK	
+g7188		PARTIAL	no Indonesian noun; 'dicubit' adds an unrelated sense
+g7189	kolpokel	OK	
+g7190	divertikulum	OK	
+g7191	divertikulum Meckel	PARTIAL	definition omits yolk sac origin
+g7192	eventrasi	OK	
+g7193	eksomfalos; omfalokel	PARTIAL	'saat melahirkan' suggests the mother giving birth
+g7194	hernia hiatus	PARTIAL	stomach should be 'lambung', not ambiguous 'perut'
+g7195	hernia nukleus pulposus	PARTIAL	definition describes pain rather than the rupture
+g7196	hernia inguinalis; turun berok	PARTIAL	definition lacks the main content
+g7197	sistokel	OK	
+g7198	rektokel	OK	
+g7199		PARTIAL	no common term; 'di sekujur' (all over) is wrong for 'through'
+g7200	gangguan tidur	OK	

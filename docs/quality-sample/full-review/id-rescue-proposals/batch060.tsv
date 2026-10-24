@@ -1,0 +1,101 @@
+id	synset	english_words	english_definition	own_definition
+g5901	wnb-id-13620404-n	pint, dry pint	a United States dry unit equal to 0.5 quart or 33.6 cubic inches	satuan kering (Amerika Serikat) setara 0,5 liter atau 33,6 inci kubik
+g5902	wnb-id-13620871-n	bushel	a United States dry measure equal to 4 pecks or 2152.42 cubic inches	ukuran takaran kurang lebih 36 l
+g5903	wnb-id-13621011-n	minim	a British imperial capacity measure (liquid or dry) equal to 1/60th fluid dram or 0.059194 cubic centimeters	satuan kapasitas Inggris (cair atau kering) setara 1/60th dram cairan atau 0,059
+g5904	wnb-id-13621418-n	fluidounce, fluid ounce	a British imperial unit of capacity or volume (liquid or dry) equal to 8 fluid drams or 28.416 cubic centimeters (1.734 cubic inches)	satuan kapasitas/volume cair atau kering (Inggris) setara 28,416 cm^3
+g5905	wnb-id-13621850-n	pint	a British imperial capacity measure (liquid or dry) equal to 4 gills or 568.26 cubic centimeters	satuan ukuran kapasitas (Inggris) setara 4 gills atau 568,26 sentimeter kubik
+g5906	wnb-id-13622591-n	bushel	a British imperial capacity measure (liquid or dry) equal to 4 pecks	ukuran takaran kurang lebih 36 l
+g5907	wnb-id-13622769-n	firkin	a British unit of capacity equal to 9 imperial gallons	(Inggris) satuan kapasitas setara 9 galon
+g5908	wnb-id-13623054-n	quarter	a quarter of a hundredweight (28 pounds)	seperempat kilogram (28 pon)
+g5909	wnb-id-13623205-n	hogshead	a British unit of capacity for alcoholic beverages	ukuran kapasitas Inggris untuk minuman beralkohol
+g5910	wnb-id-13623329-n	chaldron	a British imperial capacity measure (liquid or dry) equal to 36 bushels	ukuran kapasitas (Inggris) setara 36 gantang
+g5911	wnb-id-13625063-n	cubic kilometer, cubic kilometre	a unit of capacity equal to the volume of a cube one kilometer on each edge	ukuran kapasitas setara volume sebuah kubus satu kilometer kubik
+g5912	wnb-id-13625884-n	nybble, nibble	a small byte	suatu bit yang kecil
+g5913	wnb-id-13626789-n	bad block	(computer science) a block (usually one sector) that cannot reliably hold data	(Ilmu komputer) suatu blok (biasanya satu sektor) yang tidak dapat menyimpan data
+g5914	wnb-id-13627516-n	kilobyte, kibibyte, K, KB, kB, KiB	a unit of information equal to 1024 bytes	unit informasi sebesar 1024 bit
+g5915	wnb-id-13627810-n	kilobit, kbit, kb	a unit of information equal to 1000 bits	unit informasi yang setara 1000 bit
+g5916	wnb-id-13628419-n	megabit, Mbit, Mb	a unit of information equal to 1000 kilobits or 10^6 (1,000,000) bits	unit informasi yang setara 1000 kilobit atau 10 ^ 6 (1.000.000) bit
+g5917	wnb-id-13628761-n	gigabyte, gibibyte, G, GB, GiB	a unit of information equal to 1024 mebibytes or 2^30 (1,073,741,824) bytes	unit informasi yang setara 1024 mebibytes atau 2 ^ 30 (1073741824) bit
+g5918	wnb-id-13629132-n	gigabit, Gbit, Gb	a unit of information equal to 1000 megabits or 10^9 (1,000,000,000) bits	unit informasi yang setara 1000 megabits atau 10 ^ 9 (1.000.000.000) bit
+g5919	wnb-id-13629482-n	terabyte, tebibyte, TB, TiB	a unit of information equal to 1024 gibibytes or 2^40 (1,099,511,627,776) bytes	unit informasi yang setara 1024 gibibytes atau 2 ^ 40 (1,099,511,627,776) bit
+g5920	wnb-id-13629854-n	terabit, Tbit, Tb	a unit of information equal to 1000 gigabits or 10^12 (1,000,000,000,000) bits	unit informasi yang setara 1000 gigabit atau 10 ^ 12 (1.000.000.000.000) bit
+g5921	wnb-id-13630213-n	petabyte, pebibyte, PB, PiB	a unit of information equal to 1024 tebibytes or 2^50 bytes	unit informasi yang setara 1024 tebibytes atau 2^50 bit
+g5922	wnb-id-13630545-n	petabit, Pbit, Pb	a unit of information equal to 1000 terabits or 10^15 bits	unit informasi yang setara 1000 terabits atau 10^15 bit
+g5923	wnb-id-13630864-n	exabyte, exbibyte, EB, EiB	a unit of information equal to 1024 pebibytes or 2^60 bytes	unit informasi setara 1024 pebibytes atau 2^60 bit
+g5924	wnb-id-13631194-n	exabit, Ebit, Eb	a unit of information equal to 1000 petabits or 10^18 bits	unit informasi yang setara 1000 petabits atau 10^18 bit
+g5925	wnb-id-13631512-n	zettabyte, zebibyte, ZB, ZiB	a unit of information equal to 1024 exbibytes or 2^70 bytes	unit informasi yang setara 1024 exbibytes atau 2^70 bit
+g5926	wnb-id-13631845-n	zettabit, Zbit, Zb	a unit of information equal to 1000 exabits or 10^21 bits	unit informasi yang setara 1000 exabits atau 10^21 bit
+g5927	wnb-id-13632164-n	yottabyte, yobibyte, YB, YiB	a unit of information equal to 1024 zebibytes or 2^80 bytes	unit informasi yang setara 1024 zebibytes atau 2^80 bit
+g5928	wnb-id-13632461-n	yottabit, Ybit, Yb	a unit of information equal to 1000 zettabits or 10^24 bits	unit informasi yang setara 1000 zettabits atau 10^24 bit
+g5929	wnb-id-13632744-n	capacitance unit	a measure of the capacity of a circuit component to store charge	ukuran kapasitas komponen sirkuit untuk menyimpan muatan
+g5930	wnb-id-13633229-n	conductance unit	a measure of a material's ability to conduct an electrical charge	ukuran kemampuan bahan untuk mengantarkan muatan listrik
+g5931	wnb-id-13633851-n	flux density unit	a measure of the amount of flux per unit of cross sectional area	ukuran jumlah fluks per satuan luas penampang
+g5932	wnb-id-13634205-n	inductance unit	a measure of the property of an electric circuit by which an electromotive force is induced in it	ukuran dari sirkuit listrik yang dapat membangkitkan kekuatan elektromotif
+g5933	wnb-id-13634615-n	magnetomotive force unit	a unit of measurement of magnetomotive force	unit ukuran gaya magnetomotive
+g5934	wnb-id-13635108-n	power unit	a measure of electric power	ukuran untuk tenaga listrik
+g5935	wnb-id-13635698-n	electrostatic unit	any of various units of electricity based on forces of interaction between electric charges	unit listrik berdasarkan kekuatan interaksi antara muatan listrik
+g5936	wnb-id-13635985-n	microfarad	a unit of capacitance equal to one millionth of a farad	satuan kapasitansi setara satu milyar farad
+g5937	wnb-id-13636286-n	farad, F	the capacitance of a capacitor that has an equal and opposite charge of 1 coulomb on each plate and a voltage difference of 1 volt between the plates	kapasitas kapasitor yang memiliki muatan sama dan berlawanan dari 1 coulomb
+g5938	wnb-id-13636648-n	coulomb, C, ampere-second	a unit of electrical charge equal to the amount of charge transferred by a current of 1 ampere in 1 second	satuan listrik setara jumlah yang ditransfer oleh arus 1ampere dalam 1 detik
+g5939	wnb-id-13636989-n	ampere-minute	a unit of charge equal to 60 coulombs	satuan muatan sebesar 60 coulomb
+g5940	wnb-id-13637240-n	mho, siemens, reciprocal ohm, S	a unit of conductance equal to the reciprocal of an ohm	satuan konduktansi setara kebalikan ohm
+g5941	wnb-id-13637613-n	milliampere, mA	one thousandth of an ampere	1 per 1000 ampere
+g5942	wnb-id-13705559-n	Indonesian monetary unit	monetary unit in Indonesia	Unit moneter di Indonesia
+g5943	wnb-id-13766547-n	cask, caskful	the quantity a cask will hold	setong penuh minuman keras
+g5944	wnb-id-13769317-n	scoop, scoopful	the quantity a scoop will hold	senduk dan lain-lain
+g5945	wnb-id-13774311-n	barrels	the amount that many barrels might hold	satuan isi satu barrel
+g5946	wnb-id-13776060-n	infinitude	an infinite quantity	jumlah yang tak terbatas
+g5947	wnb-id-13776726-n	myriad	a large indefinite number	jumlah yang tak terhitung
+g5948	wnb-id-13782533-n	maternal-infant bonding	the attachment that forms between an infant and its mother beginning at birth	kedekatan hubungan bayi dan ibu
+g5949	wnb-id-13784906-n	metric function, metric	a function of a topological space that gives, for any two points in the space, a value equal to the distance between them	fungsi topologi untuk setiap dua titik dalam ruang
+g5950	wnb-id-13785736-n	translation	(mathematics) a transformation in which the origin of the coordinate system is moved to another position but the direction of each axis remains the same	(Matematika) transformasi asal sistem koordinat dipindahkan ke posisi lain
+g5951	wnb-id-13785965-n	affine transformation	(mathematics) a transformation that is a combination of single transformations such as translation or rotation or reflection on an axis	(Matematika) transformasi yang merupakan kombinasi dari transformasi tunggal
+g5952	wnb-id-13786187-n	isometry	a one-to-one mapping of one metric space into another metric space that preserves the distances between each pair of points	pemetaan satu persatu dari satu ruang metrik ke ruang metrik lain
+g5953	wnb-id-13786748-n	identity, identity element, identity operator	an operator that leaves unchanged the element on which it operates	operator yang tidak merubah elemen yang beroperasi
+g5954	wnb-id-13787853-n	arc cosine, arccosine, arccos, inverse cosine	the inverse function of the cosine; the angle that has a cosine equal to a given number	fungsi terbalik dari cosinus
+g5955	wnb-id-13788502-n	arc cotangent, arccotangent, inverse cotangent	the inverse function of the cotangent; the angle that has a cotangent equal to a given number	fungsi terbalik dari kotangens
+g5956	wnb-id-13789281-n	threshold function	a function that takes the value 1 if a specified function of the arguments exceeds a given threshold and 0 otherwise	fungsi nilai 1 jika fungsi argumen melebihi ambang tertentu atau 0 jika sebaliknya
+g5957	wnb-id-13789462-n	exponential, exponential function	a function in which an independent variable appears as an exponent	fungsi variabel independen sebagai eksponen
+g5958	wnb-id-13789627-n	exponential equation	an equation involving exponential functions of a variable	persamaan yang melibatkan fungsi eksponensial dari suatu variabel
+g5959	wnb-id-13789849-n	exponential expression	a mathematical expression consisting of a constant (especially e) raised to some power	ekspresi matematika dari konstanta (terutama e) yang dipangkatkan
+g5960	wnb-id-13790004-n	exponential series	a series derived from the expansion of an exponential expression	serial yang berasal dari ekspansi fungsi eksponensial
+g5961	wnb-id-13790592-n	oddness	the parity of odd numbers (not divisible by two)	paritas nomor ganjil (tidak terbagi oleh dua)
+g5962	wnb-id-13791250-n	grass roots	the essential foundation or source	landasan penting atau sumber masalah
+g5963	wnb-id-13791910-n	series	(electronics) connection of components in such a manner that current flows first through one and then through the other	(Elektronik) sambungan seri
+g5964	wnb-id-13793127-n	concatenation	the linking together of a consecutive series of symbols or events or ideas etc	hubungan dari seri simbol atau kejadian berturut-turut
+g5965	wnb-id-13794226-n	unconnectedness	the lack of a connection between things	kurangnya keterkaitan antara suatu hal dengan hal lainnya
+g5966	wnb-id-13794658-n	materiality	relevance requiring careful consideration	relevansi yang membutuhkan pertimbangan hati-hati
+g5967	wnb-id-13795042-n	germaneness	pertinence by virtue of a close relation to the matter at hand	ketepatan berdasarkan hubungan dekat dengan masalah yang sedang dihadapi
+g5968	wnb-id-13796053-n	inapplicability	irrelevance by virtue of being inapplicable to the matter at hand	tidak relevan dengan masalah yang sedang dihadapi untuk diterapkan
+g5969	wnb-id-13796403-n	unrelatedness	the lack of any particular manner of connectedness	kurangnya keterkaitan dengan cara tertentu
+g5970	wnb-id-13796779-n	grammatical relation	a linguistic relation established by grammar	hubungan linguistik yang dibentuk oleh tata bahasa
+g5971	wnb-id-13797856-n	case agreement	agreement in grammatical case between words in the same construction	kesepakatan dalam hal gramatikal antara kata-kata dalam konstruksi yang sama
+g5972	wnb-id-13798118-n	transitivity, transitiveness	the grammatical relation created by a transitive verb	hubungan gramatikal yang dibuat oleh verba transitif
+g5973	wnb-id-13822995-n	magnification	the ratio of the size of an image to the size of the object	kuasa membuat sesuatu kelihatan lebih besar
+g5974	wnb-id-13839287-n	director-stockholder relation	the responsibility of corporate directors to act in the best interests of stockholders	hubungan direktur-pemegang saham
+g5975	wnb-id-13860145-n	temperature gradient	change in temperature as a function of distance (especially altitude)	derajat suhu berdasarkan ketinggian
+g5976	wnb-id-13861449-n	Cartesian plane	a plane in which all points can be described in Cartesian coordinates	suatu bidang di mana semua titik dapat digambarkan dalam koordinat Cartesian
+g5977	wnb-id-13861580-n	facet plane	the plane of a facet of an object (as of a cube)	bidang dari segi objek (seperti kubus)
+g5978	wnb-id-13861934-n	picture plane	the plane that is in the foreground of a drawing or painting; coextensive with but different from the objective surface of the work	bidang yang ada di latar depan gambar atau lukisan
+g5979	wnb-id-13862144-n	tangent plane	the plane that contains all the lines tangent to a specific point on a surface	bidang yang terdiri dari semua garis singgung ke titik tertentu pada permukaan
+g5980	wnb-id-13862407-n	leaf shape, leaf form	any of the various shape that leaves of plants can assume	salah satu dari berbagai bentuk daun tanaman
+g5981	wnb-id-13862552-n	equilateral	a figure whose sides are all equal	bentuk yang sisi semua sama
+g5982	wnb-id-13863602-n	subfigure	a figure that is a part of another figure	bentuk yang merupakan bagian dari bentuk lain
+g5983	wnb-id-13864035-n	bulb	anything with a round shape resembling a teardrop	berbentuk bulat seperti airmata
+g5984	wnb-id-13864153-n	convex shape, convexity	a shape that curves or bulges outward	bentuk melengkung atau menonjol keluar
+g5985	wnb-id-13864423-n	camber	a slight convexity (as of the surface of a road)	sedikit cembung (pada permukaan jalan)
+g5986	wnb-id-13864542-n	entasis	a slight convexity in the shaft of a column; compensates for the illusion of concavity that viewers experience when the sides are perfectly straight	sedikit kecembungan di batang kolom
+g5987	wnb-id-13864763-n	angular shape, angularity	a shape having one or more sharp angles	bentuk yang bersudut-sudut
+g5988	wnb-id-13864965-n	concave shape, concavity, incurvation, incurvature	a shape that curves or bends inward	bentuk melengkung atau belokan ke dalam
+g5989	wnb-id-13866515-n	isogon	an equiangular polygon	poligon pigura yang sudutnya sama
+g5990	wnb-id-13866626-n	convex polygon	a polygon such that no side extended cuts any other side or vertex; it can be cut by a straight line in at most two points	seperti sisi poligon yang tidak mempunyai sisi yang lain
+g5991	wnb-id-13867005-n	reentrant polygon, reentering polygon	a polygon with one or more reentrant angles	poligon dengan satu atau lebih sudut-sudut "reentrant"
+g5992	wnb-id-13867133-n	regular polygon	a polygon with all sides and all angles equal	poligon dengan semua sisi dan semua sudut sama
+g5993	wnb-id-13868248-n	closed curve	a curve (such as a circle) having no endpoints	kurva (seperti lingkaran) yang tidak memiliki titik akhir
+g5994	wnb-id-13868371-n	simple closed curve, Jordan curve	a closed curve that does not intersect itself	kurva tertutup yang tidak memotong sendiri
+g5995	wnb-id-13868515-n	S-shape	a double curve resembling the letter S	kurva ganda mirip dengan huruf S
+g5996	wnb-id-13868813-n	Cupid's bow	the double curve of the upper lip when considered to resemble Cupid's bow	kurva ganda bibir atas bila dianggap menyerupai busur dewa asmara
+g5997	wnb-id-13869676-n	uncus	(biology) any hook-shaped process or part	(Biologi) setiap proses berbentuk atau bagian kait
+g5998	wnb-id-13870414-n	geodesic, geodesic line	(mathematics) the shortest line between two points on a mathematically defined surface (as a straight line on a plane or an arc of a great circle on a sphere)	(Matematika) garis terpendek antara dua titik pada permukaan
+g5999	wnb-id-13871967-n	centerline, center line	a line that bisects a plane figure	garis yang membagi-dua bidang
+g6000	wnb-id-13872072-n	dome	a concave shape whose distinguishing characteristic is that the concavity faces downward	bentuk cekung yang menghadap ke bawah

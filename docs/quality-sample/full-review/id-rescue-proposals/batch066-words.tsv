@@ -1,0 +1,101 @@
+id	words	definition	note
+g6501		PARTIAL	no established Indonesian term beyond the acronym; "merekam kode" should be "mengodekan"
+g6502		PARTIAL	no established Indonesian term beyond the acronym; definition truncated
+g6503	penyakit epidemik; wabah	OK	
+g6504	hepatitis virus	OK	
+g6505	hepatitis A	PARTIAL	definition omits that it is a benign viral hepatitis
+g6506	hepatitis B	PARTIAL	omits persistence in serum and transmission
+g6507	hepatitis D; hepatitis delta	OK	
+g6508	hepatitis C	PARTIAL	omits RNA virus and transmission
+g6509	kanker hati	PARTIAL	"berbahaya" should be "ganas" (malignant)
+g6510	herpes simpleks	OK	
+g6511	herpes labialis	OK	
+g6512	herpes genital; herpes kelamin	PARTIAL	only mentions sexual transmission
+g6513	granuloma inguinale	OK	
+g6514	sifilis primer	PARTIAL	does not mention syphilis or first stage
+g6515	sifilis sekunder	PARTIAL	does not mention syphilis or second stage
+g6516	tabes dorsalis	OK	
+g6517	neurosifilis	OK	
+g6518		OK	no common Indonesian word for this general wasting sense
+g6519	demam berdarah Ebola; Ebola	OK	
+g6520	demam Lassa	OK	
+g6521	kusta tuberkuloid; lepra tuberkuloid	OK	
+g6522	kusta lepromatosa; lepra lepromatosa	OK	
+g6523	enterokolitis nekrotikans	OK	
+g6524	listeriosis	OK	
+g6525	koriomeningitis limfositik	OK	
+g6526	limfogranuloma venereum	OK	
+g6527	meningitis serebrospinal; meningitis epidemik	OK	
+g6528	paratifoid; demam paratifoid	PARTIAL	"mewakili" should be "menyerupai"
+g6529	pes bubonik	PARTIAL	only says most common plague form
+g6530		PARTIAL	no Indonesian term; typo "bulbonik"
+g6531	pes pneumonik	PARTIAL	"wabah" ambiguous for plague (pes)
+g6532	pes septikemik	PARTIAL	garbled: says plague infects organisms
+g6533	penyakit Pott; spondilitis tuberkulosis	OK	
+g6534	demam gigitan tikus	OK	
+g6535	riketsiosis	OK	
+g6536	tifus murin; tifus endemik	PARTIAL	omits flea transmission and symptoms
+g6537	demam berbintik	PARTIAL	"kudis" (scabies) wrong for rash
+g6538	demam berbintik Pegunungan Rocky	OK	
+g6539	demam Q	OK	
+g6540		OK	no established Indonesian term
+g6541	tifus semak; penyakit tsutsugamushi	OK	
+g6542	demam kambuhan; demam berulang	PARTIAL	omits louse/tick transmission
+g6543	demam rematik	PARTIAL	omits heart valve damage, children
+g6544	penyakit jantung rematik	OK	
+g6545		PARTIAL	no Indonesian term; omits historical epidemic
+g6546	tuberkulosis milier; TB milier	OK	
+g6547	frambusia; patek	OK	
+g6548	penyakit pernapasan; penyakit saluran pernapasan	OK	
+g6549	pilek; selesma	OK	
+g6550	status asmatikus	OK	
+g6551	bronkiolitis	PARTIAL	"pengikat" should be "pelapis"
+g6552	bronkitis kronis	OK	
+g6553	penyakit paru obstruktif kronis; PPOK	PARTIAL	omits emphysema + chronic bronchitis
+g6554	koksidioidomikosis	PARTIAL	omits sputum and nodules
+g6555	kriptokokosis	PARTIAL	omits that it is a fungal infection
+g6556	pneumonia atipikal	PARTIAL	omits mycoplasma cause
+g6557	bronkopneumonia	OK	
+g6558		OK	no established Indonesian term
+g6559	pneumonia interstisial	OK	
+g6560	pneumonia pneumokokus	OK	
+g6561	pneumonia pneumocystis	PARTIAL	immune-impaired persons generalised to AIDS only
+g6562	pneumotoraks	PARTIAL	"rusak" should be "kolaps"
+g6563	pneumokoniosis	OK	
+g6564	antrakosis; paru-paru hitam	OK	
+g6565	asbestosis	OK	
+g6566	siderosis	OK	
+g6567	sindrom gangguan pernapasan; penyakit membran hialin	PARTIAL	very incomplete
+g6568	penyakit genetik; penyakit keturunan; penyakit bawaan	OK	
+g6569	abetalipoproteinemia	PARTIAL	omits rare and beta-lipoprotein deficiency
+g6570	ablefaria	OK	
+g6571	makroensefali	OK	
+g6572	anensefali	OK	
+g6573	adaktili	OK	
+g6574	epispadia	OK	
+g6575	dikromasi	OK	
+g6576	buta warna merah-hijau	OK	
+g6577	buta warna biru-kuning	OK	
+g6578	tetartanopia	OK	
+g6579	tritanopia	OK	
+g6580	monokromasi; buta warna total	PARTIAL	omits complete color blindness
+g6581	fibrosis kistik	PARTIAL	omits mucus clogging of organs
+g6582	kelainan metabolisme bawaan	OK	
+g6583	penyakit Gaucher	PARTIAL	omits genetic origin
+g6584	sindrom Horner	OK	
+g6585	sindrom Hurler	OK	
+g6586	mukopolisakaridosis	PARTIAL	omits excess mucopolysaccharides in tissue
+g6587	hipertermia maligna	PARTIAL	omits muscle rigidity
+g6588	sindrom Marfan	PARTIAL	omits autosomal dominant, eye/circulatory issues
+g6589	neurofibromatosis; penyakit von Recklinghausen	PARTIAL	very incomplete
+g6590	osteogenesis imperfekta	PARTIAL	omits connective tissue disorder
+g6591	hiperbetalipoproteinemia	OK	
+g6592	hipobetalipoproteinemia	OK	
+g6593	iktiosis	OK	
+g6594	klinosefali	OK	
+g6595	klinodaktili	OK	
+g6596	makroglosia	OK	
+g6597	penyakit urin sirup maple	OK	
+g6598	penyakit McArdle	OK	
+g6599	distrofi otot; distrofi	PARTIAL	omits muscle weakness and wasting
+g6600	oligodaktili	PARTIAL	should say "beberapa jari" are missing

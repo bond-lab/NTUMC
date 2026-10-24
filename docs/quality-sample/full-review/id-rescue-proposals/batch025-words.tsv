@@ -1,0 +1,101 @@
+id	words	definition	note
+g2401	sapuan kuas	WRONG	definition describes the artist rather than the technique
+g2402		OK	no lexicalised Indonesian term
+g2403		OK	no lexicalised Indonesian term
+g2404	dramaturgi	OK	
+g2405		PARTIAL	no Indonesian word; 'manajemen kapal' is clumsy
+g2406		OK	no exact single word
+g2407		WRONG	says 'become perfect', the opposite
+g2408		PARTIAL	'kebodohan' too strong; no Indonesian word
+g2409		PARTIAL	no established Indonesian noun
+g2410	ketidakaslian	PARTIAL	'tidak kreativitas' is ungrammatical
+g2411		PARTIAL	vague; no good Indonesian word
+g2412		OK	no established Indonesian noun
+g2413		OK	technical term not established
+g2414	fotosensitivitas; radiosensitivitas	OK	
+g2415	penglihatan binokular	OK	
+g2416	penglihatan warna	OK	
+g2417	penglihatan dekat	PARTIAL	2 meter should be 2 feet
+g2418	penglihatan fotopik	PARTIAL	omits cone/illumination detail
+g2419	keingintahuan; rasa ingin tahu	PARTIAL	Malay phrasing, suggests nosiness
+g2420	argumentasi; penalaran	PARTIAL	Malay 'hujah'; vague
+g2421	preseden	PARTIAL	omits justification of later cases
+g2422	pencerahan	PARTIAL	too narrowly religious
+g2423	sumbu x	WRONG	'sudut' (angle) instead of axis
+g2424	Hinayana	WRONG	garbled fragment
+g2425	Zen	OK	
+g2426	Shingon	PARTIAL	truncated
+g2427	Tantra; Tantrisme	PARTIAL	truncated
+g2428	Yogacara	PARTIAL	truncated
+g2429	Tao	OK	
+g2430	Mithraisme	PARTIAL	omits that it is an ancient Persian religion
+g2431		OK	no established Indonesian name
+g2432	Baha'i	PARTIAL	truncated
+g2433	syamanisme	PARTIAL	truncated
+g2434		OK	no Indonesian word
+g2435		OK	no Indonesian word
+g2436	sistem dinamis	PARTIAL	'fase ruang' should be 'ruang fase'
+g2437	transferensi	PARTIAL	truncated
+g2438		PARTIAL	figurative sense; 'pintu air' is only literal; def adds 'air'
+g2439	ilmu militer; ilmu kemiliteran	OK	
+g2440		OK	no Indonesian word
+g2441	kiat	OK	
+g2442	Zurvanisme	PARTIAL	clumsy, truncated
+g2443		PARTIAL	omits back of book; no single word
+g2444	rekto	PARTIAL	clumsy
+g2445	halaman lipat	PARTIAL	'kebesaran' clumsy
+g2446	kertas surat	OK	
+g2447	kertas folio	OK	
+g2448		PARTIAL	truncated
+g2449	hiperteks	OK	
+g2450	pers kuning	OK	
+g2451	media penyimpanan	OK	
+g2452	pos udara	OK	
+g2453		PARTIAL	'bebas bea' misleading; US-specific
+g2454	pos kilat; surat kilat	OK	
+g2455		PARTIAL	omits relays, history
+g2456		PARTIAL	omits reduced rate
+g2457	jurnalisme foto; fotojurnalistik	OK	
+g2458		OK	no established Indonesian word
+g2459	kolom	OK	
+g2460	artikel majalah	OK	
+g2461	cetak lepas	OK	
+g2462		PARTIAL	truncated
+g2463		PARTIAL	untranslated 'sidelights'
+g2464	samizdat; pers bawah tanah	PARTIAL	clumsy word order
+g2465		PARTIAL	'pesan suara' is the message, not the system
+g2466		OK	no Indonesian term
+g2467		PARTIAL	omits participation in programme
+g2468		WRONG	'engkol' mistranslates crank
+g2469	interlokal; sambungan langsung jarak jauh; SLJJ	PARTIAL	'dari luar' should be 'ke luar'
+g2470	telekonferensi; konferensi telepon	OK	
+g2471		OK	no Indonesian term
+g2472		PARTIAL	omits next-day delivery
+g2473	radiotelegrafi; telegrafi nirkabel	OK	
+g2474		WRONG	garbled
+g2475	pesan telepon	OK	
+g2476	radiotelepon; telepon nirkabel	PARTIAL	'telepon' should be 'telefoni'
+g2477	multipleks	PARTIAL	verb-like definition
+g2478	televisi definisi tinggi; HDTV	OK	
+g2479	komunikasi digital; komunikasi data	OK	
+g2480	emotikon	PARTIAL	clumsy
+g2481		OK	idiom; no Indonesian equivalent
+g2482	perpesanan	PARTIAL	omits e-mail
+g2483	serat optik	PARTIAL	'serat fiber' redundant
+g2484	modulasi frekuensi; FM	OK	
+g2485	modulasi pulsa	OK	
+g2486	bahasa mati	OK	
+g2487	bahasa sumber	OK	
+g2488	kalimat tunggal	PARTIAL	omits coordinate/subordinate
+g2489		OK	no Indonesian term
+g2490	kalimat majemuk setara	PARTIAL	clumsy
+g2491		PARTIAL	clumsy 'bertindak'
+g2492	kata isi; kata penuh	OK	
+g2493	kata deiktis	WRONG	garbled fragment
+g2494	diminutif	WRONG	garbled ('-biarkan' for -let)
+g2495		PARTIAL	omits obscene/offensive
+g2496	kata inti	WRONG	'memenuhi syarat' mistranslates 'qualified'
+g2497	kata kunci	OK	
+g2498	meronim	PARTIAL	ungrammatical
+g2499		OK	no Indonesian term
+g2500	neologisme	OK	

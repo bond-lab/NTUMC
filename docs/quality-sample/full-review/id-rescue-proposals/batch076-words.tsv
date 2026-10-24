@@ -1,0 +1,101 @@
+id	words	definition	note
+g7501	fobofobia	OK	
+g7502		OK	no established Indonesian term
+g7503	triskaidekafobia	OK	
+g7504	ailurofobia	OK	
+g7505		OK	sinofobia would clash with Sinophobia; no established term
+g7506	entomofobia	OK	
+g7507		OK	lepidophobia is really fear of moths; PWN gloss says snakes, so no safe word
+g7508		OK	rare term
+g7509	fobia sosial	PARTIAL	examples of the situations are missing
+g7510		OK	no established term
+g7511	fobia sekolah	OK	
+g7512		OK	no established term
+g7513	gangguan stres pascatrauma	PARTIAL	symptom list cut short
+g7514	gangguan psikosomatik	OK	
+g7515	gangguan konversi	OK	
+g7516		OK	no established term
+g7517	gangguan waham	PARTIAL	khayalan should be waham
+g7518	enkopresis	OK	
+g7519		OK	French term only
+g7520	gangguan kepribadian	OK	
+g7521		PARTIAL	emotional instability missing
+g7522	gangguan kepribadian antisosial; sosiopati	PARTIAL	lack of affect and violence without guilt missing
+g7523		OK	
+g7524	gangguan kepribadian skizotipal	PARTIAL	skizofrenia should be spelled the Indonesian way
+g7525	gangguan afektif; gangguan emosi	OK	
+g7526		OK	
+g7527	depresi anaklitik	PARTIAL	head noun depresi missing
+g7528	distimia	OK	
+g7529	depresi endogen	OK	
+g7530	depresi reaktif; depresi eksogen	WRONG	precipitated is mistranslated as terekam (recorded)
+g7531	episode depresi mayor	PARTIAL	symptom list cut short; no organic cause missing
+g7532	depresi involusional	PARTIAL	climacteric should be klimakterium
+g7533	depresi neurotik	OK	
+g7534	depresi psikotik	OK	
+g7535		OK	
+g7536	depresi unipolar	PARTIAL	manic phase rendered as fase kalut
+g7537	histeria massal	PARTIAL	clumsy wording
+g7538	gangguan bipolar; psikosis manik-depresif	OK	
+g7539	siklotimia	OK	
+g7540		OK	
+g7541		PARTIAL	kecemasan neurosis should be neurosis kecemasan
+g7542		OK	
+g7543	neurosis kecemasan	OK	
+g7544		PARTIAL	amnesia part missing
+g7545	kepribadian ganda	OK	
+g7546	sindrom Korsakoff	PARTIAL	memory loss missing
+g7547	demensia presenil	OK	
+g7548	penyakit Alzheimer; Alzheimer	OK	
+g7549	penyakit Pick	PARTIAL	lobe degeneration missing
+g7550	demensia senilis	WRONG	garbled: says caused by absence of disease, and omits dementia
+g7551		OK	
+g7552	rinofima	OK	
+g7553	ensefalopati Wernicke	PARTIAL	thiamine deficiency cause missing
+g7554		OK	
+g7555	delirium tremens	OK	
+g7556	skizofrenia laten	OK	
+g7557	hebefrenia; skizofrenia hebefrenik	PARTIAL	kepribadian terbelah suggests split personality, not disintegration
+g7558	skizofrenia paranoid	PARTIAL	delusions of persecution garbled
+g7559		OK	
+g7560	gangguan bicara	OK	
+g7561	sariawan usus	PARTIAL	clumsy wording; malabsorption missing
+g7562		PARTIAL	pembatalan urin is a mistranslation of voiding
+g7563	kandung kemih neurogenik	OK	
+g7564		PARTIAL	
+g7565		PARTIAL	says several words, should be the same word
+g7566	disartria	WRONG	articulatory rendered as memisahkan (separate)
+g7567		OK	
+g7568		OK	
+g7569		PARTIAL	loss of emotional control missing
+g7570		OK	
+g7571		OK	
+g7572		OK	adjectives teler or mabuk only; no noun lemma
+g7573		OK	
+g7574	keringat dingin	OK	
+g7575		OK	
+g7576	arefleksia	PARTIAL	absence of reflex missing
+g7577		OK	
+g7578	kekesalan; kejengkelan	OK	
+g7579		OK	
+g7580	kesurupan; kerasukan	OK	
+g7581		OK	
+g7582		OK	
+g7583		OK	
+g7584		OK	
+g7585		OK	
+g7586		PARTIAL	
+g7587		OK	
+g7588		PARTIAL	clumsy wording
+g7589	masalah rasial	OK	
+g7590		OK	
+g7591		PARTIAL	treacherous rendered as penuh ketidakpastian
+g7592		OK	
+g7593		OK	
+g7594		PARTIAL	
+g7595	anomi	OK	
+g7596	gangguan disosiatif	PARTIAL	
+g7597		OK	
+g7598	inkoherensi; ketidakruntutan	OK	
+g7599	ketidakruntutan	OK	
+g7600	federalisasi	OK	

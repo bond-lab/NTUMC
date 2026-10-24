@@ -1,0 +1,101 @@
+id	words	definition	note
+g5901	pint	PARTIAL	definition says 0.5 litre; should be 0.5 quart
+g5902	gantang	PARTIAL	gantang is the usual translation of bushel; 36 l is approximate
+g5903		PARTIAL	no Indonesian term for the unit; definition truncated
+g5904	ons cairan	OK
+g5905	pint	OK
+g5906	gantang	PARTIAL	vague; should say 4 pecks
+g5907		OK	no Indonesian term
+g5908		WRONG	says a quarter kilogram; should be a quarter hundredweight (28 lb)
+g5909		OK	no Indonesian term
+g5910		OK	no Indonesian term
+g5911	kilometer kubik	PARTIAL	garbled: should be a cube with edges of one kilometre
+g5912	nibble	WRONG	says a small bit; a nibble is half a byte (4 bits)
+g5913	blok rusak	OK
+g5914	kilobyte	WRONG	says 1024 bits; should be 1024 bytes
+g5915	kilobit	OK
+g5916	megabit	OK
+g5917	gigabyte	WRONG	says bits instead of bytes
+g5918	gigabit	OK
+g5919	terabyte	WRONG	says bits instead of bytes
+g5920	terabit	OK
+g5921	petabyte	WRONG	says bits instead of bytes
+g5922	petabit	OK
+g5923	exabyte	WRONG	says bits instead of bytes
+g5924	exabit	OK
+g5925	zettabyte	WRONG	says bits instead of bytes
+g5926	zettabit	OK
+g5927	yottabyte	WRONG	says bits instead of bytes
+g5928	yottabit	OK
+g5929	satuan kapasitansi	OK
+g5930	satuan konduktansi	OK
+g5931	satuan kerapatan fluks	OK
+g5932	satuan induktansi	PARTIAL	clumsy
+g5933	satuan gaya gerak magnet	PARTIAL	untranslated 'magnetomotive'
+g5934	satuan daya	OK
+g5935	satuan elektrostatis	OK
+g5936	mikrofarad	WRONG	says one billion farads; should be one millionth
+g5937	farad	PARTIAL	omits the 1 volt condition
+g5938	coulomb	PARTIAL	omits 'muatan' (charge)
+g5939		OK	no Indonesian term in use
+g5940	siemens; mho	OK
+g5941	miliampere	OK
+g5942	rupiah	OK
+g5943		PARTIAL	setong is a free phrase; definition restricts it to liquor
+g5944		WRONG	garbled ('senduk dan lain-lain'); sesendok is a free phrase
+g5945		WRONG	says one barrel; concept is the amount of many barrels
+g5946	ketakterhinggaan	OK
+g5947		OK	no good noun
+g5948		OK	no lexicalised term
+g5949	metrik; fungsi metrik	PARTIAL	omits the distance value
+g5950	translasi; pergeseran	PARTIAL	omits axis directions staying the same
+g5951	transformasi afin	PARTIAL	omits the examples
+g5952	isometri	PARTIAL	omits distance preservation
+g5953	identitas; elemen identitas	OK
+g5954	arkus kosinus; invers kosinus	PARTIAL	omits the angle reading
+g5955	arkus kotangen; invers kotangen	PARTIAL	omits the angle reading
+g5956	fungsi ambang	OK
+g5957	fungsi eksponensial	PARTIAL	clumsy
+g5958	persamaan eksponensial	OK
+g5959	ekspresi eksponensial	OK
+g5960	deret eksponensial	PARTIAL	'serial' should be 'deret'
+g5961	keganjilan	OK
+g5962		PARTIAL	akar rumput means common people in Indonesian; 'sumber masalah' adds 'problem'
+g5963	rangkaian seri	PARTIAL	just gives the term
+g5964	konkatenasi; perangkaian	OK
+g5965	ketidakterkaitan; ketidakberhubungan	OK
+g5966	materialitas	OK
+g5967	relevansi	OK
+g5968		PARTIAL	clumsy; no clear Indonesian noun
+g5969	ketidakterkaitan	OK
+g5970	hubungan gramatikal; relasi gramatikal	OK
+g5971	persesuaian kasus	WRONG	'kesepakatan' is the consensus sense of agreement and case is lost
+g5972	ketransitifan; transitivitas	OK
+g5973	perbesaran	PARTIAL	describes the power of magnifying, not the ratio
+g5974		PARTIAL	only translates the name
+g5975	gradien suhu	PARTIAL	should be the change of temperature with distance
+g5976	bidang Kartesius	OK
+g5977		OK	no lexicalised term
+g5978	bidang gambar	PARTIAL	omits the second part
+g5979	bidang singgung	OK
+g5980	bentuk daun	OK
+g5981		OK	no single term
+g5982		OK	no term
+g5983		PARTIAL	adjectival phrasing
+g5984	kecembungan; bentuk cembung	OK
+g5985		OK	no standard term
+g5986	entasis	PARTIAL	omits the purpose
+g5987		OK	no good noun
+g5988	kecekungan; bentuk cekung	OK
+g5989		PARTIAL	'poligon pigura' clumsy; isogon not used in Indonesian
+g5990	poligon cembung; segi banyak cembung	WRONG	garbled
+g5991	poligon cekung	PARTIAL	untranslated 'reentrant'
+g5992	poligon beraturan; segi banyak beraturan	OK
+g5993	kurva tertutup	OK
+g5994	kurva tertutup sederhana; kurva Jordan	OK
+g5995		OK	no lexicalised term
+g5996		OK	no lexicalised term
+g5997		PARTIAL	garbled word order
+g5998	geodesik; garis geodesik	PARTIAL	omits 'mathematically defined surface' and examples
+g5999	garis tengah; garis sumbu	OK
+g6000	kubah	OK

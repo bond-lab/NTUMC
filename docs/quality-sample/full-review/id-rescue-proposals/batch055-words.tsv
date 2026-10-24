@@ -1,0 +1,101 @@
+id	words	definition	note
+g5401	pengembalian uang	OK	
+g5402		OK	no lexicalised term; potongan sewa is a free phrase
+g5403	jaminan kecelakaan kerja	OK	JKK is the Indonesian scheme
+g5404	nafkah; tunjangan	PARTIAL	mendukung is clumsy for support (maintenance)
+g5405	uang tutup mulut	OK	
+g5406	uang suap; uang sogok	OK	
+g5407		WRONG	ditiadakan means abolished, mistranslates dispensed
+g5408		PARTIAL	garbled (memulaisbisnis); omits prospector
+g5409	kepentingan yang dapat diasuransikan	PARTIAL	term from KUHD; definition omits second part
+g5410	hak jaminan	OK	
+g5411		PARTIAL	omits equal right to whole property
+g5412		WRONG	fee translated as biaya (cost); it is an estate in land
+g5413	pembagian laba; bagi hasil	OK	
+g5414	diat; uang darah	OK	
+g5415		PARTIAL	omits trivial sum
+g5416	garis kemiskinan	PARTIAL	garbled menind:definisikan
+g5417	biaya perkara	OK	
+g5418	uang jalan; tunjangan perjalanan	OK	
+g5419	anuitas biasa	PARTIAL	tunjangan for annuity; omits equally spaced
+g5420	imbal hasil	PARTIAL	
+g5421	santunan kematian	PARTIAL	typo awris
+g5422		PARTIAL	omits terminally ill holder
+g5423	tunjangan sakit	PARTIAL	omits too ill to work
+g5424		PARTIAL	
+g5425		OK	no Indonesian equivalent
+g5426		PARTIAL	omits small
+g5427	tunggakan	PARTIAL	tidak mampu (unable) narrower than nonpayment
+g5428		OK	
+g5429	denda perpustakaan	OK	
+g5430	biaya hidup	OK	
+g5431	biaya distribusi	PARTIAL	truncated after produsen
+g5432	biaya reproduksi	PARTIAL	tunjangan wrong for allowances
+g5433	harga jual; harga penawaran	OK	
+g5434	harga penutupan	OK	
+g5435	harga limit	PARTIAL	says seller sells, not entertains bids
+g5436		OK	
+g5437	harga beli; harga pembelian	OK	
+g5438		PARTIAL	aman is not in source
+g5439		PARTIAL	
+g5440	biaya tak terduga	OK	
+g5441		PARTIAL	
+g5442		OK	
+g5443		WRONG	muatan (load) mistranslates charge
+g5444	ongkos bus; tarif bus	OK	
+g5445		OK	
+g5446	tarif pajak	WRONG	kurs means exchange rate
+g5447	pajak tunggal	OK	
+g5448		WRONG	garbled; does not describe moving into higher bracket
+g5449		OK	
+g5450		OK	British-specific
+g5451	keuntungan modal	OK	
+g5452	pajak keuntungan modal	OK	
+g5453	fiskal luar negeri	PARTIAL	says departing to a country, by land only
+g5454		PARTIAL	British-specific; omits basis
+g5455	pajak warisan	OK	
+g5456	keringanan pajak; insentif pajak	OK	
+g5457	pajak tidak langsung	OK	
+g5458	pajak progresif	WRONG	garbled
+g5459	pajak degresif	WRONG	garbled
+g5460		OK	historical British
+g5461		PARTIAL	omits passing of title
+g5462		PARTIAL	
+g5463		OK	
+g5464		PARTIAL	tarif ambiguous
+g5465	bea masuk antidumping	OK	
+g5466	bea keluar	OK	
+g5467	bunga tunggal; bunga sederhana	OK	
+g5468	suku bunga diskonto	PARTIAL	omits borrowing by member banks
+g5469	suku bunga dasar kredit; suku bunga prima	PARTIAL	omits prime customers
+g5470		OK	
+g5471	jasa tambat	OK	
+g5472		OK	
+g5473		PARTIAL	
+g5474		OK	
+g5475		PARTIAL	clumsy
+g5476		PARTIAL	English left untranslated
+g5477		OK	
+g5478	jasa dermaga	OK	
+g5479		PARTIAL	truncated
+g5480	upah kuli	OK	
+g5481		PARTIAL	says kilogram instead of pounds
+g5482	tarif air	OK	
+g5483		OK	
+g5484		OK	
+g5485	tarif penyusutan	OK	
+g5486		OK	
+g5487		OK	
+g5488	kerugian	PARTIAL	adds cause (decrease in money value)
+g5489	penghapusbukuan	PARTIAL	nilai aktiva buku clumsy
+g5490	piutang	PARTIAL	
+g5491		OK	
+g5492	hak penarikan khusus	PARTIAL	truncated
+g5493	sumber daya lahan	PARTIAL	omits arable
+g5494	sumber daya terbarukan	OK	
+g5495	ekuitas	PARTIAL	persentase not in source
+g5496	ekuitas	PARTIAL	truncated
+g5497	modal saham	PARTIAL	buku nilai garbled
+g5498		PARTIAL	
+g5499		OK	
+g5500	saham tanpa nilai nominal	OK	

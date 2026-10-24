@@ -1,0 +1,101 @@
+id	words	definition	note
+g5301	harta pusaka	PARTIAL	omits real property
+g5302	kekayaan intelektual; hak kekayaan intelektual	PARTIAL	definition truncated
+g5303	harta bersama; harta gana-gini	OK	
+g5304	benda bergerak; harta bergerak	OK	
+g5305	milik bersama	OK	
+g5306		OK	no Indonesian term
+g5307	kepemilikan tanah	WRONG	"saham" (share) mistranslates holding
+g5308		OK	no lexicalised term
+g5309	kepemilikan saham	PARTIAL	"holding" left untranslated
+g5310		PARTIAL	no Indonesian term; "kantor", "karyawan" clumsy
+g5311	tukar tambah	PARTIAL	clumsy, "new one" lost
+g5312		OK	no settled term
+g5313	milik negara; milik umum	OK	
+g5314		PARTIAL	no term; acres rendered as hectares, omits letting
+g5315		PARTIAL	no term; peternakan = livestock farm only
+g5316		OK	no exact term
+g5317	tanah lungguh	OK	
+g5318	barang-barang	OK	
+g5319		PARTIAL	no settled term
+g5320		OK	no term
+g5321		OK	no term
+g5322		OK	no Indonesian term
+g5323	gajah putih	OK	
+g5324		PARTIAL	describes a cheap price, not a purchase
+g5325		WRONG	tawar-menawar = haggling
+g5326	penyerahan	OK	
+g5327	tanah hibah; hibah tanah	OK	
+g5328		PARTIAL	no term
+g5329		OK	no term
+g5330	uang ketat	OK	
+g5331		OK	no term
+g5332	pendapatan nasional	PARTIAL	
+g5333	produk nasional bruto riil; PNB riil	OK	
+g5334	produk domestik bruto; PDB	PARTIAL	only historical part, misses core meaning
+g5335		PARTIAL	usually loan "box office"; should be "for a show"
+g5336		OK	no term
+g5337		PARTIAL	no lexicalised term
+g5338		OK	no lexicalised term
+g5339	pendapatan pribadi; pendapatan perseorangan	OK	
+g5340	laba per saham	PARTIAL	outstanding = beredar, not terhutang
+g5341	laba tak terduga; rezeki nomplok	PARTIAL	typo/garbled
+g5342	pendapatan sewa	OK	
+g5343	penjualan kotor; penjualan bruto	PARTIAL	
+g5344	penjualan bersih; penjualan neto	PARTIAL	
+g5345	margin laba; margin kotor	OK	
+g5346	pendapatan diterima di muka; pendapatan ditangguhkan	WRONG	self-contradictory "diterima tetapi belum diterima"
+g5347	pendapatan pasif	PARTIAL	clumsy
+g5348	penerimaan dalam negeri; pendapatan dalam negeri	OK	
+g5349	barang curian	OK	
+g5350		PARTIAL	no term; garbled/truncated
+g5351	hak kesulungan; pusaka	OK	
+g5352	hibah wasiat	WRONG	garbled literal translation
+g5353		PARTIAL	no term
+g5354		PARTIAL	no term
+g5355	pusaka; barang pusaka	PARTIAL	
+g5356	beasiswa	PARTIAL	
+g5357	subsidi harga	OK	
+g5358		OK	no specific term
+g5359	beasiswa pascadoktoral	OK	
+g5360	uang hadiah; hadiah uang	OK	
+g5361	kado ulang tahun; hadiah ulang tahun	OK	
+g5362		PARTIAL	no term; omits "small"
+g5363	kado pernikahan; hadiah pernikahan	OK	
+g5364		OK	mahar/seserahan are different concepts
+g5365		OK	no settled Indonesian name
+g5366	sumbangan politik; donasi politik	PARTIAL	
+g5367	dana abadi	OK	
+g5368		OK	no term
+g5369		OK	no exact term
+g5370		OK	no exact term
+g5371		PARTIAL	no term; omits "public"
+g5372	persembahan syukur; kurban syukur	OK	
+g5373		OK	no lexicalised term
+g5374		OK	penggelapan is the act, not the sum
+g5375	tunjangan kemahalan	PARTIAL	penyisihan mistranslates allowance
+g5376	potongan dagang; diskon dagang	PARTIAL	garbled word order
+g5377	penyesuaian musiman	OK	
+g5378	biaya usaha	PARTIAL	clumsy "biaya pajak"
+g5379	biaya lobi	OK	
+g5380	biaya pengobatan; biaya medis	PARTIAL	truncated
+g5381	beban nonkas	PARTIAL	
+g5382	biaya pendirian	OK	
+g5383	biaya pribadi; pengeluaran pribadi	OK	
+g5384	pembayaran transfer	PARTIAL	
+g5385	belanja modal; pengeluaran modal	OK	
+g5386	kelebihan bayar; kelebihan pembayaran	OK	
+g5387	tunjangan tempur	OK	
+g5388		OK	no term
+g5389		OK	no term
+g5390	upah layak	OK	
+g5391	tunjangan kinerja	OK	
+g5392	upah minimum	OK	
+g5393		OK	no term
+g5394		PARTIAL	no term; "striker" untranslated
+g5395	gaji bersih; upah bersih	PARTIAL	
+g5396	pembayaran berkala	OK	
+g5397	tingkat upah; tarif upah	OK	
+g5398		WRONG	truncated at "1"
+g5399		OK	uang darah means compensation to victims
+g5400	imbalan; ganjaran; balas jasa	OK	

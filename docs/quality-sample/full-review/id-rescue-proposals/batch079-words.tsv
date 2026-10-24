@@ -1,0 +1,101 @@
+id	words	definition	note
+g7801		OK	Indonesian medical 'habitus' means body build, not predisposition
+g7802	sensitisasi	OK	
+g7803	alergi makanan	OK	
+g7804	atopi; alergi atopik	PARTIAL	definition only restates 'type I allergic reaction'
+g7805		OK	usually a phrase (hipersensitivitas tipe IV)
+g7806	rinitis alergi	OK	
+g7807	eosinofilia	PARTIAL	omits 'symptom of allergic states'; English spelling eosinophils
+g7808	polinosis; demam jerami	OK	
+g7809	diatesis	OK	
+g7810	sugestibilitas	OK	
+g7811		OK	no specific noun
+g7812		OK	no specific noun
+g7813		OK	no specific noun
+g7814		OK	no specific noun
+g7815		PARTIAL	no specific noun
+g7816	keamanan hayati	OK	
+g7817		PARTIAL	clumsy wording
+g7818	keamanan kolektif	OK	
+g7819	proteksi radiasi	OK	
+g7820		OK	legal doctrine, no Indonesian term
+g7821	bahaya kesehatan	OK	
+g7822	bahaya biologis	OK	
+g7823	bahaya kerja	OK	
+g7824	pedang Damokles	OK	
+g7825	tong mesiu	OK	typo berpotensil
+g7826	bahaya kuning	OK	
+g7827	ketidakamanan	OK	
+g7828	tonus otot	OK	
+g7829	akromiotonia	WRONG	'keadaan ekstrim' mistranslates extremities (limbs)
+g7830	atonia; atoni; amiotonia	PARTIAL	
+g7831	kebugaran	OK	
+g7832		OK	used only in 'in good repair'
+g7833		OK	no specific noun
+g7834	kelaiklautan	PARTIAL	'kebugaran' is bodily fitness; should be kelaikan
+g7835	astenia	OK	
+g7836		PARTIAL	'menyerang' mistranslates 'interferes with'
+g7837	abasia trepidans	OK	
+g7838	abasia ataksik	OK	
+g7839	abasia koreik	OK	
+g7840	abasia paralitik	OK	
+g7841		OK	
+g7842	abasia spastik	OK	
+g7843	gangguan pendengaran	OK	
+g7844	tuli konduktif	OK	
+g7845	tuli sensorineural	OK	
+g7846	buta nada	OK	
+g7847	bisu tuli	WRONG	reverses causality: deafness causes inability to speak
+g7848	disosmia	OK	
+g7849	hiposmia	OK	
+g7850	gangguan penglihatan	OK	
+g7851	hemeralopia; buta siang	OK	
+g7852	hemianopia	OK	
+g7853	kuadrantanopia	OK	
+g7854	metamorfopsia	PARTIAL	omits retinal cause
+g7855		PARTIAL	clumsy 'properti optik'
+g7856	anisometropia	OK	
+g7857	isometropia	OK	
+g7858	skotoma	OK	
+g7859	skotoma anular	OK	
+g7860	skotoma sentral	OK	
+g7861	skotoma hemianopik	OK	
+g7862	skotoma parasentral	OK	
+g7863	penglihatan terowongan	OK	
+g7864		OK	
+g7865		OK	
+g7866	eksotropia	OK	
+g7867	paresis	OK	
+g7868	paraparesis	OK	
+g7869	ptosis	OK	
+g7870	prolaps	PARTIAL	'salah posisi' is vague; should be turun/keluar dari tempatnya
+g7871	kuadriplegia; tetraplegia	OK	
+g7872	hipestesia	PARTIAL	vague: should be penurunan kepekaan raba
+g7873	kaki X; genu valgum	OK	
+g7874		OK	no standard term
+g7875	kaki O	OK	
+g7876		PARTIAL	omits 'state of being fit for market'
+g7877		WRONG	'kebimbangan' (doubt) is garbled for hesitancy of flow
+g7878		OK	
+g7879	infeksi saluran kemih	OK	
+g7880	pielonefritis	WRONG	'tulang panggul' (pelvic bone) instead of renal pelvis
+g7881	pielonefritis akut	OK	
+g7882	rinosporidiosis	PARTIAL	
+g7883	uretritis	PARTIAL	omits inflammation of the urethra
+g7884	uretritis nonspesifik	OK	
+g7885	sodoku	OK	
+g7886	stasis	PARTIAL	
+g7887	penyakit Wilson	PARTIAL	omits copper accumulation
+g7888	homozigositas	OK	
+g7889	heterozigositas	OK	
+g7890		OK	no established noun
+g7891	kraurosis	OK	
+g7892	kraurosis vulva	PARTIAL	omits kraurosis of the vulva
+g7893	oligospermia	OK	
+g7894		OK	
+g7895	trismus	OK	
+g7896	uratemia	OK	
+g7897	ureterostenosis	PARTIAL	'saluran kencing' should be ureter
+g7898	uretrokel	OK	
+g7899		OK	
+g7900	urokel	OK	

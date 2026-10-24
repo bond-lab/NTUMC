@@ -1,0 +1,101 @@
+id	words	definition	note
+g6601	oligodonsia	OK	
+g6602	distrofi otot Becker	PARTIAL	omits onset in adolescence, slow progression, X-linked inheritance
+g6603	distrofi otot Duchenne	PARTIAL	omits X-linked inheritance
+g6604	penyakit autosomal dominan	OK	
+g6605	penyakit autosomal resesif	OK	
+g6606		WRONG	garbled fragment; lisinemia not established in Indonesian
+g6607	distrofi miotonik	PARTIAL	too general
+g6608	penyakit Niemann-Pick	OK	
+g6609	oksisefali; akrosefali	PARTIAL	omits cone-shaped skull
+g6610	anemia aplastik	PARTIAL	omits bone marrow failure
+g6611	eritroblastosis fetalis	PARTIAL	"darah rahim" should be fetal blood (darah janin)
+g6612	anemia Fanconi	PARTIAL	"tulang sumsum" should be sumsum tulang
+g6613	favisme	OK	
+g6614	anemia hemolitik	OK	
+g6615	anemia hiperkromik	OK	
+g6616	anemia hipokromik	OK	
+g6617	anemia hipoplastik	OK	
+g6618	anemia defisiensi besi	OK	
+g6619	stroke iskemik	PARTIAL	lacks genus (stroke)
+g6620	serangan iskemik transien; TIA	OK	
+g6621	anemia makrositik	OK	
+g6622	anemia mikrositik	OK	
+g6623	parasitemia	OK	
+g6624	anemia pernisiosa	PARTIAL	omits intrinsic factor cause
+g6625	anemia megaloblastik	PARTIAL	omits bone marrow
+g6626		OK	term rare in Indonesian texts
+g6627	anemia refrakter	OK	
+g6628	anemia sideroblastik	OK	
+g6629	sideropenia	WRONG	fragment, does not say iron deficiency
+g6630	anemia sel sabit	PARTIAL	fragment, lacks genus
+g6631		PARTIAL	only gives onset age; eponym not established in Indonesian
+g6632	penyakit Tay-Sachs	OK	
+g6633	trombastenia	OK	
+g6634	tirosinemia	OK	
+g6635	penyakit Werdnig-Hoffmann	OK	
+g6636	afibrinogenemia	PARTIAL	omits prolonged bleeding
+g6637	hemofilia A	OK	
+g6638	hemofilia B	PARTIAL	fragment starting with "tetapi"
+g6639	penyakit von Willebrand	OK	
+g6640	afibrinogenemia kongenital	OK	
+g6641	penyakit inflamasi; penyakit radang	OK	
+g6642		PARTIAL	no established Indonesian term
+g6643		PARTIAL	no established Indonesian term; fragment
+g6644	penyakit radang panggul	PARTIAL	omits organs/symptoms
+g6645		OK	no specific Indonesian term (empiema is a broader concept)
+g6646	pielitis	PARTIAL	"panggul renal" clumsy for pelvis ginjal
+g6647	abses peritonsil	OK	
+g6648	krup	PARTIAL	too general
+g6649	glosoptosis	OK	
+g6650	hipermotilitas	PARTIAL	fragment, lacks genus
+g6651	disentri amuba	OK	
+g6652	klamidia	PARTIAL	omits Chlamydia bacteria
+g6653	fasioliasis	WRONG	describes liver rot, not the fluke infestation
+g6654	fasiolopsiasis	PARTIAL	"akumulasi" odd for infestation
+g6655	drakunkuliasis; penyakit cacing Guinea	PARTIAL	clumsy
+g6656	enterobiasis	PARTIAL	clumsy
+g6657	cantengan	OK	
+g6658	infeksi fokal	OK	
+g6659	giardiasis	OK	
+g6660	demam berdarah virus; demam hemoragik	PARTIAL	omits hemorrhage
+g6661	herpangina	OK	
+g6662	leishmaniasis	OK	
+g6663	infeksi nosokomial	OK	
+g6664	infeksi oportunistik	PARTIAL	omits immunocompromised hosts
+g6665	infeksi protozoa	OK	
+g6666	infeksi saluran pernapasan	OK	
+g6667	infeksi saluran pernapasan bawah	OK	
+g6668	demam berdarah Krimea-Kongo	PARTIAL	omits virus and tick
+g6669	HIV	OK	
+g6670	pneumonia virus	OK	
+g6671	SARS; sindrom pernapasan akut berat	OK	
+g6672	infeksi saluran pernapasan atas	OK	
+g6673	skistosomiasis; bilharzia	OK	
+g6674	leishmaniasis kulit	PARTIAL	fragment, lacks genus
+g6675	leishmaniasis mukokutan	PARTIAL	incomplete
+g6676	favus	PARTIAL	fragment, lacks genus
+g6677	keratomikosis	OK	
+g6678	fikomikosis	OK	
+g6679	sporotrikosis	PARTIAL	"benjolan limpa" should be kelenjar getah bening
+g6680	aspergilosis	OK	
+g6681		OK	no specific Indonesian word
+g6682		PARTIAL	heel, not just foot; no specific Indonesian word
+g6683	karbunkel	PARTIAL	omits multiple openings
+g6684		WRONG	fragment, only says observed in Asians
+g6685	borok	OK	
+g6686	lecet	OK	
+g6687		OK	no lexicalised Indonesian term
+g6688	disentri basiler; sigelosis	OK	
+g6689	infeksi stafilokokus	OK	
+g6690	faringitis streptokokus	OK	
+g6691	superinfeksi	OK	
+g6692	infeksi cacing pita	PARTIAL	fragment, lacks genus
+g6693	infeksi virus	OK	
+g6694	faktor reumatoid	OK	
+g6695	penyakit autoimun	OK	
+g6696	artritis psoriatik	OK	
+g6697	artritis reumatoid juvenil	OK	
+g6698	osteoartritis	PARTIAL	fragment, only age of onset
+g6699	osteosklerosis	OK	
+g6700		OK	no lexicalised Indonesian term

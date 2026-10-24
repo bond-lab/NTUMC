@@ -1,0 +1,101 @@
+id	words	definition	note
+g8001	senyawa aromatik	OK	
+g8002	arsenat	OK	
+g8003	asam arsenat	OK	
+g8004	arsenida	OK	
+g8005	asam serotat	PARTIAL	beeswax is only an example; definition narrows it
+g8006	asam klorat	OK	
+g8007	asam klorit	PARTIAL	omits 'known only in solution'
+g8008	asam monobasa	OK	
+g8009	asam dibasa; asam dwibasa	OK	
+g8010	garam dibasa	OK	
+g8011	asam tribasa	PARTIAL	omits 'replaceable'
+g8012	asam tetrabasa	OK	
+g8013	asam fulminat	PARTIAL	truncated; isomeric with cyanic acid missing
+g8014		PARTIAL	no established Indonesian term; 'kristal asam' clumsy
+g8015	logam berat	PARTIAL	omits atomic weight / toxicity part
+g8016	asam adipat	OK	
+g8017	HMG-KoA reduktase	OK	
+g8018		PARTIAL	English term usually kept in Indonesian texts; definition truncated
+g8019	asam hidrazoat; hidrogen azida	PARTIAL	truncated, ungrammatical
+g8020	asam iodida	OK	
+g8021	hidroklorofluorokarbon	PARTIAL	truncated
+g8022	hidrogen sianida	PARTIAL	truncated
+g8023	asam sianida; asam prusat	PARTIAL	omits uses
+g8024	asam hidroksi	PARTIAL	clumsy; 'kelompok' should be 'gugus'
+g8025	asam hidroksibenzoat	OK	
+g8026	hipoklorit	OK	
+g8027	asam hiponitrit	OK	
+g8028	asam hipofosfat	PARTIAL	garbled word order
+g8029	asam hipofosfit	OK	English synset conflates hypophosphorous and phosphorous acid
+g8030	asam lisergat	PARTIAL	omits ergot alkaloid source
+g8031	asam manganat	OK	
+g8032	asam metafosfat	PARTIAL	typo-garbled
+g8033	pirogalol	PARTIAL	omits uses
+g8034	asam pirofosfat	OK	
+g8035	pirofosfat	OK	
+g8036	asam metakrilat	OK	
+g8037	asam musat	OK	
+g8038	asam selenat	PARTIAL	garbled 'analogous to sulfuric acid'
+g8039	asam suberat	OK	
+g8040	asam suksinat	OK	
+g8041	asam sulfonat	OK	
+g8042	asam titanat	OK	
+g8043	titanium dioksida; titania	PARTIAL	omits covering power/durability
+g8044		PARTIAL	no single lexicalised term; truncated definition
+g8045	alil; gugus alil	PARTIAL	clumsy
+g8046	metilamina	OK	
+g8047	amil	OK	
+g8048	senyawa anionik	OK	
+g8049		OK	English synset mixes anionic and non-ionic; left empty
+g8050	logam dasar; logam tak mulia	PARTIAL	gives examples instead of definition
+g8051	senyawa biner	PARTIAL	omits 'only'
+g8052	kelat; senyawa kelat	PARTIAL	truncated
+g8053	perunut	PARTIAL	missing 'to trace'
+g8054	halon	PARTIAL	truncated
+g8055	bromoform	OK	
+g8056	fluoroform	OK	
+g8057	iodoform	OK	
+g8058	haloform	WRONG	garbled fragment, formula CHX3 missing
+g8059		OK	no Indonesian lexical term
+g8060	gugus azido	PARTIAL	'kelompok' should be 'gugus'
+g8061	gugus azo	PARTIAL	clumsy
+g8062	fulerena	OK	
+g8063	nanotabung karbon; tabung nano karbon	OK	
+g8064	benzil; gugus benzil	OK	
+g8065	benzoil; gugus benzoil	OK	
+g8066	alotrop	OK	
+g8067	unsur transuranium	PARTIAL	omits radioactive
+g8068		OK	no Indonesian term
+g8069	deret aktinida; aktinida	PARTIAL	truncated
+g8070	deret lantanida; lantanida	PARTIAL	'mineral jarang' should be 'unsur tanah jarang'
+g8071	transaktinida; unsur transaktinida	OK	
+g8072		PARTIAL	no established term
+g8073	atrazin	PARTIAL	fragment, omits triazine
+g8074	barium hidroksida	OK	
+g8075	barium oksida	OK	
+g8076	barium peroksida	OK	
+g8077	pasangan basa	PARTIAL	truncated
+g8078	sesium-137	OK	
+g8079	kobalt-60	PARTIAL	omits gamma source / use
+g8080	emas 18 karat	OK	
+g8081	emas 22 karat	OK	
+g8082	emas 24 karat; emas murni	OK	
+g8083		OK	no lexicalised term
+g8084	iodin-131; yodium-131	PARTIAL	omits uses
+g8085	iodin-125; yodium-125	PARTIAL	omits uses
+g8086	zat lemas	OK	old Indonesian name for nitrogen
+g8087	oksigen cair	PARTIAL	truncated
+g8088	plutonium-239	PARTIAL	omits production
+g8089		PARTIAL	compositional phrase only
+g8090	stronsium-90	PARTIAL	omits bone assimilation
+g8091	taurin	OK	
+g8092	teknesium	OK	
+g8093	torium-228; radiotorium	OK	
+g8094	uranium-235	PARTIAL	omits chain reactions
+g8095	uranium-238	PARTIAL	omits fissionable info
+g8096	ozokerit; lilin mineral	PARTIAL	truncated
+g8097	alabaster	PARTIAL	omits gypsum / carving
+g8098		PARTIAL	no distinct Indonesian term
+g8099	ambligonit	OK	
+g8100	amfibol	OK	

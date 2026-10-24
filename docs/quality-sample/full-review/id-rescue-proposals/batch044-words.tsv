@@ -1,0 +1,101 @@
+id	words	definition	note
+g4301	Taman Nasional Mammoth Cave	PARTIAL	definition only repeats the name
+g4302	Taman Nasional Mesa Verde	PARTIAL	definition only repeats the name
+g4303	Taman Nasional Gunung Rainier	PARTIAL	definition only repeats the name
+g4304	Taman Nasional North Cascades	PARTIAL	definition only repeats the name
+g4305	Taman Nasional Petrified Forest	PARTIAL	definition only repeats the name
+g4306	Taman Nasional Rocky Mountain	PARTIAL	definition only repeats the name
+g4307	Taman Nasional Theodore Roosevelt	PARTIAL	definition only repeats the name
+g4308	Taman Nasional Kepulauan Virgin	PARTIAL	definition only repeats the name
+g4309	Taman Nasional Wind Cave	PARTIAL	definition only repeats the name
+g4310	Kepulauan Gilbert dan Ellice	PARTIAL	name only; Ellice misspelt
+g4311		PARTIAL	no lexicalised Indonesian name; definition only translates the name
+g4312		PARTIAL	no established Indonesian name; definition only translates the name
+g4313	darul Islam	OK	
+g4314	darul harb	OK	
+g4315		OK	free phrase only
+g4316		PARTIAL	no Indonesian term; definition omits the object
+g4317		OK	no Indonesian term
+g4318	naluri kematian; Thanatos	OK	
+g4319	kompulsi	PARTIAL	definition truncated
+g4320		OK	no Indonesian term in use
+g4321	egomania	WRONG	definition says withdrawal (menarik diri), not self-love
+g4322	trikotilomania	OK	
+g4323		OK	no lexicalised Indonesian word
+g4324	onomatomania	PARTIAL	garbled (katasberulang); adds 'tanpa sadar'
+g4325	hedonisme	OK	
+g4326	suara hati	OK	
+g4327		PARTIAL	no established Indonesian term; definition truncated
+g4328		PARTIAL	no Indonesian term; definition circular
+g4329	akondrit	WRONG	says 'pitted stony meteor', not 'lacking chondrules'
+g4330	penularan melalui udara	PARTIAL	omits respiratory entry
+g4331	Pegunungan Allegheny	OK	
+g4332	dataran aluvial	PARTIAL	says 'layer' instead of 'flat'
+g4333	partikel alfa	OK	
+g4334	altostratus	OK	
+g4335	Air Terjun American	OK	
+g4336	Sungai Angara	PARTIAL	garbled direction; truncated (Baika)
+g4337	Air Terjun Angel	WRONG	definition is for 'angel' (kind person)
+g4338	antilepton	PARTIAL	antimatter rather than antiparticle
+g4339	antimuon	PARTIAL	antimatter rather than antiparticle; omits decay
+g4340	antikuark	PARTIAL	antimatter rather than antiparticle
+g4341	Sungai Araguaia	PARTIAL	omits Tocantins
+g4342	peninggalan arkeologi	PARTIAL	cagar budaya is a heritage site, not a relic
+g4343	Sungai Arkansas	PARTIAL	truncated
+g4344	astenosfer	OK	matches English gloss
+g4345	Pegunungan Alpen Australia	PARTIAL	truncated (Great Dividing Range)
+g4346	Sungai Avon	PARTIAL	'naik' is a literal translation of 'rising'
+g4347		PARTIAL	no good single word; definition says flowing back, not held-back water
+g4348	inti bor	PARTIAL	omits cylindrical / hollow drill
+g4349		WRONG	garbled: 'part of beach between sea'
+g4350	objek sabuk Kuiper	PARTIAL	too vague
+g4351	Ojos del Salado	PARTIAL	name only, misspelt
+g4352	Air Terjun Paulo Afonso	PARTIAL	name only
+g4353	planetesimal	PARTIAL	too vague
+g4354	gosong pasir; beting pasir	PARTIAL	restricted to rivers
+g4355		PARTIAL	no good noun; definition describes coarse fur
+g4356	Sierra Madre Occidental	PARTIAL	name only
+g4357		OK	free phrase only
+g4358	tanjakan	PARTIAL	says slope of the upper part, not upward slope
+g4359	kuark atas	PARTIAL	truncated
+g4360	elektron valensi	PARTIAL	truncated
+g4361	bintang variabel	OK	
+g4362	vektor; pembawa penyakit	OK	
+g4363	penularan melalui vektor	PARTIAL	omits vector
+g4364		PARTIAL	no established term
+g4365	Vesta	OK	
+g4366	selubung	OK	
+g4367	Sungai Vetluga	OK	
+g4368	Air Terjun Victoria	OK	
+g4369		PARTIAL	no established term; 'vektor penularan' is inaccurate
+g4370	Volans	PARTIAL	garbled (bumiskutub)
+g4371	kawah	PARTIAL	typo (mangkuksdi)
+g4372	Sungai Volkhov	OK	
+g4373	Sungai Volta	OK	
+g4374	Vulpecula	OK	
+g4375	Sungai Wabash	PARTIAL	'berhilir' should be 'berhulu'
+g4376	batuan dinding	PARTIAL	lipatan (fold) should be sesar (fault)
+g4377	liang kelinci	OK	
+g4378	wadi	PARTIAL	'lapisan' should be 'dasar'
+g4379	sarang tawon; sarang tabuhan	OK	
+g4380		OK	no lexicalised term
+g4381		OK	no exact word
+g4382	tepian	OK	
+g4383	sistem sungai	OK	
+g4384	pelemah	OK	
+g4385	selaput	OK	
+g4386	Laut Weddell	WRONG	says cape (tanjung), not sea arm
+g4387	Weisshorn	PARTIAL	feet given as meters
+g4388	Puncak Wheeler	OK	
+g4389		OK	no Indonesian word
+g4390	katai putih	OK	
+g4391		PARTIAL	no exact word; omits rapids
+g4392	Gunung Whitney	PARTIAL	feet given as meters
+g4393		PARTIAL	no Indonesian name; truncated
+g4394	Sungai Willamette	PARTIAL	truncated
+g4395	Gunung Wilson	PARTIAL	feet given as meters
+g4396		OK	no lexicalised term
+g4397	Selat Windward	PARTIAL	truncated
+g4398	Danau Winnipeg	OK	
+g4399	Sungai Wisconsin	OK	
+g4400	Sungai Yazoo	PARTIAL	omits Vicksburg

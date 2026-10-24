@@ -1,0 +1,101 @@
+id	words	definition	note
+g6001		OK	corong is the object; bentuk corong is a free phrase
+g6002		OK	no noun for the elongated figure; lonjong is adjectival
+g6003		WRONG	definition garbled ("fundamental condition that is guaranteed")
+g6004		OK	no established noun
+g6005	keadaan dasar	OK	physics term
+g6006	titik jenuh	OK	
+g6007		OK	
+g6008	jebakan kemiskinan	PARTIAL	omits that you are no better off
+g6009		OK	no idiomatic equivalent
+g6010	rekening; akun	WRONG	definition says "broker or business services", not the relationship
+g6011		PARTIAL	renders account as a record (catatan)
+g6012		OK	
+g6013	distopia	PARTIAL	omits deprivation/oppression/terror
+g6014		OK	
+g6015	konflik kepentingan; benturan kepentingan	OK	
+g6016		OK	krisis is too general
+g6017		PARTIAL	"saat" (time) rather than situation
+g6018		OK	
+g6019		OK	
+g6020		OK	
+g6021		OK	no established term
+g6022		OK	jalan buntu is deadlock, not quite this
+g6023	mimpi buruk	OK	figurative use
+g6024	simalakama	OK	as in buah simalakama
+g6025	kesulitan; kesukaran	OK	
+g6026		OK	api penyucian is the religious place, rarely figurative
+g6027		PARTIAL	clumsy
+g6028	titik nol	OK	as in kembali ke titik nol
+g6029		OK	
+g6030	standardisasi; pembakuan	OK	
+g6031	stigmatisme	OK	typo "tunggalsbertemu"
+g6032	titik akhir	PARTIAL	"final result" rather than final point
+g6033		OK	mutakhir is adjectival
+g6034		OK	
+g6035		OK	
+g6036	bom waktu	OK	
+g6037	tong mesiu	PARTIAL	clumsy; omits potential source of violence
+g6038		PARTIAL	clumsy word order
+g6039	pusat perhatian	OK	
+g6040		PARTIAL	"3 hal" not specified
+g6041		PARTIAL	mentions only Kentucky Derby
+g6042		OK	
+g6043		OK	
+g6044	imamat; tahbisan	PARTIAL	"eklestial" garbled; kekuasaan for office
+g6045	kerendahan; kehinaan	OK	
+g6046		OK	
+g6047	status hukum	OK	
+g6048	kematian perdata	PARTIAL	term from KUHPerdata; omits life imprisonment part
+g6049		PARTIAL	perbudakan too broad as a word
+g6050	entelekia	WRONG	"disadari" means consciously realised, not actualised
+g6051	hidup kekal; kehidupan abadi	OK	
+g6052		OK	
+g6053		PARTIAL	clumsy
+g6054		OK	
+g6055		OK	
+g6056		OK	
+g6057	alopatri	PARTIAL	omits no overlap
+g6058	simpatri	PARTIAL	omits without interbreeding
+g6059	ketidaknyataan	OK	
+g6060		OK	
+g6061		OK	
+g6062		PARTIAL	omits cohabitation and not by ceremony; kumpul kebo is not marriage
+g6063		OK	kawin kontrak is different
+g6064		OK	
+g6065		OK	
+g6066	monandri	OK	
+g6067		PARTIAL	"serangkaian pendek" misplaces short
+g6068		PARTIAL	omits without guilt or jealousy
+g6069		OK	
+g6070	nikah mut'ah; kawin mut'ah	OK	
+g6071		OK	
+g6072	supremasi hukum	WRONG	"urutan peristiwa" renders order as sequence
+g6073	kerukunan	OK	
+g6074	kedamaian; ketenteraman; ketenangan	OK	
+g6075		OK	
+g6076	mufakat; konsensus	OK	
+g6077	kontrak sosial	OK	
+g6078	sitopenia	OK	
+g6079		OK	
+g6080	pansitopenia	OK	
+g6081		OK	
+g6082	imunokompetensi	OK	
+g6083	imunodefisiensi; defisiensi imun	OK	
+g6084	imunosupresi	OK	
+g6085	inkompatibilitas; ketidakcocokan	OK	
+g6086		PARTIAL	clumsy, no head noun
+g6087	inkompatibilitas Rh	OK	
+g6088	keributan; kegaduhan	OK	
+g6089		OK	
+g6090		OK	
+g6091		OK	
+g6092	pergolakan; gejolak	PARTIAL	"kacau yang mendorong kekerasan" misreads violent
+g6093		OK	
+g6094	perang proksi	OK	
+g6095	Perang Dingin	WRONG	"kubu US dan kubu AS" names the US twice; omits Soviet Union
+g6096	perpecahan; keretakan	OK	
+g6097	pemadaman; mati lampu	PARTIAL	omits extinction of lights deliberately
+g6098	mendung	OK	
+g6099	kualitas hidup; mutu hidup	OK	
+g6100	ketidakbahagiaan	OK	

@@ -1,0 +1,101 @@
+id	words	definition	note
+g6401		OK	no established Indonesian term
+g6402	afakia	OK	
+g6403		PARTIAL	no established Indonesian term; omits "not due to hearing loss"
+g6404	afasia global	OK	
+g6405	afasia motorik; afasia Broca; afasia ekspresif	OK	
+g6406	afasia transkortikal	OK	
+g6407	diskalkulia	PARTIAL	typo "mempelajarismatematika"; misses grade-appropriate
+g6408	anartria	OK	
+g6409	agnosia auditori	OK	
+g6410	penyakit Creutzfeldt-Jakob	PARTIAL	omits dementia and loss of muscle control
+g6411	laringospasme	PARTIAL	typo "panggal" for pangkal
+g6412	emboli udara	PARTIAL	omits causes
+g6413	emboli lemak	PARTIAL	omits causes
+g6414	tromboemboli; tromboembolisme	PARTIAL	embolus rendered as "gelembung"
+g6415	trombosis serebral	OK	
+g6416	oklusi koroner	OK	
+g6417	penyakit jantung koroner	PARTIAL	typo "jantun"
+g6418		OK	no established Indonesian term
+g6419	hepatomegali	PARTIAL	"hati/limpa": limpa is spleen
+g6420	keratektasia	OK	
+g6421	keratokonus	OK	
+g6422	hipotensi ortostatik; hipotensi postural	OK	
+g6423	hipertensi esensial; hipertensi primer	OK	
+g6424	hipertensi portal	PARTIAL	omits consequences
+g6425	hipertensi sekunder	PARTIAL	clumsy: "penyakit kedua"
+g6426	amiotrofi	OK	
+g6427	sklerosis lateral amiotrofik	PARTIAL	omits muscle atrophy
+g6428	aneurisma aorta	OK	
+g6429	aneurisma aorta abdominal	OK	
+g6430	stenosis aorta; stenosis katup aorta	OK	
+g6431		OK	no established Indonesian term
+g6432	stenosis laring	PARTIAL	larynx given as tenggorokan
+g6433	stenosis pulmonal	OK	
+g6434	stenosis pilorus	PARTIAL	duodenum given as usus
+g6435		OK	no established Indonesian term
+g6436	aneurisma serebral; aneurisma otak	OK	
+g6437	aneurisma intrakranial	OK	
+g6438	aneurisma ventrikel	OK	
+g6439	aterogenesis	OK	
+g6440	aterosklerosis	OK	
+g6441	kuru	PARTIAL	omits paralysis, death, transmission
+g6442	kompresi saraf	PARTIAL	omits effects
+g6443		OK	no established Indonesian term
+g6444	arteriosklerosis obliterans	OK	
+g6445	asites	OK	
+g6446	aritmia; aritmia jantung	OK	
+g6447	kardiomiopati	OK	
+g6448	flutter atrium	OK	
+g6449	irama derap; irama gallop	OK	
+g6450	stenosis mitral	OK	
+g6451	gagal sirkulasi	OK	
+g6452	gagal jantung	OK	
+g6453	gagal jantung kongestif	OK	
+g6454	insufisiensi koroner	WRONG	only gives a consequence, not a definition
+g6455	penyakit ginjal polikistik	OK	
+g6456	poliuria	OK	
+g6457	gagal ginjal	OK	
+g6458	insufisiensi ginjal	OK	
+g6459	gagal ginjal akut	OK	
+g6460	gagal ginjal kronis	OK	
+g6461	enterolitiasis	OK	
+g6462	nefrolitiasis	OK	
+g6463	lipomatosis	OK	
+g6464	litiasis	OK	
+g6465	glomerulonefritis	PARTIAL	omits symptoms
+g6466	penyakit hati	PARTIAL	"hati/limpa": limpa is spleen
+g6467	sirosis; sirosis hati	OK	
+g6468	perlemakan hati; hati berlemak	OK	
+g6469	adenopati	OK	
+g6470	aldosteronisme; hiperaldosteronisme	OK	
+g6471	penyakit Cushing; hiperadrenalisme	PARTIAL	says gland enlarges rather than overactive
+g6472	diabetes tipe 1; diabetes melitus tergantung insulin	PARTIAL	gives a synonym only
+g6473	diabetes tipe 2; diabetes melitus tidak tergantung insulin	OK	
+g6474	diabetes laten	OK	
+g6475	angioedema; edema Quincke	WRONG	fragment: only says it appears and disappears within 24 hours
+g6476	limfedema	OK	
+g6477	hipertiroidisme; tirotoksikosis	PARTIAL	omits hormone overproduction
+g6478	penyakit Graves	WRONG	"gondong" is mumps; goiter is gondok
+g6479	kretinisme	OK	
+g6480	akondroplasia	PARTIAL	omits dwarfism
+g6481	penyakit menular	OK	
+g6482	flu Asia	OK	
+g6483	flu babi	OK	
+g6484	roseola infantum; eksantema subitum	PARTIAL	omits fever and rash
+g6485	alastrim; variola minor	OK	
+g6486	angina Vincent	PARTIAL	"borok berlendir" clumsy for mucous membrane ulceration
+g6487	blastomikosis	OK	
+g6488	kromoblastomikosis	OK	
+g6489		OK	no distinct Indonesian term
+g6490	kerion	PARTIAL	omits swelling with pustules
+g6491	tinea barbae	OK	
+g6492	tinea kapitis	OK	
+g6493	tinea korporis	WRONG	garbled: "tak berarti" instead of tak berambut
+g6494	tinea kruris	OK	
+g6495		OK	no established Indonesian term
+g6496	tinea unguium; onikomikosis	OK	
+g6497	penyakit infeksi	OK	
+g6498	agamaglobulinemia	PARTIAL	only "rare immune disorder"
+g6499	hipogamaglobulinemia	OK	
+g6500	imunodefisiensi kombinasi berat; SCID	PARTIAL	omits susceptibility and lethality

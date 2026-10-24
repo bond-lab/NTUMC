@@ -44,3 +44,30 @@ sources COW leaves out (BOW, SEW, Wiktionary).  They were reviewed in the
 same way (steps 2 and 3, all flagged), by `scripts/cow_rescue.py`; the
 runs agreed on 94%, and 1,078 senses judged OK and not malformed are
 added back (`cmn-rescue-final.tsv`).
+
+## Words for definition-only Indonesian synsets
+
+Wordnet Bahasa 1.5 keeps all 13,093 Indonesian definitions of
+`wn-ind-def.tab` (earlier builds dropped those on synsets with no
+Indonesian word in the NTU-MC database), which leaves 9,209 wnb-id synsets
+with a definition but no word.  `scripts/bahasa_rescue.py` collected
+candidates for them: the `wn-msa-all.tab` senses the release leaves out
+(automatic O, M and L; not X, and not ones already reviewed) and, for the
+8,292 synsets with no O or M candidate, up to three words proposed by
+Claude Opus from the English synset and the Indonesian definition
+(`id-rescue-proposals/`; the proposer also judged the definition OK,
+PARTIAL or WRONG).  The 16,165 candidates were then reviewed blind as above
+(steps 2 and 3); the runs agreed on 93%, and 1,102 were adjudicated.
+
+| Source | Candidates | OK | WRONG | UNSURE |
+|---|---|---|---|---|
+| tab O | 622 | 519 | 70 | 33 |
+| tab M | 687 | 421 | 256 | 10 |
+| tab L | 9,954 | 1,985 | 7,849 | 120 |
+| proposed | 4,902 | 4,897 | 4 | 1 |
+
+The 7,285 judged OK with no FORM or MS note from both runs are `add` rows
+in Wordnet Bahasa's corrections (`id-rescue-final.tsv`, sources in
+`id-rescue-sources.tsv`); 3,904 synsets still have no word.  The proposed
+words were judged by the same model that proposed them, so their 99.9% is
+not independent evidence: they need the human spot check.

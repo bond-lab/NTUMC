@@ -1,0 +1,101 @@
+id	words	definition	note
+g6301	gamopati	OK	
+g6302	keracunan ptomain	PARTIAL	omits that ptomaines were the supposed cause
+g6303	salmonelosis	OK	
+g6304	keracunan timbal; plumbisme	OK	
+g6305	kolik timbal	OK	
+g6306		PARTIAL	no lexicalised term; definition says nerve junction, not neuromuscular junction
+g6307	angiopati	OK	
+g6308	aspergilosis	PARTIAL	omits symptoms
+g6309	akantositosis	OK	
+g6310	agranulositosis; granulositopenia	OK	
+g6311	analbuminemia	OK	
+g6312	penyakit Banti; sindrom Banti	PARTIAL	omits anemia/cirrhosis
+g6313	antraks	OK	
+g6314	antraks kulit	PARTIAL	very truncated
+g6315	antraks paru; antraks inhalasi	OK	
+g6316	demam berdarah Argentina	PARTIAL	omits Junin virus
+g6317	demam air hitam	OK	
+g6318	penyakit cakaran kucing	OK	
+g6319		OK	no good Indonesian equivalent of colloquial 'crud'
+g6320	penyakit idiopatik; idiopati	OK	
+g6321	penyakit monogenik; kelainan monogenik	OK	
+g6322	penyakit poligenik; kelainan poligenik	OK	
+g6323	hipogonadisme	PARTIAL	omits consequences
+g6324	eunukoidisme	OK	
+g6325	sindrom Kallmann	PARTIAL	omits hypogonadism with anosmia
+g6326	inkompetensi katup	OK	
+g6327	inkompetensi	OK	
+g6328	penyakit Kawasaki	PARTIAL	only translates the alternative name
+g6329	piknosis	OK	
+g6330	hialinisasi	OK	
+g6331	hiperparatiroidisme	OK	
+g6332	hipoparatiroidisme	OK	
+g6333	vakuolisasi	OK	
+g6334	demam boutonneuse	WRONG	'kutu domba' (sheep tick) is a mistranslation; tick lives on dogs
+g6335		PARTIAL	no Indonesian term; 'gemetar' mistranslates the cattle disease 'trembles'
+g6336	miastenia gravis	OK	
+g6337	onikolisis	OK	
+g6338	onikosis	OK	
+g6339	penyakit Paget	OK	
+g6340	poliarteritis nodosa; periarteritis nodosa	PARTIAL	omits nodules along arteries
+g6341	periodontitis; penyakit periodontal	OK	
+g6342	piorea	PARTIAL	omits purulent/chronic
+g6343		OK	no Indonesian term found
+g6344	kekambuhan	OK	
+g6345		OK	no specific lexical item
+g6346	serangan epilepsi; kejang epilepsi	OK	
+g6347	petit mal	PARTIAL	'sakit' used for seizure
+g6348	sindrom Asperger	PARTIAL	omits characteristics
+g6349	gangguan metabolisme; kelainan metabolik	OK	
+g6350	alkaptonuria	PARTIAL	omits 'rare recessive metabolic anomaly'
+g6351	gangguan saraf; penyakit saraf; kelainan neurologis	OK	
+g6352	kerusakan otak	OK	
+g6353	akinesia	OK	
+g6354	sistoplegia	OK	
+g6355	epilepsi akinetik	OK	
+g6356	epilepsi fokal; epilepsi kortikal	OK	
+g6357	kejang fokal	OK	
+g6358		PARTIAL	Latin term not used in Indonesian; 'sakit' for seizure
+g6359	diplegia	OK	
+g6360	epilepsi grand mal; grand mal	OK	
+g6361	epilepsi Jackson	OK	
+g6362	epilepsi mioklonik; penyakit Lafora	OK	
+g6363	epilepsi petit mal; petit mal	OK	
+g6364		WRONG	says 'not accompanied' (opposite)
+g6365		WRONG	garbled; omits transient impairment of cortical function
+g6366	epilepsi musikogenik	OK	
+g6367	epilepsi fotogenik	OK	
+g6368	epilepsi pascatrauma; epilepsi traumatik	OK	
+g6369	epilepsi prokursif	PARTIAL	'rasa sakit' for seizure
+g6370	epilepsi lobus temporal; epilepsi psikomotor	OK	
+g6371	epilepsi refleks	OK	
+g6372	epilepsi sensorik	OK	
+g6373	status epileptikus	PARTIAL	fragment only
+g6374	epilepsi tonik	OK	
+g6375	palsi Erb; kelumpuhan Erb	PARTIAL	'brachial' without plexus
+g6376		OK	no Indonesian term
+g6377	ataksia Friedreich	PARTIAL	omits symptoms
+g6378	ataksia serebelar herediter	PARTIAL	omits symptoms
+g6379	atopognosia	OK	
+g6380	brakidaktili	OK	
+g6381	kriptorkismus; kriptorkidisme	OK	
+g6382	monorkisme	OK	
+g6383	diskinesia	OK	
+g6384	diskinesia tardif	PARTIAL	only tongue rolling
+g6385	deviasi septum	OK	
+g6386	deviasi septum hidung	PARTIAL	omits consequences
+g6387	dekstrokardia	OK	
+g6388	enteroptosis	OK	
+g6389	eretisme	OK	
+g6390	gawat janin	PARTIAL	omits abnormal heart rhythm
+g6391	sklerosis multipel	PARTIAL	garbled fragment
+g6392	palsi serebral; lumpuh otak	OK	
+g6393	korea	OK	
+g6394	koriomeningitis	PARTIAL	'oleh meninges' should be 'pada meninges'
+g6395	kelumpuhan layuh; paralisis flasid	OK	
+g6396	ortokorea	WRONG	'tegang' (tense) should be 'tegak' (erect)
+g6397	korea Sydenham	OK	
+g6398	amaurosis	OK	
+g6399	ambliopia; mata malas	OK	
+g6400	emetropia	OK	

@@ -1,0 +1,101 @@
+id	words	definition	note
+g6201		OK	no established Indonesian term
+g6202	divertikulosis	OK
+g6203	kegentingan	OK
+g6204		WRONG	no Indonesian word; definition says the desperate effort is the only option 'to lose' (opposite)
+g6205		PARTIAL	only free phrases (kesulitan besar); definition clumsy
+g6206	kekritisan; kritikalitas	PARTIAL	definition omits the general 'critical state' part
+g6207		PARTIAL	only phrases (keadaan tak menentu); definition omits 'preceding a new direction'
+g6208	kondisi fisik; keadaan fisik	OK
+g6209	elastosis	OK
+g6210		OK	only free phrase (rangsangan emosi)
+g6211		PARTIAL	no lexicalised word; 'kegembiraan' is joy rather than excitement
+g6212	seks siber	OK
+g6213	berahi; birahi	OK
+g6214	anestrus	OK
+g6215	dorongan seksual	OK
+g6216	hipoksia	OK
+g6217	hipoksia anemik	OK
+g6218	hipoksia hipoksik	OK
+g6219	hiperkapnia; hiperkarbia	OK
+g6220	hipokapnia; akapnia	OK
+g6221	utang oksigen	PARTIAL	definition omits 'of oxygen' and the recovery part
+g6222	anoksia	OK
+g6223	anoksia anemik	OK
+g6224	anoksia anoksik	OK
+g6225	anoksia iskemik; anoksia stagnan	OK
+g6226		OK	term not used in Indonesian
+g6227	disgenesis	OK
+g6228		OK	no Indonesian lexeme for this sense
+g6229	graviditas	OK
+g6230	gravida	OK
+g6231	kehamilan abdominal	OK	typo 'etopik' for 'ektopik'
+g6232	kehamilan ovarium	OK
+g6233	kehamilan tuba	PARTIAL	'tabung Fallopian' should be 'tuba Falopi'
+g6234	kehamilan ektopik; kehamilan di luar kandungan	PARTIAL	definition omits 'than in the uterus'
+g6235	kehamilan intrauterin	WRONG	definition says gestation 'inside the fetus' (janin) instead of uterus (rahim)
+g6236		OK	only phrase (gerakan janin pertama)
+g6237	persalinan prematur	PARTIAL	labor rendered as 'aktivitas'; should be persalinan
+g6238	plasenta previa	WRONG	says lower part of the fetus (janin) instead of the uterus (rahim)
+g6239	rigor mortis; kaku mayat	OK
+g6240	vitalisasi	OK
+g6241	kebugaran	OK
+g6242		OK	no exact Indonesian word
+g6243	kondisi patologis	OK
+g6244	gangguan kesehatan	OK
+g6245	gangguan fungsional	OK
+g6246	gangguan organik	OK
+g6247	diskrasia	OK
+g6248	diskrasia darah	OK
+g6249		OK	no Indonesian term
+g6250	solusio plasenta; abrupsio plasenta	OK
+g6251	aklorhidria	OK
+g6252	akilia	OK
+g6253	sindrom otak organik akut	PARTIAL	definition is just the name
+g6254	sindrom gangguan pernapasan akut; ARDS	PARTIAL	rales mistranslated as dahak; very truncated
+g6255	gangguan makan	OK
+g6256	astereognosis; agnosia taktil	PARTIAL	'menangani' is a clumsy rendering of handling (meraba)
+g6257	ADHD; gangguan pemusatan perhatian dan hiperaktivitas	PARTIAL	definition is just a garbled name
+g6258	anorgasmia	OK
+g6259	bulimia nervosa	PARTIAL	omits binge eating and vomiting
+g6260	gangguan kandung kemih	OK
+g6261	penyakit kardiovaskular	OK
+g6262	sindrom terowongan karpal	OK
+g6263	keilosis	PARTIAL	'penaikan' is wrong for scaling (bersisik)
+g6264		OK	only phrase (kekeringan vagina)
+g6265	gangguan degeneratif	OK
+g6266	demielinasi	OK
+g6267		OK	no Indonesian term
+g6268	disosmia; gangguan penciuman	OK
+g6269	disfagia	OK
+g6270	distrofi	PARTIAL	omits 'nutrition'
+g6271	osteodistrofi	PARTIAL	omits causes
+g6272		PARTIAL	no Indonesian word; 'kondisi sakit' not quite right
+g6273	hiperaktivitas	OK
+g6274	impaksi gigi	OK
+g6275	impaksi feses	OK
+g6276	gangguan belajar; kesulitan belajar	OK
+g6277		OK	no standard Indonesian word (tonggos is protruding teeth)
+g6278	anoreksia nervosa	PARTIAL	'ilusi' should be 'delusi'; omits emaciation
+g6279	hiperselularitas	OK
+g6280		WRONG	says urinary bladder (kandung kemih) instead of gall bladder (kandung empedu)
+g6281	kriptobiosis	PARTIAL	'siap membalik' garbled for reversible standstill
+g6282	ektasia	OK
+g6283	ektasia alveolar	OK
+g6284	kecanduan kokain	OK
+g6285	kecanduan heroin	OK
+g6286	kecanduan kafein	PARTIAL	redundant 'kafein terhadap kafein'
+g6287	kecanduan nikotin	OK
+g6288		WRONG	definition says sudden anger with trembling; concept is a fit of shivering
+g6289	asal-usul; akar	OK
+g6290	amiloidosis	OK
+g6291		OK	no clear lexicalised Indonesian equivalent
+g6292		OK	no clear Indonesian word (neurastenia is a different synset)
+g6293	syok kardiogenik	PARTIAL	'shok' should be 'syok'; cardiac arrest vs gangguan jantung
+g6294	syok hipovolemik	OK	spelling 'shok' should be 'syok'
+g6295	syok obstruktif	OK	spelling 'shok' should be 'syok'
+g6296	syok distributif	OK	spelling 'shok' should be 'syok'
+g6297	syok insulin	OK
+g6298	penyakit dekompresi; penyakit kaison	OK
+g6299	keracunan makanan	OK
+g6300	keracunan jamur	OK

@@ -1,0 +1,101 @@
+id	words	definition	note
+g5501		PARTIAL	no established Indonesian term; definition omits preferred stock and warrants
+g5502	saham pertumbuhan	PARTIAL	definition omits expected continued growth
+g5503		PARTIAL	saham gocap/saham receh are local notions, not exact; per share, not per lot
+g5504	harga pasar; nilai pasar	OK	
+g5505	obligasi konversi	WRONG	'ikatan' (tie) mistranslates bond; should be obligasi
+g5506	obligasi kupon; obligasi atas unjuk	PARTIAL	
+g5507	obligasi sampah; obligasi imbal hasil tinggi	WRONG	'ikatan' mistranslates bond
+g5508	jaminan pelaksanaan	WRONG	'ikatan' mistranslates bond
+g5509	obligasi atas nama	WRONG	'ikatan' mistranslates bond
+g5510	obligasi berjaminan	WRONG	'ikatan yang sudah kembali' garbled
+g5511		WRONG	definition garbled (sekelompok orang); no settled Indonesian term
+g5512	lantakan; emas batangan	OK	
+g5513		PARTIAL	syiling is Malaysian; no Indonesian lemma for the US coin
+g5514	absisi	WRONG	garbled, missing the shedding (gugurnya bunga, daun, buah)
+g5515	akresi	OK	
+g5516	akresi	OK	
+g5517	asetilasi	PARTIAL	gugus asetil, not kelompok
+g5518	proses Acheson	OK	
+g5519		OK	no lexicalised term
+g5520	transpor aktif	WRONG	says along the concentration difference; should be against the gradient with energy
+g5521	asilasi	PARTIAL	gugus asil, not kelompok
+g5522	agenesis	PARTIAL	
+g5523	reaksi aldol	OK	
+g5524		OK	no established Indonesian term
+g5525	peluruhan alfa	OK	
+g5526		PARTIAL	no lexicalised term
+g5527	amelogenesis	OK	
+g5528	amerikanisasi	OK	
+g5529	amitosis	PARTIAL	omits 'without formation of chromosomes'
+g5530		PARTIAL	anaglif is the picture, not the process
+g5531		OK	no established Indonesian term
+g5532	anafase	PARTIAL	omits chromosome movement
+g5533	anovulasi	PARTIAL	
+g5534	aferesis	PARTIAL	sound/letters, not only letter
+g5535	asibilasi	OK	
+g5536	operasi asinkron	PARTIAL	
+g5537	autokatalisis	OK	
+g5538	autolisis	OK	
+g5539	pengolahan data otomatis	OK	
+g5540	autoradiografi	OK	
+g5541		OK	no Indonesian term
+g5542	autoregulasi	OK	
+g5543		OK	no Indonesian term
+g5544	pemrosesan latar belakang	OK	
+g5545	laju metabolisme basal	PARTIAL	'kondisi' should be 'laju'
+g5546	metabolisme basal	OK	
+g5547	pengolahan tumpak	PARTIAL	
+g5548	proses Bessemer	PARTIAL	
+g5549	peluruhan beta	OK	
+g5550	blastogenesis	OK	
+g5551		WRONG	says helping the birth; no specific Indonesian lemma
+g5552	siklus CNO; siklus karbon	PARTIAL	
+g5553	siklus karbon; daur karbon	OK	
+g5554		OK	no Indonesian term
+g5555	sentrifugasi	OK	
+g5556	kelasi	OK	
+g5557	terapi kelasi; kelasi	OK	
+g5558	kesetimbangan kimia	OK	
+g5559	kemosintesis	OK	
+g5560	fusi dingin	OK	
+g5561	deflagrasi	PARTIAL	omits rapid heat-driven propagation
+g5562		OK	no lexicalised term
+g5563		PARTIAL	no lexicalised term; definition word order garbled
+g5564	pembusukan	OK	
+g5565	inflasi dorongan biaya	OK	
+g5566	sianidasi	OK	
+g5567		PARTIAL	no Indonesian term
+g5568	deaminasi	OK	
+g5569	dekalsifikasi	OK	
+g5570	dekarboksilasi	OK	
+g5571	dekoksi; perebusan	OK	
+g5572	dediferensiasi	OK	
+g5573		OK	no Indonesian term
+g5574	deiodinasi	OK	
+g5575	inflasi tarikan permintaan	OK	
+g5576	denazifikasi	OK	
+g5577		OK	no Indonesian term
+g5578	eponimi	OK	
+g5579	destalinisasi	PARTIAL	
+g5580	distilasi destruktif	OK	
+g5581	diakinesis	OK	
+g5582	diastrofisme	OK	
+g5583	diploten	OK	
+g5584	reaksi pendesakan; reaksi penggantian	PARTIAL	
+g5585	disosiasi	OK	
+g5586	reaksi penggantian ganda; reaksi metatesis	OK	
+g5587		OK	no specific Indonesian term
+g5588	ameliorasi	OK	
+g5589	ekimosis	PARTIAL	omits resulting bruise
+g5590	elektrodeposisi	OK	
+g5591	reaksi eliminasi	OK	
+g5592	elisi	OK	
+g5593		OK	no lexicalised term
+g5594	reaksi endoergik	OK	
+g5595	reaksi endotermik	OK	
+g5596	ekesis	OK	
+g5597	reaksi eksoergik	PARTIAL	'evolusi energi' is a calque; pelepasan energi
+g5598	ekspektorasi	OK	
+g5599	peluruhan eksponensial	OK	
+g5600	metabolisme lemak	PARTIAL	

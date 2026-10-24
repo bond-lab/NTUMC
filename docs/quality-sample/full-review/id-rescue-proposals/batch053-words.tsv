@@ -1,0 +1,101 @@
+id	words	definition	note
+g5201		OK	no lexicalised term; pendeta penjara is a free phrase
+g5202		PARTIAL	missing 'as to good reputation'; no lexicalised term
+g5203	tanggungan	WRONG	definition describes the carer, not the person cared for
+g5204	kuasa usaha	OK
+g5205		PARTIAL	wajib militer means conscript; omits 'after hours'
+g5206	antifeminis	OK
+g5207		OK
+g5208	master catur	OK
+g5209		PARTIAL	gaun means gown; concept is about dressing fashionably in general
+g5210	direktur utama; CEO	PARTIAL	omits board reporting
+g5211	direktur keuangan	PARTIAL	truncated
+g5212	ketua mahkamah agung	OK
+g5213		PARTIAL	too vague; no exact Indonesian rank equivalent
+g5214	anak ajaib	OK
+g5215	kiropraktor	OK
+g5216		OK	no lexicalised term
+g5217		OK
+g5218		PARTIAL	paduan suara is a singing choir, not a chorus line
+g5219		OK	only free phrase orang Chukchi
+g5220		OK
+g5221	jemaat	OK
+g5222		PARTIAL	omits 'secular matters'
+g5223	anggota dewan	WRONG	Malaysian state assembly member (Dewan Undangan Negeri)
+g5224	penglaju; komuter	WRONG	refers to living outside Paris
+g5225	anggota kongres	PARTIAL	uses Malay 'ahli' and Indonesian DPR instead of US House
+g5226		WRONG	garbled: 'dissatisfied woman in large quantity'
+g5227		PARTIAL	sudu is Malay; Indonesian would be sendok
+g5228		WRONG	kurang ajar means rude, not cynical
+g5229	diabetesi	OK
+g5230		PARTIAL	makan malam restricts to dinner
+g5231	pencuci piring	WRONG	describes a machine (Malay), not a person
+g5232	ekshibisionis	PARTIAL	Malay mempamerkan; too general (genital exposure missing)
+g5233		OK
+g5234		PARTIAL	tidak layak means unfit/unworthy rather than incompetent
+g5235		PARTIAL	Malay phrasing; omits peerage/Britain
+g5236		WRONG	defines lamb meat
+g5237	arsitek lanskap	WRONG	'person who looks at nature'
+g5238		WRONG	describes railway switchman, another sense
+g5239		PARTIAL	too vague
+g5240		PARTIAL	'blue' should be blues; no lexicalised term
+g5241	tukang atap	PARTIAL	bumbung is Malay
+g5242	pengejek; pencemooh	OK
+g5243	skeptikus; peragu	PARTIAL	omits 'habitually doubts accepted beliefs'
+g5244		OK	ahli sihir is Malay-flavoured; penyihir wanita is a free phrase
+g5245		PARTIAL	squaw is a dated, offensive term; no Indonesian equivalent
+g5246		WRONG	describes a survivor, not a survivalist
+g5247		PARTIAL	survival in general, not outliving another
+g5248	orang kaya baru	PARTIAL	omits lack of social acceptance; not a full noun phrase
+g5249		WRONG	copied from nouveau-riche sense
+g5250	vegetarian	OK
+g5251		WRONG	describes Native American tribe, not West Indies inhabitant
+g5252	durjana	WRONG	hina dina means lowly/despised, not wicked-doer
+g5253		WRONG	'opposite to the direction of gravity'
+g5254	gelombang langit	PARTIAL	omits reflection by ionosphere
+g5255	interaksi kuat; gaya nuklir kuat	PARTIAL	vague: 'fairly strong force interaction'
+g5256	gaya van der Waals	OK
+g5257	Plantae; kerajaan tumbuhan	OK
+g5258	sel tumbuhan	OK
+g5259	tanaman budi daya	OK
+g5260		OK	only free phrase
+g5261	planlet	OK
+g5262		OK
+g5263	Thallophyta	OK
+g5264	talus	WRONG	garbled fragment
+g5265		PARTIAL	berlumut is wrong; lichen is lumut kerak
+g5266	volva	OK
+g5267	askokarp	PARTIAL	'ready to fruit' rather than fruiting body
+g5268	basidiokarp	OK
+g5269	peridium	OK
+g5270	askoma	PARTIAL	omits hymenium/broad disk
+g5271	apotesium	OK
+g5272	kleistotesium	PARTIAL	omits release by decay
+g5273	domatium	PARTIAL	omits mites/fungi
+g5274	podetium	PARTIAL	omits lichen thallus outgrowth
+g5275	Tracheophyta	OK
+g5276	tanaman pot	OK
+g5277		PARTIAL	fragment, omits growth at tip
+g5278		OK
+g5279		PARTIAL	ditiadakan is wrong for 'terminated'
+g5280		WRONG	jamur means fungus, not moss
+g5281	Andreaeales	OK
+g5282		OK
+g5283	jelai	PARTIAL	wheat for beer; barley is jelai
+g5284		OK
+g5285	jelatang	OK
+g5286	pohon pengetahuan	WRONG	defines the fruit, not the tree
+g5287	hak memesan efek terlebih dahulu	PARTIAL	typo; omits dilution protection
+g5288	hak memesan efek terlebih dahulu	PARTIAL	berlangganan is a poor rendering of subscribe
+g5289	opsi saham	OK	typo karyawansdi
+g5290	opsi saham	OK
+g5291		PARTIAL	literal translation of crown jewels/white knight
+g5292		PARTIAL	omits the grant for services
+g5293		WRONG	'period in which a slave owned land'
+g5294	pembelian kembali saham	PARTIAL	omits 'its own' stock
+g5295	domain publik; ranah publik	OK
+g5296	perusahaan perseorangan; usaha perseorangan	PARTIAL	omits liabilities
+g5297		PARTIAL	ownership of business, not just shares
+g5298	aset berwujud; harta berwujud	OK
+g5299	harta benda; harta duniawi	OK
+g5300		OK

@@ -1,0 +1,101 @@
+id	words	definition	note
+g501		PARTIAL	no single Indonesian lemma for mouthing words silently; definition truncated
+g502		OK	no lexicalised Indonesian verb
+g503	menyergap	PARTIAL	definition restricts to air attack; concept is any sudden attack
+g504		OK	no established Indonesian term
+g505	makan siang	WRONG	definition is a noun (the meal), concept is the verb
+g506	menjamu	PARTIAL	concept is providing food and drink to someone, not feasting oneself
+g507		PARTIAL	definition misses the secret aspect; kencan is not specifically secret
+g508		WRONG	definition garbled (awake and asleep)
+g509		PARTIAL	definition truncated; no single lemma
+g510	menggaris; menggarisi	WRONG	definition describes having wrinkles
+g511	Perang Spanyol-Amerika	OK	
+g512	rekombinan	OK	
+g513		OK	no established Indonesian term
+g514	pembawa	WRONG	definition only describes the trait, not the organism
+g515		OK	no Indonesian word
+g516		OK	no Indonesian word
+g517		OK	no Indonesian word
+g518	homeoterm; hewan berdarah panas	OK	
+g519		OK	North American concept, no Indonesian word
+g520	pemakan bangkai	OK	
+g521	ikan demersal	OK	
+g522		OK	no Indonesian term
+g523	ternak kerja	OK	
+g524	binatang beban	OK	
+g525	hewan penarik	OK	
+g526		PARTIAL	repeated keledai in definition; no distinct lemma
+g527	hewan domestik; hewan peliharaan	OK	
+g528	bakalan	OK	feeder cattle for fattening
+g529		OK	no Indonesian word
+g530		PARTIAL	definition omits maturing for breeding
+g531		OK	no single Indonesian word
+g532		PARTIAL	definition misses travel between habitats
+g533		PARTIAL	definition limits shedding to skin
+g534		OK	no Indonesian word
+g535		PARTIAL	definition calls whale ikan
+g536		PARTIAL	definition omits naturally shed horns
+g537	hewan laut; biota laut	OK	
+g538	tangkapan sampingan	OK	
+g539	amfidiploid	PARTIAL	definition omits one diploid set from each parent
+g540		OK	no Indonesian word for motherless young animal
+g541		PARTIAL	immature rendered as cannot reproduce
+g542		OK	no single Indonesian lemma
+g543	pejantan	PARTIAL	definition omits parent
+g544		OK	ras murni is a quality, not the animal
+g545	kloaka	PARTIAL	pembukaan is a calque; should be lubang
+g546		OK	no established Indonesian term
+g547		OK	penyintas is used of humans
+g548		WRONG	definition describes the teeth, not the animal
+g549	mendidik; mencerahkan	PARTIAL	definition vague
+g550	jambul	PARTIAL	definition omits showy crest
+g551		OK	no established Indonesian term
+g552	anaerob obligat	OK	
+g553	polimorf	PARTIAL	definition vague, omits adult forms
+g554	kerabat	PARTIAL	definition garbled at end
+g555	flora usus	PARTIAL	definition very incomplete
+g556	arbovirus	PARTIAL	
+g557	kapsid	OK	
+g558	virion	OK	
+g559	adenovirus	WRONG	definition says penyakit (disease) instead of virus
+g560	arenavirus	OK	
+g561	virus koriomeningitis limfositik	OK	
+g562	Filoviridae	OK	
+g563	Arenaviridae	OK	
+g564	Rhabdoviridae	OK	
+g565	ortomiksovirus	OK	
+g566	virus sinsisial respiratori	PARTIAL	definition truncated
+g567	virus Coxsackie	OK	
+g568		OK	no single Indonesian verb
+g569	virus papiloma manusia; human papillomavirus	OK	
+g570	virus lambat	OK	
+g571		OK	no established Indonesian name
+g572	Archaebacteria	OK	
+g573	Bacillus subtilis	PARTIAL	pengurai misreads decomposing organic matter
+g574	Yersinia pestis	OK	
+g575	Aerobacter aerogenes	OK	
+g576	Agrobacterium tumefaciens	PARTIAL	definition omits crown gall
+g577	Eubacteria	PARTIAL	definition garbled
+g578	Trichodesmium	OK	
+g579	Trichodesmium	PARTIAL	typo bakterisdi; incomplete
+g580	Pseudomonadaceae	PARTIAL	definition omits pathogens
+g581	Pseudomonas solanacearum	PARTIAL	definition incomplete
+g582		OK	no established Indonesian term
+g583		PARTIAL	definition garbled (non-air)
+g584	Spirillum minus	OK	
+g585	Vibrio fetus	OK	
+g586	Bacteroidaceae	PARTIAL	definition omits family
+g587	Calymmatobacterium granulomatis	OK	
+g588	Corynebacterium diphtheriae	OK	
+g589	Enterobacteriaceae	OK	
+g590	Salmonella enteritidis	OK	
+g591	Salmonella typhimurium	OK	
+g592	Rickettsiales	OK	
+g593	Rickettsiaceae	OK	
+g594	Chlamydia psittaci	OK	
+g595	Streptomyces scabies	OK	
+g596	basil	OK	
+g597	Borrelia burgdorferi	OK	
+g598	inang perantara	PARTIAL	hos should be inang
+g599	inang definitif	PARTIAL	induk should be inang
+g600	mirmekofil	OK	

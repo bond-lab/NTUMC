@@ -1,0 +1,101 @@
+id	words	definition	note
+g2201	pap smear; tes Pap	PARTIAL	omits microscopic examination for abnormal cells
+g2202	apusan dahak	PARTIAL	truncated; 'lumuran' is a clumsy rendering of 'smear' (apusan)
+g2203	apusan vagina	PARTIAL	'lumuran' is unusual for smear; 'apusan' is the medical term
+g2204	spesimen sitologi	OK
+g2205	jaringan hewan	OK
+g2206	jaringan areolar	PARTIAL	'jaringan serabut penghubung' should be 'jaringan ikat'
+g2207	sel beta	OK
+g2208	jaringan kapiler	OK
+g2209	jaringan interstisial	OK
+g2210	gelambir	OK	gelambir = hanging flab/fold of fat
+g2211	lemak bayi	PARTIAL	omits that it disappears at adolescence
+g2212	tulang kuboid	PARTIAL	typo 'berbentu'
+g2213	tulang karpal; tulang pergelangan tangan	OK
+g2214	tulang skafoid; tulang navikular	OK
+g2215	tulang lunatum	PARTIAL	does not distinguish it from the other carpal bones
+g2216	tulang trapezoid	OK
+g2217	tulang hamatum	OK
+g2218	tulang hioid; tulang lidah	OK
+g2219	tulang usus; ilium	OK
+g2220	tulang duduk; iskium	PARTIAL	only gives location; 'ileum' should be 'ilium'
+g2221	tulang panjang	OK
+g2222	ramus mandibula	OK
+g2223	rafe	OK
+g2224	rafe palatina	OK
+g2225	sendi temporomandibular; sendi rahang	OK
+g2226		OK	no established Indonesian term
+g2227	tulang metakarpal; tulang telapak tangan	OK
+g2228	tulang metatarsal; tulang telapak kaki	OK
+g2229	tulang hidung	PARTIAL	'jembatan pada hidung' is a calque; should be 'batang hidung'
+g2230	osikel	PARTIAL	missing the head 'tulang kecil'
+g2231	falang; ruas jari	OK
+g2232		OK	no Indonesian term
+g2233		OK	only a free phrase (tulang bulat)
+g2234	tulang kelangkang; sakrum	PARTIAL	truncated; 'dilebur' odd for fused (menyatu)
+g2235	fosa mandibula; fosa glenoid	OK
+g2236	tulang baji; tulang sfenoid	OK
+g2237	korpus sterni	OK
+g2238	manubrium	OK
+g2239	tulang tarsal; tulang pergelangan kaki	OK
+g2240	dentisi primer	OK
+g2241	dentisi permanen	PARTIAL	typo 'sususnan'
+g2242	gigi geligi; dentisi	OK
+g2243	diastema	OK
+g2244	rongga pulpa	PARTIAL	'pulp'/'kanal akar' should be 'pulpa'/'saluran akar'
+g2245		OK	no Indonesian slang equivalent
+g2246	tulang timpani	OK
+g2247	sumsum merah; sumsum tulang merah	PARTIAL	'tulang sumsum' word order wrong (sumsum tulang)
+g2248	aksolema	OK
+g2249	membran basilar	OK
+g2250	endoneurium	OK
+g2251	jaringan limfoid; jaringan limfatik	PARTIAL	'sistem limpa' (spleen) should be 'sistem limfatik'
+g2252	tulang rawan hialin; kartilago hialin	PARTIAL	'kerangka rahim' should be 'kerangka janin'
+g2253	jaringan erektil	OK
+g2254		OK	no lexicalised Indonesian term
+g2255	jaringan otot lurik	OK
+g2256	kepala otot	OK
+g2257	otot sadar	OK
+g2258		OK	only Latin anatomical name
+g2259		OK	only Latin anatomical name
+g2260		OK	only Latin anatomical name
+g2261		OK	only Latin anatomical name
+g2262	otot aduktor; aduktor	OK
+g2263		WRONG	says abduktor (opposite) instead of aduktor
+g2264		WRONG	says abduktor (opposite) instead of aduktor
+g2265		OK	only Latin anatomical name
+g2266		OK	only Latin anatomical name
+g2267	otot pronator; pronator	OK
+g2268	otot antagonis	OK
+g2269	otot artikular	PARTIAL	'tempurung' should be 'kapsul' (joint capsule)
+g2270		PARTIAL	'tempurung' should be 'kapsul'; only Latin name
+g2271		OK	only Latin anatomical name
+g2272	otot businator; otot pipi	OK
+g2273	otot maseter	OK
+g2274	otot kuadrisep; kuadrisep; otot paha depan	OK
+g2275	jaringan fibrosa	OK
+g2276	ligamen falsiformis	OK
+g2277	perineurium	PARTIAL	typo 'syarat' for 'saraf'
+g2278	sistem persendian	OK
+g2279	jaringan saraf	PARTIAL	typo 'neron' for 'neuron'
+g2280	primordium	PARTIAL	omits 'foundation for subsequent development'
+g2281	organ luar	PARTIAL	missing 'di' (terletak di atau dekat)
+g2282	interoseptor	OK
+g2283	eksteroseptor	OK
+g2284	baroreseptor	OK
+g2285	kemoreseptor	OK
+g2286	termoreseptor	OK
+g2287	sistem penglihatan; sistem visual	OK
+g2288		OK	no Indonesian term
+g2289	rongga bukal	OK
+g2290	antrum	OK
+g2291	vestibulum telinga	OK
+g2292	kuncup pengecap	OK
+g2293	gigi depan	OK
+g2294	gigi tonggos	OK
+g2295	gigi belakang	OK
+g2296		OK	no single lexicalised term (gingsul is narrower)
+g2297	gigi tetap; gigi permanen	OK
+g2298	gigi geraham kecil; premolar	PARTIAL	omits location between incisors and molars
+g2299	kuspis	PARTIAL	'elevasi', 'permukaan pengasah' are clumsy calques
+g2300	langit-langit lunak; velum	PARTIAL	truncated; 'sirip' is a poor rendering of flap

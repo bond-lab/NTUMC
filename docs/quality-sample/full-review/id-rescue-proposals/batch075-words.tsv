@@ -1,0 +1,101 @@
+id	words	definition	note
+g7401	parametritis	OK	
+g7402	falangitis	OK	
+g7403	flebitis	OK	
+g7404	flebotrombosis; trombosis vena	OK	
+g7405	polineuritis	OK	
+g7406	neuritis retrobulbar	OK	
+g7407	sindrom Guillain-Barré	PARTIAL	definition omits pain, weakness and paralysis
+g7408	tromboflebitis	OK	
+g7409	pneumonitis	PARTIAL	gives only the cause, not the inflammation of the lungs
+g7410	postitis	PARTIAL	gives only the cause, not the inflammation of the foreskin
+g7411	radikulitis	OK	
+g7412	korioretinitis	OK	
+g7413	pansinusitis	PARTIAL	clumsy paraphrase of paranasal sinuses
+g7414	salpingitis	PARTIAL	omits Eustachian tube
+g7415	sialadenitis	OK	
+g7416	epikondilitis lateral; tennis elbow	OK	
+g7417	tenosinovitis	OK	
+g7418	trakeitis	OK	
+g7419	trakeobronkitis	OK	
+g7420	timpanitis	OK	
+g7421	uveitis	OK	
+g7422	vasovesikulitis	PARTIAL	gives only the association with prostatitis
+g7423	vesikulitis	OK	
+g7424	vulvovaginitis	OK	
+g7425	meningismus	OK	
+g7426		PARTIAL	usually just 'morning sickness' or a phrase (mual pagi hari); omits pregnancy
+g7427		OK	no specific Indonesian term; kram otot is broader
+g7428	grafospasme	OK	
+g7429	blefarospasme	OK	
+g7430		OK	no single good word; tengeng covers only the neck
+g7431	mioklonus	OK	
+g7432	opistotonus	PARTIAL	omits head and heels
+g7433		OK	no established Indonesian term
+g7434	fibrilasi atrium	OK	
+g7435	blok jantung; blok atrioventrikular; sindrom Stokes-Adams	OK	
+g7436	kontraksi ventrikel prematur	PARTIAL	omits irregular rhythm
+g7437	fibrilasi ventrikel	PARTIAL	omits fibrillation of heart muscle and cardiac arrest
+g7438	fasikulasi	OK	
+g7439	bopeng; burik	OK	
+g7440		OK	no lexicalised term
+g7441		PARTIAL	'sebelum mata' should be 'di depan mata'; vitreous omitted; no Indonesian term besides 'floater'
+g7442	displasia	OK	
+g7443	displasia fibrosa tulang	OK	
+g7444	displasia fibrosa poliostotik	OK	
+g7445	displasia fibrosa monostotik	OK	
+g7446	kor pulmonale	PARTIAL	should specify pulmonary blood vessels
+g7447	daktilomegali	OK	
+g7448	elefantiasis skrotum	WRONG	zakar is penis not scrotum; limpa is spleen, should be limfe
+g7449	akromegali	PARTIAL	gives only an accompanying symptom
+g7450	hiperplasia prostat jinak; pembesaran prostat jinak	PARTIAL	omits enlarged prostate
+g7451	anaplasia	PARTIAL	omits increased multiplication
+g7452		PARTIAL	no lexicalised Indonesian term; definition omits apnea episodes
+g7453	dispnea; sesak napas	PARTIAL	'butuh alat bantu' is not in the meaning
+g7454	ortopnea	OK	
+g7455	apnea tidur	OK	
+g7456	perdarahan otak; pendarahan otak	OK	
+g7457	ekstravasasi darah	OK	
+g7458	hifema	OK	
+g7459	metroragia	OK	
+g7460	diskezia	OK	
+g7461	impaksi feses	OK	
+g7462	obstipasi	OK	
+g7463	mencret	OK	mencret is colloquial rather than obscene
+g7464		OK	no Indonesian term
+g7465	mengi	OK	
+g7466	gejala putus obat; sakau	PARTIAL	'saat ketagihan' should be 'saat tidak mendapat narkotika'
+g7467	kondisi mental; keadaan mental; kondisi psikologis	OK	
+g7468	kecemasan kastrasi	OK	
+g7469	halusinosis	OK	
+g7470	krisis identitas	PARTIAL	omits uncertainty about one's self and role
+g7471		OK	no Indonesian term
+g7472		OK	no clear lexicalised equivalent
+g7473	waham kebesaran; delusi kebesaran	PARTIAL	clumsy, omits 'that you are'
+g7474	waham kejaran; delusi kejaran	OK	
+g7475	halusinasi auditori; halusinasi pendengaran	OK	
+g7476		OK	no Indonesian term
+g7477		OK	idiom not used in Indonesian
+g7478	pseudohalusinasi	PARTIAL	garbled: should be 'cukup jelas seperti halusinasi'
+g7479	halusinasi visual; halusinasi penglihatan	OK	
+g7480	zoopsia	OK	
+g7481	waham somatik	OK	
+g7482		PARTIAL	no established term; definition garbled ('part of an animal')
+g7483	kesehatan mental; kesehatan jiwa	PARTIAL	omits emotional and behavioral adjustment
+g7484	kewarasan	OK	
+g7485	gangguan kecemasan; gangguan ansietas	OK	
+g7486	gangguan kecemasan menyeluruh; gangguan kecemasan umum	PARTIAL	truncated list of symptoms, omits duration
+g7487	gangguan obsesif-kompulsif	PARTIAL	omits repetitive ritualised behaviours
+g7488	gangguan panik	OK	
+g7489	akarofobia	PARTIAL	omits mites and worms
+g7490	androfobia	OK	
+g7491	araknofobia	OK	
+g7492	ginofobia	OK	
+g7493	fobia spesifik; fobia sederhana	OK	
+g7494	algofobia	OK	
+g7495		OK	no established Indonesian term
+g7496	kriofobia	OK	
+g7497		OK	no established Indonesian term
+g7498	hidrofobia	OK	
+g7499	neofobia	OK	
+g7500	niktofobia	OK	

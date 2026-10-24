@@ -1,0 +1,101 @@
+id	words	definition	note
+g5601	fibrinolisis	OK	
+g5602	emisi medan	OK	
+g5603		OK	no established Indonesian term
+g5604		PARTIAL	no Indonesian term; definition reorders deformation/heat clumsily
+g5605	foliasi	OK	
+g5606	fosilisasi; pemfosilan	OK	
+g5607	distilasi fraksional; distilasi bertingkat; penyulingan bertingkat	PARTIAL	says heating rather than distillation
+g5608	fraksionasi	OK	
+g5609		OK	no lexicalised Indonesian term
+g5610	pencernaan lambung	OK	
+g5611	glasiasi	OK	
+g5612	glasiasi Riss	PARTIAL	'akhir' should be next-to-last (kedua terakhir); deposits missing
+g5613	glasiasi Saale	PARTIAL	'akhir' should be next-to-last; deposits missing
+g5614	glasiasi Wolstonian	PARTIAL	'akhir' should be next-to-last; deposits missing
+g5615	pemanasan global	OK	
+g5616	proses Haber; proses Haber-Bosch	PARTIAL	omits high pressure and iron catalyst
+g5617	habitus	OK	
+g5618	disipasi panas; disipasi kalor	OK	
+g5619	hemaglutinasi	OK	
+g5620	metamorfosis tidak sempurna	OK	
+g5621	metamorfosis tidak sempurna	PARTIAL	omits absence of pupal stage
+g5622	heterospori	PARTIAL	typo mikrosporan
+g5623	metamorfosis sempurna	OK	
+g5624	homospori	OK	
+g5625		OK	no lexicalised Indonesian term
+g5626	humifikasi	OK	
+g5627	perengkahan hidro	PARTIAL	omits gasoline, hydrogen, catalyst
+g5628	hipostasis	OK	
+g5629	epistasis	OK	
+g5630	imunoelektroforesis	OK	
+g5631	pemanasan induksi	OK	
+g5632	proses industri	OK	
+g5633		PARTIAL	no Indonesian term; omits 'inner'
+g5634	spiral inflasi	OK	
+g5635	spiral deflasi	OK	
+g5636	pengentalan	PARTIAL	penebalan suggests layer thickening, pengentalan is better
+g5637	insuflasi	OK	
+g5638	pemrosesan data terpadu	OK	
+g5639	pembakaran dalam	OK	
+g5640	iodinasi	OK	
+g5641	proses ireversibel	OK	
+g5642		PARTIAL	no Indonesian term (peremajaan is rejuvenation); 'tumbuh menjadi muda' is clumsy
+g5643	sitokinesis	PARTIAL	'2 sel yang sama' should be two daughter cells
+g5644	kariokinesis	OK	
+g5645	kariolisis	OK	
+g5646	katamorfisme	PARTIAL	omits breakdown of complex minerals
+g5647	keratinisasi	OK	
+g5648	metode Lamaze	OK	
+g5649	metode Leboyer	WRONG	garbled: 'meminimalkan kelahiran baru' instead of minimising trauma for the newborn
+g5650	leptoten	OK	
+g5651	leksikalisasi	OK	
+g5652	daur hidup; siklus hidup	OK	
+g5653	reaksi terang	OK	
+g5654		PARTIAL	no established Indonesian term; omits 'on the next line'
+g5655	proses linguistik	OK	
+g5656	pencairan; likuefaksi	OK	
+g5657	pemrosesan daftar	OK	
+g5658		OK	no Indonesian term
+g5659	operasi logika	OK	
+g5660	limfopoiesis	PARTIAL	omits lymph nodes
+g5661	lisogenisasi	OK	
+g5662	makroevolusi	OK	
+g5663	magnetisasi; pemagnetan	OK	
+g5664	kekuatan pasar	OK	
+g5665	rantai Markov	OK	
+g5666	maskulinisasi; virilisasi	OK	
+g5667	mikroevolusi	OK	
+g5668		OK	no Indonesian term
+g5669	pengolahan mineral; pengolahan bijih; benefisiasi	OK	
+g5670	operasi uner	WRONG	says one function instead of one operand
+g5671	sporulasi	OK	
+g5672	morfalaksis	PARTIAL	omits invertebrate example; 'dikurangi' clumsy
+g5673		PARTIAL	no established term; 'saling terkait' should be interleaved (berselang-seling)
+g5674	mielinisasi	PARTIAL	'kelopak' should be selubung (sheath)
+g5675	persalinan alami; kelahiran alami	PARTIAL	omits 'without medical intervention'
+g5676	nazifikasi	OK	
+g5677	nekrolisis	OK	
+g5678	umpan balik negatif	OK	
+g5679	neoplasia	OK	
+g5680	baris baru	PARTIAL	definition truncated
+g5681	fiksasi nitrogen; penambatan nitrogen	PARTIAL	omits release for plant use
+g5682	mimpi basah	OK	
+g5683		WRONG	'pembangunan' is construction/economic development, not biological development
+g5684	nondisjungsi	OK	
+g5685		PARTIAL	no good noun lemma (anjlok is a verb); definition is verbal
+g5686	nukleosintesis	OK	
+g5687	oligomenore	PARTIAL	'kendati' garbles the sense
+g5688	opasifikasi; pengeruhan	OK	
+g5689	proses tanur terbuka; proses Siemens-Martin	PARTIAL	besi should be baja (steel)
+g5690	proses biologis	OK	
+g5691	organogenesis	OK	
+g5692	osmosis balik; osmosis terbalik	PARTIAL	omits mechanism
+g5693	osteolisis	OK	
+g5694	fosforilasi oksidatif	OK	
+g5695	pakiten	OK	
+g5696	kromatografi kertas	OK	
+g5697	operasi paralel	OK	
+g5698	partenokarpi	OK	
+g5699	partenogenesis	OK	
+g5700	kelahiran perawan	PARTIAL	'penciptaan' should be pembuahan/pengandungan (conception)

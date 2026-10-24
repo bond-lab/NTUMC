@@ -1,0 +1,101 @@
+id	words	definition	note
+g3301		OK	no lexicalised Indonesian term; menus use English 'club sandwich'
+g3302		PARTIAL	no Indonesian term; definition restricts topping to meat
+g3303	burger keju	OK	
+g3304	burger tuna	OK	
+g3305	hotdog	OK	
+g3306		OK	no Indonesian term
+g3307		PARTIAL	no Indonesian term
+g3308		PARTIAL	no Indonesian term; definition only says Greek sandwich
+g3309		WRONG	no Indonesian term; definition says roast beef, not bacon, lettuce and tomato
+g3310		PARTIAL	no Indonesian term; missing sauerkraut, rye bread
+g3311		OK	no Indonesian term
+g3312		OK	no Indonesian term
+g3313	farfalle	PARTIAL	missing bow-tie shape
+g3314	orzo	PARTIAL	
+g3315	mi telur	OK	
+g3316	spageti	OK	
+g3317	tortellini	PARTIAL	missing 'stuffed'
+g3318	ziti	OK	
+g3319	rigatoni	PARTIAL	missing 'ribbed'
+g3320		PARTIAL	no Indonesian term; sohun is not exactly vermicelli
+g3321	linguine	OK	
+g3322	fettuccine	PARTIAL	genus 'pasta' missing
+g3323	fettuccine alfredo	PARTIAL	genus missing
+g3324	lasagna	OK	
+g3325	penne	OK	
+g3326	ravioli	OK	
+g3327	tagliatelle	OK	
+g3328	manicotti	PARTIAL	missing baked in tomato sauce
+g3329	kuskus; couscous	OK	
+g3330	gnocchi	WRONG	definition only lists ingredients, no genus (dumpling)
+g3331		OK	no Indonesian term
+g3332		PARTIAL	usually English 'junk food' in Indonesian
+g3333		OK	no lexicalised term
+g3334	muesli	OK	
+g3335		OK	brand name
+g3336		OK	no lexicalised term
+g3337		PARTIAL	no Indonesian term
+g3338		OK	no Indonesian term
+g3339	polenta	OK	
+g3340		PARTIAL	no Indonesian term; omits flour/oatmeal
+g3341		PARTIAL	no Indonesian term
+g3342		PARTIAL	no Indonesian term; definition lacks 'corn'
+g3343		PARTIAL	no Indonesian term; gandum hitam is rye, not buckwheat
+g3344		PARTIAL	no Indonesian term; typo gandung
+g3345		WRONG	definition says heated before serving (opposite)
+g3346	granola	PARTIAL	
+g3347		OK	no Indonesian term
+g3348		WRONG	beras serpihan is rice flakes, not bran flakes
+g3349	emping jagung	OK	
+g3350		PARTIAL	beras is wrong, dedak right
+g3351		OK	no lexicalised term
+g3352		WRONG	garbled ('dari Kernels')
+g3353		PARTIAL	no Indonesian term
+g3354	buah	OK	
+g3355		OK	no Indonesian term
+g3356		PARTIAL	no Indonesian term
+g3357		OK	no Indonesian term
+g3358		OK	no lexicalised term
+g3359	polong	PARTIAL	definition describes the plant, not the pod
+g3360		PARTIAL	no Indonesian term; definition lacks genus
+g3361		PARTIAL	no clear Indonesian term
+g3362		PARTIAL	no Indonesian term
+g3363	umbi-umbian	OK	
+g3364	kentang panggang	OK	
+g3365	kentang goreng	OK	
+g3366		OK	no lexicalised term
+g3367	kentang tumbuk; pure kentang	OK	
+g3368	kulit kentang	WRONG	definition omits skin/peel; describes fried potato
+g3369	uwi; ubi kelapa	PARTIAL	definition too generic (any tuber)
+g3370	keripik kentang	OK	
+g3371	keripik jagung	OK	
+g3372	keripik tortilla	PARTIAL	
+g3373	nacho	PARTIAL	missing chili and broiling
+g3374		OK	no lexicalised term
+g3375	sawi; sawi hijau	PARTIAL	definition too generic
+g3376		PARTIAL	no Indonesian term
+g3377	kubis merah; kol merah	OK	
+g3378		OK	no Indonesian term
+g3379	kubis brussel; kol brussel	PARTIAL	'tanaman kecambah' is a mistranslation of brussels sprout plant
+g3380		PARTIAL	no Indonesian term; genus missing
+g3381		OK	no Indonesian term
+g3382		OK	no Indonesian term
+g3383	zukini	PARTIAL	zucchini is a squash, not a cucumber
+g3384		OK	no Indonesian term
+g3385		OK	no Indonesian term
+g3386		OK	no Indonesian term
+g3387		OK	no Indonesian term
+g3388		PARTIAL	no Indonesian term
+g3389		OK	no Indonesian term; typo juning
+g3390		OK	no Indonesian term
+g3391		PARTIAL	no Indonesian term; warty rind omitted
+g3392		OK	no Indonesian term
+g3393		OK	no Indonesian term
+g3394		OK	no Indonesian term
+g3395		PARTIAL	no Indonesian term; hard rind omitted
+g3396		OK	no clear Indonesian term
+g3397		OK	no Indonesian term
+g3398	kecambah alfalfa	OK	
+g3399		OK	no lexicalised term
+g3400	bit gula	PARTIAL	lobak is radish, should be bit

@@ -1,0 +1,101 @@
+id	words	definition	note
+g4201		OK	no Indonesian word; shandy not used
+g4202		PARTIAL	no Indonesian word; omits that it is usually alcoholic
+g4203		OK	no Indonesian word
+g4204		OK	no lexicalised Indonesian term
+g4205		OK	cocktail name used untranslated; left empty
+g4206		OK	no Indonesian word
+g4207		PARTIAL	no Indonesian word; omits consomme
+g4208		PARTIAL	no Indonesian word; omits tall iced
+g4209	daiquiri	WRONG	definition fragment only names the juice, not the cocktail
+g4210		PARTIAL	no Indonesian word; air mineral should be sparkling water (air soda)
+g4211		OK	no Indonesian word
+g4212		WRONG	definition is a garbled fragment (orange juice and Galliano only)
+g4213		OK	no Indonesian word
+g4214	margarita	WRONG	definition fragment only names the juices
+g4215		OK	no Indonesian word
+g4216		PARTIAL	no Indonesian word; omits bitters, sugar, fruit
+g4217		PARTIAL	no Indonesian word; omits curdled
+g4218	sangria	PARTIAL	omits juice and soda water
+g4219		OK	no Indonesian word
+g4220		OK	no Indonesian word
+g4221		PARTIAL	no Indonesian word; omits milk
+g4222		OK	no established Indonesian word
+g4223	soda jeruk	OK	
+g4224		OK	no established Indonesian word
+g4225		OK	no established Indonesian word
+g4226		OK	no Indonesian word
+g4227		WRONG	definition fragment lists only coconut cream and rum
+g4228		WRONG	definition fragment (spices and apples only)
+g4229		PARTIAL	no established Indonesian word; omits eggs and liquor
+g4230		WRONG	jambu klutuk is guava, not cassava
+g4231		PARTIAL	no Indonesian word; omits soda water
+g4232		OK	no Indonesian word
+g4233		PARTIAL	no Indonesian word; omits superior grade, Sri Lanka, Java
+g4234		OK	no Indonesian word
+g4235	air minum dalam kemasan; air kemasan	OK	
+g4236		OK	no Indonesian word
+g4237		PARTIAL	no lexicalised noun; omits refrigeration
+g4238		PARTIAL	usually written couscous; kuskus ambiguous with the marsupial; omits pasta and stew
+g4239		OK	no lexicalised term
+g4240	biotipe	PARTIAL	clumsy (organisme dari berbagi)
+g4241		OK	no Indonesian collective noun
+g4242	tunarungu	OK	
+g4243		OK	no Indonesian word
+g4244	kaum bangsawan; kaum ningrat	WRONG	garbled: 'breeding' mistranslated as berkembang biak
+g4245	tunawisma; gelandangan	OK	
+g4246	orang awam	PARTIAL	clumsy; field or activity missing
+g4247		PARTIAL	no Indonesian word; omits influence
+g4248	kantong	OK	as in kantong-kantong perlawanan
+g4249		OK	no lexicalised collective noun
+g4250	tunggakan	OK	as in tunggakan perkara
+g4251	kolase	OK	figurative use
+g4252		OK	no Indonesian word
+g4253		OK	no lexicalised term
+g4254		OK	no Indonesian word
+g4255		PARTIAL	'diadakan' mistranslates held
+g4256		OK	no Indonesian word
+g4257		PARTIAL	clumsy (poker di tangan)
+g4258		OK	no established Indonesian form
+g4259	kulit elektron; kulit atom	OK	
+g4260		OK	no Indonesian word
+g4261		PARTIAL	omits manure and heap
+g4262		PARTIAL	no Indonesian word; omits purpose
+g4263		OK	no lexicalised word
+g4264	persekutuan; gabungan	PARTIAL	fragment; omits people/alliance
+g4265		PARTIAL	no exact Indonesian word; omits influence on policy
+g4266	minoritas etnis; etnis minoritas	OK	
+g4267	seperindukan	PARTIAL	should be the young only, not mother and young
+g4268		PARTIAL	no Indonesian word
+g4269	pesta topeng	PARTIAL	majlis tari-menari is Malaysian; omits costumes
+g4270	sivitas akademika	PARTIAL	clumsy wording
+g4271		PARTIAL	no good word; covers only people, not things
+g4272		OK	no Indonesian word
+g4273	misi	PARTIAL	Kristian is Malay; omits foreign land
+g4274		OK	no lexicalised word
+g4275	bilokasi	OK	
+g4276	garis agonik	WRONG	describes latitude and longitude
+g4277	garis isogonik	PARTIAL	muatan magnit should be deklinasi magnetik
+g4278	agora	OK	
+g4279		WRONG	says farthest point of solar system, not the antapex direction
+g4280	apoapsis	PARTIAL	should be benda yang diorbit, not yang mengorbit
+g4281		OK	no Indonesian word
+g4282	simpul naik	OK	
+g4283	simpul	OK	
+g4284	perut gelombang	OK	
+g4285		OK	no Indonesian word
+g4286		OK	no Indonesian word
+g4287	Garis Mason-Dixon	WRONG	just a name, not a definition; wilayah is wrong
+g4288	ekuinoks musim gugur	PARTIAL	just a name
+g4289	Taman Nasional Bryce Canyon	PARTIAL	definition is only the name
+g4290	Taman Nasional Capitol Reef	PARTIAL	definition is only the name
+g4291	Taman Nasional Kepulauan Channel	PARTIAL	definition is only the name
+g4292	Taman Nasional Danau Crater	PARTIAL	definition is only the name
+g4293	Taman Nasional Gates of the Arctic	PARTIAL	definition is only the name, with wrong word order
+g4294	Taman Nasional Pegunungan Great Smoky	PARTIAL	definition is only the name
+g4295	Taman Nasional Gunung Berapi Hawaii	PARTIAL	definition is only the name
+g4296	Taman Nasional Hot Springs	PARTIAL	definition is only the name
+g4297	Taman Nasional Kenai Fjords	PARTIAL	definition is only the name
+g4298	Taman Nasional Kings Canyon	PARTIAL	definition is only the name
+g4299	Taman Nasional Danau Clark	PARTIAL	definition is only the name
+g4300	Taman Nasional Gunung Berapi Lassen	PARTIAL	definition is only the name

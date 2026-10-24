@@ -1,0 +1,101 @@
+id	words	definition	note
+g6701	sistitis; radang kandung kemih	OK
+g6702	spondiloartritis	OK
+g6703	penyakit darah; kelainan darah	OK
+g6704	sapremia	PARTIAL	omits cause from eating putrefied matter
+g6705		PARTIAL	no lexicalised Indonesian term
+g6706	demam nifas	PARTIAL	fragment; lacks head noun (septicemia)
+g6707	piemia	OK
+g6708	eklamsia	OK
+g6709	eosinopenia	OK
+g6710	eritroblastosis	OK
+g6711	hemoglobinemia	OK
+g6712	hemoglobinopati	PARTIAL	should be presence of abnormal hemoglobins, not abnormal presence of hemoglobin
+g6713	hemoptisis; batuk darah	WRONG	says digestive tract (hematemesis), should be respiratory tract
+g6714	penyakit Hand-Schüller-Christian	PARTIAL
+g6715	demam Haverhill	PARTIAL	fragment; lacks 'form of ratbite fever'
+g6716	histiositosis	PARTIAL	makropages should be makrofag
+g6717		OK	no lexicalised term; hidrartrosis lutut is a free phrase
+g6718	hidremia	OK
+g6719	lipidosis	OK
+g6720	intoleransi lisin	OK
+g6721	lisogeni	WRONG	says 'makanan' (food) instead of phage (fag)
+g6722	hipoprotrombinemia	PARTIAL
+g6723	hipervolemia	OK
+g6724	hipovolemia	OK
+g6725	talasemia mayor	OK
+g6726	neutropenia	PARTIAL	truncated parenthesis
+g6727	neutropenia siklik	OK
+g6728	limfopenia; limfositopenia	OK
+g6729	limfositosis	OK
+g6730	mikrositosis	OK
+g6731	polisitemia	OK
+g6732	purpura nontrombositopenik	OK
+g6733	trombositopenia	OK
+g6734	penyakit defisiensi; penyakit kekurangan gizi	OK
+g6735		OK	no single lexicalised Indonesian term
+g6736	hipospadia	OK
+g6737	lagoftalmus	PARTIAL	missing 'completely'
+g6738	marasmus	OK
+g6739	kelainan mental; kelainan jiwa	OK
+g6740	nanoftalmus	PARTIAL
+g6741	sindrom otak organik	OK
+g6742	defisiensi seng; kekurangan seng	PARTIAL
+g6743	pelagra	PARTIAL	contains stray 'ind:' prefix
+g6744	kista dermoid	PARTIAL	clumsy 'berikat'
+g6745	galaktokel	PARTIAL	'kelenjar mamalia' should be kelenjar susu/mamae
+g6746	kista hemoragik; hematokista	OK
+g6747	kista hidatid	PARTIAL	fragment; lacks head noun
+g6748	kista Naboth	WRONG	garbled: cyst 'forms the glands', 'serviks urin'
+g6749	kista ovarium	OK
+g6750	kalazion	OK
+g6751	ranula	OK
+g6752	kista sebasea; ateroma	PARTIAL	fragment; lacks head noun
+g6753		OK	no specific Indonesian word for this sense
+g6754	mabuk perjalanan; kinetosis	PARTIAL	omits vehicle travel
+g6755	mabuk udara	PARTIAL
+g6756	mabuk darat	PARTIAL	mabuk darat is slightly broader (land travel)
+g6757	sengatan panas; serangan panas	OK
+g6758	kelelahan panas	PARTIAL
+g6759		PARTIAL	no established Indonesian term
+g6760		OK	pathological sense; simfisis is anatomical in Indonesian usage
+g6761	sinekia	OK
+g6762	sinekia anterior	OK
+g6763	sinekia posterior	OK
+g6764	hemokromatosis	PARTIAL
+g6765	hemokromatosis didapat	PARTIAL	'menikmati' should be 'asupan berlebihan'
+g6766	infark	OK
+g6767	makrositosis	OK
+g6768	mielofibrosis	PARTIAL	'tulang sumsum' should be 'sumsum tulang'
+g6769	malasia	OK
+g6770	mastopati	OK
+g6771	neuropati	OK
+g6772	penyakit Charcot-Marie-Tooth	OK
+g6773	mononeuropati	OK
+g6774	mononeuropati multipleks	OK
+g6775	miopati	OK
+g6776	dermatomiositis	PARTIAL	omits skin rash
+g6777	polimiositis	OK
+g6778	miositis badan inklusi	PARTIAL
+g6779	osteopetrosis	OK
+g6780	priapismus	OK
+g6781	azoturia	WRONG	says excess urine in blood; should be excess urea in urine
+g6782	tuberkel	OK
+g6783	ulkus mole; chancroid	OK
+g6784	tukak peptik; ulkus peptikum	OK
+g6785	tukak duodenum; ulkus duodenum	OK
+g6786	tukak lambung; ulkus lambung	PARTIAL	'perut' should be 'lambung'
+g6787		OK	no Indonesian term
+g6788	noma	OK
+g6789	malformasi Arnold-Chiari	OK
+g6790	pes kavus	PARTIAL	'bengkok' does not convey high arch
+g6791		OK	no Indonesian term
+g6792	bibir sumbing	OK
+g6793	langit-langit sumbing; celah langit-langit	OK
+g6794	talipes valgus	OK
+g6795	talipes ekuinus	OK
+g6796	talipes kalkaneus	OK
+g6797	dada burung	OK
+g6798		OK	no Indonesian term
+g6799		OK	no Indonesian term
+g6800		PARTIAL	'lobak merah' gloss for bit is misleading; typo 'padaa'

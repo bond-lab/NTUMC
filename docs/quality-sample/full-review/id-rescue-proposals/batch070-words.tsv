@@ -1,0 +1,101 @@
+id	words	definition	note
+g6901	tumor jinak	OK
+g6902	blastoma	OK
+g6903	tumor otak	OK
+g6904	glioma	OK
+g6905	karsinoid; tumor karsinoid	PARTIAL	lendir 'mucus' for mucosa; serotonin omitted
+g6906	karsinosarkoma	OK
+g6907		OK	celioma not used in Indonesian
+g6908	enkondroma	PARTIAL	ringan for benign; typo tulan
+g6909	fibroid; mioma	PARTIAL	ringan for benign
+g6910	fibroma	OK
+g6911	granuloma	OK
+g6912	guma	OK
+g6913	hamartoma	PARTIAL	garbled fragment, omits resemblance to neoplasm
+g6914	lipoma	OK
+g6915	tumor ganas	OK
+g6916	meningioma	PARTIAL	tulang belakang should be sumsum tulang belakang
+g6917	angiosarkoma	WRONG	garbled fragment, no head noun
+g6918	kondrosarkoma	OK
+g6919	sarkoma Ewing	PARTIAL	tulang sumsum should be sumsum tulang
+g6920	leiomiosarkoma	PARTIAL	omits sarcoma of smooth muscle
+g6921	liposarkoma	OK
+g6922	miosarkoma	OK
+g6923	neurosarkoma	PARTIAL	omits fibrous/connective tissue
+g6924	osteosarkoma	PARTIAL	omits malignant bone tumor
+g6925	limfadenoma	PARTIAL	benjolan limpa for lymph node (kelenjar getah bening)
+g6926	limfadenopati	PARTIAL	benjolan limpa for lymph node
+g6927	penyakit Hodgkin; limfoma Hodgkin	PARTIAL	omits spleen/liver
+g6928	karsinoma sel skuamosa	OK
+g6929	leukemia akut	OK
+g6930	leukemia mieloid akut	OK
+g6931	leukemia kronis	OK
+g6932	leukemia limfositik kronis	OK
+g6933	leukemia mieloid kronis	OK
+g6934	leukemia limfositik	OK
+g6935	leukemia limfoblastik	PARTIAL	fragment, no head noun
+g6936	leukemia monositik	OK
+g6937	leukemia mieloblastik	PARTIAL	omits myeloblasts
+g6938	leukemia mielositik; leukemia granulositik	PARTIAL	omits myelocytes
+g6939	rabdomiosarkoma	WRONG	striated rendered as 'infected'
+g6940	rabdomiosarkoma embrional	OK
+g6941	rabdomiosarkoma alveolar	OK
+g6942	rabdomiosarkoma pleomorfik	OK
+g6943	adenokarsinoma	OK
+g6944	kanker payudara	PARTIAL	omits breast
+g6945	karsinoma in situ	OK
+g6946	kanker usus besar; kanker kolon	PARTIAL	omits colon; only symptom
+g6947	karsinoma embrional	OK
+g6948	kanker endometrium; karsinoma endometrium	OK
+g6949	hemangioma	PARTIAL	fragment; omits benign angioma
+g6950	hemangioma stroberi	PARTIAL	omits congenital vascular tumor
+g6951	limfangioma	OK
+g6952		OK	no established Indonesian term
+g6953	mieloma multipel	OK
+g6954	miksoma	OK
+g6955	neurinoma	OK
+g6956	neuroblastoma	OK
+g6957	neuroepitelioma	OK
+g6958	neurofibroma	OK
+g6959	neuroma	OK
+g6960	leiomioma	PARTIAL	otot yang mulus clumsy (otot polos); typo orot
+g6961	rabdomioma	WRONG	striated rendered as 'damaged'
+g6962	osteoblastoma	OK
+g6963	osteokondroma	OK
+g6964	osteoma	OK
+g6965	papiloma	PARTIAL	'around a mass' instead of forming a mass
+g6966	feokromositoma	PARTIAL	adrenalin for adrenal
+g6967	pinealoma	OK
+g6968	plasmasitoma	PARTIAL	tulang sumsum should be sumsum tulang
+g6969	psamoma	OK
+g6970	retinoblastoma	OK
+g6971	teratoma	OK
+g6972	mesotelioma	OK
+g6973	karsinoma sel kecil	OK
+g6974	kanker mulut	OK
+g6975	kanker prostat	OK
+g6976	seminoma; kanker testis	OK
+g6977	kanker kulit	OK
+g6978	melanoma	OK
+g6979		OK	no established Indonesian term
+g6980	penyakit mata	OK
+g6981	penyakit hewan	OK
+g6982	aktinomikosis	OK
+g6983	aktinomikosis servikofasial	PARTIAL	fragment, omits actinomycosis
+g6984	edema makula	PARTIAL	omits macula
+g6985	edema makula sistoid	OK
+g6986	drusen	OK
+g6987	glaukoma sudut tertutup; glaukoma akut	OK
+g6988	glaukoma tekanan normal	OK
+g6989	katarak kortikal	OK
+g6990	katarak nuklear	OK
+g6991	katarak subkapsular posterior	OK
+g6992	glaukoma sudut terbuka; glaukoma kronis	OK
+g6993		OK	keratonosus not used in Indonesian
+g6994	degenerasi makula	OK
+g6995	degenerasi makula terkait usia	OK
+g6996	retinopati	OK
+g6997	retinopati diabetik	OK
+g6998	adenitis	PARTIAL	benjolan limpa for lymph node
+g6999	alveolitis	OK
+g7000	alveolitis; dry socket	PARTIAL	fragment, omits inflammation of tooth socket

@@ -1,0 +1,101 @@
+id	words	definition	note
+g201	penaklukan	OK	
+g202		OK	no single Indonesian lemma for 'brilliant success'; kudeta is the political sense
+g203		PARTIAL	berjiwa petualang is a phrase; definition covers only risk-seeking
+g204	kelalaian	OK	
+g205	berisiko	OK	
+g206		OK	no specific lemma
+g207	ketidaklulusan; kegagalan	OK	
+g208	aman	OK	
+g209	lebih baik	PARTIAL	'Komparatif' label only; superlative missing
+g210		OK	walkover (WO) is a loanword abbreviation, not a lemma
+g211		PARTIAL	
+g212		OK	usually phrase (dipertimbangkan matang)
+g213	aerob; aerobik	OK	
+g214	oksidatif	PARTIAL	'karena' (because of) should be 'dengan adanya' (in the presence of)
+g215	anaerob; anaerobik	OK	
+g216		PARTIAL	missing 'squarely'/evasion sense
+g217	ingkar janji	PARTIAL	ingkar janji is general; marriage sense missing
+g218	artistik; berseni	PARTIAL	definition is a noun phrase, should be 'memenuhi standar estetika'
+g219		OK	only compositional phrase
+g220		OK	no Indonesian term
+g221	kemiringan; kecondongan	OK	
+g222		PARTIAL	missing basis for breach-of-contract action
+g223		OK	no established term
+g224	dilanda; terserang	OK	
+g225		PARTIAL	missing desire to act
+g226	kesalahan ganda	PARTIAL	'titik' is a calque; should be 'poin'
+g227		PARTIAL	'penyeksaan' is Malaysian spelling; Indonesian penyiksaan
+g228	rentan	OK	
+g229		WRONG	'akrobat' is a mistranslation of juggling/fumbling the ball
+g230		PARTIAL	'ketika bertindak' should be passive (ketika dikenai tindakan)
+g231		WRONG	garbled (ind: tag) and says failure to play normally, not failure to make an out
+g232	galat pemotongan	OK	
+g233	kekhilafan; kesilapan	OK	
+g234	berbunga-bunga	OK	
+g235	dibuat-buat	OK	
+g236		PARTIAL	missing 'affectedly'
+g237	ofsaid	OK	
+g238	luwes; lancar	OK	
+g239	setuju	PARTIAL	'perjanjian' means contract; should be 'persetujuan' only
+g240		OK	
+g241		OK	
+g242		OK	
+g243		PARTIAL	clumsy: says the effect is the mistake
+g244		OK	adjective agorafobik not established
+g245		PARTIAL	missing 'for a specific locale'
+g246	cemas; waswas	OK	
+g247		OK	
+g248	khawatir; cemas; waswas	PARTIAL	'takut kejahatan' clumsy
+g249		WRONG	garbled: 'fear towards submission' instead of cowed into submission
+g250		OK	
+g251	perdagangan obligasi	OK	
+g252		OK	
+g253	jual kosong	WRONG	says 'effect of selling commodity futures'; misses not-owned/buy back
+g254		PARTIAL	clumsy word order
+g255	perdagangan orang dalam	PARTIAL	missing non-public information
+g256	opsi beli	PARTIAL	truncated (price, date)
+g257		OK	
+g258		PARTIAL	truncated
+g259	gentar	OK	
+g260		WRONG	'fear of terror'; white lips missing
+g261		OK	
+g262		OK	only compositional phrase
+g263		OK	
+g264		WRONG	garbled; takeover attempt not mentioned
+g265		PARTIAL	missing aggressive
+g266	agresif; beringas	OK	
+g267		WRONG	'disetujui oleh fonologi' mistranslates 'agree with'
+g268	emosional	OK	
+g269	penyitaan	OK	
+g270	histeris	OK	
+g271		PARTIAL	'layanan pemerintah' calque; dinas pemerintah
+g272	psikedelik	PARTIAL	truncated
+g273		OK	
+g274	tenang	OK	
+g275	bergolak	PARTIAL	
+g276	terguncang	OK	
+g277	bergolak; mendidih	OK	
+g278	teraduk	PARTIAL	clumsy, noun 'gerakan'
+g279	tenang	OK	
+g280		OK	
+g281		WRONG	describes the missile (noun), not the adjective
+g282		OK	British slang, no equivalent
+g283	lengah	OK	
+g284	algoritmis; algoritmik	OK	
+g285	heuristik	OK	
+g286	coba-coba	OK	
+g287		OK	only phrase (dapat dipindahtangankan)
+g288		OK	only phrase (dapat dialihkan)
+g289		OK	
+g290	lahir hidup	OK	
+g291	viabel	PARTIAL	'tumbuhan' (plant) should be 'tumbuh'
+g292		OK	
+g293		PARTIAL	missing 'at the emergency room'
+g294		WRONG	'kematian tertentu' means a particular death, not certain death
+g295	terbunuh	WRONG	'membunuh' is active (killing), should be 'dibunuh'
+g296		OK	
+g297	apokrin	PARTIAL	
+g298	ekrin	PARTIAL	missing clear aqueous secretion
+g299	artesis	OK	
+g300		WRONG	'muncrat' (spurt) contradicts not flowing out of the well

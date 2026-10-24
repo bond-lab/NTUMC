@@ -1,0 +1,101 @@
+id	synset	english_words	english_definition	own_definition
+g5801	wnb-id-13585997-n	Boltzmann's constant	constant used in the calculation of the ideal gas constant	konstanta yang digunakan dalam perhitungan gas ideal
+g5802	wnb-id-13586831-n	drag coefficient, coefficient of drag	the ratio of the drag on a body moving through air to the product of the velocity and the surface area of the body	rasio hambatan benda yang bergerak melalui udara
+g5803	wnb-id-13587236-n	coefficient of mutual induction, mutual inductance	a measure of the induction between two circuits; the ratio of the electromotive force in a circuit to the corresponding change of current in a neighboring circuit; usually measured in henries	ukuran induksi antara dua sirkuit
+g5804	wnb-id-13587525-n	coefficient of self induction, self-inductance	the ratio of the electromotive force produced in a circuit by self-induction to the rate of change of current producing it, expressed in henries	rasio gaya gerak listrik yang dihasilkan dalam sirkuit
+g5805	wnb-id-13587763-n	modulus	(physics) a coefficient that expresses how much of a specified property is possessed by a specified substance	(Fisika) koefisien banyaknya properti tertentu dimiliki oleh suatu zat tertentu
+g5806	wnb-id-13588233-n	bulk modulus	the ratio of the change in pressure acting on a volume to the fractional change in volume	rasio perubahan tekanan pada volume terhadap perubahan fraksional
+g5807	wnb-id-13588381-n	modulus of rigidity	the coefficient of elasticity for a shearing force	koefisien elastisitas gaya geser
+g5808	wnb-id-13588497-n	Young's modulus	a coefficient of elasticity applicable to the stretching of a wire	koefisien elastisitas untuk peregangan kawat
+g5809	wnb-id-13588625-n	coefficient of expansion, expansivity	the fractional change in length or area or volume per unit change in temperature at a given constant pressure	perubahan panjang atau volume per unit perubahan suhu pada tekanan konstan
+g5810	wnb-id-13588819-n	coefficient of reflection, reflection factor, reflectance, reflectivity	the fraction of radiant energy that is reflected from a surface	radiasi energi dari permukaan
+g5811	wnb-id-13589140-n	coefficient of viscosity, absolute viscosity, dynamic viscosity	a measure of the resistance to flow of a fluid under an applied force	ukuran resistensi terhadap aliran fluida
+g5812	wnb-id-13589546-n	cosmological constant	an arbitrary constant in the equations of general relativity theory	konstanta dalam persamaan teori relativitas umum
+g5813	wnb-id-13590079-n	gas constant, universal gas constant, R	(physics) the universal constant in the gas equation: pressure times volume = R times temperature; equal to 8.3143 joules per kelvin per mole	(Fisika) konstanta universal dalam persamaan gas
+g5814	wnb-id-13590974-n	ionic charge	the charge on an ion is equal to a constant charge e multiplied by an integer from 1 to 15	muatan ion sama dengan biaya konstan e dikalikan dengan integer 1-15
+g5815	wnb-id-13591123-n	Planck's constant, h	the constant of proportionality relating the energy of a photon to its frequency; approximately 6.626 x 10^-34 joule-second	konstanta proporsionalitas energi foton frekuensi 6
+g5816	wnb-id-13591314-n	oxidation number, oxidation state	the degree of oxidation of an atom or ion or molecule; for simple atoms or ions the oxidation number is equal to the ionic charge	derajat oksidasi suatu atom
+g5817	wnb-id-13592105-n	blood count	the number of red and white corpuscles in a blood sample	jumlah sel darah merah dan putih dalam sampel darah
+g5818	wnb-id-13592219-n	body count	a count of troops killed in an operation or time period	hitungan tentara tewas dalam operasi atau periode waktu
+g5819	wnb-id-13592598-n	circulation	(library science) the count of books that are loaned by a library over a specified period	(Ilmu perpustakaan) jumlah buku yang dipinjamkan oleh perpustakaan selama period
+g5820	wnb-id-13593438-n	conversion factor	factor by which a quantity that is expressed in one set of units must be multiplied in order to convert it into another set of units	faktor kuantitas yang diungkapkan dalam satu set unit
+g5821	wnb-id-13593634-n	factor of proportionality, constant of proportionality	the constant value of the ratio of two proportional quantities x and y; usually written y = kx, where k is the factor of proportionality	nilai konstan dari rasio dua kuantitas proporsional x dan y
+g5822	wnb-id-13594417-n	composite number	an integer that is divisible without remainder by at least one positive integer other than itself and one	bilangan bulat yang habis dibagi tanpa sisa oleh setidaknya satu bilangan bulat
+g5823	wnb-id-13595094-n	stroke	(golf) the unit of scoring in golf is the act of hitting the ball with a club	(Golf) satuan dari mencetak gol di golf
+g5824	wnb-id-13595276-n	birdie	(golf) a score of one stroke under par on a hole	(Golf) skor satu stroke di bawah par pada lubang
+g5825	wnb-id-13595550-n	deficit	(sports) the score by which a team or individual is losing	(Olahraga) kehilangan skorstim / individu
+g5826	wnb-id-13595699-n	double-bogey	(golf) a score of two strokes over par for a hole	(Golf) skor dua pukulan di atas par untuk lubang
+g5827	wnb-id-13595844-n	duck, duck's egg	(cricket) a score of nothing by a batsman	(Kriket) tidak ada skor oleh seorang batsman
+g5828	wnb-id-13595968-n	eagle	(golf) a score of two strokes under par on a hole	(Golf) skor dua pukulan di bawah par pada lubang
+g5829	wnb-id-13596106-n	double eagle	(golf) a score of three strokes under par on a hole	(Golf) skor tiga stroke di bawah par pada lubang
+g5830	wnb-id-13596422-n	lead	(sports) the score by which a team or individual is winning	(Olahraga) skor tim atau individu yang menang
+g5831	wnb-id-13597147-n	compound number	a quantity expressed in two different units	kuantitas dinyatakan dalam dua unit yang berbeda
+g5832	wnb-id-13598013-n	floating-point number	a number represented in floating-point notation	nomor yang direpresentasikan dalam notasi floating-point
+g5833	wnb-id-13598128-n	fixed-point number	a number represented in fixed-point notation	nomor yang direpresentasikan dalam notasi fixed-point
+g5834	wnb-id-13598408-n	googol	a cardinal number represented as 1 followed by 100 zeros (ten raised to the power of a hundred)	bilangan ganjil direpresentasikan sebagai sepuluh pangkat seratus
+g5835	wnb-id-13598556-n	googolplex	a cardinal number represented as 1 followed by a googol of zeros (ten raised to the power of a googol)	sejumlah bilangan pokok yang direpresentasikan 1
+g5836	wnb-id-13598960-n	magic number	the atomic number of an extra stable strongly bound atomic nucleus: 2, 8, 20, 28, 50, 82 or 126	nomor atom dari yang sangat ekstra stabil yang terikat inti atom
+g5837	wnb-id-13599114-n	baryon number	a number equal to the difference between the number of baryons and the number of antibaryons in any subatomic structure; it is conserved in all types of particle interactions	selisih antara jumlah baryons dan jumlah antibaryons dalam struktur sub-atomik
+g5838	wnb-id-13599730-n	magnetic flux	a measure of the strength of a magnetic field over a given area	ukuran dari kekuatan medan magnet
+g5839	wnb-id-13599982-n	acceleration unit	a unit for measuring acceleration	unit untuk mengukur percepatan
+g5840	wnb-id-13600097-n	angular unit	a unit of measurement for angles	unit pengukuran untuk sudut
+g5841	wnb-id-13600404-n	area unit, square measure	a system of units used to measure areas	sistem satuan yang digunakan untuk mengukur wilayah
+g5842	wnb-id-13600822-n	volume unit, capacity unit, capacity measure, cubage unit, cubic measure, cubic content unit, displacement unit, cubature unit	a unit of measurement of volume or capacity	unit ukuran volume atau kapasitas
+g5843	wnb-id-13601370-n	cubic inch, cu in	the volume equal to a cube one inch on each side	volume sama dengan sebuah kubus 1 inci per sisi
+g5844	wnb-id-13601483-n	cubic foot, cu ft	the volume equal to a cube one foot on each side	volume sebuah kubus sama dengan satu kaki di setiap sisi
+g5845	wnb-id-13601596-n	computer memory unit	a unit for measuring computer memory	satuan ukuran memori komputer
+g5846	wnb-id-13602401-n	cord	a unit of amount of wood cut for burning; 128 cubic feet	unit jumlah kayu yang ditebang untuk membakar 128 kaki kubik
+g5847	wnb-id-13602526-n	electromagnetic unit, emu	any of various systems of units for measuring electricity and magnetism	berbagai sistem unit untuk mengukur listrik dan magnet
+g5848	wnb-id-13602922-n	explosive unit	any unit for measuring the force of explosions	unit untuk mengukur kekuatan ledakan
+g5849	wnb-id-13603065-n	force unit	a unit of measurement of physical force	satuan ukuran kekuatan fisik
+g5850	wnb-id-13604718-n	monetary unit	a unit of money	satuan nilai mata uang
+g5851	wnb-id-13607187-n	megaflop, MFLOP, million floating point operations per second	(computer science) a unit for measuring the speed of a computer system	(Ilmu komputer) unit untuk mengukur kecepatan sistem komputer
+g5852	wnb-id-13607405-n	teraflop, trillion floating point operations per second	(computer science) a unit for measuring the speed of a computer system	(Ilmu komputer) satuan ukuran kecepatan sistem komputer
+g5853	wnb-id-13607616-n	MIPS, million instructions per second	(computer science) a unit for measuring the execution speed of a computer's CPU (but not the whole system)	(Ilmu komputer) unit untuk mengukur kecepatan eksekusi CPU komputer
+g5854	wnb-id-13607873-n	pain unit	a unit measuring the intensity of pain	satuan pengukuran intensitas nyeri
+g5855	wnb-id-13607985-n	pressure unit	a unit measuring force per unit area	unit ukuran gaya per satuan luas
+g5856	wnb-id-13608207-n	printing unit	a unit of measurement for printing	satuan ukuran untuk dicetak
+g5857	wnb-id-13608319-n	sound unit	any acoustic unit of measurement	setiap unit pengukuran akustik
+g5858	wnb-id-13608480-n	telephone unit	a unit of measurement for telephone use	satuan ukuran penggunaan telepon
+g5859	wnb-id-13609214-n	mass unit	a unit of measurement for mass	satuan ukuran untuk massa
+g5860	wnb-id-13609507-n	work unit, heat unit, energy unit	a unit of measurement for work	satuan ukuran untuk bekerja
+g5861	wnb-id-13610426-n	advantage	(tennis) first point scored after deuce	(Tenis) mencetak poin pertama setelah jus
+g5862	wnb-id-13610540-n	set point	(tennis) the final point needed to win a set in tennis	(Tenis) titik akhir yang diperlukan untuk memenangkan pertandingan
+g5863	wnb-id-13610669-n	match point	(tennis) the final point needed to win a match (especially in tennis)	(Tenis) titik akhir yang dibutuhkan untuk memenangkan pertandingan
+g5864	wnb-id-13610815-n	sabin	a unit of acoustic absorption equivalent to the absorption by a square foot of a surface that absorbs all incident sound	(Akustik) satuan serapan akustik untuk setiap ft^2
+g5865	wnb-id-13610987-n	circular measure	measurement of angles in radians	pengukuran sudut dalam radian
+g5866	wnb-id-13611082-n	mil	an angular unit used in artillery; equal to 1/6400 of a complete revolution	satuan sudut yang digunakan dalam artileri
+g5867	wnb-id-13611395-n	second, arcsecond	a 60th part of a minute of arc	bagian 60 dari satu menit dari busur
+g5868	wnb-id-13611740-n	microradian	a unit of angular distance equal to one thousandth of a milliradian	satuan jarak sudut yang sama dengan satu seperseribu sebuah milliradian
+g5869	wnb-id-13611884-n	milliradian	a unit of angular distance equal to one thousandth of a radian	unit jarak sudut sebesar 1/1000 dari sebuah radian
+g5870	wnb-id-13612427-n	oxtant	a unit of angular distance equal to half a quadrant	satuan jarak sudut sebesar setengah kuadran
+g5871	wnb-id-13612550-n	sextant	a unit of angular distance equal to 60 degrees	unit jarak sudut sebesar 60 derajat
+g5872	wnb-id-13612943-n	square inch, sq in	a unit of area equal to one inch by one inch square	satuan luas sama dengan satu inci per satu inci persegi
+g5873	wnb-id-13613060-n	square foot, sq ft	a unit of area equal to one foot by one foot square	unit wilayah yang sama dengan satu kaki dengan satu kaki persegi
+g5874	wnb-id-13613177-n	square yard, sq yd	a unit of area equal to one yard by one yard square	unit wilayah sama dengan satu yardspersegi
+g5875	wnb-id-13613408-n	square mile	an area of 640 acres	wilayah seluas 640 hektar
+g5876	wnb-id-13613592-n	quarter section	a land unit equal to a quarter of a section (160 acres) and measuring 1/2 mile on a side	unit ukuran tanah sebesar seperempat bagian (160 hektar)
+g5877	wnb-id-13614256-n	barn, b	(physics) a unit of nuclear cross section; the effective circular area that one particle presents to another as a target for an encounter	(Fisika) satuan unit penampang nuklir
+g5878	wnb-id-13614467-n	dessiatine	a former Russian unit of area equal to 2.7 acres	bekas daerah Rusia sebesar 2
+g5879	wnb-id-13614572-n	morgen	a South African unit of measure equal to about 2 acres	unit ukuran Afrika Selatan sekitar 2 hektar
+g5880	wnb-id-13614764-n	liquid unit, liquid measure	a unit of capacity for liquids (for measuring the volumes of liquids or their containers)	unit kapasitas cairan (untuk mengukur volume cairan)
+g5881	wnb-id-13615036-n	dry unit, dry measure	a unit of capacity for dry commodities (as fruit or grain)	kapasitas untuk komoditas kering (seperti buah atau butir)
+g5882	wnb-id-13615235-n	United States liquid unit	a liquid unit officially adopted in the United States Customary System	unit ukuran cairan yang diadopsi di Amerika Serikat
+g5883	wnb-id-13616054-n	metric capacity unit	a capacity unit defined in metric terms	satuan kapasitas diind:definisikan dalam metrik
+g5884	wnb-id-13616340-n	ardeb	a unit of dry measure used in Egypt	suatu satuan ukuran kering digunakan di Mesir
+g5885	wnb-id-13616427-n	arroba	a liquid measure (with different values) used in some Spanish speaking countries	satuan ukuran cairan yang digunakan di beberapa negara-negara berbahasa Spanyol
+g5886	wnb-id-13616787-n	ephah, epha	an ancient Hebrew unit of dry measure equal to about a bushel	unit ukuran Ibrani kuno setara dengan sebuah gantang
+g5887	wnb-id-13616926-n	field capacity	the maximum amount of water that a particular soil can hold	jumlah maksimum air bahwa tanah
+g5888	wnb-id-13617046-n	homer, kor	an ancient Hebrew unit of capacity equal to 10 baths or 10 ephahs	unit kapasitas Ibrani kuno setara 10 bath atau 10 ephahs
+g5889	wnb-id-13617207-n	hin	ancient Hebrew unit of liquid measure = 1.5 gallons	satuan ukuran cairan Ibrani kuno setara 1
+g5890	wnb-id-13617630-n	acre inch	one twelfth of an acre-foot	seperdua belas dari are-kaki
+g5891	wnb-id-13617713-n	board measure	a system of units for measuring lumber based on the board foot	unit ukuran kayu pohon berdasarkan "board foot"
+g5892	wnb-id-13617835-n	board foot	the volume of a piece of wood 1 foot square and 1 inch thick	volume sepotong kayu 1 kaki persegi dan tebal 1 inci
+g5893	wnb-id-13618180-n	last	a unit of capacity for grain equal to 80 bushels	unit kapasitas sebesar 80 gantang gandum
+g5894	wnb-id-13618298-n	mutchkin	a Scottish unit of liquid measure equal to 0.9 United States pint	9 pint Amerika Serikat
+g5895	wnb-id-13618508-n	minim	a United States liquid unit equal to 1/60 fluidram	satuan ukuran cairan di Amerika Serikat setara dengan 1/60 fluidram
+g5896	wnb-id-13618629-n	fluidram, fluid dram, fluid drachm, drachm	a unit of capacity or volume in the apothecary system equal to one eighth of a fluid ounce	unit kapasitas / volume dalam sistem apotek setara 1/8 ons cairan
+g5897	wnb-id-13618849-n	fluidounce, fluid ounce	a United States unit of capacity or volume equal to 1.804 cubic inches	satuan di Amerika Serikat : kapasitas / volume sebesar 1
+g5898	wnb-id-13619475-n	fifth	a quantity of liquor equal to one fifth of a United States gallon	jumlah minuman keras setara seperlima galon (Amerika Serikat)
+g5899	wnb-id-13619764-n	gallon, gal	United States liquid unit equal to 4 quarts or 3.785 liters	(Amerika Serikat) satuan cairan setara 4 liter atau 3,785 liter
+g5900	wnb-id-13620154-n	United States dry unit	a unit of measurement of capacity for dry substances officially adopted in the United States Customary System	unit ukuran kapasitas bahan keringsdi Amerika Serikat

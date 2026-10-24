@@ -1,0 +1,101 @@
+id	words	definition	note
+g7201	ketegangan otot	OK	
+g7202	strangulasi	OK	pencekikan is the act rather than the condition
+g7203		OK	Indonesian texts use the English term (cedera whiplash)
+g7204	kaki parit	PARTIAL	missing 'resembling frostbite but without freezing'
+g7205	tanda vital	PARTIAL	missing 'sign of life'
+g7206	amenore	PARTIAL	'penindasan' is a clumsy rendering of suppression
+g7207	aura	OK	
+g7208	jari tabuh	PARTIAL	missing that it is a symptom of heart or lung disease
+g7209	akrosianosis	WRONG	garbled: 'extremities' rendered as 'hal-hal ekstrim'
+g7210	amenore primer	OK	
+g7211	amenore sekunder	OK	
+g7212	gejala prodromal	OK	
+g7213		PARTIAL	no established Indonesian term; definition omits symptoms
+g7214	sindrom Conn	PARTIAL	'adrenalin' should be 'adrenal'; omits aldosterone
+g7215	sindrom alkohol janin	OK	
+g7216	sindrom Perang Teluk	PARTIAL	symptom list truncated
+g7217	penyakit Crohn	WRONG	fragment only; does not define the disease
+g7218	sindrom iritasi usus besar	PARTIAL	omits stress association
+g7219	kolitis ulseratif	PARTIAL	truncated symptom list
+g7220	sindrom malabsorpsi	PARTIAL	truncated
+g7221	sindrom Munchausen	PARTIAL	should say feigning illness without clinical evidence
+g7222	sindrom nefrotik; nefrosis	WRONG	fragment only
+g7223	sindrom Noonan	PARTIAL	omits characteristic features
+g7224		OK	Indonesian texts use 'phantom limb'
+g7225	sindrom pramenstruasi	OK	
+g7226	sindrom Ramsay Hunt	PARTIAL	omits symptoms
+g7227	sindrom Reiter	PARTIAL	omits arthritis, conjunctivitis, urethritis
+g7228	sindrom kaki gelisah	PARTIAL	'setelah tidur' should be 'setelah berbaring tidur'; 'bimbang' odd
+g7229		PARTIAL	no established Indonesian term
+g7230	kematian neonatal	OK	
+g7231	sindrom kematian bayi mendadak	OK	
+g7232		PARTIAL	no established Indonesian term; omits tingling in fingers
+g7233	sindrom Tietze	OK	
+g7234	sindrom Tourette	PARTIAL	definition is only a synonym
+g7235		OK	no lexicalised Indonesian term
+g7236		OK	slang; no Indonesian equivalent
+g7237	lidah berbulu	PARTIAL	omits papillae overgrowth
+g7238	efek samping	OK	
+g7239	abses gigi	PARTIAL	'bengkak' should be 'abses'
+g7240	pernanahan	OK	
+g7241		OK	no lexicalised term distinct from lepuh
+g7242	lepuh darah	OK	
+g7243	eksoftalmus	PARTIAL	'kantung' should be 'rongga mata'
+g7244	festinasi	PARTIAL	omits disease context
+g7245		PARTIAL	'kulit binatang' should be 'bulu'; no word
+g7246	gangren gas	PARTIAL	truncated
+g7247	hemoglobinuria	OK	
+g7248	hemosiderosis	WRONG	fragment only; omits the hemosiderin deposit
+g7249		OK	no Indonesian term for this sense
+g7250	bubo	PARTIAL	'limpa' (spleen) should be 'kelenjar getah bening'
+g7251	anasarka	OK	
+g7252	kemosis	OK	
+g7253	papiledema	OK	
+g7254	bunion	OK	
+g7255		OK	no Indonesian word for this sense
+g7256	edema serebral; edema otak	PARTIAL	neuropile mistranslated
+g7257	hematokel	PARTIAL	omits testis membrane
+g7258	hematokolpometra	OK	
+g7259	hematokolpos	OK	
+g7260		OK	no Indonesian term
+g7261		OK	no Indonesian term
+g7262		OK	no specific Indonesian term
+g7263		OK	no specific Indonesian term
+g7264	sefalhematoma	PARTIAL	omits cause
+g7265		OK	no lexicalised Indonesian term
+g7266	hiperbilirubinemia	OK	
+g7267	hiperbilirubinemia neonatal	PARTIAL	does not mention newborn
+g7268	ikterus neonatorum	WRONG	garbled; not a definition
+g7269	kernikterus	PARTIAL	omits staining and damage
+g7270	hidrotoraks	OK	
+g7271	hemotoraks	OK	
+g7272	kongesti paru	OK	
+g7273	enantema	OK	
+g7274	biang keringat; miliaria	OK	
+g7275	mati rasa; kebas	OK	
+g7276		OK	no established Indonesian term
+g7277	artralgia	OK	
+g7278		OK	no lexicalised Indonesian term
+g7279	formikasi	OK	
+g7280	Sengsara Kristus	OK	
+g7281	sakit punggung	OK	
+g7282	kausalgia	OK	
+g7283		OK	no Indonesian term
+g7284		OK	no specific Indonesian word
+g7285	dismenore; nyeri haid	OK	
+g7286	dismenore primer	PARTIAL	omits 'not the result of a disease'
+g7287	dismenore sekunder	OK	
+g7288	nyeri pertumbuhan	PARTIAL	omits pain in muscles or joints
+g7289	sakit kepala klaster	OK	
+g7290		OK	no lexicalised term
+g7291	sakit kepala sinus	OK	
+g7292	sakit kepala tegang	OK	
+g7293	nyeri persalinan	WRONG	'bekerja' mistranslates labor (childbirth)
+g7294		OK	no Indonesian term
+g7295		OK	no Indonesian term
+g7296		OK	no Indonesian term
+g7297	mialgia; nyeri otot	OK	
+g7298		OK	no Indonesian term
+g7299	odinofagia	OK	
+g7300		OK	no established Indonesian term

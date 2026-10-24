@@ -1,0 +1,101 @@
+id	words	definition	note
+g5801	konstanta Boltzmann; tetapan Boltzmann	OK	
+g5802	koefisien hambat	PARTIAL	definition omits velocity and surface area
+g5803	induktansi bersama; induktansi timbal balik	PARTIAL	only first clause translated
+g5804	induktansi diri	PARTIAL	truncated; omits rate of change of current
+g5805	modulus	OK	
+g5806	modulus curah; modulus bulk	PARTIAL	truncated (in volume)
+g5807	modulus geser; modulus kekakuan	OK	
+g5808	modulus Young	OK	
+g5809	koefisien muai; koefisien pemuaian	OK	
+g5810	reflektansi; reflektivitas; koefisien pantul	WRONG	garbled: says radiated energy, not reflected fraction
+g5811	viskositas dinamis; viskositas mutlak	OK	
+g5812	konstanta kosmologis	OK	
+g5813	konstanta gas; tetapan gas	PARTIAL	omits equation and value
+g5814	muatan ion	WRONG	garbled: charge translated as biaya (fee)
+g5815	konstanta Planck; tetapan Planck	PARTIAL	truncated value
+g5816	bilangan oksidasi; tingkat oksidasi	PARTIAL	truncated
+g5817	hitung darah	OK	
+g5818		OK	no lexicalised Indonesian term; jumlah korban tewas is a free phrase
+g5819	sirkulasi	PARTIAL	typo period for periode
+g5820	faktor konversi	PARTIAL	truncated; omits multiplying to convert units
+g5821	konstanta kesebandingan; konstanta proporsionalitas	OK	
+g5822	bilangan komposit	PARTIAL	omits other than itself and one
+g5823	pukulan	WRONG	mistranslates scoring as mencetak gol (scoring a goal)
+g5824	birdie	OK	
+g5825		WRONG	garbled (kehilangan skorstim); no clear Indonesian term
+g5826	double bogey	OK	
+g5827		PARTIAL	clumsy; no Indonesian term for cricket duck
+g5828	eagle	OK	
+g5829	double eagle; albatros	OK	
+g5830	keunggulan	PARTIAL	should be the margin by which one is winning
+g5831		OK	no established Indonesian term
+g5832	bilangan titik mengambang	OK	
+g5833	bilangan titik tetap	OK	
+g5834	googol	WRONG	says odd number (bilangan ganjil)
+g5835	googolplex	WRONG	garbled and truncated
+g5836	bilangan ajaib	PARTIAL	garbled wording; omits list of numbers
+g5837	bilangan barion	OK	
+g5838	fluks magnetik	PARTIAL	omits over a given area
+g5839	satuan percepatan	OK	
+g5840	satuan sudut	OK	
+g5841	satuan luas	PARTIAL	wilayah (region) should be luas (area)
+g5842	satuan volume; satuan isi	OK	
+g5843	inci kubik	OK	
+g5844	kaki kubik	OK	
+g5845	satuan memori	OK	
+g5846		OK	no Indonesian term for cord of wood
+g5847	satuan elektromagnetik	OK	
+g5848		OK	no lexicalised term
+g5849	satuan gaya	PARTIAL	kekuatan fisik should be gaya
+g5850	satuan mata uang; satuan moneter	OK	
+g5851	megaflop	OK	
+g5852	teraflop	OK	
+g5853	MIPS	OK	
+g5854		OK	no lexicalised term
+g5855	satuan tekanan	OK	
+g5856		PARTIAL	untuk dicetak (to be printed) is clumsy
+g5857		OK	no lexicalised term
+g5858	pulsa	OK	pulsa was the Indonesian telephone billing unit
+g5859	satuan massa	OK	
+g5860	satuan energi; satuan kerja; satuan kalor	WRONG	untuk bekerja means for working, not unit of work
+g5861		WRONG	deuce mistranslated as jus (juice); Indonesian uses English advantage
+g5862	set point	WRONG	says winning the match, not the set
+g5863	match point	PARTIAL	titik akhir is a clumsy rendering of final point
+g5864	sabin	PARTIAL	omits absorbing all incident sound
+g5865		OK	no lexicalised term
+g5866		PARTIAL	omits 1/6400 revolution; mil would be confused with mile
+g5867	detik busur	OK	
+g5868	mikroradian	OK	
+g5869	miliradian	OK	
+g5870		OK	no Indonesian term
+g5871		OK	sekstan is the instrument, not the angular unit
+g5872	inci persegi	OK	
+g5873	kaki persegi	PARTIAL	wilayah should be luas
+g5874	yard persegi	PARTIAL	typo yardspersegi; wilayah should be luas
+g5875	mil persegi	WRONG	640 hektar should be 640 acre
+g5876		WRONG	160 hektar should be 160 acre
+g5877	barn	PARTIAL	truncated
+g5878		WRONG	says former Russian region, truncated
+g5879	morgen	WRONG	2 hektar should be about 2 acre
+g5880		OK	no lexicalised term
+g5881		PARTIAL	butir is a poor rendering of grain (biji-bijian)
+g5882		PARTIAL	omits Customary System
+g5883		PARTIAL	markup artifact diind:
+g5884	ardeb	OK	
+g5885	arroba	OK	
+g5886	efa	OK	form used in the Indonesian Bible (LAI)
+g5887	kapasitas lapang	PARTIAL	truncated
+g5888	homer; kor	OK	
+g5889	hin	PARTIAL	truncated value
+g5890		WRONG	acre mistranslated as are
+g5891		PARTIAL	clumsy; system of units for lumber
+g5892		OK	no Indonesian term
+g5893		OK	no Indonesian term
+g5894		WRONG	truncated to just the value
+g5895		OK	no Indonesian term
+g5896		OK	no established Indonesian term
+g5897	ons cairan	PARTIAL	truncated value
+g5898		OK	no Indonesian term
+g5899	galon	WRONG	4 liter should be 4 quart
+g5900		PARTIAL	typo keringsdi; omits Customary System

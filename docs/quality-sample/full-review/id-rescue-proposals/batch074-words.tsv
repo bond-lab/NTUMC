@@ -1,0 +1,101 @@
+id	words	definition	note
+g7301	pleurodinia	OK	
+g7302	proktalgia	OK	
+g7303	pleurodinia epidemik; penyakit Bornholm	PARTIAL	definition lacks the head noun (acute infectious disease)
+g7304	neuralgia trigeminal	PARTIAL	missing head noun 'neuralgia'
+g7305	siatika; iskialgia	OK	
+g7306	nyeri persalinan; his	PARTIAL	does not mention childbirth
+g7307		OK	no established single term
+g7308	palilalia	OK	
+g7309		OK	sindaktili is broader; no common Indonesian term
+g7310	nyeri alih	OK	
+g7311	kolik ginjal; kolik renal	OK	
+g7312		PARTIAL	no standard Indonesian term; definition vague and uses Malay 'mencucuk'
+g7313	nyeri lepas	PARTIAL	misses that pain is felt on release and its diagnostic role
+g7314	termalgesia	OK	
+g7315	lecet	OK	
+g7316	denyut	OK	
+g7317		OK	disuria is the usual term but a different synset; urodinia rare
+g7318		OK	no Indonesian term; English term used
+g7319	papula	WRONG	'melepuh' (blistered) contradicts nonsuppurative papule
+g7320	papulovesikel	OK	
+g7321	pustula	PARTIAL	'melepuh' is imprecise for pustule
+g7322	kardiomegali; pembesaran jantung	OK	
+g7323	murmur jantung; bising jantung	PARTIAL	missing head 'abnormal heart sound'
+g7324	murmur sistolik; bising sistolik	OK	
+g7325	refluks gastroesofagus	OK	
+g7326	refluks hepatojugular	PARTIAL	'jantung yang tersumbat' misrenders congestive heart failure
+g7327	refluks ureterorenal	WRONG	renal pelvis rendered as back of the pelvis (hip)
+g7328	refluks vesikoureter	OK	
+g7329	refluks	OK	
+g7330		PARTIAL	typo 'panah' for 'panas'; no lexicalised Indonesian term
+g7331		OK	no Indonesian term
+g7332	endokarditis bakterial subakut	WRONG	says acute instead of chronic/subacute
+g7333	miokarditis	OK	
+g7334	pankarditis	OK	
+g7335	selulitis	OK	
+g7336	servisitis	PARTIAL	uses English 'uterine cervix'
+g7337	keilitis	OK	
+g7338		OK	no specific Indonesian lemma
+g7339	malaria kuartana	OK	
+g7340	kolangitis	OK	
+g7341	kolesistitis	OK	
+g7342	korditis	OK	
+g7343	korditis	OK	
+g7344	kolposistitis	OK	
+g7345	korditis	OK	
+g7346	kostokondritis	OK	
+g7347	dakriosistitis	PARTIAL	missing 'inflammation of the lacrimal sac'
+g7348	divertikulitis	OK	
+g7349	ensefalomielitis	OK	
+g7350	endarteritis	OK	
+g7351	ensefalitis hemoragik akut	OK	
+g7352	ensefalitis kuda	OK	
+g7353	ensefalitis herpes simpleks	OK	
+g7354	leukoensefalitis	OK	
+g7355	meningoensefalitis	OK	
+g7356	panensefalitis	OK	
+g7357	ensefalitis letargika	PARTIAL	missing symptoms
+g7358	ensefalitis West Nile	OK	
+g7359	panensefalitis sklerosis subakut	WRONG	garbled fragment
+g7360	panensefalitis rubela	OK	
+g7361	endoservisitis	OK	
+g7362	enteritis nekrotikans	OK	
+g7363	epikondilitis	OK	
+g7364	epididimitis	OK	
+g7365	episkleritis	OK	
+g7366	esofagitis	PARTIAL	missing head 'inflammation of the esophagus'
+g7367	fibrositis	OK	
+g7368	fibromiositis	OK	
+g7369	folikulitis	OK	
+g7370	funikulitis	OK	
+g7371	gastritis akut	OK	
+g7372	gastritis kronis	PARTIAL	lists only gastric ulcer
+g7373	glositis akut	OK	
+g7374	glositis kronis	PARTIAL	missing head 'glossitis with atrophy'
+g7375	glositis Moeller	PARTIAL	'sepintas' wrong for superficial (dangkal)
+g7376	hidrartrosis	OK	
+g7377	iridosiklitis	OK	
+g7378	iridokeratitis	OK	
+g7379	jejunitis	OK	
+g7380	keratokonjungtivitis	OK	
+g7381	keratoiritis	OK	
+g7382	keratoskleritis	OK	
+g7383	labirinitis; otitis interna	PARTIAL	missing head 'inflammation of the inner ear'
+g7384	laminitis	OK	
+g7385	laringofaringitis	OK	
+g7386	laringotrakeobronkitis	WRONG	garbled fragment
+g7387	endometritis; metritis	OK	
+g7388	monoplegia	OK	
+g7389		OK	no Indonesian term
+g7390	mielitis	OK	
+g7391	trikinosis; trikinelosis	OK	
+g7392	ooforitis	OK	
+g7393	oftalmoplegia	OK	
+g7394	osteitis	OK	
+g7395	osteomielitis	OK	
+g7396	otitis eksterna	OK	
+g7397	ooforitis	OK	
+g7398	otore	OK	
+g7399	ozena	PARTIAL	missing head 'chronic nasal disease' and foul discharge
+g7400	pankreatitis	PARTIAL	missing head 'inflammation of the pancreas'

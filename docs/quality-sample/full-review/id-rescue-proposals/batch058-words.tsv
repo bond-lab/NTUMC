@@ -1,0 +1,101 @@
+id	words	definition	note
+g5701	transpor pasif	OK	
+g5702	proses patologis	OK	
+g5703	peptisasi	PARTIAL	clumsy: should be conversion into a colloidal solution (sol)
+g5704		OK	no established Indonesian term
+g5705	perubahan fase; transisi fase; perubahan wujud	OK	
+g5706	fase pembelahan sel	OK	
+g5707	reaksi fotokimia	OK	
+g5708	emisi fotoelektrik	OK	
+g5709		OK	no established Indonesian term
+g5710	pinositosis	OK	
+g5711	plasentasi	OK	
+g5712	ledakan populasi	OK	
+g5713	potensiasi	OK	
+g5714	metode serbuk	PARTIAL	omits X-ray diffraction method
+g5715	ejakulasi dini	PARTIAL	keasyikan is odd for sexual excitement; omits after penetration
+g5716		OK	free phrase only
+g5717		OK	free phrase only
+g5718	profesionalisasi	OK	
+g5719		OK	free phrase only
+g5720	psikogenesis	OK	
+g5721	psikogenesis	PARTIAL	ketidakteraturan is a poor rendering of disorder (gangguan)
+g5722	perkembangan psikomotorik	OK	
+g5723	ptialisme; hipersalivasi	OK	
+g5724	pirokimia	OK	
+g5725		OK	no common single word
+g5726	reaksi Quellung	PARTIAL	omits capsule and diagnostic use
+g5727		OK	no good Indonesian word for this general sense
+g5728		OK	no established term
+g5729	pembentukan reaksi	PARTIAL	describes a person rather than the defense mechanism
+g5730		OK	no established Indonesian term
+g5731	pemrosesan waktu nyata	PARTIAL	missing "fast" (cukup cepat)
+g5732	redeposisi	OK	
+g5733	temu kembali; pengambilan kembali	OK	
+g5734		OK	jargon with no Indonesian term
+g5735	ambilan kembali	OK	
+g5736	proses reversibel	PARTIAL	omits "same states in reverse order"
+g5737	rigor mortis; kaku mayat	OK	
+g5738		PARTIAL	no clear lemma; penghujaman akar is clumsy
+g5739	saponifikasi; penyabunan	OK	
+g5740	skizogoni	OK	
+g5741	emisi sekunder	PARTIAL	garbled word order (elektron primer berenergi tinggi)
+g5742	sensitisasi	OK	
+g5743	sekuestrasi	OK	
+g5744		OK	free phrase only
+g5745	pemrosesan serial	OK	
+g5746	reproduksi seksual; perkembangbiakan seksual	OK	
+g5747		OK	no general Indonesian term for this sense
+g5748		OK	no Indonesian equivalent
+g5749	kemerosotan	OK	
+g5750	proses sosial	OK	
+g5751	solvasi	OK	
+g5752	proses Solvay	PARTIAL	typo natirum; omits ammonia and CO2 and product
+g5753	spalasi	OK	
+g5754	spesiasi	OK	
+g5755	pembakaran spontan	OK	
+g5756	Stalinisasi	OK	
+g5757	proses stokastik stasioner	PARTIAL	"semua peubah variabel" garbled for parameter values
+g5758		PARTIAL	free phrase; besi baja should be besi kasar (pig iron)
+g5759	proses stokastik	PARTIAL	clumsy/garbled wording
+g5760	subduksi; penunjaman	OK	
+g5761	sumasi	WRONG	definition is a garbled fragment
+g5762	superposisi	OK	
+g5763		OK	no confident Indonesian term for this sense
+g5764	simfisis	PARTIAL	anggota tubuh too narrow for parts
+g5765	sinapsis	PARTIAL	omits homologous; maternal/paternal not female/male
+g5766	operasi sinkron	OK	
+g5767		OK	rare technical term, no Indonesian usage
+g5768		OK	no single Indonesian word (penyamakan is leather tanning)
+g5769	tumbuh gigi; pertumbuhan gigi	OK	
+g5770	telofase	OK	
+g5771	perubahan suhu	OK	
+g5772	teratogenesis	OK	
+g5773	emisi termionik	OK	
+g5774	termokoagulasi	OK	
+g5775		PARTIAL	garbled: operation on operands to get threshold function value
+g5776	trombolisis	OK	
+g5777	fermentasi atas	PARTIAL	omits violent kind and use for ale
+g5778	transaminasi	PARTIAL	gugus amino, not kelompok asam amino
+g5779	transaminasi	PARTIAL	gugus amino, not kelompok asam amino
+g5780		OK	no common single word
+g5781	pembengkakan	OK	
+g5782	ulserasi	PARTIAL	bisul is a boil, not an ulcer (tukak)
+g5783	ultrasentrifugasi	OK	
+g5784		OK	no Indonesian term
+g5785	inkontinensia urgensi	WRONG	describes urge to urinate, not incontinence
+g5786		OK	no Indonesian term
+g5787	lingkaran setan	OK	
+g5788	vinifikasi	OK	
+g5789	pengolahan kata	OK	
+g5790	zigoten	OK	
+g5791		OK	obsolete term, no Indonesian usage
+g5792	sistem metrik	OK	
+g5793	sistem CGS	PARTIAL	omits grams and seconds
+g5794		WRONG	"customs system" (bea cukai) mistranslation
+g5795		OK	no Indonesian term
+g5796	utilitas; nilai guna	OK	
+g5797	normalitas	PARTIAL	"(Larutan a)" garbled
+g5798	klorinitas	OK	
+g5799	sitotoksisitas	OK	
+g5800	bilangan Avogadro	OK	

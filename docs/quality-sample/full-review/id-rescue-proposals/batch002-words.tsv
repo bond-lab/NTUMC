@@ -1,0 +1,101 @@
+id	words	definition	note
+g101	aktif	OK	gunung api aktif
+g102	permainan pedang	OK
+g103	aktif	WRONG	own_definition is an example phrase, not a definition
+g104		PARTIAL	no single verb; membubuh should be membubuhkan
+g105	statif	PARTIAL
+g106		WRONG	definition is the hands-and-nails sense; this is 'trim neatly' (e.g. a lawn)
+g107		OK	no adjective; surfaktan is the noun
+g108	kepahlawanan	OK
+g109	nonaktif	PARTIAL	'atau diaktifkan' should be negated
+g110	tenang	PARTIAL	astronomy: matahari tenang
+g111	pukulan	PARTIAL	uses English 'stroke'
+g112	laten; terpendam	OK
+g113	subakut	PARTIAL
+g114		OK	no established Indonesian form
+g115		OK	free phrase only (sangat infektif)
+g116	avirulen	OK
+g117	adaptif	OK
+g118	pelarian	PARTIAL	missing 'the place you are expected to be'
+g119	maladaptif	OK
+g120		OK	no lexicalised equivalent
+g121		OK	no lexicalised equivalent
+g122		OK	no lexicalised equivalent
+g123	kemajuan	OK
+g124	aditif	WRONG	'zat tambahan' is an additive substance, not 'by addition'
+g125	serbuan; penyusupan	OK	typo kesuatu
+g126	kabisat	PARTIAL	garbled; missing the inserted day/month
+g127	penyerbuan	WRONG	'sudden violence', not a violent entrance
+g128		WRONG	mistranslates legal 'entail' as 'involving'
+g129	ablatif	OK
+g130		OK	no single word
+g131	memadai	OK
+g132		OK	free phrase only (tidak memadai)
+g133	penetrasi pasar	OK
+g134		OK	free phrase only (kekurangan tenaga)
+g135	pendaratan darurat	PARTIAL	truncated
+g136	aglutinatif	OK
+g137		OK	free phrase only (pergi tanpa pamit)
+g138		OK	no good noun lemma
+g139	berperekat	OK
+g140	penarikan mundur	PARTIAL
+g141		PARTIAL	'segel' read as noun; clumsy
+g142	tempel	PARTIAL	as in label tempel; missing 'in advance'
+g143	berperekat; lengket	OK
+g144	evakuasi medis	OK
+g145		OK
+g146		PARTIAL	'dipasang' odd; should be 'diberi'
+g147	prosedural	WRONG	'bertentangan dengan' means conflicting with, not 'as opposed to'
+g148	pelarian	OK
+g149		OK
+g150		WRONG	'hilangnya militer' = disappearance of the military
+g151		OK
+g152		PARTIAL	missing 'ideological', communism
+g153	berhias	PARTIAL
+g154		OK	no established Indonesian form
+g155	bermanik-manik; berpayet	PARTIAL	sequins missing
+g156	penarikan pasukan	OK
+g157		WRONG	'vulgar fashion show', not ornamented vulgarly
+g158		OK	gencatan senjata is a bilateral ceasefire, not the same
+g159	secara menyeluruh; tuntas	OK
+g160		PARTIAL	verbal phrasing for a noun
+g161		WRONG	'tombol' is a switch/knob; should be kancing
+g162		OK
+g163	gemerlap	OK
+g164	pendaratan amfibi	PARTIAL
+g165	berjambul	OK
+g166	pendaratan; debarkasi	OK
+g167	embarkasi	OK
+g168		PARTIAL	truncated; 'atap' is not gable/spire
+g169	berumbai; berjumbai	PARTIAL
+g170		OK
+g171		PARTIAL
+g172		PARTIAL	missing stone and mosaic
+g173	pengelakan; penghindaran	OK
+g174	manuver	OK
+g175	berpanel	OK
+g176		OK	no established boxing term
+g177		OK
+g178	berumbai; berjumbai	OK
+g179		OK
+g180	berjumbai	OK
+g181	eksodus	OK
+g182	Hijrah	PARTIAL	missing start of the Muslim era
+g183		PARTIAL
+g184		OK
+g185	kolinergik	PARTIAL	missing 'releasing'
+g186	antikolinergik	OK
+g187	kemunculan	OK
+g188		OK
+g189		OK
+g190	terkoordinasi	OK
+g191		OK
+g192		PARTIAL	pacuan kuda too narrow
+g193	rekor dunia	OK
+g194	kikuk; canggung	PARTIAL	missing 'especially with the hands'
+g195		PARTIAL	too vague
+g196		PARTIAL	garbled
+g197		OK
+g198		WRONG	'pukulan' = blow; hit here means a success
+g199		OK
+g200		OK
