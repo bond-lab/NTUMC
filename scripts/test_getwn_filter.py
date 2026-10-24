@@ -54,6 +54,27 @@ def test_load_examples_by_language_in_sid_order() -> None:
     assert exes == {"00001740-n": ["一番目", "二番目"]}
 
 
+def test_freqs_are_per_sense_not_per_synset(tmp_path) -> None:
+    """Only tagged lemmas get a count; spaces and case are ignored."""
+    from getwn import load_freqs, sense_freq
+
+    (tmp_path / "wn-freq-jpn-ntumc.tsv").write_text(
+        "# Frequency\nsynset\tlemma\tfreq\n"
+        "00174412-n\t策\t1\n00174412-n\t対策\t3\n15000001-n\t有 能力\t2\n"
+        "77000015-n\ti\t5\n",
+        encoding="utf-8",
+    )
+
+    freqs = load_freqs(tmp_path, "jpn")
+
+    assert sense_freq(freqs, "00174412-n", "対策") == 3
+    assert sense_freq(freqs, "00174412-n", "策") == 1
+    assert sense_freq(freqs, "00174412-n", "措置") == 0
+    assert sense_freq(freqs, "15000001-n", "有能力") == 2
+    assert sense_freq(freqs, "15000001-n", "能力", ["有 能力"]) == 2
+    assert sense_freq(freqs, "77000015-n", "I") == 5
+
+
 def test_split_gaps_drops_nolex_senses() -> None:
     """NOLEX and META:NOLEX mark lexical gaps; they are not lemmas."""
     from getwn import split_gaps

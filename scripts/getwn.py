@@ -119,8 +119,17 @@ RELATION_MAP = {
 }
 
 
+def freq_key(lemma):
+    """Normalise a lemma for matching corpus lemmas: no spaces, lower case."""
+    return lemma.replace(" ", "").lower()
+
+
 def load_freqs(outdir, lang):
-    """Load corpus frequency file aggregated by synset. Returns {synset: count}."""
+    """Load the corpus frequency file.
+
+    Returns {(synset, freq_key(lemma)): count}.  Counts are per sense: a
+    synset's count is not shared out to lemmas that were never tagged.
+    """
     freqfile = outdir / f"wn-freq-{lang}-ntumc.tsv"
     freqs = dd(int)
     if not freqfile.exists():
@@ -131,8 +140,14 @@ def load_freqs(outdir, lang):
                 continue
             parts = line.rstrip("\n").split("\t")
             if len(parts) >= 3:
-                freqs[parts[0]] += int(parts[2])
+                freqs[(parts[0], freq_key(parts[1]))] += int(parts[2])
     return freqs
+
+
+def sense_freq(freqs, synset, lemma, variants=()):
+    """Corpus count for one sense: its lemma plus any variant forms."""
+    keys = {freq_key(lemma), *(freq_key(v) for v in variants)}
+    return sum(freqs.get((synset, k), 0) for k in keys)
 
 
 def load_ili_map(source):
@@ -563,7 +578,7 @@ def extract_wordnet(db_path, lang, meta, outdir, ili_map=None, version=None,
             ss_id = f"{wn_id}-{synset}"
             if editor.get_synset(ss_id) is None:
                 continue
-            corpus_freq = freqs.get(synset, 0)
+            corpus_freq = sense_freq(freqs, synset, lemma, variants)
             sense_id = f"{wn_id}-{synset}-{entry_id}"
             sense = make_sense(sense_id, ss_id)
             if corpus_freq > 0:

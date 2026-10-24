@@ -8,6 +8,7 @@ Addresses three categories of problems found during wordnet validation:
         synset, delete synset, merge senses, or leave as-is)
   DEF   Wrong definitions — exact-string replacements, duplicate deletion
   EX    Wrong examples — exact-string replacements
+  EXCL  Missing Japanese exclamatives (thank you, please)
   SENSE Wrong senses — deleted
   DEIX  Missing deixis links (dmnu/dmtu) from demonstratives to
         medial/proximal/distal/remote
@@ -734,7 +735,7 @@ def _wordid(db, lang, lemma, pos, dry_run):
     ).lastrowid
 
 
-def _add_sense(db, ss, lang, lemma, pos, dry_run):
+def _add_sense(db, ss, lang, lemma, pos, dry_run, src="pron"):
     """Add a sense unless the word already has one in this synset."""
     if db.execute(
         "SELECT 1 FROM sense s JOIN word w USING (wordid) "
@@ -746,9 +747,27 @@ def _add_sense(db, ss, lang, lemma, pos, dry_run):
     if not dry_run:
         db.execute(
             "INSERT INTO sense (synset, wordid, lang, src, confidence) "
-            "VALUES (?, ?, ?, 'pron', 1.0)", (ss, wid, lang),
+            "VALUES (?, ?, ?, ?, 1.0)", (ss, wid, lang, src),
         )
     return 1
+
+
+# ── EXCL: Missing Japanese exclamatives ───────────────────────────────
+
+# お願いします and お疲れ様 are similar to "please" and "thank you", which
+# had no Japanese lemmas, so the links were lost from the Japanese export
+NEW_EXCLAMATIVES = [
+    ("80000666-x", "jpn", "ありがとう"),  # thank you
+    ("80001998-x", "jpn", "どうぞ"),      # please
+]
+
+
+def fix_exclamatives(db, dry_run):
+    """Add Japanese lemmas to exclamative synsets that lacked them."""
+    n = 0
+    for ss, lang, lemma in NEW_EXCLAMATIVES:
+        n += _add_sense(db, ss, lang, lemma, "x", dry_run, src="ntumc")
+    return n
 
 
 def _move_sense(db, old, new, lang, lemma, dry_run):
@@ -915,6 +934,10 @@ def main():
 
     print("--- DEIX: Missing deixis links ---")
     fix_deixis(db, args.dry_run)
+    print()
+
+    print("--- EXCL: missing Japanese exclamatives ---")
+    fix_exclamatives(db, args.dry_run)
     print()
 
     print("--- TWO: of-two feature, either split ---")
