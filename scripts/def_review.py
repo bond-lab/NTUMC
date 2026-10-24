@@ -8,6 +8,9 @@ an adjudicator with both verdicts, reasons and suggested fixes.
   build    write OUT/runN/batchNNN.tsv + OUT/runN/key.tsv
   compare  write OUT/adjudicate/batchNNN.tsv + key.tsv from the two runs
   final    combine everything into OUT/final.tsv
+  corrections  write remove rows for WRONG definitions to Wordnet Bahasa's
+           corrections/definitions.tsv, and the suggested fixes, which wait
+           for a human check, to OUT/suggestions-pending.tsv
 
   def_review.py build WNB_ID_XML --en-data WN_DIR
 """
@@ -139,19 +142,44 @@ def final(a: argparse.Namespace) -> None:
     print(dict(tab))
 
 
+DEF_HEAD = ["synset_id", "old_value", "new_value", "reason", "source", "date"]
+
+
+def corrections(a: argparse.Namespace) -> None:
+    """Remove WRONG definitions; keep all suggestions pending."""
+    final = tr.read_tsv(a.out / "final.tsv")
+    old = tr.read_tsv(a.definitions) if a.definitions.exists() else []
+    keep = [[r[c] for c in DEF_HEAD] for r in old
+            if not r["source"].startswith("definition review")]
+    new = [[r["synset"], r["definition"], "", f"wrong definition: {r['reason']}".rstrip(": "),
+            "definition review: 2 blind opus" + (" (adjudicated)" if r["decided_by"]
+                                                 == "adjudication" else ""), a.date]
+           for r in final if r["final"] == "WRONG"]
+    tr.write_tsv(a.definitions, DEF_HEAD, keep + sorted(new))
+    tr.write_tsv(a.out / "suggestions-pending.tsv",
+                 ["synset", "definition", "review", "reason", "suggestion"],
+                 [[r["synset"], r["definition"], r["final"], r["reason"], r["suggestion"]]
+                  for r in final if r["final"] in ("PARTIAL", "WRONG") and r["suggestion"]])
+    print(f"{len(new)} definitions removed")
+
+
 def main() -> None:
     """Command-line entry point."""
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("step", choices=("build", "compare", "final"))
+    ap.add_argument("step", choices=("build", "compare", "final", "corrections"))
     ap.add_argument("xml", type=Path, nargs="?", help="wnb-id XML")
     ap.add_argument("--en-data", type=Path, default=Path.home() / ".wn_data",
                     help="wn data directory with omw-en:2.0")
     ap.add_argument("--out", type=Path, default=Path("build/def-review/id"))
     ap.add_argument("--size", type=int, default=150)
     ap.add_argument("--seed", type=int, default=20261025)
+    ap.add_argument("--definitions", type=Path,
+                    default=Path("../Bahasa-Wordnet/corrections/definitions.tsv"))
+    ap.add_argument("--date", default="2026-10-25")
     a = ap.parse_args()
-    {"build": build, "compare": compare, "final": final}[a.step](a)
+    {"build": build, "compare": compare, "final": final,
+     "corrections": corrections}[a.step](a)
 
 
 if __name__ == "__main__":

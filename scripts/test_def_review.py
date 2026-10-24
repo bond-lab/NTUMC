@@ -40,3 +40,23 @@ def test_final_uses_agreement_then_adjudication(tmp_path: Path) -> None:
            for r in tr.read_tsv(tmp_path / "final.tsv")]
     assert got == [("s1", "WRONG", "both", "baru"), ("s2", "PARTIAL", "adjudication", "lebih"),
                    ("s3", "UNSURE", "none", "")]
+
+
+def test_corrections_remove_wrong_and_keep_suggestions(tmp_path: Path) -> None:
+    # Arrange
+    head = ["synset", "definition", "final", "decided_by", "reason", "suggestion",
+            "run1", "run2", "suggestion1", "suggestion2"]
+    tr.write_tsv(tmp_path / "final.tsv", head, [
+        ["s1", "d1", "WRONG", "both", "other sense", "baru", "", "", "", ""],
+        ["s2", "d2", "PARTIAL", "adjudication", "short", "lebih", "", "", "", ""],
+        ["s3", "d3", "OK", "both", "", "", "", "", "", ""]])
+    defs = tmp_path / "definitions.tsv"
+    tr.write_tsv(defs, dr.DEF_HEAD, [["x", "a", "b", "manual fix", "manual", "2026-01-01"]])
+    # Act
+    dr.corrections(argparse.Namespace(out=tmp_path, definitions=defs, date="2026-10-25"))
+    # Assert
+    rows = tr.read_tsv(defs)
+    assert [(r["synset_id"], r["new_value"], r["source"]) for r in rows] == [
+        ("x", "b", "manual"), ("s1", "", "definition review: 2 blind opus")]
+    pending = tr.read_tsv(tmp_path / "suggestions-pending.tsv")
+    assert [(r["synset"], r["suggestion"]) for r in pending] == [("s1", "baru"), ("s2", "lebih")]
