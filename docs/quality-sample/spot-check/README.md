@@ -1,17 +1,21 @@
-# Human spot check of the COW 1.1 and Wordnet Bahasa 1.4 review
+# Human spot check of the wnja 2.1, COW 1.1 and Wordnet Bahasa 1.4 reviews
 
 A native-speaker check of a stratified sample of the decisions made by the
-LLM review (`../full-review/`), as released in COW 1.1 and Wordnet Bahasa
-1.4.  Made by `scripts/spot_check.py make` (fixed seed); scored by
+LLM reviews, as released in COW 1.1 and Wordnet Bahasa 1.4 (`../full-review/`)
+and in wnja 2.1 (the issue #8 audit, `../wnja-opus2/`, and the JSemCor review
+in the wnja repository).  Made by `scripts/spot_check.py make` (fixed seed); scored by
 `scripts/spot_check.py score`.
 
 **Send checkers only their `<lang>-sheet.tsv` and the instructions below.**
 `key/` gives the model decision for each item and must stay hidden until
 the sheet is returned.
 
-| | cmn (Mandarin) | id (Indonesian) | zsm (Malay) |
-|---|---|---|---|
-| Items | 220 | 166 | 181 |
+| | cmn (Mandarin) | id (Indonesian) | zsm (Malay) | ja (Japanese) |
+|---|---|---|---|---|
+| Items | 220 | 166 | 181 | 200 |
+
+The Japanese checker gets `ja-sheet.tsv` and `ja-instructions.md` (the
+instructions in Japanese and English).
 
 ## Instructions for checkers
 
@@ -59,6 +63,16 @@ items when a stratum is smaller).
 | `rename-mechanical` | `form_fixes.py` rename, fixed form shown | `OK`, form fine |
 | `rescue` | added from excluded sources (cmn) | `OK`, form fine |
 | `move` | added from the other variety of Malay | `OK`, form fine |
+| `jsemcor-add` | added from the JSemCor review (ja) | `OK`, form fine |
+| `jsemcor-reject` | JSemCor candidate judged wrong, not added (ja) | `WRONG` |
+
+For wnja the strata come from the reviews that changed it, not from a Haiku
+triage: `remove-wrong(-adj)`, `keep(-adj)` and `lower` are the 4,193
+senses flagged by the issue #8 audit; `unflagged` are wnja 2.1 senses
+that neither the audit nor the JSemCor review touched; `rename-mechanical`
+are the full-width and okurigana fixes.  The context (other words,
+Japanese definition) is taken from wnja 2.1 and the English from
+`omw-en:2.0`, for every stratum alike.
 
 For renamed senses the sheet shows the new form, and the key also gives
 the old form.  Items the checker leaves blank are not counted.

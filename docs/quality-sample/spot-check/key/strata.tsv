@@ -27,3 +27,12 @@ zsm	remove-wrong	12155	20
 zsm	remove-wrong-adj	1572	20
 zsm	rename-mechanical	1	1
 zsm	unflagged	62703	40
+ja	jsemcor-add	1347	20
+ja	jsemcor-reject	1202	20
+ja	keep	1585	20
+ja	keep-adj	144	20
+ja	lower	187	20
+ja	remove-wrong	2042	20
+ja	remove-wrong-adj	235	20
+ja	rename-mechanical	235	20
+ja	unflagged	141679	40

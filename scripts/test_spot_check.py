@@ -58,3 +58,10 @@ def test_score_writes_agreement(tmp_path: Path) -> None:
     got = {r["stratum"]: r for r in tr.read_tsv(tmp_path / "key" / "score.tsv")}
     assert (got["keep"]["checked"], got["keep"]["agreement"]) == ("2", "0.50")
     assert got["lower"]["agreement"] == "UNSURE:1"
+
+
+def test_jsemcor_strata() -> None:
+    assert sc.agrees("jsemcor-add", "OK", "") is True
+    assert sc.agrees("jsemcor-reject", "WRONG", "") is True
+    assert sc.agrees("jsemcor-reject", "OK", "") is False
+    assert sc.bare("wnja-00002621-r") == "00002621-r"

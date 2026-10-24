@@ -40,6 +40,7 @@ LANGS = {"cmn": "../cow/corrections/senses.tsv",
 PREFIX = {"cmn": "cow-", "id": "wnb-id-", "zsm": "wnb-zsm-"}
 OTHER = {"id": "zsm", "zsm": "id"}
 VARIETY = {"cmn": "", "id": "Malaysian only", "zsm": "Indonesian only"}
+ALL = (*LANGS, "ja")  # ja: wnja, whose decisions come from other reviews (population_ja)
 BIG = {"unflagged": 2}  # multiples of --n for strata with few expected errors
 SHEET = ["item", "word", "other_words_in_synset", "english_words", "english_definition",
          "own_definition", "meaning", "form", "comment"]
@@ -48,7 +49,8 @@ KEY = ["item", "stratum", "synset", "word", "old_word", "decision", "decided_by"
 # what the decision means for the checker's answer
 EXPECT = {"remove-wrong": "WRONG", "remove-wrong-adj": "WRONG", "remove-form": "BAD",
           "keep": "OK", "keep-adj": "OK", "unflagged": "OK", "rename": "OK",
-          "rename-mechanical": "OK", "rescue": "OK", "move": "OK", "lower": None}
+          "rename-mechanical": "OK", "rescue": "OK", "move": "OK", "lower": None,
+          "jsemcor-add": "OK", "jsemcor-reject": "WRONG"}
 
 
 def stratum(r: dict) -> str:
@@ -126,12 +128,86 @@ def final_of(a: argparse.Namespace, lang: str, synset: str, word: str) -> dict |
     return _final_cache[lang].get((synset, word))
 
 
+def bare(synset: str) -> str:
+    """00002621-r from wnja-00002621-r."""
+    return synset.removeprefix("wnja-")
+
+
+def ja_context(a: argparse.Namespace) -> tuple[dict, set]:
+    """{bare synset: context} from wnja and omw-en:2.0, and the wnja (synset, lemma) senses."""
+    import wn
+    from wn import lmf
+
+    lex = lmf.load(str(a.wnja / "build" / "wnja-2.1.xml"), progress_handler=None)["lexicons"][0]
+    words, senses = defaultdict(list), set()
+    for e in lex["entries"]:
+        for se in e["senses"]:
+            words[bare(se["synset"])].append(e["lemma"]["writtenForm"])
+            senses.add((bare(se["synset"]), e["lemma"]["writtenForm"]))
+    jdef = {bare(ss["id"]): ss["definitions"][0]["text"] for ss in lex["synsets"]
+            if ss.get("definitions") and (ss["definitions"][0].get("language") or "ja") == "ja"}
+    en = wn.Wordnet("omw-en:2.0")
+    ctx = {}
+    for b in set(words) | set(jdef):
+        ss = None
+        for pos in ([b[-1], "s"] if b.endswith("-a") else [b[-1]]):
+            try:
+                ss = en.synset(f"omw-en-{b[:-1]}{pos}")
+                break
+            except wn.Error:
+                continue
+        ctx[b] = {"other_words_in_synset": " ".join(sorted(set(words[b]))),
+                  "english_words": ", ".join(ss.lemmas()) if ss else "",
+                  "english_definition": (ss.definition() or "") if ss else "",
+                  "own_definition": jdef.get(b, "")}
+    return ctx, senses
+
+
+def population_ja(a: argparse.Namespace) -> dict[str, list[dict]]:
+    """Candidate wnja items per stratum: issue #8, JSemCor, renames, unflagged."""
+    ctx, senses = ja_context(a)
+    corr = tr.read_tsv(a.wnja / "corrections" / "senses.tsv")
+    issue8 = tr.read_tsv(a.issue8)
+    jsem = tr.read_tsv(a.wnja / "audit" / "reviews" / "jsemcor" / "verdicts.tsv")
+    pop = defaultdict(list)
+
+    def item(s: str, synset: str, word: str, decision: str, by: str, reason: str,
+             old: str = "") -> None:
+        if synset in ctx:
+            pop[s].append({"ctx": ctx[synset], "synset": "wnja-" + synset, "word": word,
+                           "old_word": old, "decision": decision, "decided_by": by,
+                           "model_reason": reason})
+
+    for r in issue8:
+        adj = r["decided_by"] != "both runs"
+        s = {"remove": "remove-wrong", "keep": "keep", "lower": "lower"}[r["action"]]
+        item(s + ("-adj" if adj and s != "lower" else ""), r["synset"], r["lemma"],
+             r["action"], r["decided_by"], r["reason"])
+    for r in corr:
+        if r["action"] == "add" and r["source"] == "jsemcor review":
+            item("jsemcor-add", bare(r["synset_id"]), r["lemma"], "add", "", r["reason"])
+        elif r["action"] == "rename":
+            item("rename-mechanical", bare(r["synset_id"]), r["new_lemma"], "rename", "",
+                 r["reason"], r["lemma"])
+    added = {(bare(r["synset_id"]), r["lemma"]) for r in corr if r["action"] == "add"}
+    for r in jsem:
+        if r["final"] in ("WRONG", "MWE") and (r["synset"], r["lemma"]) not in added:
+            item("jsemcor-reject", r["synset"], r["lemma"], "not added", r["decided_by"],
+                 r["reason"])
+    seen = ({(r["synset"], r["lemma"]) for r in issue8} | added
+            | {(r["synset"], r["lemma"]) for r in jsem}
+            | {(bare(r["synset_id"]), x) for r in corr for x in (r["lemma"], r["new_lemma"])})
+    for b, w in sorted(senses - seen):
+        item("unflagged", b, w, "keep", "not flagged", "")
+    return pop
+
+
 def make(a: argparse.Namespace) -> None:
     """Write <lang>-sheet.tsv, key/<lang>-key.tsv and key/strata.tsv."""
     (a.out / "key").mkdir(parents=True, exist_ok=True)
     strata_rows = []
-    for lang in LANGS:
-        pop = population(lang, a)
+    for lang in ALL:
+        pop = population_ja(a) if lang == "ja" else population(lang, a)
         rng = random.Random(f"{SEED}-{lang}")
         items = []
         for s in sorted(pop):
@@ -184,7 +260,7 @@ def score(a: argparse.Namespace) -> None:
     pops = {(r["lang"], r["stratum"]): int(r["population"])
             for r in tr.read_tsv(a.out / "key" / "strata.tsv")}
     out = []
-    for lang in LANGS:
+    for lang in ALL:
         sheet = a.out / f"{lang}-sheet.tsv"
         if not sheet.exists():
             continue
@@ -223,6 +299,9 @@ def main() -> None:
     ap.add_argument("--review", type=Path, default=Path("build/triage-opus"))
     ap.add_argument("--rescue", type=Path, default=Path("build/rescue"))
     ap.add_argument("--rescue-review", type=Path, default=Path("build/rescue-opus"))
+    ap.add_argument("--wnja", type=Path, default=Path("../wnja"), help="wnja checkout, built")
+    ap.add_argument("--issue8", type=Path,
+                    default=Path("docs/quality-sample/wnja-opus2/final.tsv"))
     a = ap.parse_args()
     make(a) if a.step == "make" else score(a)
 
