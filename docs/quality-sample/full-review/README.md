@@ -66,8 +66,10 @@ PARTIAL or WRONG).  The 16,165 candidates were then reviewed blind as above
 | tab L | 9,954 | 1,985 | 7,849 | 120 |
 | proposed | 4,902 | 4,897 | 4 | 1 |
 
-The 7,285 judged OK with no FORM or MS note from both runs are `add` rows
-in Wordnet Bahasa's corrections (`id-rescue-final.tsv`, sources in
-`id-rescue-sources.tsv`); 3,904 synsets still have no word.  The proposed
-words were judged by the same model that proposed them, so their 99.9% is
-not independent evidence: they need the human spot check.
+The 2,394 candidates from `wn-msa-all.tab` judged OK with no FORM or MS
+note from both runs are `add` rows in Wordnet Bahasa's corrections
+(`id-rescue-final.tsv`, sources in `id-rescue-sources.tsv`).  Words
+proposed only by the model are left out until a person (or a bilingual
+lexicon) has checked them: they are in `id-rescue-proposed-pending.tsv`
+with the review verdict.  Their 99.9% OK is not independent evidence, as
+the same model proposed and judged them.

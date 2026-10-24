@@ -59,11 +59,13 @@ def test_adds_keep_ok_without_form_notes(tmp_path: Path) -> None:
     tr.write_tsv(tmp_path / "review" / "id" / "final.tsv", head, [
         ["wnb-id-00001-n", "kucing", "", "OK", "OK", "OK", "keep", "both", "cat", "", ""],
         ["wnb-id-00001-n", "pensel", "", "OK", "OK", "OK", "keep", "both", "", "MS", ""],
+        ["wnb-id-00001-n", "meong", "", "OK", "OK", "OK", "keep", "both", "", "", ""],
         ["wnb-id-00002-n", "salah", "", "OK", "WRONG", "WRONG", "remove",
          "adjudication", "no", "", ""],
     ])
     tr.write_tsv(tmp_path / "sources.tsv", ["synset", "word", "source"], [
-        ["wnb-id-00001-n", "kucing", "proposed"], ["wnb-id-00001-n", "pensel", "tab L"],
+        ["wnb-id-00001-n", "kucing", "tab O"], ["wnb-id-00001-n", "pensel", "tab L"],
+        ["wnb-id-00001-n", "meong", "proposed"],
         ["wnb-id-00002-n", "salah", "tab O"]])
     a = argparse.Namespace(review=tmp_path / "review", out=tmp_path, corrections=corr,
                            date="2026-10-24")
@@ -73,4 +75,6 @@ def test_adds_keep_ok_without_form_notes(tmp_path: Path) -> None:
     rows = tr.read_tsv(corr)
     assert [(r["lemma"], r["action"], r["reason"], r["source"]) for r in rows] == [
         ("x", "remove", "r", "triage"),
-        ("kucing", "add", "proposed: cat", "lemma rescue: 2 blind opus")]
+        ("kucing", "add", "tab O: cat", "lemma rescue: 2 blind opus")]
+    pending = tr.read_tsv(tmp_path / "proposed-pending.tsv")
+    assert [(r["word"], r["review"]) for r in pending] == [("meong", "OK")]

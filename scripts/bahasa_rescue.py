@@ -15,8 +15,10 @@ This script
   candidates  writes all candidates in the triage format (all flagged) to
               OUT/id/batch001.tsv, so that triage_review.py build/compare/final
               can review them blind, and OUT/sources.tsv
-  adds        appends the candidates judged OK (with no FORM or MS note from
-              both runs) to Wordnet Bahasa's corrections/senses.tsv as add rows
+  adds        appends the tab candidates judged OK (with no FORM or MS note
+              from both runs) to Wordnet Bahasa's corrections/senses.tsv as add
+              rows; words only a model proposed wait for a human check, in
+              OUT/proposed-pending.tsv
 
   bahasa_rescue.py generate WNB_ID_XML --en-data WN_DIR
   bahasa_rescue.py candidates WNB_ID_XML --en-data WN_DIR
@@ -150,7 +152,12 @@ def adds(a: argparse.Namespace) -> None:
             "lemma rescue: 2 blind opus" + (" (adjudicated)" if r["decided_by"] == "adjudication"
                                             else ""), a.date, ""]
            for r in final if r["final"] == "OK"
-           and not {"FORM", "MS"} & set(r["note_both"].split())]
+           and not {"FORM", "MS"} & set(r["note_both"].split())
+           and src[(r["synset"], r["word"])] != "proposed"]
+    tr.write_tsv(a.out / "proposed-pending.tsv",
+                 ["synset", "word", "review", "reason", "note_both"],
+                 [[r["synset"], r["word"], r["final"], r["reason"], r["note_both"]]
+                  for r in final if src[(r["synset"], r["word"])] == "proposed"])
     keep = [[r[c] for c in tr.CORR_HEAD] for r in old
             if not r["source"].startswith("lemma rescue")]
     tr.write_tsv(a.corrections, tr.CORR_HEAD, keep + sorted(new))
