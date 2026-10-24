@@ -50,3 +50,31 @@ def test_build_compare_final(tmp_path: Path) -> None:
     assert set(fin) == {"猫", "鱼"}
     assert (fin["猫"]["action"], fin["猫"]["decided_by"]) == ("keep", "adjudication")
     assert (fin["鱼"]["action"], fin["鱼"]["note_both"]) == ("remove", "FORM")
+
+
+def final_row(**kw: str) -> dict:
+    """A final.tsv row with defaults."""
+    row = {"synset": "wnb-id-00000001-n", "word": "soalan", "final": "OK", "action": "keep",
+           "decided_by": "both", "reason": "question", "note_both": "", "note_one": ""}
+    row.update(kw)
+    return row
+
+
+def test_correction_actions() -> None:
+    assert t.correction("id", final_row(), "d", set()) is None
+    assert t.correction("id", final_row(action="remove", final="WRONG"), "d", set())[2] == "remove"
+    low = t.correction("id", final_row(action="lower", final="UNSURE"), "d", set())
+    assert (low[2], low[3]) == ("lower", "0.5")
+    # a form note agreed by both runs removes even an OK sense
+    ms = t.correction("id", final_row(note_both="MS"), "d", set())
+    assert ms[2] == "remove" and ms[4].startswith("Malaysian, not Indonesian")
+    # MS is not a reason to remove from the Malay lexicon
+    assert t.correction("zsm", final_row(synset="wnb-zsm-00000001-n", note_both="MS"), "d", set()) is None
+
+
+def test_moves_only_right_meaning_and_not_already_there() -> None:
+    rows = [final_row(note_both="MS"),
+            final_row(word="pensel", note_both="MS", final="WRONG"),
+            final_row(word="tempoh", note_both="MS")]
+    out = t.moves("id", rows, {("00000001-n", "tempoh")}, "d")
+    assert [(r[0], r[1], r[2]) for r in out] == [("wnb-zsm-00000001-n", "soalan", "add")]

@@ -1,0 +1,1314 @@
+synset	word	haiku_reason	run1	run2	final	action	decided_by	reason	note_both	note_one
+cow-00007347-n	原因	candidate from bow	OK	OK	OK	keep	both			
+cow-00007347-n	成为…的原因	candidate from sew	WRONG	WRONG	WRONG	remove	both	verb phrase \"become the cause of\", not a noun for causal agent	FORM	
+cow-00007347-n	由来	candidate from bow	UNSURE	WRONG	WRONG	remove	adjudication	origin/history, not a causal agent		
+cow-00011011-r	刚刚	candidate from bow	OK	OK	OK	keep	both			
+cow-00011011-r	才	candidate from bow	OK	OK	OK	keep	both			
+cow-00011011-r	最近	candidate from sew	OK	OK	OK	keep	both			
+cow-00014858-a	卷数多	candidate from sew	OK	OK	OK	keep	both	literally \"many volumes\"; voluminous		FORM
+cow-00014858-a	大量	candidate from bow	OK	OK	OK	keep	both			
+cow-00014858-a	大量的	candidate from bow	OK	OK	OK	keep	both			
+cow-00014858-a	很多	candidate from sew	OK	OK	OK	keep	both			
+cow-00014858-a	范围广大	candidate from bow	UNSURE	UNSURE	WRONG	remove	adjudication	wide in scope, not copious quantity		
+cow-00014858-a	范围广大的	candidate from bow	WRONG	WRONG	WRONG	remove	both	means 'wide in scope', not copious in quantity		
+cow-00014858-a	长篇	candidate from sew	OK	OK	OK	keep	both			
+cow-00015471-r	令人满意	candidate from sew	OK	OK	OK	keep	both			
+cow-00015471-r	好	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00015471-r	好地	candidate from bow	OK	OK	OK	keep	both			
+cow-00015471-r	没问题	candidate from bow	OK	OK	OK	keep	both			
+cow-00015471-r	还好	candidate from sew	OK	OK	OK	keep	both			
+cow-00017531-v	就寝	candidate from bow	OK	OK	OK	keep	both			
+cow-00017531-v	睡觉	candidate from sew	OK	OK	OK	keep	both			
+cow-00020259-v	不睡觉	candidate from sew	OK	OK	OK	keep	both			
+cow-00020259-v	熬夜	candidate from bow	OK	OK	OK	keep	both			
+cow-00022903-n	一个	candidate from bow	WRONG	WRONG	WRONG	remove	both	means 'one (item)', not 'article/artifact'		
+cow-00022903-n	一件	candidate from bow	WRONG	WRONG	WRONG	remove	both	numeral+classifier 'one piece', not a noun for article/artifact		FORM
+cow-00022903-n	物品	candidate from sew	OK	OK	OK	keep	both			
+cow-00024587-r	一点也不	candidate from bow	OK	OK	OK	keep	both			
+cow-00024587-r	不	candidate from sew	OK	OK	OK	keep	both			
+cow-00030443-r	再	candidate from bow	OK	OK	OK	keep	both			
+cow-00030443-r	此外	candidate from sew	OK	OK	OK	keep	both			
+cow-00030443-r	进一步	candidate from bow;sew	UNSURE	WRONG	WRONG	remove	adjudication	go a step further, not furthermore		
+cow-00033203-v	瞪	candidate from bow	OK	OK	OK	keep	both			
+cow-00035320-r	一次又一次	candidate from sew	WRONG	WRONG	WRONG	remove	both	means 'again and again', not 'at another time'		
+cow-00035320-r	下次	candidate from bow	OK	OK	OK	keep	both			
+cow-00035978-a	忙	candidate from bow	OK	OK	OK	keep	both			
+cow-00035978-a	忙的	candidate from bow	OK	OK	OK	keep	both			
+cow-00035978-a	忙碌	candidate from sew	OK	OK	OK	keep	both			
+cow-00035978-a	热闹	candidate from sew	OK	OK	OK	keep	both			
+cow-00035978-a	繁忙	candidate from bow	OK	OK	OK	keep	both			
+cow-00035978-a	繁忙的	candidate from bow	OK	OK	OK	keep	both			
+cow-00036879-a	不活跃	candidate from sew	OK	OK	OK	keep	both			
+cow-00036879-a	不用	candidate from bow	WRONG	WRONG	WRONG	remove	both	means 'not use / unused', not inactive		
+cow-00036879-a	不用的	candidate from bow	OK	OK	OK	keep	both			
+cow-00036879-a	已废	candidate from bow	OK	UNSURE	OK	keep	adjudication	defunct/no longer active, acceptable for dead		
+cow-00036879-a	已废的	candidate from bow	OK	OK	OK	keep	both	defunct, no longer active		
+cow-00036879-a	麻木	candidate from sew	WRONG	WRONG	WRONG	remove	both	means numb/apathetic, not devoid of activity		
+cow-00037919-v	沐浴	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00037919-v	洗浴	candidate from bow	OK	OK	OK	keep	both			
+cow-00037919-v	洗澡	candidate from sew	OK	OK	OK	keep	both			
+cow-00037919-v	浸	candidate from bow	WRONG	WRONG	WRONG	remove	both	means soak/immerse, not bathe oneself		
+cow-00037919-v	浸洗	candidate from bow	OK	OK	OK	keep	both	immersion washing		
+cow-00037919-v	盥沐	candidate from bow	OK	OK	OK	keep	both	literary washing/bathing		
+cow-00043347-r	因此	candidate from sew	OK	OK	OK	keep	both			
+cow-00043347-r	所以	candidate from bow	OK	OK	OK	keep	both			
+cow-00043347-r	由是	candidate from sew	OK	OK	OK	keep	both	literary 'hence'		
+cow-00047945-v	供给衣服	candidate from bow	OK	OK	OK	keep	both	phrase	FORM	
+cow-00047945-v	给…穿衣	candidate from sew	OK	OK	OK	keep	both	pattern with ellipsis	FORM	
+cow-00047945-v	身著	candidate from bow	OK	OK	OK	keep	both	uses traditional 著 for simplified 着	FORM	
+cow-00048268-r	此刻	candidate from wikt	OK	OK	OK	keep	both			
+cow-00048268-r	现下	candidate from bow	OK	OK	OK	keep	both			
+cow-00048268-r	现在	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00048268-r	目前	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-00048268-r	眼前	candidate from wikt	OK	OK	OK	keep	both			
+cow-00050681-r	一点也不	candidate from bow	OK	OK	OK	keep	both			
+cow-00050681-r	不	candidate from bow	OK	OK	OK	keep	both			
+cow-00050681-r	毫不	candidate from bow	OK	OK	OK	keep	both			
+cow-00064787-a	有帮助	candidate from sew	OK	OK	OK	keep	both			
+cow-00064787-a	有益	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00064787-a	有益的	candidate from bow	OK	OK	OK	keep	both			
+cow-00065070-v	受痛苦	candidate from sew	OK	OK	OK	keep	both			
+cow-00065070-v	疼	candidate from bow	OK	OK	OK	keep	both			
+cow-00065070-v	疼痛	candidate from bow	OK	OK	OK	keep	both			
+cow-00065070-v	痛	candidate from bow	OK	OK	OK	keep	both			
+cow-00065495-v	健康的	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00065495-v	安好的	candidate from bow	OK	OK	OK	keep	both			
+cow-00065495-v	平安	candidate from bow	OK	OK	OK	keep	both			
+cow-00067638-a	明智	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00067638-a	明智的	candidate from bow	OK	OK	OK	keep	both			
+cow-00067638-a	有利	candidate from sew	OK	OK	OK	keep	both			
+cow-00072012-v	去方便	candidate from sew	OK	OK	OK	keep	both			
+cow-00072012-v	小便	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00072012-v	尿	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-00072012-v	尿泡	candidate from wikt	WRONG	WRONG	WRONG	remove	both	means bladder, not to urinate		
+cow-00072012-v	排尿	candidate from sew	OK	OK	OK	keep	both			
+cow-00072012-v	撒尿	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-00072201-r	反	candidate from bow	OK	OK	OK	keep	both	reversed direction		
+cow-00072201-r	向相反方向	candidate from bow	OK	OK	OK	keep	both			FORM
+cow-00072201-r	沿反方向	candidate from sew	OK	OK	OK	keep	both	in the reverse direction	FORM	
+cow-00074038-v	大便	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00074038-v	拉屎	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-00074038-v	排便	candidate from sew	OK	OK	OK	keep	both			
+cow-00078138-v	战栗	candidate from bow	UNSURE	WRONG	WRONG	remove	adjudication	means shiver/tremble, not be cold		
+cow-00078138-v	打冷颤	candidate from bow	OK	OK	OK	keep	both	shiver with cold		
+cow-00081591-r	一周一次	candidate from sew	OK	OK	OK	keep	both			
+cow-00081591-r	每周	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-00081591-r	每周一次	candidate from sew	OK	OK	OK	keep	both			
+cow-00083809-v	做外科手术	candidate from sew	OK	OK	OK	keep	both			
+cow-00083809-v	动手术	candidate from bow	OK	OK	OK	keep	both			
+cow-00083809-v	开刀	candidate from bow	OK	OK	OK	keep	both			
+cow-00084738-v	使...服用麻醉药品	candidate from bow	OK	OK	OK	keep	both	explanatory phrase	FORM	
+cow-00084738-v	用药麻醉	candidate from bow	OK	OK	OK	keep	both	drug (with anaesthetic); slightly narrower		
+cow-00099721-v	活动	candidate from bow	OK	OK	OK	keep	both			
+cow-00099721-v	运动	candidate from bow	OK	OK	OK	keep	both			
+cow-00099721-v	锻炼	candidate from sew	OK	OK	OK	keep	both			
+cow-00100002-r	少	candidate from wikt	OK	OK	OK	keep	both			
+cow-00100002-r	很少	candidate from sew	OK	OK	OK	keep	both			
+cow-00100002-r	稀少	candidate from bow	OK	OK	OK	keep	both			
+cow-00100002-r	稀少地	candidate from bow	OK	UNSURE	OK	keep	adjudication	sparsely, acceptable for not much		
+cow-00100002-r	稍许	candidate from bow	OK	OK	OK	keep	both			
+cow-00115554-r	与其	candidate from wikt	OK	UNSURE	WRONG	remove	adjudication	first half of 与其...不如, not an adverb preferably		
+cow-00115554-r	倒不如	candidate from sew	OK	OK	OK	keep	both			
+cow-00115554-r	宁为	candidate from bow	OK	OK	OK	keep	both	literary		
+cow-00115554-r	宁可	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00115554-r	宁愿	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-00115554-r	比较	candidate from wikt	WRONG	WRONG	WRONG	remove	both	means comparatively, not preferably/rather		
+cow-00119139-r	不过	candidate from bow	OK	OK	OK	keep	both			
+cow-00119139-r	可是	candidate from bow	OK	OK	OK	keep	both			
+cow-00119139-r	尽管	candidate from bow	OK	WRONG	WRONG	remove	adjudication	concessive although, not postpositive however		
+cow-00119139-r	然而	candidate from sew	OK	OK	OK	keep	both			
+cow-00119139-r	虽是	candidate from bow	OK	WRONG	WRONG	remove	adjudication	although it is, not postpositive however		
+cow-00119568-n	跳动	candidate from sew	WRONG	WRONG	WRONG	remove	both	means beat/pulsate, not the act of jumping		
+cow-00119568-n	跳跃	candidate from bow	OK	OK	OK	keep	both			
+cow-00120223-r	同时	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00120223-r	同时地	candidate from bow	OK	OK	OK	keep	both			
+cow-00121135-r	如此	candidate from sew	OK	OK	OK	keep	both			
+cow-00121135-r	正是那样	candidate from bow	OK	UNSURE	OK	keep	adjudication	exactly that way, acceptable for in the way indicated		FORM
+cow-00121135-r	这样	candidate from sew	OK	OK	OK	keep	both			
+cow-00127948-a	下	candidate from wikt	OK	OK	OK	keep	both			
+cow-00127948-a	下一个	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-00127948-a	下一次	candidate from wikt	OK	OK	OK	keep	both			
+cow-00127948-a	下面	candidate from bow	OK	OK	OK	keep	both			
+cow-00127948-a	下面的	candidate from bow	OK	OK	OK	keep	both			
+cow-00127948-a	其次	candidate from sew	OK	OK	OK	keep	both			
+cow-00127948-a	接下来	candidate from bow	OK	OK	OK	keep	both			
+cow-00127948-a	然后	candidate from sew	OK	WRONG	WRONG	remove	adjudication	adverb then/afterwards, not adjective next		
+cow-00127948-a	随後	candidate from bow	OK	OK	OK	keep	both	traditional character hou	FORM	
+cow-00127948-a	随後的	candidate from bow	OK	OK	OK	keep	both	traditional character 後	FORM	
+cow-00130412-a	上午	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00130412-a	上午的	candidate from bow	OK	OK	OK	keep	both			
+cow-00130412-a	午前	candidate from bow	OK	OK	OK	keep	both			
+cow-00130412-a	午前的	candidate from bow	OK	OK	OK	keep	both			
+cow-00147272-r	也	candidate from sew	OK	OK	OK	keep	both			
+cow-00147272-r	同样	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00154449-r	一般相信	candidate from bow	OK	OK	OK	keep	both	generally believed		FORM
+cow-00154449-r	传闻	candidate from bow	OK	OK	OK	keep	both			
+cow-00154449-r	据信	candidate from sew	OK	OK	OK	keep	both			
+cow-00154449-r	据称	candidate from sew	OK	OK	OK	keep	both			
+cow-00218950-a	外表令人愉快或吸引人	candidate from sew	WRONG	OK	WRONG	remove	adjudication	definition phrase, not a lexeme	FORM	
+cow-00218950-a	好看	candidate from sew	OK	OK	OK	keep	both			
+cow-00218950-a	帅	candidate from wikt	OK	OK	OK	keep	both			
+cow-00218950-a	帅气	candidate from bow	OK	OK	OK	keep	both			
+cow-00218950-a	帅气的	candidate from bow	OK	OK	OK	keep	both			
+cow-00218950-a	美观	candidate from bow	OK	OK	OK	keep	both			
+cow-00218950-a	美观的	candidate from bow	OK	OK	OK	keep	both			
+cow-00218950-a	美貌	candidate from sew	OK	OK	OK	keep	both			
+cow-00218950-a	英俊	candidate from wikt	OK	OK	OK	keep	both			
+cow-00218950-a	英俊潇洒	candidate from bow	OK	OK	OK	keep	both			
+cow-00218950-a	英俊潇洒的	candidate from bow	OK	OK	OK	keep	both			
+cow-00220082-a	优美	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00220082-a	优美的	candidate from bow	OK	OK	OK	keep	both			
+cow-00220082-a	好看	candidate from wikt	OK	OK	OK	keep	both			
+cow-00220082-a	标致	candidate from wikt	OK	OK	OK	keep	both			
+cow-00220082-a	漂亮	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-00220082-a	漂亮的	candidate from bow	OK	OK	OK	keep	both			
+cow-00220082-a	秀丽	candidate from wikt	OK	OK	OK	keep	both			
+cow-00245166-r	一起	candidate from bow	OK	OK	OK	keep	both			
+cow-00245166-r	一起地	candidate from bow	OK	OK	OK	keep	both			
+cow-00245166-r	并进	candidate from sew	OK	UNSURE	OK	keep	adjudication	advance side by side, together		
+cow-00245166-r	手牵手	candidate from sew	OK	OK	OK	keep	both	hand in hand, together		
+cow-00248659-v	上涨	candidate from sew	WRONG	WRONG	WRONG	remove	both	means prices rising, not developing positively		
+cow-00248659-v	前进	candidate from sew	OK	OK	OK	keep	both			
+cow-00248659-v	增加	candidate from sew	WRONG	WRONG	WRONG	remove	both	means increase, not develop positively		
+cow-00248659-v	进步	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00248659-v	进步的例子	candidate from sew	WRONG	WRONG	WRONG	remove	both	phrase 'example of progress', a noun gloss, not the verb 'progress'	FORM	
+cow-00250258-r	太	candidate from sew	OK	OK	OK	keep	both			
+cow-00250258-r	极其	candidate from sew	OK	OK	OK	keep	both			
+cow-00250258-r	极度	candidate from bow	OK	OK	OK	keep	both			
+cow-00250258-r	极度地	candidate from bow	OK	OK	OK	keep	both			
+cow-00250258-r	非常	candidate from bow	OK	OK	OK	keep	both			
+cow-00250258-r	非常地	candidate from bow	OK	OK	OK	keep	both			
+cow-00251013-n	清洁	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00251408-r	下午	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00254978-r	每月	candidate from bow	OK	OK	OK	keep	both			
+cow-00254978-r	每月一次	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00254978-r	每月一次地	candidate from bow	OK	OK	OK	keep	both			
+cow-00271022-a	光亮	candidate from bow	OK	OK	OK	keep	both			
+cow-00271022-a	光亮的	candidate from bow	OK	OK	OK	keep	both			
+cow-00271022-a	明亮	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00271022-a	明亮的	candidate from bow	OK	OK	OK	keep	both			
+cow-00271022-a	照耀	candidate from sew	UNSURE	UNSURE	WRONG	remove	adjudication	verb shine on, not adjective well-lit		
+cow-00275843-v	使有秩序	candidate from sew	OK	OK	OK	keep	both			
+cow-00275843-v	大扫除	candidate from sew	OK	OK	OK	keep	both			
+cow-00275843-v	弄整齐	candidate from bow	OK	OK	OK	keep	both			
+cow-00275843-v	收拾	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-00275843-v	整理	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00275843-v	整顿	candidate from sew	OK	OK	OK	keep	both			
+cow-00278551-a	亮	candidate from wikt	OK	OK	OK	keep	both			
+cow-00278551-a	发亮	candidate from sew	OK	OK	OK	keep	both			
+cow-00278551-a	发光	candidate from bow	OK	OK	OK	keep	both			
+cow-00278551-a	发光的	candidate from bow	OK	OK	OK	keep	both			
+cow-00278551-a	明	candidate from wikt	OK	OK	OK	keep	both			
+cow-00278551-a	明亮	candidate from wikt	OK	OK	OK	keep	both			
+cow-00284798-n	散步	candidate from sew	OK	OK	OK	keep	both			
+cow-00284798-n	行走	candidate from bow	OK	OK	OK	keep	both			
+cow-00284798-n	行走前往	candidate from bow	OK	OK	OK	keep	both	phrase	FORM	
+cow-00285557-n	步	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-00285557-n	步伐	candidate from sew	OK	OK	OK	keep	both			
+cow-00285557-n	脚步	candidate from bow	OK	OK	OK	keep	both			
+cow-00295507-a	有空	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00295507-a	有空的	candidate from bow	OK	OK	OK	keep	both			
+cow-00295507-a	没有事	candidate from bow	OK	OK	OK	keep	both			
+cow-00295507-a	没有事的	candidate from bow	OK	OK	OK	keep	both			
+cow-00295507-a	没有占用	candidate from sew	OK	OK	OK	keep	both			
+cow-00295507-a	空闲	candidate from bow	OK	OK	OK	keep	both			
+cow-00295507-a	空闲的	candidate from bow	OK	OK	OK	keep	both			
+cow-00296131-r	大概	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00296131-r	很可能	candidate from sew	OK	OK	OK	keep	both			
+cow-00300496-r	不可能	candidate from sew	WRONG	WRONG	WRONG	remove	both	means impossible, opposite of possibly		
+cow-00300496-r	可能	candidate from bow	OK	OK	OK	keep	both			
+cow-00300496-r	可能地	candidate from bow	OK	OK	OK	keep	both			
+cow-00300496-r	尽可能	candidate from sew	OK	OK	OK	keep	both	as far as possible		
+cow-00300496-r	或许	candidate from bow	WRONG	WRONG	WRONG	remove	both	means perhaps; this sense is by possible means		
+cow-00300496-r	有可能	candidate from sew	OK	OK	OK	keep	both			
+cow-00331030-a	中央	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00331030-a	中央的	candidate from bow	OK	OK	OK	keep	both			
+cow-00331030-a	中间	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00331030-a	中间数字	candidate from bow	WRONG	WRONG	WRONG	remove	both	median number (noun), not relating to the middle		
+cow-00331030-a	中间数字的	candidate from bow	WRONG	WRONG	WRONG	remove	both	refers to the statistical median number, not positional medial		FORM
+cow-00331030-a	中间的	candidate from bow	OK	OK	OK	keep	both			
+cow-00331030-a	向中央延伸	candidate from sew	OK	OK	OK	keep	both	phrase rather than a word	FORM	
+cow-00334996-v	击破	candidate from bow	OK	OK	OK	keep	both			
+cow-00334996-v	打破	candidate from bow	OK	OK	OK	keep	both			
+cow-00334996-v	折断	candidate from bow	OK	OK	OK	keep	both			
+cow-00334996-v	摧毁	candidate from bow	OK	OK	OK	keep	both			
+cow-00334996-v	毁坏	candidate from bow	OK	OK	OK	keep	both			
+cow-00442115-n	游水	candidate from sew	OK	OK	OK	keep	both			
+cow-00442115-n	游泳	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-00442115-n	游泳运动	candidate from bow	OK	OK	OK	keep	both			
+cow-00442917-a	远	candidate from wikt	OK	OK	OK	keep	both			
+cow-00442917-a	遥远	candidate from wikt	OK	OK	OK	keep	both			
+cow-00445169-a	近旁	candidate from bow	OK	OK	OK	keep	both			
+cow-00445169-a	近旁的	candidate from bow	OK	OK	OK	keep	both			
+cow-00445169-a	附近	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00445169-a	附近的	candidate from bow	OK	OK	OK	keep	both			
+cow-00450147-a	接近	candidate from bow	OK	OK	OK	keep	both			
+cow-00450147-a	接近的	candidate from bow	OK	OK	OK	keep	both			
+cow-00450147-a	最近	candidate from sew	OK	OK	OK	keep	both			
+cow-00450147-a	紧邻	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00450147-a	紧邻的	candidate from bow	OK	OK	OK	keep	both			
+cow-00450565-v	搬空	candidate from bow	OK	OK	OK	keep	both			
+cow-00476663-a	狭促	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00476663-a	狭促的	candidate from bow	OK	OK	OK	keep	both			
+cow-00478311-a	不舒服	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00478311-a	不舒服的	candidate from bow	OK	OK	OK	keep	both			
+cow-00478311-a	有病	candidate from bow	OK	OK	OK	keep	both			
+cow-00478311-a	有病的	candidate from bow	OK	OK	OK	keep	both			
+cow-00478311-a	病痛	candidate from bow	OK	OK	OK	keep	both			
+cow-00478311-a	病痛的	candidate from bow	OK	OK	OK	keep	both			
+cow-00478311-a	身体不好或疼痛	candidate from sew	OK	OK	OK	keep	both	explanatory phrase rather than a word	FORM	
+cow-00479275-r	明天	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-00479275-r	第二天	candidate from sew	OK	OK	OK	keep	both			
+cow-00479391-v	删除	candidate from sew	OK	OK	OK	keep	both			
+cow-00479391-v	消亡	candidate from sew	WRONG	WRONG	WRONG	remove	both	xiaowang = die out/wither away (intransitive), not erase/wipe out		
+cow-00479391-v	消除	candidate from bow	OK	OK	OK	keep	both			
+cow-00479391-v	除去	candidate from bow	OK	OK	OK	keep	both			
+cow-00489837-v	量化	candidate from bow	OK	OK	OK	keep	both			
+cow-00489837-v	量化(确定…的数量	candidate from sew	OK	OK	OK	keep	both		FORM	
+cow-00496845-a	说英语	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00496845-a	说英语的	candidate from bow	OK	OK	OK	keep	both			
+cow-00506928-r	先	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00506928-r	先行	candidate from bow	OK	OK	OK	keep	both			
+cow-00506928-r	前	candidate from bow	OK	OK	OK	keep	both			
+cow-00506928-r	最先	candidate from bow	OK	OK	OK	keep	both			
+cow-00506928-r	第一	candidate from sew	OK	OK	OK	keep	both			
+cow-00506928-r	起初	candidate from bow	UNSURE	OK	WRONG	remove	adjudication	at the beginning, not first in rank/order		
+cow-00506928-r	首先	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00507716-r	昨天	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-00507716-r	昨日	candidate from sew	OK	OK	OK	keep	both			
+cow-00517554-a	一半	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00517554-a	一半的	candidate from bow	OK	OK	OK	keep	both			
+cow-00517554-a	半	candidate from wikt	OK	OK	OK	keep	both			
+cow-00527870-a	全面	candidate from bow	OK	OK	OK	keep	both			
+cow-00527870-a	全面的	candidate from bow	OK	OK	OK	keep	both			
+cow-00527870-a	大	candidate from sew	OK	OK	OK	keep	both			
+cow-00527870-a	宽大	candidate from sew	UNSURE	WRONG	WRONG	remove	adjudication	spacious or lenient, not broad in scope		
+cow-00527870-a	巨大	candidate from bow	OK	OK	OK	keep	both			
+cow-00527870-a	巨大的	candidate from bow	OK	OK	OK	keep	both			
+cow-00527870-a	广泛	candidate from bow	OK	OK	OK	keep	both			
+cow-00527870-a	广泛的	candidate from bow	OK	OK	OK	keep	both			
+cow-00527870-a	强烈	candidate from bow	WRONG	WRONG	WRONG	remove	both	means strong/intense, not large in scope or power		
+cow-00527870-a	强烈的	candidate from bow	WRONG	WRONG	WRONG	remove	both	means intense/strong, not broad in scope		
+cow-00543233-n	音乐	candidate from sew	OK	OK	OK	keep	both			
+cow-00543233-n	音乐欣赏能力	candidate from bow	WRONG	WRONG	WRONG	remove	both	means 'music appreciation ability', not musical activity		
+cow-00546389-n	唱歌	candidate from bow	OK	OK	OK	keep	both			
+cow-00564177-n	打球	candidate from bow	WRONG	WRONG	WRONG	remove	both	means 'play a ball game', not a baseball play		
+cow-00564177-n	棒球比赛	candidate from sew	WRONG	WRONG	WRONG	remove	both	means 'baseball game', not a baseball play		
+cow-00565302-n	击	candidate from sew	OK	OK	OK	keep	both			
+cow-00565302-n	打	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00565302-n	打球	candidate from bow	WRONG	OK	WRONG	remove	adjudication	play a ball game, not a single stroke		
+cow-00565302-n	踢球	candidate from bow	WRONG	WRONG	WRONG	remove	both	kicking a ball; concept is striking with club/racket/bat/hand		
+cow-00597915-v	学	candidate from wikt	OK	OK	OK	keep	both			
+cow-00597915-v	学习	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-00597915-v	掌握	candidate from sew	OK	OK	OK	keep	both			
+cow-00599992-v	学	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-00599992-v	学习	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-00599992-v	研究	candidate from sew	OK	WRONG	OK	keep	adjudication	study a subject (研究历史), broader but acceptable		
+cow-00599992-v	选修	candidate from bow	OK	OK	OK	keep	both			
+cow-00607405-v	学习	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-00607405-v	求学	candidate from bow	OK	OK	OK	keep	both			
+cow-00608372-v	晓得	candidate from bow	OK	OK	OK	keep	both			
+cow-00608372-v	见过或听过等	candidate from bow	OK	OK	OK	keep	both	explanation rather than a word	FORM	
+cow-00608372-v	认出	candidate from sew	OK	OK	OK	keep	both			
+cow-00608372-v	认识	candidate from bow	OK	OK	OK	keep	both			
+cow-00608372-v	识别	candidate from sew	OK	OK	OK	keep	both	recognize		
+cow-00610592-n	文学	candidate from sew	OK	OK	OK	keep	both			
+cow-00610592-n	文献著述业	candidate from bow	OK	OK	OK	keep	both	literary profession		
+cow-00618377-a	炙	candidate from sew	OK	OK	OK	keep	both	literary roast		
+cow-00618377-a	烘烤	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00618377-a	烘烤的	candidate from bow	OK	OK	OK	keep	both			
+cow-00618377-a	烘焙	candidate from sew	OK	OK	OK	keep	both			
+cow-00618377-a	烤	candidate from sew	OK	OK	OK	keep	both			
+cow-00618377-a	烤肉	candidate from sew	OK	OK	OK	keep	both			
+cow-00618377-a	烤过	candidate from sew	OK	OK	OK	keep	both			
+cow-00625055-a	大	candidate from sew	OK	OK	OK	keep	both			
+cow-00625055-a	大量	candidate from wikt	OK	OK	OK	keep	both			
+cow-00625055-a	重大	candidate from bow	OK	OK	OK	keep	both			
+cow-00625055-a	重大的	candidate from bow	OK	OK	OK	keep	both			
+cow-00625055-a	重要	candidate from bow	WRONG	WRONG	WRONG	remove	both	means important, not 'fairly large'		
+cow-00625055-a	重要的	candidate from bow	WRONG	WRONG	WRONG	remove	both	means important, not fairly large in amount		
+cow-00636547-a	乡下	candidate from bow	OK	OK	OK	keep	both			
+cow-00636547-a	乡下的	candidate from bow	OK	OK	OK	keep	both			
+cow-00636547-a	俗气	candidate from bow	UNSURE	WRONG	WRONG	remove	adjudication	vulgar/tacky, not characteristic of the provinces		
+cow-00636547-a	俗气的	candidate from bow	UNSURE	UNSURE	WRONG	remove	adjudication	vulgar/tacky, not characteristic of the provinces		
+cow-00636547-a	外省人的或带有外省人特点	candidate from sew	WRONG	OK	WRONG	remove	adjudication	definition phrase, not a lexeme	FORM	
+cow-00636547-a	视野狭窄	candidate from bow	WRONG	WRONG	WRONG	remove	both	means narrow-minded, not 'characteristic of the provinces'		
+cow-00636547-a	视野狭窄的	candidate from bow	OK	WRONG	WRONG	remove	adjudication	narrow-minded sense, not characteristic of the provinces		
+cow-00656292-v	分类	candidate from bow	OK	OK	OK	keep	both	classify; broader		
+cow-00656292-v	归类	candidate from bow	OK	OK	OK	keep	both	classify; broader		
+cow-00656292-v	把…放入或归类于	candidate from sew	OK	OK	OK	keep	both	explanation rather than a word	FORM	
+cow-00699626-v	下决定	candidate from sew	OK	OK	OK	keep	both			
+cow-00699626-v	下决心	candidate from bow	OK	OK	OK	keep	both			
+cow-00699626-v	决定	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-00699626-v	决心	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-00703708-v	看看	candidate from bow	OK	OK	OK	keep	both			
+cow-00703708-v	考虑	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00712186-a	容易	candidate from bow	OK	OK	OK	keep	both			
+cow-00712186-a	容易的	candidate from bow	OK	OK	OK	keep	both			
+cow-00712186-a	没有压力	candidate from sew	OK	OK	OK	keep	both	phrase 'without pressure'		FORM
+cow-00712186-a	轻松	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00712186-a	轻松的	candidate from bow	OK	OK	OK	keep	both			
+cow-00719062-v	勃然大怒	candidate from bow	OK	OK	OK	keep	both			
+cow-00728641-n	作业	candidate from sew	OK	OK	OK	keep	both			
+cow-00728641-n	功课	candidate from sew	OK	OK	OK	keep	both			
+cow-00728641-n	指定作业	candidate from bow	OK	OK	OK	keep	both			
+cow-00729108-n	作业	candidate from wikt	OK	OK	OK	keep	both			
+cow-00729108-n	功课	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-00729108-n	家庭作业	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-00729108-n	课外作业	candidate from sew	OK	OK	OK	keep	both			
+cow-00729285-n	作业	candidate from bow	OK	OK	OK	keep	both			
+cow-00729285-n	功课	candidate from bow	OK	OK	OK	keep	both			
+cow-00729285-n	课	candidate from wikt	OK	OK	OK	keep	both			
+cow-00729285-n	课业	candidate from wikt	OK	OK	OK	keep	both			
+cow-00729285-n	课程	candidate from sew	WRONG	WRONG	WRONG	remove	both	kecheng = course/curriculum, not an assigned study task		
+cow-00730215-a	主	candidate from bow	OK	OK	OK	keep	both			
+cow-00730215-a	主句	candidate from sew	OK	OK	OK	keep	both	noun main clause for adjective		
+cow-00734927-v	用日期标记或注明	candidate from sew	OK	OK	OK	keep	both	explanatory phrase	FORM	
+cow-00734927-v	相约	candidate from bow	WRONG	WRONG	WRONG	remove	both	means 'to make an appointment' (date = meeting), not to mark with a date		
+cow-00748972-v	给	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00748972-v	给予	candidate from bow	OK	OK	OK	keep	both			
+cow-00749376-v	指向	candidate from bow	OK	OK	OK	keep	both			
+cow-00749376-v	指示	candidate from bow	OK	OK	OK	keep	both			
+cow-00781685-n	强盗	candidate from bow	WRONG	WRONG	WRONG	remove	both	means robber, not robbery		
+cow-00781685-n	抢劫	candidate from bow	OK	OK	OK	keep	both			
+cow-00816481-a	後期	candidate from bow	OK	OK	OK	keep	both		FORM	
+cow-00816481-a	後期的	candidate from bow	OK	OK	OK	keep	both	traditional character 後	FORM	
+cow-00816481-a	晚	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00816481-a	晚的	candidate from bow	OK	OK	OK	keep	both			
+cow-00838296-a	不费力	candidate from bow	OK	OK	OK	keep	both			
+cow-00838296-a	不费力气	candidate from sew	OK	OK	OK	keep	both			
+cow-00838296-a	不费力的	candidate from bow	OK	OK	OK	keep	both			
+cow-00838296-a	容易	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00838296-a	容易的	candidate from bow	OK	OK	OK	keep	both			
+cow-00840517-n	吃饭	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00850183-a	优秀	candidate from bow	OK	OK	OK	keep	both			
+cow-00850183-a	优秀的	candidate from bow	OK	OK	OK	keep	both			
+cow-00850183-a	优美	candidate from bow	OK	OK	OK	keep	both			
+cow-00850183-a	优美的	candidate from bow	OK	OK	OK	keep	both			
+cow-00850183-a	优良	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00850183-a	伟大	candidate from bow	WRONG	WRONG	WRONG	remove	both	伟大 means great/grand, not elegant/refined		
+cow-00850183-a	伟大的	candidate from bow	WRONG	WRONG	WRONG	remove	both	伟大 means great/grand, not elegant/refined		
+cow-00850183-a	崇高	candidate from bow	OK	OK	OK	keep	both	lofty, sublime; close to refined/accomplished		
+cow-00850183-a	崇高的	candidate from bow	OK	OK	OK	keep	both			
+cow-00850183-a	棒	candidate from bow	OK	WRONG	OK	keep	adjudication	colloquial excellent/accomplished, near-synonym of 优秀		
+cow-00850183-a	精美	candidate from sew	OK	OK	OK	keep	both			
+cow-00850183-a	高尚	candidate from bow	OK	OK	OK	keep	both			
+cow-00850183-a	高尚的	candidate from bow	OK	OK	OK	keep	both			
+cow-00884317-v	保证	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00884317-v	允诺	candidate from sew	OK	OK	OK	keep	both			
+cow-00884317-v	许	candidate from bow	OK	OK	OK	keep	both			
+cow-00893243-n	交谈	candidate from sew	WRONG	WRONG	WRONG	remove	both	conversation/chat, not giving a talk to an audience		
+cow-00893243-n	演讲	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00893243-n	讲演	candidate from bow	OK	OK	OK	keep	both			
+cow-00893243-n	讲话	candidate from bow	OK	OK	OK	keep	both			
+cow-00902932-v	祝	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00902932-v	祝愿	candidate from bow	OK	OK	OK	keep	both			
+cow-00911761-v	回绝	candidate from bow	OK	OK	OK	keep	both			
+cow-00911761-v	抱歉	candidate from sew	WRONG	OK	WRONG	remove	adjudication	feel sorry, not formally decline		
+cow-00911761-v	谢绝	candidate from bow	OK	OK	OK	keep	both			
+cow-00911761-v	遗憾	candidate from sew	WRONG	WRONG	WRONG	remove	both	yihan = regret/pity, not 'decline formally'		
+cow-00941242-a	生动	candidate from bow	WRONG	WRONG	WRONG	remove	both	means vivid/lively, not sexually explicit		
+cow-00941242-a	生动的	candidate from bow	WRONG	OK	WRONG	remove	adjudication	vivid, lacks sexually explicit sense		
+cow-00941242-a	用图表示的	candidate from cow	WRONG	WRONG	WRONG	remove	both	'represented by a diagram' - wrong sense of graphic (sexually explicit)		FORM
+cow-00950272-a	发生在或位于内部	candidate from sew	OK	OK	OK	keep	both	explanatory phrase	FORM	
+cow-00950272-a	接近核心	candidate from bow	OK	OK	OK	keep	both	phrase rather than a word	FORM	
+cow-00950272-a	接近核心的	candidate from bow	OK	OK	OK	keep	both	descriptive phrase		FORM
+cow-00951831-a	体内	candidate from sew	OK	OK	OK	keep	both	inside the body; narrower		
+cow-00951831-a	内	candidate from sew	OK	OK	OK	keep	both			
+cow-00951831-a	内在	candidate from bow	OK	OK	OK	keep	both			
+cow-00951831-a	内在性质	candidate from sew	WRONG	WRONG	WRONG	remove	both	noun \"intrinsic nature\", not the adjective inner/located inward		FORM
+cow-00951831-a	内在的	candidate from bow	OK	OK	OK	keep	both			
+cow-00951831-a	内心	candidate from sew	UNSURE	WRONG	WRONG	remove	adjudication	inner heart/mind, not located inward		
+cow-00951831-a	内部	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00951831-a	国内	candidate from sew	WRONG	WRONG	WRONG	remove	both	means domestic/national, not located inward		
+cow-00952524-v	告知	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-00952524-v	告诉	candidate from bow	OK	OK	OK	keep	both			
+cow-00952524-v	讲述	candidate from sew	OK	OK	OK	keep	both			
+cow-00952524-v	通知	candidate from bow	OK	OK	OK	keep	both			
+cow-00952761-a	去外面或从外面进来	candidate from bow	OK	OK	OK	keep	both	explanatory phrase rather than a word	FORM	
+cow-00952761-a	外	candidate from sew	OK	OK	OK	keep	both			
+cow-00952761-a	外部	candidate from sew	OK	OK	OK	keep	both			
+cow-00952761-a	外面	candidate from sew	OK	OK	OK	keep	both			
+cow-00957378-v	下定义	candidate from bow	OK	OK	OK	keep	both			
+cow-00957378-v	定义	candidate from bow	OK	OK	OK	keep	both			
+cow-00957378-v	给…下定义	candidate from sew	OK	OK	OK	keep	both	contains ellipsis frame	FORM	
+cow-00968155-n	运动	candidate from bow	WRONG	WRONG	WRONG	remove	both	political/social movement or sports; military campaign is 战役		
+cow-00979870-v	大声说	candidate from sew	OK	OK	OK	keep	both			
+cow-00979870-v	说	candidate from bow	OK	OK	OK	keep	both			
+cow-00979870-v	说话	candidate from bow	OK	OK	OK	keep	both			
+cow-00979870-v	说道	candidate from bow	OK	OK	OK	keep	both			
+cow-01015599-a	二年级	candidate from bow	OK	OK	OK	keep	both			
+cow-01015599-a	二年级的	candidate from bow	OK	OK	OK	keep	both			
+cow-01015599-a	大学二年级	candidate from sew	OK	OK	OK	keep	both	narrower (college only)		
+cow-01015599-a	高中第二年	candidate from sew	OK	OK	OK	keep	both	narrower (high school only)		FORM
+cow-01020356-v	写下	candidate from sew	OK	OK	OK	keep	both			
+cow-01020356-v	写下来	candidate from bow	OK	OK	OK	keep	both			
+cow-01020356-v	把…描写成	candidate from sew	WRONG	WRONG	WRONG	remove	both	means 'depict as', not write down	FORM	
+cow-01020356-v	记下	candidate from bow	OK	OK	OK	keep	both			
+cow-01029368-v	以...称呼	candidate from bow	OK	OK	OK	keep	both	contains ellipsis placeholder	FORM	
+cow-01031966-v	写信	candidate from sew	OK	OK	OK	keep	both			
+cow-01031966-v	写信给	candidate from bow	OK	OK	OK	keep	both			
+cow-01031966-v	通信	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01038808-a	家	candidate from bow	OK	OK	OK	keep	both			
+cow-01038808-a	家庭	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01038808-a	家庭的	candidate from bow	OK	OK	OK	keep	both			
+cow-01038808-a	家的	candidate from bow	OK	OK	OK	keep	both			
+cow-01038808-a	家里	candidate from sew	OK	OK	OK	keep	both			
+cow-01048762-a	好	candidate from sew	OK	OK	OK	keep	both			
+cow-01048762-a	好事	candidate from sew	WRONG	OK	WRONG	remove	adjudication	noun good deed, not resulting favorably		
+cow-01048762-a	情况良好	candidate from bow	OK	WRONG	WRONG	remove	adjudication	in good condition, not resulting favorably		
+cow-01048762-a	情况良好的	candidate from bow	OK	WRONG	WRONG	remove	adjudication	in good condition, not resulting favorably		
+cow-01048762-a	有益	candidate from sew	OK	OK	OK	keep	both			
+cow-01048762-a	还好	candidate from sew	OK	UNSURE	OK	keep	adjudication	turned out fine, acceptable for resulting favorably		
+cow-01056411-n	短暂停留	candidate from bow	OK	OK	OK	keep	both			
+cow-01061481-v	指定	candidate from bow	WRONG	WRONG	WRONG	remove	both	means 'designate/appoint', not express via symbol		
+cow-01061481-v	确定	candidate from bow	WRONG	WRONG	WRONG	remove	both	means determine/ascertain, not express via a symbol		
+cow-01061481-v	表示	candidate from sew	OK	OK	OK	keep	both			
+cow-01061481-v	表达	candidate from sew	OK	OK	OK	keep	both			
+cow-01062631-a	不太忙	candidate from bow	OK	OK	OK	keep	both			
+cow-01062631-a	不太忙的	candidate from bow	OK	OK	OK	keep	both			
+cow-01062631-a	接受探访	candidate from sew	WRONG	WRONG	WRONG	remove	both	'receive visits', not 'not busy/available'		FORM
+cow-01062631-a	有空	candidate from sew	OK	OK	OK	keep	both			
+cow-01064148-n	休息	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-01064148-n	安息	candidate from sew	OK	OK	OK	keep	both			
+cow-01064148-n	放松	candidate from sew	OK	OK	OK	keep	both			
+cow-01064148-n	稍息	candidate from sew	WRONG	WRONG	WRONG	remove	both	military drill command 'at ease', not rest/freedom from activity		
+cow-01070892-n	压抑	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01070892-n	抑制	candidate from bow	OK	OK	OK	keep	both			
+cow-01085337-n	发牌的动作	candidate from sew	OK	OK	OK	keep	both		FORM	
+cow-01085337-n	发纸牌	candidate from bow	OK	OK	OK	keep	both			
+cow-01115190-v	不分胜负	candidate from bow	OK	OK	OK	keep	both			
+cow-01115190-v	与…打成平局	candidate from sew	OK	OK	OK	keep	both	contains ellipsis	FORM	
+cow-01115190-v	平手	candidate from bow	OK	OK	OK	keep	both	draw/tie		
+cow-01119192-a	天才	candidate from wikt	OK	OK	OK	keep	both			
+cow-01119192-a	天赋异禀	candidate from bow	OK	OK	OK	keep	both			
+cow-01119192-a	有天分	candidate from bow	OK	OK	OK	keep	both			
+cow-01119192-a	有天分的	candidate from bow	OK	OK	OK	keep	both			
+cow-01119192-a	有才华	candidate from sew	OK	OK	OK	keep	both			
+cow-01119192-a	有才气	candidate from bow	OK	OK	OK	keep	both			
+cow-01119192-a	有才气的	candidate from bow	OK	OK	OK	keep	both			
+cow-01119192-a	有才能	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01119192-a	有才能的	candidate from bow	OK	OK	OK	keep	both			
+cow-01124441-a	厉害	candidate from sew	OK	OK	OK	keep	both			
+cow-01124441-a	好	candidate from bow	OK	OK	OK	keep	both			
+cow-01124441-a	很好	candidate from sew	OK	OK	OK	keep	both			
+cow-01128103-a	不熟练	candidate from bow	OK	OK	OK	keep	both			
+cow-01128103-a	不熟练的	candidate from bow	OK	OK	OK	keep	both			
+cow-01128103-a	不胜任	candidate from sew	OK	OK	OK	keep	both			
+cow-01128103-a	不适当	candidate from sew	WRONG	WRONG	WRONG	remove	both	means inappropriate, not incompetent		
+cow-01128103-a	拙劣	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01128103-a	拙劣的	candidate from bow	OK	OK	OK	keep	both			
+cow-01129977-a	好	candidate from sew	OK	OK	OK	keep	both			
+cow-01129977-a	有益	candidate from sew	WRONG	WRONG	WRONG	remove	both	means beneficial, not morally admirable		
+cow-01129977-a	有道德	candidate from bow	OK	OK	OK	keep	both			
+cow-01129977-a	有道德的	candidate from bow	OK	OK	OK	keep	both			
+cow-01150475-a	使人伤心	candidate from sew	WRONG	WRONG	WRONG	remove	both	means saddening (causing sorrow), not feeling regret		
+cow-01150475-a	可怜	candidate from bow	WRONG	WRONG	WRONG	remove	both	means 'pitiful', not regretful		
+cow-01150475-a	可怜的	candidate from bow	WRONG	WRONG	WRONG	remove	both	means 'pitiful', not regretful		
+cow-01150475-a	后悔	candidate from sew	OK	OK	OK	keep	both			
+cow-01150475-a	哀惜	candidate from sew	OK	OK	OK	keep	both			
+cow-01150475-a	对不起	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01150475-a	惋惜	candidate from sew	OK	OK	OK	keep	both			
+cow-01150475-a	抱歉	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01150475-a	抱歉的	candidate from bow	OK	OK	OK	keep	both			
+cow-01150475-a	觉得难过	candidate from bow	OK	OK	OK	keep	both			
+cow-01150475-a	觉得难过的	candidate from bow	OK	OK	OK	keep	both			
+cow-01150475-a	遗憾	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01150475-a	遗憾的	candidate from bow	OK	OK	OK	keep	both			
+cow-01150475-a	难过	candidate from sew	OK	OK	OK	keep	both	sad/sorrowful		
+cow-01161821-n	惩戒	candidate from bow	OK	OK	OK	keep	both			
+cow-01161821-n	惩罚	candidate from sew	OK	OK	OK	keep	both			
+cow-01171213-a	健康	candidate from sew	OK	OK	OK	keep	both			
+cow-01171213-a	强壮	candidate from bow	OK	OK	OK	keep	both			
+cow-01171213-a	强壮的	candidate from bow	OK	OK	OK	keep	both			
+cow-01171213-a	情况良好	candidate from bow	OK	OK	OK	keep	both			
+cow-01171213-a	情况良好的	candidate from bow	OK	OK	OK	keep	both			
+cow-01171799-v	喝红葡萄酒	candidate from sew	OK	OK	OK	keep	both	phrase \"drink red wine\"	FORM	
+cow-01172969-v	吃	candidate from bow	OK	OK	OK	keep	both	broader: eat		
+cow-01172969-v	吃好，吃饱	candidate from sew	OK	OK	OK	keep	both	two words joined by a comma	FORM	
+cow-01172969-v	进食	candidate from bow	OK	OK	OK	keep	both	broader: eat		
+cow-01174222-a	不健全	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01174222-a	不健全的	candidate from bow	OK	OK	OK	keep	both			
+cow-01174222-a	不健康	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01174222-a	不健康的	candidate from bow	OK	OK	OK	keep	both			
+cow-01174222-a	糟糕	candidate from sew	WRONG	WRONG	WRONG	remove	both	means terrible/messed up, not physically unsound		
+cow-01177105-a	发炎	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01177105-a	发炎的	candidate from bow	OK	OK	OK	keep	both			
+cow-01177105-a	红肿	candidate from bow	OK	OK	OK	keep	both			
+cow-01177105-a	红肿的	candidate from bow	OK	OK	OK	keep	both			
+cow-01177246-a	使人激动	candidate from bow	WRONG	WRONG	WRONG	remove	both	means exciting/rousing (inflammatory rhetoric sense), not caused by inflammation		
+cow-01177246-a	使人激动的	candidate from bow	WRONG	WRONG	WRONG	remove	both	means exciting/stirring, not caused by inflammation		
+cow-01177246-a	发炎	candidate from sew	OK	OK	OK	keep	both	verb rendering of inflammatory		
+cow-01177246-a	激动	candidate from bow	WRONG	WRONG	WRONG	remove	both	means 'excited/agitated' (inflammatory = rousing), not caused by inflammation		
+cow-01177246-a	激动的	candidate from bow	WRONG	WRONG	WRONG	remove	both	means excited/agitated, not medical inflammation		
+cow-01177246-a	炎性	candidate from sew	OK	OK	OK	keep	both			
+cow-01202415-n	宗教融合	candidate from bow	OK	OK	OK	keep	both	narrower (religious integration)		
+cow-01202415-n	种族融合	candidate from bow	OK	OK	OK	keep	both			
+cow-01204443-a	乱	candidate from bow	OK	OK	OK	keep	both			
+cow-01204443-a	乱的	candidate from bow	OK	OK	OK	keep	both			
+cow-01204443-a	无序	candidate from sew	OK	OK	OK	keep	both			
+cow-01204443-a	未排序整理过	candidate from bow	OK	OK	OK	keep	both	phrase		FORM
+cow-01204443-a	未排序整理过的	candidate from bow	OK	OK	OK	keep	both	phrase		FORM
+cow-01204443-a	没有秩序	candidate from bow	OK	OK	OK	keep	both			
+cow-01204443-a	没有秩序的	candidate from bow	OK	OK	OK	keep	both			
+cow-01204443-a	没有等级	candidate from sew	OK	OK	OK	keep	both			
+cow-01270199-v	冲	candidate from wikt	OK	OK	OK	keep	both	as in developing film		
+cow-01270199-v	冲洗	candidate from wikt	OK	OK	OK	keep	both	also used for developing film		
+cow-01270199-v	洗涤	candidate from bow;sew	OK	OK	OK	keep	both	broader washing		
+cow-01270199-v	清洗	candidate from bow	OK	OK	OK	keep	both			
+cow-01270199-v	漂洗	candidate from bow	OK	OK	OK	keep	both			
+cow-01292683-a	偏爱	candidate from bow	OK	OK	OK	keep	both			
+cow-01292683-a	偏爱的	candidate from bow	OK	OK	OK	keep	both			
+cow-01292683-a	偏袒	candidate from bow	WRONG	WRONG	WRONG	remove	both	means take sides/bias in favour of, not be fond of		
+cow-01292683-a	偏袒的	candidate from bow	WRONG	WRONG	WRONG	remove	both	piantan = show favouritism/be biased, not 'fond of'		
+cow-01292683-a	喜爱	candidate from sew	OK	OK	OK	keep	both			
+cow-01308381-v	归还	candidate from sew	OK	OK	OK	keep	both			
+cow-01308381-v	放回原位	candidate from bow	OK	OK	OK	keep	both			
+cow-01308381-v	放回原处	candidate from bow	OK	OK	OK	keep	both			
+cow-01308381-v	送还	candidate from bow	OK	OK	OK	keep	both			
+cow-01317064-v	希望	candidate from sew	WRONG	WRONG	WRONG	remove	both	means hope/wish, not hunt for		
+cow-01317064-v	找	candidate from sew	OK	OK	OK	keep	both	look for		
+cow-01317064-v	追捕	candidate from bow	OK	OK	OK	keep	both			
+cow-01317064-v	追缉	candidate from bow	OK	OK	OK	keep	both			
+cow-01317064-v	通缉	candidate from bow	OK	OK	OK	keep	both			
+cow-01318741-a	伤	candidate from bow	OK	OK	OK	keep	both			
+cow-01318741-a	受伤	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01318741-a	受伤的	candidate from bow	OK	OK	OK	keep	both			
+cow-01318741-a	受到伤害	candidate from bow	OK	OK	OK	keep	both			
+cow-01318741-a	受到伤害的	candidate from bow	OK	OK	OK	keep	both			
+cow-01318741-a	负伤	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-01318741-a	负伤的	candidate from bow	OK	OK	OK	keep	both			
+cow-01333477-a	优等	candidate from bow	WRONG	OK	WRONG	remove	adjudication	top-grade, not appealing to the mind		
+cow-01333477-a	优等的	candidate from bow	OK	UNSURE	WRONG	remove	adjudication	first-rate grade, not appealing to the mind		
+cow-01333477-a	好	candidate from sew	OK	OK	OK	keep	both			
+cow-01344344-a	愉快	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01344344-a	愉快的	candidate from bow	OK	OK	OK	keep	both			
+cow-01344344-a	有趣	candidate from bow	OK	OK	OK	keep	both			
+cow-01344344-a	有趣的	candidate from bow	OK	OK	OK	keep	both			
+cow-01346755-a	内部	candidate from sew	OK	OK	OK	keep	both			
+cow-01346755-a	同一都市	candidate from bow	UNSURE	WRONG	WRONG	remove	adjudication	means same city, not intramural		
+cow-01346755-a	同一都市的	candidate from bow	WRONG	UNSURE	WRONG	remove	adjudication	of the same city, not intramural		FORM
+cow-01346755-a	校内	candidate from bow	OK	OK	OK	keep	both			
+cow-01346755-a	校内的	candidate from bow	OK	OK	OK	keep	both			
+cow-01366718-a	充满欢乐	candidate from bow	OK	OK	OK	keep	both			
+cow-01366718-a	充满欢乐的	candidate from bow	OK	OK	OK	keep	both			
+cow-01366718-a	快乐	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01366718-a	快乐的	candidate from bow	OK	OK	OK	keep	both			
+cow-01366718-a	欢乐	candidate from bow	OK	OK	OK	keep	both			
+cow-01366718-a	欢乐的	candidate from bow	OK	OK	OK	keep	both			
+cow-01366718-a	欢喜	candidate from sew	OK	OK	OK	keep	both			
+cow-01366718-a	高兴	candidate from sew	OK	OK	OK	keep	both			
+cow-01366718-a	高高兴兴	candidate from wikt	OK	OK	OK	keep	both			
+cow-01384212-a	宽广	candidate from bow	OK	OK	OK	keep	both			
+cow-01384212-a	宽广的	candidate from bow	OK	OK	OK	keep	both			
+cow-01384212-a	广大	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01384212-a	广泛	candidate from bow	OK	OK	OK	keep	both			
+cow-01384212-a	广泛的	candidate from bow	OK	OK	OK	keep	both			
+cow-01384212-a	广阔	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01384212-a	广阔的	candidate from bow	OK	OK	OK	keep	both			
+cow-01393996-v	打扫	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-01393996-v	扫	candidate from wikt	OK	OK	OK	keep	both			
+cow-01393996-v	清除	candidate from bow	OK	OK	OK	keep	both	broader 'clear away'		
+cow-01405044-v	击	candidate from bow	OK	OK	OK	keep	both			
+cow-01405044-v	打	candidate from bow	OK	OK	OK	keep	both			
+cow-01405044-v	碰撞	candidate from sew	OK	OK	OK	keep	both	collide/strike; acceptable		
+cow-01426077-a	全体	candidate from sew	WRONG	WRONG	WRONG	remove	both	means the whole group/all members; concept is systemic (全身)		
+cow-01426077-a	全身	candidate from bow	OK	OK	OK	keep	both			
+cow-01426077-a	全身的	candidate from bow	OK	OK	OK	keep	both			
+cow-01437888-v	寄	candidate from bow	OK	OK	OK	keep	both			
+cow-01437888-v	投邮	candidate from bow	OK	OK	OK	keep	both			
+cow-01437888-v	邮寄	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01442826-a	短	candidate from bow	OK	OK	OK	keep	both			
+cow-01442826-a	短暂	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01442826-a	短暂的	candidate from bow	OK	OK	OK	keep	both			
+cow-01442826-a	短的	candidate from bow	OK	OK	OK	keep	both			
+cow-01442826-a	简短	candidate from bow	OK	OK	OK	keep	both			
+cow-01442826-a	简短的	candidate from bow	OK	OK	OK	keep	both			
+cow-01444022-a	拉长	candidate from bow	UNSURE	OK	OK	keep	adjudication	drawn-out sound, regular rendering of long vowel		
+cow-01444022-a	拉长的	candidate from bow	OK	OK	OK	keep	both			
+cow-01444022-a	重读	candidate from bow	WRONG	WRONG	WRONG	remove	both	means stressed, not long in duration		
+cow-01444022-a	重读的	candidate from bow	WRONG	WRONG	WRONG	remove	both	means stressed, not long in duration		
+cow-01444022-a	长音	candidate from bow	OK	OK	OK	keep	both			
+cow-01444022-a	长音的	candidate from bow	OK	OK	OK	keep	both			
+cow-01447632-v	推	candidate from sew	OK	OK	OK	keep	both			
+cow-01450969-a	不知所措的	candidate from cow	WRONG	WRONG	WRONG	remove	both	means bewildered/at a loss, not doomed or destroyed		
+cow-01450969-a	困惑的	candidate from cow	WRONG	WRONG	WRONG	remove	both	means confused/bewildered, not doomed or destroyed		
+cow-01450969-a	毁坏	candidate from bow	OK	OK	OK	keep	both			
+cow-01450969-a	毁坏的	candidate from bow	OK	OK	OK	keep	both			
+cow-01450969-a	迷惑的	candidate from cow	WRONG	WRONG	WRONG	remove	both	means 'confused/bewildered' (lost = puzzled), not doomed or destroyed		
+cow-01450969-a	遭难	candidate from bow	OK	OK	OK	keep	both			
+cow-01450969-a	遭难的	candidate from bow	OK	OK	OK	keep	both			
+cow-01459422-a	可爱	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-01459422-a	可爱的	candidate from bow	OK	OK	OK	keep	both			
+cow-01459422-a	惹人怜爱	candidate from bow	OK	OK	OK	keep	both			
+cow-01459422-a	惹人怜爱的	candidate from bow	OK	OK	OK	keep	both			
+cow-01459422-a	惹人爱	candidate from sew	OK	OK	OK	keep	both			
+cow-01470670-v	与见面	candidate from bow	OK	OK	OK	keep	both	should be yu...jianmian	FORM	
+cow-01470670-v	会晤	candidate from bow	OK	OK	OK	keep	both			
+cow-01470670-v	见	candidate from sew	OK	OK	OK	keep	both			
+cow-01472351-a	专业	candidate from sew	OK	OK	OK	keep	both			
+cow-01472351-a	主修	candidate from bow	OK	OK	OK	keep	both			
+cow-01472509-a	副修	candidate from bow	OK	OK	OK	keep	both			
+cow-01472509-a	副修的	candidate from bow	OK	OK	OK	keep	both			
+cow-01472509-a	辅修	candidate from sew	OK	OK	OK	keep	both			
+cow-01476685-a	公	candidate from wikt	OK	OK	OK	keep	both			
+cow-01476685-a	男	candidate from wikt	WRONG	WRONG	WRONG	remove	both	男 refers to human males only; concept is male sex of plants/animals (雄)		
+cow-01476685-a	男性	candidate from sew	WRONG	WRONG	WRONG	remove	both	男性 refers to human males only; concept is male sex of plants/animals (雄)		
+cow-01476685-a	阳性	candidate from bow	WRONG	UNSURE	WRONG	remove	adjudication	positive (test) or grammatical masculine; biological male is 雄性		
+cow-01476685-a	雄	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-01476685-a	雄的	candidate from bow	OK	OK	OK	keep	both			
+cow-01478182-a	女	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-01478182-a	女性	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01478182-a	女性的	candidate from bow	OK	OK	OK	keep	both			
+cow-01478182-a	女的	candidate from bow	OK	OK	OK	keep	both			
+cow-01478182-a	母	candidate from wikt	WRONG	WRONG	WRONG	remove	both	母 is mother/female animal, not 'pertaining to women'		
+cow-01478182-a	雌	candidate from wikt	WRONG	WRONG	WRONG	remove	both	ci = female of animals/plants, not pertaining to women or girls		
+cow-01527508-v	免职	candidate from bow	UNSURE	WRONG	WRONG	remove	adjudication	dismiss from office, not dislodge from a position		
+cow-01532589-v	使干净	candidate from sew	OK	OK	OK	keep	both			
+cow-01532589-v	清洁	candidate from bow	OK	OK	OK	keep	both			
+cow-01533442-v	打扫	candidate from bow	OK	OK	OK	keep	both			
+cow-01533442-v	打扫整理房屋	candidate from sew	OK	OK	OK	keep	both			FORM
+cow-01536168-v	以清水冲洗	candidate from sew	OK	OK	OK	keep	both		FORM	
+cow-01536168-v	冲洗	candidate from bow	OK	OK	OK	keep	both			
+cow-01536168-v	洗濯	candidate from bow	OK	OK	OK	keep	both			
+cow-01536168-v	清洗	candidate from bow	OK	OK	OK	keep	both			
+cow-01552162-a	大量	candidate from bow	OK	OK	OK	keep	both			
+cow-01552162-a	大量的	candidate from bow	OK	OK	OK	keep	both			
+cow-01552162-a	很多	candidate from sew	OK	OK	OK	keep	both			
+cow-01552519-v	分开	candidate from bow	OK	OK	OK	keep	both			
+cow-01552519-v	切	candidate from wikt	OK	OK	OK	keep	both			
+cow-01552519-v	切割	candidate from bow	OK	OK	OK	keep	both			
+cow-01552519-v	剪切	candidate from sew	OK	OK	OK	keep	both			
+cow-01553629-a	多量	candidate from bow	OK	OK	OK	keep	both			
+cow-01553629-a	多量的	candidate from bow	OK	OK	OK	keep	both			
+cow-01553629-a	大量	candidate from bow	OK	OK	OK	keep	both			
+cow-01553629-a	大量的	candidate from bow	OK	OK	OK	keep	both			
+cow-01553629-a	很多	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01553629-a	很多的	candidate from bow	OK	OK	OK	keep	both			
+cow-01555416-a	更少	candidate from sew	OK	OK	OK	keep	both			
+cow-01555416-a	较小	candidate from bow	OK	OK	OK	keep	both			
+cow-01555416-a	较小的	candidate from bow	WRONG	OK	WRONG	remove	adjudication	smaller in size, not less in amount		
+cow-01555416-a	较少	candidate from bow	OK	OK	OK	keep	both			
+cow-01555416-a	较少的	candidate from bow	OK	OK	OK	keep	both			
+cow-01579608-a	最近	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01579608-a	最近的	candidate from bow	OK	OK	OK	keep	both			
+cow-01579608-a	直接	candidate from bow	OK	OK	OK	keep	both			
+cow-01579608-a	直接的	candidate from bow	OK	OK	OK	keep	both	direct/proximate (cause)		
+cow-01586752-a	好	candidate from bow	OK	OK	OK	keep	both			
+cow-01586752-a	好的	candidate from bow	OK	OK	OK	keep	both			
+cow-01586752-a	快乐	candidate from bow	OK	OK	OK	keep	both	good (time) = happy		
+cow-01586752-a	快乐的	candidate from bow	OK	OK	OK	keep	both			
+cow-01586752-a	愉快	candidate from sew	OK	OK	OK	keep	both			
+cow-01638438-a	古老	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-01638438-a	旧	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-01638438-a	旧交	candidate from bow	WRONG	WRONG	WRONG	remove	both	means an old friend/acquaintance (noun), not 'of long duration'		
+cow-01638438-a	旧交的	candidate from bow	WRONG	OK	WRONG	remove	adjudication	malformed; 旧交 is an old acquaintance		FORM
+cow-01638438-a	老	candidate from bow	OK	OK	OK	keep	both			
+cow-01641648-a	新	candidate from sew	OK	OK	OK	keep	both			
+cow-01641648-a	重新	candidate from bow	OK	OK	OK	keep	both	anew; adverbial rendering		
+cow-01641648-a	重新的	candidate from bow	OK	OK	OK	keep	both			
+cow-01642477-a	新近	candidate from bow	OK	OK	OK	keep	both			
+cow-01642477-a	新近的	candidate from bow	OK	OK	OK	keep	both			
+cow-01642477-a	最新	candidate from sew	OK	OK	OK	keep	both			
+cow-01642477-a	最近	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01642477-a	最近的	candidate from bow	OK	OK	OK	keep	both			
+cow-01642477-a	近来	candidate from bow	OK	OK	OK	keep	both			
+cow-01642477-a	近来的	candidate from bow	OK	OK	OK	keep	both			
+cow-01649031-a	小	candidate from sew	OK	OK	OK	keep	both			
+cow-01649031-a	年幼	candidate from bow	OK	OK	OK	keep	both			
+cow-01649031-a	年幼的	candidate from bow	OK	OK	OK	keep	both			
+cow-01649031-a	幼小	candidate from sew	OK	OK	OK	keep	both			
+cow-01649720-a	年轻	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01649720-a	年轻的	candidate from bow	OK	OK	OK	keep	both			
+cow-01649720-a	朝气蓬勃	candidate from bow	OK	OK	OK	keep	both			
+cow-01649720-a	朝气蓬勃的	candidate from bow	OK	OK	OK	keep	both			
+cow-01649720-a	青春	candidate from bow	OK	OK	OK	keep	both	youth; acceptable rendering of youthful		
+cow-01649720-a	青春的	candidate from bow	OK	OK	OK	keep	both			
+cow-01661472-v	开	candidate from bow	OK	OK	OK	keep	both	set up (a shop, company)		
+cow-01661472-v	计划	candidate from sew	WRONG	WRONG	WRONG	remove	both	means plan, not set up/fund a venture		
+cow-01677433-a	优越	candidate from bow	WRONG	UNSURE	WRONG	remove	adjudication	superior/advantageous, not great in degree		
+cow-01677433-a	优越的	candidate from bow	WRONG	OK	WRONG	remove	adjudication	superior/advantageous, not great in degree		
+cow-01677433-a	伟大	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-01677433-a	多	candidate from bow	WRONG	WRONG	WRONG	remove	both	means many/much, not remarkable in degree		
+cow-01677433-a	多的	candidate from bow	WRONG	WRONG	WRONG	remove	both	means many/numerous, not remarkable in degree		
+cow-01677433-a	大	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-01677433-a	大的	candidate from bow	OK	OK	OK	keep	both			
+cow-01677433-a	强烈	candidate from sew	OK	OK	OK	keep	both			
+cow-01677433-a	惊人	candidate from bow	OK	OK	OK	keep	both			
+cow-01677433-a	惊人的	candidate from bow	OK	OK	OK	keep	both			
+cow-01712753-a	擦掉皮	candidate from bow	UNSURE	UNSURE	WRONG	remove	adjudication	verb phrase scrape skin off, not sore/hurting	FORM	
+cow-01712753-a	擦掉皮的	candidate from bow	OK	OK	OK	keep	both	skinned/raw		
+cow-01712753-a	疼痛	candidate from bow	OK	OK	OK	keep	both			
+cow-01712753-a	疼痛的	candidate from bow	OK	OK	OK	keep	both			
+cow-01712753-a	痛处	candidate from sew	WRONG	WRONG	WRONG	remove	both	noun 'sore spot/weak point', not adjective hurting		
+cow-01716971-a	令人厌恶	candidate from bow	OK	OK	OK	keep	both			
+cow-01716971-a	令人厌恶的	candidate from bow	OK	OK	OK	keep	both			
+cow-01716971-a	倒胃口	candidate from bow	OK	OK	OK	keep	both			
+cow-01716971-a	倒胃口的	candidate from bow	OK	OK	OK	keep	both			
+cow-01716971-a	可口	candidate from sew	WRONG	WRONG	WRONG	remove	both	means 'tasty', the opposite		
+cow-01716971-a	味道差	candidate from bow	OK	OK	OK	keep	both			
+cow-01716971-a	味道差的	candidate from bow	OK	OK	OK	keep	both			
+cow-01716971-a	味香	candidate from sew	WRONG	WRONG	WRONG	remove	both	means 'fragrant/tasty', the opposite of distasteful		
+cow-01716971-a	开胃的菜肴	candidate from sew	WRONG	WRONG	WRONG	remove	both	means 'appetizing dish', opposite of distasteful		FORM
+cow-01716971-a	难吃	candidate from sew	OK	OK	OK	keep	both			
+cow-01716971-a	风味极佳	candidate from sew	WRONG	WRONG	WRONG	remove	both	means delicious, opposite of distasteful		
+cow-01729384-a	以前	candidate from bow	OK	OK	OK	keep	both			
+cow-01729384-a	以前的	candidate from bow	OK	OK	OK	keep	both			
+cow-01729384-a	早期	candidate from sew	OK	OK	OK	keep	both			
+cow-01754737-v	剪切	candidate from sew	OK	OK	OK	keep	both			
+cow-01754737-v	剪裁或切割而成	candidate from bow	OK	OK	OK	keep	both	phrase/explanation	FORM	
+cow-01780568-v	恐怕	candidate from bow	OK	OK	OK	keep	both			
+cow-01780568-v	畏惧	candidate from sew	WRONG	WRONG	WRONG	remove	both	means dread/fear; not the polite 'I fear that...' (恐怕)		
+cow-01800764-a	优美	candidate from bow	OK	WRONG	WRONG	remove	adjudication	graceful; not used for fine weather		
+cow-01800764-a	优美的	candidate from bow	OK	OK	OK	keep	both			
+cow-01800764-a	好	candidate from bow	OK	OK	OK	keep	both			
+cow-01800764-a	好的	candidate from bow	OK	OK	OK	keep	both			
+cow-01800764-a	晴朗	candidate from bow	OK	OK	OK	keep	both			
+cow-01800764-a	晴朗的	candidate from bow	OK	OK	OK	keep	both			
+cow-01800764-a	漂亮	candidate from bow	OK	OK	OK	keep	both			
+cow-01800764-a	漂亮的	candidate from bow	OK	OK	OK	keep	both			
+cow-01800764-a	美丽	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01800764-a	美丽的	candidate from bow	OK	OK	OK	keep	both			
+cow-01800764-a	美好	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01800764-a	美好的	candidate from bow	OK	OK	OK	keep	both			
+cow-01805157-a	快乐	candidate from sew	OK	OK	OK	keep	both			
+cow-01805157-a	快意	candidate from bow	OK	OK	OK	keep	both			
+cow-01805157-a	惬意	candidate from bow	OK	OK	OK	keep	both			
+cow-01805157-a	欢喜	candidate from bow	OK	OK	OK	keep	both			
+cow-01805157-a	欢喜的	candidate from bow	OK	OK	OK	keep	both			
+cow-01805157-a	满意	candidate from sew	OK	OK	OK	keep	both			
+cow-01805157-a	高兴	candidate from bow	OK	OK	OK	keep	both			
+cow-01805157-a	高兴的	candidate from bow	OK	OK	OK	keep	both			
+cow-01822411-a	可能	candidate from bow	OK	OK	OK	keep	both			
+cow-01822411-a	可能的	candidate from bow	OK	OK	OK	keep	both			
+cow-01822411-a	或许会或不会发生	candidate from bow	OK	OK	OK	keep	both	explanatory phrase rather than a word	FORM	
+cow-01822411-a	或许会或不会发生的	candidate from bow	OK	OK	OK	keep	both		FORM	
+cow-01822411-a	或许发生	candidate from sew	OK	OK	OK	keep	both			
+cow-01825962-v	想要	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01825962-v	要	candidate from bow	OK	OK	OK	keep	both			
+cow-01838916-a	熟练	candidate from sew	OK	OK	OK	keep	both			
+cow-01838916-a	精致	candidate from bow	OK	OK	OK	keep	both			
+cow-01838916-a	精致的	candidate from bow	OK	OK	OK	keep	both			
+cow-01842690-v	坐	candidate from bow	OK	OK	OK	keep	both			
+cow-01842690-v	搭	candidate from bow	OK	OK	OK	keep	both			
+cow-01842690-v	搭乘	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01846916-v	旅行	candidate from sew	OK	OK	OK	keep	both			
+cow-01846916-v	横越	candidate from bow	OK	OK	OK	keep	both			
+cow-01846916-v	游历	candidate from sew	OK	OK	OK	keep	both			
+cow-01846916-v	游遍	candidate from bow	OK	OK	OK	keep	both			
+cow-01846916-v	路程	candidate from sew	WRONG	WRONG	WRONG	remove	both	lucheng = noun distance/route, not the verb travel across		
+cow-01846916-v	通过	candidate from bow	OK	OK	OK	keep	both			
+cow-01846916-v	驶过	candidate from sew	OK	OK	OK	keep	both			
+cow-01847242-a	在	candidate from sew	OK	OK	OK	keep	both	present, here		
+cow-01847242-a	在这里	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01870100-a	专业	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01870100-a	专业的	candidate from bow	OK	OK	OK	keep	both			
+cow-01870100-a	职业	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01870100-a	职业的	candidate from bow	OK	OK	OK	keep	both			
+cow-01903756-n	壳	candidate from sew	OK	OK	OK	keep	both			
+cow-01903756-n	甲	candidate from bow	OK	OK	OK	keep	both			
+cow-01903756-n	甲壳	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01903756-n	背甲	candidate from bow	OK	OK	OK	keep	both			
+cow-01903756-n	表皮	candidate from bow;sew	OK	OK	OK	keep	both	cuticle		
+cow-01903756-n	贝	candidate from wikt	OK	OK	OK	keep	both			
+cow-01903756-n	贝壳	candidate from sew;wikt	OK	UNSURE	WRONG	remove	adjudication	mollusc seashell, not arthropod/turtle carapace (甲壳)		
+cow-01908889-a	污染	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01908889-a	污染的	candidate from bow	OK	OK	OK	keep	both			
+cow-01909812-v	拐弯	candidate from bow	OK	OK	OK	keep	both			
+cow-01909812-v	转弯	candidate from sew	OK	OK	OK	keep	both			
+cow-01914947-v	跑	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01914947-v	跑步	candidate from bow	OK	OK	OK	keep	both			
+cow-01970348-v	上升	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-01970348-v	上涨	candidate from sew	WRONG	WRONG	WRONG	remove	both	rise of prices/water level, not celestial bodies rising		
+cow-01970348-v	出现	candidate from sew	OK	UNSURE	OK	keep	adjudication	commonly used for the sun/moon appearing (rising)		
+cow-01970348-v	登高	candidate from sew	WRONG	WRONG	WRONG	remove	both	means 'to climb a height', not the rising of celestial bodies		
+cow-02581675-v	为…答辩	candidate from sew	WRONG	OK	WRONG	remove	adjudication	reply in defence (thesis), not act as defence counsel	FORM	
+cow-02581675-v	为…辩护	candidate from sew	OK	OK	OK	keep	both	ellipsis inside lemma	FORM	
+cow-02581675-v	辩护	candidate from bow	OK	OK	OK	keep	both			
+cow-02711835-v	装框	candidate from bow	OK	OK	OK	keep	both			
+cow-02711835-v	镶边	candidate from bow	WRONG	WRONG	WRONG	remove	both	means 'to trim with a border/edging', not to put in a frame		
+cow-02991555-n	小室	candidate from bow	OK	OK	OK	keep	both			
+cow-02991555-n	小房间	candidate from bow	OK	OK	OK	keep	both			
+cow-02991555-n	小隔间	candidate from bow	WRONG	WRONG	WRONG	remove	both	a partitioned cubicle (e.g. office), not a monk's cell		
+cow-03088580-n	公寓	candidate from bow	OK	OK	OK	keep	both			
+cow-03088580-n	共同管辖去的住处	candidate from sew	OK	OK	OK	keep	both	descriptive gloss of a condo unit, garbled	FORM	
+cow-03267340-n	八	candidate from bow	OK	OK	OK	keep	both			
+cow-03387815-n	喷泉	candidate from bow;wikt	OK	OK	OK	keep	both	fountain; usually ornamental but acceptable		
+cow-03436182-n	便携式立体声系统	candidate from sew	OK	OK	OK	keep	both	descriptive compound		
+cow-03822171-n	报纸	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-03825548-n	九	candidate from bow	OK	OK	OK	keep	both			
+cow-03871083-n	包装袋	candidate from sew	OK	OK	OK	keep	both	packaging bag, narrower		
+cow-03871083-n	包裹	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-03924069-n	唱片	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-03924069-n	大浅盘	candidate from sew	WRONG	WRONG	WRONG	remove	both	serving platter sense, not a phonograph record		
+cow-03924069-n	磁盘	candidate from sew	WRONG	WRONG	WRONG	remove	both	magnetic disk (computing), not a phonograph record		
+cow-03924069-n	黑胶唱片	candidate from wikt	OK	OK	OK	keep	both	vinyl record		
+cow-03931044-n	图片	candidate from wikt	OK	OK	OK	keep	both			
+cow-03931044-n	图画	candidate from wikt	OK	OK	OK	keep	both			
+cow-03932499-n	件	candidate from sew	OK	OK	OK	keep	both			
+cow-03932499-n	例证	candidate from bow	WRONG	OK	WRONG	remove	adjudication	illustrative example/evidence, not an item instance		
+cow-03932499-n	样品	candidate from sew	WRONG	OK	WRONG	remove	adjudication	sample/specimen, not an item instance		
+cow-03932499-n	样本	candidate from bow	WRONG	OK	WRONG	remove	adjudication	sample/specimen, not an item instance		
+cow-03989074-n	信筒	candidate from bow	OK	OK	OK	keep	both			
+cow-03989074-n	信箱	candidate from wikt	OK	OK	OK	keep	both			
+cow-03989074-n	邮筒	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-03989074-n	邮箱	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-04018667-n	公共厕所	candidate from sew	OK	OK	OK	keep	both			
+cow-04018667-n	公用厕所	candidate from bow	OK	OK	OK	keep	both			
+cow-04026417-n	皮包	candidate from bow	OK	UNSURE	OK	keep	adjudication	皮包 used for wallet/purse, especially in Taiwan		
+cow-04026417-n	钱包	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-04178062-n	七	candidate from bow	OK	OK	OK	keep	both			
+cow-04182322-n	矛	candidate from bow	WRONG	WRONG	WRONG	remove	both	means spear, not shaft		
+cow-04182322-n	箭	candidate from bow	WRONG	WRONG	WRONG	remove	both	means arrow (the whole weapon), not the rod/handle		
+cow-04182322-n	长柄	candidate from sew	OK	OK	OK	keep	both			
+cow-04241394-n	拖鞋	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-04248607-n	快照	candidate from sew	OK	OK	OK	keep	both			
+cow-04248607-n	照片	candidate from bow	OK	OK	OK	keep	both	photo; broader than snapshot		
+cow-04248607-n	镜头	candidate from sew	OK	OK	OK	keep	both	shot; 抓拍镜头 = snapshot		
+cow-04349306-n	地铁列车	candidate from sew	OK	OK	OK	keep	both			
+cow-04349306-n	地铁火车	candidate from bow	OK	OK	OK	keep	both			
+cow-04379243-n	案	candidate from bow	OK	OK	OK	keep	both	literary word for table		
+cow-04379243-n	桌	candidate from bow	OK	OK	OK	keep	both			
+cow-04379243-n	桌子	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-04404997-n	摄像机	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-04404997-n	摄影机	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-04424418-n	东西	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-04424418-n	事物	candidate from wikt	OK	OK	OK	keep	both			
+cow-04424418-n	物	candidate from wikt	OK	OK	OK	keep	both			
+cow-04437953-n	时计	candidate from sew	OK	OK	OK	keep	both			
+cow-04437953-n	时钟	candidate from bow	OK	OK	OK	keep	both			
+cow-04437953-n	表	candidate from bow	OK	OK	OK	keep	both	watch		
+cow-04437953-n	记时的装置	candidate from sew	OK	OK	OK	keep	both	descriptive phrase	FORM	
+cow-04437953-n	钟	candidate from sew	OK	OK	OK	keep	both			
+cow-04437953-n	钟表	candidate from bow	OK	OK	OK	keep	both			
+cow-04446276-n	上盥洗室	candidate from sew	WRONG	WRONG	WRONG	remove	both	verb phrase 'go to the toilet', not the room		FORM
+cow-04446276-n	便所	candidate from wikt	OK	OK	OK	keep	both			
+cow-04446276-n	卫生间	candidate from wikt	OK	OK	OK	keep	both			
+cow-04446276-n	厕所	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-04446276-n	洗手间	candidate from wikt	OK	OK	OK	keep	both			
+cow-04446276-n	盥洗室	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-04480415-n	三	candidate from bow	OK	OK	OK	keep	both			
+cow-04480415-n	三点的牌	candidate from sew	OK	OK	OK	keep	both	descriptive phrase 'three-point card'	FORM	
+cow-04555291-n	厕所	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-04555291-n	洗手间	candidate from bow	OK	OK	OK	keep	both			
+cow-04555291-n	盥洗室	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-04572935-n	井	candidate from bow	OK	WRONG	WRONG	remove	adjudication	dug water well, not a vessel holding liquid		
+cow-04572935-n	储液体的容器	candidate from sew	OK	OK	OK	keep	both	explanation \"container for storing liquid\"	FORM	
+cow-04587648-n	窗	candidate from bow	OK	OK	OK	keep	both			
+cow-04587648-n	窗口	candidate from wikt	OK	OK	OK	keep	both			
+cow-04587648-n	窗子	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-04587648-n	窗户	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-04588365-n	窗	candidate from bow	OK	OK	OK	keep	both	broader		
+cow-04588365-n	车窗	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-04607869-n	手表	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-04607869-n	腕表	candidate from bow	OK	OK	OK	keep	both			
+cow-04926427-n	崭新	candidate from bow;sew	OK	OK	OK	keep	both	adjective; acceptable rendering		
+cow-04926427-n	新	candidate from bow	OK	OK	OK	keep	both			
+cow-04926427-n	新奇	candidate from sew	OK	OK	OK	keep	both			
+cow-04960277-n	黑色	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-04965661-n	黄	candidate from wikt	OK	OK	OK	keep	both			
+cow-04965661-n	黄色	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-05016001-n	凉快	candidate from sew	OK	OK	OK	keep	both	adjective for the quality of coolness		
+cow-05016001-n	凉爽	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-05137165-n	高低	candidate from wikt	OK	OK	OK	keep	both			
+cow-05137165-n	高度	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-05217688-n	身体	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-05282433-n	牙列	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-05282433-n	牙系	candidate from wikt	OK	OK	OK	keep	both			
+cow-05282433-n	齿列	candidate from wikt	OK	OK	OK	keep	both			
+cow-05282433-n	齿系	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-05301908-n	口	candidate from sew	OK	OK	OK	keep	both			
+cow-05301908-n	嘴	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-05301908-n	嘴巴	candidate from bow	OK	OK	OK	keep	both			
+cow-05302422-n	口	candidate from sew	OK	OK	OK	keep	both			
+cow-05302422-n	孔	candidate from bow	OK	OK	OK	keep	both			
+cow-05302422-n	穴裂口	candidate from bow	UNSURE	WRONG	WRONG	remove	adjudication	not a real word for a mouthlike opening	FORM	
+cow-05302422-n	骨	candidate from bow	WRONG	WRONG	WRONG	remove	both	means bone (other sense of os), not mouth		
+cow-05316025-n	眼珠	candidate from wikt	OK	OK	OK	keep	both			
+cow-05316025-n	眼球	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-05316025-n	睛球	candidate from wikt	OK	UNSURE	UNSURE	lower	adjudication	nonstandard form; meaning would fit eyeball if attested		
+cow-05560787-n	小腿	candidate from sew	OK	OK	OK	keep	both			
+cow-05560787-n	胫	candidate from sew	OK	OK	OK	keep	both			
+cow-05560787-n	腿	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-05658826-n	嗅觉	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-05670710-n	关切	candidate from bow	OK	OK	OK	keep	both			
+cow-05688397-n	问题	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-05718556-n	和谐的合声	candidate from bow	OK	OK	OK	keep	both	phrase; 合声 likely typo for 和声	FORM	
+cow-05718556-n	悦耳之音	candidate from sew	OK	OK	OK	keep	both			
+cow-05718556-n	美妙的声音	candidate from bow	OK	OK	OK	keep	both	descriptive phrase		FORM
+cow-05718556-n	音乐	candidate from sew	OK	OK	OK	keep	both			
+cow-05718935-n	乐曲	candidate from sew	OK	OK	OK	keep	both			
+cow-05718935-n	音乐	candidate from sew	OK	OK	OK	keep	both			
+cow-05718935-n	音乐作品	candidate from bow	OK	WRONG	WRONG	remove	adjudication	musical composition, not the sounds of music		
+cow-05755883-n	努力	candidate from bow	WRONG	WRONG	WRONG	remove	both	means 'effort/strive', not study		
+cow-05755883-n	学习	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-05755883-n	心力	candidate from bow	WRONG	WRONG	WRONG	remove	both	means mental effort/energy, not studying		
+cow-05797597-n	探究	candidate from sew	OK	OK	OK	keep	both			
+cow-05797597-n	探问	candidate from sew	OK	OK	OK	keep	both	to inquire		
+cow-05797597-n	研究	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-05797597-n	询问	candidate from sew	OK	OK	OK	keep	both			
+cow-05797597-n	调查	candidate from sew	OK	OK	OK	keep	both			
+cow-05797597-n	质询	candidate from sew	WRONG	WRONG	WRONG	remove	both	means formal interpellation/questioning (e.g. of officials), not a search for knowledge		
+cow-05810561-n	生命	candidate from sew	WRONG	OK	OK	keep	adjudication	生命 also used for the course of one's life		
+cow-05810561-n	生活	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-05810561-n	生计	candidate from bow	WRONG	WRONG	WRONG	remove	both	means livelihood, not the experience of being alive		
+cow-05919866-n	含意	candidate from sew	OK	OK	OK	keep	both			
+cow-05919866-n	定义	candidate from bow	WRONG	WRONG	WRONG	remove	both	means 'definition', not 'meaning'		
+cow-05919866-n	意义	candidate from bow	OK	OK	OK	keep	both			
+cow-05919866-n	意思	candidate from bow	OK	OK	OK	keep	both			
+cow-06155432-n	英文	candidate from bow	OK	OK	OK	keep	both			
+cow-06155432-n	英语	candidate from bow	OK	OK	OK	keep	both			
+cow-06155432-n	英语文化	candidate from sew	WRONG	WRONG	WRONG	remove	both	English culture, not the academic discipline of English		
+cow-06156968-n	美术	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-06158346-n	人生哲学	candidate from bow	WRONG	WRONG	WRONG	remove	both	personal philosophy of life, not the academic discipline		
+cow-06158346-n	哲学	candidate from bow	OK	OK	OK	keep	both			
+cow-06158346-n	哲理	candidate from bow	OK	OK	OK	keep	both			
+cow-06169488-n	文学	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-06277280-n	电视	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-06277280-n	电视业	candidate from bow	OK	OK	OK	keep	both	television industry, close		
+cow-06277280-n	电视广播	candidate from sew	OK	OK	OK	keep	both			
+cow-06277280-n	视频	candidate from sew	WRONG	OK	WRONG	remove	adjudication	video footage, not television broadcasting		
+cow-06279326-n	伊妹儿	candidate from wikt	OK	OK	OK	keep	both			
+cow-06279326-n	电子信函	candidate from sew	OK	OK	OK	keep	both			
+cow-06279326-n	电子邮件	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-06279326-n	电子邮件(E	candidate from sew	OK	OK	OK	keep	both	truncated bracket in lemma	FORM	
+cow-06279326-n	电邮	candidate from wikt	OK	OK	OK	keep	both			
+cow-06336904-n	姓	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-06336904-n	姓氏	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-06341340-n	先生	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-06349220-n	书写文字	candidate from bow	OK	OK	OK	keep	both			
+cow-06349220-n	书面语	candidate from sew	OK	OK	OK	keep	both			
+cow-06349220-n	文	candidate from bow	OK	OK	OK	keep	both			
+cow-06349220-n	文语	candidate from bow	OK	OK	OK	keep	both			
+cow-06359096-n	主页	candidate from wikt	OK	OK	OK	keep	both			
+cow-06359096-n	起始页	candidate from wikt	OK	OK	OK	keep	both			
+cow-06359096-n	首页	candidate from wikt	OK	OK	OK	keep	both			
+cow-06359877-n	书写	candidate from sew	UNSURE	WRONG	WRONG	remove	adjudication	act of writing, not written symbols		
+cow-06359877-n	字	candidate from bow	OK	OK	OK	keep	both			
+cow-06359877-n	文	candidate from bow	OK	OK	OK	keep	both			
+cow-06359877-n	文字	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-06425065-n	代号	candidate from bow	OK	OK	OK	keep	both			
+cow-06425065-n	号	candidate from sew	OK	OK	OK	keep	both			
+cow-06425065-n	号码	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-06425404-n	业务名片	candidate from bow	OK	OK	OK	keep	both			
+cow-06425404-n	名片	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-06496499-n	时刻表	candidate from sew	OK	OK	OK	keep	both			
+cow-06496499-n	时间表	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-06496499-n	班期	candidate from bow	OK	OK	OK	keep	both	schedule of runs or sailings		
+cow-06496499-n	计划表	candidate from bow	OK	OK	OK	keep	both			
+cow-06505517-n	全文	candidate from wikt	WRONG	WRONG	WRONG	remove	both	means full text, not a copy/transcript		
+cow-06505517-n	副本	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-06505517-n	复制	candidate from wikt	OK	WRONG	OK	keep	adjudication	regular noun use of copy (as in 复制品)		
+cow-06505517-n	抄本	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-06505517-n	拷贝	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-06505517-n	摹本	candidate from wikt	OK	OK	OK	keep	both			
+cow-06595351-n	期刊	candidate from sew	OK	OK	OK	keep	both	periodical		
+cow-06595351-n	杂志	candidate from bow	OK	OK	OK	keep	both			
+cow-06597758-n	评论杂志	candidate from bow	OK	OK	OK	keep	both			
+cow-06628228-n	风景明信片	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-06651577-n	劝告	candidate from bow	WRONG	WRONG	WRONG	remove	both	means 'advice/admonish', not a tip about opportunity		
+cow-06651577-n	忠告	candidate from bow	WRONG	UNSURE	WRONG	remove	adjudication	earnest advice, not a tip about an opportunity		
+cow-06929618-n	汉藏语系	candidate from bow	WRONG	WRONG	WRONG	remove	both	the whole Sino-Tibetan family, not its Sinitic subgroup (汉语族)		
+cow-06929618-n	汉语系	candidate from sew	OK	OK	OK	keep	both			
+cow-07006951-n	上演	candidate from bow	OK	OK	OK	keep	both	stage/performance		
+cow-07006951-n	播放	candidate from bow	WRONG	WRONG	WRONG	remove	both	means to broadcast/play (verb), not a stage or screen production		
+cow-07012534-n	笔划	candidate from bow	WRONG	WRONG	WRONG	remove	both	means a character stroke, not a line of text		
+cow-07012534-n	行	candidate from wikt	OK	OK	OK	keep	both			
+cow-07048000-n	歌	candidate from wikt	OK	OK	OK	keep	both			
+cow-07048000-n	歌曲	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-07048000-n	歌谣	candidate from bow	OK	OK	OK	keep	both			
+cow-07109196-n	口语	candidate from bow	OK	OK	OK	keep	both			
+cow-07109196-n	言语交流	candidate from sew	OK	OK	OK	keep	both			
+cow-07109196-n	语言	candidate from bow	OK	OK	OK	keep	both			
+cow-07110615-n	发声	candidate from sew	OK	OK	OK	keep	both			
+cow-07110615-n	声	candidate from wikt	OK	OK	OK	keep	both			
+cow-07110615-n	声音	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-07139316-n	话题	candidate from bow	OK	UNSURE	WRONG	remove	adjudication	topic of conversation, not discussion		
+cow-07139316-n	谈话的内容	candidate from sew	OK	OK	OK	keep	both	phrase rather than a word	FORM	
+cow-07185325-n	索取	candidate from sew	OK	OK	OK	keep	both			
+cow-07185325-n	请求	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-07193184-n	询问	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-07196682-n	审问	candidate from sew	WRONG	WRONG	WRONG	remove	both	means 'to interrogate (a suspect)', not an interrogative sentence		
+cow-07196682-n	疑问句	candidate from bow	OK	OK	OK	keep	both			
+cow-07196682-n	问题	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-07309457-n	一个例子	candidate from sew	OK	OK	OK	keep	both	phrase \"an example\"; roughly an instance	FORM	
+cow-07309457-n	件	candidate from bow	OK	OK	OK	keep	both	classifier for an instance/item		
+cow-07309457-n	段	candidate from bow	UNSURE	WRONG	WRONG	remove	adjudication	segment/section, not an instance of some kind		
+cow-07309457-n	片	candidate from bow	UNSURE	WRONG	WRONG	remove	adjudication	classifier for flat pieces, not an instance of some kind		
+cow-07447641-n	宴会	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-07447641-n	派对	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-07447641-n	联欢会	candidate from sew	OK	OK	OK	keep	both			
+cow-07447641-n	聚会	candidate from wikt	OK	OK	OK	keep	both			
+cow-07448717-n	舞	candidate from bow	UNSURE	WRONG	WRONG	remove	adjudication	dance activity, not a dance party (舞会)		
+cow-07448717-n	舞会	candidate from bow	OK	OK	OK	keep	both			
+cow-07448717-n	跳舞	candidate from sew	WRONG	WRONG	WRONG	remove	both	the act of dancing, not a dance party		
+cow-07450651-n	庆典	candidate from bow	OK	OK	OK	keep	both			
+cow-07450651-n	庆祝	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-07450651-n	庆祝会	candidate from sew	OK	OK	OK	keep	both			
+cow-07506569-n	羞愧	candidate from bow	OK	OK	OK	keep	both			
+cow-07506569-n	羞愧感	candidate from bow	OK	OK	OK	keep	both			
+cow-07506569-n	羞耻	candidate from bow	OK	OK	OK	keep	both			
+cow-07596684-n	甜食	candidate from bow	OK	OK	OK	keep	both			
+cow-07596684-n	糖果	candidate from sew	OK	OK	OK	keep	both			
+cow-07597365-n	糖果	candidate from bow	OK	OK	OK	keep	both			
+cow-07597365-n	蜜饯	candidate from bow	OK	UNSURE	OK	keep	adjudication	candied fruit, a kind of confection		
+cow-07629988-n	生日蛋糕	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-07644382-n	鸟	candidate from bow;sew	WRONG	WRONG	WRONG	remove	both	the bird itself; the flesh as food is 禽肉/鸟肉		
+cow-07644382-n	鸡肉	candidate from bow	OK	OK	OK	keep	both	chicken meat; narrower		
+cow-07644967-n	鸡	candidate from wikt	OK	OK	OK	keep	both			
+cow-07644967-n	鸡肉	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-07668702-n	猪肉	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-07695965-n	三明治	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-07697100-n	汉堡	candidate from bow	OK	OK	OK	keep	both			
+cow-07697100-n	汉堡包	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-07709046-n	豆	candidate from bow	OK	OK	OK	keep	both			
+cow-07709046-n	豆类	candidate from sew	OK	OK	OK	keep	both			
+cow-07709046-n	豆类植物	candidate from bow	OK	WRONG	OK	keep	adjudication	legume plants, slightly broader than the seeds		
+cow-07758680-n	葡萄	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-07776866-n	海产食品	candidate from bow	OK	OK	OK	keep	both			
+cow-07776866-n	海洋食品	candidate from bow	OK	OK	OK	keep	both			
+cow-07776866-n	海鲜	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-07804657-n	白饭	candidate from bow	OK	OK	OK	keep	both			
+cow-07804657-n	精白米	candidate from sew	OK	OK	OK	keep	both			
+cow-07823951-n	咖哩	candidate from bow	OK	OK	OK	keep	both	variant of 咖喱		
+cow-07823951-n	咖哩菜肴	candidate from sew	OK	OK	OK	keep	both			
+cow-07823951-n	咖喱	candidate from wikt	OK	OK	OK	keep	both			
+cow-07845335-n	新鲜羊奶	candidate from bow	WRONG	WRONG	WRONG	remove	both	means fresh goat's milk, not cows' milk		
+cow-07845335-n	牛奶	candidate from sew	OK	OK	OK	keep	both			
+cow-07861813-n	鸡肉饭	candidate from bow	OK	OK	OK	keep	both			
+cow-07861813-n	鸡饭	candidate from sew	OK	OK	OK	keep	both			
+cow-07865484-n	炒面	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-07868340-n	炒饭	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-07879450-n	寿司	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-07879450-n	日本寿司	candidate from wikt	OK	OK	OK	keep	both			
+cow-07891433-n	日本清酒	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-07891433-n	日本米酒	candidate from bow	OK	OK	OK	keep	both			
+cow-07891433-n	日本酒	candidate from wikt	OK	OK	OK	keep	both			
+cow-07891433-n	清酒	candidate from wikt	OK	OK	OK	keep	both			
+cow-07924033-n	天然果汁	candidate from bow	OK	OK	OK	keep	both	narrower		
+cow-07924033-n	果汁	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-07927931-n	可乐	candidate from bow	OK	OK	OK	keep	both			
+cow-07927931-n	可乐类饮料	candidate from sew	OK	OK	OK	keep	both			
+cow-07928696-n	可乐	candidate from bow;sew	OK	OK	OK	keep	both	broader		
+cow-07928696-n	可口可乐	candidate from sew	OK	OK	OK	keep	both			
+cow-07934282-n	冰红茶	candidate from bow;sew	OK	OK	OK	keep	both	iced (black) tea		
+cow-07934282-n	冰茶	candidate from wikt	OK	OK	OK	keep	both			
+cow-07934530-n	红茶	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-07935152-n	绿茶	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-07935504-n	水	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-07954731-n	一堆	candidate from sew	OK	OK	OK	keep	both			
+cow-07954731-n	全部	candidate from bow	OK	OK	OK	keep	both			
+cow-07954731-n	帮	candidate from sew	WRONG	WRONG	WRONG	remove	both	means gang/group of people, not a collection in its entirety		
+cow-07956887-n	一局牌	candidate from bow	WRONG	OK	WRONG	remove	adjudication	a round of cards, not the cards held		
+cow-07956887-n	一手牌	candidate from bow	OK	OK	OK	keep	both			
+cow-07965817-n	公众	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-07965817-n	大众	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-07965817-n	民众	candidate from bow	OK	OK	OK	keep	both			
+cow-07970301-n	朋友	candidate from sew	OK	OK	OK	keep	both			
+cow-07970301-n	相识	candidate from sew	OK	OK	OK	keep	both			
+cow-07970406-n	家	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-07970406-n	家庭	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-07994941-n	一群猎犬	candidate from bow	OK	OK	OK	keep	both	pack of hounds	FORM	
+cow-07994941-n	一群野兽	candidate from bow	OK	OK	OK	keep	both	phrase \"a group of beasts\"		FORM
+cow-07994941-n	群	candidate from wikt	OK	OK	OK	keep	both	broader		
+cow-08054417-n	医院	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-08116879-n	语言学系	candidate from bow	OK	OK	OK	keep	both			
+cow-08116879-n	语言学院	candidate from sew	WRONG	WRONG	WRONG	remove	both	language institute/school, not a linguistics department		
+cow-08145553-n	邮局	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-08145553-n	邮政部	candidate from sew	WRONG	WRONG	WRONG	remove	both	ministry of posts, not a local post office		
+cow-08182962-n	众多的人	candidate from sew	OK	OK	OK	keep	both	multitude of people	FORM	
+cow-08182962-n	多数	candidate from bow	WRONG	WRONG	WRONG	remove	both	means majority, not a vast multitude		
+cow-08182962-n	大群	candidate from bow	OK	OK	OK	keep	both			
+cow-08198137-n	军役	candidate from bow	WRONG	WRONG	WRONG	remove	both	junyi = military service duty, not a branch of the armed forces		
+cow-08253141-n	舞会	candidate from sew	OK	OK	OK	keep	both			
+cow-08255231-n	晚会	candidate from bow	OK	OK	OK	keep	both			
+cow-08255231-n	社交晚会	candidate from sew	OK	OK	OK	keep	both			
+cow-08255231-n	社交聚会	candidate from bow	OK	OK	OK	keep	both			
+cow-08281812-n	商学院	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-08284481-n	中学	candidate from wikt	OK	OK	OK	keep	both			
+cow-08284481-n	中等学校	candidate from sew	OK	OK	OK	keep	both			
+cow-08284481-n	法国公立中等学校	candidate from bow	OK	OK	OK	keep	both	lycee, narrower		FORM
+cow-08286569-n	大学	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-08355791-n	美国	candidate from sew	OK	OK	OK	keep	both	metonymy for government		
+cow-08355791-n	美国政府	candidate from bow	OK	OK	OK	keep	both			
+cow-08355791-n	美国政府机构	candidate from sew	OK	WRONG	WRONG	remove	adjudication	a US government agency, not the federal government		
+cow-08412749-n	初等学校	candidate from sew	OK	OK	OK	keep	both			
+cow-08412749-n	小学	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-08412749-n	语文小学	candidate from sew	WRONG	WRONG	WRONG	remove	both	garbled \"language primary school\", not a term for primary school		FORM
+cow-08491245-n	地址	candidate from sew	OK	OK	OK	keep	both			
+cow-08491245-n	寄件地址	candidate from sew	OK	OK	OK	keep	both	sender address, narrower		
+cow-08491245-n	通信地址	candidate from bow	OK	OK	OK	keep	both			
+cow-08491245-n	通讯处	candidate from bow	OK	OK	OK	keep	both			
+cow-08509111-n	丛林	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-08509111-n	密林	candidate from wikt	WRONG	WRONG	WRONG	remove	both	literal dense forest; concept is the figurative jungle of competition		
+cow-08563085-n	南国	candidate from bow	OK	OK	OK	keep	both			
+cow-08563085-n	南方	candidate from sew	OK	OK	OK	keep	both			
+cow-08563085-n	南部地方	candidate from bow	OK	OK	OK	keep	both			
+cow-08615638-n	停车场	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-08615638-n	停车处	candidate from bow	OK	OK	OK	keep	both			
+cow-08724726-n	中华人名共和国首都	candidate from bow	OK	OK	OK	keep	both	descriptive phrase with typo 人名 for 人民	FORM	
+cow-08724726-n	北京	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-08724726-n	北平	candidate from sew	OK	OK	OK	keep	both			
+cow-08728268-n	上海	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-08728268-n	沪	candidate from wikt	OK	OK	OK	keep	both			
+cow-09063673-n	位於美国加州南部	candidate from bow	WRONG	WRONG	WRONG	remove	both	phrase 'located in southern California', not a name for Los Angeles; traditional 於	FORM	
+cow-09063673-n	洛杉机	candidate from bow	OK	OK	OK	keep	both	variant spelling of 洛杉矶		
+cow-09063673-n	洛杉矶	candidate from sew	OK	OK	OK	keep	both			
+cow-09119277-n	纽约	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-09119277-n	纽约市	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-09358358-n	月	candidate from wikt	OK	OK	OK	keep	both			
+cow-09358358-n	月亮	candidate from wikt	OK	OK	OK	keep	both			
+cow-09358358-n	月球	candidate from wikt	OK	OK	OK	keep	both			
+cow-09397391-n	水池	candidate from bow	OK	OK	OK	keep	both			
+cow-09397391-n	池	candidate from wikt	OK	OK	OK	keep	both			
+cow-09397391-n	池塘	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-09443136-n	裂痕	candidate from bow	OK	OK	OK	keep	both			
+cow-09443136-n	裂缝	candidate from bow	OK	OK	OK	keep	both			
+cow-09624168-n	男	candidate from bow	OK	OK	OK	keep	both			
+cow-09624168-n	男人	candidate from sew	OK	OK	OK	keep	both			
+cow-09624168-n	男性	candidate from wikt	OK	OK	OK	keep	both			
+cow-09684901-n	印度教宗教教师的尊称	candidate from bow	WRONG	OK	WRONG	remove	adjudication	definition phrase, not a lexeme	FORM	
+cow-09684901-n	大师	candidate from sew	OK	OK	OK	keep	both			
+cow-09684901-n	老师	candidate from bow	OK	OK	OK	keep	both	broader: teacher		
+cow-09684901-n	阁下	candidate from sew	WRONG	WRONG	WRONG	remove	both	honorific \"your excellency\", not a Hindu religious teacher		
+cow-09708405-n	法国人	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-09708405-n	法国女人	candidate from bow;sew	OK	OK	OK	keep	both	narrower		
+cow-09732544-n	大不列颠人民	candidate from bow	OK	OK	OK	keep	both			
+cow-09732544-n	英国人	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-09732544-n	英国人民	candidate from bow	OK	OK	OK	keep	both			
+cow-09853467-n	兄	candidate from wikt	OK	OK	OK	keep	both			
+cow-09853467-n	兄长	candidate from sew	OK	OK	OK	keep	both			
+cow-09853467-n	哥哥	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-09871364-n	对象	candidate from wikt	OK	OK	OK	keep	both			
+cow-09871364-n	情郎	candidate from sew	OK	OK	OK	keep	both			
+cow-09871364-n	男友	candidate from bow	OK	OK	OK	keep	both			
+cow-09871364-n	男朋友	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-09877951-n	伙伴	candidate from sew	OK	OK	OK	keep	both			
+cow-09877951-n	兄弟	candidate from sew	OK	OK	OK	keep	both			
+cow-09877951-n	同志	candidate from bow	OK	UNSURE	OK	keep	adjudication	comrade/companion, close enough to buddy		
+cow-09877951-n	夥伴	candidate from bow	OK	OK	OK	keep	both	traditional variant of 伙伴	FORM	
+cow-09877951-n	好朋友	candidate from sew	OK	OK	OK	keep	both			
+cow-09877951-n	密友	candidate from sew	OK	OK	OK	keep	both			
+cow-09900981-n	对象	candidate from bow	OK	OK	OK	keep	both			
+cow-09936892-n	大学生	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-09966710-n	新闻记者	candidate from sew	OK	OK	OK	keep	both			
+cow-09966710-n	记者	candidate from bow	OK	OK	OK	keep	both			
+cow-09966710-n	通讯记者	candidate from bow	OK	OK	OK	keep	both			
+cow-09966710-n	顾客	candidate from bow	WRONG	WRONG	WRONG	remove	both	means customer, unrelated to correspondent		
+cow-09970699-n	同国人	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-09970699-n	同胞	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-09970699-n	国人	candidate from wikt	OK	OK	OK	keep	both			
+cow-09970963-n	乡亲	candidate from bow	OK	OK	OK	keep	both			
+cow-09970963-n	同乡人	candidate from sew	UNSURE	OK	OK	keep	adjudication	fellow townsman, slightly narrower than compatriot		
+cow-09970963-n	同胞	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-09970963-n	国人	candidate from bow	OK	OK	OK	keep	both			
+cow-10069645-n	总经理	candidate from sew	OK	OK	OK	keep	both			
+cow-10069645-n	经理	candidate from bow	OK	OK	OK	keep	both			
+cow-10069645-n	董事	candidate from sew	OK	WRONG	WRONG	remove	adjudication	board director, not an executive administrator		
+cow-10076033-n	三色紫罗兰	candidate from sew	WRONG	WRONG	WRONG	remove	both	means the pansy flower, not the slur for a homosexual man		
+cow-10076033-n	吹息蜡烛的声音	candidate from sew	WRONG	WRONG	WRONG	remove	both	phrase meaning 'sound of blowing out a candle' (a gloss of 'poof'), not the slur	FORM	
+cow-10076033-n	女子名的昵称	candidate from sew	WRONG	WRONG	WRONG	remove	both	\"nickname for a female name\"; explanation, not the slur for gay man	FORM	
+cow-10076033-n	娘娘腔的男人	candidate from bow	OK	OK	OK	keep	both	effeminate man, used as slur	FORM	
+cow-10076033-n	捆	candidate from sew	WRONG	WRONG	WRONG	remove	both	bundle/faggot of sticks sense, not the slur for a homosexual man		
+cow-10076033-n	束	candidate from sew	WRONG	WRONG	WRONG	remove	both	bundle sense, not the slur for a homosexual man		
+cow-10076033-n	束薪	candidate from sew	WRONG	WRONG	WRONG	remove	both	bundle of firewood (literal faggot), not the slur for a homosexual man		
+cow-10076033-n	柴把	candidate from sew	WRONG	WRONG	WRONG	remove	both	means a bundle of firewood (literal faggot), not the slur for a homosexual man		
+cow-10084043-n	女儿	candidate from sew	OK	OK	OK	keep	both			
+cow-10084043-n	女子孙	candidate from bow	OK	UNSURE	WRONG	remove	adjudication	not a standard word; female offspring is 女儿		
+cow-10084043-n	女後裔	candidate from bow	OK	OK	OK	keep	both	traditional character 後	FORM	
+cow-10129825-n	女子	candidate from bow	OK	OK	OK	keep	both			
+cow-10129825-n	女孩	candidate from bow	OK	OK	OK	keep	both			
+cow-10129825-n	女孩子	candidate from sew	OK	OK	OK	keep	both			
+cow-10129825-n	女郎	candidate from bow	OK	OK	OK	keep	both			
+cow-10129825-n	姑娘	candidate from sew	OK	OK	OK	keep	both			
+cow-10129825-n	小姐	candidate from sew	OK	OK	OK	keep	both			
+cow-10129825-n	少女	candidate from sew	OK	OK	OK	keep	both			
+cow-10146559-n	果菜商	candidate from bow	OK	OK	OK	keep	both			
+cow-10146559-n	菜贩	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-10146559-n	蔬菜水果商	candidate from sew	OK	OK	OK	keep	both			
+cow-10146559-n	蔬菜水果店	candidate from wikt	WRONG	OK	WRONG	remove	adjudication	the shop, not the grocer person		
+cow-10236304-n	亲戚	candidate from sew	OK	OK	OK	keep	both			
+cow-10236304-n	亲族	candidate from bow	OK	OK	OK	keep	both			
+cow-10236304-n	家族	candidate from sew;wikt	OK	UNSURE	WRONG	remove	adjudication	clan/family group, not an individual relative		
+cow-10236304-n	族人	candidate from bow	OK	OK	OK	keep	both			
+cow-10236304-n	民族	candidate from sew	WRONG	WRONG	WRONG	remove	both	means nation/ethnic group, not a kinsperson		
+cow-10247358-n	姑娘	candidate from bow	OK	OK	OK	keep	both			
+cow-10247358-n	少女	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-10247358-n	年轻女孩	candidate from bow	OK	OK	OK	keep	both			
+cow-10247358-n	未婚少女	candidate from bow	OK	OK	OK	keep	both			
+cow-10267311-n	弟弟	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-10267865-n	妹妹	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-10278128-n	妈	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-10278128-n	妈咪	candidate from sew	OK	OK	OK	keep	both			
+cow-10278128-n	妈妈	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-10278128-n	娘	candidate from wikt	OK	OK	OK	keep	both			
+cow-10278128-n	母亲	candidate from sew	OK	OK	OK	keep	both			
+cow-10278128-n	（口语）妈咪	candidate from bow	OK	OK	OK	keep	both	annotation in lemma	FORM	
+cow-10286084-n	兄弟	candidate from bow	OK	OK	OK	keep	both			
+cow-10298647-n	主人	candidate from sew	WRONG	WRONG	WRONG	remove	both	means host/owner, not a boss who directs others' work		
+cow-10298647-n	工头	candidate from bow	OK	OK	OK	keep	both			
+cow-10298647-n	师傅	candidate from bow	OK	OK	OK	keep	both	shifu: master who directs/teaches others		
+cow-10305802-n	开业医生	candidate from bow	OK	OK	OK	keep	both			
+cow-10538518-n	住在同室的人	candidate from sew	OK	OK	OK	keep	both	phrase for roommate	FORM	
+cow-10538518-n	室友	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-10548681-n	业务员	candidate from bow	OK	OK	OK	keep	both			
+cow-10548681-n	售货员	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-10548681-n	店员	candidate from bow	OK	OK	OK	keep	both			
+cow-10550673-n	圣诞老人	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-10560106-n	同学	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-10560106-n	同班	candidate from wikt	OK	OK	OK	keep	both			
+cow-10560106-n	同班同学	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-10560106-n	同窗	candidate from sew	OK	OK	OK	keep	both			
+cow-10560106-n	校友	candidate from sew	OK	OK	OK	keep	both			
+cow-10560106-n	级友	candidate from wikt	OK	OK	OK	keep	both			
+cow-10595164-n	兄弟	candidate from sew	OK	OK	OK	keep	both	brothers, narrower		
+cow-10595164-n	兄弟姐妹	candidate from bow	OK	OK	OK	keep	both			
+cow-10595164-n	姐妹	candidate from sew	OK	OK	OK	keep	both			
+cow-10643584-n	女朋友	candidate from sew	OK	OK	OK	keep	both	narrower (girlfriend only)		
+cow-10643584-n	男朋友	candidate from sew	OK	OK	OK	keep	both			
+cow-10655875-n	女性空服员	candidate from bow	OK	OK	OK	keep	both			
+cow-10655875-n	空中小姐	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-10655875-n	空姐	candidate from wikt	OK	OK	OK	keep	both			
+cow-10675721-n	监管者	candidate from bow	WRONG	WRONG	WRONG	remove	both	regulator/supervisor, not apartment caretaker		
+cow-10736602-n	大学学生	candidate from bow	OK	OK	OK	keep	both			
+cow-10736602-n	大学生	candidate from bow	OK	OK	OK	keep	both			
+cow-10736602-n	大学肄业生	candidate from bow;sew	OK	OK	OK	keep	both			
+cow-11683989-n	种子	candidate from sew	OK	OK	OK	keep	both			
+cow-11683989-n	胚	candidate from bow	WRONG	WRONG	WRONG	remove	both	means embryo, a part of the seed		
+cow-11683989-n	芽胞	candidate from bow	WRONG	WRONG	WRONG	remove	both	means spore, not seed		
+cow-12149521-n	桂竹	candidate from sew	OK	OK	OK	keep	both			
+cow-12149521-n	竹	candidate from bow	OK	OK	OK	keep	both	broader		
+cow-12212361-n	植物	candidate from bow	WRONG	WRONG	WRONG	remove	both	means plant in general (vegetable-kingdom sense), not an edible vegetable		
+cow-12212361-n	蔬菜	candidate from sew	OK	OK	OK	keep	both			
+cow-13134059-n	球根	candidate from bow	OK	OK	OK	keep	both			
+cow-13134059-n	球茎	candidate from bow	OK	OK	OK	keep	both			
+cow-13331634-n	数字	candidate from bow	OK	OK	OK	keep	both			
+cow-13331634-n	数目字	candidate from bow	OK	OK	OK	keep	both			
+cow-13384164-n	养老金	candidate from bow	OK	OK	OK	keep	both			
+cow-13384164-n	退休金	candidate from bow	OK	OK	OK	keep	both			
+cow-13596986-n	比赛记录	candidate from bow	OK	OK	OK	keep	both			
+cow-13713300-n	寸	candidate from bow	OK	OK	OK	keep	both			
+cow-13713300-n	广告空间的测量单位	candidate from sew	OK	WRONG	WRONG	remove	adjudication	definition phrase, not a lexeme	FORM	
+cow-13713300-n	英吋	candidate from bow	OK	OK	OK	keep	both	variant of 英寸		
+cow-13860281-n	蕴涵	candidate from bow	OK	OK	OK	keep	both			
+cow-14234074-n	肿疡	candidate from bow	OK	OK	OK	keep	both			
+cow-14234074-n	肿瘤	candidate from bow	OK	OK	OK	keep	both			
+cow-14424517-n	复原	candidate from bow	OK	OK	OK	keep	both			
+cow-14424517-n	恢复	candidate from bow	OK	OK	OK	keep	both			
+cow-14877585-n	气	candidate from bow;wikt	OK	OK	OK	keep	both			
+cow-14877585-n	气体	candidate from sew;wikt	OK	OK	OK	keep	both			
+cow-14924602-n	玉	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-14924602-n	玉石	candidate from wikt	OK	OK	OK	keep	both			
+cow-14924602-n	翡翠	candidate from bow	OK	OK	OK	keep	both			
+cow-14961722-n	报纸	candidate from bow	OK	OK	OK	keep	both			
+cow-14961722-n	新闻用纸	candidate from sew	OK	OK	OK	keep	both			
+cow-14961722-n	新闻纸	candidate from sew	OK	OK	OK	keep	both			
+cow-15119185-n	住院	candidate from sew	OK	OK	OK	keep	both			
+cow-15155891-n	明天	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-15155891-n	明日	candidate from bow	OK	OK	OK	keep	both			
+cow-15156001-n	今天	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-15156001-n	今日	candidate from bow	OK	OK	OK	keep	both			
+cow-15156001-n	本日	candidate from bow	OK	OK	OK	keep	both			
+cow-15156187-n	昨天	candidate from bow;sew;wikt	OK	OK	OK	keep	both			
+cow-15156187-n	昨日	candidate from bow	OK	OK	OK	keep	both			
+cow-80001973-n	救助 人	candidate from ntumc	WRONG	WRONG	WRONG	remove	both	救助人 is the helper/rescuer, not one seeking help; space inside lemma	FORM	
