@@ -17,9 +17,10 @@ Addresses three categories of problems found during wordnet validation:
         CLDR annotations) in COW replaced or deleted
   TWO   "of two" feature replaces dual for either/neither/both and the
         one-of-two pronouns; either split into universal and elective
+  PART  Japanese lemmas for grammatical particle
 
 Usage:
-    fixwn.py WN_DB [--dry-run]
+    fixwn.py WN_DB [--dry-run] [--only SECTION ...]
 """
 
 import argparse
@@ -910,7 +911,39 @@ def fix_cmn_lemmas(db, dry_run):
     return n
 
 
+# ── PART: Japanese lemmas for grammatical particle ──────────────────
+
+# grammatical particle (80001609-n) had only 不変化詞; 助詞 is also on its
+# hyponym postpositional particle (80001559-n), as 助词 is in Chinese
+PARTICLE = "80001609-n"
+NEW_PARTICLE_LEMMAS = ["不変化詞", "小辞", "助詞"]
+
+
+def fix_particle(db, dry_run):
+    """Add Japanese lemmas to grammatical particle."""
+    n = 0
+    for lemma in NEW_PARTICLE_LEMMAS:
+        n += _add_sense(db, PARTICLE, "jpn", lemma, "n", dry_run, src="ntumc")
+    print(f"  {n} senses {'to add' if dry_run else 'added'}.")
+    return n
+
+
 # ── Main ──────────────────────────────────────────────────────────────
+
+SECTIONS = [
+    ("W502", "Self-loops", [fix_self_loops]),
+    ("W501", "POS-mismatch hypernyms", [fix_pos_mismatches]),
+    ("DEF", "Wrong definitions", [fix_defs, delete_defs]),
+    ("EX", "Wrong examples", [fix_examples]),
+    ("SENSE", "Wrong senses", [delete_senses]),
+    ("DEIX", "Missing deixis links", [fix_deixis]),
+    ("JSEM", "senses from JSemCor", [fix_jsemcor]),
+    ("EXCL", "missing Japanese exclamatives", [fix_exclamatives]),
+    ("TWO", "of-two feature, either split", [fix_two]),
+    ("LEMMA", "bracketed Chinese lemmas", [fix_cmn_lemmas]),
+    ("PART", "Japanese lemmas for grammatical particle", [fix_particle]),
+]
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -920,6 +953,11 @@ def main():
     parser.add_argument(
         "--dry-run", action="store_true",
         help="Show what would be done without modifying the database",
+    )
+    parser.add_argument(
+        "--only", nargs="+", metavar="SECTION",
+        choices=[key for key, _, _ in SECTIONS],
+        help="Run only these sections",
     )
     args = parser.parse_args()
 
@@ -937,46 +975,13 @@ def main():
             for name, _ in triggers:
                 db.execute(f"DROP TRIGGER [{name}]")
 
-    print("--- W502: Self-loops ---")
-    fix_self_loops(db, args.dry_run)
-    print()
-
-    print("--- W501: POS-mismatch hypernyms ---")
-    fix_pos_mismatches(db, args.dry_run)
-    print()
-
-    print("--- DEF: Wrong definitions ---")
-    fix_defs(db, args.dry_run)
-    delete_defs(db, args.dry_run)
-    print()
-
-    print("--- EX: Wrong examples ---")
-    fix_examples(db, args.dry_run)
-    print()
-
-    print("--- SENSE: Wrong senses ---")
-    delete_senses(db, args.dry_run)
-    print()
-
-    print("--- DEIX: Missing deixis links ---")
-    fix_deixis(db, args.dry_run)
-    print()
-
-    print("--- JSEM: senses from JSemCor ---")
-    fix_jsemcor(db, args.dry_run)
-    print()
-
-    print("--- EXCL: missing Japanese exclamatives ---")
-    fix_exclamatives(db, args.dry_run)
-    print()
-
-    print("--- TWO: of-two feature, either split ---")
-    fix_two(db, args.dry_run)
-    print()
-
-    print("--- LEMMA: bracketed Chinese lemmas ---")
-    fix_cmn_lemmas(db, args.dry_run)
-    print()
+    for key, title, fixes in SECTIONS:
+        if args.only and key not in args.only:
+            continue
+        print(f"--- {key}: {title} ---")
+        for fix in fixes:
+            fix(db, args.dry_run)
+        print()
 
     if not args.dry_run:
         if triggers:
