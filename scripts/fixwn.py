@@ -18,6 +18,8 @@ Addresses three categories of problems found during wordnet validation:
   TWO   "of two" feature replaces dual for either/neither/both and the
         one-of-two pronouns; either split into universal and elective
   PART  Japanese lemmas for grammatical particle
+  DIR   Direction features (locative, goal) for where; Czech kde and kam
+        moved off general where
 
 Usage:
     fixwn.py WN_DB [--dry-run] [--only SECTION ...]
@@ -928,6 +930,45 @@ def fix_particle(db, dry_run):
     return n
 
 
+# ── DIR: direction of where (Czech kde, kam) ──────────────────────────
+
+# English where marks no direction, but Czech kde is location only and kam
+# goal only, so they get their own synsets (requested via omw-pronoun,
+# whose data/remap.tsv works around it until then)
+WHERE = "77000084-n"
+LOCATIVE, GOAL = "77010123-n", "77010124-n"
+WHERE_AT, WHERE_TO = "77000143-n", "77000144-n"
+DIR_SYNSETS = [
+    (LOCATIVE, "locative", "used of a place word that marks location: at a place"),
+    (GOAL, "goal", "used of a place word that marks direction: to a place"),
+    (WHERE_AT, "where (at)", "location, interrogative pronoun, locative"),
+    (WHERE_TO, "where (to)", "location, interrogative pronoun, goal"),
+]
+# Links to add, each with its reverse
+DIR_REVERSE = {"hype": "hypo", "dmnu": "dmtu", "also": "also"}
+DIR_LINKS = [
+    (ss, link, target)
+    for ss, feature in ((WHERE_AT, LOCATIVE), (WHERE_TO, GOAL))
+    for link, target in (("hype", "08664443-n"), ("dmnu", "77010122-n"),
+                         ("dmnu", feature), ("also", WHERE))
+]
+DIR_MOVES = [(WHERE, WHERE_AT, "ces", "kde"), (WHERE, WHERE_TO, "ces", "kam")]
+
+
+def fix_direction(db, dry_run):
+    """Add locative and goal where, and move Czech kde and kam to them."""
+    n = 0
+    for ss, name, definition in DIR_SYNSETS:
+        n += _add_synset(db, ss, name, definition, dry_run)
+    for s1, link, s2 in DIR_LINKS:
+        n += _add_link(db, s1, link, s2, dry_run)
+        n += _add_link(db, s2, DIR_REVERSE[link], s1, dry_run)
+    for old, new, lang, lemma in DIR_MOVES:
+        n += _move_sense(db, old, new, lang, lemma, dry_run)
+    print(f"  {n} changes {'to make' if dry_run else 'made'}.")
+    return n
+
+
 # ── Main ──────────────────────────────────────────────────────────────
 
 SECTIONS = [
@@ -942,6 +983,7 @@ SECTIONS = [
     ("TWO", "of-two feature, either split", [fix_two]),
     ("LEMMA", "bracketed Chinese lemmas", [fix_cmn_lemmas]),
     ("PART", "Japanese lemmas for grammatical particle", [fix_particle]),
+    ("DIR", "direction of where (Czech kde, kam)", [fix_direction]),
 ]
 
 
