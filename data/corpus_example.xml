@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Corpus SYSTEM "ntumc.dtd">
+<!-- A small multilingual corpus in the NTU-MC XML format (see
+     docs/corpus-xml.md).  Load it with
+       scripts/corpus_xml.py load data/corpus_example.xml -\-outdir DIR
+     which creates eng.db, ita.db, spa.db and the link databases
+     eng-ita.db and eng-spa.db in DIR.                                   -->
+<Corpus corpusID="example"
+        title="Example of a multilingual corpus"
+        linguality="multilingual"
+        license="CC BY 4.0"
+        version="2026-10">
+  <Document docID="eng-d1"
+            doc="woman"
+            language="eng"
+            title="A title"
+            collection="story"
+            collection_title="Short Stories"
+            genre="fiction">
+    <Sentence sid="eng-s1"
+              sent="The beautiful woman"
+              pid="1"
+              last_changed_by="annotator">
+      <Word wid="eng-s1w0" surface_form="The" lemma="the" pos="DT" cfrom="0" cto="3"/>
+      <Word wid="eng-s1w1" surface_form="beautiful" lemma="beautiful" pos="JJ" cfrom="4" cto="13"/>
+      <Word wid="eng-s1w2" surface_form="woman" lemma="woman" pos="NN" cfrom="14" cto="19"/>
+      <Concept cid="eng-s1c0" wid="eng-s1w1" clemma="beautiful" synset_tag="00217728-a"/>
+      <Concept cid="eng-s1c1" wid="eng-s1w2" clemma="woman" synset_tag="10787470-n">
+        <Tag category="sentiment" value="34" last_changed_by="annotator"/>
+      </Concept>
+      <Chunk chid="eng-s1x0" wid="eng-s1w1 eng-s1w2">
+        <Tag category="sentiment" value="60"/>
+      </Chunk>
+      <Tag category="stype" value="p"/>
+    </Sentence>
+  </Document>
+  <Document docID="ita-d1"
+            doc="woman"
+            language="ita"
+            title="Un titolo"
+            collection="story"
+            collection_title="Racconti"
+            genre="fiction">
+    <Sentence sid="ita-s1" sent="La bella donna">
+      <Word wid="ita-s1w0" surface_form="La" lemma="il" pos="DET" cfrom="0" cto="2"/>
+      <Word wid="ita-s1w1" surface_form="bella" lemma="bello" pos="ADJ" cfrom="3" cto="8"/>
+      <Word wid="ita-s1w2" surface_form="donna" lemma="donna" pos="NOUN" cfrom="9" cto="14"/>
+      <Concept cid="ita-s1c0" wid="ita-s1w1" clemma="bello" synset_tag="00217728-a"/>
+      <Concept cid="ita-s1c1" wid="ita-s1w2" clemma="donna" synset_tag="10787470-n"/>
+    </Sentence>
+  </Document>
+  <Document docID="spa-d1"
+            doc="woman"
+            language="spa"
+            title="Un titulo"
+            collection="story"
+            collection_title="Cuentos"
+            genre="fiction">
+    <Sentence sid="spa-s1" sent="La mujer hermosa">
+      <Word wid="spa-s1w0" surface_form="La" lemma="el" pos="DET" cfrom="0" cto="2"/>
+      <Word wid="spa-s1w1" surface_form="mujer" lemma="mujer" pos="NOUN" cfrom="3" cto="8"/>
+      <Word wid="spa-s1w2" surface_form="hermosa" lemma="hermoso" pos="ADJ" cfrom="9" cto="16"/>
+      <Concept cid="spa-s1c0" wid="spa-s1w1" clemma="mujer" synset_tag="10787470-n"/>
+      <Concept cid="spa-s1c1" wid="spa-s1w2" clemma="hermoso" synset_tag="00217728-a"/>
+    </Sentence>
+  </Document>
+  <Alignment>
+    <DocAlignment docID="eng-d1 ita-d1 spa-d1"/>
+    <SentAlignment sid_from="eng-s1" sid_to="ita-s1" conf="1.0"/>
+    <SentAlignment sid_from="eng-s1" sid_to="spa-s1" conf="1.0"/>
+    <WordAlignment wid_from="eng-s1w2" wid_to="ita-s1w2" type="automatic"/>
+    <WordAlignment wid_from="eng-s1w2" wid_to="spa-s1w1" type="automatic"/>
+    <ConceptAlignment cid_from="eng-s1c1" cid_to="ita-s1c1" ltype="="/>
+    <ConceptAlignment cid_from="eng-s1c1" cid_to="spa-s1c0" ltype="="/>
+  </Alignment>
+</Corpus>

@@ -1,0 +1,131 @@
+<!-- NTU Multilingual Corpus (NTU-MC) XML interchange format.
+
+     One file holds one or more languages.  Each Document carries its own
+     language; the optional Alignment block at the end holds the
+     cross-lingual links.  The format is documented in docs/corpus-xml.md
+     and converted to and from the SQLite databases by scripts/corpus_xml.py.
+
+     This is the DTD first drafted by Giulia Bonansinga and Luis Morgado da
+     Costa (2019, github.com/lmorgadodacosta/NTUMC), with optional
+     attributes added so that a database round-trips without loss.       -->
+
+<!ELEMENT Corpus (Document+, Alignment?)>
+<!ATTLIST Corpus
+          corpusID ID #REQUIRED
+          title CDATA #REQUIRED
+          linguality (multilingual | monolingual) #REQUIRED
+          license CDATA #IMPLIED
+          version CDATA #IMPLIED>
+
+<!-- collection: short name of the sub-corpus the document belongs to
+     (e.g. 'story', 'kc'); genre: one of essay, fiction, lexical, news,
+     online, tourism.  Both are needed to create a new collection when
+     loading into a database.                                            -->
+<!ELEMENT Document (Sentence+)>
+<!ATTLIST Document
+          docID ID #REQUIRED
+          doc CDATA #REQUIRED
+          language CDATA #REQUIRED
+          title CDATA #REQUIRED
+          subtitle CDATA #IMPLIED
+          url CDATA #IMPLIED
+          collection CDATA #IMPLIED
+          collection_title CDATA #IMPLIED
+          genre (essay|fiction|lexical|news|online|tourism) #IMPLIED>
+
+<!-- Tag: an open-ended annotation.  Categories in use:
+       on Sentence: stype       (h0-h7, p, item, author, translator ...)
+       on Concept:  sentiment   (-100 .. 100)
+                    ne          (named-entity type: per, org, loc, dat, num,
+                                 oth, nam)
+                    candidates  (synset ids offered to the annotator)
+       on Chunk:    sentiment   (-100 .. 100)                            -->
+<!ELEMENT Tag EMPTY>
+<!ATTLIST Tag
+          category CDATA #REQUIRED
+          value CDATA #REQUIRED
+          comment CDATA #IMPLIED
+          last_changed_by CDATA #IMPLIED
+          last_changed CDATA #IMPLIED
+          confidence CDATA #IMPLIED>
+
+<!ELEMENT Sentence (Word*, Concept*, Chunk*, Tag*)>
+<!ATTLIST Sentence
+          sid ID #REQUIRED
+          sent CDATA #REQUIRED
+          pid CDATA #IMPLIED
+          comment CDATA #IMPLIED
+          last_changed_by CDATA #IMPLIED
+          last_changed CDATA #IMPLIED>
+
+<!-- Allowed values for upos: http://universaldependencies.org/u/pos/ -->
+<!ELEMENT Word (Tag*)>
+<!ATTLIST Word
+          wid ID #REQUIRED
+          lemma CDATA #IMPLIED
+          surface_form CDATA #REQUIRED
+          upos (ADJ|ADP|ADV|AUX|CCONJ|DET|INTJ|NOUN|NUM|PART|PRON|
+                PROPN|PUNCT|SCONJ|SYM|VERB|X) #IMPLIED
+          pos CDATA #IMPLIED
+          cfrom CDATA #IMPLIED
+          cto CDATA #IMPLIED
+          comment CDATA #IMPLIED
+          last_changed_by CDATA #IMPLIED
+          last_changed CDATA #IMPLIED>
+
+<!-- synset_tag: a wordnet synset id such as 02084071-n, or one of the
+     meta-tags e (error), w (wordnet gap), x (not in wordnet).
+     wid: the words the concept covers; a concept should have at least
+     one, but the databases hold a few orphans, so it is not required.  -->
+<!ELEMENT Concept (Tag*)>
+<!ATTLIST Concept
+          cid ID #REQUIRED
+          wid IDREFS #IMPLIED
+          clemma CDATA #REQUIRED
+          synset_tag CDATA #IMPLIED
+          comment CDATA #IMPLIED
+          last_changed_by CDATA #IMPLIED
+          last_changed CDATA #IMPLIED>
+
+<!ELEMENT Chunk (Tag*)>
+<!ATTLIST Chunk
+          chid ID #REQUIRED
+          wid IDREFS #IMPLIED
+          comment CDATA #IMPLIED
+          last_changed_by CDATA #IMPLIED
+          last_changed CDATA #IMPLIED>
+
+<!-- ltype: link type as stored in the database; for concept links this is
+     the wordnet relation between the two concepts (= same synset,
+     < hyponym, > hypernym, ~ related, ! antonym).  conf: 0.0 - 1.0.     -->
+<!ELEMENT Alignment (DocAlignment*, SentAlignment*, WordAlignment*, ConceptAlignment*)>
+<!ELEMENT DocAlignment EMPTY>
+<!ATTLIST DocAlignment
+          docID IDREFS #REQUIRED>
+<!ELEMENT SentAlignment EMPTY>
+<!ATTLIST SentAlignment
+          sid_from IDREF #REQUIRED
+          sid_to IDREFS #REQUIRED
+          type (manual|automatic) "manual"
+          ltype CDATA #IMPLIED
+          conf CDATA #IMPLIED
+          comment CDATA #IMPLIED
+          last_changed_by CDATA #IMPLIED>
+<!ELEMENT WordAlignment EMPTY>
+<!ATTLIST WordAlignment
+          wid_from IDREF #REQUIRED
+          wid_to IDREFS #REQUIRED
+          type (manual|automatic) "manual"
+          ltype CDATA #IMPLIED
+          conf CDATA #IMPLIED
+          comment CDATA #IMPLIED
+          last_changed_by CDATA #IMPLIED>
+<!ELEMENT ConceptAlignment EMPTY>
+<!ATTLIST ConceptAlignment
+          cid_from IDREF #REQUIRED
+          cid_to IDREFS #REQUIRED
+          type (manual|automatic) "manual"
+          ltype CDATA #IMPLIED
+          conf CDATA #IMPLIED
+          comment CDATA #IMPLIED
+          last_changed_by CDATA #IMPLIED>

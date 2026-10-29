@@ -26,6 +26,7 @@ CREATE TABLE corpus (
        ,corpus TEXT      -- short identifier (e.g. 'yoursing', 'story', 'kc')
        ,title TEXT       -- human-readable title, often in the corpus language
        ,language TEXT    -- language code (may duplicate meta.lang)
+       ,genre TEXT NOT NULL CHECK (genre IN ('essay', 'fiction', 'lexical', 'news', 'online', 'tourism'))
 );
 
 -- A document is a single text (web page, chapter, article) within a corpus.

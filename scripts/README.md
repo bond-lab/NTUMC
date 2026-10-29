@@ -46,6 +46,32 @@ disambiguation (gloss matching, pronunciation notes, Taiwan
 cross-references).  Writes ambiguous cases to a TSV for review.
 
 
+## Corpus XML
+
+**`corpus_xml.py`** — Convert corpus databases to XML (`data/ntumc.dtd`)
+and back.  The format is described in `docs/corpus-xml.md`.
+
+```
+# database -> XML; links come from the pair databases
+.venv/bin/python scripts/corpus_xml.py dump OUT.xml --db eng.db jpn.db \
+    --link eng-jpn.db [--doc NAME ...] [--collection NAME ...]
+
+# XML -> DIR/LANG.db and DIR/FLANG-TLANG.db (created from data/*.sql if absent)
+.venv/bin/python scripts/corpus_xml.py load IN.xml --outdir DIR \
+    [--renumber] [--skip-existing] [--user NAME]
+
+# DTD check (xmllint)
+.venv/bin/python scripts/corpus_xml.py validate IN.xml
+```
+
+`load` keeps document and sentence numbers from the ids when they are
+free, refuses numbers already in the database (`--renumber` assigns
+fresh ones), and with `--skip-existing` passes over documents already
+loaded while still accepting links to them, which is how a new language
+aligned to existing English documents is added.  Tests:
+`scripts/test_corpus_xml.py`.
+
+
 ## Database maintenance
 
 **`fixwn.py`** — Fix validation issues in `wn-ntumc.db`.
