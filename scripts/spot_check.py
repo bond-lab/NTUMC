@@ -4,9 +4,10 @@
          language, a blind sheet for a native-speaker checker (no model
          verdicts), a key with the decision and stratum of each item,
          and an overlap sheet of 50 of the same items for a second checker
-  score  compare filled-in sheets with the keys: agreement per stratum
-         (per language and pooled) with a 95% Wilson interval, and the
-         agreement of the two checkers on the overlap items (Cohen's kappa)
+  score  compare filled-in sheets (in returned/, else the sheets
+         themselves) with the keys: agreement per stratum (per language
+         and pooled) with a 95% Wilson interval, and the agreement of the
+         two checkers on the overlap items (Cohen's kappa)
 
   spot_check.py make  [--out docs/quality-sample/spot-check] [--n 20]
   spot_check.py score [--out docs/quality-sample/spot-check]
@@ -272,11 +273,17 @@ def kappa(pairs: list[tuple[str, str]]) -> float | None:
     return 1.0 if pe == 1 else (po - pe) / (1 - pe)
 
 
+def filled(out: Path, name: str) -> Path:
+    """The returned copy of sheet name (in out/returned/) if there is one, else out/name."""
+    back = out / "returned" / name
+    return back if back.exists() else out / name
+
+
 def human_agreement(a: argparse.Namespace) -> list[list]:
     """Agreement of the second checker (overlap sheet) with the first, per language."""
     out = []
     for lang in ALL:
-        first, second = a.out / f"{lang}-sheet.tsv", a.out / f"{lang}-overlap-sheet.tsv"
+        first, second = filled(a.out, f"{lang}-sheet.tsv"), filled(a.out, f"{lang}-overlap-sheet.tsv")
         if not (first.exists() and second.exists()):
             continue
         one = {r["item"]: r["meaning"].strip().upper() for r in tr.read_tsv(first)}
@@ -296,7 +303,7 @@ def score(a: argparse.Namespace) -> None:
     out = []
     pooled = defaultdict(Counter)
     for lang in ALL:
-        sheet = a.out / f"{lang}-sheet.tsv"
+        sheet = filled(a.out, f"{lang}-sheet.tsv")
         if not sheet.exists():
             continue
         ans = {r["item"]: r for r in tr.read_tsv(sheet)}

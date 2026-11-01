@@ -89,3 +89,11 @@ def test_human_agreement(tmp_path: Path) -> None:
 
     # Assert: only the item both answered counts
     assert got == [["ja", 1, "1.00", "1.00"]]
+
+
+def test_filled_prefers_returned(tmp_path: Path) -> None:
+    (tmp_path / "ja-sheet.tsv").write_text("blank")
+    assert sc.filled(tmp_path, "ja-sheet.tsv") == tmp_path / "ja-sheet.tsv"
+    (tmp_path / "returned").mkdir()
+    (tmp_path / "returned" / "ja-sheet.tsv").write_text("filled")
+    assert sc.filled(tmp_path, "ja-sheet.tsv") == tmp_path / "returned" / "ja-sheet.tsv"

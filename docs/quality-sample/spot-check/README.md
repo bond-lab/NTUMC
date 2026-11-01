@@ -89,7 +89,8 @@ the old form.  Items the checker leaves blank are not counted.
 
 ## Scoring
 
-Put the returned sheets back here under the same names, then run
+Put the returned sheets in `returned/` under the same names (the blank
+sheets here stay as they are, for further checkers), then run
 
     .venv/bin/python scripts/spot_check.py score
 
@@ -98,6 +99,17 @@ the languages (`all`), the number of items checked, the share supporting
 the decision and a 95% Wilson interval; and, if overlap sheets have come
 back, `key/checker-agreement.tsv`: the two checkers' agreement on
 `meaning` and Cohen's kappa.
+`score` counts UNSURE as not supporting the decision, so report how many
+there were.
+
+### Returned so far
+
+* `returned/ja-overlap-sheet.tsv` (2026-11-01), the second Japanese
+  checker: 42 definite answers, 37 supporting the decision (0.88); 7
+  UNSURE, mostly senses the checker had not heard of (母 for the Mam
+  people, 風味 for quark colour, both rightly removed).  It found one
+  sense both Opus runs wrongly kept, 緩やか *lenient*, now removed in wnja.
+
 Multiplying by the stratum populations gives, for example, how many of the
 removed senses were in fact right, and how many wrong senses remain among
 the unflagged ones.
