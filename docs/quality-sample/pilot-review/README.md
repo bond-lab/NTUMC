@@ -35,15 +35,23 @@ that the reviewers could not place.
 
 ## A second company on the removals
 
-The 136 removals were reviewed blind once more by OpenAI's Codex CLI
-(0.144.1, default model; `codex-remove.tsv`), alone, under fresh ids.
-It agrees on 97 (WRONG), says OK on 27 and UNSURE on 12.  Its OKs are a
-mix: some are plausible (救済 *rescue*, 降下 *fall*, 落とす *lower in
-quality*, 付録 *accessory*), others look lenient (郭大 a typo for 拡大,
-憲法の州 a literal epithet for Connecticut, 広々とした水面 a phrase).  On
-the dev items Codex alone is a weaker judge than Sonnet
-(`../calibration/`), so its OK is a reason for a person to look, not to
-keep.  Proposal: remove the 97 on which all three runs agree; queue the 39.
+The 136 removals were reviewed blind, alone, by OpenAI's Codex CLI
+(`codex-remove.tsv`): first with gpt-5.6-sol at low effort (almost
+certainly; see `../calibration/`), then with gpt-6.1-sol at high effort.
+
+| Codex | WRONG | OK | UNSURE |
+|---|---:|---:|---:|
+| gpt-5.6-sol, low | 97 | 27 | 12 |
+| gpt-6.1-sol, high | 107 | 18 | 11 |
+
+The two Codex runs both say WRONG on 88.  gpt-6.1-sol's OKs are a mix:
+some are plausible (救済 *rescue*, 摘出 *exposing wrongdoing*, 守る
+*maintain*, 引取人 *guarantor*); some are form problems that the prompt,
+which asks only about meaning, lets through (広々とした水面 and 憲法の州
+are phrases); some look lenient (通勤学).  On the dev items it is nearly as
+good a judge as Sonnet, so its OK or UNSURE is a reason for a person to
+look.  Proposal: remove the 107 on which both Sonnet runs and gpt-6.1-sol
+agree; queue the 29.
 
 ## Position in the batch
 

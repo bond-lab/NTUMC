@@ -1,137 +1,137 @@
-synset	word	codex	codex_reason
-wnja-00031899-r	其は	OK	其は can function as an emphatic intensifier
-wnja-00061814-r	早く	WRONG	Means early or quickly, not suddenly
-wnja-00073033-r	おさおさ	WRONG	Means wholly or sufficiently, not almost
-wnja-00073897-r	オモニ	WRONG	Means mother in Korean usage, not mainly
-wnja-00133338-n	ラップ	OK	ラップ can mean a sharp blow or rap
-wnja-00150671-r	副	WRONG	means deputy/secondary, not above all
-wnja-00157462-v	勝ち取る	WRONG	Means win or secure, not increase or develop
-wnja-00186644-r	敏感に	WRONG	means sensitively, not irritably
-wnja-00240293-v	郭大	OK	Rare/variant spelling of 拡大, to enlarge
-wnja-00242961-r	青臭い	WRONG	Means immature or grassy-smelling, not green-colored
-wnja-00252020-n	塗布	WRONG	means application/coating, not mop cleaning
-wnja-00284798-n	繰出	UNSURE	likely an orthographic form of outing/procession, not ordinary walk
-wnja-00285506-a	黄疸性	WRONG	means icteric, not prejudiced or envious
-wnja-00315700-n	通勤学	UNSURE	nonstandard compound plausibly meaning commuting to work/school
-wnja-00333366-n	動乱	WRONG	civil turmoil, not physical stirring
-wnja-00358431-v	上天	WRONG	Means heaven or ascension, not die
-wnja-00487748-v	落とす	OK	Can mean lower or debase quality
-wnja-00511178-v	刻印	WRONG	means engraving/stamping, not mark with a tip
-wnja-00660730-v	降す	UNSURE	Can lower something, but rating downgrade is not clearly normal
-wnja-00687181-v	非難	WRONG	means criticism/blame, not invalidate documents
-wnja-00785263-n	介入	WRONG	Means intervention, not unlawful entry
-wnja-00819024-n	救済	OK	Can mean rescue or saving from danger
-wnja-00828003-v	預言	WRONG	means prophecy, not deliver a sermon
-wnja-00853195-v	摘出	OK	Can mean exposure or bringing to light
-wnja-00876332-v	説教	WRONG	means sermon/preaching, not put forward an idea
-wnja-00902807-v	混合	WRONG	Means mixing or mixture, not announcing a card score
-wnja-01017701-n	中止	WRONG	Means stopping or suspension, not hanging an object
-wnja-01017738-a	不適当	WRONG	means inappropriate/unsuitable, not out of shape
-wnja-01062997-n	休暇	UNSURE	leave/holiday, not normally a brief pause
-wnja-01072949-v	成る	WRONG	成る does not mean participate in sport
-wnja-01095899-v	行動	OK	行動 can mean to act or perform duties
-wnja-01133825-v	放流	WRONG	water release is not firing a gun
-wnja-01170052-v	食う	WRONG	Means eat, not drink liquids
-wnja-01178220-v	零す	WRONG	means spill/complain, not feed pigs
-wnja-01186428-v	乳酸	WRONG	Means lactic acid, not breastfeed
-wnja-01229976-v	差立てる	WRONG	means erect or dispatch, not jab
-wnja-01234729-n	返済	WRONG	repayment, not reciprocal group action
-wnja-01261263-v	掠める	WRONG	Means skim or graze, not coat a liquid with a layer
-wnja-01282413-v	鼻掘り	OK	literally digging with the nose/snout
-wnja-01345877-v	折る	WRONG	means fold/break, not confine animals
-wnja-01367008-a	忽々たる	WRONG	means hurried/restless, not ecstatic
-wnja-01401115-v	捕らえる	OK	Can mean catch or strike a body part
-wnja-01454985-a	遅い	WRONG	means slow/late, not softened in sound
-wnja-01473680-a	主要	OK	Major in seriousness or importance
-wnja-01499155-a	惨め	WRONG	means miserable, not limitless or very great
-wnja-01649809-v	成る	WRONG	成る does not mean carry out a performance
-wnja-01767163-v	憤悶	WRONG	means indignation or anguish, not verb worry
-wnja-01839170-v	求める	WRONG	Means seek or request, not move toward physically
-wnja-02011622-a	遅い	WRONG	Means slow or late, not a muffled sound
-wnja-02135607-v	話す	UNSURE	figuratively possible, but not normal for natural sound
-wnja-02156546-v	寂滅	WRONG	Means nirvana or death, not become invisible
-wnja-02340458-a	小っちゃい	UNSURE	means small; inferior quality is context-dependent
-wnja-02416390-a	重たい	UNSURE	Heavy can describe opacity, but this use is marginal
-wnja-02518470-a	オカルト	OK	Can mean hidden or not visible, as in occult fracture
-wnja-02531500-v	強く反対	WRONG	phrase means strongly oppose, not strive
-wnja-02578008-v	埋める	WRONG	means bury/fill, not entrap or frame
-wnja-02648253-v	不滅に	WRONG	Adverbial phrase, not a verb meaning perpetuate
-wnja-02671421-n	付録	OK	Can mean a supplementary accessory or add-on
-wnja-02684924-v	守る	WRONG	Means protect or observe, not continue an activity
-wnja-02892392-n	腕章	WRONG	armband, not protective armor plate
-wnja-03005920-n	変わり目	WRONG	Means transition or turning point, not a different item
-wnja-03006105-n	仲介物	WRONG	means intermediary, not water passage
-wnja-03279918-n	電気鰻	WRONG	means electric eel, not electrostatic generator
-wnja-03541696-n	人宿	OK	A lodging or inn for travelers
-wnja-03600806-n	合わせ目	WRONG	Means seam or joint, not marijuana cigarette
-wnja-03666591-n	洋灯	WRONG	Means lamp, not a lighter or igniter
-wnja-03841417-n	書籍	WRONG	Means books or publications, not an artist's oeuvre
-wnja-04141975-n	荷重検査器	OK	a device for checking weight/load
-wnja-04164868-n	参事	WRONG	means councillor/secretary, not writing desk
-wnja-04243142-n	汚水	WRONG	Means sewage, not cheap sailors' clothing
-wnja-04269270-n	口火	WRONG	means fuse or pilot light
-wnja-04640176-n	良性	WRONG	means benign, not cheerful obliging disposition
-wnja-04640356-n	謝礼	WRONG	means honorarium/reward, not goodwill
-wnja-04668139-n	柔らかさ	WRONG	means softness, not derogatory effeminacy
-wnja-04752034-n	変動	WRONG	change/fluctuation, not pleasant variety
-wnja-04962784-n	朱塗り	WRONG	Means vermilion-painted finish, not red color itself
-wnja-05075602-n	組み入れ	WRONG	means incorporation/insertion, not spatial arrangement
-wnja-05162642-n	尻	WRONG	Means rear/end, not a deficiency
-wnja-05650579-n	用心	WRONG	Means caution or vigilance, not mental concentration
-wnja-05693919-n	痞	WRONG	Means chest obstruction or hindrance, not immaterial support
-wnja-05698247-n	不安定	WRONG	Means instability, not subjective doubt
-wnja-05826469-n	歪曲	WRONG	distortion/falsification, not disproof evidence
-wnja-05846054-n	正規	WRONG	means regular/formal, not a behavioral rule
-wnja-06185138-n	切支丹	WRONG	means early Japanese Christianity/Christian, not Jesuit doctrine
-wnja-06389230-n	消去	UNSURE	erasure normally denotes act/result, possibly erased spot
-wnja-06417279-n	通常文	WRONG	means ordinary sentence, not missal
-wnja-06429483-n	翻訳	UNSURE	Can be figurative translation into plainer terms, but not the usual label
-wnja-06513366-n	起請	WRONG	means vow or oath, not petition
-wnja-06685754-n	安全	WRONG	Means safety/security, not a pledged guarantee
-wnja-06715223-n	恥	WRONG	means shame/disgrace, not insulting expression
-wnja-06724066-n	定	WRONG	means certainty/fate, not true statement
-wnja-06806469-n	記	WRONG	means record/account, not arbitrary symbol
-wnja-06942094-n	パイ	WRONG	Means pie or pi, not Proto-Indo-European
-wnja-07117595-n	音門破裂音	OK	Variant term for glottal plosive
-wnja-07264384-n	曳光弾	OK	Can denote an illuminating star shell
-wnja-07286014-n	萌やし	WRONG	means bean sprouts, not omen
-wnja-07351612-n	自転	WRONG	Means axial rotation, not a change of direction
-wnja-07427728-n	降下	OK	Can mean a fall or sudden decline
-wnja-07507912-n	無秩序	WRONG	Means disorder or chaos, not embarrassed confusion
-wnja-07523905-n	五月蝿い	WRONG	means noisy/annoying, not anxiety
-wnja-07542675-n	大腐り	OK	deep discouragement or dejection
-wnja-07786856-n	青柳	WRONG	a different clam species/product
-wnja-07998712-n	団結	UNSURE	union generally, but mathematical set union is not normal usage
-wnja-08248856-n	交響曲	WRONG	Means symphony, not symphony orchestra
-wnja-08304895-n	接続	WRONG	Means connection, not a political union
-wnja-08632423-n	広々とした水面	OK	descriptive phrase for open water expanse
-wnja-08941426-n	真中	WRONG	Means center generally, not the French region
-wnja-09020440-n	契骨	WRONG	archaic ethnonym, not the country
-wnja-09068444-n	憲法の州	OK	Literal translated epithet for Connecticut
-wnja-09236766-n	絨毯	OK	Metaphorically a carpet-like natural covering
-wnja-09259376-n	クレーター	OK	クレーター is the constellation Crater as a proper name
-wnja-09358358-n	太陰暦	WRONG	means lunar calendar, not Moon
-wnja-09407867-n	貯水池	OK	Reservoir also denotes an infection reservoir
-wnja-09515131-n	アルリム	WRONG	Not the Japanese name for Adapa
-wnja-09638245-n	富む	WRONG	verb meaning be rich; unrelated homophone
-wnja-09832321-n	バッグ	WRONG	means bag, not an insulting term for woman
-wnja-09871229-n	サニー	WRONG	Japanese loanword means sunny
-wnja-10032676-n	吸収	WRONG	Means absorption, not an audience-drawing entertainer
-wnja-10100761-n	うっそり	WRONG	adverb meaning vacantly, not a fool
-wnja-10149527-n	引取人	OK	can denote a guarantor
-wnja-10190644-n	的屋	WRONG	Means street vendor or huckster, not ad copywriter
-wnja-10474645-n	マスタ	UNSURE	master can mean manager, but not normally school principal
-wnja-11043980-n	ヘボン	WRONG	ヘボン refers to Hepburn spelling/name, not Katharine Hepburn normally
-wnja-11156943-n	マルク	WRONG	Normally the former currency, not Saint Mark
-wnja-11508092-n	人烟	WRONG	means signs of habitation, not smoke aerosol
-wnja-11678768-n	卵子	WRONG	Means animal ovum; plant ovule is 胚珠
-wnja-13289744-n	クォーター	OK	quota is an established sense
-wnja-13541798-n	突出	WRONG	physical protrusion/projection, not psychological projection
-wnja-13870805-n	コネクション	OK	Can mean a physical connecting link or form
-wnja-14493145-n	貧的	WRONG	Not a normal Japanese word for poverty
-wnja-14495080-n	殺生	WRONG	means killing, not hygiene
-wnja-14529835-n	屈従	OK	servile submission or subservience
-wnja-14561102-n	収賄	WRONG	Means bribery, not physical putrefaction
-wnja-14844693-n	紙土	WRONG	Means paper clay, not soil
-wnja-14997274-n	平野	WRONG	means plain, not prairie soil
-wnja-90000046-n	ジャマル・カズラ アロマティックス	UNSURE	no meaning data supplied
+synset	word	codex56	codex56_reason	codex61	codex61_reason
+wnja-00031899-r	其は	OK	其は can function as an emphatic intensifier	OK	Can function as an intensifier
+wnja-00061814-r	早く	WRONG	Means early or quickly, not suddenly	WRONG	Early or quickly, not suddenly
+wnja-00073033-r	おさおさ	WRONG	Means wholly or sufficiently, not almost	WRONG	Not positive almost-completed usage
+wnja-00073897-r	オモニ	WRONG	Means mother in Korean usage, not mainly	WRONG	Korean mother, not chiefly
+wnja-00133338-n	ラップ	OK	ラップ can mean a sharp blow or rap	OK	Can mean knocking or tapping
+wnja-00150671-r	副	WRONG	means deputy/secondary, not above all	WRONG	Deputy or supplementary, not especially
+wnja-00157462-v	勝ち取る	WRONG	Means win or secure, not increase or develop	WRONG	Win or obtain, not increase
+wnja-00186644-r	敏感に	WRONG	means sensitively, not irritably	WRONG	Sensitively, not irritably
+wnja-00240293-v	郭大	OK	Rare/variant spelling of 拡大, to enlarge	WRONG	Misspelling of enlargement term
+wnja-00242961-r	青臭い	WRONG	Means immature or grassy-smelling, not green-colored	WRONG	Immature or grassy smelling
+wnja-00252020-n	塗布	WRONG	means application/coating, not mop cleaning	WRONG	Apply coating, not mop clean
+wnja-00284798-n	繰出	UNSURE	likely an orthographic form of outing/procession, not ordinary walk	WRONG	Going out, not walking itself
+wnja-00285506-a	黄疸性	WRONG	means icteric, not prejudiced or envious	WRONG	Medical jaundice, not prejudice
+wnja-00315700-n	通勤学	UNSURE	nonstandard compound plausibly meaning commuting to work/school	OK	Abbreviation for work-school commuting
+wnja-00333366-n	動乱	WRONG	civil turmoil, not physical stirring	WRONG	Social upheaval, not physical agitation
+wnja-00358431-v	上天	WRONG	Means heaven or ascension, not die	UNSURE	Possible literary euphemism for death
+wnja-00487748-v	落とす	OK	Can mean lower or debase quality	WRONG	Lowering quality, not specifically adulterating
+wnja-00511178-v	刻印	WRONG	means engraving/stamping, not mark with a tip	WRONG	Engrave, not attach a tip
+wnja-00660730-v	降す	UNSURE	Can lower something, but rating downgrade is not clearly normal	WRONG	Not the usual evaluative verb
+wnja-00687181-v	非難	WRONG	means criticism/blame, not invalidate documents	WRONG	Criticize, not invalidate documents
+wnja-00785263-n	介入	WRONG	Means intervention, not unlawful entry	WRONG	Intervention, not unlawful entry
+wnja-00819024-n	救済	OK	Can mean rescue or saving from danger	OK	Rescuing from danger or loss
+wnja-00828003-v	預言	WRONG	means prophecy, not deliver a sermon	WRONG	Prophesy, not deliver sermon
+wnja-00853195-v	摘出	OK	Can mean exposure or bringing to light	OK	Can mean exposing wrongdoing
+wnja-00876332-v	説教	WRONG	means sermon/preaching, not put forward an idea	WRONG	Preach, not generally propose ideas
+wnja-00902807-v	混合	WRONG	Means mixing or mixture, not announcing a card score	WRONG	Mixing, not declaring card combinations
+wnja-01017701-n	中止	WRONG	Means stopping or suspension, not hanging an object	WRONG	Discontinuation, not physical hanging
+wnja-01017738-a	不適当	WRONG	means inappropriate/unsuitable, not out of shape	WRONG	Unsuitable, not physically out of condition
+wnja-01062997-n	休暇	UNSURE	leave/holiday, not normally a brief pause	UNSURE	Leave rather than short recess
+wnja-01072949-v	成る	WRONG	成る does not mean participate in sport	WRONG	Become, not participate in sports
+wnja-01095899-v	行動	OK	行動 can mean to act or perform duties	WRONG	Action, not serving a role
+wnja-01133825-v	放流	WRONG	water release is not firing a gun	WRONG	Releases water or fish
+wnja-01170052-v	食う	WRONG	Means eat, not drink liquids	WRONG	Eating, not drinking liquids
+wnja-01178220-v	零す	WRONG	means spill/complain, not feed pigs	WRONG	Spill, not feed pigs
+wnja-01186428-v	乳酸	WRONG	Means lactic acid, not breastfeed	WRONG	Lactic acid, not breastfeeding
+wnja-01229976-v	差立てる	WRONG	means erect or dispatch, not jab	OK	Can mean thrust or stab
+wnja-01234729-n	返済	WRONG	repayment, not reciprocal group action	WRONG	Debt repayment, not general reciprocation
+wnja-01261263-v	掠める	WRONG	Means skim or graze, not coat a liquid with a layer	WRONG	Skimming past, not coating liquid
+wnja-01282413-v	鼻掘り	OK	literally digging with the nose/snout	UNSURE	Unclear term for snout digging
+wnja-01345877-v	折る	WRONG	means fold/break, not confine animals	WRONG	Fold or break, not confine
+wnja-01367008-a	忽々たる	WRONG	means hurried/restless, not ecstatic	UNSURE	Unclear archaic emotional sense
+wnja-01401115-v	捕らえる	OK	Can mean catch or strike a body part	OK	Can describe a blow connecting
+wnja-01454985-a	遅い	WRONG	means slow/late, not softened in sound	WRONG	Slow, not muffled
+wnja-01473680-a	主要	OK	Major in seriousness or importance	WRONG	Principal, not severe
+wnja-01499155-a	惨め	WRONG	means miserable, not limitless or very great	WRONG	Miserable, not limitless
+wnja-01649809-v	成る	WRONG	成る does not mean carry out a performance	WRONG	Become, not carry out performances
+wnja-01767163-v	憤悶	WRONG	means indignation or anguish, not verb worry	WRONG	Angry anguish, not anxious concern
+wnja-01839170-v	求める	WRONG	Means seek or request, not move toward physically	WRONG	Seeking, not physical movement
+wnja-02011622-a	遅い	WRONG	Means slow or late, not a muffled sound	WRONG	Slow, not a muffled sound
+wnja-02135607-v	話す	UNSURE	figuratively possible, but not normal for natural sound	WRONG	Talk, not characteristic instrumental sound
+wnja-02156546-v	寂滅	WRONG	Means nirvana or death, not become invisible	WRONG	Nirvana or death, not disappearance
+wnja-02340458-a	小っちゃい	UNSURE	means small; inferior quality is context-dependent	WRONG	Small size, not low station
+wnja-02416390-a	重たい	UNSURE	Heavy can describe opacity, but this use is marginal	UNSURE	Dense fog usage is borderline
+wnja-02518470-a	オカルト	OK	Can mean hidden or not visible, as in occult fracture	WRONG	Supernatural, not medically hidden
+wnja-02531500-v	強く反対	WRONG	phrase means strongly oppose, not strive	WRONG	Strongly oppose, not strive
+wnja-02578008-v	埋める	WRONG	means bury/fill, not entrap or frame	WRONG	Bury or fill, not entrap
+wnja-02648253-v	不滅に	WRONG	Adverbial phrase, not a verb meaning perpetuate	WRONG	Adverbial fragment, not causative verb
+wnja-02671421-n	付録	OK	Can mean a supplementary accessory or add-on	WRONG	Appendix or bonus, not accessory
+wnja-02684924-v	守る	WRONG	Means protect or observe, not continue an activity	OK	Can mean maintaining a state
+wnja-02892392-n	腕章	WRONG	armband, not protective armor plate	WRONG	Armband, not arm armor
+wnja-03005920-n	変わり目	WRONG	Means transition or turning point, not a different item	WRONG	Transition point, not different thing
+wnja-03006105-n	仲介物	WRONG	means intermediary, not water passage	WRONG	Intermediary, not fluid passage
+wnja-03279918-n	電気鰻	WRONG	means electric eel, not electrostatic generator	WRONG	Electric eel, not electrostatic generator
+wnja-03541696-n	人宿	OK	A lodging or inn for travelers	OK	Historical word for an inn
+wnja-03600806-n	合わせ目	WRONG	Means seam or joint, not marijuana cigarette	WRONG	Seam, not marijuana cigarette
+wnja-03666591-n	洋灯	WRONG	Means lamp, not a lighter or igniter	WRONG	Lamp, not an ignition device
+wnja-03841417-n	書籍	WRONG	Means books or publications, not an artist's oeuvre	WRONG	Books, not an entire oeuvre
+wnja-04141975-n	荷重検査器	OK	a device for checking weight/load	UNSURE	Load tester; weighing function unclear
+wnja-04164868-n	参事	WRONG	means councillor/secretary, not writing desk	WRONG	Official, not writing desk
+wnja-04243142-n	汚水	WRONG	Means sewage, not cheap sailors' clothing	WRONG	Sewage, not cheap clothing
+wnja-04269270-n	口火	WRONG	means fuse or pilot light	WRONG	Pilot light, not spark plug
+wnja-04640176-n	良性	WRONG	means benign, not cheerful obliging disposition	UNSURE	Benign quality; personality sense unclear
+wnja-04640356-n	謝礼	WRONG	means honorarium/reward, not goodwill	WRONG	Reward or thanks, not goodwill
+wnja-04668139-n	柔らかさ	WRONG	means softness, not derogatory effeminacy	WRONG	Softness, not specifically effeminacy
+wnja-04752034-n	変動	WRONG	change/fluctuation, not pleasant variety	WRONG	Fluctuation, not refreshing variety
+wnja-04962784-n	朱塗り	WRONG	Means vermilion-painted finish, not red color itself	WRONG	Vermilion lacquering, not red itself
+wnja-05075602-n	組み入れ	WRONG	means incorporation/insertion, not spatial arrangement	WRONG	Incorporation, not spatial arrangement
+wnja-05162642-n	尻	WRONG	Means rear/end, not a deficiency	WRONG	Rear, not a shortcoming
+wnja-05650579-n	用心	WRONG	Means caution or vigilance, not mental concentration	WRONG	Caution, not concentration faculty
+wnja-05693919-n	痞	WRONG	Means chest obstruction or hindrance, not immaterial support	WRONG	Blockage, not assistance
+wnja-05698247-n	不安定	WRONG	Means instability, not subjective doubt	WRONG	Instability, not doubt about something
+wnja-05826469-n	歪曲	WRONG	distortion/falsification, not disproof evidence	WRONG	Distortion, not disproof
+wnja-05846054-n	正規	WRONG	means regular/formal, not a behavioral rule	WRONG	Regular or legitimate, not rule
+wnja-06185138-n	切支丹	WRONG	means early Japanese Christianity/Christian, not Jesuit doctrine	WRONG	Early Christianity, not specifically Jesuitism
+wnja-06389230-n	消去	UNSURE	erasure normally denotes act/result, possibly erased spot	WRONG	Erasing, not resulting surface patch
+wnja-06417279-n	通常文	WRONG	means ordinary sentence, not missal	WRONG	Mass ordinary text, not missal
+wnja-06429483-n	翻訳	UNSURE	Can be figurative translation into plainer terms, but not the usual label	OK	Can figuratively mean simplifying terminology
+wnja-06513366-n	起請	WRONG	means vow or oath, not petition	OK	Historical petition for official approval
+wnja-06685754-n	安全	WRONG	Means safety/security, not a pledged guarantee	WRONG	Safety, not a financial guarantee
+wnja-06715223-n	恥	WRONG	means shame/disgrace, not insulting expression	WRONG	Shame, not abusive expression
+wnja-06724066-n	定	WRONG	means certainty/fate, not true statement	WRONG	Certainty, not true statement
+wnja-06806469-n	記	WRONG	means record/account, not arbitrary symbol	WRONG	Record, not conventional symbol
+wnja-06942094-n	パイ	WRONG	Means pie or pi, not Proto-Indo-European	WRONG	Not the ancestral language name
+wnja-07117595-n	音門破裂音	OK	Variant term for glottal plosive	WRONG	Misspelling of glottal stop term
+wnja-07264384-n	曳光弾	OK	Can denote an illuminating star shell	WRONG	Tracer ammunition, not illumination shells
+wnja-07286014-n	萌やし	WRONG	means bean sprouts, not omen	WRONG	Sprouts, not omen
+wnja-07351612-n	自転	WRONG	Means axial rotation, not a change of direction	WRONG	Axial rotation, not direction change
+wnja-07427728-n	降下	OK	Can mean a fall or sudden decline	UNSURE	Declining values possible; downfall questionable
+wnja-07507912-n	無秩序	WRONG	Means disorder or chaos, not embarrassed confusion	WRONG	Disorder, not embarrassed confusion
+wnja-07523905-n	五月蝿い	WRONG	means noisy/annoying, not anxiety	WRONG	Annoying or noisy, not anxiety
+wnja-07542675-n	大腐り	OK	deep discouragement or dejection	OK	Severe dejection or discouragement
+wnja-07786856-n	青柳	WRONG	a different clam species/product	WRONG	Different clam species
+wnja-07998712-n	団結	UNSURE	union generally, but mathematical set union is not normal usage	WRONG	Solidarity, not mathematical union
+wnja-08248856-n	交響曲	WRONG	Means symphony, not symphony orchestra	WRONG	Composition, not performing orchestra
+wnja-08304895-n	接続	WRONG	Means connection, not a political union	WRONG	Connection, not political union
+wnja-08632423-n	広々とした水面	OK	descriptive phrase for open water expanse	OK	Describes an open water expanse
+wnja-08941426-n	真中	WRONG	Means center generally, not the French region	WRONG	Middle, not French region
+wnja-09020440-n	契骨	WRONG	archaic ethnonym, not the country	WRONG	Historical ethnonym, not modern republic
+wnja-09068444-n	憲法の州	OK	Literal translated epithet for Connecticut	OK	Translated nickname for Connecticut
+wnja-09236766-n	絨毯	OK	Metaphorically a carpet-like natural covering	OK	Natural figurative use for flowers
+wnja-09259376-n	クレーター	OK	クレーター is the constellation Crater as a proper name	WRONG	Not the Japanese constellation name
+wnja-09358358-n	太陰暦	WRONG	means lunar calendar, not Moon	WRONG	Lunar calendar, not Moon
+wnja-09407867-n	貯水池	OK	Reservoir also denotes an infection reservoir	WRONG	Water reservoir, not pathogen host
+wnja-09515131-n	アルリム	WRONG	Not the Japanese name for Adapa	WRONG	Alulim and Adapa are distinct
+wnja-09638245-n	富む	WRONG	verb meaning be rich; unrelated homophone	WRONG	Be rich, not racial epithet
+wnja-09832321-n	バッグ	WRONG	means bag, not an insulting term for woman	WRONG	Bag, not derogatory woman
+wnja-09871229-n	サニー	WRONG	Japanese loanword means sunny	WRONG	Sunny, not address to boy
+wnja-10032676-n	吸収	WRONG	Means absorption, not an audience-drawing entertainer	WRONG	Absorption, not an audience draw
+wnja-10100761-n	うっそり	WRONG	adverb meaning vacantly, not a fool	UNSURE	Unclear historical noun usage
+wnja-10149527-n	引取人	OK	can denote a guarantor	OK	Can designate a guarantor
+wnja-10190644-n	的屋	WRONG	Means street vendor or huckster, not ad copywriter	WRONG	Street vendor, not advertising writer
+wnja-10474645-n	マスタ	UNSURE	master can mean manager, but not normally school principal	WRONG	Not a school principal
+wnja-11043980-n	ヘボン	WRONG	ヘボン refers to Hepburn spelling/name, not Katharine Hepburn normally	WRONG	Actress is called Hepubaan
+wnja-11156943-n	マルク	WRONG	Normally the former currency, not Saint Mark	UNSURE	Uncommon rendering of Saint Mark
+wnja-11508092-n	人烟	WRONG	means signs of habitation, not smoke aerosol	OK	Smoke rising from human dwellings
+wnja-11678768-n	卵子	WRONG	Means animal ovum; plant ovule is 胚珠	WRONG	Egg cell, not plant ovule
+wnja-13289744-n	クォーター	OK	quota is an established sense	OK	Also used for quota
+wnja-13541798-n	突出	WRONG	physical protrusion/projection, not psychological projection	WRONG	Protrusion, not psychological projection
+wnja-13870805-n	コネクション	OK	Can mean a physical connecting link or form	WRONG	Connection, not a connecting shape
+wnja-14493145-n	貧的	WRONG	Not a normal Japanese word for poverty	WRONG	Not a recognized poverty term
+wnja-14495080-n	殺生	WRONG	means killing, not hygiene	WRONG	Killing, not hygiene
+wnja-14529835-n	屈従	OK	servile submission or subservience	WRONG	Servile submission, not instrumental usefulness
+wnja-14561102-n	収賄	WRONG	Means bribery, not physical putrefaction	WRONG	Bribery, not physical putrefaction
+wnja-14844693-n	紙土	WRONG	Means paper clay, not soil	WRONG	Paper clay, not soil
+wnja-14997274-n	平野	WRONG	means plain, not prairie soil	WRONG	Plain, not soil type
+wnja-90000046-n	ジャマル・カズラ アロマティックス	UNSURE	no meaning data supplied	UNSURE	No meaning supplied

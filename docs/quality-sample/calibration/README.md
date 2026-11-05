@@ -45,23 +45,32 @@ checker slips (see `../spot-check/second-look/`).
 
 ## A reviewer from another company: Codex
 
-`info-codex` is one blind run of the info prompt by OpenAI's Codex CLI
-(0.144.1, its default model and reasoning effort; 2026-11-05), in the same
-three batches of about 100, each in a directory holding only the prompt
-and the batch.
+Blind runs of the info prompt by OpenAI's Codex CLI, in the same three
+batches of about 100, each in a directory holding only the prompt and the
+batch (2026-11-05).  `info-codex` was Codex 0.144.1 with its defaults, run
+ephemeral so the model was not recorded; it was almost certainly
+gpt-5.6-sol at low reasoning effort (that version's default, and its
+reasoning used only 100-2,000 tokens a batch).  `info-codex61` is Codex
+0.166.0 with gpt-6.1-sol at high effort, set explicitly.
 
 | run | agreement | κ (checker 1) | κ (checker 2) | WRONG recall | UNSURE | good called WRONG |
 |---|---|---|---|---|---|---|
-| info, Codex | 0.791 | 0.52 | 0.51 | 0.80 | 19 | 41 |
+| info, Codex gpt-5.6-sol (low) | 0.791 | 0.52 | 0.51 | 0.80 | 19 | 41 |
+| info, Codex gpt-6.1-sol (high) | 0.822 | 0.59 | 0.60 | 0.85 | 12 | 37 |
 
-On its own Codex is a weaker judge than Sonnet with this prompt, about as
-good as the strict prompt: it rarely says UNSURE and calls 41 good senses
-WRONG.  But its errors are different: it gives the same verdict as the
-first Sonnet info run on 76% of items, where the second Sonnet run gives
-the same on 86%.  Pairing Sonnet with Codex under the two-run rule removes
-73 (22 OK by checker 1) where two Sonnet runs remove 80 (26 OK), keeps
-about the same, and sends 41 to a person instead of 20.  So a second
-company buys slightly more precise removals at the cost of a longer
+gpt-6.1-sol at high effort is nearly as good a judge as Sonnet (κ 0.59
+against 0.62) but rarely says UNSURE, so it calls more good senses WRONG.
+Its errors are partly different: it gives the same verdict as the first
+Sonnet info run on 79% of items, where the second Sonnet run gives the
+same on 86%.  Under the two-run rule, with the first Sonnet run:
+
+| pair | keep | lower | queue | remove | removed, OK by checker 1 |
+|---|---:|---:|---:|---:|---:|
+| Sonnet + Sonnet | 137 | 53 | 20 | 80 | 26 |
+| Sonnet + Codex gpt-5.6-sol | 140 | 36 | 41 | 73 | 22 |
+| Sonnet + Codex gpt-6.1-sol | 145 | 31 | 38 | 76 | 23 |
+
+So a second company buys slightly more precise removals for a longer
 queue; on the 136 pilot removals it is more useful as a filter (see
 `../pilot-review/`).
 
