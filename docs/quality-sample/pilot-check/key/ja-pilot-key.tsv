@@ -1,0 +1,141 @@
+item	action	synset	word	run1	run2	reason1	reason2
+pc-001	remove	wnja-13541798-n	突出	WRONG	WRONG	not psychiatric projection	psych projection is 投影
+pc-002	queue	wnja-09804053-n	大権	WRONG	UNSURE	prerogative, not a person	prerogative not arbiter
+pc-003	remove	wnja-00133338-n	ラップ	WRONG	WRONG	rap hit not ラップ	ラップ not blow
+pc-004	lower	wnja-02618149-v	堪忍ぶ	OK	UNSURE	endure	endure; survive weaker
+pc-005	lower	wnja-05898171-n	ガイスト	UNSURE	UNSURE	German Geist loan	German Geist
+pc-006	queue	wnja-02612762-v	面出し	UNSURE	WRONG	archaic	not attend
+pc-007	queue	wnja-09622745-n	思われ人	UNSURE	UNSURE	loved one, borderline	lover borderline
+pc-008	remove	wnja-02648253-v	不滅に	WRONG	WRONG	adverb not perpetuate	adverb vs verb perpetuate
+pc-009	remove	wnja-11508092-n	人烟	WRONG	WRONG	smoke of dwellings	smoke of dwellings, not smoke
+pc-010	queue	wnja-00219012-n	賊害	WRONG	UNSURE	harm by bandits not killing	rare
+pc-011	remove	wnja-09358358-n	太陰暦	WRONG	WRONG	lunar calendar not moon	lunar calendar not Moon
+pc-012	lower	wnja-06356515-n	リファレンス	UNSURE	OK	computer reference/address	reference
+pc-013	remove	wnja-05698247-n	不安定	WRONG	WRONG	means instability not doubt	instability not doubt
+pc-014	keep	wnja-11675096-n	雄ずい	OK	OK	stamen	stamen
+pc-015	keep	wnja-14946618-n	麦芽糖	OK	OK	maltose	maltose
+pc-016	lower	wnja-00724492-v	不安がる	OK	UNSURE	be anxious about	be anxious, not exactly mind
+pc-017	queue	wnja-07291794-n	帰結	UNSURE	WRONG	consequence not end	kiketsu is consequence, not end
+pc-018	keep	wnja-05696803-n	後継	OK	OK	successor	successor
+pc-019	queue	wnja-01455412-a	閑やか	UNSURE	UNSURE	rare form	obscure word
+pc-020	queue	wnja-10789415-n	プリンス	UNSURE	WRONG	prince not wonder boy	prince not golden boy
+pc-021	remove	wnja-08248856-n	交響曲	WRONG	WRONG	piece not orchestra	symphony work not orchestra
+pc-022	remove	wnja-90000046-n	ジャマル・カズラ アロマティックス	WRONG	WRONG	not a word	obscure name, no meaning
+pc-023	lower	wnja-00097522-r	断然	UNSURE	OK	definitely, not downright	thoroughgoing
+pc-024	remove	wnja-01133825-v	放流	WRONG	WRONG	放流 discharge water not fire gun	water discharge not firing
+pc-025	queue	wnja-09252766-n	コンスタンス	UNSURE	UNSURE	lake usually Bodensee	usually Konstanz
+pc-026	queue	wnja-00967780-n	bw	UNSURE	UNSURE	odd lowercase form	odd latin form
+pc-027	queue	wnja-11458314-n	煙霧	WRONG	OK	haze not fog	fog haze
+pc-028	remove	wnja-01454985-a	遅い	WRONG	WRONG	slow not muffled	slow/late, not muffled
+pc-029	remove	wnja-01473680-a	主要	WRONG	WRONG	means main, not serious	major not serious
+pc-030	keep	wnja-00163779-n	任命	OK	OK	appointment	appointment
+pc-031	keep	wnja-13937075-n	情景	OK	OK	scene	scene
+pc-032	queue	wnja-00400427-v	シンプリファイ	OK	WRONG	simplify	katakana simplify odd
+pc-033	keep	wnja-02623194-v	掛渡す	OK	OK	bridge	bridge
+pc-034	keep	wnja-01992149-a	優柔不断	OK	OK	indecisive	irresolute
+pc-035	lower	wnja-11519121-n	雷公	UNSURE	UNSURE	thunder god	thunder god, not bolt
+pc-036	lower	wnja-07447641-n	樽俎	UNSURE	UNSURE	banquet table sense	literary banquet sense
+pc-037	lower	wnja-02767665-n	バック	UNSURE	UNSURE	garment back unclear	garment back
+pc-038	queue	wnja-10468750-n	院長	UNSURE	WRONG	head of institution	not university president
+pc-039	remove	wnja-02684924-v	守る	WRONG	WRONG	protect not continue	protect, not continue
+pc-040	remove	wnja-04640176-n	良性	WRONG	WRONG	benign not good nature	benign, not good nature
+pc-041	remove	wnja-00240293-v	郭大	WRONG	WRONG	miswritten 拡大	typo for 拡大
+pc-042	remove	wnja-00157462-v	勝ち取る	WRONG	WRONG	win not increase	win not increase
+pc-043	keep	wnja-10780632-n	妻君	OK	OK	wife	wife
+pc-044	remove	wnja-06942094-n	パイ	WRONG	WRONG	not PIE	not Proto-Indo-European
+pc-045	keep	wnja-02013177-n	アメリカ白鶴	OK	OK	whooping crane	whooping crane
+pc-046	lower	wnja-04639732-n	残酷	OK	UNSURE	harshness	cruelty rather than severity
+pc-047	keep	wnja-07456188-n	競争	OK	OK	competition	contest
+pc-048	remove	wnja-07542675-n	大腐り	WRONG	WRONG	not a normal word	not discouragement
+pc-049	lower	wnja-01230710-v	責つく	UNSURE	OK	odd spelling and reading	urge on
+pc-050	keep	wnja-01617192-v	作出す	OK	OK	create	create
+pc-051	lower	wnja-05230171-n	割れ目	OK	UNSURE	crevice	crevice, interstice unclear
+pc-052	keep	wnja-01722077-v	プレー	OK	OK	play	play role
+pc-053	remove	wnja-04668139-n	柔らかさ	WRONG	WRONG	softness not effeminacy	softness not effeminacy
+pc-054	keep	wnja-02950632-n	鎧袖	OK	OK	armor sleeve	armor sleeve
+pc-055	remove	wnja-06185138-n	切支丹	WRONG	WRONG	Christians not Jesuitism	means Christian not Jesuitism
+pc-056	remove	wnja-07264384-n	曳光弾	WRONG	WRONG	tracer not star shell	tracer not star shell
+pc-057	queue	wnja-01475737-v	ほとばしらせる	UNSURE	UNSURE	release/uncork borderline	houtobashiraseru release
+pc-058	lower	wnja-01775535-v	愛寵	UNSURE	UNSURE	favor not love verb	favor not love
+pc-059	keep	wnja-07890352-n	スタウト	OK	OK		stout
+pc-060	remove	wnja-11678768-n	卵子	WRONG	WRONG	ovum not plant ovule	ovum not ovule
+pc-061	remove	wnja-00252020-n	塗布	WRONG	WRONG	application not mopping	application not mopping
+pc-062	remove	wnja-01229976-v	差立てる	WRONG	WRONG	means send, not jab	sashitateru not jab
+pc-063	lower	wnja-03005920-n	チェンジ	UNSURE	OK	thing that is different	change
+pc-064	keep	wnja-00200777-r	今や遅しと	OK	OK	eagerly	eagerly
+pc-065	remove	wnja-03666591-n	洋灯	WRONG	WRONG	lamp not lighter	means lamp not lighter
+pc-066	queue	wnja-11732052-n	金縷	WRONG	UNSURE	not goldthread	kinru goldthread odd
+pc-067	lower	wnja-01722077-v	演戯	UNSURE	UNSURE	acting not pretend play	acting not playing pretend
+pc-068	keep	wnja-13780719-n	繋り	OK	OK	relationship	relationship
+pc-069	keep	wnja-01350449-v	強行	OK	OK	forcibly do	force
+pc-070	remove	wnja-01234729-n	返済	WRONG	WRONG	means repayment	repayment not group action
+pc-071	queue	wnja-08219493-n	翼	UNSURE	WRONG	wing as air unit	not air unit
+pc-072	remove	wnja-01261263-v	掠める	WRONG	WRONG	coat liquid sense wrong	not coat liquid
+pc-073	lower	wnja-09880427-n	事務官	UNSURE	UNSURE	official but not bureaucrat	official
+pc-074	lower	wnja-05637558-n	嗜み	UNSURE	OK	accomplishments not skill	accomplishment
+pc-075	remove	wnja-01345877-v	折る	WRONG	WRONG	fold not pen up	not confine sheep
+pc-076	remove	wnja-00687181-v	非難	WRONG	WRONG	not reject documents	not reject documents
+pc-077	lower	wnja-01053920-n	住	OK	UNSURE	residence	bare kanji
+pc-078	keep	wnja-11179502-n	ミル	OK	OK	Mill	James Mill
+pc-079	remove	wnja-00902807-v	混合	WRONG	WRONG	混合 meld cards odd	card meld not mixing
+pc-080	remove	wnja-01767163-v	憤悶	WRONG	WRONG	means anger	means anger not worry
+pc-081	keep	wnja-01750386-a	完璧	OK	OK	complete	perfect
+pc-082	remove	wnja-10032676-n	吸収	WRONG	WRONG	absorption not attraction	absorption not attraction
+pc-083	remove	wnja-14495080-n	殺生	WRONG	WRONG	killing not hygiene	killing not hygiene
+pc-084	keep	wnja-07125523-n	叫びごえ	OK	OK	cry out	cry
+pc-085	remove	wnja-00150671-r	副	WRONG	WRONG	副 not とりわけ	means assistant, not above all
+pc-086	keep	wnja-01866429-a	豊沃	OK	OK	fertile	fertile rich
+pc-087	lower	wnja-14122497-n	感冒	UNSURE	OK	cold vs flu	cold/flu
+pc-088	remove	wnja-00186644-r	敏感に	WRONG	WRONG	sensitive not irritable	sensitive not irritably
+pc-089	lower	wnja-00232600-r	杳として	UNSURE	UNSURE	completely unknown vs vague	means no trace
+pc-090	remove	wnja-02340458-a	小っちゃい	WRONG	WRONG	means small	small not humble
+pc-091	remove	wnja-04243142-n	汚水	WRONG	WRONG	sewage not clothing	sewage, not clothing
+pc-092	lower	wnja-07139873-n	現れ	UNSURE	OK	manifestation vs verbal expression	expression
+pc-093	queue	wnja-00267855-v	音を低く	UNSURE	UNSURE		phrase lower sound
+pc-094	lower	wnja-00067129-v	包み泣き	UNSURE	OK	rare sob word	sob
+pc-095	remove	wnja-03005920-n	変わり目	WRONG	WRONG	turning point not thing	sense mismatch
+pc-096	remove	wnja-01282413-v	鼻掘り	WRONG	WRONG	nose-picking not rooting	means nose picking
+pc-097	lower	wnja-00428404-a	彰々たる	UNSURE	OK	conspicuous not just clear	literary clear
+pc-098	lower	wnja-00157957-n	差しひびき	OK	UNSURE	impact	impact sense borderline
+pc-099	lower	wnja-00402789-n	凝	UNSURE	OK	stiffness, hardening act	hardening
+pc-100	remove	wnja-01017701-n	中止	WRONG	WRONG	means stoppage not hanging	means cancellation
+pc-101	keep	wnja-00843959-v	責める	OK	OK	blame accuse	to accuse
+pc-102	keep	wnja-02123597-n	シャム猫	OK	OK	Siamese cat	Siamese cat
+pc-103	queue	wnja-05045680-n	列	UNSURE	WRONG	row, not consecutive run	ret: in a row, not 'row' sense
+pc-104	queue	wnja-03544360-n	建屋	UNSURE	WRONG	building for machinery not dwelling	housing for machinery
+pc-105	queue	wnja-06636524-n	書き付け	UNSURE	UNSURE	note, not record	note vs record
+pc-106	remove	wnja-01170052-v	食う	WRONG	WRONG	eat, not drink	eat not drink
+pc-107	keep	wnja-04669692-n	所為	OK	OK	fault	fault
+pc-108	keep	wnja-08902097-n	アッサム州	OK	OK	Assam	Assam
+pc-109	remove	wnja-09259376-n	クレーター	WRONG	WRONG	constellation is コップ座	constellation is コップ座
+pc-110	remove	wnja-09515131-n	アルリム	WRONG	WRONG	wrong name	Alulim not Adapa
+pc-111	remove	wnja-00358431-v	上天	WRONG	WRONG	means heaven	means heaven not die
+pc-112	queue	wnja-00155144-a	専横	UNSURE	WRONG	専横 arbitrary not audacious	arbitrariness not audacious
+pc-113	keep	wnja-04512783-n	サセックス大学	OK	OK	Sussex University	Sussex University
+pc-114	queue	wnja-07218470-n	学報	UNSURE	WRONG	academic bulletin	academic bulletin not report
+pc-115	queue	wnja-02001252-v	追跡	WRONG	OK	stalk prey not this	stalk
+pc-116	queue	wnja-00539009-a	鬱々たる	WRONG	OK	鬱々 gloomy/dense foliage not compact	dense
+pc-117	queue	wnja-01660082-v	プリフォーム	UNSURE	UNSURE	noun not verb	katakana preform
+pc-118	lower	wnja-02259005-v	交わす	OK	UNSURE	exchange	exchange sense but synonyms loose
+pc-119	remove	wnja-06685754-n	安全	WRONG	WRONG	safety, not guarantee	safety, not guarantee
+pc-120	queue	wnja-00994682-v	翻訳	UNSURE	WRONG	translation not transliteration	translation not transliteration
+pc-121	keep	wnja-01091427-v	仇する	OK	OK	oppose	oppose
+pc-122	lower	wnja-02075737-a	馬鹿	UNSURE	OK	馬鹿 idiotic	idiotic
+pc-123	keep	wnja-06624161-n	雁札	OK	OK	letter archaic	letter
+pc-124	remove	wnja-00828003-v	預言	WRONG	WRONG		prophecy not preach
+pc-125	remove	wnja-10149527-n	引取人	WRONG	WRONG	receiver not guarantor	not guarantor
+pc-126	keep	wnja-04836268-n	功名心	OK	OK	ambition	ambition
+pc-127	lower	wnja-01257507-v	切り落とす	UNSURE	OK	cut off not fell tree	chop down
+pc-128	remove	wnja-04962784-n	朱塗り	WRONG	WRONG		paint act not red color
+pc-129	remove	wnja-03006105-n	仲介物	WRONG	WRONG	means intermediary, not water channel	not water channel
+pc-130	queue	wnja-01199252-n	誤審	UNSURE	WRONG	misjudgment vs mistrial	misjudgment not mistrial
+pc-131	remove	wnja-09638245-n	富む	WRONG	WRONG	not Uncle Tom	tomu is abound, not Uncle Tom
+pc-132	keep	wnja-14013368-n	不景気	OK	OK	recession	recession
+pc-133	queue	wnja-02790154-n	バー	OK	WRONG	bar	bar ok but gymnastics horizontal bar
+pc-134	lower	wnja-00506442-r	軽微	UNSURE	OK	slight not adverb	slight insignificant
+pc-135	queue	wnja-09537144-n	子なるキリスト	WRONG	OK	not Son Word term	Christ as Son
+pc-136	lower	wnja-03175189-n	ジーンズ	UNSURE	OK	jeans vs denim fabric	denim jeans
+pc-137	lower	wnja-01299758-v	禿げる	UNSURE	UNSURE	bald vs detach	bald versus come off
+pc-138	queue	wnja-02004874-v	復職	OK	WRONG	return to post	only job reinstatement
+pc-139	remove	wnja-02518470-a	オカルト	WRONG	WRONG	occult not hidden	not hidden-fracture sense
+pc-140	queue	wnja-00579564-n	勤務	WRONG	UNSURE	feudal service not	feudal service sense obscure

@@ -43,5 +43,27 @@ two Sonnet info runs removes 78 (26 of them OK by checker 1), keeps 134
 (5 WRONG by checker 1) and sends 70 to a person; some of the 26 are
 checker slips (see `../spot-check/second-look/`).
 
+## A reviewer from another company: Codex
+
+`info-codex` is one blind run of the info prompt by OpenAI's Codex CLI
+(0.144.1, its default model and reasoning effort; 2026-11-05), in the same
+three batches of about 100, each in a directory holding only the prompt
+and the batch.
+
+| run | agreement | κ (checker 1) | κ (checker 2) | WRONG recall | UNSURE | good called WRONG |
+|---|---|---|---|---|---|---|
+| info, Codex | 0.791 | 0.52 | 0.51 | 0.80 | 19 | 41 |
+
+On its own Codex is a weaker judge than Sonnet with this prompt, about as
+good as the strict prompt: it rarely says UNSURE and calls 41 good senses
+WRONG.  But its errors are different: it gives the same verdict as the
+first Sonnet info run on 76% of items, where the second Sonnet run gives
+the same on 86%.  Pairing Sonnet with Codex under the two-run rule removes
+73 (22 OK by checker 1) where two Sonnet runs remove 80 (26 OK), keeps
+about the same, and sends 41 to a person instead of 20.  So a second
+company buys slightly more precise removals at the cost of a longer
+queue; on the 136 pilot removals it is more useful as a filter (see
+`../pilot-review/`).
+
 `<prompt>/PROMPT.md` is the prompt, `review.tsv` the verdicts and `key.tsv`
 the id → spot-check item map.

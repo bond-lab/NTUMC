@@ -3,7 +3,7 @@ wnja-07521674-n	不安心	apprehension, apprehensiveness, dread	keep	OK	OK	appre
 wnja-10202363-n	能無し	incompetent, incompetent person	keep	OK	OK	incompetent	incompetent
 wnja-00219389-a	花花しい	glorious, resplendent, splendid, splendiferous	keep	OK	OK	splendid	splendid
 wnja-01487943-a	決定的	crucial	keep	OK	OK	decisive	crucial
-wnja-05385534-n	生肝	liver	lower	UNSURE	UNSURE	raw liver specific	raw liver specifically
+wnja-05385534-n	生肝	liver	queue	UNSURE	UNSURE	raw liver specific	raw liver specifically
 wnja-02982790-n	留め	catch, stop	lower	UNSURE	OK	stop meaning borderline	stop
 wnja-02477755-v	中止	cancel, call off, scratch, scrub	keep	OK	OK	cancel	
 wnja-00597915-v	修める	learn, larn, acquire	keep	OK	OK	learn	learn, master
@@ -12,8 +12,8 @@ wnja-00502710-r	格別	specially, especially	keep	OK	OK	especially	especially
 wnja-01499155-a	惨め	abysmal	remove	WRONG	WRONG	miserable not abysmal	miserable not abysmal
 wnja-02421364-a	倹しい	economical, frugal, scotch, sparing, stinting	keep	OK	OK	frugal	frugal
 wnja-08388207-n	貴族階級	nobility, aristocracy	keep	OK	OK	aristocracy	nobility
-wnja-00631244-v	心立つ	premeditate	lower	UNSURE	WRONG	obscure	premeditate not this word
-wnja-04517211-n	ウジ	Uzi	lower	OK	WRONG	Uzi	ウジ is maggot
+wnja-00631244-v	心立つ	premeditate	queue	UNSURE	WRONG	obscure	premeditate not this word
+wnja-04517211-n	ウジ	Uzi	queue	OK	WRONG	Uzi	ウジ is maggot
 wnja-02036934-a	潔い	good, just, upright	keep	OK	OK	upright	upright
 wnja-05967402-n	ヒューマニズム	humanitarianism, humanism	keep	OK	OK	humanism	humanism
 wnja-01761120-v	煽りたてる	inflame, stir up, wake, ignite, heat, fire up	keep	OK	OK	stir up	inflame
@@ -26,7 +26,7 @@ wnja-00634586-n	勘定	count, counting, numeration, enumeration, reckoning, tall
 wnja-14522956-n	小止み	lull, quiet	keep	OK	OK	lull	lull
 wnja-14725024-n	負触媒	anticatalyst	keep	OK	OK	negative catalyst	negative catalyst
 wnja-02693691-v	差向かう	face	keep	OK	OK	face opposite	face
-wnja-02777402-n	てん輪	balance wheel, balance	lower	UNSURE	UNSURE	rare term	rare term
+wnja-02777402-n	てん輪	balance wheel, balance	queue	UNSURE	UNSURE	rare term	rare term
 wnja-00473941-r	手厳しく	tartly	keep	OK	OK	harshly	tartly
 wnja-09644008-n	エベンキ	Evenki, Ewenki	keep	OK	OK	Evenki	Evenki
 wnja-14766532-n	硝酸	nitric acid, aqua fortis	keep	OK	OK	nitric acid	nitric acid
@@ -37,7 +37,7 @@ wnja-01535082-a	滅茶滅茶	extreme	keep	OK	OK	extreme/messy	extreme/chaotic
 wnja-01269224-v	化粧張り	veneer	keep	OK	OK	veneer	veneer
 wnja-01215137-v	搦め取る	collar, nail, apprehend, arrest, pick up, nab, cop	keep	OK	OK	arrest	arrest
 wnja-14615400-n	ピロガロール	pyrogallol, pyrogallic acid	keep	OK	OK	pyrogallol	pyrogallol
-wnja-00609868-n	陶物作	pottery	lower	UNSURE	UNSURE	odd form	pottery making; odd form
+wnja-00609868-n	陶物作	pottery	queue	UNSURE	UNSURE	odd form	pottery making; odd form
 wnja-10933266-n	メルヴィル・デューイ	Dewey, Melvil Dewey, Melville Louis Kossuth Dewey	keep	OK	OK	Dewey	Dewey
 wnja-08875843-n	バッキンガム宮殿	Buckingham Palace	keep	OK	OK	Buckingham Palace	Buckingham Palace
 wnja-15153787-n	年	old age, years, age, eld, geezerhood	keep	OK	OK	old age	old age
@@ -46,7 +46,7 @@ wnja-11060241-n	ホプキンソン	Hopkinson, Francis Hopkinson	keep	OK	OK	Hopki
 wnja-09885145-n	購入者	buyer, purchaser, emptor, vendee	keep	OK	OK		buyer
 wnja-02309621-v	執り行う	administer	keep	OK	OK	perform ceremony	perform ceremony
 wnja-01244846-a	好戦的	aggressive, belligerent	keep	OK	OK	belligerent	belligerent
-wnja-00511205-r	住居的	residentially	lower	UNSURE	UNSURE	rare adverb	adverb form doubtful
+wnja-00511205-r	住居的	residentially	queue	UNSURE	UNSURE	rare adverb	adverb form doubtful
 wnja-13367070-n	蓄積	store, stock, fund	keep	OK	OK	store	accumulation, stock
 wnja-02531500-v	強く反対	buck	remove	WRONG	WRONG	強く反対 not strive	not buck
 wnja-00958151-a	公平	equitable, just	keep	OK	OK	fair	fair
@@ -57,7 +57,7 @@ wnja-05617107-n	聡明さ	wisdom, sapience	keep	OK	OK	wisdom	wisdom
 wnja-07003119-n	挿絵	drawing	keep	OK	OK	illustration	illustration
 wnja-11321841-n	ストラビンスキー	Stravinsky, Igor Stravinsky, Igor Fyodorovich Stravinsky	keep	OK	OK	Stravinsky	Stravinsky
 wnja-00147187-n	逢着	encounter, coming upon	keep	OK	OK	encounter	encounter
-wnja-04783247-n	合法性	authenticity, genuineness, legitimacy	lower	WRONG	UNSURE	合法性 legality not authenticity	legitimacy ok, authenticity not
+wnja-04783247-n	合法性	authenticity, genuineness, legitimacy	queue	WRONG	UNSURE	合法性 legality not authenticity	legitimacy ok, authenticity not
 wnja-07375635-n	離陸	takeoff	keep	OK	OK	takeoff	takeoff
 wnja-04585128-n	ウィルトンカーペット	Wilton, Wilton carpet	keep	OK	OK	Wilton carpet	Wilton carpet
 wnja-00047534-r	剰	besides, too, also, likewise, as well	keep	OK	OK	moreover	moreover
@@ -81,7 +81,7 @@ wnja-03699975-n	機械	machine	keep	OK	OK	machine	machine
 wnja-00487874-n	鬼ごっこ	tag	keep	OK	OK	tag game	tag
 wnja-09445566-n	道のり	steps	lower	OK	UNSURE	route	path not steps
 wnja-10142391-n	祖父さま	grandfather, gramps, granddad, grandad, granddaddy, grandpa	keep	OK	OK	grandfather	grandfather
-wnja-06636524-n	書き付け	record, record book, book	lower	UNSURE	UNSURE	note, not record	note vs record
+wnja-06636524-n	書き付け	record, record book, book	queue	UNSURE	UNSURE	note, not record	note vs record
 wnja-02276866-v	パクル	pilfer, cabbage, purloin, pinch, abstract, snarf, swipe, hook, sneak, filch, nobble, lift	keep	OK	OK	steal slang	pilfer slang
 wnja-00696414-v	振り返る	review, look back, retrospect	keep	OK	OK	look back	look back
 wnja-00047903-r	挙句の果て	ultimately, finally, in the end, at last, at long last	keep	OK	OK		in the end
@@ -92,20 +92,20 @@ wnja-01086081-n	与え	giving, gift	lower	OK	UNSURE	giving	noun act of giving
 wnja-05145118-n	値段	monetary value, price, cost	keep	OK	OK	price	price
 wnja-15169421-n	薄暮れ	twilight, dusk, gloaming, gloam, nightfall, evenfall, fall, crepuscule, crepuscle	keep	OK	OK	twilight	twilight
 wnja-00077619-r	高く	dearly, dear	lower	OK	UNSURE	dearly	dearly via 高く
-wnja-05149832-n	救護	avail, help, service	lower	UNSURE	WRONG	relief vs avail	rescue, not means of service
+wnja-05149832-n	救護	avail, help, service	queue	UNSURE	WRONG	relief vs avail	rescue, not means of service
 wnja-05572396-n	膀胱括約筋	bladder sphincter, musculus sphincter vesicae	keep	OK	OK	bladder sphincter	bladder sphincter
-wnja-00221819-n	尊属殺人	matricide	lower	WRONG	UNSURE	killing ascendant, not mother	matricide narrow
+wnja-00221819-n	尊属殺人	matricide	queue	WRONG	UNSURE	killing ascendant, not mother	matricide narrow
 wnja-09284015-n	森林地	forest, woodland, timberland, timber	keep	OK	OK	woodland	woodland
 wnja-13904843-n	切込	incision, scratch, prick, slit, dent	keep	OK	OK	notch	incision
-wnja-03540476-n	ホスピス	hospice	lower	UNSURE	WRONG	modern sense palliative care	hospice is care for dying, not lodging
+wnja-03540476-n	ホスピス	hospice	queue	UNSURE	WRONG	modern sense palliative care	hospice is care for dying, not lodging
 wnja-00336168-a	不明	uncertain	keep	OK	OK	uncertain	uncertain
-wnja-00073033-r	幾	about, almost, most, nearly, near, nigh, virtually, well-nigh	lower	UNSURE	WRONG	rare almost sense	reading and meaning mismatch
-wnja-90000061-n	ル・プラナカン		lower	UNSURE	UNSURE	no information	no information
+wnja-00073033-r	幾	about, almost, most, nearly, near, nigh, virtually, well-nigh	queue	UNSURE	WRONG	rare almost sense	reading and meaning mismatch
+wnja-90000061-n	ル・プラナカン		queue	UNSURE	UNSURE	no information	no information
 wnja-00122661-n	射的	shooting, shot	lower	OK	UNSURE	shooting	shooting game not act of firing
 wnja-02075737-a	馬鹿	crackbrained, idiotic	lower	UNSURE	OK	馬鹿 idiotic	idiotic
 wnja-14699752-n	宝珠	gem, gemstone, stone	lower	UNSURE	OK		jewel
 wnja-01186428-v	乳酸	breastfeed, suckle, suck, nurse, wet-nurse, lactate, give suck	remove	WRONG	WRONG	lactic acid not breastfeed	lactic acid not breastfeed
-wnja-90000144-n	ヴィナヤガー神		lower	UNSURE	UNSURE	no English given	no English given
+wnja-90000144-n	ヴィナヤガー神		queue	UNSURE	UNSURE	no English given	no English given
 wnja-00853195-v	摘出	debunk, expose	remove	WRONG	WRONG	removal not debunk	extract not debunk
 wnja-07506569-n	慙愧	shame	keep	OK	OK	shame	shame
 wnja-10437590-n	角袖	plainclothesman	keep	OK	OK	plainclothes	plainclothes detective
@@ -125,7 +125,7 @@ wnja-06740183-n	釈明	justification	keep	OK	OK	explanation	explanation
 wnja-06377442-n	賦詠	poem, verse form	keep	OK	OK	poem	poem
 wnja-13536794-n	写真	photography	keep	OK	OK	photography	photography
 wnja-01627355-v	生む	generate, bring forth	keep	OK	OK	generate	generate
-wnja-03627232-n	結瘤	knot	lower	UNSURE	WRONG	rare knot word	not a word
+wnja-03627232-n	結瘤	knot	queue	UNSURE	WRONG	rare knot word	not a word
 wnja-15058544-n	コレステロール	cholesterol, cholesterin	keep	OK	OK	cholesterol	cholesterol
 wnja-02391803-v	振りあてる	delegate, designate, depute, assign	keep	OK	OK	assign	assign
 wnja-05789089-n	落着	settlement, resolution, closure	keep	OK	OK		settlement
@@ -133,14 +133,14 @@ wnja-00089408-r	イトモ	highly, extremely	keep	OK	OK	extremely	いとも extre
 wnja-00151689-v	下がる	decrease, diminish, lessen, fall	keep	OK	OK	decrease	decrease
 wnja-07664770-n	ジャーキー	jerky, jerked meat, jerk	keep	OK	OK	jerky	jerky
 wnja-01764171-v	動揺させる	perturb, unhinge, disquiet, trouble, cark, distract, disorder	keep	OK	OK	disturb	perturb
-wnja-04884627-n	自恣	indulgence, self-indulgence	lower	UNSURE	UNSURE	rare, indulgence unclear	jishi rare; self-indulgence
+wnja-04884627-n	自恣	indulgence, self-indulgence	queue	UNSURE	UNSURE	rare, indulgence unclear	jishi rare; self-indulgence
 wnja-02950632-n	鎧袖	cannon	keep	OK	OK	armor sleeve	armor sleeve
 wnja-15128200-n	シルリア紀	Silurian, Silurian period	keep	OK	OK	Silurian	Silurian
 wnja-09821831-n	随行	attendant, attender, tender	keep	OK	OK	attendant	attendant
-wnja-00994682-v	翻訳	transliterate, transcribe	lower	UNSURE	WRONG	translation not transliteration	translation not transliteration
+wnja-00994682-v	翻訳	transliterate, transcribe	queue	UNSURE	WRONG	translation not transliteration	translation not transliteration
 wnja-09395266-n	プラスミド	plasmid, plasmid DNA	keep	OK	OK	plasmid	plasmid
 wnja-07890352-n	スタウト	stout	keep	OK	OK		stout
-wnja-08057633-n	荷担人	carrier, common carrier	lower	UNSURE	UNSURE	carrier doubtful	rare carrier
+wnja-08057633-n	荷担人	carrier, common carrier	queue	UNSURE	UNSURE	carrier doubtful	rare carrier
 wnja-14482968-n	可能性	prospect, chance	keep	OK	OK	prospects	prospect
 wnja-07939638-n	区別	classification, categorization, categorisation	keep	OK	OK	classification	classification
 wnja-02503365-v	引き渡す	extradite, deliver, deport	keep	OK	OK	hand over	hand over
@@ -153,14 +153,14 @@ wnja-00521296-v	乱す	upset	keep	OK	OK	disturb	disturb
 wnja-06270308-n	翻刻	reissue, reprint, reprinting	keep	OK	OK	reprint	reprint
 wnja-06731378-n	論点	contention	keep	OK	OK	point at issue	contention
 wnja-06217103-n	デモクラシー	democracy	keep	OK	OK	democracy	democracy
-wnja-09804053-n	大権	arbiter, supreme authority	lower	WRONG	UNSURE	prerogative, not a person	prerogative not arbiter
+wnja-09804053-n	大権	arbiter, supreme authority	queue	WRONG	UNSURE	prerogative, not a person	prerogative not arbiter
 wnja-13270038-n	寄付金	contribution, donation	keep	OK	OK	donation	donation
 wnja-02916936-n	ボディアーマー	bulletproof vest	keep	OK	OK	body armor	body armor
 wnja-00915423-v	叫ぶ	holler, holler out	keep	OK	OK	shout	
 wnja-04037873-n	レースウェイ	raceway, race	lower	UNSURE	OK	mill race sense unclear	raceway
 wnja-01212037-n	簡略化しすぎること	oversimplification, simplism	keep	OK	OK	term	oversimplification
 wnja-08248856-n	交響曲	symphony orchestra, symphony, philharmonic	remove	WRONG	WRONG	piece not orchestra	symphony work not orchestra
-wnja-00219012-n	賊害	killing, kill, putting to death	lower	WRONG	UNSURE	harm by bandits not killing	rare
+wnja-00219012-n	賊害	killing, kill, putting to death	queue	WRONG	UNSURE	harm by bandits not killing	rare
 wnja-07844604-n	牛乳	milk	keep	OK	OK	milk	milk
 wnja-00300247-r	ヒョットシテ	possibly, perchance, perhaps, maybe, mayhap, peradventure	keep	OK	OK		perhaps
 wnja-00309115-n	渡航	passage, transit	keep	OK	OK	voyage	passage
@@ -186,8 +186,8 @@ wnja-00885217-v	拘束	oblige, bind, hold, obligate	keep	OK	OK	bind	bind
 wnja-09981834-n	若蔵	cub, greenhorn, rookie	keep	OK	OK	greenhorn	greenhorn
 wnja-02054036-n	鵜	cormorant, Phalacrocorax carbo	keep	OK	OK	cormorant	cormorant
 wnja-00358431-v	上天	die, decease, perish, go, exit, pass away, expire, pass, kick the bucket, cash in one's chips, buy the farm, conk, give-up the ghost, drop dead, pop off, choke, croak, snuff it	remove	WRONG	WRONG	means heaven	means heaven not die
-wnja-00579564-n	勤務	service	lower	WRONG	UNSURE	feudal service not	feudal service sense obscure
-wnja-11202581-n	ネール	Neel, Louis Eugene Felix Neel	lower	OK	WRONG	Neel	neeru is Nehru/nail; Neel odd
+wnja-00579564-n	勤務	service	queue	WRONG	UNSURE	feudal service not	feudal service sense obscure
+wnja-11202581-n	ネール	Neel, Louis Eugene Felix Neel	queue	OK	WRONG	Neel	neeru is Nehru/nail; Neel odd
 wnja-11180209-n	グレン・ミラー	Miller, Glenn Miller, Alton Glenn Miller	keep	OK	OK	Glenn Miller	Glenn Miller
 wnja-00155487-n	位置確定	localization, localisation, location, locating, fix	keep	OK	OK	locating	locating
 wnja-00724492-v	不安がる	mind	lower	OK	UNSURE	be anxious about	be anxious, not exactly mind
@@ -197,7 +197,7 @@ wnja-11091545-n	ジョプリン	Joplin, Janis Joplin	keep	OK	OK	Janis Joplin	Jan
 wnja-00866606-n	鳥はだ	pilomotor reflex, gooseflesh, goose bump, goosebump, goose pimple, goose skin, horripilation	keep	OK	OK	goosebumps	goosebumps
 wnja-04732543-n	特徴	hallmark, trademark, earmark, stylemark	keep	OK	OK	characteristic	distinctive feature
 wnja-00540235-v	広ぐ	widen, broaden, extend	lower	OK	UNSURE	widen	archaic form
-wnja-00757080-n	罪咎	sin, sinning	lower	WRONG	OK	罪咎 not sin act theologically	sin
+wnja-00757080-n	罪咎	sin, sinning	queue	WRONG	OK	罪咎 not sin act theologically	sin
 wnja-01638368-v	企画	plan, project, contrive, design	keep	OK	OK		plan
 wnja-01688757-a	平々たる	banal, commonplace, hackneyed, old-hat, shopworn, stock, threadbare, timeworn, tired, trite, well-worn	keep	OK	OK	banal	banal
 wnja-00808855-v	インタヴュー	interview, question	keep	OK	OK	interview	interview
@@ -225,7 +225,7 @@ wnja-02504770-n	マンモス	mammoth	keep	OK	OK	mammoth	mammoth
 wnja-07238455-n	当擦り	insinuation, innuendo	keep	OK	OK	innuendo	insinuation
 wnja-11401009-n	ザヴィエ	Xavier, Saint Francis Xavier	lower	OK	UNSURE	Xavier	usual ザビエル
 wnja-02853434-a	乳様突起	mastoid, mastoidal	lower	OK	UNSURE	mastoid	mastoid process, adjective gloss
-wnja-15166462-n	暮相	evening, eve, even, eventide	lower	UNSURE	UNSURE	rare spelling	rare variant of evening
+wnja-15166462-n	暮相	evening, eve, even, eventide	queue	UNSURE	UNSURE	rare spelling	rare variant of evening
 wnja-02321809-a	魁偉	brawny, hefty, muscular, powerful, sinewy	keep	OK	OK	brawny	imposing physique
 wnja-13867276-n	歪み形	distorted shape, distortion	keep	OK	OK	distortion	distortion
 wnja-00751353-a	蹠行性	plantigrade	keep	OK	OK	plantigrade	plantigrade
@@ -235,7 +235,7 @@ wnja-00186644-r	敏感に	irritably	remove	WRONG	WRONG	sensitive not irritable	s
 wnja-13912839-n	刺	spur, spine, acantha	keep	OK	OK	thorn	thorn spine
 wnja-09358358-n	太陰暦	Moon, moon	remove	WRONG	WRONG	lunar calendar not moon	lunar calendar not Moon
 wnja-08569319-n	フェアウェー	fairway	keep	OK	OK	fairway	fairway
-wnja-06529798-n	清算勘定	open account	lower	UNSURE	UNSURE	open account term	unclear term
+wnja-06529798-n	清算勘定	open account	queue	UNSURE	UNSURE	open account term	unclear term
 wnja-09627117-n	露払	precursor, forerunner	keep	OK	OK	forerunner	forerunner
 wnja-08948346-n	ガイアナ協同共和国	Guyana, Co-operative Republic of Guyana, British Guiana	keep	OK	OK	Guyana	Guyana
 wnja-02114100-n	ウルフ	wolf	keep	OK	OK	wolf	wolf
@@ -243,7 +243,7 @@ wnja-00511214-a	無能	incompetent	keep	OK	OK	incompetent	incompetent
 wnja-00902807-v	混合	meld	remove	WRONG	WRONG	混合 meld cards odd	card meld not mixing
 wnja-15151641-n	若ざかり	bloom, bloom of youth, salad days	keep	OK	OK	prime of youth	prime of youth
 wnja-02220461-v	譲り渡す	transfer	keep	OK	OK	hand over	transfer
-wnja-01881180-v	ブラツク	roll, wander, swan, stray, tramp, roam, cast, ramble, rove, range, drift, vagabond	lower	OK	WRONG	wander variant	katakana burakku is not wander
+wnja-01881180-v	ブラツク	roll, wander, swan, stray, tramp, roam, cast, ramble, rove, range, drift, vagabond	queue	OK	WRONG	wander variant	katakana burakku is not wander
 wnja-07738570-n	バナナの皮	banana peel, banana skin	keep	OK	OK	banana peel	banana peel
 wnja-03528901-n	ホームプレイト	home plate, home base, home, plate	keep	OK	OK	home plate	home plate
 wnja-07555863-n	食物	food, solid food	keep	OK	OK	food	food
@@ -265,7 +265,7 @@ wnja-04393095-n	テープレコーダ	tape recorder, tape machine	keep	OK	OK	tap
 wnja-02722902-v	逆巻く	rage	keep	OK	OK	rage	rage
 wnja-10395209-n	手相見	palmist, palmister, chiromancer	keep	OK	OK	palmist	palmist
 wnja-01983134-v	膨らむ	rise, prove	keep	OK	OK	swell/rise	swell
-wnja-02353211-a	由ない	baseless, groundless, idle, unfounded, unwarranted, wild	lower	UNSURE	UNSURE	means pointless	baseless
+wnja-02353211-a	由ない	baseless, groundless, idle, unfounded, unwarranted, wild	queue	UNSURE	UNSURE	means pointless	baseless
 wnja-02166361-v	読過す	overlook	keep	OK	OK	overlook	overlook
 wnja-01780202-v	怖がる	fear, dread	keep	OK	OK	fear	fear
 wnja-02274822-n	立羽蝶	nymphalid, nymphalid butterfly, brush-footed butterfly, four-footed butterfly	keep	OK	OK	nymphalid	nymphalid
@@ -300,7 +300,7 @@ wnja-01239862-v	突き倒す	down, knock down, cut down, push down, pull down	ke
 wnja-13744304-n	四つ	four, 4, IV, tetrad, quatern, quaternion, quaternary, quaternity, quartet, quadruplet, foursome, Little Joe	keep	OK	OK	four	
 wnja-02528380-v	過つ	fail, go wrong, miscarry	keep	OK	OK	err fail	err fail
 wnja-07923748-n	ツユ	juice	lower	UNSURE	OK	broth more than juice	juice, broth
-wnja-09481036-n	ワームホール	wormhole	lower	WRONG	UNSURE	physics wormhole, not worm hole	cosmic vs worm hole
+wnja-09481036-n	ワームホール	wormhole	queue	WRONG	UNSURE	physics wormhole, not worm hole	cosmic vs worm hole
 wnja-00292981-n	宇宙遊泳	space walk	keep	OK	OK	space walk	spacewalk
 wnja-80001753-v	できる		keep	OK	OK	come into being	occur/form
 wnja-07496755-n	惨痛	anguish, torment, torture	lower	OK	UNSURE	anguish	rare
@@ -308,15 +308,15 @@ wnja-02104523-n	牧羊犬	shepherd dog, sheepdog, sheep dog	keep	OK	OK	sheepdog	
 wnja-04108268-n	索条	rope	keep	OK	OK	rope	rope
 wnja-00041954-r	総別	generally, in general, in the main	keep	OK	OK	generally	generally
 wnja-13279262-n	賃銀	wage, pay, earnings, remuneration, salary	keep	OK	OK	wages	
-wnja-00363110-v	留める	drop, knock off	lower	UNSURE	WRONG	stop pursuing borderline	not drop/give up
+wnja-00363110-v	留める	drop, knock off	queue	UNSURE	WRONG	stop pursuing borderline	not drop/give up
 wnja-04677514-n	形姿	form, shape, cast	keep	OK	OK	form shape	appearance
 wnja-00122661-n	狙い撃ち	shooting, shot	keep	OK	OK	shooting	shooting
 wnja-00019609-r	何時迄も	always	keep	OK	OK	forever	forever
-wnja-01660082-v	プリフォーム	preform	lower	UNSURE	UNSURE	noun not verb	katakana preform
+wnja-01660082-v	プリフォーム	preform	queue	UNSURE	UNSURE	noun not verb	katakana preform
 wnja-02209354-n	熊蜂	carpenter bee	keep	OK	OK	carpenter bee	carpenter bee
 wnja-00158309-r	キチンキチン	precisely, exactly, just	keep	OK	OK	precisely	exactly/methodically
-wnja-01143957-n	最終的準備	makeready	lower	UNSURE	UNSURE		descriptive compound
-wnja-00967780-n	bw	biological warfare, BW, biological attack, biologic attack, bioattack	lower	UNSURE	UNSURE	odd lowercase form	odd latin form
+wnja-01143957-n	最終的準備	makeready	queue	UNSURE	UNSURE		descriptive compound
+wnja-00967780-n	bw	biological warfare, BW, biological attack, biologic attack, bioattack	queue	UNSURE	UNSURE	odd lowercase form	odd latin form
 wnja-04606014-n	レイ	wreath, garland, coronal, chaplet, lei	keep	OK	OK	lei	lei wreath
 wnja-02332604-a	生産的	productive	keep	OK	OK	productive	productive
 wnja-00729781-v	内面化	internalize, internalise, interiorize, interiorise	keep	OK	OK	internalize	internalization
@@ -324,25 +324,25 @@ wnja-09283514-n	下盤	footwall	keep	OK	OK	footwall	footwall
 wnja-02626405-v	沸き上がる	well up, swell	keep	OK	OK	well up	well up
 wnja-04058721-n	読み書きヘッド	read/write head, head	lower	UNSURE	OK	head read write	read/write head
 wnja-11048879-n	ハイゼ	Heyse, Paul Heyse, Paul Johann Ludwig von Heyse	keep	OK	OK	Heyse	Heyse
-wnja-07971449-n	高家	house	lower	WRONG	UNSURE	Edo court-ceremony family title	historical title
+wnja-07971449-n	高家	house	queue	WRONG	UNSURE	Edo court-ceremony family title	historical title
 wnja-00467995-n	ホッケー	field hockey, hockey	keep	OK	OK	hockey	hockey
 wnja-00967625-v	発兌	publish, bring out, put out, issue, release	keep	OK	OK	publish	publish
-wnja-13388111-n	両替	change	lower	OK	WRONG	change coins	coins change, 両替 is exchange
+wnja-13388111-n	両替	change	queue	OK	WRONG	change coins	coins change, 両替 is exchange
 wnja-11405319-n	ゼカリヤ	Zechariah, Zacharias	keep	OK	OK	Zechariah	Zechariah
 wnja-01007657-a	渺茫たる	boundless, unbounded, limitless	keep	OK	OK	boundless	boundless
 wnja-03702719-n	レーンコート	macintosh, mackintosh, mac, mack	keep	OK	OK	raincoat	raincoat
 wnja-07786856-n	青柳	quahaug, quahog, hard-shell clam, round clam	remove	WRONG	WRONG	Mactra clam not quahog	aoyagi is different clam
 wnja-10366966-n	白衣の天使	nurse	keep	OK	OK	nurse	nurse
 wnja-02120997-n	ネコ科動物	feline, felid	keep	OK	OK	feline	feline
-wnja-00539009-a	鬱々たる	thick	lower	WRONG	OK	鬱々 gloomy/dense foliage not compact	dense
+wnja-00539009-a	鬱々たる	thick	queue	WRONG	OK	鬱々 gloomy/dense foliage not compact	dense
 wnja-03331244-n	ファイバ	fiber, fibre, vulcanized fiber	keep	OK	OK	fiber	vulcanized fiber
 wnja-06185138-n	切支丹	Jesuitism, Jesuitry	remove	WRONG	WRONG	Christians not Jesuitism	means Christian not Jesuitism
-wnja-00436404-v	押しひろげる	diversify, branch out, broaden	lower	UNSURE	UNSURE	diversify unclear	diversify weak
-wnja-00290308-r	カチット	succinctly, compactly	lower	UNSURE	WRONG	かちっと not succinct	means firmly not succinctly
+wnja-00436404-v	押しひろげる	diversify, branch out, broaden	queue	UNSURE	UNSURE	diversify unclear	diversify weak
+wnja-00290308-r	カチット	succinctly, compactly	queue	UNSURE	WRONG	かちっと not succinct	means firmly not succinctly
 wnja-00300537-v	当て嵌める	fit	keep	OK	OK	fit	fit
 wnja-00298047-n	トラバース	traversal, traverse	keep	OK	OK	traverse	traverse
 wnja-06664473-n	スピードリミット	speed limit	keep	OK	OK	speed limit	speed limit
-wnja-09505418-n	霊神	deity, divinity, god, immortal	lower	UNSURE	UNSURE	deified spirit	rare deified spirit
+wnja-09505418-n	霊神	deity, divinity, god, immortal	queue	UNSURE	UNSURE	deified spirit	rare deified spirit
 wnja-00782216-a	糢糊たる	dim, faint, shadowy, vague, wispy	keep	OK	OK	vague	vague
 wnja-09542339-n	魔神	devil, fiend, demon, daemon, daimon	keep	OK	OK	demon	demon
 wnja-02081114-a	宜しい	all right, fine, o.k., ok, okay, hunky-dory	keep	OK	OK	fine	all right
@@ -374,7 +374,7 @@ wnja-00206130-n	ボイコット	boycott	keep	OK	OK	boycott
 wnja-02569630-v	ぶっ付かる	undertake, tackle, take on	lower	UNSURE	OK	tackle borderline	tackle
 wnja-10622053-n	陸兵	soldier	keep	OK	OK	soldier	soldier
 wnja-07548100-n	憎悪	animosity, animus, bad blood	keep	OK	OK	hatred	
-wnja-00076681-r	耳から	aurally	lower	UNSURE	UNSURE	aurally awkward	mimi kara odd for aurally
+wnja-00076681-r	耳から	aurally	queue	UNSURE	UNSURE	aurally awkward	mimi kara odd for aurally
 wnja-09812338-n	絵師	artist, creative person	keep	OK	OK	artist	painter
 wnja-13486115-n	配偶子形成	gametogenesis	keep	OK	OK	gametogenesis	gametogenesis
 wnja-09846469-n	ベドウィン	Bedouin, Beduin	keep	OK	OK	Bedouin	Bedouin
@@ -411,7 +411,7 @@ wnja-02869837-n	ボンネット	bonnet, poke bonnet	keep	OK	OK	bonnet	bonnet
 wnja-13811900-n	以心伝心	sympathy	keep	OK	OK	tacit sympathy	sympathy
 wnja-01986214-n	宿借り	hermit crab	keep	OK	OK	hermit crab	hermit crab
 wnja-02821627-n	寝処	bedroom, sleeping room, sleeping accommodation, chamber, bedchamber	keep	OK	OK	bedroom	bedroom
-wnja-90000108-n	ティーサロン		lower	UNSURE	UNSURE	no gloss	no gloss
+wnja-90000108-n	ティーサロン		queue	UNSURE	UNSURE	no gloss	no gloss
 wnja-00859001-n	リアクション	reaction, response	keep	OK	OK	reaction	reaction
 wnja-00489491-a	習慣性	accustomed, customary, habitual, wonted	keep	OK	OK	habitual	habitual
 wnja-08226699-n	里	village, small town, settlement	keep	OK	OK	village	village
@@ -424,7 +424,7 @@ wnja-01086081-n	贈呈	giving, gift	keep	OK	OK	giving	gift presenting
 wnja-03238586-n	化粧台	dressing table, dresser, vanity, toilet table	keep	OK	OK	dressing table	dressing table
 wnja-05518257-n	毛包	hair follicle	keep	OK	OK	follicle	
 wnja-80001613-n	急行		keep	OK	OK	express train	express train
-wnja-14443676-n	笏	scepter, sceptre	lower	UNSURE	WRONG	shaku not scepter	shaku not scepter authority
+wnja-14443676-n	笏	scepter, sceptre	queue	UNSURE	WRONG	shaku not scepter	shaku not scepter authority
 wnja-13780719-n	続き合い	relationship, human relationship	keep	OK	OK	relationship	relationship
 wnja-05867413-n	セクション	part, section, division	keep	OK	OK	section	section
 wnja-00061528-r	突として	abruptly, suddenly, short, dead	keep	OK	OK	suddenly	suddenly
@@ -447,7 +447,7 @@ wnja-01184932-a	ヘビー	heavy	keep	OK	OK	heavy	heavy
 wnja-09627906-n	引取り人	recipient, receiver	lower	OK	UNSURE	recipient	hikitorinin claimant not recipient
 wnja-04666416-n	ズボラ	laxness, laxity, remissness, slackness	keep	OK	OK	sloppy lax	lax
 wnja-06606808-n	落	point	lower	UNSURE	OK	punchline not point	point/punchline
-wnja-02566015-a	気無	unwilling	lower	UNSURE	UNSURE	rare	rare word
+wnja-02566015-a	気無	unwilling	queue	UNSURE	UNSURE	rare	rare word
 wnja-02747177-n	塵入	ashcan, trash can, garbage can, wastebin, ash bin, ash-bin, ashbin, dustbin, trash barrel, trash bin	keep	OK	OK	trash can	trash can variant
 wnja-01484714-v	ひと塊に	agglomerate	keep	OK	OK	cluster	clump
 wnja-11484975-n	月光	moonlight, moonshine, Moon	keep	OK	OK	moonlight	moonlight
@@ -479,7 +479,7 @@ wnja-10522324-n	兇漢	reprobate, miscreant	keep	OK	OK	villain	villain
 wnja-14306245-n	過敏性腸症候群	irritable bowel syndrome, spastic colon, mucous colitis	keep	OK	OK	IBS	IBS
 wnja-15007016-n	シリコーンゴム	silicone rubber	keep	OK	OK	silicone rubber	silicone rubber
 wnja-00847340-n	ペアリング	coupling, mating, pairing, conjugation, union, sexual union	lower	UNSURE	UNSURE	pairing, mating borderline	mating uncommon
-wnja-00602293-a	争い好き	contentious	lower	OK	WRONG	quarrelsome	means quarrelsome, not controversial
+wnja-00602293-a	争い好き	contentious	queue	OK	WRONG	quarrelsome	means quarrelsome, not controversial
 wnja-01712704-v	行なう	perform, execute, do	keep	OK	OK	perform	perform
 wnja-02233390-a	粉末状	powdered, powdery, pulverized, pulverised, small-grained, fine-grained	keep	OK	OK	powdered	powdered
 wnja-04869106-n	栄光	honor, honour	lower	UNSURE	UNSURE	glory vs honor	glory vs honor
@@ -503,7 +503,7 @@ wnja-10639925-n	すぽーつ・ふぁん	sports fan, fan, rooter	lower	OK	UNSURE
 wnja-04934220-n	質	texture, grain	lower	UNSURE	UNSURE	quality not texture	texture borderline
 wnja-01250908-v	擦れ合う	rub, fray, fret, chafe, scratch	keep	OK	OK	rub	
 wnja-01170502-n	暴動	riot, public violence	keep	OK	OK	riot	riot
-wnja-04952570-n	眩耀	glare, blaze, brilliance	lower	UNSURE	UNSURE	rare word for glare	rare
+wnja-04952570-n	眩耀	glare, blaze, brilliance	queue	UNSURE	UNSURE	rare word for glare	rare
 wnja-01579028-n	烏	crow	keep	OK	OK	crow	crow
 wnja-04812268-n	風情	elegance	keep	OK	OK	elegance	elegance
 wnja-05893356-n	前提条件	given, presumption, precondition	keep	OK	OK	precondition	
@@ -513,13 +513,13 @@ wnja-02686568-n	エアクラフト	aircraft	keep	OK	OK	aircraft	aircraft
 wnja-00266806-n	補修	repair, fix, fixing, fixture, mend, mending, reparation	keep	OK	OK	repair	repair
 wnja-15044232-n	べた雪	crud	keep	OK	OK	wet snow	wet snow
 wnja-80001781-r	何にも増して		keep	OK	OK	above all	
-wnja-09304750-n	虚	hole, hollow	lower	UNSURE	WRONG		not a hole
+wnja-09304750-n	虚	hole, hollow	queue	UNSURE	WRONG		not a hole
 wnja-02566227-v	失策	drop the ball, sin, blunder, boob, goof	keep	OK	OK	blunder	blunder
 wnja-06739990-n	理くつ	reason	keep	OK	OK		reason
 wnja-10191388-n	ヒューマニスト	humanist, humanitarian	keep	OK	OK	humanist	humanist
 wnja-03816394-n	針	needle	keep	OK	OK	pointer	pointer needle
 wnja-04692157-n	小疵	blemish, defect, mar	keep	OK	OK	blemish	blemish
-wnja-04914292-n	烏滸の沙汰	discourtesy, rudeness	lower	UNSURE	WRONG	foolishness more than rudeness	means absurdity not rudeness
+wnja-04914292-n	烏滸の沙汰	discourtesy, rudeness	queue	UNSURE	WRONG	foolishness more than rudeness	means absurdity not rudeness
 wnja-07372565-n	葛藤	fuss, trouble, bother, hassle	keep	OK	OK	conflict trouble	conflict/trouble
 wnja-06693198-n	賞揚	praise, congratulations, kudos, extolment	keep	OK	OK	praise	praise
 wnja-04546194-n	杖	walking stick	keep	OK	OK	walking stick	walking stick
@@ -540,15 +540,15 @@ wnja-00048475-r	今	nowadays, now, today	keep	OK	OK	now	now
 wnja-02220518-n	軍隊蟻	army ant, driver ant, legionary ant	keep	OK	OK	army ant	army ant
 wnja-00595299-a	止め処無い	ceaseless, constant, incessant, never-ending, perpetual, unceasing, unremitting	keep	OK	OK	ceaseless	ceaseless
 wnja-01366718-a	喜ばしい	joyous	keep	OK	OK	joyous	joyous
-wnja-05002822-n	身熟	carriage, bearing, posture	lower	UNSURE	UNSURE		truncated 身熟し
+wnja-05002822-n	身熟	carriage, bearing, posture	queue	UNSURE	UNSURE		truncated 身熟し
 wnja-00541163-v	郭大	expand	lower	OK	UNSURE	expand variant	rare variant of 拡大
 wnja-07939638-n	カテゴリー化	classification, categorization, categorisation	lower	UNSURE	OK	act vs category group	categorization
-wnja-01383394-a	潤沢	ample, sizable, sizeable	lower	WRONG	UNSURE	潤沢 means abundant not sizable	abundant rather than sizable
+wnja-01383394-a	潤沢	ample, sizable, sizeable	queue	WRONG	UNSURE	潤沢 means abundant not sizable	abundant rather than sizable
 wnja-09406368-n	赤色巨星	red giant, red giant star	keep	OK	OK		
 wnja-01256157-v	彫り刻む	carve	keep	OK	OK	carve	carve
 wnja-01575424-a	この世のものとは思えない	eldritch, weird, uncanny, unearthly	keep	OK	OK	unearthly	uncanny
 wnja-02557199-v	差しさわる	obstruct, blockade, block, hinder, stymie, stymy, embarrass	lower	OK	UNSURE	hinder	hinder nuance
-wnja-00981067-a	薄鈍い	dilatory, laggard, poky, pokey	lower	OK	WRONG	slow	slow-witted not time-wasting
+wnja-00981067-a	薄鈍い	dilatory, laggard, poky, pokey	queue	OK	WRONG	slow	slow-witted not time-wasting
 wnja-02767116-v	射出	radiate	keep	OK	OK	emit	emit
 wnja-01158022-v	涸す	drain	lower	OK	UNSURE	deplete	rare variant of 涸らす
 wnja-11356636-n	ラゲリウスのオド	Urban II, Odo, Odo of Lagery, Otho, Otho of Lagery	keep	OK	OK	Urban II	Urban II name
@@ -568,7 +568,7 @@ wnja-01160370-v	付与	put, assign	keep	OK	OK		assign/grant
 wnja-01279611-a	深刻	serious	keep	OK	OK	serious	
 wnja-02892499-n	ブラスリー	brasserie	keep	OK	OK	brasserie	brasserie
 wnja-01312371-v	抄う	scoop, scoop out, lift out, scoop up, take up	keep	OK	OK	scoop	scoop (variant of sukuu)
-wnja-04473432-n	脚	transportation system, transportation, transit	lower	UNSURE	WRONG	transport sense is ashi	leg not transport system
+wnja-04473432-n	脚	transportation system, transportation, transit	queue	UNSURE	WRONG	transport sense is ashi	leg not transport system
 wnja-07904637-n	スロージン	sloe gin	keep	OK	OK	sloe gin	sloe gin
 wnja-14613922-n	ヒドロキシ酸	hydroxy acid	keep	OK	OK	hydroxy acid	hydroxy acid
 wnja-01829126-v	取りみだす	fall apart, go to pieces	keep	OK	OK	lose composure	lose composure
@@ -576,7 +576,7 @@ wnja-07120524-n	喚き声	cry, outcry, call, yell, shout, vociferation	keep	OK	O
 wnja-01780202-v	恐怖	fear, dread	keep	OK	OK	fear	fear
 wnja-01632601-n	タイガーサラマンダー	tiger salamander, Ambystoma tigrinum	keep	OK	OK	tiger salamander	tiger salamander
 wnja-09084298-n	ロックアイランド	Rock Island	keep	OK	OK	Rock Island	Rock Island
-wnja-14030820-n	押し詰まり	imminence, imminency, imminentness, impendence, impendency, forthcomingness	lower	UNSURE	UNSURE	year-end sense mainly	imminence borderline
+wnja-14030820-n	押し詰まり	imminence, imminency, imminentness, impendence, impendency, forthcomingness	queue	UNSURE	UNSURE	year-end sense mainly	imminence borderline
 wnja-14653242-n	ルテニウム	ruthenium, Ru, atomic number 44	keep	OK	OK	ruthenium	ruthenium
 wnja-00479391-v	消去	erase, wipe out	keep	OK	OK	erase	erase
 wnja-04745240-n	対応	parallelism, correspondence	keep	OK	OK	correspondence	correspondence
@@ -608,7 +608,7 @@ wnja-01230710-v	急き立てる	prod, incite, egg on	keep	OK	OK	urge on	urge on
 wnja-15200493-n	パリ祭	Bastille Day, 14 July	keep	OK	OK	Bastille Day	Bastille Day
 wnja-01037819-n	洗礼	baptism	keep	OK	OK	baptism	
 wnja-01616764-n	禿鷲	Old World vulture	keep	OK	OK	vulture	vulture
-wnja-06664845-n	折屈み	etiquette	lower	UNSURE	UNSURE	rare etiquette	obscure form
+wnja-06664845-n	折屈み	etiquette	queue	UNSURE	UNSURE	rare etiquette	obscure form
 wnja-02639075-v	ホッツク	loiter, lounge, footle, lollygag, loaf, lallygag, hang around, mess about, tarry, linger, lurk, mill about, mill around	keep	OK	OK	ほっつく loiter	loiter
 wnja-00849357-a	高雅	elegant	keep	OK	OK	elegant	elegant
 wnja-80001761-v	繁茂		keep	OK	OK	luxuriant growth	luxuriant growth
@@ -643,7 +643,7 @@ wnja-11418460-n	ラッキー	luck, fortune	keep	OK	OK	luck	luck
 wnja-00038119-a	不活発	flat	keep	OK	OK	inactive	inactive
 wnja-00357254-a	症状を示す	diagnostic, symptomatic	lower	UNSURE	OK	phrase for symptomatic	symptomatic
 wnja-10595647-n	病人	sick person, diseased person, sufferer	keep	OK	OK	sick person	sick person
-wnja-00403982-a	ケタタマシイ	shrill	lower	WRONG	UNSURE	けたたましい not about color	sound not colour
+wnja-00403982-a	ケタタマシイ	shrill	queue	WRONG	UNSURE	けたたましい not about color	sound not colour
 wnja-13292787-n	償い	atonement, expiation, satisfaction	keep	OK	OK	atonement	atonement
 wnja-13971901-n	合意	consensus	keep	OK	OK	agreement	consensus
 wnja-12954978-n	フサシダ科	Schizaeaceae, family Schizaeaceae	keep	OK	OK	fern family	fern family
@@ -655,7 +655,7 @@ wnja-02567519-v	辱める	rape, ravish, violate, assault, dishonor, dishonour, o
 wnja-00663488-n	赤外線療法	infrared therapy	keep	OK	OK	infrared therapy	infrared therapy
 wnja-06999233-n	カット	illustration	keep	OK	OK	illustration	illustration cut
 wnja-09736035-n	カザーフ	Kazak, Kazakh	keep	OK	OK	Kazakh	Kazakh
-wnja-04909721-n	茶気	prankishness, rascality, roguishness	lower	UNSURE	UNSURE	rare word	chaki prankishness
+wnja-04909721-n	茶気	prankishness, rascality, roguishness	queue	UNSURE	UNSURE	rare word	chaki prankishness
 wnja-01282413-v	鼻掘り	rout, root, rootle	remove	WRONG	WRONG	nose-picking not rooting	means nose picking
 wnja-00282858-r	ぶっ続け	endlessly, ceaselessly, incessantly, unceasingly, unendingly, continuously	keep	OK	OK	continuously	continuously
 wnja-00475819-v	浄化	purify, purge, sanctify	keep	OK	OK	purify	purify
@@ -695,7 +695,7 @@ wnja-02977198-a	計量的	quantitative	keep	OK	OK	quantitative	quantitative
 wnja-00136267-r	統語上	syntactically	keep	OK	OK	syntactically	syntactically
 wnja-00276472-a	陰になった	shaded	keep	OK	OK	shaded	shaded
 wnja-14854847-n	糞	droppings, dung, muck	keep	OK	OK	dung	dung
-wnja-01139636-n	名目	name	lower	WRONG	UNSURE	nominal not in name of	nominal vs in the name of
+wnja-01139636-n	名目	name	queue	WRONG	UNSURE	nominal not in name of	nominal vs in the name of
 wnja-01282921-a	センセーショナル	arresting, sensational, stunning	keep	OK	OK		sensational
 wnja-02056854-v	燻り出す	smoke out	keep	OK	OK	smoke out	smoke out
 wnja-10907851-n	コンスタブル	Constable, John Constable	keep	OK	OK	Constable	Constable
@@ -717,11 +717,11 @@ wnja-00258857-v	傷める	damage	keep	OK	OK	damage	damage
 wnja-00868910-n	算出	calculation, computation, computing	keep	OK	OK	calculation	calculation
 wnja-14267017-n	ケルニッヒ徴候	Kernig's sign	keep	OK	OK	Kernig sign	Kernig sign
 wnja-14446161-n	慰め	solace, solacement	keep	OK	OK	solace	solace
-wnja-07113491-n	成節	syllabicity	lower	UNSURE	UNSURE	obscure term	rare term
+wnja-07113491-n	成節	syllabicity	queue	UNSURE	UNSURE	obscure term	rare term
 wnja-01602832-n	アカメモズモドキ	red-eyed vireo, Vireo olivaceous	keep	OK	OK	red-eyed vireo	red-eyed vireo
 wnja-11748501-n	落花生	peanut, peanut vine, Arachis hypogaea	keep	OK	OK	peanut	peanut
 wnja-00168910-v	再興	revive, resurrect	keep	OK	OK	revive	revival
-wnja-00767019-v	ハッスル	hustle	lower	UNSURE	WRONG	hustle sense borderline	hustle means energetic not pressure
+wnja-00767019-v	ハッスル	hustle	queue	UNSURE	WRONG	hustle sense borderline	hustle means energetic not pressure
 wnja-07572353-n	糧	commissariat, provisions, provender, viands, victuals	keep	OK	OK	provisions	provisions
 wnja-06127460-n	化学工学	chemical engineering	keep	OK	OK	chemical engineering	chemical engineering
 wnja-07651159-n	せいにく	raw meat	keep	OK	OK	raw meat	raw meat
@@ -829,7 +829,7 @@ wnja-06513366-n	起請	request, petition, postulation	remove	WRONG	WRONG	means o
 wnja-04238321-n	ファスナー	slide fastener, zip, zipper, zip fastener	keep	OK	OK	zipper	
 wnja-04940964-n	吸収能	absorbency	keep	OK	OK	absorbency	absorbency
 wnja-07515560-n	長閑さ	tranquillity, tranquility, quietness, quietude	keep	OK	OK	tranquility	tranquillity
-wnja-13719291-n	テール	tael	lower	UNSURE	WRONG	tael usually 両	teru is tail not tael
+wnja-13719291-n	テール	tael	queue	UNSURE	WRONG	tael usually 両	teru is tail not tael
 wnja-01279305-v	縮れる	purse, wrinkle	lower	UNSURE	UNSURE		curl more than wrinkle
 wnja-01067538-a	珍らか	rare	lower	UNSURE	OK	odd word, rare sense	rare
 wnja-06999647-n	図	figure, fig	keep	OK	OK	figure	figure diagram
@@ -844,7 +844,7 @@ wnja-00728954-v	見破る	penetrate, fathom, bottom	keep	OK	OK	see through	see t
 wnja-03753077-n	メータ	meter	keep	OK	OK	meter	meter
 wnja-02669723-n	アカデミックガウン	academic gown, academic robe, judge's robe	keep	OK	OK	academic gown	academic gown
 wnja-02284951-v	返戻	refund, return, repay, give back	keep	OK	OK	refund	refund
-wnja-01146051-v	凝らす	strive, reach, strain	lower	WRONG	OK	凝らす concentrate not strive	凝らす effort/strain
+wnja-01146051-v	凝らす	strive, reach, strain	queue	WRONG	OK	凝らす concentrate not strive	凝らす effort/strain
 wnja-00101800-a	得手勝手	egoistic, egoistical, egocentric, self-centered, self-centred	keep	OK	OK	selfish	selfish
 wnja-10501453-n	スポンジ	quick study, sponge	lower	UNSURE	UNSURE	figurative only	figurative sponge learner
 wnja-00118567-a	生き生きした	animated, alive	keep	OK	OK	lively	lively
@@ -893,8 +893,8 @@ wnja-15132638-n	太平洋時間	Pacific Time, Pacific Standard Time, PST	keep	OK
 wnja-00889082-n	教え込むこと	inculcation, ingraining, instilling	keep	OK	OK	inculcation	instilling
 wnja-07185325-n	申請	request, asking	keep	OK	OK	request	request
 wnja-00671351-n	オペレーション	operation, surgery, surgical operation, surgical procedure, surgical process	keep	OK	OK	operation	surgical operation
-wnja-77000022-n	あなた様		lower	UNSURE	UNSURE	no English given	no gloss
-wnja-07251984-n	登用	promotion, furtherance, advancement	lower	WRONG	UNSURE		touyou is appointment, not promotion encouragement
+wnja-77000022-n	あなた様		queue	UNSURE	UNSURE	no English given	no gloss
+wnja-07251984-n	登用	promotion, furtherance, advancement	queue	WRONG	UNSURE		touyou is appointment, not promotion encouragement
 wnja-02382204-n	痩せ馬	hack, jade, nag, plug	keep	OK	OK	nag	nag
 wnja-05502855-n	第四脳室	fourth ventricle	keep	OK	OK	fourth ventricle	fourth ventricle
 wnja-08281409-n	王立協会	Royal Society, Royal Society of London for Improving Natural Knowledge	keep	OK	OK	Royal Society	Royal Society
@@ -923,7 +923,7 @@ wnja-09515131-n	アルリム	Adapa	remove	WRONG	WRONG	wrong name	Alulim not Adap
 wnja-01327582-v	殲滅	exterminate, kill off	keep	OK	OK	extermination	annihilate
 wnja-00465737-a	折りたためる	collapsible, collapsable	keep	OK	OK	collapsible	collapsible
 wnja-07294550-n	賜物	fruit	keep	OK	OK	fruit of effort	fruit of effort
-wnja-02713372-v	ぬけ出る	stick out, protrude, jut out, jut, project	lower	UNSURE	WRONG	stand out not protrude	means excel, not protrude
+wnja-02713372-v	ぬけ出る	stick out, protrude, jut out, jut, project	queue	UNSURE	WRONG	stand out not protrude	means excel, not protrude
 wnja-01143040-n	仕込	preparation, readying	keep	OK	OK	preparation	preparation
 wnja-09764201-n	取得者	acquirer	keep	OK	OK	acquirer	acquirer
 wnja-08164585-n	体制	administration, governance, governing body, establishment, brass, organization, organisation	lower	OK	UNSURE	administration	establishment sense
@@ -956,7 +956,7 @@ wnja-00428404-a	截然たる	clear	keep	OK	OK	clear	clear
 wnja-00427683-v	滅亡	die out, die off	keep	OK	OK	die out	die out
 wnja-04962062-n	シルヴァー	ash grey, ash gray, silver, silver grey, silver gray	keep	OK	OK	silver	silver grey
 wnja-04915462-n	素っ気無さ	abruptness, brusqueness, curtness, gruffness, shortness	keep	OK	OK	brusqueness	curtness
-wnja-01439155-a	永永しい	drawn-out, extended, lengthy, prolonged, protracted	lower	WRONG	OK	bad form	lengthy
+wnja-01439155-a	永永しい	drawn-out, extended, lengthy, prolonged, protracted	queue	WRONG	OK	bad form	lengthy
 wnja-01030132-v	命名	designate, denominate	keep	OK	OK	naming	naming
 wnja-02070776-n	コガシラネズミイルカ	vaquita, Phocoena sinus	keep	OK	OK	vaquita	vaquita
 wnja-00697249-n	ホスピス	hospice	keep	OK	OK	hospice	hospice
@@ -972,7 +972,7 @@ wnja-01225970-v	掻いなでる	stroke	keep	OK	OK	stroke	to stroke
 wnja-02232190-v	移動	transfer	keep	OK	OK	transfer	transfer
 wnja-15271008-n	たえ間	pause, intermission, break, interruption, suspension	keep	OK	OK	pause	pause
 wnja-06776138-n	ウイット	wit, humor, humour, witticism, wittiness	keep	OK	OK	wit	wit
-wnja-80001167-x	ふうん		lower	UNSURE	WRONG	interjection no gloss	interjection no definition
+wnja-80001167-x	ふうん		queue	UNSURE	WRONG	interjection no gloss	interjection no definition
 wnja-02266050-n	蛇蜻蛉	dobson, dobsonfly, dobson fly, Corydalus cornutus	keep	OK	OK	dobsonfly	dobsonfly
 wnja-10344922-n	同名異人	namesake	keep	OK	OK	namesake	namesake
 wnja-00318501-r	不釣合	disproportionately	keep	OK	OK	disproportion	out of proportion
@@ -1003,12 +1003,12 @@ wnja-09188383-n	アドリア海	Adriatic, Adriatic Sea	keep	OK	OK	Adriatic	Adria
 wnja-11500570-n	電波信号	radio signal	keep	OK	OK	radio signal	radio signal
 wnja-13691509-n	ペソ	Chilean peso, peso	keep	OK	OK	peso	peso
 wnja-08227916-n	仲間	family, fellowship	keep	OK	OK	fellowship	nakama as group of fellows
-wnja-07731952-n	禾穀	corn, edible corn	lower	UNSURE	UNSURE	grain not corn ears	kakoku is grain not corn specifically
+wnja-07731952-n	禾穀	corn, edible corn	queue	UNSURE	UNSURE	grain not corn ears	kakoku is grain not corn specifically
 wnja-01873406-a	皮相	superficial	keep	OK	OK	superficial	superficial
 wnja-05642175-n	機敏さ	adeptness, adroitness, deftness, facility, quickness	keep	OK	OK	adeptness	quickness/facility
 wnja-07724492-n	ローメインレタス	cos, cos lettuce, romaine, romaine lettuce	keep	OK	OK	romaine	romaine lettuce
 wnja-02513740-a	邪曲	wicked	keep	OK	OK	wicked	wicked
-wnja-00161987-v	取り替える	commute, convert, exchange	lower	UNSURE	WRONG	exchange, commute sense specific	not commute penalty
+wnja-00161987-v	取り替える	commute, convert, exchange	queue	UNSURE	WRONG	exchange, commute sense specific	not commute penalty
 wnja-04655929-n	友交	amity, cordiality	lower	UNSURE	OK	rare for friendship	amity
 wnja-10999584-n	ギルバート	Gilbert, William Gilbert, William S. Gilbert, William Schwenk Gilbert, Sir William Gilbert	keep	OK	OK	W.S. Gilbert	Gilbert
 wnja-08353563-n	選抜徴兵局	Selective Service, Selective Service System, SSS	keep	OK	OK	Selective Service	Selective Service
@@ -1064,7 +1064,7 @@ wnja-06724066-n	定	truth, true statement	remove	WRONG	WRONG	archaic adverb not 
 wnja-00484166-v	完了	complete, finish	keep	OK	OK	complete	finish
 wnja-06413020-n	クックブック	cookbook, cookery book	keep	OK	OK	cookbook	cookbook
 wnja-90000417-n	ご飯		keep	OK	OK	cooked rice	cooked rice
-wnja-13779032-n	分量	volume	lower	WRONG	UNSURE	amount not 3D volume	amount not 3D volume
+wnja-13779032-n	分量	volume	queue	WRONG	UNSURE	amount not 3D volume	amount not 3D volume
 wnja-00271264-r	感謝して	appreciatively, gratefully	lower	OK	UNSURE	gratefully	kanshashite gratefully
 wnja-02477755-v	とり止める	cancel, call off, scratch, scrub	keep	OK	OK	cancel	cancel
 wnja-04829922-n	容赦	lenience, leniency, mildness, lenity	keep	OK	OK	leniency	leniency
@@ -1073,14 +1073,14 @@ wnja-02525044-v	通る	pass, make it	keep	OK	OK	pass	pass exam
 wnja-13927383-n	形勢	situation, state of affairs	keep	OK	OK	situation	situation
 wnja-01214430-a	鋭い	shrill, sharp	keep	OK	OK	shrill/sharp	sharp
 wnja-77000023-n	公		keep	OK	OK	you pronoun	familiar you
-wnja-01146493-a	感謝を感じた	grateful, thankful	lower	WRONG	UNSURE	not a word	phrase not word
+wnja-01146493-a	感謝を感じた	grateful, thankful	queue	WRONG	UNSURE	not a word	phrase not word
 wnja-02795528-n	砲身	barrel, gun barrel	keep	OK	OK	gun barrel	gun barrel
-wnja-00105341-r	さくっと	promptly, readily, pronto	lower	UNSURE	UNSURE	さくっと quickly colloquial	promptly doubtful
+wnja-00105341-r	さくっと	promptly, readily, pronto	queue	UNSURE	UNSURE	さくっと quickly colloquial	promptly doubtful
 wnja-01454636-a	柔か	soft	lower	UNSURE	OK	soft sound borderline	soft sound
 wnja-00619869-v	誤読	misconstrue, misinterpret, misconceive, misunderstand, misapprehend, be amiss	keep	OK	OK	misreading	misread
 wnja-01497387-a	意味深長	meaning, pregnant, significant	keep	OK	OK	significant	significant
 wnja-00191889-r	天然に	spontaneously	lower	UNSURE	OK	naturally nuance	spontaneously
-wnja-13870805-n	接続	connection, connexion, link	lower	UNSURE	WRONG	connection shape odd	not a shape
+wnja-13870805-n	接続	connection, connexion, link	queue	UNSURE	WRONG	connection shape odd	not a shape
 wnja-14475661-n	困難	adversity, hardship, hard knocks	keep	OK	OK	hardship	hardship
 wnja-14544672-n	緊張	tonicity, tonus, tone	keep	OK	OK	muscle tonus	tension tonus
 wnja-10347593-n	海軍将校	naval officer	lower	UNSURE	OK	海軍将校 rare	naval officer
@@ -1112,10 +1112,10 @@ wnja-00383271-r	不敬	irreverently	lower	OK	UNSURE	irreverence	noun not adverb
 wnja-13845239-n	同時発生	synchronism, synchrony, synchronicity, synchroneity, synchronization, synchronisation, synchronizing	keep	OK	OK	synchronism	simultaneity
 wnja-02935658-n	茶店	cafe, coffeehouse, coffee shop, coffee bar	keep	OK	OK	cafe	cafe
 wnja-04555291-n	トイレ	washroom	keep	OK	OK	toilet	toilet
-wnja-01855606-v	屋渡り	move	lower	UNSURE	UNSURE	rare move house	rare for moving house
+wnja-01855606-v	屋渡り	move	queue	UNSURE	UNSURE	rare move house	rare for moving house
 wnja-12768369-n	セイヨウトチノキ	horse chestnut, buckeye, Aesculus hippocastanum	keep	OK	OK	horse chestnut	horse chestnut
 wnja-01142804-a	徐徐	gradual	keep	OK	OK	gradual	gradual
-wnja-02426042-a	ごった交	messy, mussy	lower	UNSURE	UNSURE	odd form	messy; odd spelling
+wnja-02426042-a	ごった交	messy, mussy	queue	UNSURE	UNSURE	odd form	messy; odd spelling
 wnja-08568719-n	赤道	equator	keep	OK	OK	equator	equator
 wnja-14529835-n	屈従	subservience	remove	WRONG	WRONG	means servile submission	servility, not instrumentality
 wnja-06199702-n	天性	bent, set	keep	OK	OK	innate bent	nature, disposition
@@ -1152,7 +1152,7 @@ wnja-04969798-n	青緑色	greenish blue, aqua, aquamarine, turquoise, cobalt blu
 wnja-06978180-n	コーカサス諸語	Caucasian, Caucasian language	keep	OK	OK	Caucasian languages	Caucasian languages
 wnja-01977962-v	垂れる	hang	keep	OK	OK	hang droop	hang down
 wnja-14939900-n	流体	fluid	keep	OK	OK	fluid	fluid
-wnja-13937284-n	禁固	prison, prison house	lower	WRONG	UNSURE	confinement as punishment	imprisonment not place
+wnja-13937284-n	禁固	prison, prison house	queue	WRONG	UNSURE	confinement as punishment	imprisonment not place
 wnja-05005064-n	生理	physiology	keep	OK	OK	physiology	physiology
 wnja-04000480-n	プレス	press	keep	OK	OK	racket press	racket press
 wnja-02348568-v	入れる	commit, institutionalize, institutionalise, send, charge	keep	OK	OK	commit to institution	commit
@@ -1172,7 +1172,7 @@ wnja-07742012-n	調理用リンゴ	cooking apple	keep	OK	OK	cooking apple	cookin
 wnja-01074650-a	睦まやか	friendly	keep	OK	OK		friendly
 wnja-03697665-n	ルネット	lunette, fenestella	keep	OK	OK	lunette	lunette
 wnja-00050186-r	着々	steadily	keep	OK	OK	steadily	steadily
-wnja-07486229-n	要望	wish, wishing, want	lower	UNSURE	WRONG	request rather than wish	request not wish
+wnja-07486229-n	要望	wish, wishing, want	queue	UNSURE	WRONG	request rather than wish	request not wish
 wnja-14706026-n	隙間埋め	filler	keep	OK	OK	filler	filler
 wnja-03740161-n	メディシン	medicine, medication, medicament, medicinal drug	keep	OK	OK	medicine	medicine
 wnja-03144592-n	キューブ	cube, square block	keep	OK	OK	cube	cube
@@ -1186,7 +1186,7 @@ wnja-05898171-n	亡者	ghost, shade, spook, wraith, specter, spectre	lower	OK	UN
 wnja-02513740-a	腹黒	wicked	keep	OK	OK	wicked	wicked
 wnja-01230710-v	責つく	prod, incite, egg on	lower	UNSURE	OK	odd spelling and reading	urge on
 wnja-01649809-v	成る	put on, turn in	remove	WRONG	WRONG	become, not perform	not put on
-wnja-15120823-n	昔歳	past, past times, yesteryear	lower	UNSURE	UNSURE	rare word	rare
+wnja-15120823-n	昔歳	past, past times, yesteryear	queue	UNSURE	UNSURE	rare word	rare
 wnja-00190837-r	微細に	finely	keep	OK	OK		finely
 wnja-08305942-n	味方	ally	lower	UNSURE	OK	friend; allied nation borderline	ally
 wnja-01293167-n	サンミエル	Saint-Mihiel, St Mihiel, battle of St Mihiel	keep	OK	OK	battle name	Saint-Mihiel
@@ -1220,9 +1220,9 @@ wnja-01904649-v	泳ぐ	swim	keep	OK	OK	swim	swim
 wnja-03593526-n	広口瓶	jar	keep	OK	OK	jar	wide-mouth jar
 wnja-00258854-n	是正措置	correction, rectification	keep	OK	OK	correction	corrective action
 wnja-08358332-n	市民大会	rally, mass meeting	keep	OK	OK	rally	rally
-wnja-00779374-a	朗然たる	distinct	lower	UNSURE	UNSURE	rare, clear sense	rare; cheerful/clear
+wnja-00779374-a	朗然たる	distinct	queue	UNSURE	UNSURE	rare, clear sense	rare; cheerful/clear
 wnja-02872529-n	中継局	booster, booster amplifier, booster station, relay link, relay station, relay transmitter	keep	OK	OK	relay station	relay station
-wnja-01533806-a	喋々しい	exaggerated, overdone, overstated	lower	UNSURE	WRONG		means chatty
+wnja-01533806-a	喋々しい	exaggerated, overdone, overstated	queue	UNSURE	WRONG		means chatty
 wnja-07953827-n	一連	battery	lower	OK	UNSURE	set/series	series, not battery
 wnja-14289590-n	熱傷	burn	keep	OK	OK	burn	burn
 wnja-01722077-v	プレー	play	keep	OK	OK	play	play role
@@ -1237,7 +1237,7 @@ wnja-09348055-n	塊	mass	keep	OK	OK	mass	mass
 wnja-04628192-n	癇癪	heat, warmth, passion	lower	UNSURE	UNSURE	temper not passion	temper vs passion
 wnja-04640356-n	謝礼	grace, good will, goodwill	remove	WRONG	WRONG	means thanks payment	sharei is reward, not grace
 wnja-09605289-n	大人	adult, grownup	keep	OK	OK	adult	adult
-wnja-00034479-n	事	thing	lower	WRONG	OK	事 is matter not action	action thing
+wnja-00034479-n	事	thing	queue	WRONG	OK	事 is matter not action	action thing
 wnja-00254672-v	円熟	mellow	lower	UNSURE	UNSURE	noun vs verb	noun maturity not verb soften
 wnja-00491366-n	コントラクトブリッジ	contract, contract bridge	keep	OK	OK	contract bridge	contract bridge
 wnja-14422488-n	弱り	decline, declination	lower	OK	UNSURE	decline weakening	weakening vs decline
@@ -1254,7 +1254,7 @@ wnja-09792555-n	高祖	ancestor, ascendant, ascendent, antecedent, root	keep	OK	
 wnja-00855512-v	論評	review, critique	keep	OK	OK	review	review
 wnja-80001574-n	朝寝坊		lower	UNSURE	OK	no meaning given	oversleeping
 wnja-04897762-n	振舞	demeanor, demeanour, behavior, behaviour, conduct, deportment	keep	OK	OK	behavior	behavior
-wnja-90000017-n	チャイナタウン・フードストリート		lower	UNSURE	UNSURE	no gloss	no gloss
+wnja-90000017-n	チャイナタウン・フードストリート		queue	UNSURE	UNSURE	no gloss	no gloss
 wnja-10661002-n	外人	stranger, alien, unknown	keep	OK	OK	outsider foreigner	outsider, foreigner
 wnja-01351170-v	切り抜く	extract, pull out, pull, pull up, take out, draw out	lower	UNSURE	UNSURE	cut out vs pull out	cut out not pull
 wnja-04180888-n	六分儀	sextant	keep	OK	OK	sextant	sextant
@@ -1266,7 +1266,7 @@ wnja-15183428-n	節	holiday	lower	UNSURE	UNSURE	節 holiday only in compounds	fe
 wnja-01113807-a	ケチ	mean, mingy, miserly, tight	keep	OK	OK	stingy	stingy
 wnja-00445802-n	ボクシング	boxing, pugilism, fisticuffs	keep	OK	OK	boxing	boxing
 wnja-10519126-n	仙	anchorite, hermit	keep	OK	OK	hermit sage	hermit
-wnja-04674968-n	カラー	color, colour	lower	OK	WRONG	color	color; not appearance sense but close
+wnja-04674968-n	カラー	color, colour	queue	OK	WRONG	color	color; not appearance sense but close
 wnja-00047392-r	余りに	excessively, overly, to a fault, too	keep	OK	OK	excessively	too much
 wnja-00040547-r	思掛けず	by chance, accidentally, circumstantially, unexpectedly	keep	OK	OK	unexpectedly	unexpectedly
 wnja-00257650-v	膨らます	swell	keep	OK	OK	inflate swell	transitive swell
@@ -1281,10 +1281,10 @@ wnja-07513247-n	洞察力	insight, perceptiveness, perceptivity	keep	OK	OK	insig
 wnja-00267522-n	保全	care, maintenance, upkeep	keep	OK	OK	maintenance	maintenance
 wnja-01136248-a	気難かしい	crabbed, crabby, cross, fussy, grouchy, grumpy, bad-tempered, ill-tempered	keep	OK	OK	grumpy	normal
 wnja-77000023-n	あなた		keep	OK	OK	you	you
-wnja-00720951-n	腕前	capacity	lower	UNSURE	WRONG	ability not function	ability not function
+wnja-00720951-n	腕前	capacity	queue	UNSURE	WRONG	ability not function	ability not function
 wnja-00348312-n	返し	upset, overturn, turnover	lower	UNSURE	UNSURE	overturn sense unclear	overturn sense doubtful
 wnja-07886849-n	ビール	beer	keep	OK	OK	beer	beer
-wnja-00202341-r	爽爽	intelligibly, clearly, understandably	lower	UNSURE	WRONG	爽爽 clearly rare	rustling, not intelligibly
+wnja-00202341-r	爽爽	intelligibly, clearly, understandably	queue	UNSURE	WRONG	爽爽 clearly rare	rustling, not intelligibly
 wnja-06400510-n	抜き書き	excerpt, excerption, extract, selection	keep	OK	OK	excerpt	excerpt
 wnja-08041106-n	ドイツ赤軍	Red Army Faction, RAF	keep	OK	OK	Red Army Faction	RAF
 wnja-05053215-n	不滅	permanence, permanency	keep	OK	OK	permanence	permanence
@@ -1297,7 +1297,7 @@ wnja-00900071-a	ミステーリアス	mysterious, mystic, mystical, occult, secr
 wnja-01227675-v	貫通	penetrate, perforate	keep	OK	OK	penetrate	penetrate
 wnja-05696425-n	サブスチチュート	substitute, replacement	keep	OK	OK	substitute	substitute
 wnja-00284798-n	繰出	walk	remove	WRONG	WRONG	not walk	no walk sense
-wnja-10982295-n	フリック	Frick, Henry Clay Frick	lower	WRONG	OK	flick not Frick	Frick
+wnja-10982295-n	フリック	Frick, Henry Clay Frick	queue	WRONG	OK	flick not Frick	Frick
 wnja-00268112-n	修理点検	overhaul, inspection and repair, service	keep	OK	OK	overhaul	overhaul
 wnja-02486932-v	顔を合わせる	meet, get together	keep	OK	OK	meet	meet
 wnja-02080110-a	風刺の	satirical, satiric	keep	OK	OK	satirical	satirical
@@ -1313,7 +1313,7 @@ wnja-07125523-n	叫びごえ	exclamation, exclaiming	keep	OK	OK	cry out	cry
 wnja-02357322-a	不屈	insuperable, unconquerable	keep	OK	OK	indomitable	indomitable
 wnja-80001670-n	中		keep	OK	OK	among	inside, among
 wnja-00845523-n	交合	sexual intercourse, intercourse, sex act, copulation, coitus, coition, sexual congress, congress, sexual relation, relation, carnal knowledge	keep	OK	OK		intercourse
-wnja-00103317-v	赤らびる	blush, crimson, flush, redden	lower	UNSURE	UNSURE	rare variant	nonstandard blush
+wnja-00103317-v	赤らびる	blush, crimson, flush, redden	queue	UNSURE	UNSURE	rare variant	nonstandard blush
 wnja-11519121-n	雷公	thunderbolt, bolt, bolt of lightning	lower	UNSURE	UNSURE	thunder god	thunder god, not bolt
 wnja-00817680-n	保護	protection	keep	OK	OK	protection	protection
 wnja-00488561-a	珍奇	rare	lower	UNSURE	OK	strange rather than rare	rare
@@ -1337,9 +1337,9 @@ wnja-09968845-n	顧問	counselor, counsellor	keep	OK	OK	adviser
 wnja-11369251-n	ジョセフ・フォン・スタンバーグ	von Sternberg, Josef von Sternberg	keep	OK	OK	von Sternberg	von Sternberg
 wnja-01590171-v	綴り合せる	patch, piece	keep	OK	OK	patch together	patch together
 wnja-02898750-a	内的	mental	keep	OK	OK	mental	mental
-wnja-07240278-n	本調子	keynote	lower	WRONG	UNSURE	means normal form	keynote archaic
-wnja-01775062-n	子守蜘蛛	wolf spider, hunting spider	lower	OK	WRONG	wolf spider	komorigumo not wolf spider
-wnja-09252766-n	コンスタンス	Constance, Lake Constance, Bodensee	lower	UNSURE	UNSURE	lake usually Bodensee	usually Konstanz
+wnja-07240278-n	本調子	keynote	queue	WRONG	UNSURE	means normal form	keynote archaic
+wnja-01775062-n	子守蜘蛛	wolf spider, hunting spider	queue	OK	WRONG	wolf spider	komorigumo not wolf spider
+wnja-09252766-n	コンスタンス	Constance, Lake Constance, Bodensee	queue	UNSURE	UNSURE	lake usually Bodensee	usually Konstanz
 wnja-14881143-n	松脂岩	pitchstone	keep	OK	OK	pitchstone	
 wnja-14099643-n	失読症	dyslexia	keep	OK	OK	dyslexia	dyslexia
 wnja-06770275-n	議定	agreement, understanding	keep	OK	OK	agreement	agreement
@@ -1353,7 +1353,7 @@ wnja-00094001-n	救済	redemption, salvation	keep	OK	OK	salvation	salvation
 wnja-03191029-n	賽子	die, dice	keep	OK	OK	dice	dice
 wnja-10100761-n	烏滸	fool, sap, saphead, muggins, tomfool	lower	OK	UNSURE	fool	foolishness not person
 wnja-00021212-r	折節	occasionally, on occasion, once in a while, now and then, now and again, at times, from time to time	keep	OK	OK	occasionally	occasionally
-wnja-02426395-v	手仕舞	close up, close, fold, shut down, close down	lower	UNSURE	WRONG	liquidation vs close down	not closing factory
+wnja-02426395-v	手仕舞	close up, close, fold, shut down, close down	queue	UNSURE	WRONG	liquidation vs close down	not closing factory
 wnja-00189960-r	厳として	solemnly	keep	OK	OK	solemnly	solemnly
 wnja-00503527-a	砂を多く含んだ	light	lower	OK	UNSURE	sandy light soil	light soil unclear
 wnja-03877845-n	パレース	palace	keep	OK	OK	palace variant	palace
@@ -1380,21 +1380,21 @@ wnja-02892392-n	腕章	brassard	remove	WRONG	WRONG	armband not armor plate	armba
 wnja-00493012-a	公共の	communal	keep	OK	OK	communal	public communal
 wnja-00828003-v	預言	preach, prophesy	remove	WRONG	WRONG		prophecy not preach
 wnja-00609100-v	とり忘れる	forget, block, blank out, draw a blank	keep	OK	OK	forget	forget
-wnja-00972621-n	攻戦	attack, onslaught, onset, onrush	lower	UNSURE	UNSURE	rare reading odd	rare attack word
+wnja-00972621-n	攻戦	attack, onslaught, onset, onrush	queue	UNSURE	UNSURE	rare reading odd	rare attack word
 wnja-06417279-n	通常文	missal	remove	WRONG	WRONG	not missal	not missal
 wnja-02611976-v	射し当る	fall, shine, strike	keep	OK	OK		light falls
 wnja-00542099-a	散らばら	scattered	keep	OK	OK	scattered	scattered
 wnja-00633778-a	筋違い	wrong	keep	OK	OK	wrong misdirected	wrong
-wnja-01586278-v	引く	toy, fiddle, diddle, play	lower	UNSURE	WRONG	play instrument not toying	no fiddle sense
+wnja-01586278-v	引く	toy, fiddle, diddle, play	queue	UNSURE	WRONG	play instrument not toying	no fiddle sense
 wnja-08851034-n	ブリュージュ	Bruges, City of Bridges	keep	OK	OK	Bruges	Bruges
 wnja-07555014-n	熱血	enthusiasm	lower	OK	UNSURE	enthusiasm	zeal, enthusiasm borderline
-wnja-05827509-n	ビリッとくる刺激	kick	lower	UNSURE	WRONG	descriptive phrase	descriptive phrase; kick
+wnja-05827509-n	ビリッとくる刺激	kick	queue	UNSURE	WRONG	descriptive phrase	descriptive phrase; kick
 wnja-08593014-n	下限	lower limit	keep	OK	OK	lower limit	lower limit
 wnja-13425245-n	癒着	accretion	keep	OK	OK	adhesion/accretion	adhesion, accretion
 wnja-00434568-n	倒立回転飛び	walkover	keep	OK	OK	walkover	walkover
 wnja-02025550-v	付添	accompany	keep	OK	OK	accompany	accompany
 wnja-00721929-n	脇役	second fiddle	keep	OK	OK	supporting role	supporting role
-wnja-00372448-n	仮納金	deposit, deposition	lower	OK	WRONG	deposit	provisional payment, not act
+wnja-00372448-n	仮納金	deposit, deposition	queue	OK	WRONG	deposit	provisional payment, not act
 wnja-01226997-a	古来	time-honored, time-honoured	lower	UNSURE	OK	adverbial from ancient times	time-honored
 wnja-00593836-a	途切れ途切れ	intermittent	keep	OK	OK	intermittent	intermittent
 wnja-06796119-n	切手	postage, postage stamp, stamp	keep	OK	OK	postage stamp	postage stamp
@@ -1456,7 +1456,7 @@ wnja-03104149-a	プルシャン	Prussian	keep	OK	OK	Prussian	Prussian
 wnja-00071178-v	呵む	torture, excruciate, torment	lower	OK	UNSURE	torment	rare variant spelling
 wnja-08758487-n	オストラバ	Ostrava	keep	OK	OK	Ostrava	
 wnja-00161630-r	徐徐	slowly, slow, easy, tardily	keep	OK	OK	slowly	slowly
-wnja-00292937-a	草草	busy	lower	WRONG	OK	そうそう is hurry/brevity not busy	busy
+wnja-00292937-a	草草	busy	queue	WRONG	OK	そうそう is hurry/brevity not busy	busy
 wnja-03586219-n	鉄の肺	iron lung	keep	OK	OK	iron lung	iron lung
 wnja-15167027-n	夜半	night, nighttime, dark	lower	OK	UNSURE		midnight, not general night
 wnja-07314838-n	災禍	calamity, catastrophe, disaster, tragedy, cataclysm	keep	OK	OK	calamity	calamity
@@ -1465,9 +1465,9 @@ wnja-00178811-a	認可された	accredited, commissioned, licensed, licenced	low
 wnja-07732904-n	クレソン	watercress	keep	OK	OK	watercress	watercress
 wnja-08008017-n	風呂敷き包み	package, bundle, packet, parcel	lower	UNSURE	OK	風呂敷包み wrapped bundle	bundle
 wnja-05036715-n	辛さ	badness, severity, severeness	lower	UNSURE	OK	severity of hardship	severity
-wnja-04623113-n	相	nature	lower	WRONG	UNSURE	nature is 性 not 相	nature sense doubtful
+wnja-04623113-n	相	nature	queue	WRONG	UNSURE	nature is 性 not 相	nature sense doubtful
 wnja-02031158-v	断ち割る	separate, divide	keep	OK	OK	cut apart	split apart
-wnja-10789415-n	プリンス	wonder boy, golden boy	lower	UNSURE	WRONG	prince not wonder boy	prince not golden boy
+wnja-10789415-n	プリンス	wonder boy, golden boy	queue	UNSURE	WRONG	prince not wonder boy	prince not golden boy
 wnja-05651680-n	知	reason, understanding, intellect	keep	OK	OK	intellect	intellect
 wnja-09874618-n	嫁	bride	keep	OK	OK		bride
 wnja-09983572-n	副牧師	curate, minister of religion, minister, parson, pastor, rector	keep	OK	OK	curate	curate
@@ -1521,14 +1521,14 @@ wnja-00399393-n	加筆	revision, alteration	keep	OK	OK	revision	revision
 wnja-01466543-v	飾る	dress, decorate	keep	OK	OK	decorate	decorate
 wnja-14561995-n	腐食	corrosion	keep	OK	OK	corrosion	corrosion
 wnja-00265673-v	更改	reform	lower	UNSURE	OK	renewal not reform	reform
-wnja-04850996-n	黄白	corruption, degeneracy, depravation, depravity, putrefaction	lower	WRONG	UNSURE	means money/bribe	mainly money
+wnja-04850996-n	黄白	corruption, degeneracy, depravation, depravity, putrefaction	queue	WRONG	UNSURE	means money/bribe	mainly money
 wnja-02395694-n	仔豚	piglet, piggy, shoat, shote	keep	OK	OK	piglet	
 wnja-00964694-v	語りあう	converse, discourse	keep	OK	OK	converse	converse
 wnja-01887787-n	雌牛	cow	keep	OK	OK	cow	cow
 wnja-02540347-v	成長	grow up	keep	OK	OK		grow up
 wnja-04835488-n	身勝手さ	opportunism, self-interest, self-seeking, expedience	lower	UNSURE	OK	selfishness vs opportunism	selfishness
 wnja-10780632-n	妻君	wife, married woman	keep	OK	OK	wife	wife
-wnja-00008007-r	フッツリ	wholly, entirely, completely, totally, all, altogether, whole	lower	UNSURE	UNSURE	cut-off sense, not wholly	rare adverb
+wnja-00008007-r	フッツリ	wholly, entirely, completely, totally, all, altogether, whole	queue	UNSURE	UNSURE	cut-off sense, not wholly	rare adverb
 wnja-00019128-n	自然物	natural object	keep	OK	OK	natural object	natural object
 wnja-01062817-n	休止	pause	keep	OK	OK	pause	pause
 wnja-01900408-v	蹌踉ける	stumble, trip	keep	OK	OK	stumble	stumble
@@ -1554,7 +1554,7 @@ wnja-15169248-n	暮れ方	sunset, sundown	keep	OK	OK	sunset	sunset
 wnja-01030820-n	礼典	ritual	keep	OK	OK	rites	ritual
 wnja-08417281-n	プロチョイス	pro-choice faction	keep	OK	OK	pro-choice	pro-choice
 wnja-06656741-n	経済政策	economic policy	keep	OK	OK	economic policy	economic policy
-wnja-00625119-v	拝見	read	lower	OK	WRONG	humble read/see	haiken is humble look, not read exactly
+wnja-00625119-v	拝見	read	queue	OK	WRONG	humble read/see	haiken is humble look, not read exactly
 wnja-01543936-n	紅雀	avadavat, amadavat	keep	OK	OK	avadavat	avadavat
 wnja-00621627-n	骨折り	effort, elbow grease, exertion, travail, sweat	keep	OK	OK	effort	effort
 wnja-03447721-n	タムタム	gong, tam-tam	keep	OK	OK	tam-tam gong	tam-tam
@@ -1570,7 +1570,7 @@ wnja-14580897-n	材	material, stuff	keep	OK	OK	material	material
 wnja-05091770-n	確率	probability, chance	keep	OK	OK	probability	probability
 wnja-02179518-v	鳴らす	sound	keep	OK	OK	sound	sound
 wnja-01684337-v	刻む	sculpt, sculpture	keep	OK	OK	carve	carve
-wnja-01512645-a	深奥	profound	lower	WRONG	UNSURE	depth, not intensity	profound depth not intensity
+wnja-01512645-a	深奥	profound	queue	WRONG	UNSURE	depth, not intensity	profound depth not intensity
 wnja-01083044-v	降参	drop out, give up, fall by the wayside, drop by the wayside, throw in, throw in the towel, quit, chuck up the sponge	keep	OK	OK	give up	give up
 wnja-05868477-n	最後	end	keep	OK	OK	end	end part
 wnja-10480583-n	プロ選手	professional, pro	keep	OK	OK		professional
@@ -1580,7 +1580,7 @@ wnja-02268351-v	使い果す	waste, blow, squander	keep	OK	OK	use up/squander
 wnja-05281874-n	足根	tarsal, tarsal bone	keep	OK	OK		tarsal
 wnja-00880227-v	阿付	flatter, blandish	keep	OK	OK	flatter	flatter
 wnja-01503061-n	バード	bird	keep	OK	OK	bird	bird
-wnja-14698568-n	泥灰岩	marlite, marlstone	lower	OK	WRONG	marlstone	marl is sedimentary not metamorphic
+wnja-14698568-n	泥灰岩	marlite, marlstone	queue	OK	WRONG	marlstone	marl is sedimentary not metamorphic
 wnja-03423568-n	ガスタンク	gas holder, gasometer	keep	OK	OK	gas tank	gas holder
 wnja-13871967-n	中心線	centerline, center line	keep	OK	OK		centerline
 wnja-09044536-n	アブダビ	Abu Dhabi, United Arab Emirates's capital	keep	OK	OK	Abu Dhabi	Abu Dhabi
@@ -1593,7 +1593,7 @@ wnja-00615774-v	取り除ける	exclude, except, leave out, leave off, omit, tak
 wnja-07507912-n	無秩序	confusion, discombobulation	remove	WRONG	WRONG	disorder not embarrassment	disorder, not embarrassment
 wnja-14055408-n	疾病	ailment, complaint, ill	keep	OK	OK	illness	illness
 wnja-06506191-n	控え書き	memo, memorandum, memoranda	keep	OK	OK	memo	
-wnja-00938621-v	教訓	moralize, moralise	lower	WRONG	UNSURE	noun lesson not verb moralize	moralize borderline
+wnja-00938621-v	教訓	moralize, moralise	queue	WRONG	UNSURE	noun lesson not verb moralize	moralize borderline
 wnja-02872529-n	ブースタ	booster, booster amplifier, booster station, relay link, relay station, relay transmitter	keep	OK	OK	booster	booster
 wnja-04795061-n	中	averageness, mediocrity	lower	UNSURE	UNSURE	bare 中 for mediocrity	inside, not mediocrity
 wnja-00547166-a	手みじか	brief	keep	OK	OK	brief	brief
@@ -1644,7 +1644,7 @@ wnja-04884627-n	放縦さ	indulgence, self-indulgence	keep	OK	OK	indulgence	self
 wnja-03841417-n	書籍	oeuvre, work, body of work	remove	WRONG	WRONG	book not oeuvre	means book not oeuvre
 wnja-02579136-a	精神的	spiritual, unearthly	keep	OK	OK	spiritual	spiritual
 wnja-00744916-a	困難	difficult, hard	keep	OK	OK	difficult	difficult
-wnja-90000159-n	シャン・アンティーク		lower	UNSURE	UNSURE	no info	no information
+wnja-90000159-n	シャン・アンティーク		queue	UNSURE	UNSURE	no info	no information
 wnja-08400965-n	成員	membership, rank	keep	OK	OK	membership	membership
 wnja-02074377-v	逃れる	elude, evade, bilk	keep	OK	OK	escape	escape
 wnja-07813324-n	セロリソルト	celery salt	keep	OK	OK	celery salt	celery salt
@@ -1671,7 +1671,7 @@ wnja-10100761-n	オタンコナス	fool, sap, saphead, muggins, tomfool	keep	OK	
 wnja-03413684-n	ギャンブレル屋根	gambrel, gambrel roof	keep	OK	OK	gambrel roof	gambrel
 wnja-01698271-v	書綴る	write, compose, pen, indite	keep	OK	OK	write	write
 wnja-01170052-v	食う	drink, imbibe	remove	WRONG	WRONG	eat, not drink	eat not drink
-wnja-01134781-v	打ち懸ける	blast, shoot	lower	UNSURE	WRONG	pour/throw not shoot	not shooting
+wnja-01134781-v	打ち懸ける	blast, shoot	queue	UNSURE	WRONG	pour/throw not shoot	not shooting
 wnja-14488004-n	不浄	dirtiness	keep	OK	OK	uncleanliness	impurity
 wnja-01556572-v	切断	cleave, split, rive	keep	OK	OK	cut apart	cut
 wnja-04458843-n	タッチスクリーン	touch screen, touchscreen	keep	OK	OK	touch screen	touch screen
@@ -1693,7 +1693,7 @@ wnja-06371413-n	昔噺	legend, fable	keep	OK	OK	folk tale	old tale
 wnja-06149344-n	ホームエコノミックス	home economics, home ec, domestic science, household arts	keep	OK	OK	home economics	home economics
 wnja-00134780-n	痛打	punch, clout, poke, lick, biff, slug	keep	OK	OK	hard blow	hard blow
 wnja-00053913-n	退くこと	withdrawal	keep	OK	OK	withdrawal	withdrawal
-wnja-09851465-n	付添	best man	lower	WRONG	UNSURE	attendant not best man	attendant not best man
+wnja-09851465-n	付添	best man	queue	WRONG	UNSURE	attendant not best man	attendant not best man
 wnja-02321391-v	剥ぎ取る	rob	keep	OK	OK	strip by force	strip/rob
 wnja-11338172-n	テオドシウス	Theodosius, Theodosius I, Theodosius the Great, Flavius Theodosius	keep	OK	OK	Theodosius	Theodosius
 wnja-13240025-n	処女林	old growth, virgin forest	keep	OK	OK	virgin forest	virgin forest
@@ -1701,7 +1701,7 @@ wnja-01801029-a	満足	enjoyable, gratifying, pleasurable	lower	UNSURE	OK	satisf
 wnja-06269956-n	論文	paper	keep	OK	OK	paper	paper
 wnja-11257697-n	ライター	Reiter, Hans Conrad Julius Reiter	keep	OK	OK	katakana Reiter	Reiter transliteration
 wnja-00353101-a	改訂された	revised	keep	OK	OK	revised	
-wnja-02288042-v	眠って取り除く	sleep off	lower	UNSURE	UNSURE	ad hoc phrase	constructed phrase, not idiom
+wnja-02288042-v	眠って取り除く	sleep off	queue	UNSURE	UNSURE	ad hoc phrase	constructed phrase, not idiom
 wnja-10205457-n	内野手	infielder	keep	OK	OK	infielder	infielder
 wnja-00724168-n	サード	third base, third	keep	OK	OK	third base	third base
 wnja-01230710-v	突く	prod, incite, egg on	lower	UNSURE	OK	突く prod but incite sense borderline	prod
@@ -1727,7 +1727,7 @@ wnja-08304895-n	接続	union	remove	WRONG	WRONG	connection not political union	n
 wnja-04141975-n	荷重検査器	scale, weighing machine	remove	WRONG	WRONG	not a scale	not a real word for scale
 wnja-10109662-n	自由人	free agent, free spirit, freewheeler	keep	OK	OK	free spirit	free spirit
 wnja-00356926-a	特徴的	characteristic	keep	OK	OK	characteristic	characteristic
-wnja-00965606-a	親密	familiar	lower	WRONG	UNSURE	intimacy not familiar-recognized	intimate not well known
+wnja-00965606-a	親密	familiar	queue	WRONG	UNSURE	intimacy not familiar-recognized	intimate not well known
 wnja-05846054-n	格	rule, regulation	lower	UNSURE	UNSURE	rule sense borderline	rule
 wnja-00633443-v	測知る	speculate, theorize, theorise, conjecture, hypothesize, hypothesise, hypothecate, suppose	lower	OK	UNSURE	conjecture	rare reading
 wnja-00750730-n	一芝居	trick	lower	UNSURE	UNSURE	trick idiomatic	trick via 一芝居打つ
@@ -1742,7 +1742,7 @@ wnja-09430771-n	セバーン川	Severn, River Severn, Severn River	keep	OK	OK	Se
 wnja-00281291-n	裏口	back door, backdoor	keep	OK	OK	back door	back door
 wnja-14751417-n	副腎皮質ステロイド	corticosteroid, corticoid, adrenal cortical steroid	keep	OK	OK		corticosteroid
 wnja-00310433-a	細々たる	detailed, elaborate, elaborated	lower	UNSURE	OK	detailed, rare form	detailed
-wnja-04836074-n	先取りの気性に富んでいること	enterprise, enterprisingness, initiative, go-ahead	lower	UNSURE	WRONG	rare phrase	should be 進取
+wnja-04836074-n	先取りの気性に富んでいること	enterprise, enterprisingness, initiative, go-ahead	queue	UNSURE	WRONG	rare phrase	should be 進取
 wnja-09920283-n	コリオグラファー	choreographer	keep	OK	OK	choreographer	choreographer
 wnja-05131647-n	海抜	altitude, height	keep	OK	OK	altitude	altitude
 wnja-08459252-n	順	sequence	keep	OK	OK	order/sequence	order sequence
@@ -1753,7 +1753,7 @@ wnja-07133477-n	巻き舌	trill	keep	OK	OK	trill	trill
 wnja-01631072-v	再生	regenerate, renew	keep	OK	OK		renew
 wnja-01455732-a	小っちゃい	little, small	lower	OK	UNSURE		faint voice borderline
 wnja-02513740-a	極悪	wicked	keep	OK	OK	wicked	wicked
-wnja-09622745-n	思われ人	lover	lower	UNSURE	UNSURE	loved one, borderline	lover borderline
+wnja-09622745-n	思われ人	lover	queue	UNSURE	UNSURE	loved one, borderline	lover borderline
 wnja-03158885-n	短剣	dagger, sticker	keep	OK	OK	dagger	dagger
 wnja-00956131-a	公平	fair, just	keep	OK	OK	fair	fair
 wnja-09918554-n	幼子	child, baby	lower	OK	UNSURE	young child	young child, not immature adult
@@ -1762,7 +1762,7 @@ wnja-01590171-v	継当	patch, piece	keep	OK	OK	patch joining	patch
 wnja-00428404-a	明せき	clear	keep	OK	OK	clear	clear
 wnja-03082979-n	電算	computer, computing machine, computing device, data processor, electronic computer, information processing system	keep	OK	OK	computer abbreviation	computer abbreviation
 wnja-02759367-a	母性	maternal	lower	UNSURE	OK	noun motherhood not adjective maternal	maternal
-wnja-05868954-n	コンポ	component, constituent, element, factor, ingredient	lower	OK	WRONG	component	stereo; not abstract component
+wnja-05868954-n	コンポ	component, constituent, element, factor, ingredient	queue	OK	WRONG	component	stereo; not abstract component
 wnja-00471711-v	消去	extinguish, eliminate, get rid of, do away with	keep	OK	OK	eliminate	eliminate
 wnja-14561102-n	収賄	putrescence, putridness, rottenness, corruption	remove	WRONG	WRONG	収賄 bribery not putrescence	bribe-taking not putrefaction
 wnja-10648237-n	代員	stand-in, substitute, relief, reliever, backup, backup man, fill-in	keep	OK	OK	stand-in	
@@ -1820,13 +1820,13 @@ wnja-01686626-v	捕らえる	capture	keep	OK	OK	捕らえる capture essence	gra
 wnja-00766457-a	婉曲	indirect	keep	OK	OK	indirect	indirect
 wnja-05810250-n	活社会	real world, real life	keep	OK	OK	real society	real world
 wnja-00965035-v	書表す	report, describe, account	keep	OK	OK	describe	describe in words
-wnja-02543607-v	損なう	sabotage, undermine, countermine, counteract, subvert, weaken	lower	WRONG	UNSURE	harm not sabotage	harm vs sabotage
+wnja-02543607-v	損なう	sabotage, undermine, countermine, counteract, subvert, weaken	queue	WRONG	UNSURE	harm not sabotage	harm vs sabotage
 wnja-02069248-v	流れ込む	pour	keep	OK	OK	pour in	pour in
 wnja-02405390-v	入替わる	supplant, replace, supersede, supervene upon, supercede	keep	OK	OK	replace	replace
 wnja-03499354-n	簪	hatpin	lower	UNSURE	UNSURE	hairpin not hatpin	hairpin not hatpin
 wnja-08615001-n	教区	parish	keep	OK	OK	parish	parish
 wnja-00085811-r	ついと	quickly, rapidly, speedily, chop-chop, apace	lower	OK	UNSURE	swiftly	suddenly rather than quickly
-wnja-03380867-n	モカション	footwear, footgear	lower	UNSURE	WRONG	moccasin, not general footwear	moccasin not footwear generally
+wnja-03380867-n	モカション	footwear, footgear	queue	UNSURE	WRONG	moccasin, not general footwear	moccasin not footwear generally
 wnja-01462468-v	混ぜ合わせる	blend, intermix, immingle, intermingle	keep	OK	OK	blend	
 wnja-03513627-n	ヘム	hem	lower	OK	UNSURE	hem	hemu hem
 wnja-02640440-v	グジグジ	hesitate, waver, waffle	keep	OK	OK	hesitate	hesitate
@@ -1834,7 +1834,7 @@ wnja-04280259-n	渦巻バネ	spiral spring	keep	OK	OK	spiral spring	spiral sprin
 wnja-01335458-a	賢明	bright, smart	keep	OK	OK	smart	smart wise
 wnja-05018103-n	輝度	luminosity, brightness, brightness level, luminance, luminousness, light	keep	OK	OK	luminance	luminance
 wnja-13316722-n	付加価値税	VAT, value-added tax, ad valorem tax	keep	OK	OK	VAT	VAT
-wnja-03036149-n	都市景観	cityscape	lower	WRONG	UNSURE	cityscape painting not 都市景観 scenery	cityscape painting vs scenery
+wnja-03036149-n	都市景観	cityscape	queue	WRONG	UNSURE	cityscape painting not 都市景観 scenery	cityscape painting vs scenery
 wnja-06193203-n	気構	attitude, mental attitude	keep	OK	OK	attitude	attitude
 wnja-00009631-v	引っつれる	twitch, jerk	keep	OK	OK	twitch	twitch
 wnja-04045644-n	垂木	rafter, balk, baulk	keep	OK	OK	rafter	
@@ -1854,7 +1854,7 @@ wnja-11247002-n	プロコフィエフ	Prokofiev, Sergei Sergeyevich Prokofiev	ke
 wnja-01489465-v	陸揚	drop, drop off, set down, put down, unload, discharge	keep	OK	OK	unload	unload cargo
 wnja-05726596-n	系	arrangement, organization, organisation, system	keep	OK	OK	system	system
 wnja-14478291-n	倒産	insolvency	keep	OK	OK	insolvency	insolvency
-wnja-01475301-v	解放してやる	bring out, let out	lower	UNSURE	UNSURE	loose fit	vague release sense
+wnja-01475301-v	解放してやる	bring out, let out	queue	UNSURE	UNSURE	loose fit	vague release sense
 wnja-15137047-n	休日	rest day, day of rest	keep	OK	OK	day off	day off
 wnja-05777830-n	手相	palmistry, palm reading, chiromancy, chirology	keep	OK	OK	palmistry	common
 wnja-03708036-n	磁気テープ	magnetic tape, mag tape, tape	keep	OK	OK	magnetic tape	magnetic tape
@@ -1890,7 +1890,7 @@ wnja-14333863-n	丘疹	papule	keep	OK	OK	papule	papule
 wnja-02465519-a	もの堅い	dependable, honest, reliable, true	keep	OK	OK	dependable	dependable
 wnja-03550420-n	仮兵舎	hutment	keep	OK	OK	temporary barracks	hutment
 wnja-00309310-v	爆裂	burst, split, break open	keep	OK	OK	burst	burst
-wnja-04581595-n	色屋	whorehouse, brothel, bordello, bagnio, house of prostitution, house of ill repute, bawdyhouse, cathouse, sporting house	lower	UNSURE	UNSURE	rare word	rare brothel
+wnja-04581595-n	色屋	whorehouse, brothel, bordello, bagnio, house of prostitution, house of ill repute, bawdyhouse, cathouse, sporting house	queue	UNSURE	UNSURE	rare word	rare brothel
 wnja-00654234-n	諜報	spying, undercover work	keep	OK	OK	espionage	spying
 wnja-00806502-v	オーケイ	approve, O.K., okay, sanction	keep	OK	OK	approve	approve
 wnja-14060575-n	嵌入	impaction	lower	UNSURE	UNSURE	medical sense unclear	medical sense uncertain
@@ -1905,7 +1905,7 @@ wnja-00981944-v	うっかり口に出す	blurt out, blurt, blunder out, blunder,
 wnja-00892923-v	陳謝	apologize, apologise	keep	OK	OK	apologize	apologize
 wnja-04647826-n	厳粛さ	sedateness, staidness, solemnity, solemness	keep	OK	OK	solemnity	solemnity
 wnja-00508750-a	相反する	contradictory, mutually exclusive	keep	OK	OK	contradictory	contradictory
-wnja-01951197-a	イケゾンザイ	rough	lower	UNSURE	WRONG	rare word	nonsense word
+wnja-01951197-a	イケゾンザイ	rough	queue	UNSURE	WRONG	rare word	nonsense word
 wnja-10790077-n	木樵	woodcutter	keep	OK	OK	woodcutter	woodcutter
 wnja-04461696-n	レッカー車	tow truck, tow car, wrecker	keep	OK	OK		tow truck
 wnja-02795169-n	薦かぶり	barrel, cask	keep	OK	OK	barrel	barrel wrapped
@@ -1953,7 +1953,7 @@ wnja-06774650-n	ジュネーブ条約	Geneva Convention	keep	OK	OK	Geneva Conven
 wnja-00669000-n	胆嚢切除	cholecystectomy	keep	OK	OK	cholecystectomy	
 wnja-02075049-v	脱走	scat, run, scarper, turn tail, lam, run away, hightail it, bunk, head for the hills, take to the woods, escape, fly the coop, break away	keep	OK	OK	escape	run away
 wnja-03624767-n	ナイト	knight, horse	keep	OK	OK	chess knight	chess knight
-wnja-07748753-n	代々	bitter orange, Seville orange, sour orange	lower	WRONG	OK	だいだい; 代々 means generations	bitter orange (daidai)
+wnja-07748753-n	代々	bitter orange, Seville orange, sour orange	queue	WRONG	OK	だいだい; 代々 means generations	bitter orange (daidai)
 wnja-06512857-n	求職申し込み	job application	keep	OK	OK	job application	job application
 wnja-13925550-n	黙り	silence	keep	OK	OK	silence	
 wnja-10936716-n	クリスチャンディオール	Dior, Christian Dior	keep	OK	OK	Dior	Dior
@@ -1988,7 +1988,7 @@ wnja-01351170-v	引っこぬく	extract, pull out, pull, pull up, take out, draw
 wnja-02572119-v	詐取	victimize, swindle, rook, goldbrick, nobble, diddle, bunco, defraud, scam, mulct, gyp, gip, hornswoggle, short-change, con	keep	OK	OK	swindle	swindle
 wnja-00116588-r	協力して	together, unitedly	keep	OK	OK	together	together
 wnja-09105260-n	ナチェズ	Natchez	keep	OK	OK	place name	place name
-wnja-00073465-a	大層らしい	artificial, contrived, hokey, stilted	lower	UNSURE	UNSURE	pompous, borderline	exaggerated vs contrived
+wnja-00073465-a	大層らしい	artificial, contrived, hokey, stilted	queue	UNSURE	UNSURE	pompous, borderline	exaggerated vs contrived
 wnja-02148788-v	出品	show, demo, exhibit, present, demonstrate	keep	OK	OK	exhibit	exhibit
 wnja-05794057-n	足掛かり	key	keep	OK	OK	foothold, clue	clue/key
 wnja-09956035-n	売人	connection	keep	OK	OK	pusher	dealer
@@ -2000,9 +2000,9 @@ wnja-05323889-n	耳翼	auricle, pinna, ear	keep	OK	OK	auricle	auricle
 wnja-00949134-n	利用	application, practical application	keep	OK	OK	application use	use
 wnja-00191579-r	輒	i.e., ie, id est	lower	UNSURE	OK	rare kanji for sunawachi	sunawachi
 wnja-02846399-n	白黒	black and white, monochrome	keep	OK	OK	black and white	monochrome
-wnja-01190948-v	楽します	delight, enjoy, revel	lower	UNSURE	WRONG	unusual causative form	not a word for enjoy
+wnja-01190948-v	楽します	delight, enjoy, revel	queue	UNSURE	WRONG	unusual causative form	not a word for enjoy
 wnja-03271030-n	電気椅子	electric chair, chair, death chair, hot seat	keep	OK	OK	electric chair	electric chair
-wnja-10053004-n	上様	emperor	lower	WRONG	UNSURE	上様 not emperor mainly shogun	honorific shogun/emperor
+wnja-10053004-n	上様	emperor	queue	WRONG	UNSURE	上様 not emperor mainly shogun	honorific shogun/emperor
 wnja-80002359-n	ひのき		keep	OK	OK	hinoki	hinoki
 wnja-03765561-n	製粉機	mill, grinder, milling machinery	keep	OK	OK	mill	mill
 wnja-01123887-v	攻める	strike, hit	keep	OK	OK	attack	attack
@@ -2036,7 +2036,7 @@ wnja-10311021-n	伝達人	messenger, courier	keep	OK	OK	messenger	messenger
 wnja-13988101-n	狂喜	ecstasy, rapture	keep	OK	OK	ecstasy	ecstasy
 wnja-00640828-v	併す	add, add together	lower	OK	UNSURE	add	rare spelling of あわす
 wnja-08250501-n	グループサウンズ	rock group, rock band	keep	OK	OK	group sounds band	GS band
-wnja-00328502-n	上滑り	slide, glide, coast	lower	WRONG	UNSURE	means superficial	slide vs superficial
+wnja-00328502-n	上滑り	slide, glide, coast	queue	WRONG	UNSURE	means superficial	slide vs superficial
 wnja-09214581-n	バリアー	barrier	keep	OK	OK	barrier	barrier
 wnja-07191279-n	要求	demand	keep	OK	OK	demand	demand
 wnja-07259772-n	規則	rule, linguistic rule	keep	OK	OK	rule	rule
@@ -2064,7 +2064,7 @@ wnja-04321534-n	店卸資産	stock, inventory	keep	OK	OK	inventory	inventory
 wnja-10661002-n	エイリアン	stranger, alien, unknown	keep	OK	OK	alien stranger	alien
 wnja-10309896-n	マーチャンダイザー	merchant, merchandiser	lower	OK	UNSURE	merchandiser	merchandiser not merchant
 wnja-04241940-n	切込み	slit	keep	OK	OK	slit	
-wnja-00513981-a	気難かしい	fretful, querulous, whiney, whiny	lower	UNSURE	UNSURE	hard to please vs whiny	fussy not whiny
+wnja-00513981-a	気難かしい	fretful, querulous, whiney, whiny	queue	UNSURE	UNSURE	hard to please vs whiny	fussy not whiny
 wnja-00619869-v	読違える	misconstrue, misinterpret, misconceive, misunderstand, misapprehend, be amiss	keep	OK	OK	misread	misread
 wnja-01741221-v	造園	landscape	keep	OK	OK	landscaping	landscape gardening
 wnja-00555447-v	動かす	shift	keep	OK	OK	shift	shift
@@ -2096,7 +2096,7 @@ wnja-01795428-v	熱りたつ	flip one's lid, blow up, throw a fit, hit the roof,
 wnja-10743356-n	ユートピアン	Utopian	keep	OK	OK	utopian	utopian
 wnja-01197014-v	食い荒らす	devour, down, consume, go through	keep	OK	OK	devour	devour
 wnja-03856012-n	孤児院	orphanage, orphans' asylum	keep	OK	OK	orphanage	orphanage
-wnja-00258854-n	直し物	correction, rectification	lower	WRONG	UNSURE	直し物 mending item not correction act	mending not correction
+wnja-00258854-n	直し物	correction, rectification	queue	WRONG	UNSURE	直し物 mending item not correction act	mending not correction
 wnja-11354333-n	ティンダル	Tyndale, William Tyndale, Tindale, William Tindale, Tindal, William Tindal	keep	OK	OK	Tyndale	Tyndale
 wnja-04633453-n	生彩	vitality, verve	keep	OK	OK	vitality	vitality
 wnja-00921160-n	造園	landscaping, landscape gardening	keep	OK	OK	landscaping	landscaping
@@ -2119,7 +2119,7 @@ wnja-04990781-n	フォルテ	forte, fortissimo	keep	OK	OK	forte	forte
 wnja-10214637-n	創案者	inventor, discoverer, artificer	keep	OK	OK	inventor	inventor
 wnja-08568579-n	本来の生息環境	element	keep	OK	OK	natural habitat	element
 wnja-00137313-v	差響く	affect, impact, bear upon, bear on, touch on, touch	keep	OK	OK	affect	affect
-wnja-07974025-n	界層	class, stratum, social class, socio-economic class	lower	UNSURE	WRONG	uncommon word	wrong kanji for kaisou
+wnja-07974025-n	界層	class, stratum, social class, socio-economic class	queue	UNSURE	WRONG	uncommon word	wrong kanji for kaisou
 wnja-02680754-n	アジャスタブルレンチ	adjustable wrench, adjustable spanner	keep	OK	OK	adjustable wrench	
 wnja-10684538-n	転轍手	switchman	keep	OK	OK	switchman	switchman
 wnja-11608250-n	松	pine, pine tree, true pine	keep	OK	OK	pine	pine
@@ -2130,13 +2130,13 @@ wnja-03620889-n	キッチンシンク	kitchen sink	keep	OK	OK	kitchen sink	kitch
 wnja-00613018-v	置き忘れる	forget, leave	keep	OK	OK	leave behind	
 wnja-02818832-n	ベッド	bed	keep	OK	OK	bed	bed
 wnja-13427078-n	同化	adaptation, adaption, adjustment	keep	OK	OK	adaptation assimilation	adaptation assimilation
-wnja-00967646-a	ファンタスティック	antic, fantastic, fantastical, grotesque	lower	WRONG	UNSURE	means fantastic, not ludicrous	not ludicrously odd
+wnja-00967646-a	ファンタスティック	antic, fantastic, fantastical, grotesque	queue	WRONG	UNSURE	means fantastic, not ludicrous	not ludicrously odd
 wnja-14170623-n	無フィブリノーゲン血症	afibrinogenemia	keep	OK	OK	afibrinogenemia	afibrinogenemia
-wnja-02110447-a	離々たる	detached, isolated, separated, set-apart	lower	UNSURE	UNSURE	obscure	rare sense
+wnja-02110447-a	離々たる	detached, isolated, separated, set-apart	queue	UNSURE	UNSURE	obscure	rare sense
 wnja-06782680-n	当てずっぽう	guess, conjecture, supposition, surmise, surmisal, speculation, hypothesis	keep	OK	OK	guess	guess
 wnja-11743109-n	藺草科	Juncaceae, family Juncaceae, rush family	keep	OK	OK	rush family	Juncaceae
 wnja-02378623-v	盾つく	react, oppose	keep	OK	OK	oppose	oppose
-wnja-00400427-v	シンプリファイ	simplify	lower	OK	WRONG	simplify	katakana simplify odd
+wnja-00400427-v	シンプリファイ	simplify	queue	OK	WRONG	simplify	katakana simplify odd
 wnja-02156546-v	寂滅	vanish, disappear, go away	remove	WRONG	WRONG	nirvana not vanish	nirvana, not vanish
 wnja-04090064-n	リファンピン	rifampin, Rifadin, Rimactane	keep	OK	OK	rifampin	
 wnja-09906704-n	覇者	champion, champ, title-holder	keep	OK	OK	champion	champion
@@ -2163,7 +2163,7 @@ wnja-08625073-n	右側	right	keep	OK	OK	right side	right side
 wnja-08588699-n	真ん中	midst, thick	keep	OK	OK	middle	middle
 wnja-01654628-v	構築	construct, build, make	keep	OK	OK	construct	construct
 wnja-06389553-n	空白	space, blank space, place	keep	OK	OK	blank space	blank space
-wnja-15152817-n	大人時代	adulthood, maturity	lower	UNSURE	UNSURE	rare compound	otona jidai adulthood
+wnja-15152817-n	大人時代	adulthood, maturity	queue	UNSURE	UNSURE	rare compound	otona jidai adulthood
 wnja-02132263-v	他所見	look away	keep	OK	OK	looking away	variant of 余所見
 wnja-06508816-n	ファイル	file, data file	keep	OK	OK	file	file
 wnja-01850192-n	ヒメハジロ	bufflehead, butterball, dipper, Bucephela albeola	keep	OK	OK	bufflehead	bufflehead
@@ -2181,7 +2181,7 @@ wnja-02415390-a	深い	thick	keep	OK	OK	thick dense	dense thick
 wnja-00780352-a	截然たる	crisp, sharp	keep	OK	OK	sharp distinct	sharp, distinct
 wnja-01507402-a	惨酷	merciless, unmerciful	keep	OK	OK	merciless	merciless
 wnja-02657219-v	対応	match, fit, correspond, check, jibe, gibe, tally, agree	lower	OK	UNSURE	correspond	correspondence, not agree
-wnja-07291794-n	帰結	end, last, final stage	lower	UNSURE	WRONG	consequence not end	kiketsu is consequence, not end
+wnja-07291794-n	帰結	end, last, final stage	queue	UNSURE	WRONG	consequence not end	kiketsu is consequence, not end
 wnja-05984066-n	趣旨	point	keep	OK	OK	point/purpose	point
 wnja-00062857-r	従って	consequently, accordingly	keep	OK	OK	consequently	consequently
 wnja-14495080-n	摂生	hygiene	lower	UNSURE	UNSURE	health care not hygiene	health care, not hygiene exactly
@@ -2257,7 +2257,7 @@ wnja-01157384-n	再軍備	rearmament	keep	OK	OK	rearmament	rearmament
 wnja-09847010-n	御貰	beggar, mendicant	keep	OK	OK	beggar	beggar
 wnja-80001465-v	調子に乗る		keep	OK	OK	get carried away	get carried away
 wnja-09815790-n	助手	assistant, helper, help, supporter	keep	OK	OK	assistant	assistant
-wnja-13841213-n	双対	reciprocality, reciprocity	lower	WRONG	UNSURE	means duality	duality not reciprocity
+wnja-13841213-n	双対	reciprocality, reciprocity	queue	WRONG	UNSURE	means duality	duality not reciprocity
 wnja-06379439-n	アイディル	eclogue, bucolic, idyll, idyl	keep	OK	OK	idyll	idyll
 wnja-02526124-a	固い	impregnable, inviolable, secure, strong, unassailable, unattackable	lower	OK	UNSURE	secure strong	impregnable stretched
 wnja-00819024-n	救済	preservation, saving	remove	WRONG	WRONG	means relief, not preservation	relief not preservation
@@ -2293,7 +2293,7 @@ wnja-01265632-n	均衡化	equilibration	keep	OK	OK	equilibration	equilibration
 wnja-14802450-n	スティール	steel	keep	OK	OK		steel
 wnja-05826469-n	歪曲	disproof, falsification, refutation	remove	WRONG	WRONG	distortion not disproof	means distortion not disproof
 wnja-07185076-n	申しで	offer, offering	keep	OK	OK	offer	offer
-wnja-01384212-a	空豁	broad, spacious, wide	lower	UNSURE	UNSURE	空豁 rare	rare broad
+wnja-01384212-a	空豁	broad, spacious, wide	queue	UNSURE	UNSURE	空豁 rare	rare broad
 wnja-02150510-v	看視	watch	keep	OK	OK	watch	watch
 wnja-05855125-n	高	quantity	lower	OK	UNSURE	amount	amount sense weak
 wnja-07725789-n	莢豌豆	snow pea, sugar pea	keep	OK	OK		snow pea
@@ -2312,7 +2312,7 @@ wnja-02518470-a	オカルト	occult	remove	WRONG	WRONG	occult not hidden	not hid
 wnja-04526520-n	換気装置	ventilation, ventilation system, ventilating system	keep	OK	OK	ventilation	ventilation
 wnja-00294175-a	嬾惰	idle	keep	OK	OK	idle	lazy idle
 wnja-02990373-n	天井	ceiling	keep	OK	OK	ceiling	ceiling
-wnja-01199252-n	誤審	mistrial	lower	UNSURE	WRONG	misjudgment vs mistrial	misjudgment not mistrial
+wnja-01199252-n	誤審	mistrial	queue	UNSURE	WRONG	misjudgment vs mistrial	misjudgment not mistrial
 wnja-01387319-a	茫漠たる	huge, immense, vast, Brobdingnagian	keep	OK	OK	vast	vast
 wnja-14553290-n	近視	myopia, nearsightedness, shortsightedness	keep	OK	OK	myopia	myopia
 wnja-07865196-n	雑砕	chop suey	keep	OK	OK	chop suey	chop suey
@@ -2356,7 +2356,7 @@ wnja-13731021-n	2乗	square, second power	keep	OK	OK	square	square
 wnja-03497657-n	笠	hat, chapeau, lid	keep	OK	OK	hat	hat
 wnja-03646916-n	格子	lattice, latticework, fretwork	keep	OK	OK	lattice	lattice
 wnja-00035718-r	先ず先ず	reasonably, moderately, pretty, jolly, somewhat, fairly, middling, passably	keep	OK	OK	so-so	fairly
-wnja-05797597-n	質問	inquiry, enquiry, research	lower	UNSURE	WRONG	question not research	means question, not research
+wnja-05797597-n	質問	inquiry, enquiry, research	queue	UNSURE	WRONG	question not research	means question, not research
 wnja-04890361-n	聡明	judiciousness, sagacity, sagaciousness	keep	OK	OK	wisdom	sagacity
 wnja-01138670-n	公認	authorization, authorisation, empowerment	keep	OK	OK	authorization	authorization
 wnja-00103194-r	初めに	initially, ab initio	keep	OK	OK	initially	initially
@@ -2370,14 +2370,14 @@ wnja-10282672-n	御手伝いさん	maid, maidservant, housemaid, amah	keep	OK	OK
 wnja-05660268-n	術	method	keep	OK	OK	method	method
 wnja-00486290-a	中ぐらい	average, ordinary	keep	OK	OK	average	average
 wnja-13684140-n	ピヤ	Myanmar monetary unit	keep	OK	OK	pya	pya Myanmar currency
-wnja-00409319-a	薄い	powdery	lower	WRONG	UNSURE	powdery not a sense	pale color, powdery odd
+wnja-00409319-a	薄い	powdery	queue	WRONG	UNSURE	powdery not a sense	pale color, powdery odd
 wnja-02106662-n	シェパード	German shepherd, German shepherd dog, German police dog, alsatian	keep	OK	OK	German shepherd	German shepherd
 wnja-02468368-n	肘	elbow	keep	OK	OK	elbow	elbow
 wnja-01994442-v	後退る	withdraw, retreat, pull away, draw back, recede, pull back, retire, move back	keep	OK	OK	retreat	retreat
 wnja-00690305-v	感じ取る	feel	keep	OK	OK	sense feel	sense, feel
 wnja-10178077-n	ヒッチハイカー	hitchhiker	keep	OK	OK	hitchhiker	hitchhiker
 wnja-01125429-a	良からぬ	bad	keep	OK	OK	bad	bad
-wnja-04873939-n	恥辱	dishonor, dishonour	lower	OK	WRONG		adjective sense, no
+wnja-04873939-n	恥辱	dishonor, dishonour	queue	OK	WRONG		adjective sense, no
 wnja-09417365-n	一列	row	keep	OK	OK	row	row
 wnja-11470765-n	生成熱	heat of formation	keep	OK	OK	heat of formation	heat of formation
 wnja-13901321-n	筒	pipe, tube	keep	OK	OK	tube	
@@ -2393,7 +2393,7 @@ wnja-05169601-n	偉さ	greatness, illustriousness	keep	OK	OK	greatness	greatness
 wnja-01421417-v	のコードを抜く	unplug, disconnect	keep	OK	OK	unplug	unplug
 wnja-00433232-v	登る	wax, mount, climb, rise	lower	OK	UNSURE	rise	rise sense borderline
 wnja-04164868-n	参事	secretary, writing table, escritoire, secretaire	remove	WRONG	WRONG	not a desk	councillor not desk
-wnja-90000312-n	サンバル		lower	UNSURE	UNSURE	no gloss, sambal	no data
+wnja-90000312-n	サンバル		queue	UNSURE	UNSURE	no gloss, sambal	no data
 wnja-00819958-n	自己保全	self-preservation	keep	OK	OK	self-preservation	self-preservation
 wnja-07542675-n	大腐り	discouragement, disheartenment, dismay	remove	WRONG	WRONG	not a normal word	not discouragement
 wnja-07998712-n	団結	union, sum, join	remove	WRONG	WRONG		set union not 団結
@@ -2425,14 +2425,14 @@ wnja-01350971-v	絞る	wring	keep	OK	OK		wring
 wnja-01851916-a	慎ましい	modest	keep	OK	OK	modest	modest
 wnja-08270662-n	オールトの雲	Oort cloud	keep	OK	OK	Oort cloud	Oort cloud
 wnja-13267014-n	補助金	subsidy	keep	OK	OK	subsidy	subsidy
-wnja-06053439-n	おーびー	obstetrics, OB, tocology, midwifery	lower	UNSURE	UNSURE		OB usually old boy
+wnja-06053439-n	おーびー	obstetrics, OB, tocology, midwifery	queue	UNSURE	UNSURE		OB usually old boy
 wnja-00106821-a	御寒い	bare, scanty, spare	keep	OK	OK	scanty	scanty
 wnja-05162642-n	尻	defect, shortcoming	remove	WRONG	WRONG	尻 not defect	buttocks not defect
 wnja-10004282-n	歯科医師	dentist, tooth doctor, dental practitioner	keep	OK	OK	dentist	dentist
 wnja-07041795-n	クインテット	quintet, quintette	keep	OK	OK	quintet	quintet
 wnja-01357831-v	釘付ける	nail	keep	OK	OK	nail	nail down
 wnja-07262108-n	正鵠	target, mark	keep	OK	OK	target mark	mark, bullseye
-wnja-01640850-a	初初しげ	new	lower	WRONG	UNSURE	means innocent-looking, not new	fresh-looking only
+wnja-01640850-a	初初しげ	new	queue	WRONG	UNSURE	means innocent-looking, not new	fresh-looking only
 wnja-04970916-n	ローゼ	pink	lower	UNSURE	UNSURE	rose wine more than pink	rosé, pink loosely
 wnja-01601069-a	北寄りの	northerly, northern	keep	OK	OK	northerly	northerly
 wnja-01241600-a	静か	still	keep	OK	OK	still calm	
@@ -2444,7 +2444,7 @@ wnja-04817788-n	野暮	boorishness, uncouthness	keep	OK	OK	boorishness	boorishne
 wnja-11674798-n	尾状花	catkin, ament	keep	OK	OK	catkin	catkin
 wnja-05790572-n	リジェクト	cull, reject	lower	UNSURE	UNSURE	reject as noun borderline	reject as thing, loose
 wnja-00050652-v	佩く	wear, put on, get into, don, assume	keep	OK	OK	wear	wear
-wnja-07814203-n	にっき	cinnamon	lower	WRONG	OK	にっき is diary; cinnamon is ニッキ/肉桂 borderline	cinnamon
+wnja-07814203-n	にっき	cinnamon	queue	WRONG	OK	にっき is diary; cinnamon is ニッキ/肉桂 borderline	cinnamon
 wnja-00494522-r	重々しく	weightily	lower	UNSURE	OK	solemnly rather than heavy	heavily
 wnja-01317391-n	駄獣	pack animal, sumpter	keep	OK	OK	pack animal	pack animal
 wnja-01753788-v	生出す	create	keep	OK	OK		create
@@ -2525,7 +2525,7 @@ wnja-14214355-n	兎唇	cleft lip, harelip, cheiloschisis	keep	OK	OK
 wnja-01455888-a	小さい	low, low-toned	keep	OK	OK	low voice	low volume
 wnja-00063774-r	一斉に	all together	keep	OK	OK	all together	all together
 wnja-07687469-n	フランスパン	French bread	keep	OK	OK	French bread	French bread
-wnja-02046075-v	回転するように方向を変える	wheel, wheel around	lower	UNSURE	WRONG	descriptive phrase	descriptive phrase not word
+wnja-02046075-v	回転するように方向を変える	wheel, wheel around	queue	UNSURE	WRONG	descriptive phrase	descriptive phrase not word
 wnja-03387506-n	礎石	foundation stone	keep	OK	OK	foundation stone	foundation stone
 wnja-02402825-v	首切る	displace, fire, give notice, can, dismiss, give the axe, send away, sack, force out, give the sack, terminate	keep	OK	OK	fire dismiss	dismiss
 wnja-10098092-n	イエスマン	flunky, flunkey, stooge, yes-man	keep	OK	OK	yes-man	yes-man
@@ -2544,13 +2544,13 @@ wnja-01391351-a	微々たる	small, little	keep	OK	OK	small insignificant	small,
 wnja-02025550-v	付随う	accompany	keep	OK	OK	accompany	accompany
 wnja-03004824-n	サンクチュアリー	chancel, sanctuary, bema	keep	OK	OK	sanctuary	sanctuary
 wnja-00720063-v	楽しみに待つ	expect, look, await, wait	keep	OK	OK	await	expect
-wnja-13267816-n	訓練期間手当	traineeship	lower	WRONG	UNSURE	not a real term	odd term
+wnja-13267816-n	訓練期間手当	traineeship	queue	WRONG	UNSURE	not a real term	odd term
 wnja-14830364-n	デオキシリボ核酸	deoxyribonucleic acid, desoxyribonucleic acid, DNA	keep	OK	OK	DNA	DNA
 wnja-01291707-v	切り組む	miter	lower	OK	UNSURE	miter joint	rare join sense
 wnja-04151940-n	遮蔽物	screen, cover, covert, concealment	keep	OK	OK	cover screen	screen, cover
 wnja-07358576-n	変遷	transition	keep	OK	OK	transition	transition
-wnja-70100281-a	ケイグンノイッカク		lower	UNSURE	UNSURE	no gloss; idiom reading	idiom no english
-wnja-00815686-v	返事を	answer, reply, respond	lower	WRONG	OK		reply
+wnja-70100281-a	ケイグンノイッカク		queue	UNSURE	UNSURE	no gloss; idiom reading	idiom no english
+wnja-00815686-v	返事を	answer, reply, respond	queue	WRONG	OK		reply
 wnja-01562488-a	オートモーチブ	automotive, self-propelled, self-propelling	keep	OK	OK	automotive	automotive
 wnja-01203715-v	食い物に	prey, feed	keep	OK	OK	prey on	make prey of
 wnja-06294441-n	造語	neologism, neology, coinage	keep	OK	OK	coinage	
@@ -2568,7 +2568,7 @@ wnja-02004874-v	復す	return	keep	OK	OK	return	return
 wnja-13780719-n	結び付き	relationship, human relationship	keep	OK	OK	relationship	relationship
 wnja-08599792-n	日付け変更線	dateline, date line, International Date Line	keep	OK	OK	standard	date line
 wnja-10340312-n	プレイヤー	musician, instrumentalist, player	keep	OK	OK	player	player musician
-wnja-05803938-n	壁越推量	guess, guesswork, guessing, shot, dead reckoning	lower	UNSURE	WRONG	rare word	not a real word
+wnja-05803938-n	壁越推量	guess, guesswork, guessing, shot, dead reckoning	queue	UNSURE	WRONG	rare word	not a real word
 wnja-01401772-v	打ちつける	smash, nail, boom, blast	keep	OK	OK	hit hard	hit hard
 wnja-07925116-n	パインジュース	pineapple juice	keep	OK	OK	pineapple juice	pineapple juice
 wnja-09863031-n	護衛	bodyguard, escort	keep	OK	OK		escort
@@ -2589,7 +2589,7 @@ wnja-01059564-v	無みする	ignore, disregard, snub, cut	keep	OK	OK	ignore arch
 wnja-07291794-n	括り	end, last, final stage	keep	OK	OK	end	kukuri conclusion
 wnja-13680381-n	インティ	inti	keep	OK	OK		inti
 wnja-06117562-n	地球物理学	geophysics, geophysical science	keep	OK	OK	geophysics	geophysics
-wnja-03136371-a	曙那	Shona	lower	WRONG	UNSURE	not Japanese word for Shona	unusual spelling of Shona
+wnja-03136371-a	曙那	Shona	queue	WRONG	UNSURE	not Japanese word for Shona	unusual spelling of Shona
 wnja-09880427-n	事務官	bureaucrat, administrative official	lower	UNSURE	UNSURE	official but not bureaucrat	official
 wnja-06328022-n	三人称	third person	keep	OK	OK	third person	third person
 wnja-02442205-v	制す	govern	keep	OK	OK	govern control	control govern
@@ -2615,8 +2615,8 @@ wnja-00980527-a	鈍い	slow	keep	OK	OK	slow	slow
 wnja-01767163-v	煩悶	worry	keep	OK	OK	worry	worry
 wnja-00131151-r	言語学的に	linguistically	keep	OK	OK	linguistically	linguistically
 wnja-07456188-n	ダービー	contest, competition	lower	UNSURE	UNSURE	derby race	horse race not contest
-wnja-03925226-n	光画	photograph, photo, exposure, picture, pic	lower	UNSURE	UNSURE	archaic photo term	archaic for photo
-wnja-02222318-v	除く	discard, fling, toss, toss out, toss away, chuck out, cast aside, dispose, throw out, cast out, throw away, cast away, put away	lower	WRONG	UNSURE	remove, not throw away	remove vs discard
+wnja-03925226-n	光画	photograph, photo, exposure, picture, pic	queue	UNSURE	UNSURE	archaic photo term	archaic for photo
+wnja-02222318-v	除く	discard, fling, toss, toss out, toss away, chuck out, cast aside, dispose, throw out, cast out, throw away, cast away, put away	queue	WRONG	UNSURE	remove, not throw away	remove vs discard
 wnja-00732682-a	説明的	descriptive	keep	OK	OK	explanatory	descriptive
 wnja-05967977-n	法術	magic, thaumaturgy	keep	OK	OK	magic	magic
 wnja-00552815-v	腐る	decay	keep	OK	OK	rot	rot
@@ -2633,7 +2633,7 @@ wnja-06715223-n	謗り言	abuse, insult, revilement, contumely, vilification	kee
 wnja-13790712-n	根底	foundation	keep	OK	OK	foundation	foundation
 wnja-00718924-a	任意	arbitrary	keep	OK	OK		arbitrary
 wnja-03290771-n	上がりぐち	entrance, entranceway, entryway, entry, entree	keep	OK	OK	entrance	entrance
-wnja-02004874-v	復職	return	lower	OK	WRONG	return to post	only job reinstatement
+wnja-02004874-v	復職	return	queue	OK	WRONG	return to post	only job reinstatement
 wnja-00074641-r	正面の方へ	forward, forwards, frontward, frontwards, forrad, forrard	lower	OK	UNSURE	front-ward	odd phrase forward
 wnja-00722065-v	かぎ付ける	ferret out, ferret	keep	OK	OK	ferret out	ferret out
 wnja-04378024-n	システムクロック	system clock	keep	OK	OK	system clock	system clock
@@ -2642,9 +2642,9 @@ wnja-00202236-v	偽る	falsify	keep	OK	OK	falsify	falsify
 wnja-06389553-n	ブランク	space, blank space, place	keep	OK	OK	blank	
 wnja-01930033-v	ドスンドスンと歩く	clump, clomp	keep	OK	OK	heavy walk	clump along
 wnja-05475681-n	線維束	fiber bundle, fibre bundle, fascicle, fasciculus	keep	OK	OK	fiber bundle	fiber bundle
-wnja-09909060-n	飛び上がり者	character, eccentric, type, case	lower	UNSURE	UNSURE	upstart nuance	eccentric uncertain
+wnja-09909060-n	飛び上がり者	character, eccentric, type, case	queue	UNSURE	UNSURE	upstart nuance	eccentric uncertain
 wnja-09176446-n	マウナケア山	Mauna Kea	keep	OK	OK	Mauna Kea	Mauna Kea
-wnja-01625893-a	苦苦しげ	disgusting, disgustful, distasteful, foul, loathly, loathsome, repellent, repellant, repelling, revolting, skanky, wicked, yucky	lower	UNSURE	UNSURE	bitter look not disgusting	bitter vs disgusting
+wnja-01625893-a	苦苦しげ	disgusting, disgustful, distasteful, foul, loathly, loathsome, repellent, repellant, repelling, revolting, skanky, wicked, yucky	queue	UNSURE	UNSURE	bitter look not disgusting	bitter vs disgusting
 wnja-08178085-n	福祉国家	welfare state	keep	OK	OK	welfare state	welfare state
 wnja-07355491-n	死亡	death, decease, expiry	keep	OK	OK	death	death
 wnja-08660934-n	狙い所	target, target area	keep	OK	OK	target area	target spot
@@ -2654,7 +2654,7 @@ wnja-14344997-n	腸炎	enteritis	keep	OK	OK	enteritis	enteritis
 wnja-08573674-n	前線	battlefront, front, front line	keep	OK	OK	front line	front line
 wnja-04720685-n	紡糸性	spinnability	keep	OK	OK	spinnability	spinnability
 wnja-00739270-n	怠慢	negligence, carelessness, neglect, nonperformance	keep	OK	OK	negligence	negligence
-wnja-01345109-v	結ぶ	close, shut	lower	WRONG	UNSURE	not close door	close lips sense
+wnja-01345109-v	結ぶ	close, shut	queue	WRONG	UNSURE	not close door	close lips sense
 wnja-10624074-n	息子	son, boy	keep	OK	OK	son	son
 wnja-00596644-v	分かる	know, experience, live	lower	UNSURE	UNSURE	understand not experience	understand not experience
 wnja-14717925-n	白銅	cupronickel	keep	OK	OK	cupronickel	cupronickel
@@ -2681,12 +2681,12 @@ wnja-00520357-v	妨害	interrupt, disrupt	keep	OK	OK		interrupt
 wnja-06715223-n	恥	abuse, insult, revilement, contumely, vilification	remove	WRONG	WRONG	shame not insult	means shame not insult
 wnja-07491038-n	悦楽	delight, delectation	keep	OK	OK	delight	pleasure
 wnja-10085217-n	剣客	fencer, swordsman	keep	OK	OK	swordsman	swordsman
-wnja-04030655-n	スペース	quad, space	lower	OK	WRONG	space	typographic quad not space
-wnja-13654232-n	ハンドブレス	handbreadth, handsbreadth	lower	UNSURE	UNSURE	unusual loan	unfamiliar term
+wnja-04030655-n	スペース	quad, space	queue	OK	WRONG	space	typographic quad not space
+wnja-13654232-n	ハンドブレス	handbreadth, handsbreadth	queue	UNSURE	UNSURE	unusual loan	unfamiliar term
 wnja-02442205-v	司どる	govern	keep	OK	OK	govern	govern
-wnja-08240633-n	門閥	clique, coterie, ingroup, inner circle, pack, camp	lower	UNSURE	WRONG	lineage not clique	means lineage not clique
+wnja-08240633-n	門閥	clique, coterie, ingroup, inner circle, pack, camp	queue	UNSURE	WRONG	lineage not clique	means lineage not clique
 wnja-02950256-n	大筒	cannon	keep	OK	OK	cannon	cannon
-wnja-00240082-r	隣へ	next door, in the adjacent house, in the adjacent apartment	lower	UNSURE	UNSURE	adverbial phrase	directional next door
+wnja-00240082-r	隣へ	next door, in the adjacent house, in the adjacent apartment	queue	UNSURE	UNSURE	adverbial phrase	directional next door
 wnja-02349212-v	信託	entrust, intrust, trust, confide, commit	keep	OK	OK	entrust	entrust
 wnja-00816556-v	言消す	deny	keep	OK	OK	deny	deny
 wnja-06282651-n	辞	language, linguistic communication	lower	UNSURE	UNSURE	word rather than language	word not language
@@ -2732,15 +2732,15 @@ wnja-01835496-v	動く	travel, go, move, locomote	keep	OK	OK	move	move
 wnja-00504620-r	洗浚	in full, fully	keep	OK	OK	thoroughly	thoroughly
 wnja-05456945-n	配偶子	gamete	keep	OK	OK	gamete	gamete
 wnja-02716165-v	付いてまわる	attach to, accompany, come with, go with	keep	OK	OK	accompany	accompany
-wnja-13652335-n	ネール	nail	lower	UNSURE	WRONG	rare unit	not cloth unit
+wnja-13652335-n	ネール	nail	queue	UNSURE	WRONG	rare unit	not cloth unit
 wnja-02743565-v	来る	come	lower	OK	UNSURE	come	borderline sense
-wnja-00267855-v	音を低く	turn down, lower, lour	lower	UNSURE	UNSURE		phrase lower sound
-wnja-02108791-v	思い浮ぶ	hit, strike, come to	lower	UNSURE	UNSURE	come to mind	come to mind
-wnja-00181748-r	激しく	vigorously, smartly	lower	WRONG	OK	激しく fierce not vigorous healthy	vigorously
+wnja-00267855-v	音を低く	turn down, lower, lour	queue	UNSURE	UNSURE		phrase lower sound
+wnja-02108791-v	思い浮ぶ	hit, strike, come to	queue	UNSURE	UNSURE	come to mind	come to mind
+wnja-00181748-r	激しく	vigorously, smartly	queue	WRONG	OK	激しく fierce not vigorous healthy	vigorously
 wnja-06202686-n	厳正	impartiality, nonpartisanship	keep	OK	OK	impartial	strict impartiality
-wnja-08236438-n	企業組合	consortium, pool, syndicate	lower	UNSURE	UNSURE	cooperative not consortium	cooperative vs consortium
+wnja-08236438-n	企業組合	consortium, pool, syndicate	queue	UNSURE	UNSURE	cooperative not consortium	cooperative vs consortium
 wnja-10613996-n	ビューティ	smasher, stunner, knockout, beauty, ravisher, sweetheart, peach, lulu, looker, mantrap, dish	keep	OK	OK	beauty	beauty
-wnja-00004722-r	高だか	merely, simply, just, only, but	lower	UNSURE	UNSURE	at most vs merely	at most not merely
+wnja-00004722-r	高だか	merely, simply, just, only, but	queue	UNSURE	UNSURE	at most vs merely	at most not merely
 wnja-02622234-v	合わさる	connect, link, link up, join, unite	keep	OK	OK	join	join
 wnja-00103317-v	赤む	blush, crimson, flush, redden	keep	OK	OK	blush	blush
 wnja-06422740-n	枝折	guidebook, guide	keep	OK	OK	guidebook	guidebook
@@ -2855,9 +2855,9 @@ wnja-02267529-v	遣い果たす	spend	keep	OK	OK	spend all	spend all
 wnja-02532595-v	試験	experiment	keep	OK	OK	experiment/test	test/experiment
 wnja-03139089-n	クラウン	crown, crownwork, jacket, jacket crown, cap	keep	OK	OK	crown dental	dental crown
 wnja-02379329-n	モルガン	Morgan	lower	UNSURE	OK	horse breed needs 馬	Morgan horse
-wnja-10410668-n	恵比須	peasant, provincial, bucolic	lower	WRONG	UNSURE	Ebisu deity not peasant	ebisu rustic archaic
+wnja-10410668-n	恵比須	peasant, provincial, bucolic	queue	WRONG	UNSURE	Ebisu deity not peasant	ebisu rustic archaic
 wnja-09410724-n	リオグランデ	Rio Grande, Rio Bravo	keep	OK	OK	river name	Rio Grande
-wnja-04654998-n	丸さ	amicability, amicableness	lower	UNSURE	WRONG	roundness mainly	means roundness
+wnja-04654998-n	丸さ	amicability, amicableness	queue	UNSURE	WRONG	roundness mainly	means roundness
 wnja-08651832-n	貧民街	slum, slum area	keep	OK	OK	slum	slum
 wnja-05824739-n	証左	proof, cogent evidence	keep	OK	OK	evidence	
 wnja-02632353-v	闕如	miss, lack	keep	OK	OK	lack	lack
@@ -2872,7 +2872,7 @@ wnja-05092236-n	条件付き確率	conditional probability, contingent probabili
 wnja-00187526-v	挿れる	insert, enclose, inclose, stick in, put in, introduce	keep	OK	OK	insert	insert
 wnja-02412647-v	ストライキ	strike, walk out	keep	OK	OK	strike	strike
 wnja-00594413-a	連続的	continuous, uninterrupted	keep	OK	OK	continuous	continuous
-wnja-01706129-v	併せる	arrange, set	lower	WRONG	UNSURE	not arrange music	arrange
+wnja-01706129-v	併せる	arrange, set	queue	WRONG	UNSURE	not arrange music	arrange
 wnja-05103283-n	内径	bore, gauge, caliber, calibre	keep	OK	OK	bore	bore
 wnja-00073897-r	オモニ	chiefly, principally, primarily, mainly, in the main	remove	WRONG	WRONG	means mother not chiefly	means mother not mainly
 wnja-03833065-n	小説	novel	keep	OK	OK	novel	novel
@@ -2881,14 +2881,14 @@ wnja-07507098-n	照れ臭さ	embarrassment	keep	OK	OK	embarrassment	embarrassmen
 wnja-02251743-v	精算	pay	lower	UNSURE	UNSURE	settle vs pay	settlement not pay generally
 wnja-07119897-n	清子音	surd, voiceless consonant	keep	OK	OK	voiceless consonant	voiceless consonant
 wnja-01179865-v	食べる	feed, eat	keep	OK	OK	eat	eat
-wnja-07375214-n	球状体	conglomeration, conglobation	lower	WRONG	UNSURE	means spheroid	sphere vs conglomeration
+wnja-07375214-n	球状体	conglomeration, conglobation	queue	WRONG	UNSURE	means spheroid	sphere vs conglomeration
 wnja-02470518-v	歩く	walk	lower	UNSURE	UNSURE	walk with figurative	walk with; stretch
 wnja-13253255-n	購入	acquisition	keep	OK	OK	acquisition	purchase acquisition
 wnja-13804085-n	活用	conjugation	keep	OK	OK	conjugation	conjugation
 wnja-05822239-n	標本	specimen	keep	OK	OK	specimen	specimen
 wnja-02452885-v	阻害	prevent, forestall, foreclose, preclude, forbid	keep	OK	OK	obstruct prevent	prevent
 wnja-01144716-n	足ならし	warm-up, tune-up, prolusion	keep	OK	OK	warm-up	warm-up
-wnja-13972797-n	不同	disorder	lower	UNSURE	WRONG	unevenness more than disorder	not public disorder
+wnja-13972797-n	不同	disorder	queue	UNSURE	WRONG	unevenness more than disorder	not public disorder
 wnja-07986982-n	三頭政治	triumvirate	keep	OK	OK	triumvirate	triumvirate
 wnja-09391223-n	光子	photon	keep	OK	OK		photon
 wnja-00173353-r	熟	profoundly, deeply	keep	OK	OK	tsukuzuku deeply	tsukuzuku deeply
@@ -2898,7 +2898,7 @@ wnja-02723016-v	猛りくるう	ramp, rage, storm	keep	OK	OK	rage	rage
 wnja-00328802-v	枝分かれ	branch, ramify, fork, furcate, separate	keep	OK	OK	branching	branching
 wnja-02701984-n	アミノフィリン	aminophylline	keep	OK	OK	aminophylline	aminophylline
 wnja-07139873-n	現れ	expression, verbal expression, verbalism	lower	UNSURE	OK	manifestation vs verbal expression	expression
-wnja-00972902-a	当風	mod, modern, modernistic	lower	UNSURE	UNSURE	rare for modern	rare for modern
+wnja-00972902-a	当風	mod, modern, modernistic	queue	UNSURE	UNSURE	rare for modern	rare for modern
 wnja-07523905-n	五月蝿い	anxiety	remove	WRONG	WRONG	means noisy not anxiety	urusai not anxiety
 wnja-04673470-n	不熱心	nonchalance, unconcern, indifference	lower	UNSURE	UNSURE	lack of enthusiasm	lack of enthusiasm, not nonchalance
 wnja-00907642-n	露出不足	underexposure	keep	OK	OK	underexposure	underexposure
@@ -2920,7 +2920,7 @@ wnja-13412721-n	賃金支払い名簿	payroll, paysheet	lower	UNSURE	OK	descript
 wnja-01230710-v	焚き附ける	prod, incite, egg on	keep	OK	OK	incite	incite
 wnja-13714184-n	°	degree	keep	OK	OK	degree symbol	degree
 wnja-07287730-n	苦杯	ordeal	keep	OK	OK		ordeal
-wnja-02612762-v	面出し	attend, go to	lower	UNSURE	WRONG	archaic	not attend
+wnja-02612762-v	面出し	attend, go to	queue	UNSURE	WRONG	archaic	not attend
 wnja-02180898-v	鳴り渡る	ring, peal	keep	OK	OK	resound	resound
 wnja-00166608-r	コッソリ	secretly, in secret, on the Q.T., on the QT	keep	OK	OK	secretly	secretly
 wnja-07338552-n	衝突	impact	keep	OK	OK	impact	collision impact
@@ -2931,12 +2931,12 @@ wnja-07555014-n	忘我	enthusiasm	lower	UNSURE	UNSURE	ecstasy rather than enthus
 wnja-11503060-n	返照	reflection, reflexion	lower	OK	UNSURE	reflection	reflection rare
 wnja-02321391-v	毟り取る	rob	lower	UNSURE	OK	tear off vs rob	tear off by force
 wnja-00287640-a	心の狭い	narrow-minded, narrow	keep	OK	OK	narrow-minded	narrow-minded
-wnja-09921409-n	三太郎	chump, fool, gull, mark, patsy, fall guy, sucker, soft touch, mug	lower	WRONG	OK		fool
+wnja-09921409-n	三太郎	chump, fool, gull, mark, patsy, fall guy, sucker, soft touch, mug	queue	WRONG	OK		fool
 wnja-00037641-r	嘸かし	indeed, so	lower	UNSURE	OK	surely, not indeed	sazokashi indeed-ish
 wnja-00826509-v	扱き下す	knock, criticize, criticise, pick apart	keep	OK	OK	criticize	disparage
 wnja-01223616-v	ウエーヴ	curl, wave	keep	OK	OK	wave/curl	wave/curl
-wnja-02005948-v	お出でる	arrive, get, come	lower	UNSURE	UNSURE	rare honorific	nonstandard
-wnja-01825671-a	豪然たる	powerful	lower	UNSURE	WRONG	haughty not powerful	not powerful
+wnja-02005948-v	お出でる	arrive, get, come	queue	UNSURE	UNSURE	rare honorific	nonstandard
+wnja-01825671-a	豪然たる	powerful	queue	UNSURE	WRONG	haughty not powerful	not powerful
 wnja-08722084-n	バルパライソ	Valparaiso	keep	OK	OK	Valparaiso	Valparaiso
 wnja-04303672-n	右舷	starboard	keep	OK	OK	starboard	starboard
 wnja-05823054-n	正当化できる理由	justification	keep	OK	OK	justification	justification
@@ -2956,14 +2956,14 @@ wnja-09982013-n	キュビスト	cubist	keep	OK	OK	cubist	cubist
 wnja-11468578-n	自己誘導	self-induction	keep	OK	OK	self-induction	self-induction
 wnja-15269513-n	期間	time interval, interval	keep	OK	OK	interval	interval
 wnja-00230335-a	より良い	better	keep	OK	OK	better	better
-wnja-04273569-n	レース艇	speedboat	lower	UNSURE	UNSURE	racing boat not speedboat	racing boat
-wnja-14250622-n	砂腫	psammoma, sand tumor	lower	UNSURE	UNSURE	usual term 砂粒腫	rare term
+wnja-04273569-n	レース艇	speedboat	queue	UNSURE	UNSURE	racing boat not speedboat	racing boat
+wnja-14250622-n	砂腫	psammoma, sand tumor	queue	UNSURE	UNSURE	usual term 砂粒腫	rare term
 wnja-11834272-n	アッケシソウ	glasswort, samphire, Salicornia europaea	keep	OK	OK	glasswort	glasswort
 wnja-00260470-v	害す	hurt, injure	keep	OK	OK	injure	harm
-wnja-03712337-n	メーン	mainsail	lower	WRONG	UNSURE	not mainsail	main not mainsail
+wnja-03712337-n	メーン	mainsail	queue	WRONG	UNSURE	not mainsail	main not mainsail
 wnja-15104217-n	毛	wool	keep	OK	OK	wool	wool
 wnja-06672953-n	内密	secret, arcanum	keep	OK	OK	secret	secret
-wnja-00194737-r	ギスギス	awkwardly	lower	UNSURE	WRONG	strained, not awkward manner	not awkwardly
+wnja-00194737-r	ギスギス	awkwardly	queue	UNSURE	WRONG	strained, not awkward manner	not awkwardly
 wnja-02075462-v	逃げる	flee, fly, take flight	keep	OK	OK	flee	flee
 wnja-13320168-n	代	fee	keep	OK	OK	fee charge	fee suffix
 wnja-06422488-n	性典	sex manual	keep	OK	OK	sex manual	sex manual
@@ -2971,10 +2971,10 @@ wnja-00227667-v	激化させる	heat up, hot up, screw up	keep	OK	OK	intensify	i
 wnja-00770480-a	ダイレクト	direct, unmediated	keep	OK	OK	direct	direct
 wnja-00577068-n	順序	operation, procedure	keep	OK	OK	procedure	procedure
 wnja-05075602-n	組み入れ	placement, arrangement	remove	WRONG	WRONG	means incorporating	incorporation not arrangement
-wnja-00339934-v	発す	happen, hap, go on, pass off, occur, pass, fall out, come about, take place	lower	WRONG	UNSURE	means emit not happen	emit not occur
+wnja-00339934-v	発す	happen, hap, go on, pass off, occur, pass, fall out, come about, take place	queue	WRONG	UNSURE	means emit not happen	emit not occur
 wnja-01619929-v	撲滅	destroy, destruct	lower	OK	UNSURE	destroy	eradicate not destroy house
 wnja-04005630-n	獄	prison, prison house	keep	OK	OK	prison	prison
-wnja-13403643-n	留め書き	record	lower	UNSURE	UNSURE	rare word	memo rather than record
+wnja-13403643-n	留め書き	record	queue	UNSURE	UNSURE	rare word	memo rather than record
 wnja-01629000-v	生む	render, yield, return, give, generate	keep	OK	OK	yield	generate
 wnja-06056923-n	精神衛生学	psychotherapy, psychotherapeutics, mental hygiene	lower	UNSURE	OK	mental hygiene, psychotherapy	mental hygiene
 wnja-03544360-n	メゾン	house	lower	UNSURE	UNSURE	apartment sense	loanword for house
@@ -3000,7 +3000,7 @@ wnja-11305258-n	スミス	Smith, Adam Smith	keep	OK	OK	Smith	Smith
 wnja-06722453-n	話	statement	lower	UNSURE	UNSURE	statement borderline	statement, 話 loosely
 wnja-00512522-n	嬌態	flirt, flirting, flirtation, coquetry, dalliance, toying	keep	OK	OK	coquetry	coquetry
 wnja-09525579-n	達磨	Dharma	lower	OK	UNSURE	Dharma	Daruma vs Hindu dharma
-wnja-05988282-n	不知案内	ignorance	lower	UNSURE	UNSURE	rare ignorance	odd form
+wnja-05988282-n	不知案内	ignorance	queue	UNSURE	UNSURE	rare ignorance	odd form
 wnja-02180277-a	ピュアー	genuine, true, unfeigned	keep	OK	OK	pure/genuine	pure genuine
 wnja-06471345-n	認可証	certificate, certification, credential, credentials	keep	OK	OK	certificate	certificate
 wnja-01135529-n	監視	supervision, supervising, superintendence, oversight	keep	OK	OK	supervision/monitoring	supervision/monitoring
@@ -3013,14 +3013,14 @@ wnja-01968569-v	差登る	rise, lift, arise, move up, go up, come up, uprise	kee
 wnja-02207206-v	買い入れる	buy, purchase	keep	OK	OK	buy	buy
 wnja-00258665-v	壊つ	break	keep	OK	OK	break	break
 wnja-02284951-v	還付	refund, return, repay, give back	keep	OK	OK		refund
-wnja-00744443-n	傷創	injury	lower	UNSURE	WRONG	wound vs act of injury	injury not act of harming
+wnja-00744443-n	傷創	injury	queue	UNSURE	WRONG	wound vs act of injury	injury not act of harming
 wnja-14328290-n	腰痛	lumbago, lumbar pain	keep	OK	OK	lumbago	lumbago
 wnja-02683840-v	中止になる	discontinue	keep	OK	OK	be cancelled	discontinue
 wnja-11062111-n	ハワード	Howard, Catherine Howard	keep	OK	OK	Howard	Howard
 wnja-02725286-v	停滞	stagnate	keep	OK	OK	stagnate	stagnate
 wnja-13585997-n	ボルツマン定数	Boltzmann's constant	keep	OK	OK	Boltzmann constant	Boltzmann constant
 wnja-00573664-n	ピッチショット	pitch, pitch shot	keep	OK	OK	pitch shot	pitch shot
-wnja-02868638-n	壕舎	bomb shelter, air-raid shelter, bombproof	lower	UNSURE	UNSURE	dugout dwelling vs shelter	dugout hut vs shelter
+wnja-02868638-n	壕舎	bomb shelter, air-raid shelter, bombproof	queue	UNSURE	UNSURE	dugout dwelling vs shelter	dugout hut vs shelter
 wnja-01556346-v	破る	tear	keep	OK	OK	tear	tear
 wnja-10921879-n	デイモン	Damon	keep	OK	OK	Damon	Damon
 wnja-10727256-n	副寺	treasurer, financial officer	keep	OK	OK	temple treasurer	temple treasurer
@@ -3030,7 +3030,7 @@ wnja-01811243-n	ドードー	dodo, Raphus cucullatus	keep	OK	OK	dodo	dodo
 wnja-13780339-n	stp	STP, s.t.p.	keep	OK	OK	STP	STP
 wnja-04945530-n	強欲	greed	keep	OK	OK	greed	common
 wnja-14706372-n	陶砂	size, sizing	keep	OK	OK	sizing	sizing
-wnja-02504280-v	払う	banish, ban	lower	WRONG	OK	not banish	banish
+wnja-02504280-v	払う	banish, ban	queue	WRONG	OK	not banish	banish
 wnja-02294179-v	分け与える	share, divvy up, portion out, apportion, deal	keep	OK	OK	distribute	
 wnja-00700451-a	確実	definite	keep	OK	OK	definite	definite/certain
 wnja-15223750-n	秋分	autumnal equinox, September equinox, fall equinox	keep	OK	OK	autumnal equinox	autumnal equinox
@@ -3089,7 +3089,7 @@ wnja-00156390-n	開始	trigger, induction, initiation	lower	UNSURE	UNSURE	start 
 wnja-14404160-n	鬱気	depression	keep	OK	OK	gloomy depression	depression
 wnja-08120910-n	警備	security, security department	lower	UNSURE	OK	act not department	security
 wnja-13613408-n	平方マイル	square mile	keep	OK	OK	square mile	square mile
-wnja-07303335-n	炬	bonfire, balefire	lower	UNSURE	WRONG	torch not bonfire	torch not bonfire
+wnja-07303335-n	炬	bonfire, balefire	queue	UNSURE	WRONG	torch not bonfire	torch not bonfire
 wnja-01889129-v	ガタガタ	quiver, quake, palpitate	keep	OK	OK	tremble	tremble
 wnja-00490845-a	妙ちきりん	odd	keep	OK	OK	odd	odd
 wnja-08588152-n	内側	inside, interior	keep	OK	OK	inside	inside
@@ -3114,7 +3114,7 @@ wnja-11493452-n	一塩基多型	single nucleotide polymorphism, SNP	keep	OK	OK	S
 wnja-13775093-n	巨多	battalion, large number, multitude, plurality, pack	lower	UNSURE	OK	large number rare	large number
 wnja-10481711-n	プロレタリヤ	proletarian, prole, worker	keep	OK	OK	proletarian	proletarian
 wnja-02276322-v	取り戻す	reclaim, repossess	keep	OK	OK		take back
-wnja-00715541-v	はっきり取り決める	pin down, peg down, nail down, narrow down, narrow, specify	lower	UNSURE	UNSURE	unclear	rare
+wnja-00715541-v	はっきり取り決める	pin down, peg down, nail down, narrow down, narrow, specify	queue	UNSURE	UNSURE	unclear	rare
 wnja-10027590-n	背信者	double-crosser, double-dealer, two-timer, betrayer, traitor	keep	OK	OK	traitor	
 wnja-07374756-n	ブレンド	mix, mixture	keep	OK	OK	blend	blend
 wnja-11444117-n	絶息	death	keep	OK	OK	death	death
@@ -3140,7 +3140,7 @@ wnja-13436063-n	ADP	automatic data processing, ADP	keep	OK	OK	ADP	ADP
 wnja-10991936-n	ゲイツ	Gates, Bill Gates, William Henry Gates	keep	OK	OK	Gates	Bill Gates
 wnja-07539511-n	不満	dissatisfaction	keep	OK	OK	dissatisfaction	dissatisfaction
 wnja-13983515-n	暗黒	dark, darkness	keep	OK	OK	darkness	darkness
-wnja-01362736-v	色取	paint	lower	UNSURE	UNSURE	rare form of coloring	coloring vs paint
+wnja-01362736-v	色取	paint	queue	UNSURE	UNSURE	rare form of coloring	coloring vs paint
 wnja-02339413-v	取り付ける	equip, fit, fit out, outfit	keep	OK	OK	equip	equip install
 wnja-11218153-n	オズワルド	Oswald, Lee Harvey Oswald	keep	OK	OK	Oswald	name
 wnja-10560106-n	クラスメート	schoolmate, classmate, schoolfellow, class fellow	keep	OK	OK		classmate
@@ -3149,7 +3149,7 @@ wnja-03088389-n	コンドミニアム	condominium	keep	OK	OK	condominium	condomi
 wnja-01190948-v	楽しむ	delight, enjoy, revel	keep	OK	OK	enjoy	enjoy
 wnja-00574790-n	ドルフィンキック	dolphin kick	keep	OK	OK	dolphin kick	dolphin kick
 wnja-01108951-v	追散らす	rout, rout out, expel	keep	OK	OK	drive away	rout
-wnja-05047279-n	前であること	priority, antecedence, antecedency, anteriority, precedence, precedency	lower	UNSURE	UNSURE	awkward phrase	odd phrase
+wnja-05047279-n	前であること	priority, antecedence, antecedency, anteriority, precedence, precedency	queue	UNSURE	UNSURE	awkward phrase	odd phrase
 wnja-01335156-a	俊邁	brainy, brilliant, smart as a whip	keep	OK	OK	brilliant	brilliant
 wnja-01036188-v	折り合う	give and take	keep	OK	OK	compromise	compromise
 wnja-08119525-n	販売部門	sales department, sales division, sales force	keep	OK	OK	sales department	sales dept
@@ -3192,10 +3192,10 @@ wnja-07127006-n	咲い	laugh, laughter	lower	UNSURE	OK	rare variant spelling	lau
 wnja-01975912-v	高める	hike, hike up, boost	keep	OK	OK	raise	raise
 wnja-05085572-n	至近	nearness, closeness	keep	OK	OK	nearness	nearness
 wnja-01149494-a	不仕合せ	unhappy	keep	OK	OK	unhappy	unhappy
-wnja-05045680-n	列	row	lower	UNSURE	WRONG	row, not consecutive run	ret: in a row, not 'row' sense
+wnja-05045680-n	列	row	queue	UNSURE	WRONG	row, not consecutive run	ret: in a row, not 'row' sense
 wnja-13927383-n	様態	situation, state of affairs	lower	UNSURE	UNSURE	form/state, borderline	form/condition
 wnja-14454030-n	回旋糸状虫症	onchocerciasis, river blindness	keep	OK	OK	onchocerciasis	onchocerciasis
-wnja-03400389-n	fae	fuel-air explosive, FAE	lower	UNSURE	UNSURE	Latin letters acronym	abbreviation
+wnja-03400389-n	fae	fuel-air explosive, FAE	queue	UNSURE	UNSURE	Latin letters acronym	abbreviation
 wnja-02548820-a	湿気のある	damp, dampish, moist	keep	OK	OK	damp	damp
 wnja-10278128-n	御袋	ma, mama, mamma, mom, momma, mommy, mammy, mum, mummy	keep	OK	OK	mom	mom
 wnja-02306462-v	賦課	levy, impose	keep	OK	OK	levy	levy
@@ -3208,7 +3208,7 @@ wnja-13811900-n	同調	sympathy	keep	OK	OK	sympathy	sympathy
 wnja-08855909-n	リメイラ	Limeira	keep	OK	OK	Limeira	Limeira
 wnja-07206302-n	撤回	withdrawal, backdown, climb-down	keep	OK	OK	withdrawal	withdrawal
 wnja-04842993-n	感度	sensitivity, sensitiveness	lower	UNSURE	UNSURE		sensitivity interpersonal
-wnja-04938228-n	柔さ	softness	lower	UNSURE	UNSURE	rare form	rare form
+wnja-04938228-n	柔さ	softness	queue	UNSURE	UNSURE	rare form	rare form
 wnja-00743641-n	浪費	extravagance, prodigality, lavishness, highlife, high life	keep	OK	OK	extravagance	extravagance
 wnja-00282050-n	アドバンス	progress, progression, procession, advance, advancement, forward motion, onward motion	keep	OK	OK	advance	advance
 wnja-00668099-v	耐える	digest, endure, stick out, stomach, bear, stand, tolerate, support, brook, abide, suffer, put up	keep	OK	OK	endure	endure
@@ -3245,7 +3245,7 @@ wnja-01099707-a	本の	mere	keep	OK	OK	mere
 wnja-04753455-n	定	certainty, sure thing, foregone conclusion	lower	OK	UNSURE	certainty	archaic certainty
 wnja-04301000-n	台座	stand	lower	UNSURE	UNSURE	pedestal not small table	pedestal not small table
 wnja-01790613-a	筋になった	streaked, streaky	lower	OK	UNSURE	streaked	rare phrase
-wnja-01675190-a	図無	extraordinary	lower	UNSURE	UNSURE	rare form	rare
+wnja-01675190-a	図無	extraordinary	queue	UNSURE	UNSURE	rare form	rare
 wnja-01689580-a	大時代	cold, stale, dusty, moth-eaten	keep	OK	OK	stale old-fashioned	old-fashioned
 wnja-03005920-n	変わり目	change	remove	WRONG	WRONG	turning point not thing	sense mismatch
 wnja-00738697-n	猥褻	obscenity	keep	OK	OK	obscenity	obscenity
@@ -3254,11 +3254,11 @@ wnja-01237415-n	インテグレイション	consolidation, integration	keep	OK	O
 wnja-04584639-n	試掘井	wildcat well, wildcat	keep	OK	OK	wildcat well	wildcat well
 wnja-10210137-n	謀反人	insurgent, insurrectionist, freedom fighter, rebel	keep	OK	OK	rebel	rebel
 wnja-07926250-n	レモナード	lemonade	keep	OK	OK	lemonade	lemonade
-wnja-03201208-n	ちゃぶ台	dining table, board	lower	OK	WRONG	low dining table	chabudai low table not dining table
+wnja-03201208-n	ちゃぶ台	dining table, board	queue	OK	WRONG	low dining table	chabudai low table not dining table
 wnja-04143897-n	ネッカチーフ	scarf	keep	OK	OK	scarf	neckerchief scarf
 wnja-13457378-n	減少	decline, diminution	keep	OK	OK	decline	decline
 wnja-02679530-v	保つ	prolong, sustain, keep up	keep	OK	OK	sustain	prolong, maintain
-wnja-04644512-n	快く行うこと	willingness	lower	UNSURE	UNSURE	descriptive phrase	not a set word
+wnja-04644512-n	快く行うこと	willingness	queue	UNSURE	UNSURE	descriptive phrase	not a set word
 wnja-01767163-v	憤悶	worry	remove	WRONG	WRONG	means anger	means anger not worry
 wnja-14092247-n	停留睾丸	cryptorchidy, cryptorchidism, cryptorchism	keep	OK	OK	cryptorchidism	cryptorchidism
 wnja-14466122-n	水腎症	hydronephrosis	keep	OK	OK	hydronephrosis	hydronephrosis
@@ -3272,7 +3272,7 @@ wnja-01180844-v	仕出す	cater	keep	OK	OK	cater	cater
 wnja-06201908-n	思い込み	bias, prejudice, preconception	keep	OK	OK	preconception	preconception
 wnja-07360077-n	熱分解	pyrolysis	keep	OK	OK	pyrolysis	pyrolysis
 wnja-07901587-n	スピリッツ	liquor, spirits, booze, hard drink, hard liquor, John Barleycorn, strong drink	keep	OK	OK	spirits	spirits
-wnja-00405750-a	惨悽	lurid	lower	UNSURE	UNSURE	ghastly not pale	gloomy not lurid
+wnja-00405750-a	惨悽	lurid	queue	UNSURE	UNSURE	ghastly not pale	gloomy not lurid
 wnja-06493392-n	メニュ	menu, computer menu	keep	OK	OK	menu	menu
 wnja-02658979-v	相関	correlate	keep	OK	OK	correlate	correlation
 wnja-00818553-v	告白	concede, profess, confess	keep	OK	OK	confess	confess
@@ -3283,10 +3283,10 @@ wnja-00168564-r	猛烈に	like hell, like mad, like crazy, like sin, like thunde
 wnja-01075327-v	ファンブル	fumble	keep	OK	OK	fumble	fumble
 wnja-01807770-v	誘う	tempt	keep	OK	OK	tempt	tempt
 wnja-11892029-n	ストック	Malcolm stock, stock	keep	OK	OK	stock flower	
-wnja-05539595-n	頂上	pate, poll, crown	lower	UNSURE	WRONG	top of head borderline	not top of head
+wnja-05539595-n	頂上	pate, poll, crown	queue	UNSURE	WRONG	top of head borderline	not top of head
 wnja-02999410-n	チェーン	chain	keep	OK	OK	chain	chain
 wnja-01099109-n	出資	financing, funding	keep	OK	OK	funding	financing
-wnja-00734054-v	看る	consider, take, deal, look at	lower	WRONG	UNSURE	look after not consider	consider borderline
+wnja-00734054-v	看る	consider, take, deal, look at	queue	WRONG	UNSURE	look after not consider	consider borderline
 wnja-01666126-a	折り目正しい	orderly	lower	UNSURE	UNSURE	courteous not orderly	well-mannered not peaceful
 wnja-00005210-r	旧く	anciently	keep	OK	OK	anciently	anciently
 wnja-00198039-r	隈無く	all over, over	keep	OK	OK	all over	kumanaku all over
@@ -3304,7 +3304,7 @@ wnja-01556921-v	分かつ	separate, disunite, divide, part	keep	OK	OK	separate	s
 wnja-02024928-a	贅沢	deluxe, gilded, grand, luxurious, opulent, princely, sumptuous	keep	OK	OK	luxurious	luxurious
 wnja-07290761-n	不測の事態	eventuality, contingency, contingence	keep	OK	OK	contingency	contingency
 wnja-05282746-n	歯牙	tooth	keep	OK	OK		tooth
-wnja-00410247-n	手風	practice, pattern	lower	UNSURE	UNSURE	rare 手風	rare 手風
+wnja-00410247-n	手風	practice, pattern	queue	UNSURE	UNSURE	rare 手風	rare 手風
 wnja-02778669-n	玉	ball	keep	OK	OK	ball	ball
 wnja-00622384-v	惑わす	perplex, vex, stick, get, puzzle, mystify, baffle, beat, pose, bewilder, flummox, stupefy, nonplus, gravel, amaze, dumbfound	keep	OK	OK	perplex	perplex
 wnja-13660337-n	海里	nautical mile, mile, mi, naut mi, knot, international nautical mile, air mile	keep	OK	OK	nautical mile	nautical mile
@@ -3341,14 +3341,14 @@ wnja-00105746-a	豊富	ample	keep	OK	OK	ample	ample
 wnja-77000113-a	そんな		keep	OK	OK	such	such
 wnja-01213886-n	後盾	backing, backup, championship, patronage	keep	OK	OK	backing	backing
 wnja-00251270-v	生出す	work out, work up	keep	OK	OK	come up with	produce idea
-wnja-00584410-v	移行	shift	lower	UNSURE	WRONG	sound shift sense doubtful	no sound-shift sense
+wnja-00584410-v	移行	shift	queue	UNSURE	WRONG	sound shift sense doubtful	no sound-shift sense
 wnja-12747371-n	富貴草	Japanese spurge, Pachysandra terminalis	keep	OK	OK	pachysandra	pachysandra
 wnja-01650610-v	やり出す	start, start up, embark on, commence	keep	OK	OK	begin	begin
 wnja-02319050-v	ぶったくる	overcharge, soak, surcharge, gazump, fleece, plume, pluck, rob, hook	keep	OK	OK	overcharge	overcharge
 wnja-04313628-n	ステラ	stele, stela	lower	UNSURE	OK	usually ステレ	stela
 wnja-00597988-a	継続している	continuing	lower	OK	UNSURE	continuing	continuing phrase
 wnja-00065070-v	痛める	suffer, hurt	lower	UNSURE	OK	transitive vs feel pain	hurt
-wnja-05706629-n	寛怠	disregard, neglect	lower	UNSURE	UNSURE	rare word	odd form
+wnja-05706629-n	寛怠	disregard, neglect	queue	UNSURE	UNSURE	rare word	odd form
 wnja-10780284-n	後家御	widow, widow woman	lower	OK	UNSURE	widow	polite form of 後家
 wnja-06768528-n	修辞疑問	rhetorical question	keep	OK	OK	rhetorical question	rhetorical question
 wnja-00703615-a	重い	gloomy, grim, blue, depressed, dispirited, down, downcast, downhearted, down in the mouth, low, low-spirited	keep	OK	OK	gloomy	heavy gloomy
@@ -3361,13 +3361,13 @@ wnja-00105554-v	戯ける	joke, jest	keep	OK	OK	joke	joke around
 wnja-08249960-n	バンド	dance band, band, dance orchestra	keep	OK	OK	band	band
 wnja-07490451-n	意欲	urge, itch	keep	OK	OK	urge	urge
 wnja-14699752-n	宝玉	gem, gemstone, stone	keep	OK	OK	gem	gem
-wnja-08219493-n	翼	wing	lower	UNSURE	WRONG	wing as air unit	not air unit
+wnja-08219493-n	翼	wing	queue	UNSURE	WRONG	wing as air unit	not air unit
 wnja-01369663-a	正当	just	keep	OK	OK	just	just
 wnja-03572205-n	インクスタンド	inkstand	keep	OK	OK	inkstand	inkstand
 wnja-00353469-n	低下	lowering	keep	OK	OK	lowering	lowering
 wnja-01053617-n	滞留	stay	keep	OK	OK	stay	stay
 wnja-06268096-n	小論	article	keep	OK	OK	short essay	short essay
-wnja-05621439-n	聡穎	shrewdness, astuteness, perspicacity, perspicaciousness	lower	UNSURE	UNSURE	means bright, not business shrewdness	rare
+wnja-05621439-n	聡穎	shrewdness, astuteness, perspicacity, perspicaciousness	queue	UNSURE	UNSURE	means bright, not business shrewdness	rare
 wnja-05196582-n	権力	authority, authorization, authorisation, potency, dominance, say-so	keep	OK	OK	authority	authority
 wnja-00278280-v	模様替え	rearrange	keep	OK	OK	rearrange	rearrange
 wnja-02690613-a	カルデア人	Chaldean, Chaldaean, Chaldee	keep	OK	OK	Chaldean	Chaldean
@@ -3419,7 +3419,7 @@ wnja-02779435-n	毬	ball	keep	OK	OK	ball	toy ball, mari
 wnja-04364160-n	サージプロテクタ	surge suppressor, surge protector, spike suppressor, spike arrester, lightning arrester	keep	OK	OK	surge protector	surge protector
 wnja-01178220-v	零す	slop, swill	remove	WRONG	WRONG	spill not feed pigs	spill not feed pigs
 wnja-00923793-v	指し示す	indicate, point, designate, show	keep	OK	OK	indicate	indicate
-wnja-00287276-n	ラック	rack, single-foot	lower	WRONG	UNSURE	ラック not horse gait	rare gait sense
+wnja-00287276-n	ラック	rack, single-foot	queue	WRONG	UNSURE	ラック not horse gait	rare gait sense
 wnja-07641928-n	真薯	fish cake, fish ball	lower	OK	UNSURE	fish cake	steamed fish paste differs
 wnja-10947259-n	エイムズ	Eames, Charles Eames	lower	OK	UNSURE	Eames	usual イームズ
 wnja-06689297-n	許し	permission	keep	OK	OK	permission	permission
@@ -3444,7 +3444,7 @@ wnja-07229747-n	自慢	brag, bragging, crow, crowing, vaporing, line-shooting, g
 wnja-01146493-a	忝い	grateful, thankful	keep	OK	OK	grateful archaic	grateful
 wnja-01792573-a	赤条々	bare, mere, simple	lower	OK	UNSURE	bare	naked rather than mere
 wnja-80001190-n	水の泡		keep	OK	OK	come to nothing	come to nothing
-wnja-10468750-n	院長	president, prexy	lower	UNSURE	WRONG	head of institution	not university president
+wnja-10468750-n	院長	president, prexy	queue	UNSURE	WRONG	head of institution	not university president
 wnja-10881092-n	カミュ	Camus, Albert Camus	keep	OK	OK	Camus	
 wnja-02507736-v	困らせる	trouble, put out, inconvenience, disoblige, discommode, incommode, bother	keep	OK	OK	trouble	trouble
 wnja-08727230-n	ルオヤン	Luoyang, Loyang	keep	OK	OK	Luoyang	Luoyang
@@ -3459,7 +3459,7 @@ wnja-14863788-n	鶏糞	chicken manure	keep	OK	OK	chicken manure	chicken manure
 wnja-00894365-v	抗弁	plead	lower	UNSURE	OK	plead excuse	plead
 wnja-08223802-n	コミュニティー	community	keep	OK	OK	community	community
 wnja-02388403-v	涵養	educate, school, train, cultivate, civilize, civilise	lower	OK	UNSURE	cultivate	cultivate sense
-wnja-90000331-n	ナシレマ		lower	WRONG	UNSURE	not a known word	unknown word
+wnja-90000331-n	ナシレマ		queue	WRONG	UNSURE	not a known word	unknown word
 wnja-05162642-n	難点	defect, shortcoming	keep	OK	OK	defect	defect
 wnja-01380122-v	行き渡る	spread, propagate	keep	OK	OK	spread	spread
 wnja-06210363-n	見様	point of view, viewpoint, stand, standpoint	keep	OK	OK	point of view	viewpoint
@@ -3514,10 +3514,10 @@ wnja-00442361-a	遥	far	keep	OK	OK	far	far
 wnja-00260622-n	改変	reform	lower	UNSURE	OK	neutral change, not improvement	reform
 wnja-10162016-n	殺し屋	hatchet man, iceman	keep	OK	OK	hit man	hit man
 wnja-01891638-v	ブルブル	judder, shake	keep	OK	OK	shaking mimetic	shake
-wnja-00638841-a	微温い	lax, loose	lower	WRONG	UNSURE	lukewarm not loose bowels	lax, loose bowels doubtful
+wnja-00638841-a	微温い	lax, loose	queue	WRONG	UNSURE	lukewarm not loose bowels	lax, loose bowels doubtful
 wnja-01116876-n	電話注文	telephone order	keep	OK	OK	telephone order	phone order
 wnja-01854888-v	吸い込む	suck	keep	OK	OK	suck in	suck in
-wnja-03544360-n	建屋	house	lower	UNSURE	WRONG	building for machinery not dwelling	housing for machinery
+wnja-03544360-n	建屋	house	queue	UNSURE	WRONG	building for machinery not dwelling	housing for machinery
 wnja-01214863-n	後援	auspices, protection, aegis	keep	OK	OK	support, sponsorship	patronage
 wnja-04840715-n	恩恵	grace, grace of God, free grace	keep	OK	OK	grace	grace
 wnja-14618253-n	塩基	base, alkali	keep	OK	OK	base	base
@@ -3530,7 +3530,7 @@ wnja-14876473-n	フルフラール	furfural, furfuraldehyde	keep	OK	OK	furfural	
 wnja-05693919-n	扶助	support	keep	OK	OK	support	aid support
 wnja-10213652-n	不法侵入者	intruder, interloper, trespasser	keep	OK	OK	trespasser	
 wnja-03169390-n	飾	decoration, ornament, ornamentation	lower	OK	UNSURE	decoration	usually 飾り
-wnja-02001252-v	追跡	stalk	lower	WRONG	OK	stalk prey not this	stalk
+wnja-02001252-v	追跡	stalk	queue	WRONG	OK	stalk prey not this	stalk
 wnja-10476086-n	虜囚	prisoner, captive	keep	OK	OK		prisoner
 wnja-05144663-n	害悪	evil	keep	OK	OK	evil	evil harm
 wnja-07846471-n	コンデンスミルク	condensed milk	keep	OK	OK	condensed milk	condensed milk
@@ -3546,10 +3546,10 @@ wnja-03543735-n	湯湯婆	hot-water bottle, hot-water bag	keep	OK	OK	hot-water b
 wnja-05849040-n	プロパティ	property, attribute, dimension	keep	OK	OK	property	common
 wnja-05913538-n	ルール	principle, rule	keep	OK	OK	rule	rule
 wnja-05693919-n	痞	support	remove	WRONG	WRONG	obstruction not support	not support
-wnja-06767922-n	耳擦り	shot, shaft, slam, dig, barb, jibe, gibe	lower	WRONG	UNSURE	耳擦り whispering not jibe	whispering vs jibe
+wnja-06767922-n	耳擦り	shot, shaft, slam, dig, barb, jibe, gibe	queue	WRONG	UNSURE	耳擦り whispering not jibe	whispering vs jibe
 wnja-05146055-n	アセスメント	assessment	lower	OK	UNSURE	assessment	assessed value sense
 wnja-01736822-v	写し取る	reproduce	keep	OK	OK	reproduce	copy
-wnja-13895362-n	頭	caput	lower	WRONG	OK	caput protuberance not 頭 anatomical	head
+wnja-13895362-n	頭	caput	queue	WRONG	OK	caput protuberance not 頭 anatomical	head
 wnja-05611302-n	心	mind, head, brain, psyche, nous	keep	OK	OK	mind	mind
 wnja-06324864-n	定冠詞	definite article	keep	OK	OK		definite article
 wnja-14879996-n	オパールガラス	opal glass, milk glass	keep	OK	OK	opal glass	opal glass
@@ -3560,7 +3560,7 @@ wnja-05365633-n	後根	dorsal root, dorsal horn	keep	OK	OK	dorsal root	dorsal ro
 wnja-06526291-n	共同経営契約	partnership	keep	OK	OK	partnership agreement	partnership
 wnja-09849598-n	dearest	beloved, dear, dearest, honey, love	lower	UNSURE	OK	English word in katakana	dearest
 wnja-09985075-n	依頼者	client	keep	OK	OK	client	client
-wnja-05984182-n	重要なこと	thing	lower	UNSURE	WRONG	vague	not a term for objective
+wnja-05984182-n	重要なこと	thing	queue	UNSURE	WRONG	vague	not a term for objective
 wnja-04474466-n	トラップ	trap	keep	OK	OK	trap	trap
 wnja-10093658-n	海人	fisherman, fisher	keep	OK	OK	fisherman	fisherman
 wnja-06721813-n	不遜	impudence, cheek, impertinence	keep	OK	OK	impudence	impudence
@@ -3568,7 +3568,7 @@ wnja-04910135-n	仕草	manner, personal manner	keep	OK	OK	manner	manner gesture
 wnja-15271008-n	一段落	pause, intermission, break, interruption, suspension	keep	OK	OK	break point	pause
 wnja-07900958-n	シェリー	sherry	keep	OK	OK	sherry	sherry
 wnja-00967129-a	奇態	strange, unusual	keep	OK	OK	strange	strange
-wnja-00943563-v	述合う	talk of, talk about	lower	UNSURE	WRONG	rare variant	not a real word
+wnja-00943563-v	述合う	talk of, talk about	queue	UNSURE	WRONG	rare variant	not a real word
 wnja-01115589-n	不当廉売	dumping	keep	OK	OK	dumping	dumping
 wnja-07884567-n	気狂い水	alcohol, alcoholic drink, alcoholic beverage, intoxicant, inebriant	keep	OK	OK	slang for liquor	
 wnja-02384686-v	御呼び	invite, ask over, ask round	lower	OK	UNSURE	invite	noun not verb invite
@@ -3605,14 +3605,14 @@ wnja-02049696-v	抜き去る	pass, overtake, overhaul	keep	OK	OK	overtake	overta
 wnja-07407137-n	洪水	freshet, spate	keep	OK	OK	flood	flood
 wnja-05079474-n	水平	horizontality	keep	OK	OK	horizontality	horizontality
 wnja-14902141-n	合成樹脂	synthetic resin	keep	OK	OK	synthetic resin	synthetic resin
-wnja-13900422-n	コラム	column, tower, pillar	lower	WRONG	OK	newspaper column, not shape	column
+wnja-13900422-n	コラム	column, tower, pillar	queue	WRONG	OK	newspaper column, not shape	column
 wnja-05456622-n	脂肪細胞	fat cell, adipose cell	keep	OK	OK	fat cell	fat cell
 wnja-11331063-n	タンギー	Tanguy, Yves Tanguy	keep	OK	OK	Tanguy	Tanguy
 wnja-10130447-n	御姉さん	girl	keep	OK	OK	young woman	young woman
 wnja-02679415-n	添付	addition, add-on, improver	lower	UNSURE	UNSURE	attachment vs improver	attachment, not improver
 wnja-01554799-v	切りぬく	cut out	keep	OK	OK	cut out	cut out
-wnja-02268351-v	徒遣	waste, blow, squander	lower	UNSURE	UNSURE	rare form	rare spelling of waste
-wnja-09537144-n	子なるキリスト	Son, Word, Logos	lower	WRONG	OK	not Son Word term	Christ as Son
+wnja-02268351-v	徒遣	waste, blow, squander	queue	UNSURE	UNSURE	rare form	rare spelling of waste
+wnja-09537144-n	子なるキリスト	Son, Word, Logos	queue	WRONG	OK	not Son Word term	Christ as Son
 wnja-01176335-n	擾乱	affray, disturbance, fray, ruffle	lower	UNSURE	OK	disturbance more than fight	disturbance
 wnja-02193194-v	弁別	spot, recognize, recognise, distinguish, discern, pick out, make out, tell apart	lower	UNSURE	OK	弁別 discrimination	discern
 wnja-09494149-n	コッカトリース	cockatrice	keep	OK	OK	cockatrice	cockatrice
@@ -3671,7 +3671,7 @@ wnja-11380159-n	ワイスマン	Weismann, August Friedrich Leopold Weismann	keep
 wnja-12980840-n	露菌病	downy mildew, false mildew	keep	OK	OK	downy mildew	downy mildew
 wnja-08510350-n	郷里	birthplace, place of birth	keep	OK	OK	hometown	birthplace
 wnja-01775535-v	傾慕	love	keep	OK	OK	adore	adore
-wnja-00234536-v	境界を定める	draw the line, draw a line	lower	UNSURE	UNSURE	not idiomatic for draw the line	idiom meaning loose
+wnja-00234536-v	境界を定める	draw the line, draw a line	queue	UNSURE	UNSURE	not idiomatic for draw the line	idiom meaning loose
 wnja-01744888-v	植字	typeset, set	keep	OK	OK	typesetting	typesetting
 wnja-05181078-n	オープンドア	open door	lower	OK	UNSURE	open door	open door borderline
 wnja-05556472-n	腰臀部	haunch	keep	OK	OK	haunch	haunch
@@ -3701,24 +3701,24 @@ wnja-06602472-n	義	sense, signified	keep	OK	OK	meaning	meaning
 wnja-07735803-n	蕪	turnip	keep	OK	OK	turnip	turnip
 wnja-00489491-a	習慣的	accustomed, customary, habitual, wonted	keep	OK	OK	habitual	habitual
 wnja-09376198-n	遠海	ocean	lower	UNSURE	UNSURE	distant sea	distant sea not ocean
-wnja-09928451-n	掌記	clerk	lower	UNSURE	UNSURE	archaic	archaic title
+wnja-09928451-n	掌記	clerk	queue	UNSURE	UNSURE	archaic	archaic title
 wnja-11445187-n	δ波	delta rhythm, delta wave	keep	OK	OK	delta wave	delta wave
 wnja-14674408-n	乳化剤	emulsifier	keep	OK	OK	emulsifier	emulsifier
 wnja-11502497-n	肘雨	shower, rain shower	lower	UNSURE	OK	rare variant	shower
 wnja-00260470-v	毒する	hurt, injure	lower	OK	UNSURE	harm	corrupt, not hurt
 wnja-00813044-v	勘考	consider, debate, moot, turn over, deliberate	keep	OK	OK		careful thought
 wnja-00707537-n	温熱療法	thermotherapy	keep	OK	OK	thermotherapy	thermotherapy
-wnja-02395406-n	猪	hog, pig, grunter, squealer, Sus scrofa	lower	UNSURE	WRONG	wild boar not domestic	wild boar not domestic pig
+wnja-02395406-n	猪	hog, pig, grunter, squealer, Sus scrofa	queue	UNSURE	WRONG	wild boar not domestic	wild boar not domestic pig
 wnja-80000597-n	万博		keep	OK	OK	world expo	world expo
 wnja-02468635-a	代表的	typical	keep	OK	OK	typical	typical
-wnja-00007208-a	受容性	receptive	lower	UNSURE	UNSURE	receptive to liquid odd	receptivity not absorbent
+wnja-00007208-a	受容性	receptive	queue	UNSURE	UNSURE	receptive to liquid odd	receptivity not absorbent
 wnja-03841417-n	述作	oeuvre, work, body of work	lower	UNSURE	UNSURE	literary work	writing, oeuvre borderline
-wnja-02891788-n	黄銅	brass, brass instrument	lower	WRONG	OK	黄銅 is brass metal not instrument	brass
+wnja-02891788-n	黄銅	brass, brass instrument	queue	WRONG	OK	黄銅 is brass metal not instrument	brass
 wnja-02123672-v	匂う	smell	keep	OK	OK	smell	smell
 wnja-03691459-n	スピーカーシステム	loudspeaker, speaker, speaker unit, loudspeaker system, speaker system	keep	OK	OK	speaker system	speaker
 wnja-06735077-n	直接証拠	direct evidence	keep	OK	OK	direct evidence	direct evidence
 wnja-06980971-n	ゴーンディー語	Gondi	keep	OK	OK	Gondi	Gondi
-wnja-01262564-v	切り調える	pare, trim	lower	OK	WRONG	trim	not a real word
+wnja-01262564-v	切り調える	pare, trim	queue	OK	WRONG	trim	not a real word
 wnja-07502980-n	侮辱	contempt, disdain, scorn, despite	keep	OK	OK	contempt	contempt
 wnja-14522809-n	静寂	stillness, windlessness	keep	OK	OK	stillness	stillness
 wnja-06466677-n	讃美歌	psalm	keep	OK	OK	hymn	hymn
@@ -3797,12 +3797,12 @@ wnja-08570758-n	運動場	playing field, athletic field, playing area, field	kee
 wnja-14874196-n	遊離基	free radical, radical	keep	OK	OK	chemistry term	free radical
 wnja-01868370-v	身を捩らす	writhe, wrestle, wriggle, worm, squirm, twist	keep	OK	OK		writhe
 wnja-01951197-a	大雑把	rough	lower	OK	UNSURE	rough	rough of persons borderline
-wnja-02409148-v	利用	overwork, exploit	lower	WRONG	OK	not overwork	exploit
+wnja-02409148-v	利用	overwork, exploit	queue	WRONG	OK	not overwork	exploit
 wnja-02068413-v	射出	spurt, spirt, gush, spout	lower	OK	UNSURE	spurt	gush borderline
 wnja-04773182-n	不規則	unsteadiness	keep	OK	OK	irregularity	irregular
 wnja-07223450-n	デマ	rumor, rumour, hearsay	keep	OK	OK	rumor	rumor
 wnja-05059132-n	手捷さ	celerity, quickness, rapidity, rapidness, speediness	keep	OK	OK	quickness	
-wnja-06207029-n	名聞	estimate, estimation	lower	WRONG	UNSURE	reputation not estimation	reputation not estimate
+wnja-06207029-n	名聞	estimate, estimation	queue	WRONG	UNSURE	reputation not estimation	reputation not estimate
 wnja-10132641-n	落ち穂ひろい	gleaner	keep	OK	OK	gleaner	gleaner
 wnja-03845190-n	油槽船	oil tanker, oiler, tanker, tank ship	keep	OK	OK	tanker	tanker
 wnja-05961867-n	フォーマリズム	formalism	keep	OK	OK	formalism	formalism
@@ -3816,7 +3816,7 @@ wnja-04150668-n	切端	scrap	keep	OK	OK	scrap	scrap piece
 wnja-00788564-v	とり調べる	probe, examine	keep	OK	OK	examine	examine
 wnja-05286412-n	形成層	cambium	lower	UNSURE	OK	periosteum sense doubtful	cambium
 wnja-90000046-n	ジャマル・カズラ アロマティックス		remove	WRONG	WRONG	not a word	obscure name, no meaning
-wnja-04886881-n	気格	dignity, self-respect, self-regard, self-worth	lower	UNSURE	UNSURE	rare word	dignity borderline
+wnja-04886881-n	気格	dignity, self-respect, self-regard, self-worth	queue	UNSURE	UNSURE	rare word	dignity borderline
 wnja-02258600-a	無愛想	unsociable	keep	OK	OK	unsociable	unsociable
 wnja-10122858-n	芸妓	geisha, geisha girl	keep	OK	OK	geisha	geisha
 wnja-09837088-n	賊	bandit, brigand	keep	OK	OK	bandit	bandit
@@ -3857,7 +3857,7 @@ wnja-04947186-n	滑かさ	smoothness	keep	OK	OK	smoothness	smoothness
 wnja-02343961-v	投売り	sacrifice	keep	OK	OK	dumping sale	dumping sale
 wnja-07208708-n	文句	complaint	keep	OK	OK	complaint	complaint
 wnja-08430568-n	横列	line	keep	OK	OK	row line	row
-wnja-02895881-n	尾筒	breech, rear of barrel, rear of tube	lower	UNSURE	WRONG	breech term uncertain	not breech
+wnja-02895881-n	尾筒	breech, rear of barrel, rear of tube	queue	UNSURE	WRONG	breech term uncertain	not breech
 wnja-00631737-v	思いなす	think, opine, suppose, imagine, reckon, guess	keep	OK	OK	suppose	suppose
 wnja-10212501-n	インタープリタ	interpreter, translator	keep	OK	OK	interpreter	interpreter
 wnja-09920901-n	ショーガール	chorus girl, showgirl, chorine	keep	OK	OK	showgirl	showgirl
@@ -3882,7 +3882,7 @@ wnja-09777012-n	代理人	agent, factor, broker	keep	OK	OK	agent	agent
 wnja-00313502-n	宇宙飛行	spaceflight, space travel, spacefaring	keep	OK	OK	spaceflight	space flight
 wnja-05677952-n	気付き	awareness, sentience	keep	OK	OK	awareness	awareness
 wnja-06208751-n	見方	position, view, perspective	keep	OK	OK	viewpoint	viewpoint
-wnja-07218470-n	学報	report, study, written report	lower	UNSURE	WRONG	academic bulletin	academic bulletin not report
+wnja-07218470-n	学報	report, study, written report	queue	UNSURE	WRONG	academic bulletin	academic bulletin not report
 wnja-00276987-n	汚れ	contamination, pollution	keep	OK	OK	contamination	pollution
 wnja-11505057-n	音の壁	sonic barrier, sound barrier	keep	OK	OK	sound barrier	sound barrier
 wnja-10962302-n	ユークリッド	Euclid	keep	OK	OK	Euclid	Euclid
@@ -3890,7 +3890,7 @@ wnja-08220440-n	飛行中隊	flight	keep	OK	OK	flight unit	flight unit
 wnja-01897406-v	ディスコ	disco	lower	OK	UNSURE	disco	noun, not dance verb
 wnja-14168447-n	鉄芽球性貧血	sideroblastic anemia, sideroblastic anaemia, siderochrestic anemia, siderochrestic anaemia	keep	OK	OK	sideroblastic anemia	term
 wnja-06721813-n	厚かましさ	impudence, cheek, impertinence	keep	OK	OK	impudence	impudence
-wnja-10951278-n	エドワルド	Edward, Edward VI	lower	UNSURE	UNSURE	Edward VI usually エドワード	Edward VI name form
+wnja-10951278-n	エドワルド	Edward, Edward VI	queue	UNSURE	UNSURE	Edward VI usually エドワード	Edward VI name form
 wnja-02554922-v	促進	promote, advance, boost, further, encourage	keep	OK	OK	promote	promote
 wnja-14033054-n	焦眉	exigency	keep	OK	OK	exigency	exigency
 wnja-05808794-n	読みもの	reading	lower	OK	UNSURE	reading	yomimono reading material
@@ -3930,7 +3930,7 @@ wnja-08679011-n	載貨喫水線	water line, watermark	keep	OK	OK	load line	load 
 wnja-00217499-n	厄	disaster	keep	OK	OK	disaster	disaster
 wnja-01437963-a	永々しい	long	keep	OK	OK	long	long
 wnja-03856728-n	オルシコン	orthicon, image orthicon	keep	OK	OK	orthicon	orthicon
-wnja-01747374-v	象る	copy	lower	UNSURE	WRONG	象る model not copy down	model on, not copy down
+wnja-01747374-v	象る	copy	queue	UNSURE	WRONG	象る model not copy down	model on, not copy down
 wnja-08492461-n	アゴラ	agora	keep	OK	OK	agora	agora
 wnja-00315700-n	通勤学	commutation, commuting	remove	WRONG	WRONG	not a real word	not a real word
 wnja-00030443-r	それ以上	further	keep	OK	OK	further	further
@@ -3984,10 +3984,10 @@ wnja-02531422-a	冷ややか	cool	keep	OK	OK	cool	cool
 wnja-02583780-v	反乱	revolt	keep	OK	OK	revolt	revolt
 wnja-07802417-n	穀類	grain, food grain, cereal	keep	OK	OK	grains	grain
 wnja-00916464-n	稼穡	farming, agriculture, husbandry	lower	OK	UNSURE	farming	archaic word for farming
-wnja-04866671-n	未知数	volatility, unpredictability	lower	WRONG	UNSURE	unknown quantity not volatility	unknown quantity vs volatility
+wnja-04866671-n	未知数	volatility, unpredictability	queue	WRONG	UNSURE	unknown quantity not volatility	unknown quantity vs volatility
 wnja-01089778-n	カンパ	contribution, donation	keep	OK	OK	donation	donation
 wnja-00179815-a	無資格	unaccredited, unlicensed, unlicenced	keep	OK	OK	unlicensed	
-wnja-00283873-r	高潔	chastely, virtuously	lower	UNSURE	WRONG	noun not adverb	adverb sense wrong
+wnja-00283873-r	高潔	chastely, virtuously	queue	UNSURE	WRONG	noun not adverb	adverb sense wrong
 wnja-01650610-v	仕懸ける	start, start up, embark on, commence	keep	OK	OK	start	start
 wnja-00444519-a	真近い	near, close, nigh	keep	OK	OK	near	near
 wnja-00478262-n	サッカー	soccer, association football	keep	OK	OK	soccer	soccer
@@ -4055,7 +4055,7 @@ wnja-07658678-n	腰肉	loin	keep	OK	OK	loin	loin
 wnja-00076114-v	倦怠	tire, pall, weary, fatigue, jade	lower	OK	UNSURE	weary tired	noun vs verb
 wnja-00511817-n	遊戯	play, frolic, romp, gambol, caper	keep	OK	OK	play	play
 wnja-14672717-n	コランダム	corundom, corundum	keep	OK	OK	corundum	corundum
-wnja-07152259-n	合いことば	motto, slogan, catchword, shibboleth	lower	WRONG	OK	合いことば is password; slogan is different word	slogan
+wnja-07152259-n	合いことば	motto, slogan, catchword, shibboleth	queue	WRONG	OK	合いことば is password; slogan is different word	slogan
 wnja-02130514-a	不確定	unsettled	keep	OK	OK	unsettled	uncertain
 wnja-13359572-n	臍繰	savings, nest egg	keep	OK	OK	savings	secret savings
 wnja-01139352-a	楚々たる	graceful	keep	OK	OK	graceful	graceful
@@ -4112,7 +4112,7 @@ wnja-00598413-a	断続性	interrupted	lower	OK	UNSURE	intermittent	noun form odd
 wnja-09963320-n	飯炊	cook	keep	OK	OK	rice cook	cook
 wnja-13874251-n	半円	semicircle, hemicycle	keep	OK	OK	semicircle	semicircle
 wnja-01301624-a	工業的	industrial	keep	OK	OK	industrial	industrial
-wnja-07177924-n	和与	settlement	lower	UNSURE	UNSURE	obscure legal term	archaic settlement
+wnja-07177924-n	和与	settlement	queue	UNSURE	UNSURE	obscure legal term	archaic settlement
 wnja-05576421-n	扁平足	flatfoot, splayfoot, pes planus	keep	OK	OK	flatfoot	flatfoot
 wnja-13723061-n	ミリグラム	milligram, mg	keep	OK	OK	milligram	milligram
 wnja-02575082-v	欺く	deceive, lead on, delude, cozen	keep	OK	OK	deceive	deceive
@@ -4131,7 +4131,7 @@ wnja-00200777-r	頻りに	eagerly, thirstily	keep	OK	OK	eagerly	eagerly
 wnja-02987492-n	サーベル	cavalry sword, saber, sabre	keep	OK	OK	saber	saber
 wnja-02616386-v	御座候う	be	keep	OK	OK	archaic be	be (polite)
 wnja-04554406-n	洗濯板	washboard	keep	OK	OK	washboard	washboard
-wnja-02798290-n	ベイス	base, base of operations	lower	OK	WRONG	base	beisu not base-military usually; bease
+wnja-02798290-n	ベイス	base, base of operations	queue	OK	WRONG	base	beisu not base-military usually; bease
 wnja-12293723-n	笹りんどう	gentian	keep	OK	OK	gentian	gentian
 wnja-00387310-v	舞い戻る	revert, return, retrovert, regress, turn back	keep	OK	OK	return	return
 wnja-03279918-n	電気鰻	electrophorus	remove	WRONG	WRONG	eel not generator	eel not generator
@@ -4143,7 +4143,7 @@ wnja-08226699-n	村落	village, small town, settlement	keep	OK	OK	village	villag
 wnja-01169704-v	ちゅうちゅう吸う	suck	keep	OK	OK	suck	suck
 wnja-02157731-v	覆う	obscure, befog, becloud, obnubilate, haze over, fog, cloud, mist	keep	OK	OK	cover/obscure	obscure
 wnja-06209419-n	先頭	vanguard, forefront, cutting edge	keep	OK	OK	forefront	vanguard
-wnja-00351542-r	酷く	grotesquely, monstrously	lower	WRONG	UNSURE	means terribly	terribly not grotesquely
+wnja-00351542-r	酷く	grotesquely, monstrously	queue	WRONG	UNSURE	means terribly	terribly not grotesquely
 wnja-04484160-n	トリミング	trimming, trim, passementerie	keep	OK	OK	trimming	trimming
 wnja-01533974-a	無理	excessive, inordinate, undue, unreasonable	keep	OK	OK	excessive	excessive
 wnja-00036935-r	必ずや	decidedly, unquestionably, emphatically, definitely, in spades, by all odds	keep	OK	OK	definitely	certainly
@@ -4153,7 +4153,7 @@ wnja-02561888-a	狭い	narrow	keep	OK	OK		narrow
 wnja-14743840-n	水酸化アンモニウム	ammonia water, ammonia, ammonium hydroxide	keep	OK	OK	ammonia water	ammonia water
 wnja-04437793-n	タイムマシン	time machine	keep	OK	OK	time machine	time machine
 wnja-00522751-v	貰う	receive, get, find, obtain, incur	keep	OK	OK	receive	receive
-wnja-00189278-r	自称では	professedly	lower	UNSURE	UNSURE	poor fit	by own claim
+wnja-00189278-r	自称では	professedly	queue	UNSURE	UNSURE	poor fit	by own claim
 wnja-02061069-v	尻ごむ	flinch, squinch, funk, cringe, shrink, wince, recoil, quail	keep	OK	OK	flinch	flinch
 wnja-00146138-v	変わる	change state, turn	keep	OK	OK	change	change
 wnja-09397391-n	心字池	pond, pool	keep	OK	OK	pond	pond
@@ -4179,7 +4179,7 @@ wnja-06011589-n	横軸	abscissa	keep	OK	OK	abscissa	abscissa
 wnja-06624161-n	便り	letter, missive	keep	OK	OK	letter	letter
 wnja-03208815-n	ディスクアクセス	disk access	keep	OK	OK	disk access	disk access
 wnja-00110554-n	ダンク	dunk, dunk shot, stuff shot	keep	OK	OK	dunk	dunk
-wnja-11458314-n	煙霧	fog	lower	WRONG	OK	haze not fog	fog haze
+wnja-11458314-n	煙霧	fog	queue	WRONG	OK	haze not fog	fog haze
 wnja-01263013-a	惨い	barbarous, brutal, cruel, fell, roughshod, savage, vicious	keep	OK	OK	cruel	cruel
 wnja-00654015-v	思直す	reconsider	keep	OK	OK	reconsider	reconsider
 wnja-00935359-a	下らない	sixpenny, threepenny, twopenny, tuppeny, two-a-penny, twopenny-halfpenny	keep	OK	OK	trifling	trifling
@@ -4187,7 +4187,7 @@ wnja-11786539-n	タロ芋	taro, taro plant, dalo, dasheen, Colocasia esculenta	k
 wnja-01842204-v	外歩	go out	keep	OK	OK	go out	go out
 wnja-03826443-n	ニトロフラントイン	nitrofurantoin, Macrodantin	keep	OK	OK	drug name	nitrofurantoin
 wnja-04512783-n	サセックス大学	University of Sussex, Sussex University	keep	OK	OK	Sussex University	Sussex University
-wnja-00818974-v	謳う	insist, take a firm stand	lower	OK	WRONG		means extol
+wnja-00818974-v	謳う	insist, take a firm stand	queue	OK	WRONG		means extol
 wnja-00481300-r	些細に	trivially	keep	OK	OK	trivially	
 wnja-02551668-n	秋刀魚	saury, billfish, Scomberesox saurus	keep	OK	OK	saury	saury
 wnja-01689580-a	乾燥無味	cold, stale, dusty, moth-eaten	lower	UNSURE	UNSURE	dullness, not stale exactly	dry vs stale
@@ -4197,9 +4197,9 @@ wnja-01422886-v	塞げる	plug, stop up, secure	lower	OK	UNSURE	block up	rare fo
 wnja-03303217-n	エグゾーストファン	exhaust fan	keep	OK	OK		exhaust fan
 wnja-14122497-n	感冒	influenza, flu, grippe	lower	UNSURE	OK	cold vs flu	cold/flu
 wnja-10400108-n	氏子	parishioner	keep	OK	OK	shrine parishioner	parishioner
-wnja-00126264-v	スイッチ	change, alter, modify	lower	WRONG	OK	switch not change	change
+wnja-00126264-v	スイッチ	change, alter, modify	queue	WRONG	OK	switch not change	change
 wnja-14428160-n	等位	grade, level, tier	keep	OK	OK	grade	grade
-wnja-00285557-n	足付	step	lower	WRONG	UNSURE	not step	odd form
+wnja-00285557-n	足付	step	queue	WRONG	UNSURE	not step	odd form
 wnja-00199569-a	あとについて来る	following	keep	OK	OK	following	following
 wnja-03075370-n	組み合わせ錠	combination lock	keep	OK	OK	combination lock	combination lock
 wnja-02404224-v	退ける	remove	keep	OK	OK	remove from post	remove
@@ -4223,14 +4223,14 @@ wnja-08309086-n	会議	convention	keep	OK	OK	convention	convention
 wnja-01109467-n	エクスチェインジ	exchange	keep	OK	OK	exchange variant	exchange
 wnja-13289744-n	クォーター	quota	remove	WRONG	WRONG	quarter not quota	quarter not quota
 wnja-01882714-n	コアラ	koala, koala bear, kangaroo bear, native bear, Phascolarctos cinereus	keep	OK	OK	koala	koala
-wnja-00335384-n	傾度	inclination, inclining	lower	WRONG	UNSURE		inclination act
+wnja-00335384-n	傾度	inclination, inclining	queue	WRONG	UNSURE		inclination act
 wnja-08456619-n	租税法	tax law	keep	OK	OK	tax law	tax law
-wnja-10552980-n	戯れ男	satyr, lecher, lech, letch	lower	UNSURE	UNSURE	rare, lecher	rare word
-wnja-00258854-n	校閲	correction, rectification	lower	WRONG	OK	校閲 proofreading not correction	proofreading
+wnja-10552980-n	戯れ男	satyr, lecher, lech, letch	queue	UNSURE	UNSURE	rare, lecher	rare word
+wnja-00258854-n	校閲	correction, rectification	queue	WRONG	OK	校閲 proofreading not correction	proofreading
 wnja-11165164-n	モールディン	Mauldin, Bill Mauldin, William Henry Mauldin	keep	OK	OK	Mauldin	Mauldin
-wnja-13359572-n	積み高	savings, nest egg	lower	UNSURE	WRONG	pile amount vs savings	loaded amount not savings
+wnja-13359572-n	積み高	savings, nest egg	queue	UNSURE	WRONG	pile amount vs savings	loaded amount not savings
 wnja-13986679-n	甘心	gratification, satisfaction	lower	OK	UNSURE		rare word
-wnja-00592341-v	完全に分かる	appreciate, take account	lower	UNSURE	UNSURE	descriptive phrase	loose fit
+wnja-00592341-v	完全に分かる	appreciate, take account	queue	UNSURE	UNSURE	descriptive phrase	loose fit
 wnja-02094569-v	突きこむ	thrust, stuff, shove, squeeze	keep	OK	OK	thrust	thrust
 wnja-08571898-n	フリーマ	flea market	lower	OK	UNSURE	flea market	abbreviation of フリーマーケット
 wnja-03565565-n	即席爆発装置	improvised explosive device, I.E.D., IED	keep	OK	OK	IED	IED
@@ -4261,7 +4261,7 @@ wnja-04150668-n	切れっ端	scrap	keep	OK	OK	scrap	scrap
 wnja-05838530-n	先決	predetermination	keep	OK	OK	predetermination	predetermination
 wnja-13981403-n	軍旅	war, state of war	lower	UNSURE	UNSURE	army campaign	military expedition, rare
 wnja-05551939-n	大胸筋	pectoralis major, musculus pectoralis major, greater pectoral muscle	keep	OK	OK	pectoralis major	pectoralis major
-wnja-03837869-n	アビリスク	obelisk	lower	UNSURE	WRONG	nonstandard obelisk	misspelling of obelisk
+wnja-03837869-n	アビリスク	obelisk	queue	UNSURE	WRONG	nonstandard obelisk	misspelling of obelisk
 wnja-14448910-n	青息吐息	suffering, woe	keep	OK	OK	distress	distress
 wnja-07987216-n	人出	turnout	keep	OK	OK	turnout	turnout
 wnja-00956131-a	厳正	fair, just	keep	OK	OK	strict/fair	strict and fair
@@ -4275,7 +4275,7 @@ wnja-07891726-n	葡萄酒	wine, vino	keep	OK	OK	wine	wine
 wnja-04938228-n	柔らかさ	softness	keep	OK	OK	softness	softness
 wnja-04752530-n	差異	disparity	keep	OK	OK	disparity	difference
 wnja-12805373-n	赤房すぐり	red currant, garden current, Ribes rubrum	keep	OK	OK	red currant	red currant
-wnja-11732052-n	金縷	goldthread, golden thread, Coptis groenlandica, Coptis trifolia groenlandica	lower	WRONG	UNSURE	not goldthread	kinru goldthread odd
+wnja-11732052-n	金縷	goldthread, golden thread, Coptis groenlandica, Coptis trifolia groenlandica	queue	WRONG	UNSURE	not goldthread	kinru goldthread odd
 wnja-05921123-n	要領	kernel, substance, core, center, centre, essence, gist, heart, heart and soul, inwardness, marrow, meat, nub, pith, sum, nitty-gritty	keep	OK	OK	gist	gist
 wnja-02684924-v	守る	continue, go on, proceed, go along, keep	remove	WRONG	WRONG	protect not continue	protect, not continue
 wnja-00157957-n	差しひびき	impingement, encroachment, impact	lower	OK	UNSURE	impact	impact sense borderline
@@ -4291,7 +4291,7 @@ wnja-00071178-v	攻め苛む	torture, excruciate, torment	keep	OK	OK	torment	tor
 wnja-00559555-n	スイープ	end run, sweep	keep	OK	OK	football sweep	sweep
 wnja-13308999-n	課税	tax, taxation, revenue enhancement	keep	OK	OK	taxation	tax
 wnja-01745536-v	作表	table, tabularize, tabularise, tabulate	keep	OK	OK	tabulate	tabulate
-wnja-00160532-n	克服	seduction, conquest	lower	WRONG	UNSURE	not seduction	conquest seduction odd
+wnja-00160532-n	克服	seduction, conquest	queue	WRONG	UNSURE	not seduction	conquest seduction odd
 wnja-06153402-n	分岐学	cladistics, cladistic analysis	keep	OK	OK	cladistics	cladistics
 wnja-02452885-v	阻む	prevent, forestall, foreclose, preclude, forbid	keep	OK	OK	prevent	prevent
 wnja-07199565-n	応答	reply, response	keep	OK	OK	reply	response
@@ -4337,7 +4337,7 @@ wnja-06021761-n	アヴェレージ	average, norm	keep	OK	OK	average	average
 wnja-00107875-n	カーブ	curve, curve ball, breaking ball, bender	keep	OK	OK	curve ball	curve ball
 wnja-06550206-n	運転免許証	driver's license, driver's licence, driving license, driving licence	keep	OK	OK	driver's license	driver's license
 wnja-00264386-v	大袈裟に言う	inflate, blow up, expand, amplify	keep	OK	OK	exaggerate	exaggerate
-wnja-00428245-r	むんずと	powerfully, strongly	lower	UNSURE	UNSURE	grabbing manner	grab adverb
+wnja-00428245-r	むんずと	powerfully, strongly	queue	UNSURE	UNSURE	grabbing manner	grab adverb
 wnja-06582403-n	ルーティン	routine, subroutine, subprogram, procedure, function	keep	OK	OK	routine	routine
 wnja-01072565-n	会心	satisfaction	lower	UNSURE	OK	satisfaction, nuance	satisfaction
 wnja-14376188-n	ストレス	tension, tenseness, stress	keep	OK	OK	stress	
@@ -4345,24 +4345,24 @@ wnja-08156948-n	プトレマイオス朝	Ptolemy, Ptolemaic dynasty	keep	OK	OK	P
 wnja-07271167-n	里程標	milestone, milepost	keep	OK	OK	milestone	milestone
 wnja-11480930-n	音	sound	keep	OK	OK	sound	sound
 wnja-00125841-v	成る	turn, grow	keep	OK	OK	become	turn become
-wnja-13854101-n	測量基準	gauge, standard of measurement	lower	UNSURE	UNSURE	rare compound	odd compound
+wnja-13854101-n	測量基準	gauge, standard of measurement	queue	UNSURE	UNSURE	rare compound	odd compound
 wnja-02235229-v	放棄	surrender, cede, deliver, give up	keep	OK	OK	give up	give up
-wnja-07323605-n	出現	epiphany	lower	WRONG	UNSURE	epiphany is 顕現	appearance not epiphany
+wnja-07323605-n	出現	epiphany	queue	WRONG	UNSURE	epiphany is 顕現	appearance not epiphany
 wnja-09821831-n	随行員	attendant, attender, tender	keep	OK	OK	attendant	
 wnja-08856475-n	レシフェ	Recife, Pernambuco	keep	OK	OK	Recife	Recife
 wnja-00486990-a	頻回の	frequent	keep	OK	OK	frequent	frequent
 wnja-02431129-v	影響を及ぼす	militate	keep	OK	OK	affect	affect
 wnja-07823951-n	カレー	curry	keep	OK	OK	curry	curry
-wnja-04973957-n	枯れ色	yellowish brown, raw sienna, buff, caramel, caramel brown	lower	UNSURE	UNSURE	withered color	color shade mixed
+wnja-04973957-n	枯れ色	yellowish brown, raw sienna, buff, caramel, caramel brown	queue	UNSURE	UNSURE	withered color	color shade mixed
 wnja-06874019-n	灯り	light	lower	UNSURE	OK	light, signal sense	light
 wnja-01357156-n	クロストリジウム	clostridium, clostridia	keep	OK	OK	clostridium	clostridium
 wnja-08584449-n	隠場	hiding place	keep	OK	OK	hiding place	hiding place
 wnja-01439784-a	果てしが無い	endless, eternal, interminable	keep	OK	OK	endless	
 wnja-00586617-a	破壊的	annihilative, annihilating, devastating, withering	keep	OK	OK	destructive	destructive
-wnja-03658858-n	水平	level, spirit level	lower	UNSURE	WRONG	水平器 needed	needs 器 for spirit level
+wnja-03658858-n	水平	level, spirit level	queue	UNSURE	WRONG	水平器 needed	needs 器 for spirit level
 wnja-00047534-r	且つ	besides, too, also, likewise, as well	keep	OK	OK	moreover	moreover
-wnja-04005630-n	懲役監	prison, prison house	lower	UNSURE	WRONG	rare for prison	not a real word for prison
-wnja-02301151-v	競る	overbid	lower	WRONG	UNSURE	not card overbid	bidding/overbid
+wnja-04005630-n	懲役監	prison, prison house	queue	UNSURE	WRONG	rare for prison	not a real word for prison
+wnja-02301151-v	競る	overbid	queue	WRONG	UNSURE	not card overbid	bidding/overbid
 wnja-07894102-n	ボジョレー	Beaujolais	keep	OK	OK	Beaujolais	Beaujolais
 wnja-01089778-n	奉加	contribution, donation	keep	OK	OK	donation	donation
 wnja-90000588-n	終戦後		keep	OK	OK	postwar	postwar
@@ -4382,7 +4382,7 @@ wnja-01102256-n	デスクトップパブリッシング	desktop publishing	keep	
 wnja-05230171-n	割れ目	interstice	lower	OK	UNSURE	crevice	crevice, interstice unclear
 wnja-07057829-n	タンゴ	tango	keep	OK	OK	tango music	tango
 wnja-02590237-n	タイ科	Sparidae, family Sparidae	keep	OK	OK	sea bream family	taxon
-wnja-00098625-n	客会釈	service	lower	UNSURE	UNSURE	hospitality not waiter service	courtesy to guests, not service
+wnja-00098625-n	客会釈	service	queue	UNSURE	UNSURE	hospitality not waiter service	courtesy to guests, not service
 wnja-13265011-n	贈品	gift	keep	OK	OK	gift	
 wnja-04693900-n	掠り	scratch, scrape, scar, mark	lower	OK	UNSURE	scratch mark	掠り alone as scratch
 wnja-00901103-v	引合す	introduce, present, acquaint	keep	OK	OK	introduce	introduce
@@ -4426,7 +4426,7 @@ wnja-02637592-v	居残る	remain	keep	OK	OK	remain	remain
 wnja-03385557-n	要塞	fortification, munition	keep	OK	OK	fortification	fortification
 wnja-09545324-n	心霊	spirit, disembodied spirit	keep	OK	OK	spirit	spirit
 wnja-01137987-n	改編	reorganization, reorganisation, shake-up, shakeup	keep	OK	OK		reorganization
-wnja-06798187-n	前兆	symptom	lower	WRONG	OK	前兆 omen not symptom	sign, omen
+wnja-06798187-n	前兆	symptom	queue	WRONG	OK	前兆 omen not symptom	sign, omen
 wnja-10694258-n	指南番	teacher, instructor	keep	OK	OK	instructor	instructor
 wnja-07880583-n	トルティーヤ	tortilla	keep	OK	OK	tortilla	tortilla
 wnja-00745637-n	悪徳	evil, immorality, wickedness, iniquity	keep	OK	OK	vice	vice
@@ -4450,11 +4450,11 @@ wnja-06429590-n	聖典	sacred text, sacred writing, religious writing, religious
 wnja-09179776-n	刺激策	incentive, inducement, motivator	keep	OK	OK	incentive	
 wnja-11195295-n	ミュラー	Muller, Hermann Joseph Muller	keep	OK	OK	Muller	Muller
 wnja-13969101-n	平安	tranquillity, tranquility, quiet	keep	OK	OK	tranquility	
-wnja-05640433-n	八丁	skillfulness	lower	UNSURE	WRONG	only in compound	hatcho not skillfulness alone
+wnja-05640433-n	八丁	skillfulness	queue	UNSURE	WRONG	only in compound	hatcho not skillfulness alone
 wnja-02531199-v	努力	endeavor, endeavour, strive	keep	OK	OK	endeavor	endeavor
 wnja-01805523-v	慕う	miss	keep	OK	OK	miss someone	miss yearn
 wnja-01143957-n	最終調整	makeready	lower	UNSURE	OK	makeready printing term	final adjustment
-wnja-03724870-n	面形	mask	lower	UNSURE	UNSURE	rare for mask	rare for mask
+wnja-03724870-n	面形	mask	queue	UNSURE	UNSURE	rare for mask	rare for mask
 wnja-14844693-n	紙土	soil, dirt	remove	WRONG	WRONG	paper clay not soil	paper clay not soil
 wnja-06232298-n	ペンテコステ運動	pentecostalism	keep	OK	OK	Pentecostalism	Pentecostalism
 wnja-13266892-n	援助金	grant	keep	OK	OK	grant	grant
@@ -4474,12 +4474,12 @@ wnja-03709823-n	郵袋	mailbag, postbag	keep	OK	OK	mailbag	mailbag
 wnja-02522669-a	反射的	automatic, reflex, reflexive	keep	OK	OK	reflexive	reflex
 wnja-10857697-n	ホルヘ・ルイス・ボルヘス	Borges, Jorge Borges, Jorge Luis Borges	keep	OK	OK	Borges	Borges
 wnja-05613170-n	主観	ego	lower	UNSURE	UNSURE	subjectivity not ego	subjectivity vs ego
-wnja-01475737-v	ほとばしらせる	uncork	lower	UNSURE	UNSURE	release/uncork borderline	houtobashiraseru release
-wnja-07357388-n	開展	improvement, betterment, advance	lower	UNSURE	UNSURE	development/unfolding	development not improvement
+wnja-01475737-v	ほとばしらせる	uncork	queue	UNSURE	UNSURE	release/uncork borderline	houtobashiraseru release
+wnja-07357388-n	開展	improvement, betterment, advance	queue	UNSURE	UNSURE	development/unfolding	development not improvement
 wnja-05783658-n	比量	ratiocination	lower	OK	UNSURE	inference	Buddhist inference term
 wnja-15183428-n	ドンタク	holiday	keep	OK	OK	holiday dialect	holiday dontaku
 wnja-00586183-a	破壊的	destructive	keep	OK	OK	destructive	destructive
-wnja-07734017-n	赤なす	tomato	lower	WRONG	OK	赤なす not tomato	tomato
+wnja-07734017-n	赤なす	tomato	queue	WRONG	OK	赤なす not tomato	tomato
 wnja-06690647-n	搭乗整理券	boarding card, boarding pass	lower	OK	UNSURE	boarding pass	boarding pass term differs
 wnja-10317717-n	民兵	militiaman	keep	OK	OK	militiaman	militiaman
 wnja-08290763-n	クレタ文明	Minoan civilization, Minoan civilisation, Minoan culture	keep	OK	OK	Minoan	Minoan civilization
@@ -4488,7 +4488,7 @@ wnja-10341660-n	変種	mutant, mutation, variation, sport	keep	OK	OK	mutant	muta
 wnja-06275634-n	メール	mail	keep	OK	OK	mail	mail
 wnja-10910305-n	コッポラ	Coppola, Francis Ford Coppola	keep	OK	OK	Coppola	Coppola
 wnja-00834198-a	イフェクティブ	effective, effectual, efficacious	keep	OK	OK	effective	effective
-wnja-02526811-v	立ちいたる	come to, strike	lower	UNSURE	UNSURE	come to a state	come to a state
+wnja-02526811-v	立ちいたる	come to, strike	queue	UNSURE	UNSURE	come to a state	come to a state
 wnja-03717921-n	マヌカン	mannequin, manikin, mannikin, manakin, form	keep	OK	OK	mannequin	mannequin
 wnja-05149325-n	働き	function, purpose, role, use	keep	OK	OK	function	function
 wnja-07743224-n	ビルベリー	bilberry, whortleberry, European blueberry	keep	OK	OK	bilberry	bilberry
@@ -4504,7 +4504,7 @@ wnja-07064715-n	ロックンロール	rock 'n' roll, rock'n'roll, rock-and-roll,
 wnja-07406765-n	水流	current, stream	keep	OK	OK	water current	current
 wnja-13096035-n	肉	pulp, flesh	lower	OK	UNSURE	fruit flesh	pulp of fruit, 果肉 better
 wnja-00350521-r	耳ざわりになるほど	gratingly, raspingly, harshly	lower	OK	UNSURE	gratingly	odd adverbial
-wnja-05967977-n	呪い	magic, thaumaturgy	lower	OK	WRONG	curse/magic	curse not magic generally
+wnja-05967977-n	呪い	magic, thaumaturgy	queue	OK	WRONG	curse/magic	curse not magic generally
 wnja-02199999-n	カ科	Culicidae, family Culicidae	keep	OK	OK	family name	Culicidae
 wnja-01047596-v	吠える	bark	keep	OK	OK	bark at someone	bark, shout
 wnja-07700964-n	マカロニ	macaroni	keep	OK	OK	macaroni	macaroni
@@ -4569,7 +4569,7 @@ wnja-05142641-n	福利	benefit, welfare	keep	OK	OK	welfare	welfare, benefit
 wnja-08663156-n	先っちょ	tip	keep	OK	OK	tip	tip
 wnja-01979901-v	着地	land, set down	keep	OK	OK	land	land
 wnja-06685754-n	安全	security, surety	remove	WRONG	WRONG	safety, not guarantee	safety, not guarantee
-wnja-02790154-n	バー	bar	lower	OK	WRONG	bar	bar ok but gymnastics horizontal bar
+wnja-02790154-n	バー	bar	queue	OK	WRONG	bar	bar ok but gymnastics horizontal bar
 wnja-07099271-n	反復	repetition	keep	OK	OK	repetition	repetition
 wnja-06889591-n	虚仮威かし	bravado, bluster	keep	OK	OK	bluster	bluster
 wnja-00107987-r	じわり	gradually, bit by bit, step by step	keep	OK	OK	gradually	gradually
@@ -4588,11 +4588,11 @@ wnja-01289155-v	繋ぐ	rope, leash	keep	OK	OK	tether	tie
 wnja-01531375-a	中庸	moderate	keep	OK	OK	moderate	moderation
 wnja-00440579-a	鈍くさい	dense, dim, dull, dumb, obtuse, slow	keep	OK	OK	dull-witted	dull, slow
 wnja-06259736-n	精算表	worksheet	keep	OK	OK	worksheet	worksheet
-wnja-03679384-n	住居空間	living quarters, quarters	lower	UNSURE	UNSURE	not a set word	generic
+wnja-03679384-n	住居空間	living quarters, quarters	queue	UNSURE	UNSURE	not a set word	generic
 wnja-00538565-a	濃い	concentrated	lower	UNSURE	OK	concentrated vs dense	concentrated
 wnja-13264688-n	家宝	heirloom	keep	OK	OK	heirloom	heirloom
 wnja-03356158-n	旗艦	flagship	keep	OK	OK	flagship	flagship
-wnja-00954311-n	拒ぎ	defense, defence, defensive measure	lower	OK	WRONG	defense	nonstandard writing of fusegi
+wnja-00954311-n	拒ぎ	defense, defence, defensive measure	queue	OK	WRONG	defense	nonstandard writing of fusegi
 wnja-09769076-n	中毒者	addict, nut, freak, junkie, junky	keep	OK	OK	addict	addict
 wnja-80001659-a	何とも云えない		keep	OK	OK	indescribable	cannot say
 wnja-00059127-n	回避	evasion	keep	OK	OK	evasion	common
@@ -4605,7 +4605,7 @@ wnja-06169050-n	歴史言語学	historical linguistics, diachronic linguistics, 
 wnja-05924920-n	規準	criterion, standard	keep	OK	OK	criterion	criterion
 wnja-01861910-a	公公然たる	open	lower	OK	UNSURE	open public	rare form of 公然
 wnja-00028923-r	軽々	lightly	keep	OK	OK	lightly	lightly
-wnja-00398585-n	中隔形成	septation	lower	UNSURE	UNSURE	septation term	septation rare term
+wnja-00398585-n	中隔形成	septation	queue	UNSURE	UNSURE	septation term	septation rare term
 wnja-05697135-n	必然	certainty	lower	OK	UNSURE	certainty	more inevitability than certainty
 wnja-10385923-n	東ゴート	Ostrogoth	keep	OK	OK	standard term	Ostrogoth
 wnja-01104637-n	架設	construction, building	lower	UNSURE	UNSURE	erecting, not commercial	erecting not business
@@ -4618,7 +4618,7 @@ wnja-02815600-n	玉	beads, string of beads	keep	OK	OK	beads	beads
 wnja-03474352-n	アシェンダ	hacienda	keep	OK	OK	hacienda	hacienda
 wnja-13266170-n	育英資金	scholarship	keep	OK	OK	scholarship	scholarship
 wnja-01245637-v	みがき上げる	polish, smooth, smoothen, shine	keep	OK	OK	polish	polish
-wnja-02006700-a	十字の	crisscross, crisscrossed	lower	UNSURE	UNSURE	crisscross doubtful	crisscross doubtful
+wnja-02006700-a	十字の	crisscross, crisscrossed	queue	UNSURE	UNSURE	crisscross doubtful	crisscross doubtful
 wnja-06755947-n	但し書	provision, proviso	keep	OK	OK	proviso	proviso
 wnja-03832673-n	ノートブックパソコン	notebook, notebook computer	keep	OK	OK	notebook PC	notebook PC
 wnja-09138538-n	チャールストン	Charleston	keep	OK	OK	Charleston	Charleston
@@ -4648,7 +4648,7 @@ wnja-02414710-v	手だすけ	assist	keep	OK	OK
 wnja-03314780-n	粉白粉	face powder	keep	OK	OK	face powder	face powder
 wnja-02504017-v	放逐	banish, ban, ostracize, ostracise, shun, cast out, blackball	keep	OK	OK	banish	banish
 wnja-03825788-n	ニップル	nipple	keep	OK	OK	nipple	nipple
-wnja-01065286-n	明き	leisure	lower	UNSURE	WRONG	free time marginal	aki not leisure
+wnja-01065286-n	明き	leisure	queue	UNSURE	WRONG	free time marginal	aki not leisure
 wnja-06622449-n	同時放送	simulcast	keep	OK	OK	simulcast	simulcast
 wnja-13842241-n	片利共生	commensalism	keep	OK	OK	commensalism	commensalism
 wnja-01889610-v	打ち震わす	shake, agitate	keep	OK	OK	shake	shake
@@ -4656,10 +4656,10 @@ wnja-10155485-n	魔女	hag, beldam, beldame, witch, crone	keep	OK	OK	witch hag
 wnja-05569979-n	胸神経	thoracic nerve	keep	OK	OK	thoracic nerve	thoracic nerve
 wnja-00154536-r	不法	illegally, illicitly, lawlessly	keep	OK	OK	illegally	illegally
 wnja-04226962-n	蜂巣	skep	keep	OK	OK	beehive	beehive
-wnja-90000333-n	ナシ・パダン		lower	UNSURE	UNSURE	no information	no data
+wnja-90000333-n	ナシ・パダン		queue	UNSURE	UNSURE	no information	no data
 wnja-06585816-n	コンピューターウィルス	virus, computer virus	keep	OK	OK	computer virus	virus
 wnja-02756346-a	局所的	local	keep	OK	OK	local	local
-wnja-04677716-n	表象	persona, image	lower	WRONG	UNSURE	not Jungian persona	persona sense doubtful
+wnja-04677716-n	表象	persona, image	queue	WRONG	UNSURE	not Jungian persona	persona sense doubtful
 wnja-00027093-r	実は	as it is	lower	OK	UNSURE	actually	actually, not as it is
 wnja-11306008-n	スミス	Smith, Kate Smith, Kathryn Elizabeth Smith	lower	OK	UNSURE	Smith name	Smith generic katakana
 wnja-07544647-n	愛念	affection, affectionateness, fondness, tenderness, heart, warmness, warmheartedness, philia	keep	OK	OK	affection	
@@ -4668,7 +4668,7 @@ wnja-02123597-n	シャム猫	Siamese cat, Siamese	keep	OK	OK	Siamese cat	Siamese
 wnja-07406765-n	流水	current, stream	keep	OK	OK	running water	stream
 wnja-15060449-n	輝安鉱	stibnite	keep	OK	OK	stibnite	stibnite
 wnja-01866812-a	詮無い	bootless, fruitless, futile, sleeveless, vain	keep	OK	OK	futile	futile
-wnja-01419473-v	雑繰返す	agitate, vex, disturb, commove, shake up, stir up, raise up	lower	UNSURE	UNSURE	stir vs agitate	stir up vs change arrangement
+wnja-01419473-v	雑繰返す	agitate, vex, disturb, commove, shake up, stir up, raise up	queue	UNSURE	UNSURE	stir vs agitate	stir up vs change arrangement
 wnja-07326369-n	開幕戦	opener	keep	OK	OK	opener	opening game
 wnja-07481951-n	気持ち	sentiment	keep	OK	OK	sentiment	feeling
 wnja-08491027-n	所在地	address	keep	OK	OK	address	address
@@ -4708,16 +4708,16 @@ wnja-00067707-n	投降	capitulation, fall, surrender	keep	OK	OK	surrender	surren
 wnja-10732010-n	喇叭吹	trumpeter, cornetist	keep	OK	OK	trumpeter	trumpeter
 wnja-00848282-n	婚外交渉	extramarital sex, free love	keep	OK	OK	extramarital sex	extramarital sex
 wnja-06575092-n	入力プログラム	input program	keep	OK	OK	input program	input program
-wnja-10388440-n	殿様	overlord, master, lord	lower	OK	WRONG		feudal lord not general master
+wnja-10388440-n	殿様	overlord, master, lord	queue	OK	WRONG		feudal lord not general master
 wnja-07029247-n	主題メロディ	theme, melodic theme, musical theme, idea	keep	OK	OK	theme	theme melody
 wnja-80001573-n	朝寝坊		keep	OK	OK	oversleeper	late riser
 wnja-00633329-n	精進	application, diligence	keep	OK	OK	diligence	diligence
-wnja-13086753-n	果実収穫	fruitage	lower	UNSURE	UNSURE	odd compound	fruit harvest
+wnja-13086753-n	果実収穫	fruitage	queue	UNSURE	UNSURE	odd compound	fruit harvest
 wnja-02075049-v	ズラカル	scat, run, scarper, turn tail, lam, run away, hightail it, bunk, head for the hills, take to the woods, escape, fly the coop, break away	keep	OK	OK	slang flee	run away
 wnja-01372682-v	吹き付ける	spray	keep	OK	OK	spray	spray
 wnja-08405723-n	エンパイア	empire	keep	OK	OK	empire	empire
 wnja-00061814-r	早く	presto	remove	WRONG	WRONG	not presto suddenly	quickly not suddenly
-wnja-11224046-n	パー	Parr, Catherine Parr	lower	WRONG	UNSURE	パー not Catherine Parr	surname only
+wnja-11224046-n	パー	Parr, Catherine Parr	queue	WRONG	UNSURE	パー not Catherine Parr	surname only
 wnja-01017987-n	ぶっ通し	continuance, continuation	keep	OK	OK	nonstop	nonstop
 wnja-01693783-n	カメレオン	chameleon, chamaeleon	keep	OK	OK	chameleon	chameleon
 wnja-01018645-v	反訴	counterclaim	keep	OK	OK	counterclaim	counterclaim
@@ -4729,7 +4729,7 @@ wnja-07959393-n	～版	edition	keep	OK	OK	edition	edition
 wnja-10582154-n	お傍	servant, retainer	lower	UNSURE	OK	attendant, not general servant	attendant
 wnja-00770993-a	間接的	indirect	keep	OK	OK	indirect	indirect
 wnja-07314838-n	厄	calamity, catastrophe, disaster, tragedy, cataclysm	keep	OK	OK	calamity	calamity
-wnja-03032252-n	テアトル	cinema, movie theater, movie theatre, movie house, picture palace	lower	WRONG	OK	テアトル theater not cinema	cinema theatre
+wnja-03032252-n	テアトル	cinema, movie theater, movie theatre, movie house, picture palace	queue	WRONG	OK	テアトル theater not cinema	cinema theatre
 wnja-05044822-n	連続	sequence, chronological sequence, succession, successiveness, chronological succession	keep	OK	OK	succession	sequence
 wnja-02049696-v	追い抜く	pass, overtake, overhaul	keep	OK	OK	overtake	overtake
 wnja-00856824-v	賞美	praise	keep	OK	OK	praise	praise
@@ -4755,7 +4755,7 @@ wnja-10471250-n	御房	priest, non-Christian priest	keep	OK	OK	priest	monk honor
 wnja-01751080-a	完璧	flawless, unflawed	keep	OK	OK	flawless	flawless
 wnja-04466871-n	トレールバイク	trail bike, dirt bike, scrambler	keep	OK	OK	trail bike	trail bike
 wnja-06466479-n	真言	mantra	keep	OK	OK	mantra	mantra
-wnja-06721813-n	小賢しさ	impudence, cheek, impertinence	lower	WRONG	UNSURE	means cunning not impudence	impudence
+wnja-06721813-n	小賢しさ	impudence, cheek, impertinence	queue	WRONG	UNSURE	means cunning not impudence	impudence
 wnja-10914658-n	クロフォード	Crawford, Thomas Crawford	keep	OK	OK	Crawford	Crawford
 wnja-00290302-v	増強	escalate, intensify, step up	keep	OK	OK	intensify	intensify
 wnja-01511387-a	鋭い	exquisite, keen	keep	OK	OK	keen	keen
@@ -4763,7 +4763,7 @@ wnja-02713372-v	出張る	stick out, protrude, jut out, jut, project	keep	OK	OK	
 wnja-11304912-n	スモーリー	Smalley, Richard Smalley, Richard E. Smalley, Richard Errett Smalley	keep	OK	OK	Smalley	Smalley
 wnja-10123844-n	将	general, full general	keep	OK	OK	general	general
 wnja-06709998-n	間然	censure, animadversion	lower	OK	UNSURE	criticism	criticism sense rare
-wnja-01455412-a	閑やか	gentle	lower	UNSURE	UNSURE	rare form	obscure word
+wnja-01455412-a	閑やか	gentle	queue	UNSURE	UNSURE	rare form	obscure word
 wnja-11675096-n	雄ずい	stamen	keep	OK	OK	stamen	stamen
 wnja-03294048-n	設備	equipment	keep	OK	OK		equipment
 wnja-01982186-a	シンボリック	emblematic, emblematical, symbolic, symbolical	keep	OK	OK	symbolic	
@@ -4806,7 +4806,7 @@ wnja-00153961-n	裏書き	validation, proof, substantiation	keep	OK	OK	corrobora
 wnja-02332447-n	萱鼠	harvest mouse, Micromyx minutus	keep	OK	OK	harvest mouse	harvest mouse
 wnja-03859958-n	衣装	outfit, getup, rig, turnout	keep	OK	OK	outfit	outfit
 wnja-01139832-a	滑らか	fluent, fluid, liquid, smooth	keep	OK	OK	smooth	smooth
-wnja-00895304-v	後詰	defend, support, fend for	lower	UNSURE	WRONG	reserve support only	meaning is reserve force
+wnja-00895304-v	後詰	defend, support, fend for	queue	UNSURE	WRONG	reserve support only	meaning is reserve force
 wnja-00474017-v	研き上げる	polish, refine, fine-tune, down	keep	OK	OK	polish	polish up
 wnja-11678768-n	卵子	ovule	remove	WRONG	WRONG	ovum not plant ovule	ovum not ovule
 wnja-00172020-r	完全に	to a T, to the letter, just right, to perfection	lower	UNSURE	OK	完全に not to a T	perfectly
@@ -4836,7 +4836,7 @@ wnja-09961739-n	委員長	convener	keep	OK	OK	chairperson	committee chair
 wnja-13726562-n	カロリー	Calorie, kilogram calorie, kilocalorie, large calorie, nutritionist's calorie	keep	OK	OK	calorie	Calorie
 wnja-14826613-n	シアン酸	cyanic acid	keep	OK	OK	cyanic acid	cyanic acid
 wnja-02232877-v	エクスポート	export	keep	OK	OK	export	export
-wnja-02002720-v	抛り出す	chase away, drive out, turn back, drive away, dispel, drive off, run off	lower	UNSURE	UNSURE	throw out vs drive away	throw out vs drive away
+wnja-02002720-v	抛り出す	chase away, drive out, turn back, drive away, dispel, drive off, run off	queue	UNSURE	UNSURE	throw out vs drive away	throw out vs drive away
 wnja-14116908-n	アジソン症候群	Addison's disease, Addison's syndrome, hypoadrenalism, hypoadrenocorticism	keep	OK	OK	Addison	Addison
 wnja-11123590-n	リー	Lee, Robert E. Lee, Robert Edward Lee	keep	OK	OK	Lee	Robert E. Lee
 wnja-01906464-a	清澄	clean, clear, light, unclouded	keep	OK	OK	clear sound	clear
@@ -4852,7 +4852,7 @@ wnja-07544351-n	初恋	puppy love, calf love, crush, infatuation	keep	OK	OK	firs
 wnja-15265518-n	ノッケ	beginning, commencement, first, outset, get-go, start, kickoff, starting time, showtime, offset	keep	OK	OK	beginning	beginning
 wnja-00418364-a	汚れの無い	immaculate, speckless, spick-and-span, spic-and-span, spic, spick, spotless	keep	OK	OK	spotless	spotless
 wnja-01049737-v	唱する	chant, intone, intonate, cantillate	keep	OK	OK	chant	chant
-wnja-13243134-n	世襲財産	freehold	lower	WRONG	UNSURE	hereditary property not freehold	hereditary property not freehold
+wnja-13243134-n	世襲財産	freehold	queue	WRONG	UNSURE	hereditary property not freehold	hereditary property not freehold
 wnja-03345837-n	消火器	fire extinguisher, extinguisher, asphyxiator	keep	OK	OK	extinguisher	extinguisher
 wnja-05193338-n	色取	color, colour, vividness	keep	OK	OK	color/variety	coloring
 wnja-01707404-a	秘密	secret	keep	OK	OK	secret	secret
@@ -4866,7 +4866,7 @@ wnja-14863326-n	木酢	pyroligneous acid, wood vinegar	keep	OK	OK	wood vinegar	w
 wnja-10864635-n	ベンジャミン・ブリテン	Britten, Benjamin Britten, Edward Benjamin Britten, Lord Britten of Aldeburgh	keep	OK	OK	Britten	name
 wnja-14675910-n	ガリーナ	galena	lower	OK	UNSURE	galena	rare loan form; usual 方鉛鉱
 wnja-01719921-v	演じる	act, play, roleplay, playact	keep	OK	OK	act perform	act perform
-wnja-00061528-r	バット	abruptly, suddenly, short, dead	lower	WRONG	OK	katakana bat is baseball bat	suddenly
+wnja-00061528-r	バット	abruptly, suddenly, short, dead	queue	WRONG	OK	katakana bat is baseball bat	suddenly
 wnja-00976531-n	来攻	invasion	keep	OK	OK	invasion	invasion
 wnja-07739506-n	生食用りんご	eating apple, dessert apple	keep	OK	OK	eating apple	eating apple
 wnja-01883716-v	巫山戯る	frolic, lark, rollick, skylark, disport, sport, cavort, gambol, frisk, romp, run around, lark about	keep	OK	OK	frolic	frolic
@@ -4878,11 +4878,11 @@ wnja-03079136-n	小型車	compact, compact car	keep	OK	OK	compact car	compact ca
 wnja-01076359-n	錯雑	complication	keep	OK	OK	complication	complication
 wnja-02273293-v	取り上げる	impound, attach, sequester, confiscate, seize	keep	OK	OK	confiscate	torriageru confiscate
 wnja-00904548-a	卑劣	contemptible	keep	OK	OK	contemptible	contemptible
-wnja-06246896-n	レブル	level, layer, stratum	lower	WRONG	UNSURE	reading means rebel	unusual spelling of level
+wnja-06246896-n	レブル	level, layer, stratum	queue	WRONG	UNSURE	reading means rebel	unusual spelling of level
 wnja-00990192-a	痩せぎす	scraggy, boney, scrawny, skinny, underweight, weedy	keep	OK	OK	skinny	skinny
 wnja-05157574-n	利	profit, gain	keep	OK	OK	profit	profit
 wnja-01530098-v	沈ます	bury, sink	lower	UNSURE	OK	sink in borderline	sink in
-wnja-00426928-n	忘憂	diversion, recreation	lower	UNSURE	UNSURE	rare 忘憂	archaic rare
+wnja-00426928-n	忘憂	diversion, recreation	queue	UNSURE	UNSURE	rare 忘憂	archaic rare
 wnja-08439808-n	前栽	garden	lower	OK	UNSURE	garden plants	garden plants borderline
 wnja-00878636-v	提出	submit, subject	keep	OK	OK	submit	submit
 wnja-00875962-a	グロッギー	dazed, foggy, groggy, logy, stuporous	keep	OK	OK	groggy	groggy
@@ -4890,7 +4890,7 @@ wnja-01382083-v	撮取る	pick, pluck, cull	keep	OK	OK	pluck	pluck
 wnja-00095280-a	亡い	dead	keep	OK	OK		dead
 wnja-04840011-n	温か味	kindness	keep	OK	OK	warmth	
 wnja-08895254-n	バンガー	Bangor	keep	OK	OK	Bangor	Bangor
-wnja-07524242-n	煩わしさ	worry, trouble	lower	UNSURE	WRONG	annoyance more than worry	annoyance not anxiety
+wnja-07524242-n	煩わしさ	worry, trouble	queue	UNSURE	WRONG	annoyance more than worry	annoyance not anxiety
 wnja-08956760-n	ラオス	Laos, Lao People's Democratic Republic	keep	OK	OK	Laos	Laos
 wnja-01462005-v	併せる	mix, mingle, commix, unify, amalgamate	keep	OK	OK	mix	combine
 wnja-07575076-n	昼餐	lunch, luncheon, tiffin, dejeuner	keep	OK	OK	lunch	lunch
@@ -4915,7 +4915,7 @@ wnja-10471250-n	僧都	priest, non-Christian priest	keep	OK	OK	Buddhist priest	p
 wnja-06426111-n	電話番号	phone number, telephone number, number	keep	OK	OK	phone number	phone number
 wnja-01675190-a	並外れ	extraordinary	keep	OK	OK	extraordinary	extraordinary
 wnja-12429352-n	アガパンサス	African lily, African tulip, blue African lily, Agapanthus africanus	keep	OK	OK	agapanthus	agapanthus
-wnja-03783755-n	スラブ	monolith	lower	OK	WRONG	slab	slab not monolith
+wnja-03783755-n	スラブ	monolith	queue	OK	WRONG	slab	slab not monolith
 wnja-10700201-n	テナント	tenant, renter	keep	OK	OK	tenant	tenant
 wnja-00283568-n	散策	walk, walking	keep	OK	OK	walk	stroll
 wnja-02236124-v	受け入れる	accept, take, have	keep	OK	OK	accept	accept
@@ -4942,7 +4942,7 @@ wnja-00458456-n	打席	bat, at-bat	keep	OK	OK		at-bat
 wnja-04904352-n	平穏	repose, quiet, placidity, serenity, tranquillity, tranquility	keep	OK	OK	tranquility	tranquility
 wnja-01903756-n	甲	carapace, shell, cuticle, shield	keep	OK	OK	carapace	carapace
 wnja-00995134-n	電子対抗手段	electronic countermeasures, ECM	keep	OK	OK		ECM
-wnja-00614829-v	遺却	forget	lower	UNSURE	UNSURE	rare forget	rare forget
+wnja-00614829-v	遺却	forget	queue	UNSURE	UNSURE	rare forget	rare forget
 wnja-00660730-v	降す	downgrade	remove	WRONG	WRONG	not downgrade	not downgrade
 wnja-01984411-a	悪名高い	ill-famed, infamous, notorious	keep	OK	OK	notorious	notorious
 wnja-00924825-n	製作	fabrication, manufacture, manufacturing	keep	OK	OK	manufacture	manufacture
@@ -4960,7 +4960,7 @@ wnja-01202184-n	隔離	segregation, sequestration	keep	OK	OK	segregation	segrega
 wnja-00146138-v	変じる	change state, turn	keep	OK	OK	change	change
 wnja-15274074-n	中休み	respite, rest, relief, rest period	keep	OK	OK	rest break	pause rest
 wnja-14539268-n	セキュリティー	security	keep	OK	OK	security	security
-wnja-00155144-a	憎憎しい	audacious, barefaced, bodacious, bald-faced, brassy, brazen, brazen-faced, insolent	lower	WRONG	UNSURE	means hateful	hateful, not quite brazen
+wnja-00155144-a	憎憎しい	audacious, barefaced, bodacious, bald-faced, brassy, brazen, brazen-faced, insolent	queue	WRONG	UNSURE	means hateful	hateful, not quite brazen
 wnja-00006105-r	粗	largely, mostly, for the most part	lower	OK	UNSURE	mostly	rough/mostly reading
 wnja-04626280-n	エモーショナリスム	emotionality, emotionalism	keep	OK	OK	emotionalism	emotionalism
 wnja-05066012-n	不斉	irregularity, geometrical irregularity	keep	OK	OK	irregularity	irregularity
@@ -4981,7 +4981,7 @@ wnja-01851916-a	慎ましやか	modest	keep	OK	OK	modest	modest
 wnja-11122579-n	レアリー	Leary, Tim Leary, Timothy Leary, Timothy Francis Leary	keep	OK	OK	Leary	Leary
 wnja-08603158-n	ブライスキャニオン国立公園	Bryce Canyon National Park	keep	OK	OK	Bryce Canyon	Bryce Canyon
 wnja-00309945-a	緻密	close	keep	OK	OK	close	meticulous
-wnja-05813229-n	夢中になるもの	love, passion	lower	WRONG	UNSURE	not object of love phrase	loose fit
+wnja-05813229-n	夢中になるもの	love, passion	queue	WRONG	UNSURE	not object of love phrase	loose fit
 wnja-01211019-n	勧奨	boost, encouragement	lower	UNSURE	OK	recommendation, not support	encouragement
 wnja-00911917-v	否認	repudiate	keep	OK	OK	repudiate	repudiate
 wnja-02504562-v	強圧	coerce, hale, squeeze, pressure, force	keep	OK	OK	coerce	coerce
@@ -4998,4 +4998,4 @@ wnja-06532330-n	法規	law	keep	OK	OK	law
 wnja-03912218-n	笛	pennywhistle, tin whistle, whistle	keep	OK	OK	whistle/flute	whistle
 wnja-03949145-n	ピストンリング	piston ring	keep	OK	OK	piston ring	loanword
 wnja-13289744-n	割	quota	keep	OK	OK	quota share	share
-wnja-00155144-a	専横	audacious, barefaced, bodacious, bald-faced, brassy, brazen, brazen-faced, insolent	lower	UNSURE	WRONG	専横 arbitrary not audacious	arbitrariness not audacious
+wnja-00155144-a	専横	audacious, barefaced, bodacious, bald-faced, brassy, brazen, brazen-faced, insolent	queue	UNSURE	WRONG	専横 arbitrary not audacious	arbitrariness not audacious
