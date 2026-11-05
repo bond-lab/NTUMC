@@ -25,5 +25,23 @@ checker accepted, most look like checker slips (電子ブック *exabyte*, 坊�
 part of the measured disagreement is noise in the gold labels; these 22
 should go back to the checkers before the labels are used further.
 
+## Repeat runs and Opus
+
+| run | agreement | κ (checker 1) | κ (checker 2) | WRONG recall | UNSURE | good called WRONG |
+|---|---|---|---|---|---|---|
+| human, second run | 0.815 | 0.59 | 0.60 | 0.87 | 49 | 35 |
+| info, second run | 0.828 | 0.62 | 0.74 | 0.89 | 49 | 33 |
+| info, Claude Opus | 0.776 | 0.54 | 0.51 | 0.94 | 37 | 51 |
+
+Sonnet with the info prompt is stable: the two runs give identical
+verdicts on 86% of items, with two OK/WRONG flips, and the same κ.  Opus
+with the same prompt is stricter: it finds a few more of the checker's
+WRONGs but calls 51 good senses WRONG against Sonnet's 31–33 (and flips 8
+items against either Sonnet run).  The two-run rule (remove if both say
+WRONG, keep if both say OK, otherwise lower and send to a person) with the
+two Sonnet info runs removes 78 (26 of them OK by checker 1), keeps 134
+(5 WRONG by checker 1) and sends 70 to a person; some of the 26 are
+checker slips (see `../spot-check/second-look/`).
+
 `<prompt>/PROMPT.md` is the prompt, `review.tsv` the verdicts and `key.tsv`
 the id → spot-check item map.

@@ -16,8 +16,9 @@ with the checkers.
            near-synonyms and normal translations are OK; rare or old words
            are OK if a dictionary gives the meaning
 
-  make   write OUT/<condition>/batchNN.tsv, key.tsv and PROMPT.md
-  score  compare OUT/<condition>/batchNN-review.tsv with the checkers
+  make   write OUT/<condition>/batchNN.tsv, key.tsv and PROMPT.md (with --run N,
+         a repeat with fresh ids and shuffle in OUT/<condition>-rN/)
+  score  compare OUT/*/batchNN-review.tsv with the checkers
 
   uv run --with jamdict --with jamdict-data python scripts/prompt_calibration.py make
 """
@@ -137,9 +138,11 @@ def make(a: argparse.Namespace) -> None:
     info = {i: extra(ctx, sc.bare(key[i]["synset"]), sheet[i]["word"]) for i in sheet}
     tr.write_tsv(a.out / "info.tsv", ["item", *INFO], [[i, *v] for i, v in info.items()])
     for n, cond in enumerate(COLS):
-        d = a.out / cond
+        if a.conditions and cond not in a.conditions:
+            continue
+        d = a.out / (cond if a.run == 1 else f"{cond}-r{a.run}")
         d.mkdir(parents=True, exist_ok=True)
-        rng = random.Random(SEED + n)
+        rng = random.Random(SEED + n + 10 * (a.run - 1))
         items = sorted(sheet)
         rng.shuffle(items)
         ids = rng.sample(range(10000, 99999), len(items))
@@ -172,8 +175,9 @@ def score(a: argparse.Namespace) -> None:
     two = {r["item"]: r["meaning"].strip().upper()
            for r in tr.read_tsv(sc.filled(a.spot, "ja-overlap-sheet.tsv"))}
     rows = []
-    for cond in COLS:
-        v = verdicts(a.out / cond)
+    for d in sorted(p for p in a.out.iterdir() if (p / "key.tsv").exists()):
+        cond = d.name
+        v = verdicts(d)
         if not v:
             continue
         pairs = [(one[i], v[i]) for i in v if one.get(i) in ("OK", "WRONG")]
@@ -212,6 +216,9 @@ def main() -> None:
     ap.add_argument("--spot", type=Path, default=Path("docs/quality-sample/spot-check"))
     ap.add_argument("--out", type=Path, default=Path("build/calibration"))
     ap.add_argument("--size", type=int, default=100)
+    ap.add_argument("--run", type=int, default=1,
+                    help="repeat run: fresh ids and shuffle, in <condition>-rN/")
+    ap.add_argument("--conditions", nargs="*", help="make only these conditions")
     a = ap.parse_args()
     make(a) if a.step == "make" else score(a)
 
