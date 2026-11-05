@@ -1,0 +1,5 @@
+condition	answered	definite	agreement	kappa1	kappa2	wrong_precision	wrong_recall	unsure	good_called_wrong
+strict	290	265	0.785	0.52	0.65	0.56	0.84	17	46
+human	290	229	0.825	0.60	0.80	0.61	0.86	53	32
+info	290	232	0.836	0.62	0.60	0.64	0.89	50	31
+guided	290	270	0.807	0.56	0.62	0.59	0.85	12	41

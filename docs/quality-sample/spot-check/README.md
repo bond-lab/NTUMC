@@ -24,6 +24,15 @@ takes about half an hour.  The two checkers' agreement is the ceiling
 against which the models' agreement should be read: people also disagree
 about word senses.
 
+## These items are now development data
+
+From 2026-11-06 the 290 Japanese items and their answers are used to
+calibrate review prompts (`scripts/prompt_calibration.py`): they are
+development data, not a test set.  Do not quote examples from them in a
+prompt, and measure a calibrated prompt on fresh items labelled by a
+checker (e.g. the JSemCor recheck in `../jsemcor-recheck/`, or a new
+spot-check sample drawn with another seed and excluding these items).
+
 ## Instructions for checkers
 
 Each row is a word with one meaning, given by the English words and
