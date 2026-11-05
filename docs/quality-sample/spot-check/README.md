@@ -131,6 +131,18 @@ there were.
   UNSURE.  The pooled `all` rows of `key/score.tsv` sum the population
   over all languages but so far have only Japanese answers.
 
+* `returned/ja-second-look.tsv` (2026-11-05), the first checker's second
+  look at the 21 items where their answer differed from all four model
+  prompts (`second-look/`; not blind).  They kept 13 answers, changed 6
+  (4 OK to WRONG: 電子ブック, いんぎんに, 尊属殺人, アオイ; 2 WRONG to OK:
+  さし通す, トランス系) and made 2 UNSURE (敏腕, 単性).  The second-look
+  answers now replace the first ones in scoring (`spot_check.answers`), so
+  definite agreement is unflagged 90/97 and removed by both runs 44/48,
+  and of the lowered senses 14 OK, 4 WRONG.  Checker agreement still uses
+  the blind answers.  In wnja this restores 出発 (already done), さし通す,
+  トランス系, 独特 and 結構, un-lowers 散々 and 天上, and removes アオイ and
+  いんぎんに.
+
 Multiplying by the stratum populations gives, for example, how many of the
 removed senses were in fact right, and how many wrong senses remain among
 the unflagged ones.

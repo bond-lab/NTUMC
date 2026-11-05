@@ -74,5 +74,31 @@ So a second company buys slightly more precise removals for a longer
 queue; on the 136 pilot removals it is more useful as a filter (see
 `../pilot-review/`).
 
+## After the second look
+
+The first checker then looked again at the 21 items where they and all
+four prompts differed (`../spot-check/second-look/`), and changed 6 of
+their answers to the models' and 2 to UNSURE.  `score.tsv` now uses
+those answers; the tables above are against the blind first answers.
+
+| condition | agreement | κ (checker 1) | good called WRONG | WRONG precision |
+|---|---:|---:|---:|---:|
+| strict | 0.814 | 0.59 | 40 | 0.61 |
+| human | 0.859 | 0.68 | 26 | 0.68 |
+| info | 0.870 | 0.70 | 25 | 0.70 |
+| guided | 0.836 | 0.63 | 35 | 0.65 |
+| info, second run | 0.861 | 0.69 | 27 | 0.69 |
+| info, Opus | 0.798 | 0.59 | 47 | 0.59 |
+| info, Codex gpt-5.6-sol (low) | 0.812 | 0.57 | 36 | 0.62 |
+| info, Codex gpt-6.1-sol (high) | 0.851 | 0.66 | 31 | 0.68 |
+
+Every condition gains about 0.05-0.08 κ and the ranking is unchanged.
+The gain is an upper bound: only items where the models all disagreed
+with the checker were looked at again, and the checker saw the models'
+answers, so errors the checker and the models share are still in the
+labels.  Under the two-run rule, two Sonnet info runs now remove 80 (20 OK
+by checker 1) and Sonnet with Codex gpt-6.1-sol 76 (17 OK); both keep 3
+senses the checker judged WRONG.
+
 `<prompt>/PROMPT.md` is the prompt, `review.tsv` the verdicts and `key.tsv`
 the id → spot-check item map.

@@ -97,3 +97,17 @@ def test_filled_prefers_returned(tmp_path: Path) -> None:
     (tmp_path / "returned").mkdir()
     (tmp_path / "returned" / "ja-sheet.tsv").write_text("filled")
     assert sc.filled(tmp_path, "ja-sheet.tsv") == tmp_path / "returned" / "ja-sheet.tsv"
+
+
+def test_answers_take_second_look(tmp_path: Path) -> None:
+    # Arrange
+    (tmp_path / "returned").mkdir()
+    tr.write_tsv(tmp_path / "returned" / "ja-sheet.tsv", ["item", "meaning"],
+                 [["ja-001", "OK"], ["ja-002", "WRONG"]])
+    tr.write_tsv(tmp_path / "returned" / "ja-second-look.tsv", ["item", "answer"],
+                 [["ja-001", "WRONG"], ["ja-002", ""]])
+    # Act
+    got = sc.answers(tmp_path, "ja")
+    # Assert
+    assert got["ja-001"]["meaning"] == "WRONG"
+    assert got["ja-002"]["meaning"] == "WRONG"

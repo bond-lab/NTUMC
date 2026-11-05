@@ -168,10 +168,9 @@ def verdicts(d: Path) -> dict[str, str]:
 
 
 def score(a: argparse.Namespace) -> None:
-    """Agreement of each condition with the first checker, overall and per stratum."""
+    """Agreement of each condition with the first checker (after the second look)."""
     key = {k["item"]: k for k in tr.read_tsv(a.spot / "key" / "ja-key.tsv")}
-    one = {r["item"]: r["meaning"].strip().upper()
-           for r in tr.read_tsv(sc.filled(a.spot, "ja-sheet.tsv"))}
+    one = {i: r["meaning"].strip().upper() for i, r in sc.answers(a.spot, "ja").items()}
     two = {r["item"]: r["meaning"].strip().upper()
            for r in tr.read_tsv(sc.filled(a.spot, "ja-overlap-sheet.tsv"))}
     rows = []

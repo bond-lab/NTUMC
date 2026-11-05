@@ -279,8 +279,31 @@ def filled(out: Path, name: str) -> Path:
     return back if back.exists() else out / name
 
 
+def answers(out: Path, lang: str) -> dict[str, dict]:
+    """item -> the first checker's row, with meaning replaced by any second-look answer.
+
+    Args:
+        out: the spot-check directory
+        lang: language code of the sheet
+
+    Returns:
+        The returned (or blank) sheet's rows by item; where
+        out/returned/LANG-second-look.tsv has an answer, it replaces meaning.
+    """
+    ans = {r["item"]: dict(r) for r in tr.read_tsv(filled(out, f"{lang}-sheet.tsv"))}
+    second = out / "returned" / f"{lang}-second-look.tsv"
+    if second.exists():
+        for r in tr.read_tsv(second):
+            if r.get("answer", "").strip() and r["item"] in ans:
+                ans[r["item"]]["meaning"] = r["answer"].strip()
+    return ans
+
+
 def human_agreement(a: argparse.Namespace) -> list[list]:
-    """Agreement of the second checker (overlap sheet) with the first, per language."""
+    """Agreement of the second checker (overlap sheet) with the first, per language.
+
+    Uses the first checker's blind answers, not the second look.
+    """
     out = []
     for lang in ALL:
         first, second = filled(a.out, f"{lang}-sheet.tsv"), filled(a.out, f"{lang}-overlap-sheet.tsv")
@@ -306,7 +329,7 @@ def score(a: argparse.Namespace) -> None:
         sheet = filled(a.out, f"{lang}-sheet.tsv")
         if not sheet.exists():
             continue
-        ans = {r["item"]: r for r in tr.read_tsv(sheet)}
+        ans = answers(a.out, lang)
         res = defaultdict(Counter)
         for k in tr.read_tsv(a.out / "key" / f"{lang}-key.tsv"):
             r = ans.get(k["item"], {})
