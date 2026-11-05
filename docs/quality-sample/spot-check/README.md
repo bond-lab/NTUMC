@@ -110,6 +110,18 @@ there were.
   people, 風味 for quark colour, both rightly removed).  It found one
   sense both Opus runs wrongly kept, 緩やか *lenient*, now removed in wnja.
 
+* `returned/ja-sheet.tsv` (2026-11-05), the first Japanese checker, all
+  290 items (207 OK, 75 WRONG, 8 UNSURE).  Agreement with the decision,
+  definite answers only: unflagged 89/97, removed by both runs 42/50,
+  kept by both runs 18/20, JSemCor additions 20/20, renames 19/19; but
+  the adjudicated decisions only about half (removed 10/19, kept 10/19),
+  and the rejected JSemCor suggestions 3/20 (the checker would have
+  accepted 17).  Of the 18 lowered senses answered, 15 were OK.  The
+  checkers agree on 39 of the 43 overlap items both answered definitely
+  (all 50: 0.78, kappa 0.54); most of the rest are the second checker's
+  UNSURE.  The pooled `all` rows of `key/score.tsv` sum the population
+  over all languages but so far have only Japanese answers.
+
 Multiplying by the stratum populations gives, for example, how many of the
 removed senses were in fact right, and how many wrong senses remain among
 the unflagged ones.
