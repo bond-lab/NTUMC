@@ -41,3 +41,30 @@ the English.
 `other_words_in_synset` lists other words for the same meaning, for
 reference; they are not being checked.  It should take about an hour and
 a half.  Please do not look at `key/`.
+
+## Returned (2026-11-12)
+
+`returned/ja-pilot-sheet.tsv`, all 140 items; `key/score.tsv`:
+
+| decision | OK | WRONG | UNSURE | WRONG of definite (95% interval) |
+|---|---:|---:|---:|---|
+| remove (both runs WRONG) | 24 | 21 | 5 | 0.47 (0.33-0.61) |
+| queue for a person | 21 | 9 | 0 | 0.30 (0.17-0.48) |
+| lower to 0.8 | 24 | 5 | 1 | 0.17 (0.08-0.35) |
+| keep (both runs OK) | 29 | 0 | 1 | 0.00 (0.00-0.12) |
+
+The review is reliable when it says OK and unreliable when it says WRONG:
+only about half its removals were judged wrong, against 44 of 48 for the
+issue #8 removals in the spot check.  Those had first been flagged by the
+triage, so errors were common among them; among never-flagged senses
+errors are rare (about 7%), and the same false-alarm rate gives about as many
+good senses as bad among the removals.  The Codex filter helps a
+little: of the removals gpt-6.1-sol also called WRONG, 20 were judged
+WRONG and 16 OK.
+
+Some of the checker's OKs look generous (郭大, a miswriting of 拡大, not
+marked malformed; 食う *drink*; 切支丹 *Jesuitism*; 上天 *die*), and the
+checker used `form` only once, so part of the gap may be the checker; but
+many are reasonable broader uses that the models read too narrowly (守る
+*continue*, 小っちゃい *lowly*, 不安定 *uncertainty*), as with the JSemCor
+rejections.  These items are test data: keep them out of prompts.
