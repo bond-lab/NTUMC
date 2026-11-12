@@ -1,0 +1,36 @@
+item	pilot_item	synset	word	first_answer	first_comment
+pr-01	pc-129	wnja-03006105-n	仲介物	WRONG	
+pr-02	pc-048	wnja-07542675-n	大腐り	OK	
+pr-03	pc-088	wnja-00186644-r	敏感に	OK	いらだって敏感になっているイメージ
+pr-04	pc-062	wnja-01229976-v	差立てる	OK	
+pr-05	pc-096	wnja-01282413-v	鼻掘り	OK	
+pr-06	pc-041	wnja-00240293-v	郭大	OK	
+pr-07	pc-013	wnja-05698247-n	不安定	OK	
+pr-08	pc-111	wnja-00358431-v	上天	OK	
+pr-09	pc-119	wnja-06685754-n	安全	OK	
+pr-10	pc-056	wnja-07264384-n	曳光弾	OK	
+pr-11	pc-009	wnja-11508092-n	人烟	OK	
+pr-12	pc-039	wnja-02684924-v	守る	OK	
+pr-13	pc-076	wnja-00687181-v	非難	UNSURE	拒絶というより，責めることだが，部分的に含まれるのか
+pr-14	pc-044	wnja-06942094-n	パイ	UNSURE	印欧祖語(PIE)の読みならOKか？
+pr-15	pc-070	wnja-01234729-n	返済	WRONG	
+pr-16	pc-080	wnja-01767163-v	憤悶	UNSURE	怒っている状態を定義文の状態としてとることはできる
+pr-17	pc-022	wnja-90000046-n	ジャマル・カズラ アロマティックス	UNSURE	定義文がないが，調べたらシンガポールの香水店であった
+pr-18	pc-008	wnja-02648253-v	不滅に	OK	
+pr-19	pc-075	wnja-01345877-v	折る	WRONG	
+pr-20	pc-106	wnja-01170052-v	食う	OK	「中に入れる」よりも「取り込む」のほうが適切
+pr-21	pc-042	wnja-00157462-v	勝ち取る	OK	
+pr-22	pc-095	wnja-03005920-n	変わり目	OK	
+pr-23	pc-125	wnja-10149527-n	引取人	OK	
+pr-24	pc-040	wnja-04640176-n	良性	OK	
+pr-25	pc-110	wnja-09515131-n	アルリム	UNSURE	
+pr-26	pc-090	wnja-02340458-a	小っちゃい	OK	
+pr-27	pc-079	wnja-00902807-v	混合	WRONG	
+pr-28	pc-055	wnja-06185138-n	切支丹	OK	
+pr-29	pc-091	wnja-04243142-n	汚水	WRONG	
+pr-30	pc-124	wnja-00828003-v	預言	OK	
+pr-31	pc-053	wnja-04668139-n	柔らかさ	OK	
+pr-32	pc-029	wnja-01473680-a	主要	OK	
+pr-33	pc-028	wnja-01454985-a	遅い	OK	速さを遅くすることか？
+pr-34	pc-082	wnja-10032676-n	吸収	WRONG	
+pr-35	pc-065	wnja-03666591-n	洋灯	OK	主に照明装置の意

@@ -60,3 +60,25 @@ def test_check_counts_wrong_share(tmp_path: Path) -> None:
     rows = {r["action"]: r for r in tr.read_tsv(tmp_path / "key" / "score.tsv")}
     assert rows["remove"]["wrong_share"] == "0.50"
     assert rows["keep"]["blank"] == "1"
+
+
+def test_recheck_takes_disputed_removals_and_controls(tmp_path: Path) -> None:
+    # Arrange
+    (tmp_path / "key").mkdir()
+    (tmp_path / "returned").mkdir()
+    tr.write_tsv(tmp_path / "key" / "ja-pilot-key.tsv", ["item", "action", "synset", "word"],
+                 [["pc-1", "remove", "s1", "犬"], ["pc-2", "remove", "s2", "猫"],
+                  ["pc-3", "remove", "s3", "鳥"], ["pc-4", "remove", "s4", "魚"],
+                  ["pc-5", "keep", "s5", "馬"]])
+    tr.write_tsv(tmp_path / "returned" / "ja-pilot-sheet.tsv", pr.SHEET,
+                 [[i, w, "", "", "", "", m, "", ""] for i, w, m in
+                  [("pc-1", "犬", "OK"), ("pc-2", "猫", "UNSURE"), ("pc-3", "鳥", "WRONG"),
+                   ("pc-4", "魚", "WRONG"), ("pc-5", "馬", "OK")]])
+    # Act
+    pr.recheck(argparse.Namespace(sheet=tmp_path, control=1))
+    # Assert
+    sheet = tr.read_tsv(tmp_path / "recheck" / "ja-recheck-sheet.tsv")
+    key = tr.read_tsv(tmp_path / "recheck" / "key" / "ja-recheck-key.tsv")
+    assert len(sheet) == 3
+    assert {k["word"] for k in key} >= {"犬", "猫"} and "馬" not in {k["word"] for k in key}
+    assert all(r["meaning"] == "" for r in sheet)

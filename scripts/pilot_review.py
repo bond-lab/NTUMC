@@ -10,6 +10,9 @@ development data).
   sheet  write a blind sheet of a stratified sample of the decisions for a
          native checker to SHEET/, with the key in SHEET/key/
   check  score a returned sheet (SHEET/returned/) against the decisions
+  recheck  write a blind sheet for a second checker: the removals the first
+         checker did not judge WRONG, plus --control removals they did, to
+         SHEET/recheck/
   blind  write the senses with one action, under fresh ids, to OUT/blind-ACTION/
          (for a reviewer from another company)
 
@@ -163,6 +166,32 @@ def check(a: argparse.Namespace) -> None:
         print("\t".join(map(str, r)))
 
 
+def recheck(a: argparse.Namespace) -> None:
+    """Write a blind sheet of disputed removals, with controls, for a second checker."""
+    key = {k["item"]: k for k in tr.read_tsv(a.sheet / "key" / "ja-pilot-key.tsv")}
+    first = {r["item"]: r for r in tr.read_tsv(sc.filled(a.sheet, "ja-pilot-sheet.tsv"))}
+    removed = sorted(i for i, k in key.items() if k["action"] == "remove")
+    said = {i: first[i]["meaning"].strip().upper() for i in removed}
+    rng = random.Random(f"{SEED}-recheck")
+    wrong = [i for i in removed if said[i] == "WRONG"]
+    picked = [i for i in removed if said[i] != "WRONG"] + rng.sample(
+        wrong, min(a.control, len(wrong)))
+    rng.shuffle(picked)
+    d = a.sheet / "recheck"
+    (d / "key").mkdir(parents=True, exist_ok=True)
+    rows, keyrows = [], []
+    for n, i in enumerate(picked, 1):
+        r = first[i]
+        rows.append([f"pr-{n:02d}", *(r[c] for c in SHEET[1:6]), "", "", ""])
+        keyrows.append([f"pr-{n:02d}", i, key[i]["synset"], key[i]["word"], said[i],
+                        first[i]["comment"]])
+    tr.write_tsv(d / "ja-recheck-sheet.tsv", SHEET, rows)
+    tr.write_tsv(d / "key" / "ja-recheck-key.tsv",
+                 ["item", "pilot_item", "synset", "word", "first_answer", "first_comment"],
+                 keyrows)
+    print(f"{len(rows)} items: {Counter(said[i] for i in picked)}")
+
+
 def blind(a: argparse.Namespace) -> None:
     """Write the senses with one action under fresh ids, for another reviewer."""
     acts = {(r["synset"], r["word"]) for r in tr.read_tsv(a.out / "final.tsv")
@@ -187,7 +216,7 @@ def main() -> None:
     """Command-line entry point."""
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("step", choices=("make", "final", "sheet", "check", "blind"))
+    ap.add_argument("step", choices=("make", "final", "sheet", "check", "recheck", "blind"))
     ap.add_argument("--wnja", type=Path, default=Path("../wnja"), help="wnja checkout, built")
     ap.add_argument("--spot", type=Path, default=Path("docs/quality-sample/spot-check"))
     ap.add_argument("--issue8", type=Path,
@@ -197,8 +226,11 @@ def main() -> None:
     ap.add_argument("--size", type=int, default=200)
     ap.add_argument("--sheet", type=Path, default=Path("docs/quality-sample/pilot-check"))
     ap.add_argument("--action", default="remove", help="for blind: the senses to write")
+    ap.add_argument("--control", type=int, default=6,
+                    help="for recheck: removals the first checker judged WRONG")
     a = ap.parse_args()
-    {"make": make, "final": final, "sheet": sheet, "check": check, "blind": blind}[a.step](a)
+    {"make": make, "final": final, "sheet": sheet, "check": check, "recheck": recheck,
+     "blind": blind}[a.step](a)
 
 
 if __name__ == "__main__":
