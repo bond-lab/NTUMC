@@ -62,9 +62,8 @@ good senses as bad among the removals.  The Codex filter helps a
 little: of the removals gpt-6.1-sol also called WRONG, 20 were judged
 WRONG and 16 OK.
 
-Some of the checker's OKs look generous (郭大, a miswriting of 拡大, not
-marked malformed; 食う *drink*; 切支丹 *Jesuitism*; 上天 *die*), and the
-checker used `form` only once, so part of the gap may be the checker; but
-many are reasonable broader uses that the models read too narrowly (守る
-*continue*, 小っちゃい *lowly*, 不安定 *uncertainty*), as with the JSemCor
-rejections.  These items are test data: keep them out of prompts.
+A single checker's answers are noisy, and the 24 removals judged OK
+include several that a second reader may judge differently.  The blind
+second opinion in `recheck/` (the disputed removals plus controls, by
+another checker) will show how far 21/45 understates the removals'
+precision.  These items are test data: keep them out of prompts.
