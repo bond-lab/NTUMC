@@ -8,6 +8,13 @@ newest first. `scripts/push_dbs.sh` adds an entry here and a line to
 from other machines). Before each push, the server copies are backed
 up to `backup-YYYY-MM-DD/` on the server.
 
+### 2026-11-13 12:33 — eng.db cmn.db jpn.db ind.db eng-jpn.db eng-cmn.db eng-ind.db
+
+- **Pushed:** eng.db cmn.db jpn.db ind.db eng-jpn.db eng-cmn.db eng-ind.db
+- **Backup:** `backup-2026-11-13/`
+- **Code:** `f4100db` (from bond@tanso)
+- **Applied:** Base: server copies of 2026-11-13 (archived in work/ntu-mc/2026-11-13). eng.db: fix_eng_cids.py, catb concept ids renumbered per sentence (767 sentences, 11,663 concepts); fix_cpos.py --mismatched (22,408 offsets). cmn.db: fix_cpos.py --mismatched (411). jpn.db, ind.db: fix_cpos.py --mismatched (779, 62); July 2026 work carried over from the local build: verified retags and BAD comment stamps (14 and 1,032 concepts), propagated stype rows (2,658 and 2,089). eng-jpn/eng-cmn/eng-ind: clink English cids renumbered to match (5,999, 4,799, 4); kc01, kc02 and catb sentence links added (2,238 jpn, 871 cmn; 3 wlinks cmn); 22 stale slinks deleted (check_links.py); eng-ind meta row added
+
 ### 2026-10-23 16:45 — eng.db cmn.db
 
 - **Pushed:** eng.db cmn.db
