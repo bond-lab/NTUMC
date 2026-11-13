@@ -58,9 +58,9 @@ duplicated.
 ## Not done yet
 
 * WN-LMF XML in and out of the same model.
-* The two formats below, which are **drafts to be agreed**, not code.
+* Applying change records (below) to a base.
 
-## Draft: change records
+## Change records
 
 The master copy of a wordnet is a base release plus an ordered list of
 changes.  A release applies the list and its output is the next base.
@@ -85,7 +85,8 @@ rewritten.
 
 Actions: `add_sense`, `remove_sense`, `set_confidence`, `rename_lemma`,
 `add_form`, `set_definition`, `add_example`, `add_relation`,
-`remove_relation`, `add_synset`, `merge_synset`.  These cover the
+`remove_relation`, `add_synset`, `merge_synset`; more can be added as
+needed.  These cover the
 `action` values already used in `wnja/corrections/senses.tsv`
 (`remove`, `lower`, `rename`, `keep`, `add`), `definitions.tsv` and
 `forms.tsv`.
@@ -95,28 +96,29 @@ the release stops and reports a conflict for a person to settle.
 `source` is required, and a model alone is not a source for an
 addition.
 
-## Draft: local ILI registry
+## Local concept ids
 
 Concepts we share across languages before CILI has them get a local
-identifier.  One file, one concept per line:
+identifier, `ntumc00001`.  The registry is its own repository,
+`omw-mul-ntumc` (`registry.tsv`, checked by `check_registry.py`):
 
 ```
-local_id  pos  definition                              proposed_by  date        cili    status
-l00001    n    the speaker and the addressee together  fcbond       2026-11-13          proposed
-l00002    n    a father's elder brother                fcbond       2026-11-13  i99999  granted
+local_id    pos  definition  proposed_by  date  cili  status
 ```
 
-* `local_id` never changes and is never reused.  Five digits: NTU-MC
-  already has 3,060 synsets of its own.
+* `local_id` is `ntumc` and five digits; it never changes and is never
+  reused.  The prefix keeps our ids apart from other projects' when
+  several shared lexicons are merged.
 * The definition is in English and meets the CILI rule (at least 20
   characters or five words).
+* `status` is `proposed`, `submitted`, `granted` or `withdrawn`.
 * In WN-LMF a synset for a local concept has `ili="in"`, an
-  `ILIDefinition`, and `dc:identifier="l00001"`.  The local id never
+  `ILIDefinition`, and `dc:identifier="ntumc00001"`.  The local id never
   goes in the `ili` attribute, which must hold a CILI id, `in` or
   nothing.  Cygnet already merges synsets across lexicons on
   `dc:identifier`.
-* When CILI grants an id, it is entered in `cili`, and builds write
-  `ili="i99999"` from then on, keeping the `dc:identifier`.
+* When CILI grants an id, it is entered in `cili`, and builds write that
+  id in `ili` from then on, keeping the `dc:identifier`.
 * The concepts themselves (definition, relations) live in one shared
   lexicon with `language="mul"`, as omw-pronoun does; the language
   lexicons only add words.
