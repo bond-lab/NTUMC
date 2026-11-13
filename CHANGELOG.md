@@ -8,6 +8,21 @@ newest first. `scripts/push_dbs.sh` adds an entry here and a line to
 from other machines). Before each push, the server copies are backed
 up to `backup-YYYY-MM-DD/` on the server.
 
+### 2026-11-13 — databases made read-only
+
+- **Changed:** permissions only, no data. Every database in the folder
+  except `admin.db` is read-only (`chmod a-w`), and the folder is no
+  longer writable by the web server (`chmod g-w .`), so no new files can
+  be created there.
+- **Why:** nobody needs to write until 2027, and the wordnet is being
+  moved to text masters; this keeps the frozen copies frozen.
+- **Before:** the old permissions are in
+  `build/server-perms-before-2026-11-13.txt`.
+- **To write again:** `scripts/push_dbs.sh --thaw` for a push; for the
+  web tools, `chmod ug+w` on the databases and `chmod g+w .`.
+- **Left alone:** 13 empty files owned by `www-data` (made by injection
+  probes in March 2026).
+
 ### 2026-11-13 12:33 — eng.db cmn.db jpn.db ind.db eng-jpn.db eng-cmn.db eng-ind.db
 
 - **Pushed:** eng.db cmn.db jpn.db ind.db eng-jpn.db eng-cmn.db eng-ind.db

@@ -14,11 +14,14 @@
 #   --yes         Skip the interactive confirmation
 #   --note TEXT   What was applied (scripts, commits); recorded in
 #                 CHANGELOG.md and the server's PUSHLOG.tsv
+#   --thaw        Allow overwriting a database that is read-only on the
+#                 server; its permissions are put back after the copy
 #
 # Safety: refuses to push a database whose local copy has no *_log
 # tables (that would erase the server's annotation history — see
 # docs/release-audit-2026-07-05.md).  Verifies each upload by comparing
-# remote and local SHA-256 checksums.
+# remote and local SHA-256 checksums.  The server databases are kept
+# read-only (frozen on 2026-11-13), so a push needs --thaw.
 
 set -euo pipefail
 
@@ -29,6 +32,7 @@ BACKUP_SUBDIR="backup-$(date +%Y-%m-%d)"
 DRY_RUN=0
 ASSUME_YES=0
 NOTE=""
+THAW=0
 DBS=()
 
 while [[ $# -gt 0 ]]; do
@@ -37,6 +41,7 @@ while [[ $# -gt 0 ]]; do
         --dry-run) DRY_RUN=1; shift ;;
         --yes)     ASSUME_YES=1; shift ;;
         --note)    NOTE="$2"; shift 2 ;;
+        --thaw)    THAW=1; shift ;;
         -*)        echo "Unknown option: $1" >&2; exit 1 ;;
         *)         DBS+=("$1"); shift ;;
     esac
@@ -85,6 +90,19 @@ if [[ "$ASSUME_YES" -ne 1 ]]; then
     [[ "${answer,,}" == "y" ]] || { echo "Aborted."; exit 1; }
 fi
 
+# ── frozen databases need --thaw ──
+if [[ "$THAW" -ne 1 ]]; then
+    for db in "${DBS[@]}"; do
+        # shellcheck disable=SC2029  # server-side expansion is intended
+        if ssh "$HOST" "test -e '${REMOTE_DIR}/${db}' -a \
+                ! -w '${REMOTE_DIR}/${db}'"; then
+            echo "Error: ${db} is read-only on the server (frozen)." >&2
+            echo "Pass --thaw if you mean to overwrite it." >&2
+            exit 1
+        fi
+    done
+fi
+
 # ── server-side backup ──
 echo "--- Backing up server copies to ${REMOTE_DIR}/${BACKUP_SUBDIR} ---"
 # shellcheck disable=SC2029  # server-side expansion is intended
@@ -92,6 +110,7 @@ ssh "$HOST" "mkdir -p '${REMOTE_DIR}/${BACKUP_SUBDIR}'"
 for db in "${DBS[@]}"; do
     echo "  $db"
     # -n: never overwrite an existing backup from the same day
+    # shellcheck disable=SC2029
     ssh "$HOST" "cp -n '${REMOTE_DIR}/${db}' \
         '${REMOTE_DIR}/${BACKUP_SUBDIR}/${db}' 2>/dev/null || true"
 done
@@ -101,8 +120,21 @@ echo "--- Pushing ---"
 for db in "${DBS[@]}"; do
     local_path="${BUILD_DIR}/${db}"
     echo "  $db"
+    # remember the server permissions (empty if the file is new), make
+    # the file writable for the copy, and put them back afterwards
+    # shellcheck disable=SC2029  # server-side expansion is intended
+    mode=$(ssh "$HOST" "stat -c %a '${REMOTE_DIR}/${db}' 2>/dev/null || true")
+    if [[ -n "$mode" ]]; then
+        # shellcheck disable=SC2029
+        ssh "$HOST" "chmod u+w '${REMOTE_DIR}/${db}'"
+    fi
     scp "$local_path" "${HOST}:${REMOTE_DIR}/${db}"
+    if [[ -n "$mode" ]]; then
+        # shellcheck disable=SC2029
+        ssh "$HOST" "chmod '${mode}' '${REMOTE_DIR}/${db}'"
+    fi
     local_sum=$(sha256sum "$local_path" | cut -d' ' -f1)
+    # shellcheck disable=SC2029
     remote_sum=$(ssh "$HOST" "sha256sum '${REMOTE_DIR}/${db}'" | cut -d' ' -f1)
     if [[ "$local_sum" != "$remote_sum" ]]; then
         echo "Error: checksum mismatch for ${db} after upload!" >&2
