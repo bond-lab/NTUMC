@@ -19,6 +19,7 @@ from dataclasses import asdict, dataclass, fields
 from pathlib import Path
 
 from .model import (
+    Count,
     Entry,
     Form,
     Frame,
@@ -38,6 +39,7 @@ ACTIONS: dict[str, tuple[str, ...]] = {
     "keep_sense": ("synset", "lemma"),
     "set_confidence": ("synset", "lemma", "new"),
     "rename_lemma": ("synset", "lemma", "new"),
+    "set_count": ("synset", "lemma", "new", "corpus"),
     "add_form": ("lemma", "pos", "new"),
     "remove_form": ("lemma", "pos", "old"),
     "set_definition": ("synset", "new"),
@@ -78,7 +80,9 @@ class Change:
         script: the script of a form added
         ili: the ILI of a synset added (a CILI id, ``in``, or empty)
         identifier: the local concept id of a synset added (``dc:identifier``)
+        corpus: the corpus a count comes from (``dc:source``)
         user: who made the change
+        date: when the change was decided, if not clear from the id
         source: the evidence: a person, a lexicon, a corpus tag
         reason: why
         base: the release the change was made against
@@ -102,7 +106,9 @@ class Change:
     script: str | None = None
     ili: str | None = None
     identifier: str | None = None
+    corpus: str | None = None
     user: str | None = None
+    date: str | None = None
     source: str | None = None
     reason: str | None = None
     base: str | None = None
@@ -273,8 +279,24 @@ def _sense(lex: _Lexicon, c: Change) -> str | None:
         for _, sense in found:
             sense.meta["confidenceScore"] = str(c.new)
         return None
+    if c.action == "set_count":
+        return _set_count(found, c)
     for entry, sense in found:
         _rename(lex, entry, sense, str(c.new))
+    return None
+
+
+def _set_count(found: list[tuple[Entry, Sense]], c: Change) -> str | None:
+    """Set how often a sense was seen in one corpus; ``new`` 0 removes the count."""
+    sense = next((s for _, s in found if any(
+        n.meta.get("dc:source") == c.corpus for n in s.counts)), found[0][1])
+    current = next((n for n in sense.counts if n.meta.get("dc:source") == c.corpus), None)
+    if c.old is not None and (current.text if current else "0") != c.old:
+        return f"{c.corpus} count of {c.lemma} in {c.synset} is not {c.old}"
+    if current is not None:
+        sense.counts.remove(current)
+    if c.new != "0":
+        sense.counts.append(Count(text=c.new, meta={"dc:source": str(c.corpus)}))
     return None
 
 
@@ -467,7 +489,8 @@ def _merge_synset(lex: _Lexicon, c: Change) -> str | None:
 
 HANDLERS = {
     "add_sense": _add_sense, "remove_sense": _sense, "keep_sense": _sense,
-    "set_confidence": _sense, "rename_lemma": _sense, "add_form": _add_form,
+    "set_confidence": _sense, "rename_lemma": _sense, "set_count": _sense,
+    "add_form": _add_form,
     "remove_form": _add_form, "add_sense_relation": _sense_relation,
     "remove_sense_relation": _sense_relation,
     "set_definition": _text, "add_example": _text, "add_relation": _relation,

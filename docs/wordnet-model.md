@@ -131,7 +131,8 @@ python -m ntumc.wordnet apply BASE.xml CHANGES.jsonl NEW.xml --version 2.2
 ```
 
 Every record has `id`, `action`, `lexicon`, `user`, `source` and
-`reason`; `base` is the release it was made against.
+`reason`; `base` is the release it was made against and `date` the day
+it was decided, where the id does not say.
 
 | action | needs | does |
 |---|---|---|
@@ -140,6 +141,7 @@ Every record has `id`, `action`, `lexicon`, `user`, `source` and
 | `keep_sense` | `synset`, `lemma` | nothing: records a decision to keep a sense |
 | `set_confidence` | `synset`, `lemma`, `new` | sets `confidenceScore` |
 | `rename_lemma` | `synset`, `lemma`, `new` | gives the sense another written form |
+| `set_count` | `synset`, `lemma`, `new`, `corpus` | how often the sense was seen in a corpus; 0 removes the count |
 | `add_form` | `lemma`, `pos`, `new` | adds a written form (`script`) |
 | `remove_form` | `lemma`, `pos`, `old` | removes a written form |
 | `set_definition` | `synset`, `new` | replaces the definition `old`, or adds one (`lang`) |
@@ -209,12 +211,11 @@ python -m ntumc.wordnet diff OLD.xml NEW.xml CHANGES.jsonl \
 synset and how surely, forms, definitions, examples, relations), not by
 identifiers or order, and writes the change records that turn the old
 into the new.  It then applies them to the old version and reports
-anything still different: tags, counts and metadata have no change
-record.  This is how a wordnet moves to base plus log: run the old
+anything still different: tags and metadata have no change record.  This is how a wordnet moves to base plus log: run the old
 build one last time and diff it against the last release.
 
 Checked on wnja: the released 2.1 against a build of the repository
-today gives 2,131 records (34 senses removed, 12 added, 3 confidences,
-6 forms, 3 definitions, 2,073 sense relations: the agentive links).
-They apply with no conflict, and the only difference left is two
-corpus counts on new senses, which a build step should compute.
+today gives 2,133 records (34 senses removed, 12 added, 3 confidences,
+6 forms, 3 definitions, 2 corpus counts, 2,073 sense relations: the
+agentive links).  They apply with no conflict and leave nothing
+unexplained.

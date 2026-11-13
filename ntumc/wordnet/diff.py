@@ -6,8 +6,7 @@ its forms, the definitions, examples and relations.  It is how an
 existing build becomes a change log: build as before one last time,
 and diff the result against the last release.
 
-Not every difference has a change record (tags, counts, entry
-metadata).  ``residual`` applies the records to the old version and
+Not every difference has a change record (tags, entry metadata).  ``residual`` applies the records to the old version and
 lists what still differs from the new one, so nothing is passed over
 in silence.
 """
@@ -38,7 +37,7 @@ def facts(items: Iterable[Item]) -> Counter[Fact]:
     Returns:
         A multiset of facts; the first element of each names its kind:
         ``sense``, ``conf``, ``form``, ``def``, ``ex``, ``rel``, ``srel``,
-        ``synset``, and ``tag``, ``count``, ``meta`` for what has no
+        ``count``, ``synset``, and ``tag``, ``meta`` for what has no
         change record
     """
     items = list(items)
@@ -54,7 +53,7 @@ def facts(items: Iterable[Item]) -> Counter[Fact]:
                     out[("srel", s.synset, i.lemma, r.link, *where.get(r.target, (r.target, None)),
                          r.meta.get("dc:type"))] += 1
                 for c in s.counts:
-                    out[("count", s.synset, i.lemma, c.text, tuple(sorted(c.meta.items())))] += 1
+                    out[("count", s.synset, i.lemma, i.pos, c.meta.get("dc:source"), c.text)] += 1
                 rest = {k: v for k, v in s.meta.items() if k != "confidenceScore"}
                 if rest or s.lexicalized or s.adjposition or s.subcat or s.examples:
                     out[("meta", "sense", s.synset, i.lemma, tuple(sorted(rest.items())),
@@ -97,7 +96,7 @@ def diff(old: Iterable[Item], new: Iterable[Item], **common: str) -> list[Change
 
     Returns:
         Change records in an order that applies: synsets, senses,
-        confidence, forms, texts, relations
+        confidence, counts, forms, texts, relations
     """
     old, new = list(old), list(new)
     a, b = facts(old), facts(new)
@@ -147,6 +146,13 @@ def diff(old: Iterable[Item], new: Iterable[Item], **common: str) -> list[Change
         if (synset, lemma, pos) not in added and (synset, lemma, pos) in was:
             add("set_confidence", synset=synset, lemma=lemma, pos=pos,
                 old=str(was[(synset, lemma, pos)]), new=str(conf))
+    counted = {f[1:5]: f[5] for f in of("count", gone)}
+    for _, synset, lemma, pos, corpus, n in of("count", come):
+        add("set_count", synset=synset, lemma=lemma, pos=pos, corpus=corpus, new=n,
+            old=counted.pop((synset, lemma, pos, corpus), None))
+    for (synset, lemma, pos, corpus), n in counted.items():
+        if ("sense", synset, lemma, pos) not in gone:
+            add("set_count", synset=synset, lemma=lemma, pos=pos, corpus=corpus, new="0", old=n)
     for _, lemma, pos, form, _script in of("form", gone):
         if (lemma, pos) in new_entries:
             add("remove_form", lemma=lemma, pos=pos, old=form)

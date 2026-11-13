@@ -277,7 +277,7 @@ def test_diff_gives_records_that_rebuild_the_new_version(base: Path, tmp_path: P
     assert (form.new, form.reading) == ("ケン", "けん")  # 犬 has two entries: which one
 
 
-def test_diff_reports_what_has_no_record(base: Path, tmp_path: Path) -> None:
+def test_diff_covers_counts(base: Path, tmp_path: Path) -> None:
     # Arrange
     new = tmp_path / "new.xml"
     new.write_text(XML.replace('<Sense id="tst-1-n-3" synset="tst-1-n" />',
@@ -288,5 +288,9 @@ def test_diff_reports_what_has_no_record(base: Path, tmp_path: Path) -> None:
                         source="rebuild", reason="test")
     conflicts, extra, missing = diff.residual(lmf.read(base), lmf.read(new), records)
     # Assert
-    assert records == [] and conflicts == [] and not extra
-    assert [f[0] for f in missing] == ["count"]
+    assert [(r.action, r.new, r.corpus) for r in records] == [("set_count", "3", "x")]
+    assert conflicts == [] and not extra and not missing
+    back = diff.diff(lmf.read(new), lmf.read(base), lexicon="tst", user="ann",
+                     source="rebuild", reason="test")
+    assert [(r.action, r.old, r.new) for r in back] == [("set_count", "3", "0")]
+    assert diff.residual(lmf.read(new), lmf.read(base), back) == ([], {}, {})
