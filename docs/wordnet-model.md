@@ -141,9 +141,11 @@ Every record has `id`, `action`, `lexicon`, `user`, `source` and
 | `set_confidence` | `synset`, `lemma`, `new` | sets `confidenceScore` |
 | `rename_lemma` | `synset`, `lemma`, `new` | gives the sense another written form |
 | `add_form` | `lemma`, `pos`, `new` | adds a written form (`script`) |
+| `remove_form` | `lemma`, `pos`, `old` | removes a written form |
 | `set_definition` | `synset`, `new` | replaces the definition `old`, or adds one (`lang`) |
 | `add_example` | `synset`, `new` | adds an example (`lang`) |
 | `add_relation`, `remove_relation` | `synset`, `link`, `target` | one direction; the reverse is its own record |
+| `add_sense_relation`, `remove_sense_relation` | `synset`, `lemma`, `link`, `target`, `target_lemma` | a relation between two senses, each named by synset and word (`subtype`: its `dc:type`) |
 | `add_synset` | `synset`, `pos`, `new` | a new synset with definition `new` (`ili`, `identifier` for a local concept id) |
 | `merge_synset` | `synset`, `target` | moves senses and relations to `target` and drops `synset` |
 
@@ -195,3 +197,24 @@ local_id    pos  definition  proposed_by  date  cili  status
 * The concepts themselves (definition, relations) live in one shared
   lexicon with `language="mul"`, as omw-pronoun does; the language
   lexicons only add words.
+
+## From an existing build to a change log
+
+```
+python -m ntumc.wordnet diff OLD.xml NEW.xml CHANGES.jsonl \
+    --user fcbond --source "wnja build" --reason "since 2.1" --base wnja-2.1
+```
+
+`diff` compares two versions by what they say (which word is in which
+synset and how surely, forms, definitions, examples, relations), not by
+identifiers or order, and writes the change records that turn the old
+into the new.  It then applies them to the old version and reports
+anything still different: tags, counts and metadata have no change
+record.  This is how a wordnet moves to base plus log: run the old
+build one last time and diff it against the last release.
+
+Checked on wnja: the released 2.1 against a build of the repository
+today gives 2,131 records (34 senses removed, 12 added, 3 confidences,
+6 forms, 3 definitions, 2,073 sense relations: the agentive links).
+They apply with no conflict, and the only difference left is two
+corpus counts on new senses, which a build step should compute.

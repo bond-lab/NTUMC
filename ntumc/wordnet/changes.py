@@ -18,7 +18,18 @@ from collections.abc import Iterable, Iterator
 from dataclasses import asdict, dataclass, fields
 from pathlib import Path
 
-from .model import Entry, Form, Frame, Item, Lexicon, Relation, Sense, Synset, Text
+from .model import (
+    Entry,
+    Form,
+    Frame,
+    Item,
+    Lexicon,
+    Relation,
+    Sense,
+    SenseRelation,
+    Synset,
+    Text,
+)
 
 # action -> the fields it needs, besides those every change needs
 ACTIONS: dict[str, tuple[str, ...]] = {
@@ -28,15 +39,19 @@ ACTIONS: dict[str, tuple[str, ...]] = {
     "set_confidence": ("synset", "lemma", "new"),
     "rename_lemma": ("synset", "lemma", "new"),
     "add_form": ("lemma", "pos", "new"),
+    "remove_form": ("lemma", "pos", "old"),
     "set_definition": ("synset", "new"),
     "add_example": ("synset", "new"),
     "add_relation": ("synset", "link", "target"),
     "remove_relation": ("synset", "link", "target"),
+    "add_sense_relation": ("synset", "lemma", "link", "target", "target_lemma"),
+    "remove_sense_relation": ("synset", "lemma", "link", "target", "target_lemma"),
     "add_synset": ("synset", "pos", "new"),
     "merge_synset": ("synset", "target"),
 }
 ALWAYS = ("id", "action", "lexicon", "user", "source", "reason")
-ADDITIONS = {"add_sense", "add_form", "add_example", "add_relation", "add_synset"}
+ADDITIONS = {"add_sense", "add_form", "add_example", "add_relation", "add_sense_relation",
+             "add_synset"}
 READING_SCRIPTS = {"hira"}  # forms in these scripts are an entry's readings
 
 
@@ -57,6 +72,8 @@ class Change:
         new: the value wanted (confidence, lemma, form, definition, example)
         link: the relation type, for relations
         target: the other synset, for relations and merges
+        target_lemma: the word in ``target``, for a relation between senses
+        subtype: what kind of ``other`` relation it is (``dc:type``)
         lang: the language of a definition or example, if not the lexicon's
         script: the script of a form added
         ili: the ILI of a synset added (a CILI id, ``in``, or empty)
@@ -79,6 +96,8 @@ class Change:
     new: str | None = None
     link: str | None = None
     target: str | None = None
+    target_lemma: str | None = None
+    subtype: str | None = None
     lang: str | None = None
     script: str | None = None
     ili: str | None = None
@@ -321,6 +340,12 @@ def _add_form(lex: _Lexicon, c: Change) -> str | None:
     entries = lex.entries_for(c)
     if not entries:
         return f"no entry {c.lemma} ({c.pos})"
+    if c.action == "remove_form":
+        if not any(f.form == c.old for e in entries for f in e.forms):
+            return f"{c.lemma} ({c.pos}) has no form {c.old}"
+        for e in entries:
+            e.forms = [f for f in e.forms if f.form != c.old]
+        return None
     if all(c.new == e.lemma or any(f.form == c.new for f in e.forms) for e in entries):
         return f"{c.lemma} ({c.pos}) already has the form {c.new}"
     for e in entries:
@@ -364,6 +389,35 @@ def _relation(lex: _Lexicon, c: Change) -> str | None:
         return f"{c.synset} already has {c.link} to {c.target}"
     else:
         synset.relations.append(Relation(link=c.link, target=c.target))
+    return None
+
+
+def _sense_relation(lex: _Lexicon, c: Change) -> str | None:
+    """Add or remove a relation between two senses, each named by synset and lemma."""
+    sources = lex.senses_for(c)
+    targets = [s for e in lex.by_lemma.get(c.target_lemma or "", [])
+               for s in e.senses if s.synset == c.target]
+    if not sources or not targets:
+        missing = (c.lemma, c.synset) if not sources else (c.target_lemma, c.target)
+        return "no sense of {} in {}".format(*missing)
+    meta = {"dc:type": c.subtype} if c.subtype else {}
+    ids = {t.id for t in targets}
+
+    def same(r: SenseRelation) -> bool:
+        return r.link == c.link and r.target in ids and r.meta == meta
+
+    have = any(same(r) for _, s in sources for r in s.relations)
+    if c.action == "remove_sense_relation":
+        if not have:
+            return f"no {c.link} from {c.lemma} to {c.target_lemma}"
+        for _, s in sources:
+            s.relations = [r for r in s.relations if not same(r)]
+    elif have:
+        return f"{c.lemma} already has {c.link} to {c.target_lemma}"
+    else:
+        for _, s in sources:
+            s.relations += [SenseRelation(link=c.link, target=t.id, meta=dict(meta))
+                            for t in targets]
     return None
 
 
@@ -414,6 +468,8 @@ def _merge_synset(lex: _Lexicon, c: Change) -> str | None:
 HANDLERS = {
     "add_sense": _add_sense, "remove_sense": _sense, "keep_sense": _sense,
     "set_confidence": _sense, "rename_lemma": _sense, "add_form": _add_form,
+    "remove_form": _add_form, "add_sense_relation": _sense_relation,
+    "remove_sense_relation": _sense_relation,
     "set_definition": _text, "add_example": _text, "add_relation": _relation,
     "remove_relation": _relation, "add_synset": _add_synset, "merge_synset": _merge_synset,
 }

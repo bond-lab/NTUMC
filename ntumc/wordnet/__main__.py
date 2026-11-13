@@ -23,6 +23,15 @@ To make a release from a base and its change records:
 
 ``apply`` lists the changes that do not fit the base and, if there are
 any, exits 1 without writing NEW.xml.
+
+To get the change records that turn one version into another:
+
+    python -m ntumc.wordnet diff OLD.xml NEW.xml CHANGES.jsonl \\
+        --user U --source S --reason R [--base B]
+
+``diff`` also applies the records to OLD and reports what still differs
+from NEW (differences that have no change record); it exits 1 if the
+records do not apply cleanly.
 """
 
 from __future__ import annotations
@@ -30,9 +39,11 @@ from __future__ import annotations
 import argparse
 import sys
 import tempfile
+from collections import Counter
 from pathlib import Path
 
 from . import changes, jsonl, lmf, store
+from . import diff as differ
 from .model import Lexicon
 
 
@@ -94,6 +105,30 @@ def apply(base: Path, records: Path, out: Path, version: str | None = None) -> l
     return []
 
 
+def diff(old: Path, new: Path, out: Path, **common: str) -> tuple[list[str], list[str]]:
+    """Write the change records that turn ``old`` into ``new``.
+
+    Args:
+        old: the earlier WN-LMF file
+        new: the later one
+        out: where to write the records (JSON Lines)
+        **common: ``user``, ``source``, ``reason`` and ``base`` for every record
+
+    Returns:
+        the conflicts, and one line per kind of difference left unexplained
+    """
+    lexicon = next(i for i in lmf.read(old) if isinstance(i, Lexicon)).id
+    records = differ.diff(lmf.read(old), lmf.read(new), lexicon=str(lexicon), **common)
+    counts = Counter(r.action for r in records)
+    print(f"{changes.write(out, records)} records: "
+          + ", ".join(f"{n} {a}" for a, n in sorted(counts.items())))
+    conflicts, extra, missing = differ.residual(lmf.read(old), lmf.read(new), records)
+    left = [f"{n} {kind} only in {side}"
+            for side, facts in (("the result", extra), (new.name, missing))
+            for kind, n in sorted(Counter(f[0] for f in facts.elements()).items())]
+    return conflicts, left
+
+
 def main() -> None:
     """Command-line entry point."""
     ap = argparse.ArgumentParser(prog="python -m ntumc.wordnet", description=__doc__,
@@ -123,6 +158,13 @@ def main() -> None:
     p.add_argument("changes", type=Path)
     p.add_argument("out", type=Path)
     p.add_argument("--version", help="version of the new release")
+    p = sub.add_parser("diff")
+    p.add_argument("old", type=Path)
+    p.add_argument("new", type=Path)
+    p.add_argument("out", type=Path)
+    for name in ("user", "source", "reason"):
+        p.add_argument(f"--{name}", required=True)
+    p.add_argument("--base", help="the release the records are made against")
     a = ap.parse_args()
     if a.cmd == "dump":
         for stem, n in sorted(dump(a.db, a.outdir, not a.no_history).items()):
@@ -136,6 +178,11 @@ def main() -> None:
     elif a.cmd == "apply":
         conflicts = apply(a.base, a.changes, a.out, a.version)
         print("\n".join(conflicts) if conflicts else f"written: {a.out}")
+        sys.exit(1 if conflicts else 0)
+    elif a.cmd == "diff":
+        common = {k: getattr(a, k) for k in ("user", "source", "reason", "base") if getattr(a, k)}
+        conflicts, left = diff(a.old, a.new, a.out, **common)
+        print("\n".join(conflicts + left) if conflicts or left else "nothing left unexplained")
         sys.exit(1 if conflicts else 0)
     else:
         diffs = check(a.db, a.keep) if a.cmd == "check" else check_lmf(a.xml, a.keep)

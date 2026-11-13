@@ -4,8 +4,9 @@ from pathlib import Path
 
 import pytest
 
-from ntumc.wordnet import changes, lmf
+from ntumc.wordnet import changes, diff, lmf
 from ntumc.wordnet.__main__ import apply
+from ntumc.wordnet.__main__ import diff as diff_files
 from ntumc.wordnet.changes import Change
 from ntumc.wordnet.model import Entry, Item, Synset
 
@@ -222,3 +223,70 @@ def test_apply_writes_nothing_when_there_is_a_conflict(base: Path, tmp_path: Pat
     assert clean == []
     new = list(lmf.read(tmp_path / "good.xml"))
     assert new[0].version == "2" and "tst-n-2" not in entries(new)
+
+
+def test_sense_relations_and_form_removal(base: Path) -> None:
+    # Arrange
+    link = {"synset": "tst-1-n", "lemma": "ワンワン", "link": "other", "target": "tst-2-n",
+                "target_lemma": "犬", "subtype": "agent"}
+    # Act
+    items, conflicts = run(
+        base,
+        change("add_sense_relation", 1, **link),
+        change("add_sense_relation", 2, **link),
+        change("remove_form", 3, lemma="狗", pos="n", old="いぬ"),
+        change("remove_form", 4, lemma="狗", pos="n", old="いぬ"))
+    # Assert
+    assert [c.split(":")[0] for c in conflicts] == ["c2", "c4"]
+    rel = entries(items)["tst-n-3"].senses[0].relations[0]
+    assert (rel.link, rel.target, rel.meta) == ("other", "tst-2-n-0", {"dc:type": "agent"})
+    assert entries(items)["tst-n-2"].forms == []
+    again, conflicts = changes.apply(items, [change("remove_sense_relation", 5, **link)])
+    assert conflicts == [] and entries(again)["tst-n-3"].senses[0].relations == []
+
+
+NEW = (XML
+       .replace('<Sense id="tst-1-n-3" synset="tst-1-n" />',
+                '<Sense id="tst-2-n-3" synset="tst-2-n" confidenceScore="0.5" />')
+       .replace('confidenceScore="0.8"', 'confidenceScore="0.6"')
+       .replace("a canine", "a dog")
+       .replace('<Form writtenForm="けん" script="hira" />',
+                '<Form writtenForm="けん" script="hira" /><Form writtenForm="ケン" script="kana" />')
+       .replace('<SynsetRelation relType="similar" target="tst-1-n" />',
+                '<SynsetRelation relType="also" target="tst-1-n" /><Example>x y</Example>')
+       .replace("</Lexicon>", '<Synset id="tst-9-n" ili="in" partOfSpeech="n" '
+                'dc:identifier="ntumc00001"><Definition>a young dog</Definition></Synset>'
+                "</Lexicon>"))
+
+
+def test_diff_gives_records_that_rebuild_the_new_version(base: Path, tmp_path: Path) -> None:
+    # Arrange
+    new = tmp_path / "new.xml"
+    new.write_text(NEW, encoding="utf-8")
+    # Act
+    conflicts, left = diff_files(base, new, tmp_path / "c.jsonl", user="ann",
+                                 source="rebuild", reason="test", base="tst-1")
+    # Assert
+    assert (conflicts, left) == ([], [])
+    records = list(changes.read(tmp_path / "c.jsonl"))
+    assert {r.action for r in records} == {
+        "add_synset", "remove_sense", "add_sense", "set_confidence", "add_form",
+        "set_definition", "add_example", "remove_relation", "add_relation"}
+    assert all(r.lexicon == "tst" and r.base == "tst-1" for r in records)
+    form = next(r for r in records if r.action == "add_form")
+    assert (form.new, form.reading) == ("ケン", "けん")  # 犬 has two entries: which one
+
+
+def test_diff_reports_what_has_no_record(base: Path, tmp_path: Path) -> None:
+    # Arrange
+    new = tmp_path / "new.xml"
+    new.write_text(XML.replace('<Sense id="tst-1-n-3" synset="tst-1-n" />',
+                               '<Sense id="tst-1-n-3" synset="tst-1-n">'
+                               '<Count dc:source="x">3</Count></Sense>'), encoding="utf-8")
+    # Act
+    records = diff.diff(lmf.read(base), lmf.read(new), lexicon="tst", user="ann",
+                        source="rebuild", reason="test")
+    conflicts, extra, missing = diff.residual(lmf.read(base), lmf.read(new), records)
+    # Assert
+    assert records == [] and conflicts == [] and not extra
+    assert [f[0] for f in missing] == ["count"]
