@@ -95,7 +95,8 @@ def diff(old: Iterable[Item], new: Iterable[Item], **common: str) -> list[Change
             ``source``, ``reason``, ``base``
 
     Returns:
-        Change records in an order that applies: synsets, senses,
+        Change records in an order that applies: new synsets, senses,
+        emptied synsets,
         confidence, counts, forms, tags, texts, relations
     """
     old, new = list(old), list(new)
@@ -133,6 +134,9 @@ def diff(old: Iterable[Item], new: Iterable[Item], **common: str) -> list[Change
             come[("def", sid, None, new_defs.get((sid, None), ""))] -= 1
     for _, synset, lemma, pos in of("sense", gone):
         add("remove_sense", synset=synset, lemma=lemma, pos=pos)
+    dropped = {f[1] for f in of("synset", gone)} - {f[1] for f in of("synset", come)}
+    for sid in sorted(dropped):
+        add("remove_synset", synset=sid)
     added = set()
     confidence = {f[1:4]: f[4] for f in of("conf", b)}
     for _, synset, lemma, pos in of("sense", come):
@@ -175,7 +179,8 @@ def diff(old: Iterable[Item], new: Iterable[Item], **common: str) -> list[Change
         add("add_example", synset=sid, lang=lang, new=text)
     for side, action in ((gone, "remove_relation"), (come, "add_relation")):
         for _, sid, link, target in of("rel", side):
-            add(action, synset=sid, link=link, target=target)
+            if sid not in dropped and target not in dropped:
+                add(action, synset=sid, link=link, target=target)
     for side, action in ((gone, "remove_sense_relation"), (come, "add_sense_relation")):
         for _, synset, lemma, link, target, target_lemma, subtype in of("srel", side):
             if target_lemma is not None:

@@ -368,3 +368,32 @@ def test_diff_covers_tags(base: Path, tmp_path: Path) -> None:
     assert diff.residual(lmf.read(base), lmf.read(new), records) == ([], {}, {})
     assert [(r.action, r.old, r.new) for r in back] == [("set_tag", "na", "")]
     assert diff.residual(lmf.read(new), lmf.read(base), back) == ([], {}, {})
+
+
+def test_remove_synset_needs_the_synset_to_be_empty(base: Path) -> None:
+    # Act
+    items, conflicts = run(
+        base,
+        change("remove_synset", 1, synset="tst-3-n"),
+        change("remove_sense", 2, synset="tst-3-n", lemma="犬"),
+        change("remove_synset", 3, synset="tst-3-n"),
+        change("remove_synset", 4, synset="tst-3-n"))
+    # Assert
+    assert [c.split(":")[0] for c in conflicts] == ["c1", "c4"]
+    assert "tst-3-n" not in synsets(items)
+
+
+def test_diff_drops_a_synset_that_is_gone(base: Path, tmp_path: Path) -> None:
+    # Arrange
+    new = tmp_path / "new.xml"
+    start = XML.index('    <LexicalEntry id="tst-n-1">')
+    end = XML.index('    <LexicalEntry id="tst-n-2">')
+    text = XML[:start] + XML[end:]
+    start = text.index('    <Synset id="tst-3-n"')
+    new.write_text(text[:start] + "  </Lexicon>\n</LexicalResource>\n", encoding="utf-8")
+    # Act
+    records = diff.diff(lmf.read(base), lmf.read(new), lexicon="tst", user="ann",
+                        source="rebuild", reason="test")
+    # Assert
+    assert [r.action for r in records] == ["remove_sense", "remove_synset", "remove_form"]
+    assert diff.residual(lmf.read(base), lmf.read(new), records) == ([], {}, {})

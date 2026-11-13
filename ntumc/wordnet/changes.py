@@ -53,6 +53,7 @@ ACTIONS: dict[str, tuple[str, ...]] = {
     "reject_sense_relation": ("synset", "lemma", "target", "target_lemma"),
     "add_synset": ("synset", "pos", "new"),
     "merge_synset": ("synset", "target"),
+    "remove_synset": ("synset",),
 }
 ALWAYS = ("id", "action", "lexicon", "user", "source", "reason")
 ADDITIONS = {"add_sense", "add_form", "add_example", "add_relation", "add_sense_relation",
@@ -511,6 +512,18 @@ def _add_synset(lex: _Lexicon, c: Change) -> str | None:
     return None
 
 
+def _remove_synset(lex: _Lexicon, c: Change) -> str | None:
+    """Drop a synset no word is in, and the relations that point to it."""
+    if c.synset not in lex.synsets:
+        return f"no synset {c.synset}"
+    if any(s.synset == c.synset for e in lex.entries for s in e.senses):
+        return f"{c.synset} still has senses: remove them first"
+    del lex.synsets[str(c.synset)]
+    for synset in lex.synsets.values():
+        synset.relations = [r for r in synset.relations if r.target != c.synset]
+    return None
+
+
 def _merge_synset(lex: _Lexicon, c: Change) -> str | None:
     """Move the senses and relations of ``synset`` to ``target`` and drop it."""
     old, new = lex.synsets.get(c.synset or ""), lex.synsets.get(c.target or "")
@@ -553,6 +566,7 @@ HANDLERS = {
     "reject_sense_relation": _reject_sense_relation, "set_tag": _set_tag,
     "set_definition": _text, "add_example": _text, "add_relation": _relation,
     "remove_relation": _relation, "add_synset": _add_synset, "merge_synset": _merge_synset,
+    "remove_synset": _remove_synset,
 }
 
 
