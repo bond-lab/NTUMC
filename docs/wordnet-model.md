@@ -145,6 +145,7 @@ it was decided, where the id does not say.
 | `add_form` | `lemma`, `pos`, `new` | adds a written form (`script`) |
 | `remove_form` | `lemma`, `pos`, `old` | removes a written form |
 | `set_tag` | `lemma`, `pos`, `category`, `new` | sets the lemma's tag in a category (e.g. `adjective-class`); an empty `new` removes it |
+| `set_pronunciation` | `lemma`, `pos`, `new` | sets the lemma's one pronunciation (`notation`: how it is written or was made, e.g. `composed`); an empty `new` removes it |
 | `set_definition` | `synset`, `new` | replaces the definition `old`, or adds one (`lang`) |
 | `add_example` | `synset`, `new` | adds an example (`lang`) |
 | `add_relation`, `remove_relation` | `synset`, `link`, `target` | one direction; the reverse is its own record |
@@ -164,7 +165,7 @@ there, its `old` value is not the current one, what it adds already
 exists, or the record is incomplete.  `apply` lists the conflicts and
 writes nothing until a person has settled them.  `source` is required,
 and a model alone (a source beginning `model`) is not a source for an
-addition, which includes setting a tag.  A rejection does not need its
+addition, which includes setting a tag or a pronunciation.  A rejection does not need its
 senses to be in the lexicon: often one of them was the mistake.
 
 A lexicon that extends another (COW and Wordnet Bahasa extend omw-en)

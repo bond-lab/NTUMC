@@ -414,3 +414,24 @@ def test_drop_empty_synsets_keeps_what_says_something(base: Path) -> None:
     assert dropped == ["tst-2-n", "tst-3-n"]
     assert set(synsets(kept)) == {"tst-1-n", "tst-8-n", "tst-9-n"}
     assert synsets(kept)["tst-1-n"].relations == []  # its hypernym is gone
+
+
+def test_set_pronunciation_sets_checks_and_removes(base: Path) -> None:
+    # Arrange
+    word = {"lemma": "ワンワン", "pos": "n"}
+    # Act
+    items, conflicts = run(
+        base,
+        change("set_pronunciation", 1, new="wan wan", notation="composed", **word),
+        change("set_pronunciation", 2, new="wan wan", notation="composed", **word),
+        change("set_pronunciation", 3, old="x", new="wanwan", **word),
+        change("set_pronunciation", 4, old="wan wan", new="wanwan", **word))
+    # Assert
+    assert [c.split(":")[0] for c in conflicts] == ["c2", "c3"]
+    said = entries(items)["tst-n-3"].pronunciations
+    assert [(p.text, p.notation) for p in said] == [("wanwan", None)]
+    again, conflicts = changes.apply(items, [change("set_pronunciation", 5, new="", **word)])
+    assert conflicts == [] and entries(again)["tst-n-3"].pronunciations == []
+    model = Change(id="c6", action="set_pronunciation", lexicon="tst", user="ann",
+                   source="model: x", reason="test", new="wan", **word)
+    assert changes.validate(model) == ["a model alone is not a source for an addition"]

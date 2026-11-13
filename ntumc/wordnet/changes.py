@@ -25,6 +25,7 @@ from .model import (
     Frame,
     Item,
     Lexicon,
+    Pronunciation,
     Relation,
     Sense,
     SenseRelation,
@@ -44,6 +45,7 @@ ACTIONS: dict[str, tuple[str, ...]] = {
     "add_form": ("lemma", "pos", "new"),
     "remove_form": ("lemma", "pos", "old"),
     "set_tag": ("lemma", "pos", "category", "new"),
+    "set_pronunciation": ("lemma", "pos", "new"),
     "set_definition": ("synset", "new"),
     "add_example": ("synset", "new"),
     "add_relation": ("synset", "link", "target"),
@@ -83,6 +85,7 @@ class Change:
         lang: the language of a definition or example, if not the lexicon's
         script: the script of a form added
         category: the category of a tag, e.g. ``adjective-class``
+        notation: how a pronunciation is written or was made, e.g. ``composed``
         ili: the ILI of a synset added (a CILI id, ``in``, or empty)
         identifier: the local concept id of a synset added (``dc:identifier``)
         corpus: the corpus a count comes from (``dc:source``)
@@ -110,6 +113,7 @@ class Change:
     lang: str | None = None
     script: str | None = None
     category: str | None = None
+    notation: str | None = None
     ili: str | None = None
     identifier: str | None = None
     corpus: str | None = None
@@ -168,7 +172,8 @@ def validate(change: Change) -> list[str]:
     out = [f"{name} is missing" for name in ALWAYS + ACTIONS[change.action]
            if getattr(change, name) in (None, "")
            and not (name == "new" and change.new == "")]
-    adds = change.action in ADDITIONS or (change.action == "set_tag" and change.new)
+    adds = change.action in ADDITIONS or (
+        change.action in ("set_tag", "set_pronunciation") and change.new)
     if adds and (change.source or "").lower().startswith("model"):
         out.append("a model alone is not a source for an addition")
     return out
@@ -403,6 +408,23 @@ def _set_tag(lex: _Lexicon, c: Change) -> str | None:
     return None
 
 
+def _set_pronunciation(lex: _Lexicon, c: Change) -> str | None:
+    """Give an entry's lemma the one pronunciation ``new``; an empty ``new`` removes it."""
+    entries = lex.entries_for(c)
+    if not entries:
+        return f"no entry {c.lemma} ({c.pos})"
+    want = [(c.new, c.notation)] if c.new else []
+    for e in entries:
+        now = [(p.text, p.notation) for p in e.pronunciations]
+        if c.old is not None and [t for t, _ in now] != ([c.old] if c.old else []):
+            return f"pronunciation of {c.lemma} ({c.pos}) is not {c.old or 'unset'}"
+        if now == want:
+            return f"pronunciation of {c.lemma} ({c.pos}) is already {c.new or 'unset'}"
+    for e in entries:
+        e.pronunciations = [Pronunciation(text=t, notation=n) for t, n in want]
+    return None
+
+
 def _text(lex: _Lexicon, c: Change) -> str | None:
     """Set a definition or add an example."""
     synset = lex.synsets.get(c.synset or "")
@@ -593,6 +615,7 @@ HANDLERS = {
     "remove_form": _add_form, "add_sense_relation": _sense_relation,
     "remove_sense_relation": _sense_relation,
     "reject_sense_relation": _reject_sense_relation, "set_tag": _set_tag,
+    "set_pronunciation": _set_pronunciation,
     "set_definition": _text, "add_example": _text, "add_relation": _relation,
     "remove_relation": _relation, "add_synset": _add_synset, "merge_synset": _merge_synset,
     "remove_synset": _remove_synset,
