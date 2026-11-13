@@ -557,6 +557,35 @@ def _merge_synset(lex: _Lexicon, c: Change) -> str | None:
     return None
 
 
+def drop_empty_synsets(items: Iterable[Item]) -> tuple[list[Item], list[str]]:
+    """Drop the synsets that say nothing: no word and nothing of their own.
+
+    For a lexicon that extends another (``Requires``), where the base
+    has the concept through the ILI.  A synset is kept if a sense is in
+    it, or it has a definition, an ILI definition, an example or a
+    local concept id, or is marked ``lexicalized="false"`` (a recorded
+    gap).  Relations to a dropped synset go with it.
+
+    Args:
+        items: a ``Lexicon`` and its entries, synsets and frames
+
+    Returns:
+        the items without those synsets, and the ids dropped
+    """
+    items = list(items)
+    used = {s.synset for e in items if isinstance(e, Entry) for s in e.senses}
+    dropped = {
+        str(s.id) for s in items
+        if isinstance(s, Synset) and s.id not in used
+        and not (s.definitions or s.ili_definition or s.examples
+                 or s.meta.get("dc:identifier") or s.lexicalized == "false")}
+    kept = [i for i in items if not (isinstance(i, Synset) and i.id in dropped)]
+    for synset in kept:
+        if isinstance(synset, Synset):
+            synset.relations = [r for r in synset.relations if r.target not in dropped]
+    return kept, sorted(dropped)
+
+
 HANDLERS = {
     "add_sense": _add_sense, "remove_sense": _sense, "keep_sense": _sense,
     "set_confidence": _sense, "rename_lemma": _sense, "set_count": _sense,

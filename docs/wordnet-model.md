@@ -167,6 +167,13 @@ and a model alone (a source beginning `model`) is not a source for an
 addition, which includes setting a tag.  A rejection does not need its
 senses to be in the lexicon: often one of them was the mistake.
 
+A lexicon that extends another (COW and Wordnet Bahasa extend omw-en)
+does not keep a synset that says nothing: after the changes, their
+release step calls `drop_empty_synsets`, which drops every synset with
+no sense, no definition, no ILI definition, no example and no local
+concept id, unless it is marked `lexicalized="false"`.  The base wordnet
+still has the concept through the ILI.
+
 ### Checked against wnja
 
 wnja's `corrections/` files (12 definitions, 2,750 sense rows other

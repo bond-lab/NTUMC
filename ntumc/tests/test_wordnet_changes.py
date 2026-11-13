@@ -397,3 +397,20 @@ def test_diff_drops_a_synset_that_is_gone(base: Path, tmp_path: Path) -> None:
     # Assert
     assert [r.action for r in records] == ["remove_sense", "remove_synset", "remove_form"]
     assert diff.residual(lmf.read(base), lmf.read(new), records) == ([], {}, {})
+
+
+def test_drop_empty_synsets_keeps_what_says_something(base: Path) -> None:
+    # Arrange
+    items, _ = run(
+        base,
+        change("remove_sense", 1, synset="tst-3-n", lemma="犬"),
+        change("remove_sense", 2, synset="tst-2-n", lemma="犬"),
+        change("add_synset", 3, synset="tst-8-n", pos="n", new="a gap we define"),
+        change("add_synset", 4, synset="tst-9-n", pos="n", new="", identifier="ntumc00001"))
+    synsets(items)["tst-9-n"].definitions = []
+    # Act
+    kept, dropped = changes.drop_empty_synsets(items)
+    # Assert
+    assert dropped == ["tst-2-n", "tst-3-n"]
+    assert set(synsets(kept)) == {"tst-1-n", "tst-8-n", "tst-9-n"}
+    assert synsets(kept)["tst-1-n"].relations == []  # its hypernym is gone
