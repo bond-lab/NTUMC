@@ -527,7 +527,7 @@ def _add_synset(lex: _Lexicon, c: Change) -> str | None:
     if c.synset in lex.synsets:
         return f"synset {c.synset} exists"
     synset = Synset(id=c.synset, pos=c.pos, ili=c.ili or "",
-                    definitions=[Text(text=c.new, lang=c.lang)])
+                    definitions=[Text(text=c.new, lang=c.lang)] if c.new else [])
     if c.identifier:
         synset.meta["dc:identifier"] = c.identifier
     lex.synsets[str(c.synset)] = synset

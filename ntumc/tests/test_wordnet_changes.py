@@ -435,3 +435,12 @@ def test_set_pronunciation_sets_checks_and_removes(base: Path) -> None:
     model = Change(id="c6", action="set_pronunciation", lexicon="tst", user="ann",
                    source="model: x", reason="test", new="wan", **word)
     assert changes.validate(model) == ["a model alone is not a source for an addition"]
+
+
+def test_add_synset_without_a_definition(base: Path) -> None:
+    # Act
+    items, conflicts = run(base, change("add_synset", 1, synset="tst-7-n", pos="n", new="",
+                                        ili="i7"))
+    # Assert
+    assert conflicts == []
+    assert (synsets(items)["tst-7-n"].definitions, synsets(items)["tst-7-n"].ili) == ([], "i7")

@@ -151,7 +151,7 @@ it was decided, where the id does not say.
 | `add_relation`, `remove_relation` | `synset`, `link`, `target` | one direction; the reverse is its own record |
 | `add_sense_relation`, `remove_sense_relation` | `synset`, `lemma`, `link`, `target`, `target_lemma` | a relation between two senses, each named by synset and word (`subtype`: its `dc:type`) |
 | `reject_sense_relation` | `synset`, `lemma`, `target`, `target_lemma` | nothing: records a decision that the two senses are not related (with `link`: not by that relation, in that direction); adding the relation later is a conflict |
-| `add_synset` | `synset`, `pos`, `new` | a new synset with definition `new` (`ili`, `identifier` for a local concept id) |
+| `add_synset` | `synset`, `pos`, `new` | a new synset with definition `new`, or none if `new` is empty (`ili`, `identifier` for a local concept id) |
 | `remove_synset` | `synset` | drops a synset no word is in, and the relations pointing to it |
 | `merge_synset` | `synset`, `target` | moves senses and relations to `target` and drops `synset` |
 
