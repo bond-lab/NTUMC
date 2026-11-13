@@ -6,9 +6,9 @@ its forms, the definitions, examples and relations.  It is how an
 existing build becomes a change log: build as before one last time,
 and diff the result against the last release.
 
-Not every difference has a change record (tags, entry metadata).  ``residual`` applies the records to the old version and
-lists what still differs from the new one, so nothing is passed over
-in silence.
+Not every difference has a change record (entry and sense metadata).
+``residual`` applies the records to the old version and lists what
+still differs from the new one, so nothing is passed over in silence.
 """
 
 from __future__ import annotations
@@ -37,7 +37,7 @@ def facts(items: Iterable[Item]) -> Counter[Fact]:
     Returns:
         A multiset of facts; the first element of each names its kind:
         ``sense``, ``conf``, ``form``, ``def``, ``ex``, ``rel``, ``srel``,
-        ``count``, ``synset``, and ``tag``, ``meta`` for what has no
+        ``count``, ``tag``, ``synset``, and ``meta`` for what has no
         change record
     """
     items = list(items)
@@ -96,7 +96,7 @@ def diff(old: Iterable[Item], new: Iterable[Item], **common: str) -> list[Change
 
     Returns:
         Change records in an order that applies: synsets, senses,
-        confidence, counts, forms, texts, relations
+        confidence, counts, forms, tags, texts, relations
     """
     old, new = list(old), list(new)
     a, b = facts(old), facts(new)
@@ -160,6 +160,13 @@ def diff(old: Iterable[Item], new: Iterable[Item], **common: str) -> list[Change
         add("add_form", lemma=lemma, pos=pos, new=form, script=script,
             reading=reading(lemma, pos, lambda e, f=form: any(
                 x.form == f for x in e.forms) and _readings(e) != [f]))
+    tagged = {f[1:4]: f[4] for f in of("tag", gone)}
+    for _, lemma, pos, category, text in of("tag", come):
+        add("set_tag", lemma=lemma, pos=pos, category=category, new=text,
+            old=tagged.pop((lemma, pos, category), ""))
+    for (lemma, pos, category), text in tagged.items():
+        if (lemma, pos) in new_entries:
+            add("set_tag", lemma=lemma, pos=pos, category=category, new="", old=text)
     old_defs = {f[1:3]: f[3] for f in of("def", gone)}
     for _, sid, lang, text in of("def", come):
         if come[("def", sid, lang, text)] > 0:

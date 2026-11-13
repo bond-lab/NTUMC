@@ -29,6 +29,7 @@ from .model import (
     Sense,
     SenseRelation,
     Synset,
+    Tag,
     Text,
 )
 
@@ -42,12 +43,14 @@ ACTIONS: dict[str, tuple[str, ...]] = {
     "set_count": ("synset", "lemma", "new", "corpus"),
     "add_form": ("lemma", "pos", "new"),
     "remove_form": ("lemma", "pos", "old"),
+    "set_tag": ("lemma", "pos", "category", "new"),
     "set_definition": ("synset", "new"),
     "add_example": ("synset", "new"),
     "add_relation": ("synset", "link", "target"),
     "remove_relation": ("synset", "link", "target"),
     "add_sense_relation": ("synset", "lemma", "link", "target", "target_lemma"),
     "remove_sense_relation": ("synset", "lemma", "link", "target", "target_lemma"),
+    "reject_sense_relation": ("synset", "lemma", "target", "target_lemma"),
     "add_synset": ("synset", "pos", "new"),
     "merge_synset": ("synset", "target"),
 }
@@ -78,6 +81,7 @@ class Change:
         subtype: what kind of ``other`` relation it is (``dc:type``)
         lang: the language of a definition or example, if not the lexicon's
         script: the script of a form added
+        category: the category of a tag, e.g. ``adjective-class``
         ili: the ILI of a synset added (a CILI id, ``in``, or empty)
         identifier: the local concept id of a synset added (``dc:identifier``)
         corpus: the corpus a count comes from (``dc:source``)
@@ -104,6 +108,7 @@ class Change:
     subtype: str | None = None
     lang: str | None = None
     script: str | None = None
+    category: str | None = None
     ili: str | None = None
     identifier: str | None = None
     corpus: str | None = None
@@ -162,7 +167,8 @@ def validate(change: Change) -> list[str]:
     out = [f"{name} is missing" for name in ALWAYS + ACTIONS[change.action]
            if getattr(change, name) in (None, "")
            and not (name == "new" and change.new == "")]
-    if change.action in ADDITIONS and (change.source or "").lower().startswith("model"):
+    adds = change.action in ADDITIONS or (change.action == "set_tag" and change.new)
+    if adds and (change.source or "").lower().startswith("model"):
         out.append("a model alone is not a source for an addition")
     return out
 
@@ -181,6 +187,8 @@ class _Lexicon:
         self.frames: list[Frame] = []
         self.by_lemma: dict[str, list[Entry]] = {}
         self.emptied: set[int] = set()  # id() of entries a change left without senses
+        # (synset, lemma, target, target_lemma) -> [(link or None, id of the rejection)]
+        self.rejected: dict[tuple, list[tuple[str | None, str]]] = {}
         for item in items:
             if isinstance(item, Lexicon):
                 if self.header is not None:
@@ -376,6 +384,24 @@ def _add_form(lex: _Lexicon, c: Change) -> str | None:
     return None
 
 
+def _set_tag(lex: _Lexicon, c: Change) -> str | None:
+    """Give an entry's lemma the tag ``new`` in a category; an empty ``new`` removes it."""
+    entries = lex.entries_for(c)
+    if not entries:
+        return f"no entry {c.lemma} ({c.pos})"
+    for e in entries:
+        now = [t.text for t in e.tags if t.category == c.category]
+        if c.old is not None and now != ([c.old] if c.old else []):
+            return f"{c.category} of {c.lemma} ({c.pos}) is not {c.old or 'unset'}"
+        if now == ([c.new] if c.new else []):
+            return f"{c.category} of {c.lemma} ({c.pos}) is already {c.new or 'unset'}"
+    for e in entries:
+        e.tags = [t for t in e.tags if t.category != c.category]
+        if c.new:
+            e.tags.append(Tag(text=c.new, category=c.category))
+    return None
+
+
 def _text(lex: _Lexicon, c: Change) -> str | None:
     """Set a definition or add an example."""
     synset = lex.synsets.get(c.synset or "")
@@ -414,8 +440,39 @@ def _relation(lex: _Lexicon, c: Change) -> str | None:
     return None
 
 
+def _rejection(lex: _Lexicon, c: Change) -> str | None:
+    """The id of an earlier decision that the relation ``c`` adds does not hold."""
+    there = lex.rejected.get((c.synset, c.lemma, c.target, c.target_lemma), [])
+    back = lex.rejected.get((c.target, c.target_lemma, c.synset, c.lemma), [])
+    return next((i for link, i in there if link in (None, c.link)),
+                next((i for link, i in back if link is None), None))
+
+
+def _reject_sense_relation(lex: _Lexicon, c: Change) -> str | None:
+    """Record that two senses are not related; later additions are conflicts.
+
+    With ``link``, that relation in that direction; without, any
+    relation between the two senses, either way.  The senses need not
+    be in the lexicon (one of them may be the mistake).
+    """
+    ends = [(c.synset, c.lemma, c.target, c.target_lemma)]
+    if c.link is None:
+        ends.append((c.target, c.target_lemma, c.synset, c.lemma))
+    for synset, lemma, target, target_lemma in ends:
+        ids = {s.id for e in lex.by_lemma.get(target_lemma or "", [])
+               for s in e.senses if s.synset == target}
+        if any(r.target in ids and c.link in (None, r.link)
+               for e in lex.by_lemma.get(lemma or "", []) for s in e.senses
+               if s.synset == synset for r in s.relations):
+            return f"{lemma} has {c.link or 'a relation'} to {target_lemma}: remove it first"
+    lex.rejected.setdefault(ends[0], []).append((c.link, str(c.id)))
+    return None
+
+
 def _sense_relation(lex: _Lexicon, c: Change) -> str | None:
     """Add or remove a relation between two senses, each named by synset and lemma."""
+    if c.action == "add_sense_relation" and (by := _rejection(lex, c)):
+        return f"{c.link} from {c.lemma} to {c.target_lemma} was rejected by {by}"
     sources = lex.senses_for(c)
     targets = [s for e in lex.by_lemma.get(c.target_lemma or "", [])
                for s in e.senses if s.synset == c.target]
@@ -493,6 +550,7 @@ HANDLERS = {
     "add_form": _add_form,
     "remove_form": _add_form, "add_sense_relation": _sense_relation,
     "remove_sense_relation": _sense_relation,
+    "reject_sense_relation": _reject_sense_relation, "set_tag": _set_tag,
     "set_definition": _text, "add_example": _text, "add_relation": _relation,
     "remove_relation": _relation, "add_synset": _add_synset, "merge_synset": _merge_synset,
 }

@@ -144,10 +144,12 @@ it was decided, where the id does not say.
 | `set_count` | `synset`, `lemma`, `new`, `corpus` | how often the sense was seen in a corpus; 0 removes the count |
 | `add_form` | `lemma`, `pos`, `new` | adds a written form (`script`) |
 | `remove_form` | `lemma`, `pos`, `old` | removes a written form |
+| `set_tag` | `lemma`, `pos`, `category`, `new` | sets the lemma's tag in a category (e.g. `adjective-class`); an empty `new` removes it |
 | `set_definition` | `synset`, `new` | replaces the definition `old`, or adds one (`lang`) |
 | `add_example` | `synset`, `new` | adds an example (`lang`) |
 | `add_relation`, `remove_relation` | `synset`, `link`, `target` | one direction; the reverse is its own record |
 | `add_sense_relation`, `remove_sense_relation` | `synset`, `lemma`, `link`, `target`, `target_lemma` | a relation between two senses, each named by synset and word (`subtype`: its `dc:type`) |
+| `reject_sense_relation` | `synset`, `lemma`, `target`, `target_lemma` | nothing: records a decision that the two senses are not related (with `link`: not by that relation, in that direction); adding the relation later is a conflict |
 | `add_synset` | `synset`, `pos`, `new` | a new synset with definition `new` (`ili`, `identifier` for a local concept id) |
 | `merge_synset` | `synset`, `target` | moves senses and relations to `target` and drops `synset` |
 
@@ -161,7 +163,8 @@ there, its `old` value is not the current one, what it adds already
 exists, or the record is incomplete.  `apply` lists the conflicts and
 writes nothing until a person has settled them.  `source` is required,
 and a model alone (a source beginning `model`) is not a source for an
-addition.
+addition, which includes setting a tag.  A rejection does not need its
+senses to be in the lexicon: often one of them was the mistake.
 
 ### Checked against wnja
 
@@ -211,7 +214,8 @@ python -m ntumc.wordnet diff OLD.xml NEW.xml CHANGES.jsonl \
 synset and how surely, forms, definitions, examples, relations), not by
 identifiers or order, and writes the change records that turn the old
 into the new.  It then applies them to the old version and reports
-anything still different: tags and metadata have no change record.  This is how a wordnet moves to base plus log: run the old
+anything still different: entry and sense metadata have no change
+record.  This is how a wordnet moves to base plus log: run the old
 build one last time and diff it against the last release.
 
 Checked on wnja: the released 2.1 against a build of the repository

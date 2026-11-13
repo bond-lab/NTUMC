@@ -294,3 +294,77 @@ def test_diff_covers_counts(base: Path, tmp_path: Path) -> None:
                      source="rebuild", reason="test")
     assert [(r.action, r.old, r.new) for r in back] == [("set_count", "3", "0")]
     assert diff.residual(lmf.read(new), lmf.read(base), back) == ([], {}, {})
+
+
+def test_set_tag_sets_replaces_and_removes(base: Path) -> None:
+    # Arrange
+    tag = {"lemma": "ワンワン", "pos": "n", "category": "adjective-class"}
+    # Act
+    items, conflicts = run(
+        base,
+        change("set_tag", 1, new="na", **tag),
+        change("set_tag", 2, new="na", **tag),
+        change("set_tag", 3, old="no", new="na-no", **tag),
+        change("set_tag", 4, old="na", new="no", **tag))
+    # Assert
+    assert [c.split(":")[0] for c in conflicts] == ["c2", "c3"]
+    assert [(t.category, t.text) for t in entries(items)["tst-n-3"].tags] == [
+        ("adjective-class", "no")]
+    again, conflicts = changes.apply(items, [change("set_tag", 5, new="", **tag)])
+    assert conflicts == [] and entries(again)["tst-n-3"].tags == []
+
+
+def test_a_model_is_not_a_source_for_a_tag_but_may_remove_one() -> None:
+    # Arrange
+    tag = {"lemma": "犬", "pos": "n", "category": "adjective-class"}
+    # Act
+    adds = changes.validate(Change(id="c1", action="set_tag", lexicon="tst", user="ann",
+                                   source="model: x", reason="test", new="na", **tag))
+    removes = changes.validate(Change(id="c2", action="set_tag", lexicon="tst", user="ann",
+                                      source="model: x", reason="test", new="", **tag))
+    # Assert
+    assert adds == ["a model alone is not a source for an addition"]
+    assert removes == []
+
+
+def test_a_rejected_sense_relation_cannot_be_added_later(base: Path) -> None:
+    # Arrange
+    pair = {"synset": "tst-1-n", "lemma": "ワンワン", "target": "tst-2-n", "target_lemma": "犬"}
+    back = {"synset": "tst-2-n", "lemma": "犬", "target": "tst-1-n", "target_lemma": "ワンワン"}
+    other = {"synset": "tst-1-n", "lemma": "狗", "target": "tst-2-n", "target_lemma": "犬"}
+    # Act
+    items, conflicts = run(
+        base,
+        change("reject_sense_relation", 1, **pair),
+        change("add_sense_relation", 2, link="derivation", **pair),
+        change("add_sense_relation", 3, link="derivation", **back),
+        change("add_sense_relation", 4, link="derivation", **other),
+        change("reject_sense_relation", 5, **other),
+        change("reject_sense_relation", 6, link="other", **back),
+        change("reject_sense_relation", 7, synset="tst-8-n", lemma="無", target="tst-2-n",
+               target_lemma="犬"))
+    # Assert
+    assert [c.split(":")[0] for c in conflicts] == ["c2", "c3", "c5"]
+    assert "rejected by c1" in conflicts[0]
+    assert entries(items)["tst-n-3"].senses[0].relations == []
+    assert len(entries(items)["tst-n-2"].senses[0].relations) == 1
+
+
+def test_diff_covers_tags(base: Path, tmp_path: Path) -> None:
+    # Arrange
+    new = tmp_path / "new.xml"
+    new.write_text(XML.replace('<Lemma writtenForm="ワンワン" partOfSpeech="n" />',
+                               '<Lemma writtenForm="ワンワン" partOfSpeech="n">'
+                               '<Tag category="adjective-class">na</Tag></Lemma>'),
+                   encoding="utf-8")
+    # Act
+    records = diff.diff(lmf.read(base), lmf.read(new), lexicon="tst", user="ann",
+                        source="rebuild", reason="test")
+    back = diff.diff(lmf.read(new), lmf.read(base), lexicon="tst", user="ann",
+                     source="rebuild", reason="test")
+    # Assert
+    assert [(r.action, r.category, r.old, r.new) for r in records] == [
+        ("set_tag", "adjective-class", "", "na")]
+    assert diff.residual(lmf.read(base), lmf.read(new), records) == ([], {}, {})
+    assert [(r.action, r.old, r.new) for r in back] == [("set_tag", "na", "")]
+    assert diff.residual(lmf.read(new), lmf.read(base), back) == ([], {}, {})
