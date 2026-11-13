@@ -16,6 +16,13 @@ The same for a WN-LMF file:
 
 ``check-lmf`` reads the XML, writes JSON Lines, reads that back, writes
 XML and compares it with the original.
+
+To make a release from a base and its change records:
+
+    python -m ntumc.wordnet apply BASE.xml CHANGES.jsonl NEW.xml [--version V]
+
+``apply`` lists the changes that do not fit the base and, if there are
+any, exits 1 without writing NEW.xml.
 """
 
 from __future__ import annotations
@@ -25,7 +32,8 @@ import sys
 import tempfile
 from pathlib import Path
 
-from . import jsonl, lmf, store
+from . import changes, jsonl, lmf, store
+from .model import Lexicon
 
 
 def dump(db: Path, outdir: Path, history: bool = True) -> dict[str, int]:
@@ -65,6 +73,27 @@ def check_lmf(xml: Path, keep: Path | None = None) -> list[str]:
         return lmf.compare(xml, work / xml.name)
 
 
+def apply(base: Path, records: Path, out: Path, version: str | None = None) -> list[str]:
+    """Apply change records to a base WN-LMF file and write the result.
+
+    Args:
+        base: the base release
+        records: the change records (JSON Lines)
+        out: the file to write; not written if there are conflicts
+        version: the version of the new release (default: as the base)
+
+    Returns:
+        The conflicts, one line each
+    """
+    items, conflicts = changes.apply(lmf.read(base), changes.read(records))
+    if conflicts:
+        return conflicts
+    if version:
+        next(i for i in items if isinstance(i, Lexicon)).version = version
+    lmf.write(out, items)
+    return []
+
+
 def main() -> None:
     """Command-line entry point."""
     ap = argparse.ArgumentParser(prog="python -m ntumc.wordnet", description=__doc__,
@@ -89,6 +118,11 @@ def main() -> None:
     p = sub.add_parser("check-lmf")
     p.add_argument("xml", type=Path)
     p.add_argument("--keep", type=Path, help="keep the JSON Lines and the new XML here")
+    p = sub.add_parser("apply")
+    p.add_argument("base", type=Path)
+    p.add_argument("changes", type=Path)
+    p.add_argument("out", type=Path)
+    p.add_argument("--version", help="version of the new release")
     a = ap.parse_args()
     if a.cmd == "dump":
         for stem, n in sorted(dump(a.db, a.outdir, not a.no_history).items()):
@@ -99,6 +133,10 @@ def main() -> None:
         print(f"{a.jsonl.name}\t{jsonl.write_file(a.jsonl, lmf.read(a.xml))}")
     elif a.cmd == "jsonl2lmf":
         lmf.write(a.xml, jsonl.read_file(a.jsonl))
+    elif a.cmd == "apply":
+        conflicts = apply(a.base, a.changes, a.out, a.version)
+        print("\n".join(conflicts) if conflicts else f"written: {a.out}")
+        sys.exit(1 if conflicts else 0)
     else:
         diffs = check(a.db, a.keep) if a.cmd == "check" else check_lmf(a.xml, a.keep)
         print("\n".join(diffs) if diffs else "round trip: identical")

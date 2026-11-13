@@ -109,8 +109,8 @@ is not part of the model yet.
 
 ## Not done yet
 
-* Applying change records (below) to a base.
 * Building the database from the language lexicons.
+* An editor that writes change records.
 
 ## Change records
 
@@ -119,34 +119,55 @@ changes.  A release applies the list and its output is the next base.
 One record per line, in the order made; the editor appends, nothing is
 rewritten.
 
+```
+python -m ntumc.wordnet apply BASE.xml CHANGES.jsonl NEW.xml --version 2.2
+```
+
 ```json
 {"id": "2026-11-13T10:02:11Z-fcbond-1", "action": "remove_sense",
- "lexicon": "wnja", "synset": "02084071-n", "lemma": "イヌ", "pos": "n",
+ "lexicon": "wnja", "synset": "wnja-02084071-n", "lemma": "イヌ",
  "user": "fcbond", "source": "native check", "reason": "not used for this meaning",
  "base": "wnja-2.1"}
 ```
 
-| field | meaning |
-|---|---|
-| `id` | unique: time, user and a counter |
-| `action` | see below |
-| `lexicon`, `synset`, and `lemma` + `pos` or a relation or text | what is changed |
-| `old`, `new` | for changes of value: the value expected and the value wanted |
-| `user`, `source`, `reason` | who, on what evidence (a person, a lexicon, a corpus tag), and why |
-| `base` | the release the change was made against |
+Every record has `id`, `action`, `lexicon`, `user`, `source` and
+`reason`; `base` is the release it was made against.
 
-Actions: `add_sense`, `remove_sense`, `set_confidence`, `rename_lemma`,
-`add_form`, `set_definition`, `add_example`, `add_relation`,
-`remove_relation`, `add_synset`, `merge_synset`; more can be added as
-needed.  These cover the
-`action` values already used in `wnja/corrections/senses.tsv`
-(`remove`, `lower`, `rename`, `keep`, `add`), `definitions.tsv` and
-`forms.tsv`.
+| action | needs | does |
+|---|---|---|
+| `add_sense` | `synset`, `lemma` | adds the word to the synset (`new`: confidence); makes the entry if there is none |
+| `remove_sense` | `synset`, `lemma` | removes it; an entry left with no sense goes too |
+| `keep_sense` | `synset`, `lemma` | nothing: records a decision to keep a sense |
+| `set_confidence` | `synset`, `lemma`, `new` | sets `confidenceScore` |
+| `rename_lemma` | `synset`, `lemma`, `new` | gives the sense another written form |
+| `add_form` | `lemma`, `pos`, `new` | adds a written form (`script`) |
+| `set_definition` | `synset`, `new` | replaces the definition `old`, or adds one (`lang`) |
+| `add_example` | `synset`, `new` | adds an example (`lang`) |
+| `add_relation`, `remove_relation` | `synset`, `link`, `target` | one direction; the reverse is its own record |
+| `add_synset` | `synset`, `pos`, `new` | a new synset with definition `new` (`ili`, `identifier` for a local concept id) |
+| `merge_synset` | `synset`, `target` | moves senses and relations to `target` and drops `synset` |
 
-A record with `old` applies only if the value is still `old`; otherwise
-the release stops and reports a conflict for a person to settle.
-`source` is required, and a model alone is not a source for an
+Where a lemma has several entries (homographs), `pos`, `reading` (one
+of the entry's forms) or `entry` (its id) says which.  New entries and
+senses get ids made like the lexicon's others.  More actions can be
+added as needed.
+
+A change that does not fit the base is a conflict: its sense is not
+there, its `old` value is not the current one, what it adds already
+exists, or the record is incomplete.  `apply` lists the conflicts and
+writes nothing until a person has settled them.  `source` is required,
+and a model alone (a source beginning `model`) is not a source for an
 addition.
+
+### Checked against wnja
+
+wnja's `corrections/` files (12 definitions, 2,750 sense rows other
+than `add`, 1 form) were turned into 2,763 change records and applied
+to the wnja build as it is before `tweak_wnja.py`.  There were no
+conflicts, and every entry, form, sense and confidence came out the
+same as from wnja's own code.  The only difference is 14 definitions
+containing a full-width space, which wnja's XML library turns into an
+ordinary space and this code keeps.
 
 ## Local concept ids
 
