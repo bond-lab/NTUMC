@@ -55,10 +55,62 @@ and triggers, so nothing is written to the logs.  Rows are compared as
 multisets, because the tables have no row order and a few rows are
 duplicated.
 
+## WN-LMF
+
+The same classes hold a WN-LMF lexicon, so a release file can be read,
+changed and written with nothing lost.
+
+```
+python -m ntumc.wordnet lmf2jsonl WN.xml WN.jsonl
+python -m ntumc.wordnet jsonl2lmf WN.jsonl WN.xml
+python -m ntumc.wordnet check-lmf WN.xml
+```
+
+`check-lmf` reads the XML, writes JSON Lines, reads that back, writes
+XML and compares it with the original: same elements in the same order,
+same attributes, same text.  Layout, attribute order and XML comments
+are not compared.  It reports `round trip: identical` for
+
+| file | items |
+|---|---|
+| `wnja-2.1.xml` | 158,216 |
+| `cow-1.1.xml` | 128,850 |
+| `wnb-id-1.5.xml`, `wnb-zsm-1.5.xml` | 85,985 and 70,279 |
+| `wn-ntumc-jpn.xml` (the wnja source) | 221,541 |
+| `english-wordnet-2025-plus.xml` | 282,479 |
+| all omw-pronoun and omw-kinship files | 3,919 files |
+
+A file starts with a `lexicon` line, followed by its entries, synsets
+and frames in file order:
+
+```json
+{"kind": "entry", "lemma": "可能", "pos": "a", "id": "wnja-a-0",
+ "senses": [{"synset": "wnja-00051373-a", "id": "wnja-00051373-a-0",
+             "counts": [{"text": "1", "meta": {"dc:source": "JSemCor"}}]}],
+ "tags": [{"text": "na", "category": "adjective-class"}],
+ "forms": [{"form": "カノウ", "script": "kana"}]}
+```
+
+* The `Lemma` element is folded into the entry (`lemma`, `pos`,
+  `script`, `pronunciations`, `tags`).
+* Metadata attributes (`dc:contributor`, `dc:source`, `dc:identifier`,
+  `note`, `confidenceScore`, `status`) are kept in `meta` as the strings
+  written, so `0.80` does not become `0.8`.
+* A synset holds its own definitions and examples, each with its
+  language, in file order.
+* Reading fails on an element or attribute the model has no field for.
+  `LexiconExtension` is not handled yet; none of our files uses it.
+
+The database and WN-LMF fill different fields of the same classes: a
+database entry has a `wordid` and no `id`, a database synset has no
+`ili`, and so on.  Turning one into the other (identifiers, the ILI
+map, which senses to release) is what `scripts/getwn.py` does today; it
+is not part of the model yet.
+
 ## Not done yet
 
-* WN-LMF XML in and out of the same model.
 * Applying change records (below) to a base.
+* Building the database from the language lexicons.
 
 ## Change records
 

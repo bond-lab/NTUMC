@@ -20,36 +20,49 @@ from typing import IO, Any
 
 from .model import (
     Comment,
+    Count,
     Entry,
+    Form,
+    Frame,
     Gloss,
     Item,
+    Lexicon,
+    Pronunciation,
     Relation,
+    Requires,
     Row,
     Sense,
     SenseRelation,
     SenseXLink,
     Synset,
+    Tag,
     Text,
     XLink,
 )
 
-KINDS: dict[str, type] = {"synset": Synset, "gloss": Gloss, "entry": Entry, "row": Row}
+KINDS: dict[str, type] = {"synset": Synset, "gloss": Gloss, "entry": Entry, "row": Row,
+                          "lexicon": Lexicon, "frame": Frame}
 NAMES = {cls: kind for kind, cls in KINDS.items()}
 NESTED: dict[type, dict[str, type]] = {
-    Synset: {"relations": Relation, "xlinks": XLink, "comments": Comment},
+    Lexicon: {"requires": Requires},
+    Synset: {"relations": Relation, "xlinks": XLink, "comments": Comment,
+             "definitions": Text, "ili_definition": Text, "examples": Text},
     Gloss: {"definitions": Text, "examples": Text},
-    Entry: {"senses": Sense},
-    Sense: {"relations": SenseRelation, "xlinks": SenseXLink},
+    Entry: {"senses": Sense, "pronunciations": Pronunciation, "tags": Tag,
+            "forms": Form, "frames": Frame},
+    Form: {"pronunciations": Pronunciation, "tags": Tag},
+    Sense: {"relations": SenseRelation, "xlinks": SenseXLink, "examples": Text,
+            "counts": Count},
 }
 SEPARATOR = "\n-- ;;\n"
 
 
 def to_dict(obj: Any) -> dict[str, Any]:
-    """A model object as a JSON-ready dict, without None or empty lists."""
+    """A model object as a JSON-ready dict, without None, empty lists or empty meta."""
     out: dict[str, Any] = {}
     for f in fields(obj):
         v = getattr(obj, f.name)
-        if v is None or (isinstance(v, list) and not v):
+        if v is None or (isinstance(v, list | dict) and not v and f.name != "values"):
             continue
         out[f.name] = [to_dict(x) for x in v] if isinstance(v, list) else v
     return out
@@ -106,6 +119,23 @@ def write_dir(outdir: Path, ddl: Iterable[tuple[str, str, str]], items: Iterable
     return counts
 
 
+def write_file(path: Path, items: Iterable[Item]) -> int:
+    """Write model objects to one JSON Lines file; return the number of lines."""
+    n = 0
+    with path.open("w", encoding="utf-8") as f:
+        for item in items:
+            f.write(dumps(item) + "\n")
+            n += 1
+    return n
+
+
+def read_file(path: Path) -> Iterator[Item]:
+    """Yield the model objects of one JSON Lines file."""
+    with path.open(encoding="utf-8") as f:
+        for line in f:
+            yield loads(line)
+
+
 def read_schema(indir: Path) -> list[tuple[str, str, str]]:
     """(type, name, sql) from ``schema.sql``, as ``store.schema`` returns them."""
     out = []
@@ -120,6 +150,4 @@ def read_schema(indir: Path) -> list[tuple[str, str, str]]:
 def read_dir(indir: Path) -> Iterator[Item]:
     """Yield every model object in a directory written by ``write_dir``."""
     for path in sorted(indir.glob("*.jsonl")):
-        with path.open(encoding="utf-8") as f:
-            for line in f:
-                yield loads(line)
+        yield from read_file(path)

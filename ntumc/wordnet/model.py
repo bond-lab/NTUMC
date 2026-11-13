@@ -8,6 +8,12 @@ parent is missing) is carried as a ``Row`` so that nothing is lost.
 
 Field names follow the database columns unless noted; ``usr`` is the
 annotator who last changed the row.
+
+The same classes hold a WN-LMF lexicon (see ``lmf``).  Fields typed
+``Value`` are database columns; fields typed ``Attr``, ``Meta`` or a
+list exist only in WN-LMF and are ignored by ``store``.  ``meta`` holds
+the Dublin Core and other metadata attributes (``dc:source``, ``note``,
+``confidenceScore`` ...) as strings, exactly as written.
 """
 
 from __future__ import annotations
@@ -16,6 +22,93 @@ from dataclasses import dataclass, field
 from typing import Any
 
 Value = str | int | float | None
+Attr = str | None
+Meta = dict[str, str]
+
+
+def _meta() -> Meta:
+    return {}
+
+
+@dataclass(slots=True)
+class Requires:
+    """A lexicon this one depends on (WN-LMF ``Requires``)."""
+
+    ref: Attr = None
+    id: Attr = None
+    version: Attr = None
+    url: Attr = None
+    meta: Meta = field(default_factory=_meta)
+
+
+@dataclass(slots=True)
+class Lexicon:
+    """The header of a WN-LMF lexicon; the items after it belong to it.
+
+    ``dtd`` is the DOCTYPE system identifier and ``namespaces`` the
+    prefixes declared on ``LexicalResource``.
+    """
+
+    id: Attr = None
+    label: Attr = None
+    language: Attr = None
+    email: Attr = None
+    license: Attr = None
+    version: Attr = None
+    url: Attr = None
+    citation: Attr = None
+    logo: Attr = None
+    dtd: Attr = None
+    namespaces: Meta = field(default_factory=_meta)
+    meta: Meta = field(default_factory=_meta)
+    requires: list[Requires] = field(default_factory=list)
+
+
+@dataclass(slots=True)
+class Pronunciation:
+    """How a form is said (WN-LMF ``Pronunciation``)."""
+
+    text: Attr = None
+    variety: Attr = None
+    notation: Attr = None
+    phonemic: Attr = None
+    audio: Attr = None
+
+
+@dataclass(slots=True)
+class Tag:
+    """A tag on a lemma or form, such as its adjective class."""
+
+    text: Attr = None
+    category: Attr = None
+
+
+@dataclass(slots=True)
+class Form:
+    """Another written form of a word (WN-LMF ``Form``)."""
+
+    form: Attr = None
+    id: Attr = None
+    script: Attr = None
+    pronunciations: list[Pronunciation] = field(default_factory=list)
+    tags: list[Tag] = field(default_factory=list)
+
+
+@dataclass(slots=True)
+class Count:
+    """How often a sense was seen; ``meta`` says where (``dc:source``)."""
+
+    text: Attr = None
+    meta: Meta = field(default_factory=_meta)
+
+
+@dataclass(slots=True)
+class Frame:
+    """A subcategorization frame (WN-LMF ``SyntacticBehaviour``)."""
+
+    id: Attr = None
+    frame: Attr = None
+    senses: Attr = None
 
 
 @dataclass(slots=True)
@@ -26,6 +119,7 @@ class Relation:
     target: Value = None
     src: Value = None
     usr: Value = None
+    meta: Meta = field(default_factory=_meta)
 
 
 @dataclass(slots=True)
@@ -49,6 +143,18 @@ class Comment:
 
 
 @dataclass(slots=True)
+class Text:
+    """A definition or example (``synset_def``, ``synset_ex``); ``text`` is ``def``."""
+
+    text: Value = None
+    sid: Value = None
+    usr: Value = None
+    lang: Attr = None
+    source_sense: Attr = None
+    meta: Meta = field(default_factory=_meta)
+
+
+@dataclass(slots=True)
 class Synset:
     """A concept (table ``synset``); ``id`` is the ``synset`` column."""
 
@@ -60,15 +166,14 @@ class Synset:
     relations: list[Relation] = field(default_factory=list)
     xlinks: list[XLink] = field(default_factory=list)
     comments: list[Comment] = field(default_factory=list)
-
-
-@dataclass(slots=True)
-class Text:
-    """A definition or example (``synset_def``, ``synset_ex``); ``text`` is ``def``."""
-
-    text: Value = None
-    sid: Value = None
-    usr: Value = None
+    ili: Attr = None
+    lexicalized: Attr = None
+    members: Attr = None
+    lexfile: Attr = None
+    meta: Meta = field(default_factory=_meta)
+    definitions: list[Text] = field(default_factory=list)
+    ili_definition: list[Text] = field(default_factory=list)
+    examples: list[Text] = field(default_factory=list)
 
 
 @dataclass(slots=True)
@@ -90,6 +195,8 @@ class SenseRelation:
     wordid2: Value = None
     src: Value = None
     usr: Value = None
+    target: Attr = None
+    meta: Meta = field(default_factory=_meta)
 
 
 @dataclass(slots=True)
@@ -118,6 +225,14 @@ class Sense:
     usr: Value = None
     relations: list[SenseRelation] = field(default_factory=list)
     xlinks: list[SenseXLink] = field(default_factory=list)
+    id: Attr = None
+    lexicalized: Attr = None
+    adjposition: Attr = None
+    subcat: Attr = None
+    n: Attr = None
+    meta: Meta = field(default_factory=_meta)
+    examples: list[Text] = field(default_factory=list)
+    counts: list[Count] = field(default_factory=list)
 
 
 @dataclass(slots=True)
@@ -131,6 +246,14 @@ class Entry:
     pos: Value = None
     usr: Value = None
     senses: list[Sense] = field(default_factory=list)
+    id: Attr = None
+    script: Attr = None
+    index: Attr = None
+    meta: Meta = field(default_factory=_meta)
+    pronunciations: list[Pronunciation] = field(default_factory=list)
+    tags: list[Tag] = field(default_factory=list)
+    forms: list[Form] = field(default_factory=list)
+    frames: list[Frame] = field(default_factory=list)
 
 
 @dataclass(slots=True)
@@ -141,4 +264,4 @@ class Row:
     values: dict[str, Any] = field(default_factory=dict)
 
 
-Item = Synset | Gloss | Entry | Row
+Item = Synset | Gloss | Entry | Row | Lexicon | Frame
