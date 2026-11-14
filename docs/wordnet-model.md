@@ -189,7 +189,7 @@ ordinary space and this code keeps.
 
 Concepts we share across languages before CILI has them get a local
 identifier, `ntumc00001`.  The registry is its own repository,
-`omw-mul-ntumc` (`registry.tsv`, checked by `check_registry.py`):
+`omw-ntumc` (`registry.tsv`, checked by `check_registry.py`):
 
 ```
 local_id    pos  definition  proposed_by  date  cili  status
