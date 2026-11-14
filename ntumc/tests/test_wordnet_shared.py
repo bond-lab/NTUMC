@@ -1,8 +1,10 @@
 """Tests for ntumc.wordnet.shared: the minimal lexicon and its export."""
 
+import hashlib
+
 import pytest
 
-from ntumc.wordnet import shared
+from ntumc.wordnet import lmf, shared
 from ntumc.wordnet.diff import facts
 from ntumc.wordnet.model import Lexicon, Relation, Requires, Synset, Text
 
@@ -102,3 +104,24 @@ def test_another_lexicon_s_identifier_may_repeat():
     _, counts = shared.minimal(items, concepts())
 
     assert counts["concepts"] == 1
+
+
+def test_write_release_writes_both_and_load_checks_the_pin(tmp_path):
+    dc = {"dc": "https://globalwordnet.github.io/schemas/dc/"}
+    source = tmp_path / "omw-ntumc-0.1.xml"
+    their = concepts()
+    their[0].namespaces = dc
+    lmf.write(source, their)
+    pin = hashlib.sha256(source.read_bytes()).hexdigest()
+    items = lexicon(Text(text="a four-character idiom", lang="en"),
+                    [Relation(link="hypernym", target="cow-1-n")])
+    items[0].version = "1.2"
+    items[0].namespaces = dc
+
+    small = shared.write_release(items, shared.load(source, pin), tmp_path / "cow-1.2.xml")
+
+    assert small.name == "cow-min-1.2.xml"
+    assert next(lmf.read(small)).id == "cow-min"
+    assert next(lmf.read(tmp_path / "cow-1.2.xml")).id == "cow"
+    with pytest.raises(ValueError, match="not the pinned version"):
+        shared.load(source, "0" * 64)

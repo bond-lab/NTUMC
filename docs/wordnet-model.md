@@ -239,7 +239,9 @@ It names the shared lexicon in a `Requires`.
 `minimal` removes exactly what `export` restores, so the export says
 everything the lexicon said before it was split.  It can say more: on
 COW 1.2 it gains 221 relations whose targets the change log added, and
-one definition.  The release step fails if the export lacks anything.
+one definition.  `write_release(lexicon, shared, out)` writes both files
+and fails if the export lacks anything; `load(path, sha256)` reads the
+shared lexicon a release is pinned to.
 
 When CILI grants a concept an id, the synset gets the `ili` and is from
 then on an ordinary synset of the minimal lexicon.

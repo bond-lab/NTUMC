@@ -21,9 +21,14 @@ same ILI.  The shared lexicon gives a synset
 
 from __future__ import annotations
 
+import hashlib
+import logging
 from collections.abc import Iterable
 from dataclasses import replace
+from pathlib import Path
 
+from . import lmf
+from .diff import facts
 from .model import Item, Lexicon, Relation, Requires, Synset, Text
 
 IDENTIFIER = "dc:identifier"
@@ -31,6 +36,8 @@ SUFFIX = "-min"
 LABEL = " (minimal)"
 
 Supplied = dict[str, tuple[list[Text], list[Relation]]]
+
+log = logging.getLogger(__name__)
 
 
 def _header(items: list[Item]) -> Lexicon:
@@ -166,3 +173,59 @@ def export(items: Iterable[Item], shared: Iterable[Item]) -> tuple[list[Item], d
     header.label = str(header.label).removesuffix(LABEL)
     header.requires = [r for r in header.requires if r.ref != source.id]
     return items, counts
+
+
+def load(path: Path, sha256: str) -> list[Item]:
+    """Read the shared lexicon a release is pinned to.
+
+    Args:
+        path: the built WN-LMF file
+        sha256: the checksum of the pinned version
+
+    Returns:
+        The lexicon's items
+
+    Raises:
+        ValueError: if the file is missing or is not the pinned version
+    """
+    if not path.exists():
+        raise ValueError(f"{path} is missing: build it from the tagged checkout")
+    if hashlib.sha256(path.read_bytes()).hexdigest() != sha256:
+        raise ValueError(f"{path} is not the pinned version")
+    return list(lmf.read(path))
+
+
+def write_release(items: Iterable[Item], shared: Iterable[Item], out: Path) -> Path:
+    """Write a lexicon as its minimal lexicon and its export.
+
+    Args:
+        items: the lexicon with everything in it (changed in place)
+        shared: the shared-concepts lexicon
+        out: the export's file, ``ID-VERSION.xml``; the minimal lexicon
+            is written beside it as ``ID-min-VERSION.xml``
+
+    Returns:
+        The minimal lexicon's file
+
+    Raises:
+        ValueError: if the export lacks something the lexicon said
+    """
+    items, shared = list(items), list(shared)
+    name, version = _header(items).id, _header(items).version
+    before = facts(items)
+    items, moved = minimal(items, shared)
+    log.info("Minimal: %d definitions and %d relations of %d concepts left to %s",
+             moved["definitions"], moved["relations"], moved["concepts"], _header(shared).id)
+    small = out.with_name(f"{name}{SUFFIX}-{version}.xml")
+    lmf.write(small, items)
+    items, added = export(items, shared)
+    lost = before - facts(items)
+    if lost:
+        raise ValueError(f"the export lacks {sum(lost.values())} facts, such as "
+                         f"{next(iter(lost))}")
+    log.info("Export: %d definitions and %d relations put back, of which %d and %d are new",
+             added["definitions"], added["relations"],
+             added["definitions"] - moved["definitions"],
+             added["relations"] - moved["relations"])
+    lmf.write(out, items)
+    return small
