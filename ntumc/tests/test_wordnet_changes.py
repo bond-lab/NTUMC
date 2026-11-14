@@ -444,3 +444,34 @@ def test_add_synset_without_a_definition(base: Path) -> None:
     # Assert
     assert conflicts == []
     assert (synsets(items)["tst-7-n"].definitions, synsets(items)["tst-7-n"].ili) == ([], "i7")
+
+
+def test_set_identifier_sets_checks_and_removes(base: Path) -> None:
+    # Act
+    items, conflicts = run(
+        base,
+        change("set_identifier", 1, synset="tst-1-n", new="ntumc00001"),
+        change("set_identifier", 2, synset="tst-1-n", new="ntumc00001"),
+        change("set_identifier", 3, synset="tst-1-n", old="", new="ntumc00002"),
+        change("set_identifier", 4, synset="tst-0-n", new="ntumc00003"))
+    # Assert
+    assert [c.split(":")[0] for c in conflicts] == ["c2", "c3", "c4"]
+    assert synsets(items)["tst-1-n"].meta == {"dc:identifier": "ntumc00001"}
+    again, conflicts = changes.apply(items, [change("set_identifier", 5, synset="tst-1-n",
+                                                    old="ntumc00001", new="")])
+    assert conflicts == [] and synsets(again)["tst-1-n"].meta == {}
+
+
+def test_diff_covers_identifiers(base: Path, tmp_path: Path) -> None:
+    # Arrange
+    new = tmp_path / "new.xml"
+    new.write_text(XML.replace('<Synset id="tst-2-n" ili="i2"',
+                               '<Synset id="tst-2-n" ili="i2" dc:identifier="ntumc00002"'),
+                   encoding="utf-8")
+    # Act
+    records = diff.diff(lmf.read(base), lmf.read(new), lexicon="tst", user="ann",
+                        source="rebuild", reason="test")
+    # Assert
+    assert [(r.action, r.synset, r.old, r.new) for r in records] == [
+        ("set_identifier", "tst-2-n", "", "ntumc00002")]
+    assert diff.residual(lmf.read(base), lmf.read(new), records) == ([], {}, {})

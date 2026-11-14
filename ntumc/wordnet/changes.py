@@ -56,6 +56,7 @@ ACTIONS: dict[str, tuple[str, ...]] = {
     "add_synset": ("synset", "pos", "new"),
     "merge_synset": ("synset", "target"),
     "remove_synset": ("synset",),
+    "set_identifier": ("synset", "new"),
 }
 ALWAYS = ("id", "action", "lexicon", "user", "source", "reason")
 ADDITIONS = {"add_sense", "add_form", "add_example", "add_relation", "add_sense_relation",
@@ -546,6 +547,23 @@ def _remove_synset(lex: _Lexicon, c: Change) -> str | None:
     return None
 
 
+def _set_identifier(lex: _Lexicon, c: Change) -> str | None:
+    """Set a synset's ``dc:identifier``, which names its concept across lexicons."""
+    synset = lex.synsets.get(c.synset or "")
+    if synset is None:
+        return f"no synset {c.synset}"
+    now = synset.meta.get("dc:identifier", "")
+    if c.old is not None and now != c.old:
+        return f"identifier of {c.synset} is not {c.old or 'unset'}"
+    if now == c.new:
+        return f"identifier of {c.synset} is already {c.new or 'unset'}"
+    if c.new:
+        synset.meta["dc:identifier"] = c.new
+    else:
+        del synset.meta["dc:identifier"]
+    return None
+
+
 def _merge_synset(lex: _Lexicon, c: Change) -> str | None:
     """Move the senses and relations of ``synset`` to ``target`` and drop it."""
     old, new = lex.synsets.get(c.synset or ""), lex.synsets.get(c.target or "")
@@ -618,7 +636,7 @@ HANDLERS = {
     "set_pronunciation": _set_pronunciation,
     "set_definition": _text, "add_example": _text, "add_relation": _relation,
     "remove_relation": _relation, "add_synset": _add_synset, "merge_synset": _merge_synset,
-    "remove_synset": _remove_synset,
+    "remove_synset": _remove_synset, "set_identifier": _set_identifier,
 }
 
 

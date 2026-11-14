@@ -153,6 +153,7 @@ it was decided, where the id does not say.
 | `reject_sense_relation` | `synset`, `lemma`, `target`, `target_lemma` | nothing: records a decision that the two senses are not related (with `link`: not by that relation, in that direction); adding the relation later is a conflict |
 | `add_synset` | `synset`, `pos`, `new` | a new synset with definition `new`, or none if `new` is empty (`ili`, `identifier` for a local concept id) |
 | `remove_synset` | `synset` | drops a synset no word is in, and the relations pointing to it |
+| `set_identifier` | `synset`, `new` | sets the synset's `dc:identifier`, which names its concept across lexicons (`ntumc00392`, `pronoun:Plc;Int;Loc`); an empty `new` removes it |
 | `merge_synset` | `synset`, `target` | moves senses and relations to `target` and drops `synset` |
 
 Where a lemma has several entries (homographs), `pos`, `reading` (one
