@@ -193,7 +193,7 @@ identifier, `ntumc00001`.  The registry is its own repository,
 `omw-ntumc` (`registry.tsv`, checked by `check_registry.py`):
 
 ```
-local_id    pos  definition  proposed_by  date  cili  status
+local_id  ntumc_synset  pos  name  definition  proposed_by  date  cili  status
 ```
 
 * `local_id` is `ntumc` and five digits; it never changes and is never
@@ -201,7 +201,7 @@ local_id    pos  definition  proposed_by  date  cili  status
   several shared lexicons are merged.
 * The definition is in English and meets the CILI rule (at least 20
   characters or five words).
-* `status` is `proposed`, `submitted`, `granted` or `withdrawn`.
+* `status` is `draft`, `proposed`, `submitted`, `granted` or `withdrawn`.
 * In WN-LMF a synset for a local concept has `ili="in"`, an
   `ILIDefinition`, and `dc:identifier="ntumc00001"`.  The local id never
   goes in the `ili` attribute, which must hold a CILI id, `in` or
@@ -209,9 +209,40 @@ local_id    pos  definition  proposed_by  date  cili  status
   `dc:identifier`.
 * When CILI grants an id, it is entered in `cili`, and builds write that
   id in `ili` from then on, keeping the `dc:identifier`.
-* The concepts themselves (definition, relations) live in one shared
-  lexicon with `language="mul"`, as omw-pronoun does; the language
-  lexicons only add words.
+* The concepts themselves (English definition, relations) live in one
+  shared lexicon, `omw-ntumc`, with `language="mul"`, as omw-pronoun
+  does; the language lexicons only add words.
+
+## The minimal lexicon and the export
+
+Each language wordnet is released as two lexicons.
+
+| lexicon | id | what it is |
+|---|---|---|
+| minimal | `cow-min` | the master: what the wordnet itself says |
+| export | `cow` | built from the minimal one and `omw-ntumc`, for users who want one file |
+
+In the minimal lexicon a concept that has an ILI is an ordinary synset.
+A concept CILI does not have yet is a synset with the concept's
+`dc:identifier`, the words, and whatever only this wordnet says about it
+(a definition in its own language, a relation the shared lexicon lacks).
+It names the shared lexicon in a `Requires`.
+
+`ntumc.wordnet.shared` makes one from the other:
+
+* `minimal(lexicon, shared)` takes out the shared lexicon's definitions
+  and relations and renames the lexicon `ID-min`.
+* `export(minimal, shared)` puts them back and renames it `ID`.  A
+  relation is added when the lexicon has its target; a definition, when
+  the synset has none of its own.
+
+`minimal` removes exactly what `export` restores, so the export says
+everything the lexicon said before it was split.  It can say more: on
+COW 1.2 it gains 221 relations whose targets the change log added, and
+one definition.  The release step fails if the export lacks anything.
+
+When CILI grants a concept an id, the synset gets the `ili` and is from
+then on an ordinary synset of the minimal lexicon.
 
 ## From an existing build to a change log
 
