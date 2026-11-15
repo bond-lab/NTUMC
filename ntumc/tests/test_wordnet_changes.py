@@ -462,6 +462,35 @@ def test_set_identifier_sets_checks_and_removes(base: Path) -> None:
     assert conflicts == [] and synsets(again)["tst-1-n"].meta == {}
 
 
+def test_set_ili_sets_checks_and_removes(base: Path) -> None:
+    # Act
+    items, conflicts = run(
+        base,
+        change("set_ili", 1, synset="tst-1-n", old="i1", new="i9"),
+        change("set_ili", 2, synset="tst-1-n", new="i9"),
+        change("set_ili", 3, synset="tst-1-n", old="i1", new="i8"),
+        change("set_ili", 4, synset="tst-2-n", new="i9"),
+        change("set_ili", 5, synset="tst-0-n", new="i7"),
+        change("set_ili", 6, synset="tst-2-n", new=""))
+    # Assert
+    assert [c.split(":")[0] for c in conflicts] == ["c2", "c3", "c4", "c5"]
+    assert (synsets(items)["tst-1-n"].ili, synsets(items)["tst-2-n"].ili) == ("i9", "")
+
+
+def test_diff_covers_ilis(base: Path, tmp_path: Path) -> None:
+    # Arrange
+    new = tmp_path / "new.xml"
+    new.write_text(XML.replace('<Synset id="tst-2-n" ili="i2"', '<Synset id="tst-2-n" ili="i9"'),
+                   encoding="utf-8")
+    # Act
+    records = diff.diff(lmf.read(base), lmf.read(new), lexicon="tst", user="ann",
+                        source="rebuild", reason="test")
+    # Assert
+    assert [(r.action, r.synset, r.old, r.new) for r in records] == [
+        ("set_ili", "tst-2-n", "i2", "i9")]
+    assert diff.residual(lmf.read(base), lmf.read(new), records) == ([], {}, {})
+
+
 def test_diff_covers_identifiers(base: Path, tmp_path: Path) -> None:
     # Arrange
     new = tmp_path / "new.xml"

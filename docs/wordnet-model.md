@@ -154,6 +154,7 @@ it was decided, where the id does not say.
 | `add_synset` | `synset`, `pos`, `new` | a new synset with definition `new`, or none if `new` is empty (`ili`, `identifier` for a local concept id) |
 | `remove_synset` | `synset` | drops a synset no word is in, and the relations pointing to it |
 | `set_identifier` | `synset`, `new` | sets the synset's `dc:identifier`, which names its concept across lexicons (`ntumc00392`, `pronoun:Plc;Int;Loc`); an empty `new` removes it |
+| `set_ili` | `synset`, `new` | sets the synset's ILI (`old`: the ILI expected before); an empty `new` removes it; a conflict if another synset of the lexicon has that ILI |
 | `merge_synset` | `synset`, `target` | moves senses and relations to `target` and drops `synset` |
 
 Where a lemma has several entries (homographs), `pos`, `reading` (one

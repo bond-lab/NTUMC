@@ -57,6 +57,7 @@ ACTIONS: dict[str, tuple[str, ...]] = {
     "merge_synset": ("synset", "target"),
     "remove_synset": ("synset",),
     "set_identifier": ("synset", "new"),
+    "set_ili": ("synset", "new"),
 }
 ALWAYS = ("id", "action", "lexicon", "user", "source", "reason")
 ADDITIONS = {"add_sense", "add_form", "add_example", "add_relation", "add_sense_relation",
@@ -564,6 +565,24 @@ def _set_identifier(lex: _Lexicon, c: Change) -> str | None:
     return None
 
 
+def _set_ili(lex: _Lexicon, c: Change) -> str | None:
+    """Set a synset's ILI; no two synsets of a lexicon may have the same one."""
+    synset = lex.synsets.get(c.synset or "")
+    if synset is None:
+        return f"no synset {c.synset}"
+    now = synset.ili or ""
+    if c.old is not None and now != c.old:
+        return f"ILI of {c.synset} is not {c.old or 'unset'}"
+    if now == c.new:
+        return f"ILI of {c.synset} is already {c.new or 'unset'}"
+    if c.new and c.new != "in":
+        other = next((s.id for s in lex.synsets.values() if s.ili == c.new), None)
+        if other is not None:
+            return f"{other} already has ILI {c.new}"
+    synset.ili = c.new or ""
+    return None
+
+
 def _merge_synset(lex: _Lexicon, c: Change) -> str | None:
     """Move the senses and relations of ``synset`` to ``target`` and drop it."""
     old, new = lex.synsets.get(c.synset or ""), lex.synsets.get(c.target or "")
@@ -637,6 +656,7 @@ HANDLERS = {
     "set_definition": _text, "add_example": _text, "add_relation": _relation,
     "remove_relation": _relation, "add_synset": _add_synset, "merge_synset": _merge_synset,
     "remove_synset": _remove_synset, "set_identifier": _set_identifier,
+    "set_ili": _set_ili,
 }
 
 

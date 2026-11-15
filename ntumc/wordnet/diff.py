@@ -135,7 +135,13 @@ def diff(old: Iterable[Item], new: Iterable[Item], **common: str) -> list[Change
     for _, synset, lemma, pos in of("sense", gone):
         add("remove_sense", synset=synset, lemma=lemma, pos=pos)
     was_named = {f[1]: f[4] for f in of("synset", gone)}
-    for _, sid, _pos, _ili, ident in of("synset", come):
+    was_ili = {f[1]: f[3] for f in of("synset", gone)}
+    for _, sid, _pos, ili, _ident in of("synset", come):  # first, ILIs given up
+        if sid in was_ili and was_ili[sid] != ili and not ili:
+            add("set_ili", synset=sid, old=was_ili[sid] or "", new="")
+    for _, sid, _pos, ili, ident in of("synset", come):
+        if sid in was_ili and was_ili[sid] != ili and ili:
+            add("set_ili", synset=sid, old=was_ili[sid] or "", new=ili)
         if sid in was_named and was_named[sid] != ident:
             add("set_identifier", synset=sid, old=was_named[sid] or "", new=ident or "")
     dropped = {f[1] for f in of("synset", gone)} - {f[1] for f in of("synset", come)}
