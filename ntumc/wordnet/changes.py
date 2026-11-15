@@ -616,6 +616,26 @@ def _merge_synset(lex: _Lexicon, c: Change) -> str | None:
     return None
 
 
+def shared_ilis(items: Iterable[Item]) -> list[str]:
+    """The ILIs that more than one synset of the lexicon has.
+
+    An ILI names one concept, so a lexicon has at most one synset for
+    it.  ``in`` (a concept proposed for CILI) is not an ILI yet.
+
+    Args:
+        items: a lexicon's items
+
+    Returns:
+        One line for each such ILI, naming its synsets; empty if none
+    """
+    by_ili: dict[str, list[str]] = {}
+    for item in items:
+        if isinstance(item, Synset) and item.ili and item.ili != "in":
+            by_ili.setdefault(str(item.ili), []).append(str(item.id))
+    return [f"ILI {ili} is on {len(ids)} synsets: {' '.join(ids)}"
+            for ili, ids in sorted(by_ili.items()) if len(ids) > 1]
+
+
 def drop_empty_synsets(items: Iterable[Item]) -> tuple[list[Item], list[str]]:
     """Drop the synsets that say nothing: no word and nothing of their own.
 

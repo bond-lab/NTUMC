@@ -162,6 +162,10 @@ of the entry's forms) or `entry` (its id) says which.  New entries and
 senses get ids made like the lexicon's others.  More actions can be
 added as needed.
 
+No two synsets of a lexicon may have the same ILI:
+`changes.shared_ilis` lists any that do, and each `release.py` treats
+them as conflicts.
+
 A change that does not fit the base is a conflict: its sense is not
 there, its `old` value is not the current one, what it adds already
 exists, or the record is incomplete.  `apply` lists the conflicts and

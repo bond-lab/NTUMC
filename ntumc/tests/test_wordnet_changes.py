@@ -462,6 +462,19 @@ def test_set_identifier_sets_checks_and_removes(base: Path) -> None:
     assert conflicts == [] and synsets(again)["tst-1-n"].meta == {}
 
 
+def test_shared_ilis_names_the_synsets_with_one_ili(base: Path) -> None:
+    # Arrange
+    items, _ = run(base, change("add_synset", 1, synset="tst-7-n", pos="n", new="", ili="i2"),
+                   change("add_synset", 2, synset="tst-8-n", pos="n", new="a", ili="in"),
+                   change("add_synset", 3, synset="tst-9-n", pos="n", new="b", ili="in"))
+    # Act
+    before = changes.shared_ilis(lmf.read(base))
+    after = changes.shared_ilis(items)
+    # Assert
+    assert before == []
+    assert after == ["ILI i2 is on 2 synsets: tst-2-n tst-7-n"]
+
+
 def test_set_ili_sets_checks_and_removes(base: Path) -> None:
     # Act
     items, conflicts = run(
