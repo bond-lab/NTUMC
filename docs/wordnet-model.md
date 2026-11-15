@@ -155,6 +155,7 @@ it was decided, where the id does not say.
 | `remove_synset` | `synset` | drops a synset no word is in, and the relations pointing to it |
 | `set_identifier` | `synset`, `new` | sets the synset's `dc:identifier`, which names its concept across lexicons (`ntumc00392`, `pronoun:Plc;Int;Loc`); an empty `new` removes it |
 | `set_ili` | `synset`, `new` | sets the synset's ILI (`old`: the ILI expected before); an empty `new` removes it; a conflict if another synset of the lexicon has that ILI |
+| `set_pos` | `synset`, `new` | sets the synset's part of speech (`old`: the one expected before); its senses go to entries of that part of speech, made if there are none |
 | `merge_synset` | `synset`, `target` | moves senses and relations to `target` and drops `synset` |
 
 Where a lemma has several entries (homographs), `pos`, `reading` (one

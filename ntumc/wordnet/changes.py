@@ -58,6 +58,7 @@ ACTIONS: dict[str, tuple[str, ...]] = {
     "remove_synset": ("synset",),
     "set_identifier": ("synset", "new"),
     "set_ili": ("synset", "new"),
+    "set_pos": ("synset", "new"),
 }
 ALWAYS = ("id", "action", "lexicon", "user", "source", "reason")
 ADDITIONS = {"add_sense", "add_form", "add_example", "add_relation", "add_sense_relation",
@@ -586,6 +587,46 @@ def _set_ili(lex: _Lexicon, c: Change) -> str | None:
     return None
 
 
+def _set_pos(lex: _Lexicon, c: Change) -> str | None:
+    """Set a synset's part of speech, and that of its words.
+
+    Each sense in the synset goes to the entry with its lemma and the
+    new part of speech; one is made if there is none, with the old
+    entry's forms, pronunciations and tags if that is left empty.
+    """
+    synset = lex.synsets.get(c.synset or "")
+    if synset is None:
+        return f"no synset {c.synset}"
+    if c.old is not None and synset.pos != c.old:
+        return f"part of speech of {c.synset} is not {c.old}"
+    if synset.pos == c.new:
+        return f"part of speech of {c.synset} is already {c.new}"
+    synset.pos = c.new
+    for entry in list(lex.entries):
+        if entry.pos == c.new:
+            continue
+        for sense in [s for s in entry.senses if s.synset == synset.id]:
+            entry.senses.remove(sense)
+            target = next((e for e in lex.by_lemma.get(str(entry.lemma), [])
+                           if e.pos == c.new), None)
+            if target is None:
+                target = lex.new_entry(str(entry.lemma), str(c.new))
+                target.script = entry.script
+                if not entry.senses:
+                    target.forms, target.tags = list(entry.forms), list(entry.tags)
+                    target.pronunciations = list(entry.pronunciations)
+                    target.meta = dict(entry.meta)
+            if not entry.senses:
+                lex.emptied.add(id(entry))
+            if any(s.synset == synset.id for s in target.senses):
+                if synset.members:
+                    synset.members = " ".join(
+                        m for m in synset.members.split() if m != sense.id)
+            else:
+                target.senses.append(sense)
+    return None
+
+
 def _merge_synset(lex: _Lexicon, c: Change) -> str | None:
     """Move the senses and relations of ``synset`` to ``target`` and drop it."""
     old, new = lex.synsets.get(c.synset or ""), lex.synsets.get(c.target or "")
@@ -659,7 +700,7 @@ HANDLERS = {
     "set_definition": _text, "add_example": _text, "add_relation": _relation,
     "remove_relation": _relation, "add_synset": _add_synset, "merge_synset": _merge_synset,
     "remove_synset": _remove_synset, "set_identifier": _set_identifier,
-    "set_ili": _set_ili,
+    "set_ili": _set_ili, "set_pos": _set_pos,
 }
 
 

@@ -473,6 +473,26 @@ def test_set_identifier_sets_checks_and_removes(base: Path) -> None:
     assert conflicts == [] and synsets(again)["tst-1-n"].meta == {}
 
 
+def test_set_pos_moves_the_senses_to_entries_of_that_pos(base: Path) -> None:
+    # Act
+    items, conflicts = run(
+        base,
+        change("set_pos", 1, synset="tst-1-n", old="n", new="v"),
+        change("set_pos", 2, synset="tst-1-n", new="v"),
+        change("set_pos", 3, synset="tst-1-n", old="n", new="a"),
+        change("set_pos", 4, synset="tst-0-n", new="v"))
+    # Assert
+    assert [c.split(":")[0] for c in conflicts] == ["c2", "c3", "c4"]
+    assert synsets(items)["tst-1-n"].pos == "v"
+    members = {str(e.lemma): (e.pos, [s.id for s in e.senses if s.synset == "tst-1-n"])
+               for e in entries(items).values()
+               if any(s.synset == "tst-1-n" for s in e.senses)}
+    assert {pos for pos, _ in members.values()} == {"v"}
+    assert sorted(s for _, ids in members.values() for s in ids) == sorted(
+        synsets(items)["tst-1-n"].members.split())
+    assert "tst-n-3" not in entries(items)  # ワンワン (n) had no other sense
+
+
 def test_set_ili_sets_checks_and_removes(base: Path) -> None:
     # Act
     items, conflicts = run(
