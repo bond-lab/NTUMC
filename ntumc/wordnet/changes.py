@@ -43,6 +43,7 @@ ACTIONS: dict[str, tuple[str, ...]] = {
     "rename_lemma": ("synset", "lemma", "new"),
     "set_count": ("synset", "lemma", "new", "corpus"),
     "set_frames": ("synset", "lemma", "new"),
+    "set_note": ("synset", "lemma", "new"),
     "add_form": ("lemma", "pos", "new"),
     "remove_form": ("lemma", "pos", "old"),
     "set_tag": ("lemma", "pos", "category", "new"),
@@ -304,8 +305,24 @@ def _sense(lex: _Lexicon, c: Change) -> str | None:
         return _set_count(found, c)
     if c.action == "set_frames":
         return _set_frames(lex, found, c)
+    if c.action == "set_note":
+        return _set_note(found, c)
     for entry, sense in found:
         _rename(lex, entry, sense, str(c.new))
+    return None
+
+
+def _set_note(found: list[tuple[Entry, Sense]], c: Change) -> str | None:
+    """Set the note on a sense; an empty ``new`` removes it."""
+    if c.old is not None and any(s.meta.get("note", "") != c.old for _, s in found):
+        return f"note of {c.lemma} in {c.synset} is not {c.old or 'unset'}"
+    if all(s.meta.get("note", "") == c.new for _, s in found):
+        return f"note of {c.lemma} in {c.synset} is already {c.new or 'unset'}"
+    for _, sense in found:
+        if c.new:
+            sense.meta["note"] = c.new
+        else:
+            sense.meta.pop("note", None)
     return None
 
 
@@ -710,7 +727,7 @@ def drop_empty_synsets(items: Iterable[Item]) -> tuple[list[Item], list[str]]:
 HANDLERS = {
     "add_sense": _add_sense, "remove_sense": _sense, "keep_sense": _sense,
     "set_confidence": _sense, "rename_lemma": _sense, "set_count": _sense,
-    "set_frames": _sense,
+    "set_frames": _sense, "set_note": _sense,
     "add_form": _add_form,
     "remove_form": _add_form, "add_sense_relation": _sense_relation,
     "remove_sense_relation": _sense_relation,

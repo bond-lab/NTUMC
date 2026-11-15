@@ -493,6 +493,22 @@ def test_set_pos_moves_the_senses_to_entries_of_that_pos(base: Path) -> None:
     assert "tst-n-3" not in entries(items)  # ワンワン (n) had no other sense
 
 
+def test_set_note_sets_checks_and_removes(base: Path) -> None:
+    # Act
+    items, conflicts = run(
+        base,
+        change("set_note", 1, synset="tst-1-n", lemma="ワンワン", old="", new="child's word"),
+        change("set_note", 2, synset="tst-1-n", lemma="ワンワン", new="child's word"),
+        change("set_note", 3, synset="tst-1-n", lemma="ワンワン", old="other", new="x"),
+        change("set_note", 4, synset="tst-1-n", lemma="なし", new="x"))
+    # Assert
+    assert [c.split(":")[0] for c in conflicts] == ["c2", "c3", "c4"]
+    assert entries(items)["tst-n-3"].senses[0].meta["note"] == "child's word"
+    again, conflicts = changes.apply(items, [change("set_note", 5, synset="tst-1-n",
+                                                    lemma="ワンワン", new="")])
+    assert conflicts == [] and "note" not in entries(again)["tst-n-3"].senses[0].meta
+
+
 def test_set_frames_sets_checks_and_removes(base: Path) -> None:
     # Arrange
     base.write_text(XML.replace("</Lexicon>", """<SyntacticBehaviour id="tst-f1"
