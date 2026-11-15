@@ -158,13 +158,18 @@ it was decided, where the id does not say.
 | `merge_synset` | `synset`, `target` | moves senses and relations to `target` and drops `synset` |
 
 Where a lemma has several entries (homographs), `pos`, `reading` (one
-of the entry's forms) or `entry` (its id) says which.  New entries and
+of the entry's forms) or `entry` (its id) says which; `sense` (a sense id) names one sense
+where an entry has two in a synset.  New entries and
 senses get ids made like the lexicon's others.  More actions can be
 added as needed.
 
-No two synsets of a lexicon may have the same ILI:
-`changes.shared_ilis` lists any that do, and each `release.py` treats
-them as conflicts.
+After writing, each `release.py` runs the validation of the `wn`
+module on the files (`ntumc.wordnet.validate`).  An error stops the
+release, and so do three warnings: an ILI on two synsets (`W302`), a
+word twice in a synset (`W202`) and two entries for one word in a
+synset (`W203`).  The other warnings are counted in the log.  wnja
+lets `W203` pass: its entries are one for each reading, and a word
+with two readings has both in a synset.
 
 A change that does not fit the base is a conflict: its sense is not
 there, its `old` value is not the current one, what it adds already

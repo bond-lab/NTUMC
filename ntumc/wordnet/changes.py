@@ -78,6 +78,7 @@ class Change:
         pos: part of speech, to tell entries with the same lemma apart
         reading: a form of the entry, to tell homographs apart
         entry: the entry id, to name one entry exactly
+        sense: the sense id, to name one sense exactly
         old: the value expected before the change; a conflict if it differs
         new: the value wanted (confidence, lemma, form, definition, example)
         link: the relation type, for relations
@@ -106,6 +107,7 @@ class Change:
     pos: str | None = None
     reading: str | None = None
     entry: str | None = None
+    sense: str | None = None
     old: str | None = None
     new: str | None = None
     link: str | None = None
@@ -238,7 +240,8 @@ class _Lexicon:
 
     def senses_for(self, c: Change) -> list[tuple[Entry, Sense]]:
         """The senses a change names: its lemma's senses in its synset."""
-        return [(e, s) for e in self.entries_for(c) for s in e.senses if s.synset == c.synset]
+        return [(e, s) for e in self.entries_for(c) for s in e.senses
+                if s.synset == c.synset and (c.sense is None or s.id == c.sense)]
 
     def new_entry(self, lemma: str, pos: str) -> Entry:
         """Add an entry, with an id made like the others'."""
@@ -614,26 +617,6 @@ def _merge_synset(lex: _Lexicon, c: Change) -> str | None:
             seen.add((r.link, r.target))
         synset.relations = kept
     return None
-
-
-def shared_ilis(items: Iterable[Item]) -> list[str]:
-    """The ILIs that more than one synset of the lexicon has.
-
-    An ILI names one concept, so a lexicon has at most one synset for
-    it.  ``in`` (a concept proposed for CILI) is not an ILI yet.
-
-    Args:
-        items: a lexicon's items
-
-    Returns:
-        One line for each such ILI, naming its synsets; empty if none
-    """
-    by_ili: dict[str, list[str]] = {}
-    for item in items:
-        if isinstance(item, Synset) and item.ili and item.ili != "in":
-            by_ili.setdefault(str(item.ili), []).append(str(item.id))
-    return [f"ILI {ili} is on {len(ids)} synsets: {' '.join(ids)}"
-            for ili, ids in sorted(by_ili.items()) if len(ids) > 1]
 
 
 def drop_empty_synsets(items: Iterable[Item]) -> tuple[list[Item], list[str]]:

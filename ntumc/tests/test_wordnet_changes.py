@@ -84,6 +84,17 @@ def test_remove_sense_drops_the_empty_entry_and_the_member(base: Path) -> None:
     assert synsets(items)["tst-1-n"].members == "tst-1-n-0 tst-1-n-2"
 
 
+def test_remove_sense_can_name_one_sense_by_its_id(base: Path) -> None:
+    # Act
+    items, conflicts = run(
+        base,
+        change("remove_sense", 1, synset="tst-1-n", lemma="ワンワン", sense="tst-9-n-9"),
+        change("remove_sense", 2, synset="tst-1-n", lemma="ワンワン", sense="tst-1-n-3"))
+    # Assert
+    assert [c.split(":")[0] for c in conflicts] == ["c1"]
+    assert synsets(items)["tst-1-n"].members == "tst-1-n-0 tst-1-n-2"
+
+
 def test_set_confidence_checks_the_old_value(base: Path) -> None:
     # Act
     items, conflicts = run(
@@ -460,19 +471,6 @@ def test_set_identifier_sets_checks_and_removes(base: Path) -> None:
     again, conflicts = changes.apply(items, [change("set_identifier", 5, synset="tst-1-n",
                                                     old="ntumc00001", new="")])
     assert conflicts == [] and synsets(again)["tst-1-n"].meta == {}
-
-
-def test_shared_ilis_names_the_synsets_with_one_ili(base: Path) -> None:
-    # Arrange
-    items, _ = run(base, change("add_synset", 1, synset="tst-7-n", pos="n", new="", ili="i2"),
-                   change("add_synset", 2, synset="tst-8-n", pos="n", new="a", ili="in"),
-                   change("add_synset", 3, synset="tst-9-n", pos="n", new="b", ili="in"))
-    # Act
-    before = changes.shared_ilis(lmf.read(base))
-    after = changes.shared_ilis(items)
-    # Assert
-    assert before == []
-    assert after == ["ILI i2 is on 2 synsets: tst-2-n tst-7-n"]
 
 
 def test_set_ili_sets_checks_and_removes(base: Path) -> None:
