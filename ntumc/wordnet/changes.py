@@ -42,6 +42,7 @@ ACTIONS: dict[str, tuple[str, ...]] = {
     "set_confidence": ("synset", "lemma", "new"),
     "rename_lemma": ("synset", "lemma", "new"),
     "set_count": ("synset", "lemma", "new", "corpus"),
+    "set_frames": ("synset", "lemma", "new"),
     "add_form": ("lemma", "pos", "new"),
     "remove_form": ("lemma", "pos", "old"),
     "set_tag": ("lemma", "pos", "category", "new"),
@@ -301,8 +302,25 @@ def _sense(lex: _Lexicon, c: Change) -> str | None:
         return None
     if c.action == "set_count":
         return _set_count(found, c)
+    if c.action == "set_frames":
+        return _set_frames(lex, found, c)
     for entry, sense in found:
         _rename(lex, entry, sense, str(c.new))
+    return None
+
+
+def _set_frames(lex: _Lexicon, found: list[tuple[Entry, Sense]], c: Change) -> str | None:
+    """Set the frames a sense names (``subcat``); an empty ``new`` removes them."""
+    wanted = (c.new or "").split()
+    unknown = sorted(set(wanted) - {f.id for f in lex.frames})
+    if unknown:
+        return f"no frame {' '.join(unknown)}"
+    if c.old is not None and any((s.subcat or "") != c.old for _, s in found):
+        return f"frames of {c.lemma} in {c.synset} are not {c.old or 'unset'}"
+    if all((s.subcat or "").split() == wanted for _, s in found):
+        return f"frames of {c.lemma} in {c.synset} are already {c.new or 'unset'}"
+    for _, sense in found:
+        sense.subcat = " ".join(wanted) or None
     return None
 
 
@@ -692,6 +710,7 @@ def drop_empty_synsets(items: Iterable[Item]) -> tuple[list[Item], list[str]]:
 HANDLERS = {
     "add_sense": _add_sense, "remove_sense": _sense, "keep_sense": _sense,
     "set_confidence": _sense, "rename_lemma": _sense, "set_count": _sense,
+    "set_frames": _sense,
     "add_form": _add_form,
     "remove_form": _add_form, "add_sense_relation": _sense_relation,
     "remove_sense_relation": _sense_relation,

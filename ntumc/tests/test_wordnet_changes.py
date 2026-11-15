@@ -493,6 +493,28 @@ def test_set_pos_moves_the_senses_to_entries_of_that_pos(base: Path) -> None:
     assert "tst-n-3" not in entries(items)  # ワンワン (n) had no other sense
 
 
+def test_set_frames_sets_checks_and_removes(base: Path) -> None:
+    # Arrange
+    base.write_text(XML.replace("</Lexicon>", """<SyntacticBehaviour id="tst-f1"
+        subcategorizationFrame="NP V" /><SyntacticBehaviour id="tst-f2"
+        subcategorizationFrame="NP V NP" /></Lexicon>"""), encoding="utf-8")
+    # Act
+    items, conflicts = run(
+        base,
+        change("set_frames", 1, synset="tst-1-n", lemma="ワンワン", new="tst-f1 tst-f2"),
+        change("set_frames", 2, synset="tst-1-n", lemma="ワンワン", new="tst-f1 tst-f2"),
+        change("set_frames", 3, synset="tst-1-n", lemma="ワンワン", new="tst-f9"),
+        change("set_frames", 4, synset="tst-1-n", lemma="ワンワン", old="tst-f1", new=""),
+        change("set_frames", 5, synset="tst-1-n", lemma="ワンワン", old="tst-f1 tst-f2",
+               new="tst-f2"))
+    # Assert
+    assert [c.split(":")[0] for c in conflicts] == ["c2", "c3", "c4"]
+    assert entries(items)["tst-n-3"].senses[0].subcat == "tst-f2"
+    again, conflicts = changes.apply(items, [change("set_frames", 6, synset="tst-1-n",
+                                                    lemma="ワンワン", new="")])
+    assert conflicts == [] and entries(again)["tst-n-3"].senses[0].subcat is None
+
+
 def test_set_ili_sets_checks_and_removes(base: Path) -> None:
     # Act
     items, conflicts = run(

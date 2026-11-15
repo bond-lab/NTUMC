@@ -142,6 +142,7 @@ it was decided, where the id does not say.
 | `set_confidence` | `synset`, `lemma`, `new` | sets `confidenceScore` |
 | `rename_lemma` | `synset`, `lemma`, `new` | gives the sense another written form |
 | `set_count` | `synset`, `lemma`, `new`, `corpus` | how often the sense was seen in a corpus; 0 removes the count |
+| `set_frames` | `synset`, `lemma`, `new` | sets the frames the sense names (`subcat`), as frame ids with spaces between; an empty `new` removes them |
 | `add_form` | `lemma`, `pos`, `new` | adds a written form (`script`) |
 | `remove_form` | `lemma`, `pos`, `old` | removes a written form |
 | `set_tag` | `lemma`, `pos`, `category`, `new` | sets the lemma's tag in a category (e.g. `adjective-class`); an empty `new` removes it |
