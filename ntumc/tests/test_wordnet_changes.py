@@ -192,6 +192,21 @@ def test_merge_synset_moves_senses_and_relations(base: Path) -> None:
     assert [(r.link, r.target) for r in got["tst-1-n"].relations] == [("hypernym", "tst-2-n")]
 
 
+def test_merge_synset_moves_relations_to_a_sense_it_drops(base: Path) -> None:
+    # Act: 犬 is in both synsets, so its sense in tst-2-n is dropped
+    items, conflicts = run(
+        base,
+        change("add_sense_relation", 1, synset="tst-1-n", lemma="ワンワン", link="similar",
+               target="tst-2-n", target_lemma="犬"),
+        change("merge_synset", 2, synset="tst-2-n", target="tst-1-n"))
+    # Assert
+    assert conflicts == []
+    senses = {s.id: s for e in entries(items).values() for s in e.senses}
+    assert "tst-2-n-0" not in senses
+    assert [(r.link, r.target) for r in senses["tst-1-n-3"].relations] == [
+        ("similar", "tst-1-n-0")]
+
+
 @pytest.mark.parametrize(("bad", "message"), [
     (Change(id="x", action="explode", lexicon="tst"), "unknown action"),
     (Change(id="x", action="remove_sense", lexicon="tst", synset="tst-1-n", lemma="犬",

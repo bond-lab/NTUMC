@@ -663,21 +663,40 @@ def _set_pos(lex: _Lexicon, c: Change) -> str | None:
 
 
 def _merge_synset(lex: _Lexicon, c: Change) -> str | None:
-    """Move the senses and relations of ``synset`` to ``target`` and drop it."""
+    """Move the senses and relations of ``synset`` to ``target`` and drop it.
+
+    A word that is in both keeps its sense in ``target``; that sense
+    takes over the relations of, and the relations to, the one dropped.
+    """
     old, new = lex.synsets.get(c.synset or ""), lex.synsets.get(c.target or "")
     if old is None or new is None:
         return f"no synset {c.synset if old is None else c.target}"
     if old is new:
         return f"cannot merge {c.synset} with itself"
+    gone: dict[str, str] = {}  # a sense dropped as a duplicate -> the sense kept
     for entry in lex.entries:
         mine = [s for s in entry.senses if s.synset == old.id]
         for sense in mine:
-            if any(s.synset == new.id for s in entry.senses):
+            kept = next((s for s in entry.senses if s.synset == new.id), None)
+            if kept is not None:
+                have = {(r.link, r.target) for r in kept.relations}
+                kept.relations += [r for r in sense.relations
+                                   if (r.link, r.target) not in have]
+                gone[str(sense.id)] = str(kept.id)
                 lex.drop_sense(entry, sense)
             else:
                 sense.synset = new.id
                 if new.members is not None:
                     new.members = f"{new.members} {sense.id}".strip()
+    for sense in (s for e in lex.entries for s in e.senses) if gone else ():
+        seen_here = set()
+        kept_here = []
+        for r in sense.relations:
+            r.target = gone.get(str(r.target), r.target)
+            if r.target != sense.id and (r.link, r.target) not in seen_here:
+                kept_here.append(r)
+            seen_here.add((r.link, r.target))
+        sense.relations = kept_here
     have = {(r.link, r.target) for r in new.relations}
     new.relations += [r for r in old.relations
                       if r.target != new.id and (r.link, r.target) not in have]
