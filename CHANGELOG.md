@@ -8,6 +8,13 @@ newest first. `scripts/push_dbs.sh` adds an entry here and a line to
 from other machines). Before each push, the server copies are backed
 up to `backup-YYYY-MM-DD/` on the server.
 
+### 2026-11-17 16:09 — eng.db cmn.db jpn.db ind.db
+
+- **Pushed:** eng.db cmn.db jpn.db ind.db
+- **Backup:** `backup-2026-11-17/`
+- **Code:** `0a4691e` (from bond@tanso)
+- **Applied:** Retags of 2026-11-16 (8af2c96): tags on concepts withdrawn from omw-ntumc, the split of 印度菜, rulings on senses held from ntumc-en, English tags on 47 synsets OEWN merged (eng 805, cmn 332, jpn 46, ind 160 concept_log rows). Base: server copies of 2026-11-13 12:33.
+
 ### 2026-11-13 — databases made read-only
 
 - **Changed:** permissions only, no data. Every database in the folder
