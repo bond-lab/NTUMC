@@ -45,6 +45,15 @@ fi
 
 if (( wordnet )); then
     "$PY" scripts/english_additions.py "$NTUMC_EN" "$WORK/ntumc-en-additions.xml"
+    # Cygnet keeps what it fetched and converted, by file name.  Our own
+    # wordnets change without a new name, so their copies are removed first.
+    if [[ -f "$WORK/bin/raw_wns/sources.tsv" ]]; then
+        grep '^file://' "$WORK/bin/raw_wns/sources.tsv" | cut -f2 | while read -r name; do
+            rm -f "$WORK/bin/raw_wns/$name"
+        done
+        find "$WORK/bin/cygnets_presynth" -maxdepth 1 -name '*.xml' \
+            ! -name 'oewn-*' ! -name 'cili-*' ! -name 'omw-kin-*' ! -name 'omw-pronoun-*' -delete
+    fi
     (cd "$CYGNET" && bash build.sh --work-dir "$WORK")
 fi
 cp "$CYGNET/web/index.html" "$CYGNET/web/relations.json" "$WORK/web/"

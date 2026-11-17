@@ -168,11 +168,45 @@ def shared_ids() -> dict[str, str]:
                 for row in csv.DictReader(f, delimiter="\t", quoting=csv.QUOTE_NONE)}
 
 
+def identified(lexicons: Path) -> dict[str, list[str]]:
+    """The synsets that share a concept with each synset of the corpus, by dc:identifier.
+
+    Our wordnets give a synset that has no ILI the identifier of its
+    concept (``pronoun:1;Sg``, ``ntumc02262``), and the lexicon that
+    holds the concept gives it the same one.
+
+    Args:
+        lexicons: a directory of WN-LMF files: the wordnets Cygnet was built from
+
+    Returns:
+        For a synset of the corpus that one of the files identifies, the
+        ids of all the synsets with its identifier.
+    """
+    tag_ids: dict[str, set[str]] = defaultdict(set)
+    members: dict[str, list[str]] = defaultdict(list)
+    for path in sorted(lexicons.glob("*.xml")):
+        with path.open(encoding="utf-8") as f:
+            for line in f:
+                if "<Synset " not in line or "dc:identifier=" not in line:
+                    continue
+                synset = re.search(r'\bid="([^"]+)"', line)
+                identifier = re.search(r'dc:identifier="([^"]+)"', line)
+                if not synset or not identifier:
+                    continue
+                members[identifier.group(1)].append(synset.group(1))
+                tag = re.search(r"-(\d{8}-[a-z])$", synset.group(1))
+                if tag:
+                    tag_ids[tag.group(1)].add(identifier.group(1))
+    return {tag: [m for i in sorted(ids) for m in members[i]] for tag, ids in tag_ids.items()}
+
+
 def concepts(wordnet: Path, tags: list[str]) -> dict[str, int]:
     """Cygnet's concept for each synset of the corpus that it has.
 
     A synset with an ILI is found by it; another by its id in omw-ntumc
-    or in one of our wordnets (LEXICON-SYNSET), in Cygnet's provenance.
+    or in one of our wordnets (LEXICON-SYNSET), or by the id of a synset
+    with the same dc:identifier (a pronoun of omw-pronoun, say), in
+    Cygnet's provenance.
 
     Args:
         wordnet: the web directory of the Cygnet build
@@ -190,11 +224,15 @@ def concepts(wordnet: Path, tags: list[str]) -> dict[str, int]:
         "JOIN prov_tables t ON t.rowid = p.table_rowid WHERE t.name = 'synsets'"))
     con.close()
     to_ili, shared = ilis(), shared_ids()
+    raw = wordnet.parent / "bin" / "raw_wns"  # where Cygnet's build keeps its wordnets
+    others = identified(raw) if raw.is_dir() else {}
     found = {}
     for tag in tags:
         rowid = by_ili.get(to_ili.get(tag, ""))
         if rowid is None:
-            names = [shared.get(tag, "")] + [f"{lex}-{tag}" for lex in LEXICONS]
+            # a shared concept first: a wordnet's own synset may not be merged into it yet
+            names = [shared.get(tag, "")] + others.get(tag, [])
+            names += [f"{lex}-{tag}" for lex in LEXICONS]
             rowid = next((by_id[name] for name in names if name in by_id), None)
         if rowid is not None:
             found[tag] = rowid
