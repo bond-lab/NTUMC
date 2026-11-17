@@ -6,6 +6,11 @@ and `data/link.sql`).  For exchange there is an XML format, defined by
 the DTD `data/ntumc.dtd`, that holds the same information: one file can
 carry any number of languages and the links between them.
 
+For work in Python there is also a JSON Lines form and a set of
+dataclasses, see [corpus-model.md](corpus-model.md); the XML reader
+and writer are `ntumc.corpus.xmlio`, and `python -m ntumc.corpus`
+converts between XML, JSON Lines and the databases.
+
 `scripts/corpus_xml.py` converts in both directions:
 
 ```
@@ -207,6 +212,5 @@ To add, say, French sense annotations aligned to the English corpus:
 * The `*_log` tables (annotation history): `load` writes new log rows
   through the database triggers, but the old history is not carried.
 * Empty strings become NULL on the way through, and a non-numeric
-  `cfrom` or `cto` (one Japanese row has text there) is dropped with a
-  warning.
+  `cfrom` or `cto` is dropped with a warning.
 * `meta.master` and the per-pair `meta.comment`.

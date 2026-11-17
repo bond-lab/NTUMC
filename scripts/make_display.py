@@ -16,6 +16,7 @@ import json
 import logging
 import sqlite3
 import sys
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 
@@ -23,7 +24,7 @@ from jinja2 import Environment, FileSystemLoader
 from markupsafe import Markup
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from ntumc.db.corpus import Corpus  # noqa: E402
+from ntumc.corpus import Document, Word, db, jsonl  # noqa: E402
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -86,14 +87,14 @@ def _get_env() -> Environment:
 # ---------------------------------------------------------------------------
 
 
-def compute_nospace(words: list[dict], sent_text: str) -> list[bool]:
+def compute_nospace(words: list[Word], sent_text: str) -> list[bool]:
     """Compute nospace flag for each word (True = no space before next word).
 
     Uses cfrom/cto offsets when present; falls back to scanning sent_text.
     The last word always returns False.
 
     Args:
-        words: List of word dicts with at least 'word', and optionally 'cfrom'/'cto'.
+        words: The words of the sentence in order.
         sent_text: The full sentence text.
 
     Returns:
@@ -104,11 +105,11 @@ def compute_nospace(words: list[dict], sent_text: str) -> list[bool]:
         return []
 
     # Try cfrom/cto first
-    if n > 1 and words[0].get("cfrom") is not None and words[1].get("cfrom") is not None:
+    if n > 1 and words[0].cfrom is not None and words[1].cfrom is not None:
         result = []
         for i, w in enumerate(words):
-            if i < n - 1 and w.get("cto") is not None and words[i + 1].get("cfrom") is not None:
-                result.append(int(w["cto"]) == int(words[i + 1]["cfrom"]))
+            if i < n - 1 and w.cto is not None and words[i + 1].cfrom is not None:
+                result.append(w.cto == words[i + 1].cfrom)
             else:
                 result.append(False)
         return result
@@ -117,15 +118,11 @@ def compute_nospace(words: list[dict], sent_text: str) -> list[bool]:
     result = [False] * n
     pos = 0
     for i, w in enumerate(words[:-1]):
-        surface = w["word"]
-        idx = sent_text.find(surface, pos)
+        idx = sent_text.find(w.word, pos)
         if idx == -1:
             continue
-        end = idx + len(surface)
-        pos = end
-        next_surface = words[i + 1]["word"]
-        next_idx = sent_text.find(next_surface, pos)
-        if next_idx == pos:
+        pos = idx + len(w.word)
+        if sent_text.find(words[i + 1].word, pos) == pos:
             result[i] = True
 
     return result
@@ -136,13 +133,11 @@ def compute_nospace(words: list[dict], sent_text: str) -> list[bool]:
 # ---------------------------------------------------------------------------
 
 
-def build_concept_info(doc_data: dict) -> tuple[dict, dict, bool]:
-    """Extract concept info and annotate each sentence with word_cids.
+def build_concept_info(doc: Document) -> tuple[dict, dict, bool]:
+    """Extract the concepts to embed in the page and count the annotation.
 
-    Mutates each sentence dict in doc_data to add:
-      - ``word_cids``: {wid: [concept_key, ...]}
-
-    Also annotates each word dict with ``nospace`` bool.
+    Args:
+        doc: The document.
 
     Returns:
         (concepts, doc_stats, has_sentiment) where concepts is
@@ -150,72 +145,69 @@ def build_concept_info(doc_data: dict) -> tuple[dict, dict, bool]:
         {sents, words, tagged, w, e, x, null}.
     """
     concepts: dict = {}
-    n_words = 0
-    n_tagged = 0
-    n_w = 0
-    n_e = 0
-    n_x = 0
-    n_null = 0
+    stats = {"words": 0, "tagged": 0, "w": 0, "e": 0, "x": 0, "null": 0}
     has_sentiment = False
 
-    for sent in doc_data["sentences"]:
-        sid = sent["sid"]
-        sent_text = sent.get("text", "")
-        words = sent.get("words", [])
-        n_words += len(words)
-        word_cids: dict[int, list[str]] = {}
-
-        for concept in sent.get("concepts", []):
-            tag = concept.get("tag") or ""
-            if tag == "x":
-                n_x += 1
-                continue
-            if tag == "w":
-                n_w += 1
-                continue
-            if tag == "e":
-                n_e += 1
+    for sent in doc.sentences:
+        stats["words"] += len(sent.words)
+        for concept in sent.concepts:
+            tag = concept.tag or ""
+            if tag in ("x", "w", "e"):
+                stats[tag] += 1
                 continue
             if not tag:
-                n_null += 1
+                stats["null"] += 1
                 continue
-
-            n_tagged += 1
-            cid = concept["cid"]
-            key = f"c{sid}:{cid}"
-            wids: list[int] = concept.get("wids", [])
-            score = concept.get("sentiment")
-
-            entry: dict = {
-                "l": concept.get("clemma", ""),
-                "s": tag,
-                "w": wids,
-            }
-            if score is not None:
-                entry["v"] = score
+            stats["tagged"] += 1
+            entry: dict = {"l": concept.clemma, "s": tag, "w": concept.wids}
+            if concept.sentiment is not None:
+                entry["v"] = concept.sentiment
                 has_sentiment = True
-            concepts[key] = entry
+            concepts[f"c{sent.sid}:{concept.cid}"] = entry
 
-            for wid in wids:
-                word_cids.setdefault(wid, []).append(key)
-
-        sent["word_cids"] = word_cids
-
-        # Compute spacing and annotate words
-        nospace_flags = compute_nospace(words, sent_text)
-        for word, ns in zip(words, nospace_flags):
-            word["nospace"] = ns
-
-    doc_stats = {
-        "sents": len(doc_data["sentences"]),
-        "words": n_words,
-        "tagged": n_tagged,
-        "w": n_w,
-        "e": n_e,
-        "x": n_x,
-        "null": n_null,
-    }
+    doc_stats = {"sents": len(doc.sentences), **stats}
     return concepts, doc_stats, has_sentiment
+
+
+def sentence_views(doc: Document, concepts: dict) -> list[dict]:
+    """Prepare the sentences for the document template.
+
+    Args:
+        doc: The document.
+        concepts: The embedded concepts from ``build_concept_info``; a
+            word carries the keys of the concepts covering it.
+
+    Returns:
+        One dict per sentence: sid, stype and words, each word a dict
+        with wid, word, pos, lemma, nospace and cids.
+    """
+    views = []
+    for sent in doc.sentences:
+        word_cids: dict[int, list[str]] = {}
+        for concept in sent.concepts:
+            key = f"c{sent.sid}:{concept.cid}"
+            if key in concepts:
+                for wid in concept.wids:
+                    word_cids.setdefault(wid, []).append(key)
+        nospace = compute_nospace(sent.words, sent.text)
+        views.append(
+            {
+                "sid": sent.sid,
+                "stype": sent.stype,
+                "words": [
+                    {
+                        "wid": w.wid,
+                        "word": w.word,
+                        "pos": w.pos or "",
+                        "lemma": w.lemma or "",
+                        "nospace": ns,
+                        "cids": word_cids.get(w.wid, []),
+                    }
+                    for w, ns in zip(sent.words, nospace)
+                ],
+            }
+        )
+    return views
 
 
 def get_doc_tagging_rates(corpus_db: str) -> dict[int, float]:
@@ -266,47 +258,47 @@ def get_doc_tagging_rates(corpus_db: str) -> dict[int, float]:
 # ---------------------------------------------------------------------------
 
 
-def render_html(
-    doc_data: dict,
-    concepts: dict,
-    lang: str,
-    assets_path: str,
-    index_path: str,
-    doc_stats: Optional[dict] = None,
-    genre: str = "other",
-    has_sentiment: bool = False,
-) -> str:
+@dataclass
+class PageData:
+    """What the document template needs."""
+
+    title: str
+    lang: str
+    subtitle: str = ""
+    sentences: list[dict] = field(default_factory=list)
+    concepts: dict = field(default_factory=dict)
+    doc_stats: dict = field(default_factory=dict)
+    genre: str = "other"
+    has_sentiment: bool = False
+
+
+def render_html(page: PageData, assets_path: str, index_path: str) -> str:
     """Render the document HTML page with concept data embedded inline.
 
     Synset definitions, synonyms, and translations are loaded dynamically
     from shared JSON data files.
 
     Args:
-        doc_data: Document dict (sentences annotated with word_cids and nospace).
-        concepts: Concepts dict to embed as JavaScript.
-        lang: Language code of the document.
+        page: Title, sentences (from ``sentence_views``), concepts and stats.
         assets_path: Relative path from HTML file to the assets/ directory.
         index_path: Relative path to the index HTML file.
-        doc_stats: Annotation stats dict to embed, or None.
-        genre: Genre string for the JS ``docGenre`` variable.
-        has_sentiment: Whether any concept in the doc has a sentiment score.
 
     Returns:
         Rendered HTML string.
     """
     tmpl = _get_env().get_template("document.html")
     return tmpl.render(
-        title=doc_data.get("title") or "",
-        subtitle=doc_data.get("subtitle") or "",
-        sentences=doc_data["sentences"],
+        title=page.title,
+        subtitle=page.subtitle,
+        sentences=page.sentences,
         assets_path=assets_path,
         index_path=index_path,
-        concepts_data=Markup(json.dumps(concepts, ensure_ascii=False)),
-        doc_lang_json=Markup(json.dumps(lang)),
-        doc_genre_json=Markup(json.dumps(genre)),
-        doc_has_sentiment_json=Markup(json.dumps(has_sentiment)),
+        concepts_data=Markup(json.dumps(page.concepts, ensure_ascii=False)),
+        doc_lang_json=Markup(json.dumps(page.lang)),
+        doc_genre_json=Markup(json.dumps(page.genre)),
+        doc_has_sentiment_json=Markup(json.dumps(page.has_sentiment)),
         data_path_json=Markup(json.dumps("../data")),
-        doc_stats_json=Markup(json.dumps(doc_stats or {})),
+        doc_stats_json=Markup(json.dumps(page.doc_stats)),
     )
 
 
@@ -321,83 +313,85 @@ def write_document(
     outdir: Path,
     lang: str,
     tag_rate: Optional[float] = None,
-    genre_map: Optional[dict[int, str]] = None,
 ) -> Optional[dict]:
-    """Generate the HTML display file for one document.
+    """Generate the HTML display file and the JSON record for one document.
 
     Args:
         corpus_db: Path to the language corpus database.
         docid: Document ID to process.
         outdir: Root output directory (e.g. display/).
         lang: Language code (e.g. 'eng').
-        tag_rate: Pre-computed tagging rate (0–1), used for index display.
-        genre_map: Pre-fetched {corpusID: genre} mapping; built once per DB
-            by the caller to avoid per-document DB round-trips.
+        tag_rate: Pre-computed tagging rate (0-1), used for index display.
 
     Returns:
-        Dict with doc metadata for index generation, or None on failure.
+        Dict with doc metadata for index generation, or None if the
+        document does not exist.
+
+    Raises:
+        ValueError: If the document's collection has no genre.
     """
-    corpus = Corpus(corpus_db)
-    doc_data = corpus.get_doc(docid)
-    if not doc_data:
+    conn = db.connect(corpus_db)
+    try:
+        doc = db.read_document(conn, lang, docid)
+    except KeyError:
         logger.error("Document %d not found in %s", docid, corpus_db)
         return None
+    finally:
+        conn.close()
+    if doc.genre is None:
+        raise ValueError(
+            f"No genre for document {docid} in {corpus_db} "
+            f"— run scripts/migrate_genre.py first"
+        )
 
-    doc_name = doc_data.get("doc") or f"doc{docid}"
-    title = doc_data.get("title") or doc_name
-    subtitle = doc_data.get("subtitle") or ""
-    n_sents = len(doc_data.get("sentences", []))
+    title = doc.title or doc.doc
     tag_pct = f"{tag_rate * 100:.0f}" if tag_rate is not None else ""
     logger.info(
         "Processing '%s' (%d sentences%s)...",
         title,
-        n_sents,
+        len(doc),
         f", {tag_pct}% tagged" if tag_pct else "",
     )
 
-    concepts, doc_stats, has_sentiment = build_concept_info(doc_data)
-
-    corpus_id = doc_data.get("corpusID")
-    if corpus_id is None:
-        raise ValueError(f"Document {docid} in {corpus_db} has no corpusID")
-    if genre_map is None:
-        genre_map = get_corpus_genre_map(corpus_db)
-    genre = genre_map.get(corpus_id)
-    if genre is None:
-        raise ValueError(
-            f"No genre for corpusID={corpus_id} in {corpus_db} "
-            f"— run scripts/migrate_genre.py first"
-        )
-
-    lang_dir = outdir / lang
-    lang_dir.mkdir(parents=True, exist_ok=True)
-    html_path = lang_dir / f"{doc_name}-view.html"
-
-    html = render_html(
-        doc_data,
-        concepts=concepts,
+    concepts, doc_stats, has_sentiment = build_concept_info(doc)
+    page = PageData(
+        title=title,
         lang=lang,
-        assets_path="../assets",
-        index_path="../index.html",
+        subtitle=doc.subtitle or "",
+        sentences=sentence_views(doc, concepts),
+        concepts=concepts,
         doc_stats=doc_stats,
-        genre=genre,
+        genre=doc.genre,
         has_sentiment=has_sentiment,
     )
-    html_path.write_text(html, encoding="utf-8")
+    lang_dir = outdir / lang
+    lang_dir.mkdir(parents=True, exist_ok=True)
+    html_path = lang_dir / f"{doc.doc}-view.html"
+    html_path.write_text(render_html(page, "../assets", "../index.html"), encoding="utf-8")
     logger.info("  → %s", html_path)
 
-    json_path = write_doc_json(doc_data, lang, genre, outdir)
+    json_path = write_doc_json(doc, outdir)
     logger.info("  → %s", json_path)
 
     return {
         "title": title,
-        "subtitle": subtitle,
-        "path": f"{lang}/{doc_name}-view.html",
-        "sent_count": n_sents,
+        "subtitle": doc.subtitle or "",
+        "path": f"{lang}/{doc.doc}-view.html",
+        "sent_count": len(doc),
         "tag_pct": tag_pct,
-        "corpus_id": doc_data.get("corpusID"),
+        "corpus_id": _corpus_id(corpus_db, docid),
         "has_sentiment": has_sentiment,
     }
+
+
+def _corpus_id(corpus_db: str, docid: int) -> Optional[int]:
+    """The corpusID of a document, for grouping in the index."""
+    conn = sqlite3.connect(corpus_db)
+    try:
+        row = conn.execute("SELECT corpusID FROM doc WHERE docid = ?", (docid,)).fetchone()
+    finally:
+        conn.close()
+    return row[0] if row else None
 
 
 def get_corpus_map(corpus_db: str) -> dict[int, str]:
@@ -419,47 +413,6 @@ def get_corpus_map(corpus_db: str) -> dict[int, str]:
         conn.close()
 
 
-def get_corpus_genre_map(corpus_db: str) -> dict[int, str]:
-    """Return {corpusID: genre} for all corpora in the database.
-
-    Args:
-        corpus_db: Path to corpus database.
-
-    Returns:
-        Mapping from corpus ID to genre string.
-
-    Raises:
-        ValueError: If the genre column is missing or contains invalid values.
-    """
-    conn = sqlite3.connect(corpus_db)
-    try:
-        rows = conn.execute(
-            "SELECT corpusID, genre FROM corpus ORDER BY corpusID"
-        ).fetchall()
-    except sqlite3.OperationalError as exc:
-        raise ValueError(
-            f"Could not query corpus.genre in {corpus_db}: {exc} "
-            f"— run scripts/migrate_genre.py first"
-        ) from exc
-    finally:
-        conn.close()
-
-    result: dict[int, str] = {}
-    for corpus_id, genre in rows:
-        if not genre:
-            raise ValueError(
-                f"No genre for corpusID={corpus_id} in {corpus_db} "
-                f"— run scripts/migrate_genre.py first"
-            )
-        if genre not in GENRE_NAMES:
-            raise ValueError(
-                f"Unknown genre {genre!r} (corpusID={corpus_id}); "
-                f"known genres: {sorted(GENRE_NAMES)}"
-            )
-        result[corpus_id] = genre
-    return result
-
-
 def save_lang_sidecar(
     lang: str, docs: list[dict], outdir: Path, corpus_map: dict[int, str]
 ) -> None:
@@ -478,10 +431,11 @@ def save_lang_sidecar(
     sidecar_path.write_text(json.dumps(sidecar, ensure_ascii=False), encoding="utf-8")
 
 
-def write_doc_json(doc_data: dict, lang: str, genre: str, outdir: Path) -> Path:
-    """Write per-document NDJSON annotation file.
+def write_doc_json(doc: Document, outdir: Path) -> Path:
+    """Write the per-document JSON Lines record.
 
-    Output is a single-line JSON object written to
+    One line in the corpus JSON format (docs/corpus-model.md), without
+    annotator names, comments or candidate lists, written to
     ``outdir/data/docs/{lang}-{genre}-{docname}.jsonl``.  The three-part
     filename enables shell-level consolidation without JSON parsing::
 
@@ -489,56 +443,18 @@ def write_doc_json(doc_data: dict, lang: str, genre: str, outdir: Path) -> Path:
         cat docs/*-stories-*.jsonl     # all stories, any language
         cat docs/*.jsonl               # full corpus
 
-    Derived display fields (``word_cids``, ``nospace``) are excluded.
-    All annotated concepts (including ``x``, ``w``, ``e`` tags) are included.
-
     Args:
-        doc_data: Document dict from Corpus.get_doc(), optionally mutated by
-            build_concept_info — derived fields are stripped from output.
-        lang: Language code (e.g. ``'eng'``).
-        genre: Genre string (e.g. ``'stories'``); use ``'other'`` if unknown.
+        doc: The document.
         outdir: Root output directory (e.g. ``display/``).
 
     Returns:
         Path to the written JSONL file.
     """
-    doc_name = doc_data.get("doc") or f"doc{doc_data['docid']}"
     docs_dir = outdir / "data" / "docs"
     docs_dir.mkdir(parents=True, exist_ok=True)
-
-    sentences = []
-    for sent in doc_data.get("sentences", []):
-        words = [
-            {k: v for k, v in w.items() if k != "nospace"}
-            for w in sent.get("words", [])
-        ]
-        s: dict = {
-            "sid": sent["sid"],
-            "text": sent.get("text", ""),
-            "words": words,
-            "concepts": sent.get("concepts", []),
-        }
-        if sent.get("stype"):
-            s["stype"] = sent["stype"]
-        sentences.append(s)
-
-    record: dict = {
-        "docid": doc_data["docid"],
-        "doc": doc_name,
-        "lang": lang,
-        "genre": genre,
-        "title": doc_data.get("title") or "",
-        "sentences": sentences,
-    }
-    subtitle = doc_data.get("subtitle")
-    if subtitle:
-        record["subtitle"] = subtitle
-
-    out_path = docs_dir / f"{lang}-{genre}-{doc_name}.jsonl"
-    out_path.write_text(
-        json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n",
-        encoding="utf-8",
-    )
+    genre = doc.genre or "other"
+    out_path = docs_dir / f"{doc.language}-{genre}-{doc.doc}.jsonl"
+    out_path.write_text(jsonl.dumps(doc, slim=True) + "\n", encoding="utf-8")
     return out_path
 
 
@@ -1215,8 +1131,6 @@ def main() -> None:
         logger.error("Database not found: %s", corpus_db)
         sys.exit(1)
 
-    corpus = Corpus(corpus_db)
-
     # Resolve tagging rates (needed for filter and index display)
     tag_rates: dict[int, float] = {}
     if args.tagged or args.all:
@@ -1266,7 +1180,10 @@ def main() -> None:
                 min_tagged * 100,
             )
     elif args.doc:
-        docid = corpus.get_docid_by_docname(args.doc)
+        conn = sqlite3.connect(corpus_db)
+        row = conn.execute("SELECT docid FROM doc WHERE doc = ?", (args.doc,)).fetchone()
+        conn.close()
+        docid = row[0] if row else None
         if docid is None:
             logger.error("Document '%s' not found in %s", args.doc, corpus_db)
             sys.exit(1)
@@ -1275,13 +1192,10 @@ def main() -> None:
         docids = [args.docid]
 
     lang_docs: list[dict] = []
-    genre_map = get_corpus_genre_map(corpus_db)
 
     for docid in docids:
         meta = write_document(
-            corpus_db, docid, outdir, args.lang,
-            tag_rate=tag_rates.get(docid),
-            genre_map=genre_map,
+            corpus_db, docid, outdir, args.lang, tag_rate=tag_rates.get(docid)
         )
         if meta:
             lang_docs.append(meta)

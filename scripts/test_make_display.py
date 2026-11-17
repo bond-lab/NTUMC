@@ -21,17 +21,19 @@ from pathlib import Path
 import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from ntumc.corpus import Concept, Document, Sentence, Word  # noqa: E402
 from scripts.make_display import (
+    PageData,
     build_concept_info,
     build_data_files,
     compute_nospace,
     cross_compile_slinks,
     render_html,
+    sentence_views,
     write_consolidated_json,
     write_doc_json,
     write_document,
 )
-
 
 # ---------------------------------------------------------------------------
 # Fixtures
@@ -276,43 +278,34 @@ class TestComputeNospace:
         assert compute_nospace([], "") == []
 
     def test_single_word(self):
-        words = [{"word": "Hello"}]
+        words = [Word(0, "Hello")]
         assert compute_nospace(words, "Hello") == [False]
 
     def test_cfrom_cto_spaced(self):
-        words = [
-            {"word": "The", "cfrom": 0, "cto": 3},
-            {"word": "fox", "cfrom": 4, "cto": 7},
-        ]
+        words = [Word(0, "The", cfrom=0, cto=3), Word(1, "fox", cfrom=4, cto=7)]
         result = compute_nospace(words, "The fox")
         assert result == [False, False]
 
     def test_cfrom_cto_nospace(self):
-        words = [
-            {"word": "don", "cfrom": 0, "cto": 3},
-            {"word": "'t", "cfrom": 3, "cto": 5},
-        ]
+        words = [Word(0, "don", cfrom=0, cto=3), Word(1, "'t", cfrom=3, cto=5)]
         result = compute_nospace(words, "don't")
         assert result == [True, False]
 
     def test_fallback_scanning(self):
-        words = [
-            {"word": "don"},
-            {"word": "'t"},
-        ]
+        words = [Word(0, "don"), Word(1, "'t")]
         result = compute_nospace(words, "don't")
         assert result == [True, False]
 
     def test_fallback_with_space(self):
-        words = [{"word": "a"}, {"word": "b"}]
+        words = [Word(0, "a"), Word(1, "b")]
         result = compute_nospace(words, "a b")
         assert result == [False, False]
 
     def test_japanese_no_spaces(self):
         words = [
-            {"word": "東京", "cfrom": 0, "cto": 2},
-            {"word": "は", "cfrom": 2, "cto": 3},
-            {"word": "大きい", "cfrom": 3, "cto": 6},
+            Word(0, "東京", cfrom=0, cto=2),
+            Word(1, "は", cfrom=2, cto=3),
+            Word(2, "大きい", cfrom=3, cto=6),
         ]
         result = compute_nospace(words, "東京は大きい")
         assert result == [True, True, False]
@@ -324,28 +317,17 @@ class TestComputeNospace:
 
 
 class TestBuildConceptInfo:
-    """Tests for concept extraction and word annotation."""
+    """Tests for concept extraction and the template views."""
 
     def _make_doc(self, concepts, words=None):
-        """Create a minimal doc_data dict."""
+        """Create a one-sentence document."""
         if words is None:
-            words = [
-                {"word": "The", "wid": 0},
-                {"word": "fox", "wid": 1},
-            ]
-        return {
-            "sentences": [{
-                "sid": 1,
-                "text": "The fox",
-                "words": words,
-                "concepts": concepts,
-            }],
-        }
+            words = [Word(0, "The"), Word(1, "fox")]
+        sent = Sentence(1, "The fox", words=words, concepts=concepts)
+        return Document(1, "d", "eng", sentences=[sent])
 
     def test_basic_concept_extraction(self):
-        doc = self._make_doc([
-            {"cid": 1, "clemma": "fox", "tag": "02119022-n", "wids": [1]},
-        ])
+        doc = self._make_doc([Concept(1, "fox", tag="02119022-n", wids=[1])])
         concepts, stats, _ = build_concept_info(doc)
         assert "c1:1" in concepts
         assert concepts["c1:1"]["l"] == "fox"
@@ -355,10 +337,10 @@ class TestBuildConceptInfo:
 
     def test_skip_tags_excluded(self):
         doc = self._make_doc([
-            {"cid": 1, "clemma": "the", "tag": "x", "wids": [0]},
-            {"cid": 2, "clemma": "the", "tag": "w", "wids": [0]},
-            {"cid": 3, "clemma": "the", "tag": "e", "wids": [0]},
-            {"cid": 4, "clemma": "fox", "tag": "02119022-n", "wids": [1]},
+            Concept(1, "the", tag="x", wids=[0]),
+            Concept(2, "the", tag="w", wids=[0]),
+            Concept(3, "the", tag="e", wids=[0]),
+            Concept(4, "fox", tag="02119022-n", wids=[1]),
         ])
         concepts, stats, _ = build_concept_info(doc)
         assert len(concepts) == 1
@@ -370,47 +352,38 @@ class TestBuildConceptInfo:
 
     def test_empty_tag_excluded(self):
         doc = self._make_doc([
-            {"cid": 1, "clemma": "the", "tag": "", "wids": [0]},
-            {"cid": 2, "clemma": "the", "tag": None, "wids": [0]},
+            Concept(1, "the", tag="", wids=[0]),
+            Concept(2, "the", tag=None, wids=[0]),
         ])
         concepts, stats, _ = build_concept_info(doc)
         assert len(concepts) == 0
         assert stats["null"] == 2
 
-    def test_word_cids_annotation(self):
-        doc = self._make_doc([
-            {"cid": 1, "clemma": "fox", "tag": "02119022-n", "wids": [1]},
-        ])
-        build_concept_info(doc)  # returns (concepts, stats, has_sentiment); we check mutation
-        word_cids = doc["sentences"][0]["word_cids"]
-        assert 1 in word_cids
-        assert word_cids[1] == ["c1:1"]
-        assert 0 not in word_cids
+    def test_word_cids_in_views(self):
+        doc = self._make_doc([Concept(1, "fox", tag="02119022-n", wids=[1])])
+        concepts, _, __ = build_concept_info(doc)
+        words = sentence_views(doc, concepts)[0]["words"]
+        assert words[1]["cids"] == ["c1:1"]
+        assert words[0]["cids"] == []
 
     def test_multiword_expression(self):
-        doc = self._make_doc([
-            {"cid": 1, "clemma": "the fox", "tag": "02119022-n", "wids": [0, 1]},
-        ])
+        doc = self._make_doc([Concept(1, "the fox", tag="02119022-n", wids=[0, 1])])
         concepts, _, __ = build_concept_info(doc)
         assert concepts["c1:1"]["w"] == [0, 1]
-        word_cids = doc["sentences"][0]["word_cids"]
-        assert word_cids[0] == ["c1:1"]
-        assert word_cids[1] == ["c1:1"]
+        words = sentence_views(doc, concepts)[0]["words"]
+        assert words[0]["cids"] == ["c1:1"]
+        assert words[1]["cids"] == ["c1:1"]
 
-    def test_nospace_annotation(self):
-        words = [
-            {"word": "don", "wid": 0, "cfrom": 0, "cto": 3},
-            {"word": "'t", "wid": 1, "cfrom": 3, "cto": 5},
-        ]
+    def test_nospace_in_views(self):
+        words = [Word(0, "don", cfrom=0, cto=3), Word(1, "'t", cfrom=3, cto=5)]
         doc = self._make_doc([], words=words)
-        build_concept_info(doc)  # returns (concepts, stats, has_sentiment); we check mutation
-        assert doc["sentences"][0]["words"][0]["nospace"] is True
-        assert doc["sentences"][0]["words"][1]["nospace"] is False
+        views = sentence_views(doc, {})
+        assert views[0]["words"][0]["nospace"] is True
+        assert views[0]["words"][1]["nospace"] is False
+        assert views[0]["words"][0]["pos"] == ""
 
     def test_named_entity_included(self):
-        doc = self._make_doc([
-            {"cid": 1, "clemma": "Tokyo", "tag": "org", "wids": [0]},
-        ])
+        doc = self._make_doc([Concept(1, "Tokyo", tag="org", wids=[0])])
         concepts, _, __ = build_concept_info(doc)
         assert concepts["c1:1"]["s"] == "org"
 
@@ -489,46 +462,36 @@ class TestRenderHtml:
     """Tests for HTML template rendering."""
 
     def test_basic_render(self):
-        doc_data = {
-            "title": "Test",
-            "subtitle": "Sub",
-            "sentences": [],
-        }
-        html = render_html(doc_data, {}, "eng", "../assets", "../index.html")
+        page = PageData(title="Test", lang="eng", subtitle="Sub")
+        html = render_html(page, "../assets", "../index.html")
         assert "<!DOCTYPE html>" in html
         assert "<title>Test</title>" in html
         assert 'var docLang = "eng"' in html
         assert 'var dataPath = "../data"' in html
 
     def test_concept_data_embedded(self):
-        doc_data = {"title": "T", "subtitle": "", "sentences": []}
         concepts = {"c1:1": {"l": "fox", "s": "02119022-n", "w": [1]}}
-        html = render_html(doc_data, concepts, "eng", "../assets", "../index.html")
+        page = PageData(title="T", lang="eng", concepts=concepts)
+        html = render_html(page, "../assets", "../index.html")
         assert "02119022-n" in html
         assert "conceptInfo" in html
 
     def test_no_synset_info_in_page(self):
-        doc_data = {"title": "T", "subtitle": "", "sentences": []}
-        html = render_html(doc_data, {}, "eng", "../assets", "../index.html")
+        html = render_html(PageData(title="T", lang="eng"), "../assets", "../index.html")
         assert "synsetInfo" not in html
 
     def test_translate_icons_present(self):
-        doc_data = {
-            "title": "T", "subtitle": "",
-            "sentences": [{
-                "sid": 100,
-                "stype": "p",
-                "words": [{"word": "Hi", "wid": 0, "pos": "UH", "lemma": "hi"}],
-                "word_cids": {},
-            }],
-        }
-        html = render_html(doc_data, {}, "eng", "../assets", "../index.html")
+        doc = Document(1, "d", "eng", sentences=[
+            Sentence(100, "Hi", stype="p", words=[Word(0, "Hi", pos="UH", lemma="hi")])
+        ])
+        page = PageData(title="T", lang="eng", sentences=sentence_views(doc, {}))
+        html = render_html(page, "../assets", "../index.html")
         assert 'data-sid="100"' in html
         assert "trans-icon" in html
+        assert 'data-p="UH" data-l="hi"' in html
 
     def test_language_dropdowns_in_settings(self):
-        doc_data = {"title": "T", "subtitle": "", "sentences": []}
-        html = render_html(doc_data, {}, "eng", "../assets", "../index.html")
+        html = render_html(PageData(title="T", lang="eng"), "../assets", "../index.html")
         assert "defLangSelect" in html
         assert "synLangSelect" in html
         assert "transLangSelect" in html
@@ -743,60 +706,49 @@ class TestWriteDocument:
 
 
 class TestWriteDocJson:
-    """Tests for per-document NDJSON annotation output."""
+    """Tests for per-document JSON Lines output."""
 
     def _make_doc(self):
-        return {
-            "docid": 1,
-            "doc": "testdoc",
-            "title": "Test Document",
-            "subtitle": "A test",
-            "sentences": [
-                {
-                    "sid": 100,
-                    "text": "The fox.",
-                    "stype": "p",
-                    "words": [
-                        {"wid": 0, "word": "The", "pos": "DT", "lemma": "the",
-                         "nospace": False},
-                        {"wid": 1, "word": "fox", "pos": "NN", "lemma": "fox",
-                         "nospace": False},
-                    ],
-                    "concepts": [
-                        {"cid": 1, "tag": "02119022-n", "clemma": "fox", "wids": [1]},
-                        {"cid": 2, "tag": "x", "clemma": "the", "wids": [0]},
-                    ],
-                    "word_cids": {1: ["c100:1"]},
-                }
+        sent = Sentence(
+            100,
+            "The fox.",
+            stype="p",
+            user="annotator",
+            words=[Word(0, "The", pos="DT", lemma="the"), Word(1, "fox", pos="NN", lemma="fox")],
+            concepts=[
+                Concept(1, "fox", tag="02119022-n", wids=[1], candidates=["02119022-n"]),
+                Concept(2, "the", tag="x", wids=[0]),
             ],
-        }
+        )
+        return Document(
+            1, "testdoc", "eng", title="Test Document", subtitle="A test",
+            genre="fiction", sentences=[sent],
+        )
 
     def test_filename_encodes_lang_genre_doc(self, tmp_outdir):
-        path = write_doc_json(self._make_doc(), "eng", "fiction", tmp_outdir)
+        path = write_doc_json(self._make_doc(), tmp_outdir)
         assert path.name == "eng-fiction-testdoc.jsonl"
 
-    def test_valid_ndjson(self, tmp_outdir):
-        path = write_doc_json(self._make_doc(), "eng", "fiction", tmp_outdir)
+    def test_valid_jsonl(self, tmp_outdir):
+        path = write_doc_json(self._make_doc(), tmp_outdir)
         lines = path.read_text(encoding="utf-8").strip().splitlines()
         assert len(lines) == 1
         record = json.loads(lines[0])
+        assert record["kind"] == "document"
         assert record["docid"] == 1
-        assert record["lang"] == "eng"
+        assert record["language"] == "eng"
         assert record["genre"] == "fiction"
 
-    def test_no_nospace_in_output(self, tmp_outdir):
-        path = write_doc_json(self._make_doc(), "eng", "fiction", tmp_outdir)
+    def test_slim_leaves_out_history(self, tmp_outdir):
+        path = write_doc_json(self._make_doc(), tmp_outdir)
         record = json.loads(path.read_text(encoding="utf-8").strip())
-        for word in record["sentences"][0]["words"]:
-            assert "nospace" not in word
-
-    def test_no_word_cids_in_output(self, tmp_outdir):
-        path = write_doc_json(self._make_doc(), "eng", "fiction", tmp_outdir)
-        record = json.loads(path.read_text(encoding="utf-8").strip())
-        assert "word_cids" not in record["sentences"][0]
+        sent = record["sentences"][0]
+        assert "user" not in sent
+        assert "candidates" not in sent["concepts"][0]
+        assert "nospace" not in sent["words"][0]
 
     def test_all_concepts_preserved(self, tmp_outdir):
-        path = write_doc_json(self._make_doc(), "eng", "fiction", tmp_outdir)
+        path = write_doc_json(self._make_doc(), tmp_outdir)
         record = json.loads(path.read_text(encoding="utf-8").strip())
         concepts = record["sentences"][0]["concepts"]
         assert len(concepts) == 2
@@ -804,14 +756,14 @@ class TestWriteDocJson:
         assert tags == {"02119022-n", "x"}
 
     def test_stype_included_when_present(self, tmp_outdir):
-        path = write_doc_json(self._make_doc(), "eng", "fiction", tmp_outdir)
+        path = write_doc_json(self._make_doc(), tmp_outdir)
         record = json.loads(path.read_text(encoding="utf-8").strip())
         assert record["sentences"][0]["stype"] == "p"
 
     def test_subtitle_omitted_when_empty(self, tmp_outdir):
         doc = self._make_doc()
-        doc["subtitle"] = ""
-        path = write_doc_json(doc, "eng", "fiction", tmp_outdir)
+        doc.subtitle = None
+        path = write_doc_json(doc, tmp_outdir)
         record = json.loads(path.read_text(encoding="utf-8").strip())
         assert "subtitle" not in record
 

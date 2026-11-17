@@ -82,7 +82,7 @@
 <p>
 {%- endif %}
 <span class="sent" id="s{{ sent.sid }}">{%- for w in sent.words -%}
-{%- set cids = sent.word_cids.get(w.wid) -%}
+{%- set cids = w.cids -%}
 <w id="w{{ sent.sid }}:{{ w.wid }}" data-p="{{ w.pos }}" data-l="{{ w.lemma }}"{% if cids %} data-c="{{ cids|join(' ') }}"{% endif %}{% if w.nospace %} data-ns{% endif %}>{{ w.word }}</w>{% endfor %}<i class="bi bi-translate trans-icon" data-sid="{{ sent.sid }}" title="Show translation"></i></span>
 {%- if sent.stype == 'h1' %}</h1>
 {%- elif sent.stype == 'h2' %}</h2>

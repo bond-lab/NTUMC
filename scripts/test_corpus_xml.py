@@ -16,11 +16,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from scripts.corpus_xml import (
     DTD,
     DumpOptions,
-    Loader,
     LoadError,
     LoadOptions,
     clean,
     dump,
+    load,
     main,
     validate,
 )
@@ -49,7 +49,7 @@ def table_dump(db: Path, table: str, columns: str) -> set[tuple]:
 def loaded(tmp_path: Path) -> Path:
     """Load the example corpus into a fresh directory and return it."""
     outdir = tmp_path / "db"
-    Loader(outdir, LoadOptions(user="import")).run(EXAMPLE)
+    load(EXAMPLE, outdir, LoadOptions(user="import"))
     return outdir
 
 
@@ -146,7 +146,7 @@ def test_dump_validates_and_round_trips(loaded: Path, tmp_path: Path) -> None:
     assert validate(out, DTD)
 
     again = tmp_path / "again"
-    Loader(again, LoadOptions(user="import")).run(out)
+    load(out, again, LoadOptions(user="import"))
     checks = {
         "eng.db": [
             ("sent", "sid, docID, pid, sent, usrname"),
@@ -174,11 +174,11 @@ def test_dump_validates_and_round_trips(loaded: Path, tmp_path: Path) -> None:
 
 def test_reload_without_renumber_is_refused(loaded: Path) -> None:
     with pytest.raises(LoadError, match="already exists"):
-        Loader(loaded).run(EXAMPLE)
+        load(EXAMPLE, loaded)
 
 
 def test_reload_with_renumber_appends(loaded: Path) -> None:
-    Loader(loaded, LoadOptions(renumber=True)).run(EXAMPLE)
+    load(EXAMPLE, loaded, LoadOptions(renumber=True))
 
     assert rows(loaded / "eng.db", "SELECT sid FROM sent ORDER BY sid") == [(1,), (2,)]
     assert rows(loaded / "eng.db", "SELECT docid FROM doc ORDER BY docid") == [
@@ -227,7 +227,7 @@ def test_skip_existing_keeps_alignments_to_old_documents(
 """
     )
 
-    counts = Loader(loaded, LoadOptions(skip_existing=True)).run(xml)
+    counts = load(xml, loaded, LoadOptions(skip_existing=True))
 
     assert counts["eng documents skipped"] == 1
     assert counts["fra documents"] == 1
@@ -258,7 +258,7 @@ def test_ids_without_numbers_get_positions(tmp_path: Path) -> None:
 """
     )
 
-    Loader(tmp_path / "db").run(xml)
+    load(xml, tmp_path / "db")
 
     db = tmp_path / "db" / "fra.db"
     assert rows(db, "SELECT sid FROM sent ORDER BY sid") == [(1,), (2,)]
@@ -283,7 +283,7 @@ def test_new_collection_needs_genre(tmp_path: Path) -> None:
 """
     )
     with pytest.raises(LoadError, match="genre"):
-        Loader(tmp_path / "db").run(xml)
+        load(xml, tmp_path / "db")
 
 
 def test_unknown_reference_is_an_error(tmp_path: Path) -> None:
@@ -301,7 +301,7 @@ def test_unknown_reference_is_an_error(tmp_path: Path) -> None:
 """
     )
     with pytest.raises(LoadError, match="unknown id s1w9"):
-        Loader(tmp_path / "db").run(xml)
+        load(xml, tmp_path / "db")
 
 
 def test_dump_leaves_out_dangling_links(loaded: Path, tmp_path: Path) -> None:

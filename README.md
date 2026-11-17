@@ -27,3 +27,16 @@ can be prepared as XML and imported:
 .venv/bin/python scripts/corpus_xml.py load new.xml --outdir DIR
 ```
 
+### Python and JSON
+
+`ntumc.corpus` holds the corpus as Python dataclasses (Document,
+Sentence, Word, Concept, Alignment ...), reads them from the databases,
+and writes and reads them as JSON Lines, one document per line
+([docs/corpus-model.md](docs/corpus-model.md)).  This is the easiest
+way to work on a few documents in several languages:
+
+```
+.venv/bin/python -m ntumc.corpus dump catb.jsonl --db build/eng.db build/jpn.db --link build/eng-jpn.db --doc catb
+.venv/bin/python -m ntumc.corpus validate catb.jsonl
+```
+
