@@ -1,0 +1,21 @@
+{
+  "title":   "NTU-MC Wordnets",
+  "name":    "NTU-MC",
+  "tagline": "The wordnets of the NTU Multilingual Corpus",
+  "url":     "../index.html",
+
+  "databases": {
+    "main":       { "filename": "cygnet.db.gz",     "description": "Synsets, entries, senses, definitions and examples of the NTU-MC wordnets." },
+    "provenance": { "filename": "provenance.db.gz", "byResource": "provenance", "description": "Where each item comes from: the wordnet and its original identifier." }
+  },
+
+  "corpus": { "index": "corpus-index.json", "url": "../concept.html?synset={key}", "label": "In the corpus" },
+
+  "logo": null,
+  "displayLanguage": "en",
+
+  "about": {
+    "intro": "<p>The wordnets used to tag the <a href=\"../index.html\">NTU Multilingual Corpus</a>: the Open English Wordnet with the corpus's additions, the Japanese Wordnet, the Chinese Open Wordnet, Wordnet Bahasa (Indonesian and Malay) and the Czech WordNet, with the concepts they share that are not yet in the Collaborative Interlingual Index (omw-ntumc, omw-kinship and omw-pronoun).  A concept the corpus uses links to its examples there.</p>",
+    "languageData": "Built with Cygnet from each wordnet's minimal lexicon."
+  }
+}

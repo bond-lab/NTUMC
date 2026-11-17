@@ -827,13 +827,10 @@ def build_data_files(outdir: Path, wn_db: str) -> None:
             logger.warning("Corpus DB not found for %s, skipping", lang)
             continue
         conn = sqlite3.connect(str(corpus_db))
-        sid_list = sorted(sids)
-        ph = ",".join("?" * len(sid_list))
-        rows = conn.execute(
-            f"SELECT sid, sent FROM sent WHERE sid IN ({ph})", sid_list
-        ).fetchall()
+        # filtered here, not in SQL: there can be more ids than SQLite takes as variables
+        rows = conn.execute("SELECT sid, sent FROM sent ORDER BY sid").fetchall()
         conn.close()
-        sent_data = {str(r[0]): r[1] for r in rows}
+        sent_data = {str(r[0]): r[1] for r in rows if r[0] in sids}
         sent_path = data_dir / f"sent-{lang}.json"
         sent_path.write_text(
             json.dumps(sent_data, ensure_ascii=False, separators=(",", ":")),

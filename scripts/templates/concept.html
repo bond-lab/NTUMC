@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NTU Multilingual Corpus — Concept</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/corpus.css">
+</head>
+<body>
+{% include "_nav.html" %}
+<div class="container mt-4 mb-5">
+  <div class="corpus-header">
+    <h1 id="words">Concept</h1>
+    <p class="lead" id="definition"></p>
+    <p class="text-muted small"><span id="synset"></span> <a id="wordnet" class="ms-2" hidden>
+      <i class="bi bi-diagram-3"></i> In the wordnets</a></p>
+  </div>
+  <div id="uses"></div>
+</div>
+<script>
+'use strict';
+var SHARDS = {{ shards }}, CAP = {{ cap }};
+var tag = new URLSearchParams(location.search).get('synset') || '';
+
+function getJSON(url) {
+  return fetch(url).then(function(r) { return r.ok ? r.json() : null; })
+                   .catch(function() { return null; });
+}
+
+function el(name, cls, text) {
+  var node = document.createElement(name);
+  if (cls) node.className = cls;
+  if (text !== undefined) node.textContent = text;
+  return node;
+}
+
+function showLang(lang, name, count, lines, words) {
+  var uses = document.getElementById('uses');
+  var head = el('h2', 'h5 mt-4', name + ' ');
+  head.appendChild(el('span', 'text-muted small',
+    count + (count === 1 ? ' use' : ' uses') +
+    (count > lines.length ? ', the first ' + lines.length + ' shown' : '')));
+  uses.appendChild(head);
+  if (words && words.length) uses.appendChild(el('p', 'synset-syns mb-1', words.join(', ')));
+  var table = el('table', 'table table-sm kwic');
+  lines.forEach(function(line) {
+    var row = el('tr');
+    var go = el('td', 'kwic-go');
+    var link = el('a');
+    link.href = lang + '/' + encodeURIComponent(line[0]) + '-view.html#s' + line[1];
+    link.title = 'Show in context: ' + line[0] + ', sentence ' + line[1];
+    link.appendChild(el('i', 'bi bi-box-arrow-up-right'));
+    go.appendChild(link);
+    row.appendChild(go);
+    var left = el('td', 'kwic-left');
+    left.appendChild(el('bdi', '', line[2]));  // the cell cuts text at its left end
+    row.appendChild(left);
+    row.appendChild(el('td', 'kwic-key', line[3] || '·'));
+    row.appendChild(el('td', 'kwic-right', line[4]));
+    table.appendChild(row);
+  });
+  uses.appendChild(table);
+}
+
+function show(entry, manifest) {
+  var names = (manifest && manifest.lang_names) || {};
+  document.getElementById('synset').textContent = tag;
+  if (!entry) {
+    document.getElementById('definition').textContent =
+      tag ? 'The corpus has no sentence tagged with this concept.'
+          : 'Give a synset: concept.html?synset=…';
+    return;
+  }
+  var langs = Object.keys(entry.n).sort(function(a, b) { return entry.n[b] - entry.n[a]; });
+  Promise.all(langs.map(function(lang) {
+    return getJSON('data/wn-syns-' + lang + '.json');
+  })).then(function(syns) {
+    langs.forEach(function(lang, i) {
+      showLang(lang, names[lang] || lang, entry.n[lang], entry.x[lang], syns[i] && syns[i][tag]);
+    });
+    var eng = langs.indexOf('eng');
+    var first = syns[eng < 0 ? 0 : eng];
+    if (first && first[tag]) document.getElementById('words').textContent = first[tag].join(', ');
+  });
+  getJSON('data/wn-defs-eng.json').then(function(defs) {
+    if (defs && defs[tag]) document.getElementById('definition').textContent = defs[tag];
+  });
+}
+
+if (/^\d{8}-[a-z]$/.test(tag)) {
+  Promise.all([getJSON('data/conc/' + (parseInt(tag.slice(0, 8), 10) % SHARDS) + '.json'),
+               getJSON('data/manifest.json')]).then(function(got) {
+    show(got[0] && got[0][tag], got[1]);
+  });
+  getJSON('data/wn-links.json').then(function(links) {
+    if (!links || links[tag] === undefined) return;
+    var a = document.getElementById('wordnet');
+    a.href = 'wordnet/#/search?concept=' + links[tag];
+    a.hidden = false;
+    // the wordnets are newer than the corpus's own word lists: prefer their words and definition
+    getJSON('wordnet/data/concepts/' + links[tag] + '.json').then(function(concept) {
+      if (!concept) return;
+      var words = Object.keys(concept.senses || {}).map(function(k) { return concept.senses[k]; })
+        .filter(function(s) { return s.lg === 'en'; }).map(function(s) { return s.l; });
+      if (words.length) document.getElementById('words').textContent = words.join(', ');
+      if (concept.d && concept.d.en) document.getElementById('definition').textContent = concept.d.en;
+    });
+  });
+} else {
+  show(null, null);
+}
+</script>
+{% include "_footer.html" %}
+</body>
+</html>

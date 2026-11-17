@@ -29,6 +29,7 @@ var activeTransPopover = null;
 // Dynamic data (populated by fetches)
 var synsetDefs = {};
 var synsetSyns = {};
+var wnLinks = {};     // synset -> row id of its concept in the wordnet site
 var slinksData = null;
 var sentData   = {};
 var manifest   = null;
@@ -70,6 +71,12 @@ function loadManifest() {
     manifest = data;
     neDefs = data.ne_defs || {};
     populateDropdowns();
+  });
+}
+
+function loadWnLinks() {
+  return fetchJSON(dataPath + '/wn-links.json').then(function(data) {
+    wnLinks = data || {};
   });
 }
 
@@ -250,6 +257,17 @@ function buildTooltipHTML(element) {
         }
         if (settings.showWordId && tag) {
           html += '<span class="synset-id">' + escapeHTML(tag) + '</span>';
+        }
+        if (/^\d{8}-[a-z]$/.test(tag)) {
+          html += '<div>';
+          if (wnLinks[tag] !== undefined) {
+            html += '<a class="wn-link" target="_blank" href="' + dataPath
+              + '/../wordnet/#/search?concept=' + wnLinks[tag]
+              + '"><i class="bi bi-diagram-3"></i> wordnet</a>';
+          }
+          html += '<a class="wn-link" target="_blank" href="' + dataPath
+            + '/../concept.html?synset=' + encodeURIComponent(tag)
+            + '"><i class="bi bi-list-ul"></i> in the corpus</a></div>';
         }
       }
       if (concept.v !== undefined) {
@@ -934,6 +952,7 @@ function init() {
   }
 
   // Load manifest then language data
+  loadWnLinks();
   loadManifest().then(function() {
     return applyLanguageSettings();
   }).then(function() {

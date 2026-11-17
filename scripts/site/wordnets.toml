@@ -1,0 +1,13 @@
+# The wordnets of the site, from local builds: each minimal lexicon, with the shared
+# concepts.  The paths are this machine's; build_site.sh copies the file to
+# build/site/wordnet-work/ if none is there.
+en  = ["https://en-word.net/static/english-wordnet-2025-plus.xml.gz",
+       "file:///home/bond/git/NTUMC/build/site/wordnet-work/ntumc-en-additions.xml"]
+ja  = ["file:///home/bond/git/wnja/build/wnja-min-2.2.xml"]
+cmn = ["file:///home/bond/.cache/claude-ntumc/rel/cow-min-1.2.xml"]
+id  = ["file:///home/bond/.cache/claude-ntumc/rel/wnb-id-min-1.6.xml"]
+zsm = ["file:///home/bond/.cache/claude-ntumc/rel/wnb-zsm-min-1.6.xml"]
+cs  = ["file:///home/bond/git/NTUMC/build/wordnet-site/lexicons/wncze-min-2.3.tar.xz"]
+mul = ["file:///home/bond/git/omw-ntumc/build/omw-ntumc-0.2.tar.xz",
+       "https://github.com/omwn/omw-kinship/releases/download/v0.2/omw-kin-0.2.tar.xz",
+       "https://github.com/omwn/omw-pronoun/releases/download/v0.2.1/omw-pronoun-0.2.1.tar.xz"]

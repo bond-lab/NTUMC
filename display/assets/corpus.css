@@ -395,3 +395,15 @@ body.show-trans .trans-icon { display: inline; }
   .card { border: none !important; box-shadow: none !important; }
   w.highlight, w.mwe-highlight, w.pinned { background: none; border: none; outline: none; }
 }
+
+/* Concordance (concept.html) */
+.kwic             { table-layout: fixed; width: 100%; }
+.kwic td          { border: 0; padding: 1px 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.kwic-go          { width: 2em; }
+.kwic-go a        { text-decoration: none; font-size: 0.8rem; }
+/* right to left, so that what does not fit is cut on the left, away from the keyword */
+.kwic-left        { text-align: right; direction: rtl; width: 41%; }
+.kwic-key         { text-align: center; width: 16%; font-weight: 600; }
+.kwic-right       { width: 41%; }
+.sent:target      { background-color: var(--c-accent-light); }
+.wn-link          { font-size: 0.8rem; text-decoration: none; margin-right: 0.75em; }

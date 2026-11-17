@@ -6,6 +6,8 @@ rf*
 display/*/
 !display/assets/
 display/index.html
+display/concept.html
+display/wordnet
 
 #emacs 
 *~
