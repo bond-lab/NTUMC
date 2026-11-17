@@ -1,6 +1,7 @@
 """Tests for ntumc.corpus: model, database reader, JSON Lines and validator."""
 
 import io
+import json
 import sqlite3
 from dataclasses import fields, is_dataclass
 from pathlib import Path
@@ -20,6 +21,7 @@ from ntumc.corpus import (
     db,
     dbwrite,
     jsonl,
+    schema,
     validate,
     xmlio,
 )
@@ -208,6 +210,68 @@ def test_loads_rejects_unknown(build: Path) -> None:
         jsonl.loads('{"docid":1}')
 
 
+def test_schema_accepts_every_record(build: Path) -> None:
+    corpus = Corpus.from_items(
+        db.read_corpus([build / "eng.db", build / "xxx.db"], [build / "eng-xxx.db"])
+    )
+    checker = schema.validator()
+    for item in corpus:
+        for slim in (False, True):
+            assert schema.check(json.loads(jsonl.dumps(item, slim)), checker) == []
+
+
+def test_schema_rejects_bad_records() -> None:
+    checker = schema.validator()
+    doc = {"kind": "document", "docid": 1, "doc": "d", "language": "eng"}
+    assert schema.check(doc, checker) == []
+    bad = {
+        **doc,
+        "genre": "poetry",
+        "colour": 1,
+        "sentences": [{"sid": "1", "text": "a", "words": [{"wid": 0}]}],
+    }
+    messages = schema.check(bad, checker)
+    assert (
+        "$: Additional properties are not allowed ('colour' was unexpected)" in messages
+    )
+    assert any(m.startswith("$.genre: 'poetry' is not one of") for m in messages)
+    assert "$.sentences[0].sid: '1' is not of type 'integer'" in messages
+    assert "$.sentences[0].words[0]: 'word' is a required property" in messages
+    assert schema.check({"kind": "document"}, checker) == [
+        "$: 'docid' is a required property",
+        "$: 'doc' is a required property",
+        "$: 'language' is a required property",
+    ]
+    for record in ({"kind": "poem"}, {"docid": 1}, [1], "x"):
+        assert schema.check(record, checker) == [
+            "record is not a corpus, document or alignment"
+        ]
+
+
+def test_schema_file_is_current() -> None:
+    assert schema.SCHEMA_PATH.read_text(encoding="utf-8") == schema.dumps(), (
+        "data/ntumc.schema.json is stale: run python -m ntumc.corpus schema"
+    )
+
+
+def test_schema_check_file(tmp_path: Path) -> None:
+    path = tmp_path / "x.jsonl"
+    path.write_text(
+        '{"kind":"corpus","title":"T"}\n'
+        "\n"
+        '{"kind":"document","docid":1,"doc":"d","language":"eng","title":3}\n'
+        "{not json\n"
+    )
+    problems = [str(p) for p in schema.check_file(path)]
+    assert problems == [
+        "error schema line 3: $.title: 3 is not of type 'string'",
+        (
+            "error json line 4: Expecting property name enclosed in double quotes: "
+            "line 1 column 2 (char 1)"
+        ),
+    ]
+
+
 def test_corpus_lookups(build: Path) -> None:
     corpus = Corpus.from_items(
         db.read_corpus([build / "eng.db", build / "xxx.db"], [build / "eng-xxx.db"])
@@ -277,6 +341,17 @@ def test_cli_dump_and_validate(build: Path, capsys: pytest.CaptureFixture[str]) 
     assert capsys.readouterr().out.strip().endswith("0 errors, 0 warnings")
     out.write_text(out.read_text().replace('"tsid":10', '"tsid":99'))
     assert main(["validate", str(out)]) == 1
+    capsys.readouterr()
+    out.write_text(out.read_text().replace('"tsid":99', '"tsid":"99"'))
+    assert main(["validate", str(out)]) == 1
+    printed = capsys.readouterr().out
+    assert (
+        "error schema line 4: $.sents[0].tsid: '99' is not of type 'integer'" in printed
+    )
+    assert "link-sent" not in printed
+    written = build / "schema.json"
+    assert main(["schema", str(written)]) == 0
+    assert json.loads(written.read_text()) == schema.build()
 
 
 EXAMPLE = ROOT / "data" / "corpus_example.xml"

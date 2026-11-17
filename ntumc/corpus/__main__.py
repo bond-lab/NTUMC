@@ -11,9 +11,13 @@ Usage::
                                  [--user NAME]
     python -m ntumc.corpus validate FILE.{jsonl,xml}
     python -m ntumc.corpus validate --db eng.db jpn.db [--link eng-jpn.db]
+    python -m ntumc.corpus schema [OUT.json]
 
-``validate`` runs the semantic checks of ``ntumc.corpus.validate``; the
-DTD check of an XML file is ``scripts/corpus_xml.py validate``.
+``validate`` checks a JSON Lines file against the JSON Schema first and
+then runs the semantic checks of ``ntumc.corpus.validate``; the DTD
+check of an XML file is ``scripts/corpus_xml.py validate``.  ``schema``
+writes the JSON Schema generated from the model (by default to
+``data/ntumc.schema.json``).
 """
 
 from __future__ import annotations
@@ -25,9 +29,9 @@ from collections import Counter
 from collections.abc import Iterable
 from pathlib import Path
 
-from . import db, dbwrite, jsonl, xmlio
+from . import db, dbwrite, jsonl, schema, xmlio
 from .model import CorpusError, Item
-from .validate import validate
+from .validate import Problem, validate
 
 logger = logging.getLogger("ntumc.corpus")
 
@@ -120,7 +124,24 @@ def _parser() -> argparse.ArgumentParser:
 
     v = sub.add_parser("validate", help="check a file or databases")
     source(v, file=True)
+
+    s = sub.add_parser("schema", help="write the JSON Schema of the JSON Lines format")
+    s.add_argument("out", nargs="?", type=Path, default=schema.SCHEMA_PATH)
     return parser
+
+
+def _problems(args: argparse.Namespace) -> Iterable[Problem]:
+    """The problems of the file or databases named in args.
+
+    A JSON Lines file is checked against the schema first; if that
+    fails the semantic checks are not run, as the records cannot be
+    loaded.
+    """
+    if getattr(args, "file", None) and args.file.suffix == ".jsonl":
+        shape = list(schema.check_file(args.file))
+        if shape:
+            return shape
+    return validate(_items(args))
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -152,10 +173,14 @@ def main(argv: list[str] | None = None) -> int:
             for key, n in sorted(counts.items()):
                 print(f"{key}: {n}")
             return 0
+        if args.command == "schema":
+            args.out.write_text(schema.dumps(), encoding="utf-8")
+            logger.info("%s written", args.out)
+            return 0
         if not args.db and not args.file:
             parser.error("validate needs a file or --db")
         counts: Counter[str] = Counter()
-        for problem in validate(_items(args)):
+        for problem in _problems(args):
             counts[problem.level] += 1
             print(problem)
         print(f"{counts['error']} errors, {counts['warning']} warnings")

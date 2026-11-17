@@ -20,7 +20,7 @@ Streaming from the databases::
         ...
 """
 
-from . import db, dbwrite, jsonl, xmlio
+from . import db, dbwrite, jsonl, schema, xmlio
 from .model import (
     GENRES,
     Alignment,
@@ -58,6 +58,7 @@ __all__ = [
     "db",
     "dbwrite",
     "jsonl",
+    "schema",
     "validate",
     "xmlio",
 ]

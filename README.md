@@ -40,3 +40,6 @@ way to work on a few documents in several languages:
 .venv/bin/python -m ntumc.corpus validate catb.jsonl
 ```
 
+The JSON Schema of the format is `data/ntumc.schema.json`, as the DTD
+of the XML format is `data/ntumc.dtd`.
+

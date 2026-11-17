@@ -6,10 +6,11 @@ and `data/link.sql`).  For exchange there is an XML format, defined by
 the DTD `data/ntumc.dtd`, that holds the same information: one file can
 carry any number of languages and the links between them.
 
-For work in Python there is also a JSON Lines form and a set of
-dataclasses, see [corpus-model.md](corpus-model.md); the XML reader
-and writer are `ntumc.corpus.xmlio`, and `python -m ntumc.corpus`
-converts between XML, JSON Lines and the databases.
+For work in Python there is also a JSON Lines form (with a JSON
+Schema, `data/ntumc.schema.json`) and a set of dataclasses, see
+[corpus-model.md](corpus-model.md); the XML reader and writer are
+`ntumc.corpus.xmlio`, and `python -m ntumc.corpus` converts between
+XML, JSON Lines and the databases.
 
 `scripts/corpus_xml.py` converts in both directions:
 

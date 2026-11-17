@@ -70,8 +70,9 @@ The suffix (`.jsonl` or `.xml`) picks the format.  `load` creates or
 appends to `DIR/LANG.db` and `DIR/FLANG-TLANG.db`; it keeps the ids
 when they are free and refuses otherwise unless `--renumber`, and
 `--skip-existing` passes over documents already there while letting
-the links refer to them.  The DTD check of an XML file is
-`scripts/corpus_xml.py validate`.
+the links refer to them.  `validate` checks a JSON Lines file against
+the JSON Schema before anything else (see below); the DTD check of an
+XML file is `scripts/corpus_xml.py validate`.
 
 ## The model
 
@@ -152,6 +153,30 @@ Documents come before the alignments that refer to them.  The `kind`
 line for the corpus is optional.  Reading rejects unknown keys, so a
 typo in a hand-made file is caught.
 
+The shape of a record is described by the JSON Schema (draft 2020-12)
+`data/ntumc.schema.json`, which sits beside the DTD and says the same
+things for JSON: the fields of each object, which are required, their
+types, the six genres, and a line of description for each field.  It is
+generated from the dataclasses by `python -m ntumc.corpus schema`, and
+a test fails if the committed copy is stale, so the model, the schema
+and the files cannot drift apart.  Any JSON Schema tool can use it;
+in Python, `ntumc.corpus.schema` validates with `fastjsonschema`
+(compiled, about 3 seconds for the 16 MB Japanese dump) and, for a
+record that fails, lists every error with `jsonschema` and the path
+to it:
+
+```
+$ .venv/bin/python -m ntumc.corpus validate broken.jsonl
+error schema line 3: $.sentences[0].words[2].wid: '2' is not of type 'integer'
+error schema line 3: $.genre: 'poetry' is not one of ['essay', 'fiction', ...]
+```
+
+```python
+from ntumc.corpus import schema
+checker = schema.validator()
+schema.check(record, checker)   # [] or a list of messages
+```
+
 `--slim` (or `jsonl.write(..., slim=True)`) leaves out annotation
 history and working data: `user`, `sentiment_user`, `comment`,
 `stype_comment` and `candidates`.  Everything a reader of the
@@ -194,8 +219,10 @@ MB and offsets 18 MB.  The links between the four languages add about
 | warning | `wid-order`, `empty-doc` | |
 
 The command line prints them and exits 1 if there were errors.  These
-are the checks that the formats themselves cannot express; the DTD
-(and, for the databases, the SQL schema) check the shape.  The
+are the checks that the formats themselves cannot express; the DTD,
+the JSON Schema (and, for the databases, the SQL schema) check the
+shape, and a JSON Lines file that fails the schema is reported with
+codes `json` (not JSON) and `schema` and not checked further.  The
 database-level repair scripts (`scripts/check_links.py`,
 `scripts/fix_cpos.py --mismatched`, `scripts/2026-07/fix_eng_cids.py`)
 fix what the link and offset and cid-base checks report.

@@ -1,0 +1,749 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/bond-lab/NTUMC/blob/main/data/ntumc.schema.json",
+  "title": "NTU-MC corpus record",
+  "description": "One line of a JSON Lines corpus file: the corpus metadata, a document in one language, or the alignments from one document to another language. Generated from ntumc.corpus.model by `python -m ntumc.corpus schema`.",
+  "oneOf": [
+    {
+      "type": "object",
+      "description": "Corpus-level metadata (the ``meta`` table, the XML ``<Corpus>``).",
+      "properties": {
+        "kind": {
+          "const": "corpus",
+          "description": "record type"
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "title (of the corpus, document or collection)"
+        },
+        "license": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "license of the corpus"
+        },
+        "version": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "version of the corpus"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ]
+    },
+    {
+      "type": "object",
+      "description": "A document in one language.",
+      "properties": {
+        "kind": {
+          "const": "document",
+          "description": "record type"
+        },
+        "docid": {
+          "type": "integer",
+          "description": "document id, unique within the language"
+        },
+        "doc": {
+          "type": "string",
+          "description": "short machine name of the document, e.g. catb"
+        },
+        "language": {
+          "type": "string",
+          "description": "ISO 639-3 code: eng, jpn, cmn, ind, ..."
+        },
+        "title": {
+          "type": "string",
+          "description": "title (of the corpus, document or collection)"
+        },
+        "subtitle": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "subtitle of the document"
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "where the text came from"
+        },
+        "collection": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "short name of the sub-corpus, e.g. story, kc, essay"
+        },
+        "collection_title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "title of the sub-corpus"
+        },
+        "genre": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "essay",
+            "fiction",
+            "lexical",
+            "news",
+            "online",
+            "tourism",
+            null
+          ],
+          "description": "genre of the sub-corpus"
+        },
+        "sentences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Sentence"
+          },
+          "description": "the sentences, in order"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "docid",
+        "doc",
+        "language"
+      ]
+    },
+    {
+      "type": "object",
+      "description": "The links from one language to another.",
+      "properties": {
+        "kind": {
+          "const": "alignment",
+          "description": "record type"
+        },
+        "flang": {
+          "type": "string",
+          "description": "language of the from side"
+        },
+        "tlang": {
+          "type": "string",
+          "description": "language of the to side"
+        },
+        "fdoc": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "docid of the from-side document the links belong to"
+        },
+        "sents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SentLink"
+          },
+          "description": "the sentence links"
+        },
+        "words": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/WordLink"
+          },
+          "description": "the words of the sentence, or the word links of an alignment"
+        },
+        "concepts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ConceptLink"
+          },
+          "description": "the concepts of the sentence, or the concept links"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "flang",
+        "tlang"
+      ]
+    }
+  ],
+  "$defs": {
+    "CorpusInfo": {
+      "type": "object",
+      "description": "Corpus-level metadata (the ``meta`` table, the XML ``<Corpus>``).",
+      "properties": {
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "title (of the corpus, document or collection)"
+        },
+        "license": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "license of the corpus"
+        },
+        "version": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "version of the corpus"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Document": {
+      "type": "object",
+      "description": "A document in one language.",
+      "properties": {
+        "docid": {
+          "type": "integer",
+          "description": "document id, unique within the language"
+        },
+        "doc": {
+          "type": "string",
+          "description": "short machine name of the document, e.g. catb"
+        },
+        "language": {
+          "type": "string",
+          "description": "ISO 639-3 code: eng, jpn, cmn, ind, ..."
+        },
+        "title": {
+          "type": "string",
+          "description": "title (of the corpus, document or collection)"
+        },
+        "subtitle": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "subtitle of the document"
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "where the text came from"
+        },
+        "collection": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "short name of the sub-corpus, e.g. story, kc, essay"
+        },
+        "collection_title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "title of the sub-corpus"
+        },
+        "genre": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "essay",
+            "fiction",
+            "lexical",
+            "news",
+            "online",
+            "tourism",
+            null
+          ],
+          "description": "genre of the sub-corpus"
+        },
+        "sentences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Sentence"
+          },
+          "description": "the sentences, in order"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "docid",
+        "doc",
+        "language"
+      ]
+    },
+    "Alignment": {
+      "type": "object",
+      "description": "The links from one language to another.",
+      "properties": {
+        "flang": {
+          "type": "string",
+          "description": "language of the from side"
+        },
+        "tlang": {
+          "type": "string",
+          "description": "language of the to side"
+        },
+        "fdoc": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "docid of the from-side document the links belong to"
+        },
+        "sents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SentLink"
+          },
+          "description": "the sentence links"
+        },
+        "words": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/WordLink"
+          },
+          "description": "the words of the sentence, or the word links of an alignment"
+        },
+        "concepts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ConceptLink"
+          },
+          "description": "the concepts of the sentence, or the concept links"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "flang",
+        "tlang"
+      ]
+    },
+    "Sentence": {
+      "type": "object",
+      "description": "A sentence with its words, concepts and chunks.",
+      "properties": {
+        "sid": {
+          "type": "integer",
+          "description": "sentence id, unique within the language"
+        },
+        "text": {
+          "type": "string",
+          "description": "the sentence text"
+        },
+        "pid": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "paragraph id"
+        },
+        "stype": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "structural type: p (paragraph start), h0-h7 (heading), item, ..."
+        },
+        "stype_comment": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "comment on the structural type"
+        },
+        "comment": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "annotator's comment"
+        },
+        "user": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "who last changed this"
+        },
+        "words": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Word"
+          },
+          "description": "the words of the sentence, or the word links of an alignment"
+        },
+        "concepts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Concept"
+          },
+          "description": "the concepts of the sentence, or the concept links"
+        },
+        "chunks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Chunk"
+          },
+          "description": "the chunks of the sentence"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "sid",
+        "text"
+      ]
+    },
+    "Word": {
+      "type": "object",
+      "description": "One token of a sentence.",
+      "properties": {
+        "wid": {
+          "type": "integer",
+          "description": "word id within the sentence, from 0"
+        },
+        "word": {
+          "type": "string",
+          "description": "surface form"
+        },
+        "lemma": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "lemma"
+        },
+        "pos": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "part of speech in the language's own tagset"
+        },
+        "cfrom": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "offset of the first character in the text"
+        },
+        "cto": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "offset after the last character (text[cfrom:cto] == word)"
+        },
+        "comment": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "annotator's comment"
+        },
+        "user": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "who last changed this"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "wid",
+        "word"
+      ]
+    },
+    "Concept": {
+      "type": "object",
+      "description": "A sense-tagged concept covering one or more words.",
+      "properties": {
+        "cid": {
+          "type": "integer",
+          "description": "concept id within the sentence, from 0"
+        },
+        "clemma": {
+          "type": "string",
+          "description": "the lemma as tagged, may be a multiword expression"
+        },
+        "tag": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "synset id such as 02084071-n, or e, w, x; absent if untagged"
+        },
+        "wids": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "description": "the words covered"
+        },
+        "ne": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "named-entity type: per, org, loc, dat, num, oth, nam"
+        },
+        "candidates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "the senses the annotator chose from"
+        },
+        "sentiment": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "sentiment score, -100 to 100"
+        },
+        "sentiment_user": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "who gave the sentiment score"
+        },
+        "comment": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "annotator's comment"
+        },
+        "user": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "who last changed this"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "cid",
+        "clemma"
+      ]
+    },
+    "Chunk": {
+      "type": "object",
+      "description": "A span of words with a sentiment score.",
+      "properties": {
+        "xid": {
+          "type": "integer",
+          "description": "chunk id within the sentence"
+        },
+        "wids": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "description": "the words covered"
+        },
+        "score": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "sentiment score of the chunk"
+        },
+        "comment": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "annotator's comment"
+        },
+        "user": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "who last changed this"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "xid"
+      ]
+    },
+    "SentLink": {
+      "type": "object",
+      "description": "A sentence alignment between the from and to languages.",
+      "properties": {
+        "fsid": {
+          "type": "integer",
+          "description": "from sentence"
+        },
+        "tsid": {
+          "type": "integer",
+          "description": "to sentence"
+        },
+        "ltype": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "link type; for concept links the wordnet relation =, <, >, ~, !"
+        },
+        "conf": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "confidence, 0.0 to 1.0"
+        },
+        "comment": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "annotator's comment"
+        },
+        "user": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "who last changed this"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "fsid",
+        "tsid"
+      ]
+    },
+    "WordLink": {
+      "type": "object",
+      "description": "A word alignment.",
+      "properties": {
+        "fsid": {
+          "type": "integer",
+          "description": "from sentence"
+        },
+        "fwid": {
+          "type": "integer",
+          "description": "from word"
+        },
+        "tsid": {
+          "type": "integer",
+          "description": "to sentence"
+        },
+        "twid": {
+          "type": "integer",
+          "description": "to word"
+        },
+        "ltype": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "link type; for concept links the wordnet relation =, <, >, ~, !"
+        },
+        "conf": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "confidence, 0.0 to 1.0"
+        },
+        "comment": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "annotator's comment"
+        },
+        "user": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "who last changed this"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "fsid",
+        "fwid",
+        "tsid",
+        "twid"
+      ]
+    },
+    "ConceptLink": {
+      "type": "object",
+      "description": "A concept alignment; ltype is the wordnet relation (=, <, >, ~, !).",
+      "properties": {
+        "fsid": {
+          "type": "integer",
+          "description": "from sentence"
+        },
+        "fcid": {
+          "type": "integer",
+          "description": "from concept"
+        },
+        "tsid": {
+          "type": "integer",
+          "description": "to sentence"
+        },
+        "tcid": {
+          "type": "integer",
+          "description": "to concept"
+        },
+        "ltype": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "link type; for concept links the wordnet relation =, <, >, ~, !"
+        },
+        "conf": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "confidence, 0.0 to 1.0"
+        },
+        "comment": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "annotator's comment"
+        },
+        "user": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "who last changed this"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "fsid",
+        "fcid",
+        "tsid",
+        "tcid"
+      ]
+    }
+  }
+}
