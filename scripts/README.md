@@ -50,6 +50,8 @@ cross-references).  Writes ambiguous cases to a TSV for review.
 
 **`corpus_xml.py`** — Convert corpus databases to XML (`data/ntumc.dtd`)
 and back.  The format is described in `docs/corpus-xml.md`.
+A thin front for `ntumc.corpus` (`docs/corpus-model.md`), whose
+`python -m ntumc.corpus` also handles JSON Lines.
 
 ```
 # database -> XML; links come from the pair databases
@@ -277,6 +279,10 @@ scripts/2026-07/apply_cow_cmn.py build/wn-ntumc.db --fix   # Jia Qi Yeo's cmn ed
 # 8. Normalize jpn wids to 0-based per sentence
 .venv/bin/python scripts/2026-07/fix_jpn_wids.py --fix
 
+# 8b. Normalize eng cids to 0-based per sentence (catb kept its 2013
+#     document-wide ids; the links expect per-sentence ids)
+.venv/bin/python scripts/2026-07/fix_eng_cids.py --fix --link build/eng-{jpn,cmn,ind}.db
+
 # 9. Propagate stype from English to other languages via slinks
 .venv/bin/python scripts/2026-07/propagate_stype.py --fix
 
@@ -289,8 +295,10 @@ scripts/2026-07/apply_cow_cmn.py build/wn-ntumc.db --fix   # Jia Qi Yeo's cmn ed
 # 12. Apply the 2017-11-17 English POS/tokenisation fixes
 .venv/bin/python scripts/2026-07/fix_eng_pos.py build/eng.db
 
-# 13. Populate word character offsets
+# 13. Populate word character offsets, and repair the ones that no
+#     longer match the sentence text
 .venv/bin/python scripts/fix_cpos.py build/eng.db   # (and the other DBs)
+.venv/bin/python scripts/fix_cpos.py build/eng.db --mismatched
 
 # 14. Re-derive cross-lingual concept links (issue #6)
 .venv/bin/python scripts/2026-07/realign_clinks.py --fix
@@ -309,6 +317,7 @@ scripts/2026-07/apply_cow_cmn.py build/wn-ntumc.db --fix   # Jia Qi Yeo's cmn ed
 # 16. Audit to verify
 .venv/bin/python scripts/fix_corpus.py --audit
 .venv/bin/python scripts/check_cwl.py
+.venv/bin/python scripts/check_links.py build/eng-*.db   # --fix deletes stale rows
 
 # Push back with a note; this records the push in CHANGELOG.md
 # scripts/push_dbs.sh --note "what was applied" wn-ntumc.db eng.db cmn.db
@@ -327,11 +336,26 @@ done
 **`fix_cpos.py`** — Populate missing `cfrom`/`cto` character offsets in the
 `word` table by scanning each sentence's text left-to-right.  These offsets are
 used by `make_display.py` to determine whether a space follows each word.
+`--mismatched` instead repairs the sentences whose stored offsets no longer
+match the text (after an edit to the sentence, or a bad import); it only
+rewrites a sentence when every word is found in order with at most `--max-gap`
+(default 3) characters between words, and writes only the words that change.
+Tests: `test_fix_cpos.py`.
 
 ```
 .venv/bin/python scripts/fix_cpos.py build/eng.db
 .venv/bin/python scripts/fix_cpos.py build/eng.db --docid 440
-.venv/bin/python scripts/fix_cpos.py build/eng.db --dry-run
+.venv/bin/python scripts/fix_cpos.py build/eng.db --mismatched --dry-run
+```
+
+**`check_links.py`** — List the rows of a link database (`eng-jpn.db` ...)
+whose sentence, word or concept no longer exists in the corpus databases
+named in its `meta` table (or in its file name when `meta` is empty); `--fix`
+deletes them.  Exits 1 while stale rows remain.  Tests: `test_check_links.py`.
+
+```
+.venv/bin/python scripts/check_links.py build/eng-jpn.db
+.venv/bin/python scripts/check_links.py build/eng-*.db --fix
 ```
 
 

@@ -193,3 +193,51 @@ CREATE TABLE sentiment (
     PRIMARY KEY (sid, cid)
 );
 ```
+
+---
+
+## 11. `concept.ntag` holds three different things (found 2026-10-30)
+
+The schema says `ntag` is the named-entity subtype (`per`, `org`, `loc`,
+`dat`, `num`, `oth`, `nam`), and the XML format writes it as
+`<Tag category="ne">`.  The data disagree.  `ntumc.corpus.validate`
+reports every other value as a `ne` warning.
+
+```sql
+-- cmn.db: 56,175 non-empty ntag values
+SELECT CASE WHEN ntag = tag THEN 'same as tag'
+            WHEN ntag IN ('per','org','loc','dat','num','oth','nam') THEN 'ne type'
+            WHEN ntag IN ('e','w','x') THEN 'meta ' || ntag
+            WHEN ntag LIKE '________-_' THEN 'synset'
+            ELSE 'other' END AS kind, COUNT(*)
+FROM concept WHERE ntag IS NOT NULL AND ntag != '' GROUP BY kind;
+-- same as tag|44396   other|6068   synset|2148   meta w|1773
+-- meta x|916   meta e|627   ne type|247
+```
+
+| database | rows | what is there |
+|---|---:|---|
+| cmn.db | 44,396 | a copy of `tag` |
+| cmn.db | 6,068 | a relation plus synset (`~15121625-n`, `>01551633-a`, `=00007015-r`): the comment-field convention for a missing sense |
+| cmn.db | 5,464 | a second tag that differs from `tag` (`x` against a synset, a synset against `x`, 1,192 synset against synset): an earlier or alternative annotation, mostly in kc01, kc02, catb, spec, danc |
+| cmn.db | 247 | a real named-entity type |
+| eng.db | 305 | relation plus synset (`=08518505-n`, `!00923802-n`), always equal to `comment`, on `w`-tagged concepts in kc01/kc02 |
+| ind.db | 0 | |
+| jpn.db, ita.db | | no `ntag` column |
+
+```sql
+-- eng.db
+SELECT tag, ntag, clemma, comment FROM concept WHERE ntag IS NOT NULL AND ntag != '' LIMIT 5;
+-- w|=08518505-n|capital|=08518505-n
+-- cmn.db: the second-opinion rows
+SELECT tag, ntag, clemma, usrname FROM concept
+WHERE ntag != tag AND ntag LIKE '________-_' AND tag LIKE '________-_' LIMIT 10;
+```
+
+**Possible fix:** decide what `ntag` means before any cleanup.  If it is
+the named-entity type, then the cmn copies of `tag` can be nulled, the
+relation+synset values moved to `comment` (where eng already has them),
+and the 5,464 second opinions need a human look (they may be the
+history of a retagging that the `_log` tables do not cover).  Until
+then the model (`Concept.ne`) and the XML (`Tag category="ne"`) carry
+the value through unchanged.

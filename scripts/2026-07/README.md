@@ -25,6 +25,7 @@ from scratch"), whenever the databases are re-downloaded from the server:
 | `recover_cmn_concepts.py` | recover concepts dropped from cmn.db, matched against old DBs |
 | `merge_ind.py` | restore ind tags demoted between 2016 and 2025 from the 2016 snapshot |
 | `fix_jpn_wids.py` | normalise jpn wids/cids to 0-based per sentence |
+| `fix_eng_cids.py` | normalise eng cids to 0-based per sentence: catb kept its 2013 document-wide ids, so half the concept links into English pointed at nothing; see `test_fix_eng_cids.py` |
 | `propagate_stype.py` | propagate stype from English via slinks |
 | `fix_catb_stype.py` | paragraph stypes for *The Cathedral and the Bazaar* from source HTML |
 | `fix_cwl_offbyone.py` | fix concepts linked one sentence off; delete duplicates |
