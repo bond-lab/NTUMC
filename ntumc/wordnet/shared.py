@@ -16,7 +16,9 @@ lexicon when they have the same ``dc:identifier`` or, failing that, the
 same ILI.  The shared lexicon gives a synset
 
 * its relations, where the lexicon also has the target, and
-* its definitions, where the lexicon has none of its own for the synset.
+* its definitions, in each language the lexicon has no definition of its
+  own in for the synset.  A definition that names no language is in the
+  lexicon's language.
 """
 
 from __future__ import annotations
@@ -98,12 +100,21 @@ def _texts(definitions: list[Text]) -> set[tuple[str | None, str]]:
     return {(d.lang, str(d.text)) for d in definitions}
 
 
+def _by_language(definitions: list[Text], default: str | None) -> dict[str | None, list[Text]]:
+    """The definitions by language; one that names none is in ``default``."""
+    out: dict[str | None, list[Text]] = {}
+    for d in definitions:
+        out.setdefault(d.lang or default, []).append(d)
+    return out
+
+
 def minimal(items: Iterable[Item], shared: Iterable[Item]) -> tuple[list[Item], dict[str, int]]:
     """Take out of a lexicon what the shared lexicon says; name it ``ID-min``.
 
-    The lexicon's objects are changed in place.  A definition stays if
-    the synset has any definition the shared lexicon does not have:
-    ``export`` only fills in a synset that has none.
+    The lexicon's objects are changed in place.  The definitions of a
+    synset in one language go if the shared lexicon has every one of
+    them, and stay if any is the lexicon's own: ``export`` only fills
+    in a language the synset has no definition in.
 
     Args:
         items: the lexicon, with everything in it
@@ -116,19 +127,21 @@ def minimal(items: Iterable[Item], shared: Iterable[Item]) -> tuple[list[Item], 
     items, shared = list(items), list(shared)
     counts = {"concepts": 0, "definitions": 0, "relations": 0}
     theirs = supplied(items, shared)
+    header, source = _header(items), _header(shared)
     for s in items:
         if not isinstance(s, Synset) or s.id not in theirs:
             continue
         definitions, relations = theirs[str(s.id)]
         counts["concepts"] += 1
-        if s.definitions and _texts(s.definitions) <= _texts(definitions):
-            counts["definitions"] += len(s.definitions)
-            s.definitions = []
+        said = _texts(definitions)
+        gone = {id(d) for own in _by_language(s.definitions, header.language).values()
+                if _texts(own) <= said for d in own}
+        counts["definitions"] += len(gone)
+        s.definitions = [d for d in s.definitions if id(d) not in gone]
         known = {(r.link, r.target) for r in relations}
         kept = [r for r in s.relations if (r.link, r.target) not in known]
         counts["relations"] += len(s.relations) - len(kept)
         s.relations = kept
-    header, source = _header(items), _header(shared)
     header.id = f"{header.id}{SUFFIX}"
     header.label = f"{header.label}{LABEL}"
     header.requires.append(Requires(ref=source.id, version=source.version))
@@ -162,9 +175,10 @@ def export(items: Iterable[Item], shared: Iterable[Item]) -> tuple[list[Item], d
             continue
         definitions, relations = theirs[str(s.id)]
         counts["concepts"] += 1
-        if not s.definitions:
-            s.definitions = definitions
-            counts["definitions"] += len(definitions)
+        have = set(_by_language(s.definitions, header.language))
+        missing = [d for d in definitions if (d.lang or source.language) not in have]
+        s.definitions += missing
+        counts["definitions"] += len(missing)
         have = {(r.link, r.target) for r in s.relations}
         new = [r for r in relations if (r.link, r.target) not in have]
         s.relations += new

@@ -63,14 +63,56 @@ def test_export_restores_the_lexicon():
     assert facts(out) == facts(full())
 
 
-def test_a_definition_of_its_own_stays_and_is_not_added_to():
+def test_a_definition_of_its_own_stays_and_the_shared_one_is_added_in_another_language():
     items = lexicon(Text(text="四个字的成语"), [])
+    items[0].language = "cmn-Hans"
 
     mini, counts = shared.minimal(items, concepts())
-    out, _ = shared.export(mini, concepts())
+    kept = [d.text for d in mini[1].definitions]
+    out, added = shared.export(mini, concepts())
 
     assert counts["definitions"] == 0
-    assert [d.text for d in out[1].definitions] == ["四个字的成语"]
+    assert kept == ["四个字的成语"]
+    assert added["definitions"] == 1
+    assert [(d.lang, d.text) for d in out[1].definitions] == [
+        (None, "四个字的成语"), ("en", "a four-character idiom")]
+
+
+def test_a_definition_of_its_own_in_the_shared_language_is_not_added_to():
+    items = lexicon(Text(text="an idiom of four characters", lang="en"), [])
+
+    mini, counts = shared.minimal(items, concepts())
+    out, added = shared.export(mini, concepts())
+
+    assert counts["definitions"] == 0 and added["definitions"] == 0
+    assert [d.text for d in out[1].definitions] == ["an idiom of four characters"]
+
+
+def test_a_definition_with_no_language_is_in_the_lexicon_s_language():
+    items = lexicon(Text(text="an idiom of four characters"), [])
+    items[0].language = "en"
+
+    mini, _ = shared.minimal(items, concepts())
+    out, added = shared.export(mini, concepts())
+
+    assert added["definitions"] == 0
+    assert [d.text for d in out[1].definitions] == ["an idiom of four characters"]
+
+
+def test_minimal_takes_out_the_shared_definition_and_keeps_the_one_in_another_language():
+    def full() -> list:
+        items = lexicon(Text(text="四个字的成语"), [Relation(link="hypernym", target="cow-1-n")])
+        items[0].language = "cmn-Hans"
+        items[1].definitions.append(Text(text="a four-character idiom", lang="en"))
+        return items
+
+    mini, counts = shared.minimal(full(), concepts())
+    kept = [d.text for d in mini[1].definitions]
+    out, _ = shared.export(mini, concepts())
+
+    assert counts["definitions"] == 1
+    assert kept == ["四个字的成语"]
+    assert facts(out) == facts(full())
 
 
 def test_export_adds_a_relation_once_its_target_is_there():
